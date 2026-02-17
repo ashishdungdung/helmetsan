@@ -15,7 +15,8 @@ final class MediaEngine
 
     public function register(): void
     {
-        add_action('admin_menu', [$this, 'registerMenu']);
+        // Register after the core Helmetsan menu is added.
+        add_action('admin_menu', [$this, 'registerMenu'], 20);
         add_action('add_meta_boxes', [$this, 'registerMetaBoxes']);
         add_action('save_post', [$this, 'saveMetaBox'], 10, 2);
         add_action('admin_post_helmetsan_media_apply_logo', [$this, 'handleApplyLogo']);
@@ -27,7 +28,7 @@ final class MediaEngine
             'helmetsan-dashboard',
             'Media Engine',
             'Media Engine',
-            'edit_posts',
+            'manage_options',
             'helmetsan-media-engine',
             [$this, 'mediaPage']
         );
@@ -35,7 +36,7 @@ final class MediaEngine
 
     public function mediaPage(): void
     {
-        if (! current_user_can('edit_posts')) {
+        if (! current_user_can('manage_options')) {
             wp_die('Unauthorized');
         }
 
@@ -183,7 +184,7 @@ final class MediaEngine
 
     public function handleApplyLogo(): void
     {
-        if (! current_user_can('edit_posts')) {
+        if (! current_user_can('manage_options')) {
             wp_die('Unauthorized');
         }
         $nonce = isset($_POST['helmetsan_media_nonce']) ? (string) $_POST['helmetsan_media_nonce'] : '';
@@ -373,4 +374,3 @@ final class MediaEngine
         return $out;
     }
 }
-
