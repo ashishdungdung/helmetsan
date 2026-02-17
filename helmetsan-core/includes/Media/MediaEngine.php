@@ -6,6 +6,7 @@ namespace Helmetsan\Core\Media;
 
 use Helmetsan\Core\Support\Config;
 use WP_Post;
+use WP_Error;
 
 final class MediaEngine
 {
@@ -23,6 +24,8 @@ final class MediaEngine
         add_action('save_post', [$this, 'saveMetaBox'], 10, 2);
         add_action('admin_post_helmetsan_media_apply_logo', [$this, 'handleApplyLogo']);
         add_action('admin_post_helmetsan_media_delete_logo_attachment', [$this, 'handleDeleteLogoAttachment']);
+        add_filter('upload_mimes', [$this, 'allowSvgMime']);
+        add_filter('wp_check_filetype_and_ext', [$this, 'fixSvgFiletype'], 10, 4);
     }
 
     public function registerMenu(): void
@@ -481,12 +484,7 @@ final class MediaEngine
             return ['url' => '', 'attachment_id' => 0, 'error' => 'download_error: ' . $tmp->get_error_message()];
         }
 
-        $path = wp_parse_url($url, PHP_URL_PATH);
-        $name = is_string($path) ? basename($path) : 'logo-image';
-        if ($name === '' || $name === '/') {
-            $name = 'logo-image';
-        }
-        $name = $this->ensureFilenameExtension($name, $url);
+        $name = $this->buildImportFilename($postId, $url, $provider);
 
         $fileArray = [
             'name'     => sanitize_file_name($name),
@@ -561,6 +559,67 @@ final class MediaEngine
         }
 
         return $baseName . '.' . $picked;
+    }
+
+    private function buildImportFilename(int $postId, string $url, string $provider): string
+    {
+        $base = '';
+        if ($postId > 0) {
+            $post = get_post($postId);
+            if ($post instanceof WP_Post) {
+                $base = sanitize_title($post->post_type . '-' . $post->post_title);
+            }
+        }
+
+        if ($base === '') {
+            $host = strtolower((string) wp_parse_url($url, PHP_URL_HOST));
+            $host = preg_replace('#^www\.#', '', $host) ?? $host;
+            $pathBase = (string) pathinfo((string) wp_parse_url($url, PHP_URL_PATH), PATHINFO_FILENAME);
+            $base = sanitize_title(trim($provider . '-' . $host . '-' . $pathBase, '-'));
+        }
+
+        if ($base === '') {
+            $base = 'helmetsan-logo';
+        }
+
+        return $this->ensureFilenameExtension($base, $url);
+    }
+
+    /**
+     * @param array<string,string> $mimes
+     * @return array<string,string>
+     */
+    public function allowSvgMime(array $mimes): array
+    {
+        if (! current_user_can('upload_files')) {
+            return $mimes;
+        }
+
+        $mimes['svg'] = 'image/svg+xml';
+        $mimes['svgz'] = 'image/svg+xml';
+        return $mimes;
+    }
+
+    /**
+     * @param array<string,mixed> $data
+     * @param array<string,string>|null $mimes
+     * @return array<string,mixed>
+     */
+    public function fixSvgFiletype(array $data, string $file, string $filename, $mimes): array
+    {
+        $ext = strtolower((string) pathinfo($filename, PATHINFO_EXTENSION));
+        if (! in_array($ext, ['svg', 'svgz'], true)) {
+            return $data;
+        }
+        if (! current_user_can('upload_files')) {
+            return $data;
+        }
+
+        $data['ext'] = $ext;
+        $data['type'] = 'image/svg+xml';
+        $data['proper_filename'] = $filename;
+
+        return $data;
     }
 
     private function normalizeImportUrl(string $url): string
