@@ -368,7 +368,7 @@ final class Admin
 
         check_admin_referer('helmetsan_media_api_test');
 
-        $provider = isset($_POST['provider']) ? sanitize_key((string) $_POST['provider']) : '';
+        $provider = isset($_REQUEST['provider']) ? sanitize_key((string) $_REQUEST['provider']) : '';
         $cfg = $this->config->mediaConfig();
         $status = 'error';
         $details = '';
