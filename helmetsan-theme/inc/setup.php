@@ -19,5 +19,8 @@ function helmetsan_theme_setup(): void
 
     register_nav_menus([
         'primary' => __('Primary Menu', 'helmetsan-theme'),
+        'secondary' => __('Secondary Menu', 'helmetsan-theme'),
+        'footer' => __('Footer Menu', 'helmetsan-theme'),
+        'legal' => __('Legal Menu', 'helmetsan-theme'),
     ]);
 }
