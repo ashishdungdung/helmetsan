@@ -1,0 +1,4 @@
+<?php
+/**
+ * Placeholder file.
+ */

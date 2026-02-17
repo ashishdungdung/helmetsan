@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Env / secrets
+.env
+.env.*
+
+# Dependency folders (if added later)
+node_modules/
+vendor/
+
+# Archives
+*.zip
+*.tar.gz
+
+# WordPress runtime/temp artifacts
+wp-content/uploads/helmetsan-runtime/
+wp-content/uploads/helmetsan-data/_imports/
+wp-content/uploads/helmetsan-data/_bootstrap/
+wp-content/uploads/helmetsan-data/_exports/

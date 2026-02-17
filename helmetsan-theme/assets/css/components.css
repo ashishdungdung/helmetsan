@@ -1,0 +1,46 @@
+.helmet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.helmet-card {
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.helmetsan-specs {
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.helmetsan-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.helmetsan-specs-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.helmetsan-specs-row dt {
+    color: var(--hs-muted);
+}
+
+.helmet-legal-warning {
+    margin-bottom: 1rem;
+    background: #fff4e5;
+    border: 1px solid #ffd8a8;
+    color: #7a3e00;
+    padding: 0.75rem;
+    border-radius: 8px;
+}

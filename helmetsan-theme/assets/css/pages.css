@@ -1,0 +1,21 @@
+.helmet-single {
+    background: #fff;
+    border: 1px solid #e4e7eb;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.helmet-single__image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background: var(--hs-accent);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}

@@ -1,0 +1,15 @@
+<?php
+/**
+ * Helmet CTA partial.
+ *
+ * @package HelmetsanTheme
+ */
+
+$asin = get_post_meta(get_the_ID(), 'affiliate_asin', true);
+if ($asin !== '') :
+    $slug = get_post_field('post_name', get_the_ID());
+    $goUrl = home_url('/go/' . $slug . '/?source=single_page');
+    ?>
+    <p><a class="button" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored"><?php esc_html_e('Check Price', 'helmetsan-theme'); ?></a></p>
+    <?php
+endif;
