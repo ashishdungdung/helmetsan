@@ -462,6 +462,7 @@ final class MediaEngine
         if ($url === '' || ! filter_var($url, FILTER_VALIDATE_URL)) {
             return ['url' => '', 'attachment_id' => 0, 'error' => 'invalid_url'];
         }
+        $url = $this->normalizeImportUrl($url);
 
         $existing = $this->findExistingAttachmentBySourceUrl($url);
         if ($existing > 0) {
@@ -556,6 +557,16 @@ final class MediaEngine
         return $name . '.' . $picked;
     }
 
+    private function normalizeImportUrl(string $url): string
+    {
+        $host = strtolower((string) wp_parse_url($url, PHP_URL_HOST));
+        if ($host === 'img.logo.dev') {
+            $url = (string) add_query_arg(['format' => 'png'], $url);
+        }
+
+        return $url;
+    }
+
     /**
      * @return array<string,mixed>
      */
@@ -608,9 +619,11 @@ final class MediaEngine
                         $token = isset($cfg['logodev_token']) ? (string) $cfg['logodev_token'] : '';
                     }
                     $sourceUrl = 'https://img.logo.dev/' . rawurlencode($domain);
+                    $params = ['format' => 'png'];
                     if ($token !== '') {
-                        $sourceUrl = (string) add_query_arg(['token' => $token], $sourceUrl);
+                        $params['token'] = $token;
                     }
+                    $sourceUrl = (string) add_query_arg($params, $sourceUrl);
                 }
             }
 
@@ -709,9 +722,11 @@ final class MediaEngine
             }
             foreach ($domains as $d) {
                 $url = 'https://img.logo.dev/' . rawurlencode($d);
+                $params = ['format' => 'png'];
                 if ($token !== '') {
-                    $url = add_query_arg(['token' => $token], $url);
+                    $params['token'] = $token;
                 }
+                $url = add_query_arg($params, $url);
                 $probe = $this->probeUrlImage($url);
                 $diagnostics['checks'][] = [
                     'provider' => 'logodev',
@@ -838,7 +853,7 @@ final class MediaEngine
         if ($domains !== []) {
             $quick[] = [
                 'label' => 'Logo.dev (' . $domains[0] . ')',
-                'url' => 'https://img.logo.dev/' . rawurlencode($domains[0]),
+                'url' => (string) add_query_arg(['format' => 'png'], 'https://img.logo.dev/' . rawurlencode($domains[0])),
             ];
         }
         if ($name !== '') {
