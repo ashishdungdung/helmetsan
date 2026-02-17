@@ -455,19 +455,19 @@ final class MediaEngine
     }
 
     /**
-     * @return array{url:string,attachment_id:int}
+     * @return array{url:string,attachment_id:int,error:string}
      */
     private function sideloadToMediaLibrary(string $url, int $postId, string $provider = ''): array
     {
         if ($url === '' || ! filter_var($url, FILTER_VALIDATE_URL)) {
-            return ['url' => '', 'attachment_id' => 0];
+            return ['url' => '', 'attachment_id' => 0, 'error' => 'invalid_url'];
         }
 
         $existing = $this->findExistingAttachmentBySourceUrl($url);
         if ($existing > 0) {
             $existingUrl = (string) wp_get_attachment_url($existing);
             if ($existingUrl !== '') {
-                return ['url' => $existingUrl, 'attachment_id' => $existing];
+                return ['url' => $existingUrl, 'attachment_id' => $existing, 'error' => ''];
             }
         }
 
@@ -477,7 +477,7 @@ final class MediaEngine
 
         $tmp = download_url($url, 10);
         if (is_wp_error($tmp)) {
-            return ['url' => '', 'attachment_id' => 0];
+            return ['url' => '', 'attachment_id' => 0, 'error' => 'download_error: ' . $tmp->get_error_message()];
         }
 
         $path = wp_parse_url($url, PHP_URL_PATH);
@@ -494,7 +494,7 @@ final class MediaEngine
         $attachmentId = media_handle_sideload($fileArray, $postId);
         if (is_wp_error($attachmentId)) {
             @unlink($tmp);
-            return ['url' => '', 'attachment_id' => 0];
+            return ['url' => '', 'attachment_id' => 0, 'error' => 'sideload_error: ' . $attachmentId->get_error_message()];
         }
 
         update_post_meta((int) $attachmentId, '_helmetsan_source_url', esc_url_raw($url));
@@ -503,7 +503,7 @@ final class MediaEngine
         }
 
         $final = (string) wp_get_attachment_url((int) $attachmentId);
-        return ['url' => $final, 'attachment_id' => (int) $attachmentId];
+        return ['url' => $final, 'attachment_id' => (int) $attachmentId, 'error' => ''];
     }
 
     private function findExistingAttachmentBySourceUrl(string $url): int
@@ -630,7 +630,13 @@ final class MediaEngine
             $finalUrl = (string) ($result['url'] ?? '');
             if ($attachmentId <= 0 || $finalUrl === '') {
                 $failed++;
-                $details[] = ['brand_id' => $brandId, 'status' => 'failed', 'reason' => 'import_failed'];
+                $details[] = [
+                    'brand_id' => $brandId,
+                    'status' => 'failed',
+                    'reason' => 'import_failed',
+                    'error' => (string) ($result['error'] ?? ''),
+                    'source' => $sourceUrl,
+                ];
                 continue;
             }
 
