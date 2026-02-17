@@ -332,6 +332,7 @@ final class Admin
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
 
         $bools = [
             'enable_media_engine',
@@ -346,9 +347,13 @@ final class Admin
         }
 
         $brandfetchToken = sanitize_text_field((string) $merged['brandfetch_token']);
-        $logodevToken = sanitize_text_field((string) $merged['logodev_token']);
+        $logodevPublishable = sanitize_text_field((string) ($merged['logodev_publishable_key'] ?? ''));
+        $logodevSecret = sanitize_text_field((string) ($merged['logodev_secret_key'] ?? ''));
+        $logodevToken = sanitize_text_field((string) ($merged['logodev_token'] ?? ''));
         // Keep existing tokens if field is submitted empty (masked UI behavior).
         $merged['brandfetch_token'] = $brandfetchToken !== '' ? $brandfetchToken : (string) ($existing['brandfetch_token'] ?? '');
+        $merged['logodev_publishable_key'] = $logodevPublishable !== '' ? $logodevPublishable : (string) ($existing['logodev_publishable_key'] ?? '');
+        $merged['logodev_secret_key'] = $logodevSecret !== '' ? $logodevSecret : (string) ($existing['logodev_secret_key'] ?? '');
         $merged['logodev_token'] = $logodevToken !== '' ? $logodevToken : (string) ($existing['logodev_token'] ?? '');
         $merged['cache_ttl_hours'] = max(1, (int) $merged['cache_ttl_hours']);
 
@@ -394,7 +399,13 @@ final class Admin
                 }
             }
         } elseif ($provider === 'logodev') {
-            $token = (string) ($cfg['logodev_token'] ?? '');
+            $token = (string) ($cfg['logodev_secret_key'] ?? '');
+            if ($token === '') {
+                $token = (string) ($cfg['logodev_publishable_key'] ?? '');
+            }
+            if ($token === '') {
+                $token = (string) ($cfg['logodev_token'] ?? '');
+            }
             if ($token === '') {
                 $status = 'missing_token';
                 $details = 'Logo.dev token is empty.';
@@ -1649,7 +1660,7 @@ final class Admin
             } else {
                 $type = str_contains($key, 'token') ? 'password' : 'text';
                 $class = $key === 'cache_ttl_hours' ? 'small-text' : 'regular-text';
-                $isToken = str_contains($key, 'token');
+                $isToken = str_contains($key, 'token') || str_contains($key, 'key');
                 $value = $isToken ? '' : (string) $current;
                 $placeholder = '';
                 if ($isToken && (string) $current !== '') {
@@ -1661,20 +1672,21 @@ final class Admin
         }
         echo '</tbody></table>';
         echo '<p><strong>Connectivity tests</strong></p>';
-        echo '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;">';
-        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
-        wp_nonce_field('helmetsan_media_api_test');
-        echo '<input type="hidden" name="action" value="helmetsan_media_api_test" />';
-        echo '<input type="hidden" name="provider" value="brandfetch" />';
-        submit_button('Test Brandfetch API', 'secondary', '', false);
-        echo '</form>';
-        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
-        wp_nonce_field('helmetsan_media_api_test');
-        echo '<input type="hidden" name="action" value="helmetsan_media_api_test" />';
-        echo '<input type="hidden" name="provider" value="logodev" />';
-        submit_button('Test Logo.dev API', 'secondary', '', false);
-        echo '</form>';
-        echo '</div>';
+        $testNonce = wp_create_nonce('helmetsan_media_api_test');
+        $brandfetchTestUrl = add_query_arg([
+            'action' => 'helmetsan_media_api_test',
+            'provider' => 'brandfetch',
+            '_wpnonce' => $testNonce,
+        ], admin_url('admin-post.php'));
+        $logodevTestUrl = add_query_arg([
+            'action' => 'helmetsan_media_api_test',
+            'provider' => 'logodev',
+            '_wpnonce' => $testNonce,
+        ], admin_url('admin-post.php'));
+        echo '<p style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;">';
+        echo '<a class="button button-secondary" href="' . esc_url($brandfetchTestUrl) . '">Test Brandfetch API</a>';
+        echo '<a class="button button-secondary" href="' . esc_url($logodevTestUrl) . '">Test Logo.dev API</a>';
+        echo '</p>';
         submit_button('Save Settings');
         echo '</form></div>';
     }

@@ -128,6 +128,9 @@ final class Config
             'brandfetch_enabled'    => true,
             'brandfetch_token'      => '',
             'logodev_enabled'       => true,
+            'logodev_publishable_key' => '',
+            'logodev_secret_key'    => '',
+            // Backward compatibility with previous single-key setup.
             'logodev_token'         => '',
             'wikimedia_enabled'     => true,
             'cache_ttl_hours'       => 12,
@@ -202,6 +205,19 @@ final class Config
         }
         if (defined('HELMETSAN_LOGODEV_TOKEN') && HELMETSAN_LOGODEV_TOKEN !== '') {
             $cfg['logodev_token'] = (string) HELMETSAN_LOGODEV_TOKEN;
+        }
+        if (defined('HELMETSAN_LOGODEV_PUBLISHABLE_KEY') && HELMETSAN_LOGODEV_PUBLISHABLE_KEY !== '') {
+            $cfg['logodev_publishable_key'] = (string) HELMETSAN_LOGODEV_PUBLISHABLE_KEY;
+        }
+        if (defined('HELMETSAN_LOGODEV_SECRET_KEY') && HELMETSAN_LOGODEV_SECRET_KEY !== '') {
+            $cfg['logodev_secret_key'] = (string) HELMETSAN_LOGODEV_SECRET_KEY;
+        }
+
+        if ((string) ($cfg['logodev_publishable_key'] ?? '') === '' && (string) ($cfg['logodev_token'] ?? '') !== '') {
+            $cfg['logodev_publishable_key'] = (string) $cfg['logodev_token'];
+        }
+        if ((string) ($cfg['logodev_secret_key'] ?? '') === '' && (string) ($cfg['logodev_token'] ?? '') !== '') {
+            $cfg['logodev_secret_key'] = (string) $cfg['logodev_token'];
         }
 
         return $cfg;

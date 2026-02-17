@@ -365,7 +365,10 @@ final class MediaEngine
 
         if (! empty($cfg['logodev_enabled']) && $normDomain !== '') {
             $url = 'https://img.logo.dev/' . rawurlencode($normDomain);
-            $token = isset($cfg['logodev_token']) ? (string) $cfg['logodev_token'] : '';
+            $token = isset($cfg['logodev_publishable_key']) ? (string) $cfg['logodev_publishable_key'] : '';
+            if ($token === '') {
+                $token = isset($cfg['logodev_token']) ? (string) $cfg['logodev_token'] : '';
+            }
             if ($token !== '') {
                 $url = add_query_arg(['token' => $token], $url);
             }
