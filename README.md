@@ -3,7 +3,7 @@
 Helmetsan is a WordPress-based, AI-assisted helmet data platform with:
 
 - `helmetsan-core` plugin (ERP-style operations, ingestion, GitHub sync, analytics, go-live gates)
-- `helmetsan-theme` theme (frontend presentation layer)
+- `helmetsan-theme` GeneratePress child theme (frontend presentation layer)
 - `docs/` architecture and technical documentation
 
 ## Repository Layout

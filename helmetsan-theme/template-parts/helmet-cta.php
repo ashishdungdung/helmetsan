@@ -10,6 +10,6 @@ if ($asin !== '') :
     $slug = get_post_field('post_name', get_the_ID());
     $goUrl = home_url('/go/' . $slug . '/?source=single_page');
     ?>
-    <p><a class="button" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored"><?php esc_html_e('Check Price', 'helmetsan-theme'); ?></a></p>
+    <p><a class="hs-btn hs-btn--primary" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored">Check Price</a></p>
     <?php
 endif;
