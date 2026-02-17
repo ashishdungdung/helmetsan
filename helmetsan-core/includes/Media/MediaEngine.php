@@ -78,8 +78,9 @@ final class MediaEngine
         $assigned = isset($_GET['assigned']) ? (int) $_GET['assigned'] : 0;
 
         $candidates = [];
+        $diagnostics = [];
         if ($name !== '' || $domain !== '') {
-            $candidates = $this->resolveCandidates($name, $domain, $type, $provider);
+            $candidates = $this->resolveCandidates($name, $domain, $type, $provider, $diagnostics);
         }
 
         echo '<div class="wrap helmetsan-wrap">';
@@ -151,6 +152,44 @@ final class MediaEngine
             echo '</div>';
         } elseif ($name !== '' || $domain !== '') {
             echo '<div class="notice notice-warning"><p>No logo candidates found for the selected provider/input. Try setting a domain (e.g. brand.com) and retry.</p></div>';
+        }
+
+        if (($name !== '' || $domain !== '') && is_array($diagnostics)) {
+            $domains = isset($diagnostics['attempted_domains']) && is_array($diagnostics['attempted_domains']) ? $diagnostics['attempted_domains'] : [];
+            $slugs = isset($diagnostics['attempted_slugs']) && is_array($diagnostics['attempted_slugs']) ? $diagnostics['attempted_slugs'] : [];
+            $checks = isset($diagnostics['checks']) && is_array($diagnostics['checks']) ? $diagnostics['checks'] : [];
+
+            echo '<section class="hs-panel" style="margin-top:16px;">';
+            echo '<h2 style="margin-top:0;">Provider Diagnostics</h2>';
+            echo '<p>Attempted provider checks for this search.</p>';
+            echo '<p><strong>Domains:</strong> ' . esc_html($domains !== [] ? implode(', ', array_map('strval', $domains)) : '-') . '</p>';
+            echo '<p><strong>Slugs:</strong> ' . esc_html($slugs !== [] ? implode(', ', array_map('strval', $slugs)) : '-') . '</p>';
+
+            if ($checks !== []) {
+                echo '<table class="widefat striped"><thead><tr><th>Provider</th><th>Target</th><th>Status</th><th>Result</th><th>Notes</th></tr></thead><tbody>';
+                foreach ($checks as $check) {
+                    if (! is_array($check)) {
+                        continue;
+                    }
+                    $p = isset($check['provider']) ? (string) $check['provider'] : '-';
+                    $t = isset($check['target']) ? (string) $check['target'] : '-';
+                    $s = isset($check['status']) ? (string) $check['status'] : '-';
+                    $r = isset($check['result']) ? (string) $check['result'] : '-';
+                    $n = isset($check['note']) ? (string) $check['note'] : '-';
+                    echo '<tr>';
+                    echo '<td><code>' . esc_html($p) . '</code></td>';
+                    echo '<td>' . esc_html($t) . '</td>';
+                    echo '<td>' . esc_html($s) . '</td>';
+                    echo '<td>' . esc_html($r) . '</td>';
+                    echo '<td>' . esc_html($n) . '</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            } else {
+                echo '<p>No checks executed.</p>';
+            }
+
+            echo '</section>';
         }
         echo '</div>';
     }
@@ -364,24 +403,34 @@ final class MediaEngine
     /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
-    public function resolveCandidates(string $name, string $domain = '', string $entity = 'brand', string $provider = 'all'): array
+    public function resolveCandidates(string $name, string $domain = '', string $entity = 'brand', string $provider = 'all', ?array &$diagnostics = null): array
     {
+        $diagnostics = [
+            'attempted_domains' => [],
+            'attempted_slugs' => [],
+            'checks' => [],
+        ];
         $cfg = $this->config->mediaConfig();
         $ttl = max(1, (int) ($cfg['cache_ttl_hours'] ?? 12)) * HOUR_IN_SECONDS;
         $cacheKey = 'helmetsan_media_' . md5(strtolower(trim($name . '|' . $domain . '|' . $entity . '|' . $provider)));
         $cached = get_transient($cacheKey);
+        $cachedDiag = get_transient($cacheKey . '_diag');
         if (is_array($cached)) {
+            if (is_array($cachedDiag)) {
+                $diagnostics = $cachedDiag;
+            }
             return $cached;
         }
 
         $out = [];
         $slug = sanitize_title($name);
         if (($provider === 'all' || $provider === 'simpleicons') && ! empty($cfg['simpleicons_enabled']) && $slug !== '') {
-            $simple = $this->buildSimpleIconCandidates($name);
+            $simple = $this->buildSimpleIconCandidates($name, $diagnostics);
             $out = array_merge($out, $simple);
         }
 
         $domains = $this->domainCandidates($domain, $name);
+        $diagnostics['attempted_domains'] = $domains;
 
         if (($provider === 'all' || $provider === 'logodev') && ! empty($cfg['logodev_enabled']) && $domains !== []) {
             $token = isset($cfg['logodev_publishable_key']) ? (string) $cfg['logodev_publishable_key'] : '';
@@ -393,7 +442,15 @@ final class MediaEngine
                 if ($token !== '') {
                     $url = add_query_arg(['token' => $token], $url);
                 }
-                if (! $this->urlIsReachableImage($url)) {
+                $probe = $this->probeUrlImage($url);
+                $diagnostics['checks'][] = [
+                    'provider' => 'logodev',
+                    'target' => $d,
+                    'status' => (string) ($probe['status'] ?? '-'),
+                    'result' => ! empty($probe['ok']) ? 'ok' : 'fail',
+                    'note' => isset($probe['note']) ? (string) $probe['note'] : '',
+                ];
+                if (empty($probe['ok'])) {
                     continue;
                 }
                 $out[] = [
@@ -407,7 +464,7 @@ final class MediaEngine
 
         if (($provider === 'all' || $provider === 'brandfetch') && ! empty($cfg['brandfetch_enabled']) && $domains !== []) {
             foreach ($domains as $d) {
-                $brandfetch = $this->fetchBrandfetch($d, (string) ($cfg['brandfetch_token'] ?? ''));
+                $brandfetch = $this->fetchBrandfetch($d, (string) ($cfg['brandfetch_token'] ?? ''), $diagnostics);
                 if ($brandfetch !== []) {
                     $out = array_merge($out, $brandfetch);
                     break;
@@ -416,7 +473,7 @@ final class MediaEngine
         }
 
         if (($provider === 'all' || $provider === 'wikimedia') && ! empty($cfg['wikimedia_enabled']) && $name !== '') {
-            $wiki = $this->fetchWikimedia($name);
+            $wiki = $this->fetchWikimedia($name, $diagnostics);
             $out = array_merge($out, $wiki);
         }
 
@@ -432,6 +489,7 @@ final class MediaEngine
         }
 
         set_transient($cacheKey, $deduped, $ttl);
+        set_transient($cacheKey . '_diag', $diagnostics, $ttl);
         return $deduped;
     }
 
@@ -465,7 +523,7 @@ final class MediaEngine
     /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
-    private function buildSimpleIconCandidates(string $name): array
+    private function buildSimpleIconCandidates(string $name, array &$diagnostics): array
     {
         $slugs = [];
         $titleSlug = sanitize_title($name);
@@ -479,11 +537,20 @@ final class MediaEngine
             $slugs[] = $raw;
         }
         $slugs = array_values(array_unique(array_filter($slugs)));
+        $diagnostics['attempted_slugs'] = $slugs;
 
         $out = [];
         foreach ($slugs as $slug) {
             $url = 'https://cdn.simpleicons.org/' . rawurlencode($slug);
-            if (! $this->urlIsReachableImage($url)) {
+            $probe = $this->probeUrlImage($url);
+            $diagnostics['checks'][] = [
+                'provider' => 'simpleicons',
+                'target' => $slug,
+                'status' => (string) ($probe['status'] ?? '-'),
+                'result' => ! empty($probe['ok']) ? 'ok' : 'fail',
+                'note' => isset($probe['note']) ? (string) $probe['note'] : '',
+            ];
+            if (empty($probe['ok'])) {
                 continue;
             }
             $out[] = [
@@ -497,31 +564,39 @@ final class MediaEngine
         return $out;
     }
 
-    private function urlIsReachableImage(string $url): bool
+    /**
+     * @return array{ok:bool,status:string,note:string}
+     */
+    private function probeUrlImage(string $url): array
     {
         if ($url === '') {
-            return false;
+            return ['ok' => false, 'status' => '-', 'note' => 'Empty URL'];
         }
 
         $resp = wp_remote_head($url, ['timeout' => 6]);
         if (is_wp_error($resp)) {
-            return false;
+            return ['ok' => false, 'status' => 'error', 'note' => $resp->get_error_message()];
         }
         $code = (int) wp_remote_retrieve_response_code($resp);
         if ($code < 200 || $code > 299) {
-            return false;
+            return ['ok' => false, 'status' => (string) $code, 'note' => 'Non-2xx'];
         }
         $ctype = (string) wp_remote_retrieve_header($resp, 'content-type');
         if ($ctype === '') {
-            return true;
+            return ['ok' => true, 'status' => (string) $code, 'note' => 'No content-type header'];
         }
-        return str_contains(strtolower($ctype), 'image') || str_contains(strtolower($ctype), 'svg');
+        $isImage = str_contains(strtolower($ctype), 'image') || str_contains(strtolower($ctype), 'svg');
+        return [
+            'ok' => $isImage,
+            'status' => (string) $code,
+            'note' => $isImage ? $ctype : ('Unexpected content-type: ' . $ctype),
+        ];
     }
 
     /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
-    private function fetchBrandfetch(string $domain, string $token): array
+    private function fetchBrandfetch(string $domain, string $token, array &$diagnostics): array
     {
         $headers = ['Accept' => 'application/json'];
         if ($token !== '') {
@@ -532,15 +607,36 @@ final class MediaEngine
             'headers' => $headers,
         ]);
         if (is_wp_error($resp)) {
+            $diagnostics['checks'][] = [
+                'provider' => 'brandfetch',
+                'target' => $domain,
+                'status' => 'error',
+                'result' => 'fail',
+                'note' => $resp->get_error_message(),
+            ];
             return [];
         }
         $code = (int) wp_remote_retrieve_response_code($resp);
         $body = wp_remote_retrieve_body($resp);
         if ($code < 200 || $code > 299 || ! is_string($body) || $body === '') {
+            $diagnostics['checks'][] = [
+                'provider' => 'brandfetch',
+                'target' => $domain,
+                'status' => (string) $code,
+                'result' => 'fail',
+                'note' => 'Empty/invalid response',
+            ];
             return [];
         }
         $decoded = json_decode($body, true);
         if (! is_array($decoded)) {
+            $diagnostics['checks'][] = [
+                'provider' => 'brandfetch',
+                'target' => $domain,
+                'status' => (string) $code,
+                'result' => 'fail',
+                'note' => 'Invalid JSON payload',
+            ];
             return [];
         }
         $out = [];
@@ -565,13 +661,20 @@ final class MediaEngine
                 ];
             }
         }
+        $diagnostics['checks'][] = [
+            'provider' => 'brandfetch',
+            'target' => $domain,
+            'status' => (string) $code,
+            'result' => $out !== [] ? 'ok' : 'fail',
+            'note' => $out !== [] ? ('Formats: ' . (string) count($out)) : 'No logos in payload',
+        ];
         return $out;
     }
 
     /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
-    private function fetchWikimedia(string $name): array
+    private function fetchWikimedia(string $name, array &$diagnostics): array
     {
         $url = add_query_arg([
             'action' => 'query',
@@ -587,14 +690,36 @@ final class MediaEngine
             'headers' => ['Accept' => 'application/json'],
         ]);
         if (is_wp_error($resp)) {
+            $diagnostics['checks'][] = [
+                'provider' => 'wikimedia',
+                'target' => $name,
+                'status' => 'error',
+                'result' => 'fail',
+                'note' => $resp->get_error_message(),
+            ];
             return [];
         }
+        $code = (int) wp_remote_retrieve_response_code($resp);
         $body = wp_remote_retrieve_body($resp);
         if (! is_string($body) || $body === '') {
+            $diagnostics['checks'][] = [
+                'provider' => 'wikimedia',
+                'target' => $name,
+                'status' => (string) $code,
+                'result' => 'fail',
+                'note' => 'Empty response body',
+            ];
             return [];
         }
         $decoded = json_decode($body, true);
         if (! is_array($decoded)) {
+            $diagnostics['checks'][] = [
+                'provider' => 'wikimedia',
+                'target' => $name,
+                'status' => (string) $code,
+                'result' => 'fail',
+                'note' => 'Invalid JSON payload',
+            ];
             return [];
         }
         $pages = isset($decoded['query']['pages']) && is_array($decoded['query']['pages']) ? $decoded['query']['pages'] : [];
@@ -615,6 +740,13 @@ final class MediaEngine
                 'url' => $src,
             ];
         }
+        $diagnostics['checks'][] = [
+            'provider' => 'wikimedia',
+            'target' => $name,
+            'status' => (string) $code,
+            'result' => $out !== [] ? 'ok' : 'fail',
+            'note' => $out !== [] ? ('Files: ' . (string) count($out)) : 'No image results',
+        ];
         return $out;
     }
 }
