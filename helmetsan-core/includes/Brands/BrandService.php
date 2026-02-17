@@ -15,6 +15,9 @@ final class BrandService
     public const META_MANUFACTURING_ETHOS = 'brand_manufacturing_ethos';
     public const META_DISTRIBUTOR_REGIONS = 'brand_distributor_regions';
     public const META_SIZE_CHART_JSON = 'brand_size_chart_json';
+    public const META_TOTAL_MODELS = 'brand_total_models';
+    public const META_HELMET_TYPES = 'brand_helmet_types';
+    public const META_CERT_COVERAGE = 'brand_certification_coverage';
 
     /**
      * @return array<string,string>
@@ -29,6 +32,9 @@ final class BrandService
             self::META_MANUFACTURING_ETHOS => 'Manufacturing Ethos',
             self::META_DISTRIBUTOR_REGIONS => 'Distributor Regions (one per line)',
             self::META_SIZE_CHART_JSON => 'Size Chart JSON',
+            self::META_TOTAL_MODELS => 'Total Helmet Models (approx)',
+            self::META_HELMET_TYPES => 'Helmet Types (comma separated)',
+            self::META_CERT_COVERAGE => 'Certification Coverage (comma separated)',
         ];
     }
 
@@ -200,6 +206,9 @@ final class BrandService
                     'manufacturing_ethos' => (string) get_post_meta($postId, self::META_MANUFACTURING_ETHOS, true),
                     'distributor_regions' => (string) get_post_meta($postId, self::META_DISTRIBUTOR_REGIONS, true),
                     'size_chart_json' => (string) get_post_meta($postId, self::META_SIZE_CHART_JSON, true),
+                    'total_models' => (string) get_post_meta($postId, self::META_TOTAL_MODELS, true),
+                    'helmet_types' => (string) get_post_meta($postId, self::META_HELMET_TYPES, true),
+                    'certification_coverage' => (string) get_post_meta($postId, self::META_CERT_COVERAGE, true),
                 ],
             ],
         ];
@@ -224,6 +233,9 @@ final class BrandService
             self::META_MANUFACTURING_ETHOS => (string) get_post_meta($brandId, self::META_MANUFACTURING_ETHOS, true),
             self::META_DISTRIBUTOR_REGIONS => (string) get_post_meta($brandId, self::META_DISTRIBUTOR_REGIONS, true),
             self::META_SIZE_CHART_JSON => (string) get_post_meta($brandId, self::META_SIZE_CHART_JSON, true),
+            self::META_TOTAL_MODELS => (string) get_post_meta($brandId, self::META_TOTAL_MODELS, true),
+            self::META_HELMET_TYPES => (string) get_post_meta($brandId, self::META_HELMET_TYPES, true),
+            self::META_CERT_COVERAGE => (string) get_post_meta($brandId, self::META_CERT_COVERAGE, true),
         ];
 
         $q = new \WP_Query([
@@ -299,6 +311,9 @@ final class BrandService
                 'warranty' => (string) get_post_meta($brand->ID, self::META_WARRANTY_TERMS, true),
                 'support_url' => (string) get_post_meta($brand->ID, self::META_SUPPORT_URL, true),
                 'origin_country' => (string) get_post_meta($brand->ID, self::META_ORIGIN_COUNTRY, true),
+                'total_models' => (string) get_post_meta($brand->ID, self::META_TOTAL_MODELS, true),
+                'helmet_types' => (string) get_post_meta($brand->ID, self::META_HELMET_TYPES, true),
+                'certification_coverage' => (string) get_post_meta($brand->ID, self::META_CERT_COVERAGE, true),
             ];
         }
 
@@ -318,6 +333,9 @@ final class BrandService
             'manufacturing_ethos' => self::META_MANUFACTURING_ETHOS,
             'distributor_regions' => self::META_DISTRIBUTOR_REGIONS,
             'size_chart_json' => self::META_SIZE_CHART_JSON,
+            'total_models' => self::META_TOTAL_MODELS,
+            'helmet_types' => self::META_HELMET_TYPES,
+            'certification_coverage' => self::META_CERT_COVERAGE,
         ];
 
         foreach ($mapping as $inputKey => $metaKey) {

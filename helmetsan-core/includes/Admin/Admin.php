@@ -610,9 +610,9 @@ final class Admin
         echo '</form>';
 
         $rows = $this->brands->listBrandOverview();
-        echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Brand</th><th>Linked Helmets</th><th>Origin</th><th>Warranty</th><th>Support URL</th><th>Action</th></tr></thead><tbody>';
+        echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Brand</th><th>Linked Helmets</th><th>Total Models</th><th>Helmet Types</th><th>Cert Coverage</th><th>Origin</th><th>Warranty</th><th>Support URL</th><th>Action</th></tr></thead><tbody>';
         if ($rows === []) {
-            echo '<tr><td colspan="7">No brands found.</td></tr>';
+            echo '<tr><td colspan="10">No brands found.</td></tr>';
         } else {
             foreach ($rows as $row) {
                 $id = isset($row['id']) ? (int) $row['id'] : 0;
@@ -620,6 +620,9 @@ final class Admin
                 echo '<td>' . esc_html((string) $id) . '</td>';
                 echo '<td>' . esc_html((string) ($row['title'] ?? '')) . '</td>';
                 echo '<td>' . esc_html((string) ($row['helmets'] ?? 0)) . '</td>';
+                echo '<td>' . esc_html((string) ($row['total_models'] ?? '')) . '</td>';
+                echo '<td>' . esc_html((string) ($row['helmet_types'] ?? '')) . '</td>';
+                echo '<td>' . esc_html((string) ($row['certification_coverage'] ?? '')) . '</td>';
                 echo '<td>' . esc_html((string) ($row['origin_country'] ?? '')) . '</td>';
                 echo '<td>' . esc_html((string) ($row['warranty'] ?? '')) . '</td>';
                 echo '<td><code>' . esc_html((string) ($row['support_url'] ?? '')) . '</code></td>';

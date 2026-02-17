@@ -13,6 +13,69 @@
     "current": 589.99,
     "currency": "USD"
   },
+  "geo_pricing": {
+    "US": {
+      "price": 589.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-17"
+    },
+    "EU": {
+      "price": 649.00,
+      "currency": "EUR",
+      "availability": "limited",
+      "source": "import_equivalent_model",
+      "updated_at": "2026-02-17"
+    },
+    "IN": {
+      "price": 69999,
+      "currency": "INR",
+      "availability": "import_only",
+      "source": "grey_market",
+      "updated_at": "2026-02-17"
+    }
+  },
+  "geo_legality": {
+    "US": {
+      "status": "legal",
+      "certification_required": ["DOT"],
+      "notes": "Snell label optional but present on select variants."
+    },
+    "EU": {
+      "status": "restricted",
+      "certification_required": ["ECE 22.06"],
+      "notes": "US DOT variant may not satisfy ECE homologation."
+    },
+    "IN": {
+      "status": "restricted",
+      "certification_required": ["ISI IS 4151"],
+      "notes": "Import variants without ISI mark are generally not road legal."
+    }
+  },
+  "certification_documents": [
+    {
+      "code": "DOT",
+      "country": "US",
+      "issuer": "NHTSA",
+      "url": "https://www.nhtsa.gov/road-safety/motorcycle-safety"
+    },
+    {
+      "code": "Snell M2020R",
+      "country": "US",
+      "issuer": "Snell Memorial Foundation",
+      "url": "https://smf.org/"
+    }
+  ],
+  "geo_media": {
+    "US": {
+      "hero_image": "https://cdn.helmetsan.com/helmets/shoei-rf-1400/us-hero.jpg",
+      "cert_sticker_image": "https://cdn.helmetsan.com/helmets/shoei-rf-1400/us-dot-snell.jpg"
+    },
+    "EU": {
+      "hero_image": "https://cdn.helmetsan.com/helmets/shoei-rf-1400/eu-hero.jpg"
+    }
+  },
   "affiliate": {
     "amazon_asin": "B0EXAMPLE"
   }

@@ -10,6 +10,7 @@ Helmetsan is a WordPress-based, AI-assisted helmet data platform with:
 
 - `helmetsan-core/` WordPress plugin
 - `helmetsan-theme/` WordPress theme
+- `data/` GitHub source datasets (brands, helmets, accessories, motorcycles, safety standards, geo, schemas)
 - `docs/` architecture and TDD docs
 
 ## Quick Start (Local)

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Accessory",
+  "type": "object",
+  "required": ["entity", "id", "title", "type"],
+  "properties": {
+    "entity": { "const": "accessory" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "type": { "type": "string" },
+    "compatible_helmet_types": { "type": "array", "items": { "type": "string" } },
+    "compatible_brands": { "type": "array", "items": { "type": "string" } },
+    "features": { "type": "array", "items": { "type": "string" } },
+    "price": { "type": "object" }
+  }
+}

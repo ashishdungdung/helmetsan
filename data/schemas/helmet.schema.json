@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Helmet",
+  "type": "object",
+  "required": ["entity", "id", "title", "brand", "type", "specs"],
+  "properties": {
+    "entity": { "const": "helmet" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "brand": { "type": "string" },
+    "type": { "type": "string" },
+    "specs": {
+      "type": "object",
+      "properties": {
+        "weight_g": { "type": "number" },
+        "material": { "type": "string" },
+        "certifications": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "current": { "type": "number" },
+        "currency": { "type": "string" }
+      }
+    },
+    "geo_pricing": {
+      "type": "object",
+      "description": "Country-market pricing map"
+    },
+    "certification_documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "country": { "type": "string" },
+          "url": { "type": "string" },
+          "issuer": { "type": "string" }
+        }
+      }
+    }
+  }
+}

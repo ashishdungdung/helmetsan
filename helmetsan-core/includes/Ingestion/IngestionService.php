@@ -236,6 +236,22 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'affiliate_asin', sanitize_text_field((string) $data['affiliate']['amazon_asin']));
         }
 
+        $jsonMetaMap = [
+            'geo_pricing' => 'geo_pricing_json',
+            'geo_legality' => 'geo_legality_json',
+            'certification_documents' => 'certification_documents_json',
+            'geo_media' => 'geo_media_json',
+        ];
+        foreach ($jsonMetaMap as $jsonKey => $metaKey) {
+            if (! isset($data[$jsonKey])) {
+                continue;
+            }
+            $json = wp_json_encode($data[$jsonKey], JSON_UNESCAPED_SLASHES);
+            if (is_string($json) && $json !== '') {
+                update_post_meta($resolvedPostId, $metaKey, $json);
+            }
+        }
+
         if (isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {
             $terms = array_filter(array_map(
                 static fn($value): string => sanitize_text_field((string) $value),

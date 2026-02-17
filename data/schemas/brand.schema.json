@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brand",
+  "type": "object",
+  "required": ["entity", "id", "title", "profile"],
+  "properties": {
+    "entity": { "const": "brand" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "profile": {
+      "type": "object",
+      "properties": {
+        "origin_country": { "type": "string" },
+        "warranty_terms": { "type": "string" },
+        "support_url": { "type": "string" },
+        "support_email": { "type": "string" },
+        "manufacturing_ethos": { "type": "string" },
+        "distributor_regions": { "type": "string" },
+        "size_chart_json": { "type": "string" },
+        "total_models": { "type": ["string", "number"] },
+        "helmet_types": { "type": "string" },
+        "certification_coverage": { "type": "string" }
+      }
+    }
+  }
+}
