@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\ImportExport;
 
+use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Brands\BrandService;
 use Helmetsan\Core\Ingestion\IngestionService;
+use Helmetsan\Core\Motorcycle\MotorcycleService;
+use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\Config;
 
 final class ImportService
@@ -13,7 +16,10 @@ final class ImportService
     public function __construct(
         private readonly IngestionService $ingestion,
         private readonly Config $config,
-        private readonly BrandService $brands
+        private readonly BrandService $brands,
+        private readonly AccessoryService $accessories,
+        private readonly MotorcycleService $motorcycles,
+        private readonly SafetyStandardService $safetyStandards
     ) {
     }
 
@@ -61,6 +67,15 @@ final class ImportService
         $brandAccepted = 0;
         $brandRejected = 0;
         $brandSkipped = 0;
+        $accessoryAccepted = 0;
+        $accessoryRejected = 0;
+        $accessorySkipped = 0;
+        $motorcycleAccepted = 0;
+        $motorcycleRejected = 0;
+        $motorcycleSkipped = 0;
+        $safetyAccepted = 0;
+        $safetyRejected = 0;
+        $safetySkipped = 0;
 
         foreach ($records as $index => $record) {
             $entity = $this->detectEntity($record);
@@ -76,6 +91,48 @@ final class ImportService
                     }
                 } else {
                     $brandRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'accessory') {
+                $result = $this->accessories->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $accessorySkipped++;
+                    } else {
+                        $accessoryAccepted++;
+                    }
+                } else {
+                    $accessoryRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'motorcycle') {
+                $result = $this->motorcycles->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $motorcycleSkipped++;
+                    } else {
+                        $motorcycleAccepted++;
+                    }
+                } else {
+                    $motorcycleRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'safety_standard') {
+                $result = $this->safetyStandards->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $safetySkipped++;
+                    } else {
+                        $safetyAccepted++;
+                    }
+                } else {
+                    $safetyRejected++;
                 }
                 continue;
             }
@@ -111,11 +168,11 @@ final class ImportService
             $helmetResult = $this->ingestion->ingestFiles($files, $batchSize, null, $dryRun, 'import-service');
         }
 
-        $totalAccepted = (int) ($helmetResult['accepted'] ?? 0) + $brandAccepted;
-        $totalRejected = (int) ($helmetResult['rejected'] ?? 0) + $brandRejected;
-        $totalSkipped = (int) ($helmetResult['skipped'] ?? 0) + $brandSkipped;
+        $totalAccepted = (int) ($helmetResult['accepted'] ?? 0) + $brandAccepted + $accessoryAccepted + $motorcycleAccepted + $safetyAccepted;
+        $totalRejected = (int) ($helmetResult['rejected'] ?? 0) + $brandRejected + $accessoryRejected + $motorcycleRejected + $safetyRejected;
+        $totalSkipped = (int) ($helmetResult['skipped'] ?? 0) + $brandSkipped + $accessorySkipped + $motorcycleSkipped + $safetySkipped;
 
-        if ($files === [] && $brandAccepted === 0 && $brandRejected === 0 && $brandSkipped === 0) {
+        if ($files === [] && $brandAccepted === 0 && $brandRejected === 0 && $brandSkipped === 0 && $accessoryAccepted === 0 && $accessoryRejected === 0 && $accessorySkipped === 0 && $motorcycleAccepted === 0 && $motorcycleRejected === 0 && $motorcycleSkipped === 0 && $safetyAccepted === 0 && $safetyRejected === 0 && $safetySkipped === 0) {
             return [
                 'ok'      => false,
                 'message' => 'No temporary import files generated',
@@ -135,6 +192,21 @@ final class ImportService
                 'accepted' => $brandAccepted,
                 'rejected' => $brandRejected,
                 'skipped' => $brandSkipped,
+            ],
+            'accessory' => [
+                'accepted' => $accessoryAccepted,
+                'rejected' => $accessoryRejected,
+                'skipped' => $accessorySkipped,
+            ],
+            'motorcycle' => [
+                'accepted' => $motorcycleAccepted,
+                'rejected' => $motorcycleRejected,
+                'skipped' => $motorcycleSkipped,
+            ],
+            'safety_standard' => [
+                'accepted' => $safetyAccepted,
+                'rejected' => $safetyRejected,
+                'skipped' => $safetySkipped,
             ],
         ];
 
@@ -171,7 +243,7 @@ final class ImportService
     private function detectEntity(array $record): string
     {
         $entity = isset($record['entity']) ? sanitize_key((string) $record['entity']) : '';
-        if (in_array($entity, ['helmet', 'brand'], true)) {
+        if (in_array($entity, ['helmet', 'brand', 'accessory', 'motorcycle', 'safety_standard'], true)) {
             return $entity;
         }
 

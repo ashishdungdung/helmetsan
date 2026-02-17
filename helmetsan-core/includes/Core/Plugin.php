@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Core;
 
+use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Admin\Admin;
 use Helmetsan\Core\Alerts\AlertService;
 use Helmetsan\Core\Analytics\EventRepository;
@@ -20,8 +21,10 @@ use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\ImportExport\ExportService;
 use Helmetsan\Core\ImportExport\ImportService;
+use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Revenue\RevenueService;
+use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\Seo\SchemaService;
@@ -58,6 +61,9 @@ final class Plugin
     private HelmetDataBlock $helmetDataBlock;
     private Tracker $tracker;
     private BrandService $brands;
+    private AccessoryService $accessories;
+    private MotorcycleService $motorcycles;
+    private SafetyStandardService $safetyStandards;
 
     public function __construct()
     {
@@ -71,9 +77,29 @@ final class Plugin
         $this->ingestion  = new IngestionService($this->validator, $this->repository, $this->logger, $this->ingestionLogs);
         $this->syncLogs   = new SyncLogRepository();
         $this->brands     = new BrandService();
-        $this->sync       = new SyncService($this->repository, $this->logger, $this->config, $this->syncLogs, $this->brands, $this->ingestion);
+        $this->accessories = new AccessoryService();
+        $this->motorcycles = new MotorcycleService();
+        $this->safetyStandards = new SafetyStandardService();
+        $this->sync       = new SyncService(
+            $this->repository,
+            $this->logger,
+            $this->config,
+            $this->syncLogs,
+            $this->brands,
+            $this->ingestion,
+            $this->accessories,
+            $this->motorcycles,
+            $this->safetyStandards
+        );
         $this->revenue    = new RevenueService($this->config);
-        $this->importService = new ImportService($this->ingestion, $this->config, $this->brands);
+        $this->importService = new ImportService(
+            $this->ingestion,
+            $this->config,
+            $this->brands,
+            $this->accessories,
+            $this->motorcycles,
+            $this->safetyStandards
+        );
         $this->exportService = new ExportService($this->config, $this->brands);
         $this->schema     = new SchemaService();
         $this->smoke      = new SmokeTestService();

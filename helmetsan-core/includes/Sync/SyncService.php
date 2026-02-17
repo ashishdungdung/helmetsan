@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Sync;
 
+use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Brands\BrandService;
 use Helmetsan\Core\Ingestion\IngestionService;
+use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
+use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Support\Logger;
 
@@ -18,7 +21,10 @@ final class SyncService
         private readonly Config $config,
         private readonly LogRepository $logs,
         private readonly ?BrandService $brands = null,
-        private readonly ?IngestionService $ingestion = null
+        private readonly ?IngestionService $ingestion = null,
+        private readonly ?AccessoryService $accessories = null,
+        private readonly ?MotorcycleService $motorcycles = null,
+        private readonly ?SafetyStandardService $safetyStandards = null
     ) {
     }
 
@@ -140,6 +146,9 @@ final class SyncService
         $failed     = 0;
         $brandFiles = [];
         $helmetFiles = [];
+        $accessoryFiles = [];
+        $motorcycleFiles = [];
+        $safetyStandardFiles = [];
         foreach ($selected as $item) {
             $path = (string) ($item['path'] ?? '');
             $blobSha = (string) ($item['sha'] ?? '');
@@ -189,8 +198,14 @@ final class SyncService
             $downloaded++;
             if ($this->isBrandFile($relative)) {
                 $brandFiles[] = $local;
-            } else {
+            } elseif ($this->isHelmetFile($relative)) {
                 $helmetFiles[] = $local;
+            } elseif ($this->isAccessoryFile($relative)) {
+                $accessoryFiles[] = $local;
+            } elseif ($this->isMotorcycleFile($relative)) {
+                $motorcycleFiles[] = $local;
+            } elseif ($this->isSafetyStandardFile($relative)) {
+                $safetyStandardFiles[] = $local;
             }
         }
 
@@ -217,9 +232,48 @@ final class SyncService
             'rejected' => 0,
             'failed' => 0,
         ];
+        $accessoryApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($accessoryFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $motorcycleApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($motorcycleFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $safetyStandardApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($safetyStandardFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
         if ($applyHelmets && $helmetFiles !== []) {
             $helmetApply = $this->applyHelmetFiles($helmetFiles, $dryRun);
             $failed += (int) ($helmetApply['failed'] ?? 0) + (int) ($helmetApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $accessoryFiles !== []) {
+            $accessoryApply = $this->applyAccessoryFiles($accessoryFiles, $dryRun);
+            $failed += (int) ($accessoryApply['failed'] ?? 0) + (int) ($accessoryApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $motorcycleFiles !== []) {
+            $motorcycleApply = $this->applyMotorcycleFiles($motorcycleFiles, $dryRun);
+            $failed += (int) ($motorcycleApply['failed'] ?? 0) + (int) ($motorcycleApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $safetyStandardFiles !== []) {
+            $safetyStandardApply = $this->applySafetyStandardFiles($safetyStandardFiles, $dryRun);
+            $failed += (int) ($safetyStandardApply['failed'] ?? 0) + (int) ($safetyStandardApply['rejected'] ?? 0);
         }
 
         $result = [
@@ -239,6 +293,9 @@ final class SyncService
             'audit' => $audit,
             'brand_auto_apply' => $brandApply,
             'helmet_auto_apply' => $helmetApply,
+            'accessory_auto_apply' => $accessoryApply,
+            'motorcycle_auto_apply' => $motorcycleApply,
+            'safety_standard_auto_apply' => $safetyStandardApply,
         ];
 
         $this->logSync('pull', $failed > 0 ? 'partial' : 'success', [
@@ -322,6 +379,24 @@ final class SyncService
     {
         $path = str_replace('\\', '/', strtolower($relativePath));
         return strpos('/' . ltrim($path, '/'), '/helmets/') !== false;
+    }
+
+    private function isAccessoryFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/accessories/') !== false;
+    }
+
+    private function isMotorcycleFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/motorcycles/') !== false;
+    }
+
+    private function isSafetyStandardFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/safety-standards/') !== false;
     }
 
     private function isPushExcludedPath(string $relativePath): bool
@@ -427,6 +502,153 @@ final class SyncService
         $result['rejected']  += (int) ($ingested['rejected'] ?? 0);
         $result['failed']    = ! empty($ingested['ok']) ? 0 : 1;
         $result['ingestion'] = $ingested;
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyAccessoryFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->accessories instanceof AccessoryService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Accessory service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'accessory') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyMotorcycleFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->motorcycles instanceof MotorcycleService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Motorcycle service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'motorcycle') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->motorcycles->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applySafetyStandardFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->safetyStandards instanceof SafetyStandardService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Safety standard service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'safety_standard') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->safetyStandards->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
 
         return $result;
     }

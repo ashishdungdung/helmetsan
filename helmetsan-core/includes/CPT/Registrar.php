@@ -49,7 +49,7 @@ final class Registrar
             'hierarchical' => true,
         ]);
 
-        register_taxonomy('region', ['helmet', 'brand', 'dealer', 'distributor'], [
+        register_taxonomy('region', ['helmet', 'brand', 'dealer', 'distributor', 'accessory', 'motorcycle', 'safety_standard'], [
             'label'        => 'Regions',
             'public'       => true,
             'show_in_rest' => true,

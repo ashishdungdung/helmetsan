@@ -12,6 +12,7 @@ This directory is the GitHub source-of-truth for structured datasets consumed by
 - `helmet-types/`: helmet taxonomy entities (`entity: helmet_type`)
 - `geo/countries/`: country reference entities (`entity: country`)
 - `geo/regions/`: region reference entities (`entity: region`)
+- `phases/`: phased enrichment plans and quality gates
 
 ## Schemas
 
@@ -38,3 +39,7 @@ Brand `profile` supports:
 2. Validate schema with CI/CLI.
 3. Run plugin sync pull profile `pull+brands` or `pull+all`.
 4. Review admin screens (`Catalog`, `Brands`, `Go Live`).
+
+## Phased Enrichment Policy
+
+Global brand coverage is managed in phased batches via `phases/brand-enrichment-phases.json` to keep data quality high and prevent noisy bulk ingestion.
