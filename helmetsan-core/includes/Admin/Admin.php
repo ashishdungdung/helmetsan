@@ -54,6 +54,7 @@ final class Admin
         add_action('admin_post_helmetsan_sync_pull', [$this, 'handleSyncPullAction']);
         add_action('admin_post_helmetsan_import', [$this, 'handleImportAction']);
         add_action('admin_post_helmetsan_export', [$this, 'handleExportAction']);
+        add_action('admin_post_helmetsan_media_api_test', [$this, 'handleMediaApiTestAction']);
     }
 
     public function registerMenu(): void
@@ -330,6 +331,7 @@ final class Admin
         $defaults = $this->config->mediaDefaults();
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
 
         $bools = [
             'enable_media_engine',
@@ -343,11 +345,88 @@ final class Admin
             $merged[$key] = ! empty($merged[$key]);
         }
 
-        $merged['brandfetch_token'] = sanitize_text_field((string) $merged['brandfetch_token']);
-        $merged['logodev_token'] = sanitize_text_field((string) $merged['logodev_token']);
+        $brandfetchToken = sanitize_text_field((string) $merged['brandfetch_token']);
+        $logodevToken = sanitize_text_field((string) $merged['logodev_token']);
+        // Keep existing tokens if field is submitted empty (masked UI behavior).
+        $merged['brandfetch_token'] = $brandfetchToken !== '' ? $brandfetchToken : (string) ($existing['brandfetch_token'] ?? '');
+        $merged['logodev_token'] = $logodevToken !== '' ? $logodevToken : (string) ($existing['logodev_token'] ?? '');
         $merged['cache_ttl_hours'] = max(1, (int) $merged['cache_ttl_hours']);
 
         return $merged;
+    }
+
+    public function handleMediaApiTestAction(): void
+    {
+        if (! current_user_can('manage_options')) {
+            wp_die('Unauthorized');
+        }
+
+        check_admin_referer('helmetsan_media_api_test');
+
+        $provider = isset($_POST['provider']) ? sanitize_key((string) $_POST['provider']) : '';
+        $cfg = $this->config->mediaConfig();
+        $status = 'error';
+        $details = '';
+
+        if ($provider === 'brandfetch') {
+            $token = (string) ($cfg['brandfetch_token'] ?? '');
+            if ($token === '') {
+                $status = 'missing_token';
+                $details = 'Brandfetch token is empty.';
+            } else {
+                $resp = wp_remote_get(
+                    'https://api.brandfetch.io/v2/brands/apple.com',
+                    [
+                        'timeout' => 8,
+                        'headers' => [
+                            'Accept' => 'application/json',
+                            'Authorization' => 'Bearer ' . $token,
+                        ],
+                    ]
+                );
+                if (is_wp_error($resp)) {
+                    $status = 'error';
+                    $details = $resp->get_error_message();
+                } else {
+                    $code = (int) wp_remote_retrieve_response_code($resp);
+                    $status = ($code >= 200 && $code < 300) ? 'ok' : 'error';
+                    $details = 'HTTP ' . $code;
+                }
+            }
+        } elseif ($provider === 'logodev') {
+            $token = (string) ($cfg['logodev_token'] ?? '');
+            if ($token === '') {
+                $status = 'missing_token';
+                $details = 'Logo.dev token is empty.';
+            } else {
+                $url = add_query_arg(['token' => $token], 'https://img.logo.dev/apple.com');
+                $resp = wp_remote_get($url, ['timeout' => 8]);
+                if (is_wp_error($resp)) {
+                    $status = 'error';
+                    $details = $resp->get_error_message();
+                } else {
+                    $code = (int) wp_remote_retrieve_response_code($resp);
+                    $status = ($code >= 200 && $code < 300) ? 'ok' : 'error';
+                    $details = 'HTTP ' . $code;
+                }
+            }
+        } else {
+            $status = 'error';
+            $details = 'Unsupported provider.';
+        }
+
+        $url = add_query_arg(
+            [
+                'page' => 'helmetsan-settings',
+                'media_test_provider' => $provider,
+                'media_test_status' => $status,
+                'media_test_details' => rawurlencode($details),
+            ],
+            admin_url('admin.php')
+        );
+
+        wp_safe_redirect($url);
+        exit;
     }
 
     public function dashboardPage(): void
@@ -1551,6 +1630,17 @@ final class Admin
         }
         echo '</tbody></table>';
         echo '<h2>Media Engine</h2>';
+        $testProvider = isset($_GET['media_test_provider']) ? sanitize_key((string) $_GET['media_test_provider']) : '';
+        $testStatus = isset($_GET['media_test_status']) ? sanitize_key((string) $_GET['media_test_status']) : '';
+        $testDetails = isset($_GET['media_test_details']) ? sanitize_text_field(rawurldecode((string) $_GET['media_test_details'])) : '';
+        if ($testProvider !== '' && $testStatus !== '') {
+            $noticeClass = $testStatus === 'ok' ? 'notice-success' : 'notice-warning';
+            echo '<div class="notice ' . esc_attr($noticeClass) . '"><p><strong>Media API Test (' . esc_html($testProvider) . '):</strong> ' . esc_html($testStatus);
+            if ($testDetails !== '') {
+                echo ' - ' . esc_html($testDetails);
+            }
+            echo '</p></div>';
+        }
         echo '<table class="form-table"><tbody>';
         foreach ($media as $key => $current) {
             echo '<tr><th><label for="med_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
@@ -1559,11 +1649,32 @@ final class Admin
             } else {
                 $type = str_contains($key, 'token') ? 'password' : 'text';
                 $class = $key === 'cache_ttl_hours' ? 'small-text' : 'regular-text';
-                echo '<input type="' . esc_attr($type) . '" class="' . esc_attr($class) . '" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
+                $isToken = str_contains($key, 'token');
+                $value = $isToken ? '' : (string) $current;
+                $placeholder = '';
+                if ($isToken && (string) $current !== '') {
+                    $placeholder = 'Saved token is masked. Enter new token to replace.';
+                }
+                echo '<input type="' . esc_attr($type) . '" class="' . esc_attr($class) . '" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="' . esc_attr($value) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
             }
             echo '</td></tr>';
         }
         echo '</tbody></table>';
+        echo '<p><strong>Connectivity tests</strong></p>';
+        echo '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;">';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+        wp_nonce_field('helmetsan_media_api_test');
+        echo '<input type="hidden" name="action" value="helmetsan_media_api_test" />';
+        echo '<input type="hidden" name="provider" value="brandfetch" />';
+        submit_button('Test Brandfetch API', 'secondary', '', false);
+        echo '</form>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+        wp_nonce_field('helmetsan_media_api_test');
+        echo '<input type="hidden" name="action" value="helmetsan_media_api_test" />';
+        echo '<input type="hidden" name="provider" value="logodev" />';
+        submit_button('Test Logo.dev API', 'secondary', '', false);
+        echo '</form>';
+        echo '</div>';
         submit_button('Save Settings');
         echo '</form></div>';
     }
