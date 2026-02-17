@@ -10,6 +10,7 @@ if (! defined('ABSPATH')) {
 }
 
 add_filter('body_class', 'helmetsan_theme_body_class');
+add_filter('the_content', 'helmetsan_theme_append_about_attribution');
 
 /**
  * @param array<int, string> $classes
@@ -27,4 +28,15 @@ function helmetsan_theme_body_class(array $classes): array
     }
 
     return $classes;
+}
+
+function helmetsan_theme_append_about_attribution(string $content): string
+{
+    if (! is_page('about') || ! in_the_loop() || ! is_main_query()) {
+        return $content;
+    }
+
+    $section = '<section class="hs-panel" aria-label="Attribution"><h2>Attribution</h2><p><a href="https://logo.dev">Logos provided by Logo.dev</a></p></section>';
+
+    return $content . $section;
 }
