@@ -528,8 +528,14 @@ final class MediaEngine
     private function ensureFilenameExtension(string $name, string $url): string
     {
         $ext = strtolower((string) pathinfo($name, PATHINFO_EXTENSION));
-        if ($ext !== '') {
+        $allowed = ['svg', 'png', 'webp', 'jpg', 'jpeg', 'gif'];
+        if ($ext !== '' && in_array($ext, $allowed, true)) {
             return $name;
+        }
+
+        $baseName = (string) pathinfo($name, PATHINFO_FILENAME);
+        if ($baseName === '') {
+            $baseName = 'logo-image';
         }
 
         $resp = wp_remote_head($url, ['timeout' => 6]);
@@ -554,7 +560,7 @@ final class MediaEngine
             }
         }
 
-        return $name . '.' . $picked;
+        return $baseName . '.' . $picked;
     }
 
     private function normalizeImportUrl(string $url): string
