@@ -80,12 +80,50 @@ function helmetsan_get_certifications(int $helmetId): string
 
 function helmetsan_get_logo_url(int $postId): string
 {
+    $attachmentId = (int) get_post_meta($postId, '_helmetsan_logo_attachment_id', true);
+    if ($attachmentId > 0) {
+        $attachmentUrl = (string) wp_get_attachment_url($attachmentId);
+        if ($attachmentUrl !== '') {
+            return $attachmentUrl;
+        }
+    }
+
     $url = (string) get_post_meta($postId, '_helmetsan_logo_url', true);
     if ($url !== '') {
         return $url;
     }
 
+    $thumbUrl = (string) get_the_post_thumbnail_url($postId, 'full');
+    if ($thumbUrl !== '') {
+        return $thumbUrl;
+    }
+
     $postType = get_post_type($postId);
+    if ($postType === 'brand') {
+        $supportUrl = (string) get_post_meta($postId, 'brand_support_url', true);
+        $domain = (string) wp_parse_url($supportUrl, PHP_URL_HOST);
+        $domain = strtolower(trim($domain));
+        $domain = preg_replace('#^www\.#', '', $domain) ?? $domain;
+        if ($domain !== '') {
+            $mediaCfg = wp_parse_args((array) get_option('helmetsan_media', []), [
+                'logodev_enabled' => false,
+                'logodev_publishable_key' => '',
+                'logodev_token' => '',
+            ]);
+            if (! empty($mediaCfg['logodev_enabled'])) {
+                $token = (string) ($mediaCfg['logodev_publishable_key'] ?? '');
+                if ($token === '') {
+                    $token = (string) ($mediaCfg['logodev_token'] ?? '');
+                }
+                $fallback = 'https://img.logo.dev/' . rawurlencode($domain);
+                if ($token !== '') {
+                    $fallback = add_query_arg(['token' => $token], $fallback);
+                }
+                return (string) $fallback;
+            }
+        }
+    }
+
     if ($postType === 'helmet') {
         $brandId = helmetsan_get_brand_id($postId);
         if ($brandId > 0) {
