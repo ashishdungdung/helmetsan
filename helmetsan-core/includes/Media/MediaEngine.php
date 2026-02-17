@@ -149,6 +149,8 @@ final class MediaEngine
                 echo '</article>';
             }
             echo '</div>';
+        } elseif ($name !== '' || $domain !== '') {
+            echo '<div class="notice notice-warning"><p>No logo candidates found for the selected provider/input. Try setting a domain (e.g. brand.com) and retry.</p></div>';
         }
         echo '</div>';
     }
@@ -375,36 +377,42 @@ final class MediaEngine
         $out = [];
         $slug = sanitize_title($name);
         if (($provider === 'all' || $provider === 'simpleicons') && ! empty($cfg['simpleicons_enabled']) && $slug !== '') {
-            $out[] = [
-                'provider' => 'simpleicons',
-                'label' => 'Simple Icons',
-                'url' => 'https://cdn.simpleicons.org/' . rawurlencode($slug),
-            ];
+            $simple = $this->buildSimpleIconCandidates($name);
+            $out = array_merge($out, $simple);
         }
 
-        $normDomain = strtolower(trim($domain));
-        $normDomain = preg_replace('#^https?://#', '', $normDomain ?? '');
-        $normDomain = trim((string) $normDomain, '/');
+        $domains = $this->domainCandidates($domain, $name);
 
-        if (($provider === 'all' || $provider === 'logodev') && ! empty($cfg['logodev_enabled']) && $normDomain !== '') {
-            $url = 'https://img.logo.dev/' . rawurlencode($normDomain);
+        if (($provider === 'all' || $provider === 'logodev') && ! empty($cfg['logodev_enabled']) && $domains !== []) {
             $token = isset($cfg['logodev_publishable_key']) ? (string) $cfg['logodev_publishable_key'] : '';
             if ($token === '') {
                 $token = isset($cfg['logodev_token']) ? (string) $cfg['logodev_token'] : '';
             }
-            if ($token !== '') {
-                $url = add_query_arg(['token' => $token], $url);
+            foreach ($domains as $d) {
+                $url = 'https://img.logo.dev/' . rawurlencode($d);
+                if ($token !== '') {
+                    $url = add_query_arg(['token' => $token], $url);
+                }
+                if (! $this->urlIsReachableImage($url)) {
+                    continue;
+                }
+                $out[] = [
+                    'provider' => 'logodev',
+                    'label' => 'Logo.dev (' . $d . ')',
+                    'url' => $url,
+                ];
+                break;
             }
-            $out[] = [
-                'provider' => 'logodev',
-                'label' => 'Logo.dev',
-                'url' => $url,
-            ];
         }
 
-        if (($provider === 'all' || $provider === 'brandfetch') && ! empty($cfg['brandfetch_enabled']) && $normDomain !== '') {
-            $brandfetch = $this->fetchBrandfetch($normDomain, (string) ($cfg['brandfetch_token'] ?? ''));
-            $out = array_merge($out, $brandfetch);
+        if (($provider === 'all' || $provider === 'brandfetch') && ! empty($cfg['brandfetch_enabled']) && $domains !== []) {
+            foreach ($domains as $d) {
+                $brandfetch = $this->fetchBrandfetch($d, (string) ($cfg['brandfetch_token'] ?? ''));
+                if ($brandfetch !== []) {
+                    $out = array_merge($out, $brandfetch);
+                    break;
+                }
+            }
         }
 
         if (($provider === 'all' || $provider === 'wikimedia') && ! empty($cfg['wikimedia_enabled']) && $name !== '') {
@@ -425,6 +433,89 @@ final class MediaEngine
 
         set_transient($cacheKey, $deduped, $ttl);
         return $deduped;
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function domainCandidates(string $domain, string $name): array
+    {
+        $items = [];
+        $normDomain = strtolower(trim($domain));
+        $normDomain = (string) preg_replace('#^https?://#', '', $normDomain);
+        $normDomain = trim($normDomain, '/');
+        if ($normDomain !== '') {
+            $normDomain = preg_replace('#^www\.#', '', $normDomain) ?? $normDomain;
+            $items[] = $normDomain;
+        }
+
+        $base = strtolower(trim($name));
+        if ($base !== '') {
+            $base = str_replace(['helmet', 'helmets'], '', $base);
+            $base = preg_replace('/[^a-z0-9]+/i', '', $base) ?? $base;
+            if ($base !== '') {
+                $items[] = $base . '.com';
+            }
+        }
+
+        $items = array_values(array_unique(array_filter($items, static fn ($d): bool => is_string($d) && $d !== '')));
+        return array_slice($items, 0, 3);
+    }
+
+    /**
+     * @return array<int,array{provider:string,label:string,url:string}>
+     */
+    private function buildSimpleIconCandidates(string $name): array
+    {
+        $slugs = [];
+        $titleSlug = sanitize_title($name);
+        if ($titleSlug !== '') {
+            $slugs[] = $titleSlug;
+            $slugs[] = str_replace('-', '', $titleSlug);
+        }
+        $raw = strtolower(trim($name));
+        $raw = preg_replace('/[^a-z0-9]+/i', '', $raw) ?? $raw;
+        if ($raw !== '') {
+            $slugs[] = $raw;
+        }
+        $slugs = array_values(array_unique(array_filter($slugs)));
+
+        $out = [];
+        foreach ($slugs as $slug) {
+            $url = 'https://cdn.simpleicons.org/' . rawurlencode($slug);
+            if (! $this->urlIsReachableImage($url)) {
+                continue;
+            }
+            $out[] = [
+                'provider' => 'simpleicons',
+                'label' => 'Simple Icons (' . $slug . ')',
+                'url' => $url,
+            ];
+            break;
+        }
+
+        return $out;
+    }
+
+    private function urlIsReachableImage(string $url): bool
+    {
+        if ($url === '') {
+            return false;
+        }
+
+        $resp = wp_remote_head($url, ['timeout' => 6]);
+        if (is_wp_error($resp)) {
+            return false;
+        }
+        $code = (int) wp_remote_retrieve_response_code($resp);
+        if ($code < 200 || $code > 299) {
+            return false;
+        }
+        $ctype = (string) wp_remote_retrieve_header($resp, 'content-type');
+        if ($ctype === '') {
+            return true;
+        }
+        return str_contains(strtolower($ctype), 'image') || str_contains(strtolower($ctype), 'svg');
     }
 
     /**
