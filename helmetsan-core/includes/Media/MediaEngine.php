@@ -74,6 +74,8 @@ final class MediaEngine
         $provider = isset($_GET['provider']) ? sanitize_key((string) $_GET['provider']) : 'all';
         $postId = isset($_GET['post_id']) ? (int) $_GET['post_id'] : 0;
         $saved  = isset($_GET['saved']) ? (int) $_GET['saved'] : 0;
+        $imported = isset($_GET['imported']) ? (int) $_GET['imported'] : 0;
+        $assigned = isset($_GET['assigned']) ? (int) $_GET['assigned'] : 0;
 
         $candidates = [];
         if ($name !== '' || $domain !== '') {
@@ -84,6 +86,12 @@ final class MediaEngine
         echo '<h1>Media Engine</h1>';
         if ($saved === 1) {
             echo '<div class="notice notice-success is-dismissible"><p>Logo saved successfully.</p></div>';
+        }
+        if ($imported === 1) {
+            echo '<div class="notice notice-success is-dismissible"><p>Logo imported to Media Library successfully.</p></div>';
+        }
+        if ($assigned === 1) {
+            echo '<div class="notice notice-success is-dismissible"><p>Logo assigned to post successfully.</p></div>';
         }
         echo '<p>Resolve logos from Simple Icons, Brandfetch, Logo.dev, and Wikimedia. Apply selected logo to any post/page/CPT.</p>';
 
@@ -125,18 +133,19 @@ final class MediaEngine
                 echo '<img src="' . esc_url($url) . '" alt="' . esc_attr($label) . '" style="max-height:64px;max-width:100%;object-fit:contain;" />';
                 echo '</div>';
                 echo '<p><a class="hs-link" href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">Open source URL</a></p>';
-                if ($postId > 0) {
-                    echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
-                    wp_nonce_field('helmetsan_media_apply_logo', 'helmetsan_media_nonce');
-                    echo '<input type="hidden" name="action" value="helmetsan_media_apply_logo" />';
-                    echo '<input type="hidden" name="post_id" value="' . esc_attr((string) $postId) . '" />';
-                    echo '<input type="hidden" name="logo_url" value="' . esc_attr($url) . '" />';
-                    echo '<input type="hidden" name="provider" value="' . esc_attr($provider) . '" />';
-                    echo '<input type="hidden" name="sideload" value="' . esc_attr(! empty($this->config->mediaConfig()['auto_sideload_enabled']) ? '1' : '0') . '" />';
-                    echo '<input type="hidden" name="return" value="' . esc_attr((string) wp_get_referer()) . '" />';
-                    submit_button('Use for Post #' . $postId, 'small', '', false);
-                    echo '</form>';
-                }
+                echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+                wp_nonce_field('helmetsan_media_apply_logo', 'helmetsan_media_nonce');
+                echo '<input type="hidden" name="action" value="helmetsan_media_apply_logo" />';
+                echo '<input type="hidden" name="logo_url" value="' . esc_attr($url) . '" />';
+                echo '<input type="hidden" name="provider" value="' . esc_attr($provider) . '" />';
+                echo '<input type="hidden" name="return" value="' . esc_attr((string) wp_get_referer()) . '" />';
+                echo '<p><label for="hs_apply_post_' . esc_attr((string) md5($url)) . '"><strong>Post ID</strong> (optional)</label></p>';
+                echo '<input id="hs_apply_post_' . esc_attr((string) md5($url)) . '" type="number" min="1" class="small-text" name="post_id" value="' . esc_attr($postId > 0 ? (string) $postId : '') . '" />';
+                $defaultSideload = ! empty($this->config->mediaConfig()['auto_sideload_enabled']);
+                echo '<p><label><input type="checkbox" name="sideload" value="1" ' . checked($defaultSideload, true, false) . ' /> Import to Media Library</label></p>';
+                echo '<p><label><input type="checkbox" name="assign" value="1" ' . checked($postId > 0, true, false) . ' /> Assign to post (if Post ID provided)</label></p>';
+                submit_button('Import Selected Logo', 'small', '', false);
+                echo '</form>';
                 echo '</article>';
             }
             echo '</div>';
@@ -270,36 +279,43 @@ final class MediaEngine
         $url = isset($_POST['logo_url']) ? esc_url_raw((string) $_POST['logo_url']) : '';
         $provider = isset($_POST['provider']) ? sanitize_text_field((string) $_POST['provider']) : '';
         $sideload = isset($_POST['sideload']) && (int) $_POST['sideload'] === 1;
-        if ($postId > 0 && $url !== '') {
-            if (! current_user_can('edit_post', $postId)) {
+        $assign = isset($_POST['assign']) && (int) $_POST['assign'] === 1;
+        $didImport = false;
+        $didAssign = false;
+
+        if ($url !== '') {
+            if ($assign && $postId > 0 && ! current_user_can('edit_post', $postId)) {
                 wp_die('Unauthorized post access');
             }
 
             $finalUrl = $url;
             $attachmentId = 0;
-            $cfg = $this->config->mediaConfig();
-            if ($sideload && ! empty($cfg['auto_sideload_enabled'])) {
-                $media = $this->sideloadToMediaLibrary($url, $postId);
+            if ($sideload) {
+                $media = $this->sideloadToMediaLibrary($url, $postId > 0 ? $postId : 0);
                 if (! empty($media['url'])) {
                     $finalUrl = (string) $media['url'];
+                    $didImport = true;
                 }
                 if (! empty($media['attachment_id'])) {
                     $attachmentId = (int) $media['attachment_id'];
                 }
             }
 
-            update_post_meta($postId, '_helmetsan_logo_url', $finalUrl);
-            update_post_meta($postId, '_helmetsan_logo_provider', $provider !== '' ? $provider : 'media-engine');
-            if ($attachmentId > 0) {
-                update_post_meta($postId, '_helmetsan_logo_attachment_id', $attachmentId);
+            if ($assign && $postId > 0) {
+                update_post_meta($postId, '_helmetsan_logo_url', $finalUrl);
+                update_post_meta($postId, '_helmetsan_logo_provider', $provider !== '' ? $provider : 'media-engine');
+                if ($attachmentId > 0) {
+                    update_post_meta($postId, '_helmetsan_logo_attachment_id', $attachmentId);
+                }
+                $didAssign = true;
             }
         }
 
         $return = isset($_POST['return']) ? esc_url_raw((string) $_POST['return']) : '';
         if ($return === '') {
-            $return = add_query_arg(['page' => 'helmetsan-media-engine', 'saved' => 1], admin_url('admin.php'));
+            $return = add_query_arg(['page' => 'helmetsan-media-engine', 'saved' => $didAssign ? 1 : 0, 'imported' => $didImport ? 1 : 0, 'assigned' => $didAssign ? 1 : 0], admin_url('admin.php'));
         } else {
-            $return = add_query_arg(['saved' => 1], $return);
+            $return = add_query_arg(['saved' => $didAssign ? 1 : 0, 'imported' => $didImport ? 1 : 0, 'assigned' => $didAssign ? 1 : 0], $return);
         }
         wp_safe_redirect($return);
         exit;
