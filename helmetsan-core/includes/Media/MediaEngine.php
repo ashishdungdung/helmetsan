@@ -557,6 +557,114 @@ final class MediaEngine
     }
 
     /**
+     * @return array<string,mixed>
+     */
+    public function backfillBrandLogos(int $limit = 0, bool $force = false, bool $dryRun = false): array
+    {
+        $queryArgs = [
+            'post_type' => 'brand',
+            'post_status' => ['publish', 'draft', 'pending', 'private'],
+            'posts_per_page' => $limit > 0 ? $limit : -1,
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'fields' => 'ids',
+        ];
+        $q = new \WP_Query($queryArgs);
+        $ids = is_array($q->posts) ? $q->posts : [];
+        wp_reset_postdata();
+
+        $processed = 0;
+        $imported = 0;
+        $updated = 0;
+        $skipped = 0;
+        $failed = 0;
+        $details = [];
+
+        foreach ($ids as $idRaw) {
+            $brandId = (int) $idRaw;
+            if ($brandId <= 0) {
+                continue;
+            }
+            $processed++;
+
+            $existingAttachmentId = (int) get_post_meta($brandId, '_helmetsan_logo_attachment_id', true);
+            $existingUrl = (string) get_post_meta($brandId, '_helmetsan_logo_url', true);
+            if (! $force && $existingAttachmentId > 0 && $existingUrl !== '') {
+                $skipped++;
+                $details[] = ['brand_id' => $brandId, 'status' => 'skipped', 'reason' => 'already_bound'];
+                continue;
+            }
+
+            $sourceUrl = $existingUrl;
+            if ($sourceUrl === '') {
+                $supportUrl = (string) get_post_meta($brandId, 'brand_support_url', true);
+                $domain = (string) wp_parse_url($supportUrl, PHP_URL_HOST);
+                $domain = strtolower(trim($domain));
+                $domain = preg_replace('#^www\.#', '', $domain) ?? $domain;
+                if ($domain !== '') {
+                    $cfg = $this->config->mediaConfig();
+                    $token = isset($cfg['logodev_publishable_key']) ? (string) $cfg['logodev_publishable_key'] : '';
+                    if ($token === '') {
+                        $token = isset($cfg['logodev_token']) ? (string) $cfg['logodev_token'] : '';
+                    }
+                    $sourceUrl = 'https://img.logo.dev/' . rawurlencode($domain);
+                    if ($token !== '') {
+                        $sourceUrl = (string) add_query_arg(['token' => $token], $sourceUrl);
+                    }
+                }
+            }
+
+            if ($sourceUrl === '') {
+                $failed++;
+                $details[] = ['brand_id' => $brandId, 'status' => 'failed', 'reason' => 'no_source_url'];
+                continue;
+            }
+
+            if ($dryRun) {
+                $details[] = ['brand_id' => $brandId, 'status' => 'dry-run', 'source' => $sourceUrl];
+                continue;
+            }
+
+            $result = $this->sideloadToMediaLibrary($sourceUrl, $brandId, 'brand-backfill');
+            $attachmentId = (int) ($result['attachment_id'] ?? 0);
+            $finalUrl = (string) ($result['url'] ?? '');
+            if ($attachmentId <= 0 || $finalUrl === '') {
+                $failed++;
+                $details[] = ['brand_id' => $brandId, 'status' => 'failed', 'reason' => 'import_failed'];
+                continue;
+            }
+
+            update_post_meta($brandId, '_helmetsan_logo_attachment_id', $attachmentId);
+            update_post_meta($brandId, '_helmetsan_logo_url', $finalUrl);
+            update_post_meta($brandId, '_helmetsan_logo_provider', 'media-library');
+            $updated++;
+
+            if ($existingAttachmentId !== $attachmentId) {
+                $imported++;
+            }
+
+            $details[] = [
+                'brand_id' => $brandId,
+                'status' => 'ok',
+                'attachment_id' => $attachmentId,
+                'url' => $finalUrl,
+            ];
+        }
+
+        return [
+            'ok' => true,
+            'processed' => $processed,
+            'updated' => $updated,
+            'imported' => $imported,
+            'skipped' => $skipped,
+            'failed' => $failed,
+            'dry_run' => $dryRun,
+            'force' => $force,
+            'details' => $details,
+        ];
+    }
+
+    /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
     public function resolveCandidates(string $name, string $domain = '', string $entity = 'brand', string $provider = 'all', ?array &$diagnostics = null): array

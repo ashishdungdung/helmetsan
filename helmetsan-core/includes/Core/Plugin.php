@@ -174,7 +174,8 @@ final class Plugin
                 $this->analyticsEvents,
                 $this->scheduler,
                 $this->alerts,
-                $this->brands
+                $this->brands,
+                $this->mediaEngine
             ))->register();
         }
     }

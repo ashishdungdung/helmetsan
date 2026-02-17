@@ -15,6 +15,7 @@ use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\ImportExport\ExportService;
 use Helmetsan\Core\ImportExport\ImportService;
+use Helmetsan\Core\Media\MediaEngine;
 use Helmetsan\Core\Revenue\RevenueService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
@@ -43,7 +44,8 @@ final class Commands
         private readonly EventRepository $analyticsEvents,
         private readonly SchedulerService $scheduler,
         private readonly AlertService $alerts,
-        private readonly BrandService $brands
+        private readonly BrandService $brands,
+        private readonly MediaEngine $media
     ) {
     }
 
@@ -71,6 +73,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan scheduler run', [$this, 'schedulerRun']);
         \WP_CLI::add_command('helmetsan alerts test', [$this, 'alertsTest']);
         \WP_CLI::add_command('helmetsan brand cascade', [$this, 'brandCascade']);
+        \WP_CLI::add_command('helmetsan media backfill-brand-logos', [$this, 'mediaBackfillBrandLogos']);
     }
 
     /**
@@ -722,6 +725,27 @@ final class Commands
             'total_updated_helmets' => $totalUpdated,
             'runs' => $results,
         ], JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Backfill brand logos into Media Library and bind them on brand posts.
+     *
+     * ## OPTIONS
+     * [--limit=<n>]
+     * : Process first N brand posts.
+     * [--force]
+     * : Re-import and overwrite even if logo meta already exists.
+     * [--dry-run]
+     * : Simulate only.
+     */
+    public function mediaBackfillBrandLogos(array $args, array $assoc): void
+    {
+        $limit = isset($assoc['limit']) ? max(1, (int) $assoc['limit']) : 0;
+        $force = isset($assoc['force']);
+        $dryRun = isset($assoc['dry-run']);
+
+        $result = $this->media->backfillBrandLogos($limit, $force, $dryRun);
+        \WP_CLI::line(wp_json_encode($result, JSON_PRETTY_PRINT));
     }
 
     private function renderAssoc(array $assoc, string $format): void
