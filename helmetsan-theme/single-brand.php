@@ -16,6 +16,9 @@ if (have_posts()) {
         $warranty = (string) get_post_meta($brandId, 'brand_warranty_terms', true);
         $supportUrl = (string) get_post_meta($brandId, 'brand_support_url', true);
         $supportEmail = (string) get_post_meta($brandId, 'brand_support_email', true);
+        $totalModels = (string) get_post_meta($brandId, 'brand_total_models', true);
+        $helmetTypes = (string) get_post_meta($brandId, 'brand_helmet_types', true);
+        $certCoverage = (string) get_post_meta($brandId, 'brand_certification_coverage', true);
 
         $helmets = new WP_Query([
             'post_type' => 'helmet',
@@ -39,12 +42,19 @@ if (have_posts()) {
                 <article class="hs-stat-card"><span>Origin</span><strong><?php echo esc_html($origin !== '' ? $origin : 'N/A'); ?></strong></article>
                 <article class="hs-stat-card"><span>Warranty</span><strong><?php echo esc_html($warranty !== '' ? $warranty : 'N/A'); ?></strong></article>
                 <article class="hs-stat-card"><span>Support</span><strong><?php echo esc_html($supportEmail !== '' ? $supportEmail : 'N/A'); ?></strong></article>
+                <article class="hs-stat-card"><span>Total Models</span><strong><?php echo esc_html($totalModels !== '' ? $totalModels : 'N/A'); ?></strong></article>
             </section>
 
             <div class="hs-panel">
                 <?php the_content(); ?>
                 <?php if ($supportUrl !== '') : ?>
                     <p><a class="hs-link" href="<?php echo esc_url($supportUrl); ?>" target="_blank" rel="noopener noreferrer">Official support</a></p>
+                <?php endif; ?>
+                <?php if ($helmetTypes !== '') : ?>
+                    <p><strong>Helmet Types:</strong> <?php echo esc_html($helmetTypes); ?></p>
+                <?php endif; ?>
+                <?php if ($certCoverage !== '') : ?>
+                    <p><strong>Certification Coverage:</strong> <?php echo esc_html($certCoverage); ?></p>
                 <?php endif; ?>
             </div>
 
