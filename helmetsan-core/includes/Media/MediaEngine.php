@@ -591,10 +591,6 @@ final class MediaEngine
      */
     public function allowSvgMime(array $mimes): array
     {
-        if (! current_user_can('upload_files')) {
-            return $mimes;
-        }
-
         $mimes['svg'] = 'image/svg+xml';
         $mimes['svgz'] = 'image/svg+xml';
         return $mimes;
@@ -609,9 +605,6 @@ final class MediaEngine
     {
         $ext = strtolower((string) pathinfo($filename, PATHINFO_EXTENSION));
         if (! in_array($ext, ['svg', 'svgz'], true)) {
-            return $data;
-        }
-        if (! current_user_can('upload_files')) {
             return $data;
         }
 
