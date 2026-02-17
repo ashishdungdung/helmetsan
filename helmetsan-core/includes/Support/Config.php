@@ -12,6 +12,7 @@ final class Config
     public const OPTION_REVENUE   = 'helmetsan_revenue';
     public const OPTION_SCHEDULER = 'helmetsan_scheduler';
     public const OPTION_ALERTS    = 'helmetsan_alerts';
+    public const OPTION_MEDIA     = 'helmetsan_media';
 
     public function analyticsDefaults(): array
     {
@@ -119,6 +120,21 @@ final class Config
         ];
     }
 
+    public function mediaDefaults(): array
+    {
+        return [
+            'enable_media_engine'   => true,
+            'simpleicons_enabled'   => true,
+            'brandfetch_enabled'    => true,
+            'brandfetch_token'      => '',
+            'logodev_enabled'       => true,
+            'logodev_token'         => '',
+            'wikimedia_enabled'     => true,
+            'cache_ttl_hours'       => 12,
+            'auto_sideload_enabled' => false,
+        ];
+    }
+
     /**
      * @return array<string,mixed>
      */
@@ -168,6 +184,24 @@ final class Config
         }
         if (defined('HELMETSAN_GITHUB_REMOTE_PATH') && HELMETSAN_GITHUB_REMOTE_PATH !== '') {
             $cfg['remote_path'] = (string) HELMETSAN_GITHUB_REMOTE_PATH;
+        }
+
+        return $cfg;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function mediaConfig(): array
+    {
+        $saved = get_option(self::OPTION_MEDIA, []);
+        $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->mediaDefaults());
+
+        if (defined('HELMETSAN_BRANDFETCH_TOKEN') && HELMETSAN_BRANDFETCH_TOKEN !== '') {
+            $cfg['brandfetch_token'] = (string) HELMETSAN_BRANDFETCH_TOKEN;
+        }
+        if (defined('HELMETSAN_LOGODEV_TOKEN') && HELMETSAN_LOGODEV_TOKEN !== '') {
+            $cfg['logodev_token'] = (string) HELMETSAN_LOGODEV_TOKEN;
         }
 
         return $cfg;

@@ -11,6 +11,7 @@ if (! defined('ABSPATH')) {
 
 $postId = get_the_ID();
 $type   = get_post_type($postId);
+$logoUrl = helmetsan_get_logo_url($postId);
 $metaA  = '';
 $metaB  = '';
 
@@ -29,6 +30,11 @@ if ($type === 'brand') {
 }
 ?>
 <article <?php post_class('hs-panel entity-card'); ?>>
+    <?php if ($logoUrl !== '') : ?>
+        <div class="entity-card__logo-wrap">
+            <img class="entity-card__logo" src="<?php echo esc_url($logoUrl); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" />
+        </div>
+    <?php endif; ?>
     <h3 class="entity-card__title"><a class="hs-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     <?php if (has_excerpt()) : ?>
         <p class="entity-card__excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
@@ -42,4 +48,3 @@ if ($type === 'brand') {
         <?php endif; ?>
     </div>
 </article>
-

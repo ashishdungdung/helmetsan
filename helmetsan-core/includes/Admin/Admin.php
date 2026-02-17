@@ -116,6 +116,7 @@ final class Admin
             'helmetsan-dashboard' => 'Discover',
             'helmetsan-catalog' => 'Catalog',
             'helmetsan-brands' => 'Brands',
+            'helmetsan-media-engine' => 'Media',
             'helmetsan-sync-logs' => 'Sync',
             'helmetsan-analytics' => 'Analytics',
             'helmetsan-go-live' => 'Go Live',
@@ -199,6 +200,12 @@ final class Admin
             'type'              => 'array',
             'sanitize_callback' => [$this, 'sanitizeAlerts'],
             'default'           => $this->config->alertsDefaults(),
+        ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_MEDIA, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeMedia'],
+            'default'           => $this->config->mediaDefaults(),
         ]);
     }
 
@@ -314,6 +321,31 @@ final class Admin
         $merged['to_email'] = sanitize_email((string) $merged['to_email']);
         $merged['subject_prefix'] = sanitize_text_field((string) $merged['subject_prefix']);
         $merged['slack_webhook_url'] = esc_url_raw((string) $merged['slack_webhook_url']);
+
+        return $merged;
+    }
+
+    public function sanitizeMedia($value): array
+    {
+        $defaults = $this->config->mediaDefaults();
+        $value    = is_array($value) ? $value : [];
+        $merged   = wp_parse_args($value, $defaults);
+
+        $bools = [
+            'enable_media_engine',
+            'simpleicons_enabled',
+            'brandfetch_enabled',
+            'logodev_enabled',
+            'wikimedia_enabled',
+            'auto_sideload_enabled',
+        ];
+        foreach ($bools as $key) {
+            $merged[$key] = ! empty($merged[$key]);
+        }
+
+        $merged['brandfetch_token'] = sanitize_text_field((string) $merged['brandfetch_token']);
+        $merged['logodev_token'] = sanitize_text_field((string) $merged['logodev_token']);
+        $merged['cache_ttl_hours'] = max(1, (int) $merged['cache_ttl_hours']);
 
         return $merged;
     }
@@ -1433,6 +1465,7 @@ final class Admin
         $revenue = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $this->config->revenueDefaults());
         $scheduler = wp_parse_args((array) get_option(Config::OPTION_SCHEDULER, []), $this->config->schedulerDefaults());
         $alerts = wp_parse_args((array) get_option(Config::OPTION_ALERTS, []), $this->config->alertsDefaults());
+        $media = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $this->config->mediaDefaults());
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Settings', 'Runtime configuration for sync, analytics, scheduler, and alerts.');
@@ -1513,6 +1546,20 @@ final class Admin
             } else {
                 $type = ($key === 'slack_webhook_url') ? 'url' : 'text';
                 echo '<input type="' . esc_attr($type) . '" class="regular-text" id="alt_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_ALERTS) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+        echo '<h2>Media Engine</h2>';
+        echo '<table class="form-table"><tbody>';
+        foreach ($media as $key => $current) {
+            echo '<tr><th><label for="med_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
+            if (is_bool($current)) {
+                echo '<input type="checkbox" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
+            } else {
+                $type = str_contains($key, 'token') ? 'password' : 'text';
+                $class = $key === 'cache_ttl_hours' ? 'small-text' : 'regular-text';
+                echo '<input type="' . esc_attr($type) . '" class="' . esc_attr($class) . '" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
             }
             echo '</td></tr>';
         }

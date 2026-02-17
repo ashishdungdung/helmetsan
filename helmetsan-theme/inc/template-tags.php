@@ -77,3 +77,21 @@ function helmetsan_get_certifications(int $helmetId): string
     $names = array_map(static fn ($term): string => (string) $term->name, $terms);
     return implode(', ', $names);
 }
+
+function helmetsan_get_logo_url(int $postId): string
+{
+    $url = (string) get_post_meta($postId, '_helmetsan_logo_url', true);
+    if ($url !== '') {
+        return $url;
+    }
+
+    $postType = get_post_type($postId);
+    if ($postType === 'helmet') {
+        $brandId = helmetsan_get_brand_id($postId);
+        if ($brandId > 0) {
+            return (string) get_post_meta($brandId, '_helmetsan_logo_url', true);
+        }
+    }
+
+    return '';
+}

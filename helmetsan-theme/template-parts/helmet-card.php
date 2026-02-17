@@ -7,8 +7,14 @@
 $helmetId = get_the_ID();
 $price = helmetsan_get_helmet_price($helmetId);
 $certs = helmetsan_get_certifications($helmetId);
+$logoUrl = helmetsan_get_logo_url($helmetId);
 ?>
 <article <?php post_class('helmet-card hs-panel'); ?>>
+    <?php if ($logoUrl !== '') : ?>
+        <div class="entity-card__logo-wrap">
+            <img class="entity-card__logo" src="<?php echo esc_url($logoUrl); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" />
+        </div>
+    <?php endif; ?>
     <a href="<?php the_permalink(); ?>" class="helmet-card__link">
         <?php if (has_post_thumbnail()) : ?>
             <div class="helmet-card__image"><?php the_post_thumbnail('medium_large'); ?></div>

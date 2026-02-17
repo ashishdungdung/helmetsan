@@ -21,6 +21,7 @@ use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\ImportExport\ExportService;
 use Helmetsan\Core\ImportExport\ImportService;
+use Helmetsan\Core\Media\MediaEngine;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Revenue\RevenueService;
@@ -64,6 +65,7 @@ final class Plugin
     private AccessoryService $accessories;
     private MotorcycleService $motorcycles;
     private SafetyStandardService $safetyStandards;
+    private MediaEngine $mediaEngine;
 
     public function __construct()
     {
@@ -80,6 +82,7 @@ final class Plugin
         $this->accessories = new AccessoryService();
         $this->motorcycles = new MotorcycleService();
         $this->safetyStandards = new SafetyStandardService();
+        $this->mediaEngine = new MediaEngine($this->config);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -125,6 +128,7 @@ final class Plugin
     {
         (new Registrar())->register();
         $this->brands->register();
+        $this->mediaEngine->register();
 
         (new Admin(
             $this->health,

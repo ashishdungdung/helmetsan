@@ -16,6 +16,7 @@ if (have_posts()) {
         $warranty = (string) get_post_meta($brandId, 'brand_warranty_terms', true);
         $supportUrl = (string) get_post_meta($brandId, 'brand_support_url', true);
         $supportEmail = (string) get_post_meta($brandId, 'brand_support_email', true);
+        $logoUrl = helmetsan_get_logo_url($brandId);
         $totalModels = (string) get_post_meta($brandId, 'brand_total_models', true);
         $helmetTypes = (string) get_post_meta($brandId, 'brand_helmet_types', true);
         $certCoverage = (string) get_post_meta($brandId, 'brand_certification_coverage', true);
@@ -35,6 +36,9 @@ if (have_posts()) {
         <article <?php post_class('brand-single hs-section'); ?>>
             <header class="hs-section__head">
                 <p class="hs-eyebrow">Brand Profile</p>
+                <?php if ($logoUrl !== '') : ?>
+                    <p><img class="entity-card__logo" src="<?php echo esc_url($logoUrl); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" /></p>
+                <?php endif; ?>
                 <h1><?php the_title(); ?></h1>
             </header>
 
