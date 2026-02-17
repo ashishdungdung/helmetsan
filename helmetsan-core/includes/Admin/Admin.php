@@ -140,6 +140,35 @@ final class Admin
         echo '</div>';
     }
 
+    /**
+     * @param array<int,array{label:string,value:string,page:string}> $cards
+     */
+    private function renderMetricCards(array $cards): void
+    {
+        echo '<div class="hs-card-grid">';
+        foreach ($cards as $card) {
+            $url = add_query_arg(['page' => $card['page']], admin_url('admin.php'));
+            echo '<a class="hs-card" href="' . esc_url($url) . '">';
+            echo '<span class="hs-card-label">' . esc_html($card['label']) . '</span>';
+            echo '<strong class="hs-card-value">' . esc_html($card['value']) . '</strong>';
+            echo '</a>';
+        }
+        echo '</div>';
+    }
+
+    private function renderStatusPill(string $text, bool $ok): string
+    {
+        $class = $ok ? 'hs-pill hs-pill--ok' : 'hs-pill hs-pill--fail';
+        return '<span class="' . esc_attr($class) . '">' . esc_html($text) . '</span>';
+    }
+
+    private function renderScoreBar(int $score): string
+    {
+        $safeScore = max(0, min(100, $score));
+        $class = $safeScore >= 80 ? 'hs-scorebar hs-scorebar--ok' : 'hs-scorebar hs-scorebar--warn';
+        return '<div class="' . esc_attr($class) . '"><span style="width:' . esc_attr((string) $safeScore) . '%;"></span></div>';
+    }
+
     public function registerSettings(): void
     {
         register_setting('helmetsan_settings', Config::OPTION_ANALYTICS, [
@@ -292,27 +321,70 @@ final class Admin
     public function dashboardPage(): void
     {
         $report = $this->health->report();
+        $goLive = $this->checklist->report();
+        $syncRows = $this->syncLogs->tableExists() ? $this->syncLogs->fetch(1, 5, 'all', 'all', '') : [];
+        $repoStatus = (string) ($report['status'] ?? 'unknown');
+
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Helmetsan', 'Mission control for repository, sync, analytics, and go-live readiness.');
+
+        echo '<section class="hs-hero">';
+        echo '<div class="hs-hero__meta">';
+        echo '<p class="hs-eyebrow">Control Center</p>';
+        echo '<h2>Repository and commerce operations at a glance</h2>';
+        echo '<p>Manage CPT integrity, ingestion quality, sync execution, and launch readiness from one interface.</p>';
+        echo '</div>';
+        echo '<div class="hs-hero__status">';
+        echo '<p><strong>Repo Health:</strong> ' . wp_kses_post($this->renderStatusPill(strtoupper($repoStatus), $repoStatus === 'healthy')) . '</p>';
+        echo '<p><strong>Go Live:</strong> ' . wp_kses_post($this->renderStatusPill(! empty($goLive['pass']) ? 'PASS' : 'FAIL', ! empty($goLive['pass']))) . '</p>';
+        echo '<p><strong>Score:</strong> ' . esc_html((string) ((int) ($goLive['score'] ?? 0))) . '/100</p>';
+        echo wp_kses_post($this->renderScoreBar((int) ($goLive['score'] ?? 0)));
+        echo '</div>';
+        echo '</section>';
+
         $cards = [
-            ['label' => 'Status', 'value' => (string) ($report['status'] ?? 'unknown'), 'page' => 'helmetsan-repo-health'],
+            ['label' => 'Status', 'value' => $repoStatus, 'page' => 'helmetsan-repo-health'],
             ['label' => 'Helmets', 'value' => (string) ($report['database']['cpt_helmet_rows'] ?? 0), 'page' => 'helmetsan-catalog'],
             ['label' => 'Brands', 'value' => (string) ($report['database']['cpt_brand_rows'] ?? 0), 'page' => 'helmetsan-brands'],
             ['label' => 'Sync Logs', 'value' => (string) ($report['sync_logs']['rows'] ?? 0), 'page' => 'helmetsan-sync-logs'],
             ['label' => 'Analytics Events', 'value' => (string) ($report['analytics_events']['rows'] ?? 0), 'page' => 'helmetsan-analytics'],
-            ['label' => 'Go-Live Score', 'value' => (string) ((int) ($this->checklist->report()['score'] ?? 0)) . '/100', 'page' => 'helmetsan-go-live'],
+            ['label' => 'Go-Live Score', 'value' => (string) ((int) ($goLive['score'] ?? 0)) . '/100', 'page' => 'helmetsan-go-live'],
         ];
-        echo '<div class="hs-card-grid">';
-        foreach ($cards as $card) {
-            $url = add_query_arg(['page' => $card['page']], admin_url('admin.php'));
-            echo '<a class="hs-card" href="' . esc_url($url) . '">';
-            echo '<span class="hs-card-label">' . esc_html($card['label']) . '</span>';
-            echo '<strong class="hs-card-value">' . esc_html($card['value']) . '</strong>';
-            echo '</a>';
+        $this->renderMetricCards($cards);
+
+        echo '<div class="hs-grid hs-grid--2">';
+        echo '<div class="hs-panel">';
+        echo '<h3>Quick Actions</h3>';
+        echo '<div class="hs-action-row">';
+        echo '<a class="button button-primary" href="' . esc_url(add_query_arg(['page' => 'helmetsan-sync-logs'], admin_url('admin.php'))) . '">Run/Review Sync</a>';
+        echo '<a class="button" href="' . esc_url(add_query_arg(['page' => 'helmetsan-catalog'], admin_url('admin.php'))) . '">Open Catalog</a>';
+        echo '<a class="button" href="' . esc_url(add_query_arg(['page' => 'helmetsan-go-live'], admin_url('admin.php'))) . '">Open Go Live</a>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Recent Sync Activity</h3>';
+        if ($syncRows === []) {
+            echo '<p>No sync activity logged yet.</p>';
+        } else {
+            echo '<table class="widefat striped hs-table-compact"><thead><tr><th>Time</th><th>Action</th><th>Status</th><th>Message</th></tr></thead><tbody>';
+            foreach ($syncRows as $row) {
+                $rowStatus = (string) ($row['status'] ?? 'info');
+                $ok = in_array($rowStatus, ['success', 'info'], true);
+                echo '<tr>';
+                echo '<td>' . esc_html((string) ($row['created_at'] ?? '')) . '</td>';
+                echo '<td><code>' . esc_html((string) ($row['action'] ?? '')) . '</code></td>';
+                echo '<td>' . wp_kses_post($this->renderStatusPill(strtoupper($rowStatus), $ok)) . '</td>';
+                echo '<td>' . esc_html((string) ($row['message'] ?? '')) . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
         }
         echo '</div>';
+        echo '</div>';
+
         echo '<div class="hs-panel">';
-        echo '<h2>System Snapshot</h2>';
+        echo '<h3>System Snapshot</h3>';
         echo '<pre>' . esc_html(wp_json_encode($report, JSON_PRETTY_PRINT)) . '</pre>';
         echo '</div>';
         echo '</div>';
@@ -320,9 +392,204 @@ final class Admin
 
     public function catalogPage(): void
     {
+        $search = isset($_GET['hs_search']) ? sanitize_text_field((string) $_GET['hs_search']) : '';
+        $relationFilter = isset($_GET['relation']) ? sanitize_key((string) $_GET['relation']) : 'all';
+        $allowedRelations = ['all', 'linked', 'missing_brand', 'missing_cert'];
+        if (! in_array($relationFilter, $allowedRelations, true)) {
+            $relationFilter = 'all';
+        }
+
+        $paged = isset($_GET['paged']) ? max(1, (int) $_GET['paged']) : 1;
+        $perPage = 20;
+        $args = [
+            'post_type'      => 'helmet',
+            'post_status'    => 'publish',
+            'posts_per_page' => $perPage,
+            'paged'          => $paged,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+        ];
+        if ($search !== '') {
+            $args['s'] = $search;
+        }
+
+        if ($relationFilter === 'linked') {
+            $args['meta_query'] = [
+                [
+                    'key'     => 'rel_brand',
+                    'compare' => 'EXISTS',
+                ],
+            ];
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => 'certification',
+                    'operator' => 'EXISTS',
+                ],
+            ];
+        } elseif ($relationFilter === 'missing_brand') {
+            $args['meta_query'] = [
+                'relation' => 'OR',
+                [
+                    'key'     => 'rel_brand',
+                    'compare' => 'NOT EXISTS',
+                ],
+                [
+                    'key'     => 'rel_brand',
+                    'value'   => ['', '0'],
+                    'compare' => 'IN',
+                ],
+            ];
+        } elseif ($relationFilter === 'missing_cert') {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => 'certification',
+                    'operator' => 'NOT EXISTS',
+                ],
+            ];
+        }
+
+        $helmets = new \WP_Query($args);
+
+        $counts = wp_count_posts('helmet');
+        $totalHelmets = isset($counts->publish) ? (int) $counts->publish : 0;
+        $brandLinked = (int) count(get_posts([
+            'post_type'      => 'helmet',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'meta_query'     => [
+                [
+                    'key'     => 'rel_brand',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]));
+        $certLinked = (int) count(get_posts([
+            'post_type'      => 'helmet',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'tax_query'      => [
+                [
+                    'taxonomy' => 'certification',
+                    'operator' => 'EXISTS',
+                ],
+            ],
+        ]));
+
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Catalog', 'Browse helmets and entity directories.');
-        echo '<div class="hs-panel"><p>Catalog manager scaffold ready.</p></div></div>';
+        $this->renderMetricCards([
+            ['label' => 'Total Helmets', 'value' => (string) $totalHelmets, 'page' => 'helmetsan-catalog'],
+            ['label' => 'Brand Linked', 'value' => (string) $brandLinked, 'page' => 'helmetsan-catalog'],
+            ['label' => 'Certification Linked', 'value' => (string) $certLinked, 'page' => 'helmetsan-catalog'],
+            ['label' => 'Brands Directory', 'value' => (string) (isset(wp_count_posts('brand')->publish) ? (int) wp_count_posts('brand')->publish : 0), 'page' => 'helmetsan-brands'],
+        ]);
+
+        echo '<div class="hs-panel">';
+        echo '<form method="get" class="hs-inline-form">';
+        echo '<input type="hidden" name="page" value="helmetsan-catalog" />';
+        echo '<label for="hs-search">Search</label>';
+        echo '<input id="hs-search" type="search" name="hs_search" value="' . esc_attr($search) . '" placeholder="Model, slug, or title" />';
+        echo '<label for="hs-relation">Relationship</label>';
+        echo '<select id="hs-relation" name="relation">';
+        echo '<option value="all" ' . selected($relationFilter, 'all', false) . '>All</option>';
+        echo '<option value="linked" ' . selected($relationFilter, 'linked', false) . '>Linked (brand + certification)</option>';
+        echo '<option value="missing_brand" ' . selected($relationFilter, 'missing_brand', false) . '>Missing brand</option>';
+        echo '<option value="missing_cert" ' . selected($relationFilter, 'missing_cert', false) . '>Missing certification</option>';
+        echo '</select>';
+        submit_button('Apply', 'secondary', '', false);
+        echo '</form>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Helmet</th><th>Brand</th><th>Certifications</th><th>Specs</th><th>Completeness</th><th>Actions</th></tr></thead><tbody>';
+        if (! $helmets->have_posts()) {
+            echo '<tr><td colspan="7">No helmets found for this filter.</td></tr>';
+        } else {
+            while ($helmets->have_posts()) {
+                $helmets->the_post();
+                $postId = get_the_ID();
+                $title = get_the_title();
+                $brandId = (int) get_post_meta($postId, 'rel_brand', true);
+                $brandTitle = $brandId > 0 ? get_the_title($brandId) : '';
+                $certTerms = get_the_terms($postId, 'certification');
+                $certNames = [];
+                if (is_array($certTerms)) {
+                    foreach ($certTerms as $term) {
+                        if ($term instanceof \WP_Term) {
+                            $certNames[] = $term->name;
+                        }
+                    }
+                }
+
+                $weight = (string) get_post_meta($postId, 'spec_weight_g', true);
+                $shell = (string) get_post_meta($postId, 'spec_shell_material', true);
+                $price = (string) get_post_meta($postId, 'price_retail_usd', true);
+                $specSummary = 'W:' . ($weight !== '' ? $weight . 'g' : 'n/a') . ' | S:' . ($shell !== '' ? $shell : 'n/a') . ' | $' . ($price !== '' ? $price : 'n/a');
+
+                $parts = [
+                    $brandId > 0,
+                    $certNames !== [],
+                    $weight !== '',
+                    $shell !== '',
+                    $price !== '',
+                ];
+                $present = 0;
+                foreach ($parts as $presentFlag) {
+                    if ($presentFlag) {
+                        $present++;
+                    }
+                }
+                $score = (int) round(($present / 5) * 100);
+                $scoreClass = $score >= 80 ? 'hs-pill hs-pill--ok' : 'hs-pill hs-pill--fail';
+
+                $editUrl = get_edit_post_link($postId);
+                $viewUrl = get_permalink($postId);
+
+                echo '<tr>';
+                echo '<td>' . esc_html((string) $postId) . '</td>';
+                echo '<td><strong>' . esc_html($title) . '</strong><br /><code>' . esc_html((string) get_post_field('post_name', $postId)) . '</code></td>';
+                echo '<td>' . ($brandTitle !== '' ? esc_html($brandTitle) : wp_kses_post($this->renderStatusPill('MISSING', false))) . '</td>';
+                echo '<td>' . ($certNames !== [] ? esc_html(implode(', ', $certNames)) : wp_kses_post($this->renderStatusPill('MISSING', false))) . '</td>';
+                echo '<td><code>' . esc_html($specSummary) . '</code></td>';
+                echo '<td><span class="' . esc_attr($scoreClass) . '">' . esc_html((string) $score) . '%</span></td>';
+                echo '<td>';
+                if (is_string($viewUrl)) {
+                    echo '<a class="button button-small" href="' . esc_url($viewUrl) . '" target="_blank" rel="noopener noreferrer">View</a> ';
+                }
+                if (is_string($editUrl)) {
+                    echo '<a class="button button-small" href="' . esc_url($editUrl) . '">Edit</a>';
+                }
+                echo '</td>';
+                echo '</tr>';
+            }
+            wp_reset_postdata();
+        }
+        echo '</tbody></table>';
+
+        $totalPages = (int) $helmets->max_num_pages;
+        if ($totalPages > 1) {
+            $baseUrl = add_query_arg([
+                'page' => 'helmetsan-catalog',
+                'hs_search' => $search,
+                'relation' => $relationFilter,
+                'paged' => '%#%',
+            ], admin_url('admin.php'));
+            echo '<div class="tablenav"><div class="tablenav-pages" style="margin:12px 0;">';
+            echo wp_kses_post(paginate_links([
+                'base'      => $baseUrl,
+                'format'    => '',
+                'current'   => $paged,
+                'total'     => $totalPages,
+                'type'      => 'plain',
+                'prev_text' => '&laquo;',
+                'next_text' => '&raquo;',
+            ]));
+            echo '</div></div>';
+        }
+        echo '</div>';
+        echo '</div>';
     }
 
     public function brandsPage(): void
@@ -1091,19 +1358,37 @@ final class Admin
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Go Live', 'Production readiness gate with objective launch criteria.');
-        echo '<h2>Production Readiness Gate</h2>';
-        echo '<p><strong>Score:</strong> ' . esc_html((string) $score) . '/100 (threshold: ' . esc_html((string) $threshold) . ')</p>';
-        echo '<p><strong>Status:</strong> ' . ($pass ? '<span style="color:#0a7f2e;">PASS</span>' : '<span style="color:#b32d2e;">FAIL</span>') . '</p>';
-        echo '<p><strong>Checks:</strong> passed ' . esc_html((string) ($totals['passed'] ?? 0)) . ' / failed ' . esc_html((string) ($totals['failed'] ?? 0)) . '</p>';
+        echo '<section class="hs-hero hs-hero--gate">';
+        echo '<div class="hs-hero__meta">';
+        echo '<p class="hs-eyebrow">Production Gate</p>';
+        echo '<h2>Launch decision is driven by checks, not opinion</h2>';
+        echo '<p>Critical blockers force fail regardless of score. Use this gate before enabling paid traffic or sales campaigns.</p>';
+        echo '</div>';
+        echo '<div class="hs-hero__status">';
+        echo '<p><strong>Status:</strong> ' . wp_kses_post($this->renderStatusPill($pass ? 'PASS' : 'FAIL', $pass)) . '</p>';
+        echo '<p><strong>Score:</strong> ' . esc_html((string) $score) . '/100</p>';
+        echo '<p><strong>Threshold:</strong> ' . esc_html((string) $threshold) . '</p>';
+        echo wp_kses_post($this->renderScoreBar($score));
+        echo '</div>';
+        echo '</section>';
+
+        $this->renderMetricCards([
+            ['label' => 'Checks Passed', 'value' => (string) ($totals['passed'] ?? 0), 'page' => 'helmetsan-go-live'],
+            ['label' => 'Checks Failed', 'value' => (string) ($totals['failed'] ?? 0), 'page' => 'helmetsan-go-live'],
+            ['label' => 'Critical Failures', 'value' => (string) count($criticalFailures), 'page' => 'helmetsan-go-live'],
+            ['label' => 'Score', 'value' => (string) $score . '/100', 'page' => 'helmetsan-go-live'],
+        ]);
 
         if ($criticalFailures !== []) {
-            echo '<h3>Critical Blockers</h3><ul>';
+            echo '<div class="hs-panel">';
+            echo '<h3>Critical Blockers</h3><ul class="hs-bullet-list">';
             foreach ($criticalFailures as $id) {
                 echo '<li><code>' . esc_html((string) $id) . '</code></li>';
             }
-            echo '</ul>';
+            echo '</ul></div>';
         }
 
+        echo '<div class="hs-panel">';
         echo '<h3>Gate Breakdown</h3>';
         echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Check</th><th>Critical</th><th>Weight</th><th>Status</th><th>Details</th></tr></thead><tbody>';
         foreach ($checks as $check) {
@@ -1111,16 +1396,18 @@ final class Admin
                 continue;
             }
             $isPass = ! empty($check['passed']);
+            $statusText = $isPass ? 'PASS' : 'FAIL';
             echo '<tr>';
             echo '<td><code>' . esc_html((string) ($check['id'] ?? '')) . '</code></td>';
             echo '<td>' . esc_html((string) ($check['label'] ?? '')) . '</td>';
             echo '<td>' . (! empty($check['critical']) ? 'yes' : 'no') . '</td>';
             echo '<td>' . esc_html((string) ($check['weight'] ?? 0)) . '</td>';
-            echo '<td>' . ($isPass ? '<span style="color:#0a7f2e;">PASS</span>' : '<span style="color:#b32d2e;">FAIL</span>') . '</td>';
+            echo '<td>' . wp_kses_post($this->renderStatusPill($statusText, $isPass)) . '</td>';
             echo '<td>' . esc_html((string) ($check['details'] ?? '')) . '</td>';
             echo '</tr>';
         }
         echo '</tbody></table>';
+        echo '</div>';
         echo '</div>';
     }
 
