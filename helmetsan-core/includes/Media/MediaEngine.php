@@ -71,12 +71,13 @@ final class MediaEngine
         $name   = isset($_GET['name']) ? sanitize_text_field((string) $_GET['name']) : '';
         $domain = isset($_GET['domain']) ? sanitize_text_field((string) $_GET['domain']) : '';
         $type   = isset($_GET['entity']) ? sanitize_key((string) $_GET['entity']) : 'brand';
+        $provider = isset($_GET['provider']) ? sanitize_key((string) $_GET['provider']) : 'all';
         $postId = isset($_GET['post_id']) ? (int) $_GET['post_id'] : 0;
         $saved  = isset($_GET['saved']) ? (int) $_GET['saved'] : 0;
 
         $candidates = [];
         if ($name !== '' || $domain !== '') {
-            $candidates = $this->resolveCandidates($name, $domain, $type);
+            $candidates = $this->resolveCandidates($name, $domain, $type, $provider);
         }
 
         echo '<div class="wrap helmetsan-wrap">';
@@ -96,6 +97,12 @@ final class MediaEngine
         echo '<select id="hs-logo-entity" name="entity">';
         foreach (['brand', 'helmet', 'accessory', 'motorcycle', 'safety_standard', 'dealer', 'page', 'post'] as $opt) {
             echo '<option value="' . esc_attr($opt) . '" ' . selected($type, $opt, false) . '>' . esc_html($opt) . '</option>';
+        }
+        echo '</select>';
+        echo '<label for="hs-logo-provider">Provider</label>';
+        echo '<select id="hs-logo-provider" name="provider">';
+        foreach (['all', 'logodev', 'brandfetch', 'simpleicons', 'wikimedia'] as $opt) {
+            echo '<option value="' . esc_attr($opt) . '" ' . selected($provider, $opt, false) . '>' . esc_html($opt) . '</option>';
         }
         echo '</select>';
         echo '<label for="hs-logo-post">Post ID (optional)</label>';
@@ -339,11 +346,11 @@ final class MediaEngine
     /**
      * @return array<int,array{provider:string,label:string,url:string}>
      */
-    public function resolveCandidates(string $name, string $domain = '', string $entity = 'brand'): array
+    public function resolveCandidates(string $name, string $domain = '', string $entity = 'brand', string $provider = 'all'): array
     {
         $cfg = $this->config->mediaConfig();
         $ttl = max(1, (int) ($cfg['cache_ttl_hours'] ?? 12)) * HOUR_IN_SECONDS;
-        $cacheKey = 'helmetsan_media_' . md5(strtolower(trim($name . '|' . $domain . '|' . $entity)));
+        $cacheKey = 'helmetsan_media_' . md5(strtolower(trim($name . '|' . $domain . '|' . $entity . '|' . $provider)));
         $cached = get_transient($cacheKey);
         if (is_array($cached)) {
             return $cached;
@@ -351,7 +358,7 @@ final class MediaEngine
 
         $out = [];
         $slug = sanitize_title($name);
-        if (! empty($cfg['simpleicons_enabled']) && $slug !== '') {
+        if (($provider === 'all' || $provider === 'simpleicons') && ! empty($cfg['simpleicons_enabled']) && $slug !== '') {
             $out[] = [
                 'provider' => 'simpleicons',
                 'label' => 'Simple Icons',
@@ -363,7 +370,7 @@ final class MediaEngine
         $normDomain = preg_replace('#^https?://#', '', $normDomain ?? '');
         $normDomain = trim((string) $normDomain, '/');
 
-        if (! empty($cfg['logodev_enabled']) && $normDomain !== '') {
+        if (($provider === 'all' || $provider === 'logodev') && ! empty($cfg['logodev_enabled']) && $normDomain !== '') {
             $url = 'https://img.logo.dev/' . rawurlencode($normDomain);
             $token = isset($cfg['logodev_publishable_key']) ? (string) $cfg['logodev_publishable_key'] : '';
             if ($token === '') {
@@ -379,12 +386,12 @@ final class MediaEngine
             ];
         }
 
-        if (! empty($cfg['brandfetch_enabled']) && $normDomain !== '') {
+        if (($provider === 'all' || $provider === 'brandfetch') && ! empty($cfg['brandfetch_enabled']) && $normDomain !== '') {
             $brandfetch = $this->fetchBrandfetch($normDomain, (string) ($cfg['brandfetch_token'] ?? ''));
             $out = array_merge($out, $brandfetch);
         }
 
-        if (! empty($cfg['wikimedia_enabled']) && $name !== '') {
+        if (($provider === 'all' || $provider === 'wikimedia') && ! empty($cfg['wikimedia_enabled']) && $name !== '') {
             $wiki = $this->fetchWikimedia($name);
             $out = array_merge($out, $wiki);
         }
