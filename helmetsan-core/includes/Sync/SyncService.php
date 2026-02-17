@@ -318,6 +318,12 @@ final class SyncService
         return strpos('/' . ltrim($path, '/'), '/brands/') !== false;
     }
 
+    private function isHelmetFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/helmets/') !== false;
+    }
+
     private function isPushExcludedPath(string $relativePath): bool
     {
         $path = str_replace('\\', '/', ltrim($relativePath, '/'));
@@ -389,12 +395,36 @@ final class SyncService
             return $result;
         }
 
-        $ingested = $this->ingestion->ingestFiles($files, 100, null, $dryRun, 'sync-pull-auto-apply-helmets');
+        $helmetFiles = [];
+        foreach ($files as $file) {
+            $relative = ltrim(str_replace($this->repository->rootPath(), '', $file), '/');
+            if (! $this->isHelmetFile($relative)) {
+                $result['skipped']++;
+                continue;
+            }
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            $entity = isset($data['entity']) ? sanitize_key((string) $data['entity']) : '';
+            if ($entity !== 'helmet') {
+                $result['skipped']++;
+                continue;
+            }
+            $helmetFiles[] = $file;
+        }
 
-        $result['processed'] = (int) ($ingested['processed'] ?? 0);
+        if ($helmetFiles === []) {
+            return $result;
+        }
+
+        $ingested = $this->ingestion->ingestFiles($helmetFiles, 100, null, $dryRun, 'sync-pull-auto-apply-helmets');
+
+        $result['processed'] += (int) ($ingested['processed'] ?? 0);
         $result['accepted']  = (int) ($ingested['accepted'] ?? 0);
-        $result['skipped']   = (int) ($ingested['skipped'] ?? 0);
-        $result['rejected']  = (int) ($ingested['rejected'] ?? 0);
+        $result['skipped']   += (int) ($ingested['skipped'] ?? 0);
+        $result['rejected']  += (int) ($ingested['rejected'] ?? 0);
         $result['failed']    = ! empty($ingested['ok']) ? 0 : 1;
         $result['ingestion'] = $ingested;
 
