@@ -79,7 +79,9 @@ final class MediaEngine
 
         $candidates = [];
         $diagnostics = [];
+        $searchContext = [];
         if ($name !== '' || $domain !== '') {
+            $searchContext = $this->buildSearchContext($name, $domain);
             $candidates = $this->resolveCandidates($name, $domain, $type, $provider, $diagnostics);
         }
 
@@ -118,6 +120,38 @@ final class MediaEngine
         echo '<input id="hs-logo-post" type="number" min="1" name="post_id" value="' . esc_attr($postId > 0 ? (string) $postId : '') . '" />';
         submit_button('Find Logos', 'secondary', '', false);
         echo '</form>';
+
+        if (($name !== '' || $domain !== '') && is_array($searchContext)) {
+            $brandKey = isset($searchContext['brand_key']) ? (string) $searchContext['brand_key'] : '';
+            $domains  = isset($searchContext['domains']) && is_array($searchContext['domains']) ? $searchContext['domains'] : [];
+            $slugs    = isset($searchContext['slugs']) && is_array($searchContext['slugs']) ? $searchContext['slugs'] : [];
+            $quick    = isset($searchContext['quick_links']) && is_array($searchContext['quick_links']) ? $searchContext['quick_links'] : [];
+
+            echo '<section class="hs-panel" style="margin:12px 0;">';
+            echo '<h2 style="margin-top:0;">Search Context</h2>';
+            echo '<p>Context generated for provider lookups and fallbacks.</p>';
+            echo '<p><strong>Detected brand key:</strong> ' . esc_html($brandKey !== '' ? $brandKey : '-') . '</p>';
+            echo '<p><strong>Suggested domains:</strong> ' . esc_html($domains !== [] ? implode(', ', array_map('strval', $domains)) : '-') . '</p>';
+            echo '<p><strong>Suggested slugs:</strong> ' . esc_html($slugs !== [] ? implode(', ', array_map('strval', $slugs)) : '-') . '</p>';
+            if ($quick !== []) {
+                echo '<p><strong>Quick checks:</strong> ';
+                $links = [];
+                foreach ($quick as $item) {
+                    if (! is_array($item)) {
+                        continue;
+                    }
+                    $label = isset($item['label']) ? (string) $item['label'] : '';
+                    $url = isset($item['url']) ? (string) $item['url'] : '';
+                    if ($label === '' || $url === '') {
+                        continue;
+                    }
+                    $links[] = '<a class="hs-link" target="_blank" rel="noopener noreferrer" href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
+                }
+                echo wp_kses_post(implode(' | ', $links));
+                echo '</p>';
+            }
+            echo '</section>';
+        }
 
         if ($candidates !== []) {
             echo '<div class="hs-grid hs-grid--2">';
@@ -499,6 +533,7 @@ final class MediaEngine
     private function domainCandidates(string $domain, string $name): array
     {
         $items = [];
+        $brandKey = $this->brandKey($name);
         $normDomain = strtolower(trim($domain));
         $normDomain = (string) preg_replace('#^https?://#', '', $normDomain);
         $normDomain = trim($normDomain, '/');
@@ -506,11 +541,12 @@ final class MediaEngine
             $normDomain = preg_replace('#^www\.#', '', $normDomain) ?? $normDomain;
             $items[] = $normDomain;
         }
+        foreach ($this->brandDomainOverrides($brandKey) as $candidate) {
+            $items[] = strtolower(trim($candidate));
+        }
 
-        $base = strtolower(trim($name));
+        $base = $brandKey;
         if ($base !== '') {
-            $base = str_replace(['helmet', 'helmets'], '', $base);
-            $base = preg_replace('/[^a-z0-9]+/i', '', $base) ?? $base;
             if ($base !== '') {
                 $items[] = $base . '.com';
             }
@@ -525,18 +561,7 @@ final class MediaEngine
      */
     private function buildSimpleIconCandidates(string $name, array &$diagnostics): array
     {
-        $slugs = [];
-        $titleSlug = sanitize_title($name);
-        if ($titleSlug !== '') {
-            $slugs[] = $titleSlug;
-            $slugs[] = str_replace('-', '', $titleSlug);
-        }
-        $raw = strtolower(trim($name));
-        $raw = preg_replace('/[^a-z0-9]+/i', '', $raw) ?? $raw;
-        if ($raw !== '') {
-            $slugs[] = $raw;
-        }
-        $slugs = array_values(array_unique(array_filter($slugs)));
+        $slugs = $this->simpleIconSlugCandidates($name);
         $diagnostics['attempted_slugs'] = $slugs;
 
         $out = [];
@@ -562,6 +587,95 @@ final class MediaEngine
         }
 
         return $out;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    private function buildSearchContext(string $name, string $domain): array
+    {
+        $brandKey = $this->brandKey($name);
+        $domains = $this->domainCandidates($domain, $name);
+        $slugs = $this->simpleIconSlugCandidates($name);
+        $quick = [];
+
+        if ($domains !== []) {
+            $quick[] = [
+                'label' => 'Logo.dev (' . $domains[0] . ')',
+                'url' => 'https://img.logo.dev/' . rawurlencode($domains[0]),
+            ];
+        }
+        if ($name !== '') {
+            $quick[] = [
+                'label' => 'Wikimedia Search',
+                'url' => 'https://commons.wikimedia.org/w/index.php?search=' . rawurlencode($name . ' logo'),
+            ];
+        }
+        $quick[] = [
+            'label' => 'Brandfetch API Docs',
+            'url' => 'https://docs.brandfetch.com/reference/brand-api',
+        ];
+
+        return [
+            'brand_key' => $brandKey,
+            'domains' => $domains,
+            'slugs' => $slugs,
+            'quick_links' => $quick,
+        ];
+    }
+
+    private function brandKey(string $name): string
+    {
+        $base = strtolower(trim($name));
+        $base = str_replace(['helmet', 'helmets'], '', $base);
+        $base = preg_replace('/[^a-z0-9]+/i', '', $base) ?? $base;
+        return trim($base);
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function brandDomainOverrides(string $brandKey): array
+    {
+        $map = [
+            'ls2' => ['ls2helmets.com', 'ls2.com'],
+            'shoei' => ['shoei.com'],
+            'arai' => ['araiamericas.com', 'araihelmet.eu'],
+            'agv' => ['agv.com'],
+            'hjc' => ['hjchelmets.com'],
+            'bell' => ['bellhelmets.com'],
+            'shark' => ['shark-helmets.com'],
+            'nolan' => ['nolan-helmets.com'],
+            'schuberth' => ['schuberth.com'],
+            'scorpionexo' => ['scorpionusa.com'],
+            'icon' => ['rideicon.com'],
+            'smk' => ['smkhelmets.com'],
+            'studds' => ['studds.com'],
+            'mthelmets' => ['mthelmets.com'],
+            'caberg' => ['caberg.it'],
+        ];
+
+        return $map[$brandKey] ?? [];
+    }
+
+    /**
+     * @return array<int,string>
+     */
+    private function simpleIconSlugCandidates(string $name): array
+    {
+        $slugs = [];
+        $titleSlug = sanitize_title($name);
+        if ($titleSlug !== '') {
+            $slugs[] = $titleSlug;
+            $slugs[] = str_replace('-', '', $titleSlug);
+        }
+        $raw = strtolower(trim($name));
+        $raw = preg_replace('/[^a-z0-9]+/i', '', $raw) ?? $raw;
+        if ($raw !== '') {
+            $slugs[] = $raw;
+        }
+
+        return array_values(array_unique(array_filter($slugs)));
     }
 
     /**
