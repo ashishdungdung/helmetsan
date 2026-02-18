@@ -36,3 +36,8 @@ Tracking daily development work and IDE sources.
 **Changes**:
 - Switched project license to GPLv2 or later (LICENSE, style.css, helmetsan-core.php)
 
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Switched project license to GPLv3 or later (LICENSE, style.css, helmetsan-core.php)
+
