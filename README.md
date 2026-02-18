@@ -40,6 +40,23 @@ Use the Go Live gate from WordPress Admin (`Helmetsan > Go Live`) or CLI:
 
 It provides objective score, critical blockers, and per-check diagnostics.
 
+## Project Status
+
+<!-- STATS_START -->
+
+## 📊 Project Dashboard (Status: Live)
+
+| Metric | Value | Status |
+| :--- | :--- | :--- |
+| **Brands in Catalog** | 54 | ✅ |
+| **Helmets Indexed** | 1 | 🏗️  Ingesting |
+| **Logo Coverage** | 91% (49/50) | 🎨 Enriched |
+| **Last Sync** | 2026-02-18 05:25:10 | 📡 Active |
+
+> _Stats generated automatically by `scripts/update_stats.php`_
+
+<!-- STATS_END -->
+
 ## License
 
 This repository is licensed under the MIT License. See `LICENSE`.

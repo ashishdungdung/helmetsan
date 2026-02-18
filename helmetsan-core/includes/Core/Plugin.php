@@ -41,6 +41,7 @@ use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\Analytics\Tracker;
 use Helmetsan\Core\WooBridge\WooBridgeService;
+use Helmetsan\Core\API\BrandController;
 
 final class Plugin
 {
@@ -78,6 +79,7 @@ final class Plugin
     private CommerceService $commerce;
     private MediaEngine $mediaEngine;
     private WooBridgeService $wooBridge;
+    private BrandController $brandApi;
 
     public function __construct()
     {
@@ -101,6 +103,7 @@ final class Plugin
         $this->commerce = new CommerceService();
         $this->mediaEngine = new MediaEngine($this->config);
         $this->wooBridge = new WooBridgeService($this->config);
+        $this->brandApi = new BrandController($this->brands);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -158,6 +161,7 @@ final class Plugin
         $this->brands->register();
         $this->mediaEngine->register();
         $this->wooBridge->register();
+        $this->brandApi->register();
 
         (new Admin(
             $this->health,
