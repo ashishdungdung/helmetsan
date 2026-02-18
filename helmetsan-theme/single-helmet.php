@@ -38,6 +38,18 @@ if (have_posts()) {
         $weightLbs = (string) get_post_meta($helmetId, 'spec_weight_lbs', true);
         $headShape = (string) get_post_meta($helmetId, 'head_shape', true);
         $helmetFamily = (string) get_post_meta($helmetId, 'helmet_family', true);
+        
+        // New Schema Fields (v1.1)
+        $safetyJson = (string) get_post_meta($helmetId, 'safety_intelligence_json', true);
+        $aeroJson = (string) get_post_meta($helmetId, 'aero_acoustic_profile_json', true);
+        $techJson = (string) get_post_meta($helmetId, 'tech_integration_json', true);
+        $fitJson = (string) get_post_meta($helmetId, 'fitment_coordinates_json', true);
+
+        $safety = json_decode($safetyJson, true);
+        $aero = json_decode($aeroJson, true);
+        $tech = json_decode($techJson, true);
+        $fitCoords = json_decode($fitJson, true);
+
         $helmetTypeTerms = get_the_terms($helmetId, 'helmet_type');
         $helmetTypeSlugs = [];
         if (is_array($helmetTypeTerms)) {
@@ -144,6 +156,67 @@ if (have_posts()) {
                 <?php the_content(); ?>
             </div>
 
+            <?php if (is_array($safety) && $safety !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Safety Intelligence</h2>
+                    <div class="hs-meta-grid">
+                        <article class="hs-meta-card">
+                            <h3>Homologation</h3>
+                            <p><strong><?php echo esc_html((string) ($safety['homologation_standard'] ?? 'N/A')); ?></strong></p>
+                            <?php if (! empty($safety['rotational_mitigation'])) : ?>
+                                <p>Rotational Tech: <?php echo esc_html((string) $safety['rotational_mitigation']); ?></p>
+                            <?php endif; ?>
+                        </article>
+                        <?php if (! empty($safety['sharp_rating'])) : ?>
+                            <article class="hs-meta-card">
+                                <h3>SHARP Rating</h3>
+                                <div class="helmet-rating" aria-label="<?php echo esc_attr($safety['sharp_rating']); ?> stars">
+                                    <?php echo str_repeat('★', (int) $safety['sharp_rating']) . str_repeat('☆', 5 - (int) $safety['sharp_rating']); ?>
+                                </div>
+                            </article>
+                        <?php endif; ?>
+                        <?php if (isset($safety['sharp_impact_zones']) && is_array($safety['sharp_impact_zones'])) : ?>
+                            <article class="hs-meta-card">
+                                <h3>Impact Zones</h3>
+                                <ul class="hs-list-compact">
+                                    <li>Front: <?php echo esc_html((string) ($safety['sharp_impact_zones']['frontal'] ?? '-')); ?></li>
+                                    <li>Rear: <?php echo esc_html((string) ($safety['sharp_impact_zones']['rear'] ?? '-')); ?></li>
+                                    <li>Left: <?php echo esc_html((string) ($safety['sharp_impact_zones']['left'] ?? '-')); ?></li>
+                                    <li>Right: <?php echo esc_html((string) ($safety['sharp_impact_zones']['right'] ?? '-')); ?></li>
+                                </ul>
+                            </article>
+                        <?php endif; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <?php if ((is_array($aero) && $aero !== []) || (is_array($tech) && $tech !== [])) : ?>
+                <section class="hs-panel">
+                    <h2>Features &amp; Comfort</h2>
+                    <div class="helmetsan-specs-grid">
+                        <?php if (! empty($aero['noise_db_at_100kph'])) : ?>
+                            <div class="helmetsan-specs-row"><dt>Noise @ 100kph</dt><dd><?php echo esc_html((string) $aero['noise_db_at_100kph']); ?> dB</dd></div>
+                        <?php endif; ?>
+                        <?php if (! empty($aero['ventilation_efficiency_score'])) : ?>
+                            <div class="helmetsan-specs-row"><dt>Ventilation Score</dt><dd><?php echo esc_html((string) $aero['ventilation_efficiency_score']); ?>/10</dd></div>
+                        <?php endif; ?>
+                        <?php if (! empty($aero['drag_coefficient'])) : ?>
+                            <div class="helmetsan-specs-row"><dt>Drag Coeff (Cd)</dt><dd><?php echo esc_html((string) $aero['drag_coefficient']); ?></dd></div>
+                        <?php endif; ?>
+                        <?php if (! empty($tech['comms_cutout_type'])) : ?>
+                            <div class="helmetsan-specs-row"><dt>Comms Ready</dt><dd><?php echo esc_html((string) $tech['comms_cutout_type']); ?></dd></div>
+                        <?php endif; ?>
+                        <?php if (! empty($tech['speaker_pocket_depth_mm'])) : ?>
+                            <div class="helmetsan-specs-row"><dt>Speaker Depth</dt><dd><?php echo esc_html((string) $tech['speaker_pocket_depth_mm']); ?> mm</dd></div>
+                        <?php endif; ?>
+                        <?php if (isset($tech['hud_ready']) && $tech['hud_ready']) : ?>
+                            <div class="helmetsan-specs-row"><dt>HUD Support</dt><dd>Yes</dd></div>
+                        <?php endif; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+
             <?php if (is_array($productDetails) && $productDetails !== []) : ?>
                 <section class="hs-panel">
                     <h2>Product Details</h2>
@@ -209,6 +282,21 @@ if (have_posts()) {
                                 </tbody>
                             </table>
                         </div>
+                    <?php endif; ?>
+
+                    <?php if (is_array($fitCoords) && $fitCoords !== []) : ?>
+                        <h3>Internal Dimensions</h3>
+                        <dl class="helmetsan-specs-grid">
+                            <?php if (! empty($fitCoords['internal_shape_3d'])) : ?>
+                                <div class="helmetsan-specs-row"><dt>3D Shape</dt><dd><?php echo esc_html(ucwords(str_replace('_', ' ', (string) $fitCoords['internal_shape_3d']))); ?></dd></div>
+                            <?php endif; ?>
+                            <?php if (! empty($fitCoords['internal_length_mm'])) : ?>
+                                <div class="helmetsan-specs-row"><dt>Length</dt><dd><?php echo esc_html((string) $fitCoords['internal_length_mm']); ?> mm</dd></div>
+                            <?php endif; ?>
+                            <?php if (! empty($fitCoords['internal_width_mm'])) : ?>
+                                <div class="helmetsan-specs-row"><dt>Width</dt><dd><?php echo esc_html((string) $fitCoords['internal_width_mm']); ?> mm</dd></div>
+                            <?php endif; ?>
+                        </dl>
                     <?php endif; ?>
                 </section>
             <?php endif; ?>
