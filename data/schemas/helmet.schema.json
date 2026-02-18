@@ -103,6 +103,49 @@
           "issuer": { "type": "string" }
         }
       }
+    },
+    "safety_intelligence": {
+      "type": "object",
+      "properties": {
+        "homologation_standard": { "type": "string" },
+        "sharp_rating": { "type": "number" },
+        "sharp_impact_zones": {
+          "type": "object",
+          "properties": {
+            "frontal": { "type": "number" },
+            "rear": { "type": "number" },
+            "left": { "type": "number" },
+            "right": { "type": "number" }
+          }
+        },
+        "rotational_mitigation": { "type": "string" }
+      }
+    },
+    "aero_acoustic_profile": {
+      "type": "object",
+      "properties": {
+        "noise_db_at_100kph": { "type": "number" },
+        "drag_coefficient": { "type": "number" },
+        "ventilation_efficiency_score": { "type": "number" }
+      }
+    },
+    "tech_integration": {
+      "type": "object",
+      "properties": {
+        "comms_cutout_type": { "type": "string" },
+        "speaker_pocket_depth_mm": { "type": "number" },
+        "cable_management": { "type": "boolean" },
+        "hud_ready": { "type": "boolean" }
+      }
+    },
+    "fitment_coordinates": {
+      "type": "object",
+      "properties": {
+        "internal_shape_3d": { "type": "string" },
+        "internal_length_mm": { "type": "number" },
+        "internal_width_mm": { "type": "number" },
+        "crown_depth_mm": { "type": "number" }
+      }
     }
   }
 }
