@@ -9,6 +9,15 @@ This directory is the GitHub source-of-truth for structured datasets consumed by
 - `accessories/`: accessory entities (`entity: accessory`)
 - `motorcycles/`: motorcycle entities (`entity: motorcycle`)
 - `safety-standards/`: safety standard entities (`entity: safety_standard`)
+- `dealers/`: store/shop entities (`entity: dealer`) for local/offline/online presence
+- `distributors/`: authorized distributor entities (`entity: distributor`) with warehouse and contact data
+- `currencies/`: currency reference entities (`entity: currency`)
+- `marketplaces/`: country/region marketplace entities (`entity: marketplace`)
+- `pricing/`: helmet-country-marketplace price records (`entity: pricing`)
+- `offers/`: offer discovery records (`entity: offer`) used to compute best-offer snapshots
+- `comparisons/`: multi-helmet comparison entities (`entity: comparison`)
+- `recommendations/`: use-case recommendation entities (`entity: recommendation`)
+- `catalogs/`: controlled vocabulary/master lists (brands, helmet types, colors, head shapes, certifications, features, helmet families)
 - `helmet-types/`: helmet taxonomy entities (`entity: helmet_type`)
 - `geo/countries/`: country reference entities (`entity: country`)
 - `geo/regions/`: region reference entities (`entity: region`)
@@ -39,6 +48,23 @@ Brand `profile` supports:
 2. Validate schema with CI/CLI.
 3. Run plugin sync pull profile `pull+brands` or `pull+all`.
 4. Review admin screens (`Catalog`, `Brands`, `Go Live`).
+
+## Helmet Family Model
+
+`Helmet Family` represents model/product-line grouping across multiple variants:
+
+- Colorways
+- Graphics/replicas
+- Carbon / MIPS / DLX style editions
+- Year refreshes
+
+Examples:
+
+- `Shoei RF1400`
+- `AGV K6 S`
+- `Icon Airflite`
+
+This enables catalog filtering independent of brand/type/certification.
 
 ## Phased Enrichment Policy
 

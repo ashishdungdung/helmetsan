@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pricing",
+  "type": "object",
+  "required": ["entity", "id", "helmet_id", "country_code", "currency", "current_price"],
+  "properties": {
+    "entity": { "const": "pricing" },
+    "id": { "type": "string" },
+    "helmet_id": { "type": "string" },
+    "country_code": { "type": "string" },
+    "marketplace_id": { "type": "string" },
+    "currency": { "type": "string" },
+    "launch_price": { "type": "number" },
+    "current_price": { "type": "number" },
+    "mrp": { "type": "number" },
+    "source_url": { "type": "string" },
+    "captured_at": { "type": "string" }
+  }
+}

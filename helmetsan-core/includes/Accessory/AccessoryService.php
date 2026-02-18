@@ -77,11 +77,56 @@ final class AccessoryService
         if ($type !== '') {
             update_post_meta($postId, 'accessory_type', $type);
         }
+        if (isset($data['parent_category']) && is_string($data['parent_category']) && $data['parent_category'] !== '') {
+            update_post_meta($postId, 'accessory_parent_category', sanitize_text_field($data['parent_category']));
+        }
+        if (isset($data['subcategory']) && is_string($data['subcategory']) && $data['subcategory'] !== '') {
+            update_post_meta($postId, 'accessory_subcategory', sanitize_text_field($data['subcategory']));
+        }
+        if (isset($data['color']) && is_string($data['color']) && $data['color'] !== '') {
+            update_post_meta($postId, 'accessory_color', sanitize_text_field($data['color']));
+        }
+        if (isset($data['youth_adult']) && is_string($data['youth_adult']) && $data['youth_adult'] !== '') {
+            update_post_meta($postId, 'accessory_youth_adult', sanitize_text_field($data['youth_adult']));
+        }
+        update_post_meta($postId, 'accessory_electric_compatible', ! empty($data['electric_compatible']) ? '1' : '0');
+        update_post_meta($postId, 'accessory_pinlock_ready', ! empty($data['pinlock_ready']) ? '1' : '0');
+        update_post_meta($postId, 'accessory_snow_compatible', ! empty($data['snow_compatible']) ? '1' : '0');
 
         $this->setJsonMeta($postId, 'compatible_helmet_types_json', $data['compatible_helmet_types'] ?? null);
         $this->setJsonMeta($postId, 'compatible_brands_json', $data['compatible_brands'] ?? null);
+        $this->setJsonMeta($postId, 'compatible_helmet_families_json', $data['compatible_helmet_families'] ?? null);
+        $this->setJsonMeta($postId, 'compatibility_json', $data['compatibility'] ?? null);
         $this->setJsonMeta($postId, 'accessory_features_json', $data['features'] ?? null);
+        $this->setJsonMeta($postId, 'accessory_global_filters_json', $data['global_filters'] ?? null);
         $this->setJsonMeta($postId, 'price_json', $data['price'] ?? null);
+
+        $categoryTerms = [];
+        if (isset($data['parent_category']) && is_string($data['parent_category']) && $data['parent_category'] !== '') {
+            $categoryTerms[] = sanitize_text_field($data['parent_category']);
+        }
+        if (isset($data['subcategory']) && is_string($data['subcategory']) && $data['subcategory'] !== '') {
+            $categoryTerms[] = sanitize_text_field($data['subcategory']);
+        }
+        if ($categoryTerms !== []) {
+            wp_set_object_terms($postId, array_values(array_unique($categoryTerms)), 'accessory_category', false);
+        }
+
+        $compatibleHelmetTypes = [];
+        if (isset($data['compatible_helmet_types']) && is_array($data['compatible_helmet_types'])) {
+            foreach ($data['compatible_helmet_types'] as $item) {
+                $slug = $this->normalizeHelmetType((string) $item);
+                if ($slug !== '') {
+                    $compatibleHelmetTypes[] = $slug;
+                }
+            }
+        }
+        $compatibleHelmetTypes = array_values(array_unique($compatibleHelmetTypes));
+        if ($compatibleHelmetTypes !== []) {
+            wp_set_object_terms($postId, $compatibleHelmetTypes, 'helmet_type', false);
+        } else {
+            wp_set_object_terms($postId, [], 'helmet_type', false);
+        }
 
         if (isset($data['features']) && is_array($data['features'])) {
             $terms = array_filter(array_map(
@@ -90,6 +135,15 @@ final class AccessoryService
             ));
             if ($terms !== []) {
                 wp_set_object_terms($postId, array_values($terms), 'feature_tag', false);
+            }
+        }
+        if (isset($data['global_filters']) && is_array($data['global_filters'])) {
+            $terms = array_filter(array_map(
+                static fn($item): string => sanitize_text_field((string) $item),
+                $data['global_filters']
+            ));
+            if ($terms !== []) {
+                wp_set_object_terms($postId, array_values($terms), 'feature_tag', true);
             }
         }
 
@@ -124,5 +178,30 @@ final class AccessoryService
 
         return (int) $posts[0];
     }
-}
 
+    private function normalizeHelmetType(string $value): string
+    {
+        $normalized = strtolower(trim($value));
+        $normalized = str_replace(['&', '/'], [' and ', ' '], $normalized);
+        $normalized = preg_replace('/\s+/', ' ', $normalized) ?? $normalized;
+        $normalized = str_replace('helmets', '', $normalized);
+        $normalized = trim($normalized);
+
+        return match ($normalized) {
+            'full face', 'full-face' => 'full-face',
+            'modular' => 'modular',
+            'open face', 'open-face' => 'open-face',
+            'half', 'half helmet', 'half-helmet' => 'half',
+            'dirt', 'mx', 'dirt mx', 'dirt motocross', 'off road', 'off-road', 'motocross' => 'dirt-mx',
+            'adventure', 'dual sport', 'adventure dual sport', 'adventure and dual sport' => 'adventure-dual-sport',
+            'touring' => 'touring',
+            'track', 'race', 'track race' => 'track-race',
+            'youth' => 'youth',
+            'snow', 'snowmobile' => 'snow',
+            'carbon fiber', 'carbon-fiber' => 'carbon-fiber',
+            'graphics', 'graphic' => 'graphics',
+            'sale', 'closeout' => 'sale',
+            default => '',
+        };
+    }
+}

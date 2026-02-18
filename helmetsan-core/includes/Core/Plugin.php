@@ -13,7 +13,11 @@ use Helmetsan\Core\Analytics\SmokeTestService;
 use Helmetsan\Core\Brands\BrandService;
 use Helmetsan\Core\CPT\Registrar;
 use Helmetsan\Core\CLI\Commands;
+use Helmetsan\Core\Commerce\CommerceService;
+use Helmetsan\Core\Comparison\ComparisonService;
+use Helmetsan\Core\Dealer\DealerService;
 use Helmetsan\Core\Docs\DocsService;
+use Helmetsan\Core\Distributor\DistributorService;
 use Helmetsan\Core\Frontend\HelmetDataBlock;
 use Helmetsan\Core\GoLive\ChecklistService;
 use Helmetsan\Core\Health\HealthService;
@@ -25,6 +29,7 @@ use Helmetsan\Core\Media\MediaEngine;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Revenue\RevenueService;
+use Helmetsan\Core\Recommendation\RecommendationService;
 use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
@@ -35,6 +40,7 @@ use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\Analytics\Tracker;
+use Helmetsan\Core\WooBridge\WooBridgeService;
 
 final class Plugin
 {
@@ -65,7 +71,13 @@ final class Plugin
     private AccessoryService $accessories;
     private MotorcycleService $motorcycles;
     private SafetyStandardService $safetyStandards;
+    private DealerService $dealers;
+    private DistributorService $distributors;
+    private ComparisonService $comparisons;
+    private RecommendationService $recommendations;
+    private CommerceService $commerce;
     private MediaEngine $mediaEngine;
+    private WooBridgeService $wooBridge;
 
     public function __construct()
     {
@@ -82,7 +94,13 @@ final class Plugin
         $this->accessories = new AccessoryService();
         $this->motorcycles = new MotorcycleService();
         $this->safetyStandards = new SafetyStandardService();
+        $this->dealers = new DealerService();
+        $this->distributors = new DistributorService();
+        $this->comparisons = new ComparisonService();
+        $this->recommendations = new RecommendationService();
+        $this->commerce = new CommerceService();
         $this->mediaEngine = new MediaEngine($this->config);
+        $this->wooBridge = new WooBridgeService($this->config);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -92,7 +110,12 @@ final class Plugin
             $this->ingestion,
             $this->accessories,
             $this->motorcycles,
-            $this->safetyStandards
+            $this->safetyStandards,
+            $this->dealers,
+            $this->distributors,
+            $this->comparisons,
+            $this->recommendations,
+            $this->commerce
         );
         $this->revenue    = new RevenueService($this->config);
         $this->importService = new ImportService(
@@ -101,7 +124,12 @@ final class Plugin
             $this->brands,
             $this->accessories,
             $this->motorcycles,
-            $this->safetyStandards
+            $this->safetyStandards,
+            $this->dealers,
+            $this->distributors,
+            $this->comparisons,
+            $this->recommendations,
+            $this->commerce
         );
         $this->exportService = new ExportService($this->config, $this->brands);
         $this->schema     = new SchemaService();
@@ -129,6 +157,7 @@ final class Plugin
         (new Registrar())->register();
         $this->brands->register();
         $this->mediaEngine->register();
+        $this->wooBridge->register();
 
         (new Admin(
             $this->health,
@@ -146,7 +175,8 @@ final class Plugin
             $this->analyticsEvents,
             $this->scheduler,
             $this->alerts,
-            $this->brands
+            $this->brands,
+            $this->wooBridge
         ))->register();
         $this->helmetDataBlock->register();
         $this->tracker->register();
@@ -175,7 +205,8 @@ final class Plugin
                 $this->scheduler,
                 $this->alerts,
                 $this->brands,
-                $this->mediaEngine
+                $this->mediaEngine,
+                $this->wooBridge
             ))->register();
         }
     }

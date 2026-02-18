@@ -10,6 +10,33 @@ use Helmetsan\Core\Validation\Validator;
 
 final class IngestionService
 {
+    /**
+     * Allowed canonical helmet types.
+     *
+     * @var array<string,string>
+     */
+    private const HELMET_TYPE_CANONICAL = [
+        'full face' => 'Full Face',
+        'modular' => 'Modular',
+        'open face' => 'Open Face',
+        'half' => 'Half',
+        'dirt' => 'Dirt / MX',
+        'dirt / mx' => 'Dirt / MX',
+        'dirt / motocross' => 'Dirt / MX',
+        'adventure' => 'Adventure / Dual Sport',
+        'dual sport' => 'Adventure / Dual Sport',
+        'adventure / dual sport' => 'Adventure / Dual Sport',
+        'touring' => 'Touring',
+        'track' => 'Track / Race',
+        'track / race' => 'Track / Race',
+        'youth' => 'Youth',
+        'snow' => 'Snow',
+        'snowmobile' => 'Snow',
+        'carbon fiber' => 'Carbon Fiber',
+        'graphics' => 'Graphics',
+        'sale' => 'Sale',
+    ];
+
     private const LOCK_KEY = 'helmetsan_ingest_lock';
     private const LOCK_TTL = 300;
 
@@ -222,6 +249,12 @@ final class IngestionService
 
         if (isset($data['specs']['weight_g'])) {
             update_post_meta($resolvedPostId, 'spec_weight_g', (int) $data['specs']['weight_g']);
+            $lbs = round(((float) $data['specs']['weight_g']) / 453.59237, 2);
+            update_post_meta($resolvedPostId, 'spec_weight_lbs', (string) $lbs);
+        }
+
+        if (isset($data['specs']['weight_lbs'])) {
+            update_post_meta($resolvedPostId, 'spec_weight_lbs', (string) ((float) $data['specs']['weight_lbs']));
         }
 
         if (isset($data['specs']['material']) && is_string($data['specs']['material'])) {
@@ -230,6 +263,13 @@ final class IngestionService
 
         if (isset($data['price']) && is_array($data['price']) && isset($data['price']['current'])) {
             update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+        }
+
+        if (isset($data['helmet_family']) && is_string($data['helmet_family']) && $data['helmet_family'] !== '') {
+            update_post_meta($resolvedPostId, 'helmet_family', sanitize_text_field($data['helmet_family']));
+        }
+        if (isset($data['head_shape']) && is_string($data['head_shape']) && $data['head_shape'] !== '') {
+            update_post_meta($resolvedPostId, 'head_shape', sanitize_text_field($data['head_shape']));
         }
 
         if (isset($data['affiliate']) && is_array($data['affiliate']) && isset($data['affiliate']['amazon_asin'])) {
@@ -241,6 +281,13 @@ final class IngestionService
             'geo_legality' => 'geo_legality_json',
             'certification_documents' => 'certification_documents_json',
             'geo_media' => 'geo_media_json',
+            'variants' => 'variants_json',
+            'product_details' => 'product_details_json',
+            'part_numbers' => 'part_numbers_json',
+            'sizing_fit' => 'sizing_fit_json',
+            'related_videos' => 'related_videos_json',
+            'features' => 'features_json',
+            'helmet_types' => 'helmet_types_json',
         ];
         foreach ($jsonMetaMap as $jsonKey => $metaKey) {
             if (! isset($data[$jsonKey])) {
@@ -262,8 +309,33 @@ final class IngestionService
             }
         }
 
+        $normalizedTypes = [];
         if (isset($data['type']) && is_string($data['type']) && $data['type'] !== '') {
-            wp_set_object_terms($resolvedPostId, sanitize_text_field($data['type']), 'helmet_type', false);
+            $normalized = $this->normalizeHelmetType((string) $data['type']);
+            if ($normalized !== '') {
+                $normalizedTypes[] = $normalized;
+            }
+        }
+        if (isset($data['helmet_types']) && is_array($data['helmet_types'])) {
+            foreach ($data['helmet_types'] as $rawType) {
+                $normalized = $this->normalizeHelmetType((string) $rawType);
+                if ($normalized !== '') {
+                    $normalizedTypes[] = $normalized;
+                }
+            }
+        }
+        $normalizedTypes = array_values(array_unique($normalizedTypes));
+        if ($normalizedTypes !== []) {
+            wp_set_object_terms($resolvedPostId, $normalizedTypes, 'helmet_type', false);
+        }
+        if (isset($data['features']) && is_array($data['features'])) {
+            $featureTerms = array_filter(array_map(
+                static fn($value): string => sanitize_text_field((string) $value),
+                $data['features']
+            ));
+            if ($featureTerms !== []) {
+                wp_set_object_terms($resolvedPostId, array_values($featureTerms), 'feature_tag', false);
+            }
         }
 
         if (isset($data['brand']) && is_string($data['brand']) && $data['brand'] !== '') {
@@ -281,6 +353,10 @@ final class IngestionService
      */
     private function buildDescription(array $data): string
     {
+        if (isset($data['product_details']['description']) && is_string($data['product_details']['description']) && $data['product_details']['description'] !== '') {
+            return wp_kses_post($data['product_details']['description']);
+        }
+
         $title = isset($data['title']) ? (string) $data['title'] : '';
         $type  = isset($data['type']) ? (string) $data['type'] : '';
         $brand = isset($data['brand']) ? (string) $data['brand'] : '';
@@ -308,6 +384,61 @@ final class IngestionService
         }
 
         return (int) $brandId;
+    }
+
+    private function normalizeHelmetType(string $raw): string
+    {
+        $value = strtolower(trim(sanitize_text_field($raw)));
+        if ($value === '') {
+            return '';
+        }
+        $value = preg_replace('/\\s+/', ' ', $value) ?? $value;
+
+        if (isset(self::HELMET_TYPE_CANONICAL[$value])) {
+            return self::HELMET_TYPE_CANONICAL[$value];
+        }
+
+        if (str_contains($value, 'full') && str_contains($value, 'face')) {
+            return 'Full Face';
+        }
+        if (str_contains($value, 'modular')) {
+            return 'Modular';
+        }
+        if (str_contains($value, 'open') && str_contains($value, 'face')) {
+            return 'Open Face';
+        }
+        if ($value === 'half helmet' || $value === 'half helmets') {
+            return 'Half';
+        }
+        if (str_contains($value, 'adventure') || str_contains($value, 'dual sport')) {
+            return 'Adventure / Dual Sport';
+        }
+        if (str_contains($value, 'dirt') || str_contains($value, 'motocross') || str_contains($value, 'mx')) {
+            return 'Dirt / MX';
+        }
+        if (str_contains($value, 'tour')) {
+            return 'Touring';
+        }
+        if (str_contains($value, 'track') || str_contains($value, 'race')) {
+            return 'Track / Race';
+        }
+        if (str_contains($value, 'youth')) {
+            return 'Youth';
+        }
+        if (str_contains($value, 'snow')) {
+            return 'Snow';
+        }
+        if (str_contains($value, 'carbon')) {
+            return 'Carbon Fiber';
+        }
+        if (str_contains($value, 'graphic')) {
+            return 'Graphics';
+        }
+        if (str_contains($value, 'sale') || str_contains($value, 'closeout')) {
+            return 'Sale';
+        }
+
+        return '';
     }
 
     private function startTransaction(): bool

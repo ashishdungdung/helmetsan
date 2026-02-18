@@ -6,8 +6,13 @@ namespace Helmetsan\Core\ImportExport;
 
 use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Brands\BrandService;
+use Helmetsan\Core\Commerce\CommerceService;
+use Helmetsan\Core\Comparison\ComparisonService;
+use Helmetsan\Core\Dealer\DealerService;
+use Helmetsan\Core\Distributor\DistributorService;
 use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
+use Helmetsan\Core\Recommendation\RecommendationService;
 use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\Config;
 
@@ -19,7 +24,12 @@ final class ImportService
         private readonly BrandService $brands,
         private readonly AccessoryService $accessories,
         private readonly MotorcycleService $motorcycles,
-        private readonly SafetyStandardService $safetyStandards
+        private readonly SafetyStandardService $safetyStandards,
+        private readonly DealerService $dealers,
+        private readonly DistributorService $distributors,
+        private readonly ComparisonService $comparisons,
+        private readonly RecommendationService $recommendations,
+        private readonly CommerceService $commerce
     ) {
     }
 
@@ -76,6 +86,21 @@ final class ImportService
         $safetyAccepted = 0;
         $safetyRejected = 0;
         $safetySkipped = 0;
+        $dealerAccepted = 0;
+        $dealerRejected = 0;
+        $dealerSkipped = 0;
+        $distributorAccepted = 0;
+        $distributorRejected = 0;
+        $distributorSkipped = 0;
+        $comparisonAccepted = 0;
+        $comparisonRejected = 0;
+        $comparisonSkipped = 0;
+        $recommendationAccepted = 0;
+        $recommendationRejected = 0;
+        $recommendationSkipped = 0;
+        $commerceAccepted = 0;
+        $commerceRejected = 0;
+        $commerceSkipped = 0;
 
         foreach ($records as $index => $record) {
             $entity = $this->detectEntity($record);
@@ -136,6 +161,76 @@ final class ImportService
                 }
                 continue;
             }
+            if ($entity === 'dealer') {
+                $result = $this->dealers->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $dealerSkipped++;
+                    } else {
+                        $dealerAccepted++;
+                    }
+                } else {
+                    $dealerRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'distributor') {
+                $result = $this->distributors->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $distributorSkipped++;
+                    } else {
+                        $distributorAccepted++;
+                    }
+                } else {
+                    $distributorRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'comparison') {
+                $result = $this->comparisons->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $comparisonSkipped++;
+                    } else {
+                        $comparisonAccepted++;
+                    }
+                } else {
+                    $comparisonRejected++;
+                }
+                continue;
+            }
+            if ($entity === 'recommendation') {
+                $result = $this->recommendations->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $recommendationSkipped++;
+                    } else {
+                        $recommendationAccepted++;
+                    }
+                } else {
+                    $recommendationRejected++;
+                }
+                continue;
+            }
+            if (in_array($entity, ['currency', 'marketplace', 'pricing', 'offer'], true)) {
+                $result = $this->commerce->upsertFromPayload($record, $filePath, $dryRun);
+                if (! empty($result['ok'])) {
+                    $action = isset($result['action']) ? (string) $result['action'] : '';
+                    if ($action === 'skipped' || $action === 'dry-run') {
+                        $commerceSkipped++;
+                    } else {
+                        $commerceAccepted++;
+                    }
+                } else {
+                    $commerceRejected++;
+                }
+                continue;
+            }
 
             if (! isset($record['id']) || ! is_string($record['id']) || $record['id'] === '') {
                 $record['id'] = 'imported-' . (string) $index;
@@ -168,11 +263,11 @@ final class ImportService
             $helmetResult = $this->ingestion->ingestFiles($files, $batchSize, null, $dryRun, 'import-service');
         }
 
-        $totalAccepted = (int) ($helmetResult['accepted'] ?? 0) + $brandAccepted + $accessoryAccepted + $motorcycleAccepted + $safetyAccepted;
-        $totalRejected = (int) ($helmetResult['rejected'] ?? 0) + $brandRejected + $accessoryRejected + $motorcycleRejected + $safetyRejected;
-        $totalSkipped = (int) ($helmetResult['skipped'] ?? 0) + $brandSkipped + $accessorySkipped + $motorcycleSkipped + $safetySkipped;
+        $totalAccepted = (int) ($helmetResult['accepted'] ?? 0) + $brandAccepted + $accessoryAccepted + $motorcycleAccepted + $safetyAccepted + $dealerAccepted + $distributorAccepted + $comparisonAccepted + $recommendationAccepted + $commerceAccepted;
+        $totalRejected = (int) ($helmetResult['rejected'] ?? 0) + $brandRejected + $accessoryRejected + $motorcycleRejected + $safetyRejected + $dealerRejected + $distributorRejected + $comparisonRejected + $recommendationRejected + $commerceRejected;
+        $totalSkipped = (int) ($helmetResult['skipped'] ?? 0) + $brandSkipped + $accessorySkipped + $motorcycleSkipped + $safetySkipped + $dealerSkipped + $distributorSkipped + $comparisonSkipped + $recommendationSkipped + $commerceSkipped;
 
-        if ($files === [] && $brandAccepted === 0 && $brandRejected === 0 && $brandSkipped === 0 && $accessoryAccepted === 0 && $accessoryRejected === 0 && $accessorySkipped === 0 && $motorcycleAccepted === 0 && $motorcycleRejected === 0 && $motorcycleSkipped === 0 && $safetyAccepted === 0 && $safetyRejected === 0 && $safetySkipped === 0) {
+        if ($files === [] && $brandAccepted === 0 && $brandRejected === 0 && $brandSkipped === 0 && $accessoryAccepted === 0 && $accessoryRejected === 0 && $accessorySkipped === 0 && $motorcycleAccepted === 0 && $motorcycleRejected === 0 && $motorcycleSkipped === 0 && $safetyAccepted === 0 && $safetyRejected === 0 && $safetySkipped === 0 && $dealerAccepted === 0 && $dealerRejected === 0 && $dealerSkipped === 0 && $distributorAccepted === 0 && $distributorRejected === 0 && $distributorSkipped === 0 && $comparisonAccepted === 0 && $comparisonRejected === 0 && $comparisonSkipped === 0 && $recommendationAccepted === 0 && $recommendationRejected === 0 && $recommendationSkipped === 0 && $commerceAccepted === 0 && $commerceRejected === 0 && $commerceSkipped === 0) {
             return [
                 'ok'      => false,
                 'message' => 'No temporary import files generated',
@@ -207,6 +302,31 @@ final class ImportService
                 'accepted' => $safetyAccepted,
                 'rejected' => $safetyRejected,
                 'skipped' => $safetySkipped,
+            ],
+            'dealer' => [
+                'accepted' => $dealerAccepted,
+                'rejected' => $dealerRejected,
+                'skipped' => $dealerSkipped,
+            ],
+            'distributor' => [
+                'accepted' => $distributorAccepted,
+                'rejected' => $distributorRejected,
+                'skipped' => $distributorSkipped,
+            ],
+            'comparison' => [
+                'accepted' => $comparisonAccepted,
+                'rejected' => $comparisonRejected,
+                'skipped' => $comparisonSkipped,
+            ],
+            'recommendation' => [
+                'accepted' => $recommendationAccepted,
+                'rejected' => $recommendationRejected,
+                'skipped' => $recommendationSkipped,
+            ],
+            'commerce' => [
+                'accepted' => $commerceAccepted,
+                'rejected' => $commerceRejected,
+                'skipped' => $commerceSkipped,
             ],
         ];
 
@@ -243,7 +363,7 @@ final class ImportService
     private function detectEntity(array $record): string
     {
         $entity = isset($record['entity']) ? sanitize_key((string) $record['entity']) : '';
-        if (in_array($entity, ['helmet', 'brand', 'accessory', 'motorcycle', 'safety_standard'], true)) {
+        if (in_array($entity, ['helmet', 'brand', 'accessory', 'motorcycle', 'safety_standard', 'dealer', 'distributor', 'comparison', 'recommendation', 'currency', 'marketplace', 'pricing', 'offer'], true)) {
             return $entity;
         }
 

@@ -59,6 +59,24 @@ function helmetsan_theme_enqueue_assets(): void
             true
         );
     }
+
+    if (class_exists('WooCommerce') && function_exists('is_woocommerce') && (is_woocommerce() || is_cart() || is_checkout() || is_account_page())) {
+        $wooCss = '/assets/css/woocommerce.css';
+        wp_enqueue_style(
+            'helmetsan-theme-woocommerce',
+            get_stylesheet_directory_uri() . $wooCss,
+            ['helmetsan-theme-components'],
+            helmetsan_theme_asset_version($wooCss)
+        );
+
+        wp_enqueue_script(
+            'helmetsan-theme-woo-mobile',
+            get_stylesheet_directory_uri() . '/assets/js/woo-mobile.js',
+            [],
+            helmetsan_theme_asset_version('/assets/js/woo-mobile.js'),
+            true
+        );
+    }
 }
 
 function helmetsan_theme_asset_version(string $relativePath): string

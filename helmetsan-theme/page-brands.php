@@ -7,13 +7,82 @@
 
 get_header();
 
-$query = new WP_Query([
+$search = isset($_GET['s']) ? sanitize_text_field((string) $_GET['s']) : '';
+$country = isset($_GET['country']) ? sanitize_text_field((string) $_GET['country']) : '';
+$helmetType = isset($_GET['helmet_type']) ? sanitize_text_field((string) $_GET['helmet_type']) : '';
+$cert = isset($_GET['cert']) ? sanitize_text_field((string) $_GET['cert']) : '';
+
+$filterSource = get_posts([
+    'post_type' => 'brand',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'title',
+    'order' => 'ASC',
+]);
+
+$countries = [];
+$helmetTypes = get_terms([
+    'taxonomy' => 'helmet_type',
+    'hide_empty' => false,
+]);
+$certs = [];
+foreach ($filterSource as $brandPost) {
+    if (! ($brandPost instanceof WP_Post)) {
+        continue;
+    }
+    $origin = trim((string) get_post_meta($brandPost->ID, 'brand_origin_country', true));
+    if ($origin !== '') {
+        $countries[$origin] = $origin;
+    }
+    $certItems = explode(',', (string) get_post_meta($brandPost->ID, 'brand_certification_coverage', true));
+    foreach ($certItems as $certItem) {
+        $certItem = trim($certItem);
+        if ($certItem !== '') {
+            $certs[$certItem] = $certItem;
+        }
+    }
+}
+ksort($countries, SORT_NATURAL | SORT_FLAG_CASE);
+ksort($certs, SORT_NATURAL | SORT_FLAG_CASE);
+
+$queryArgs = [
     'post_type' => 'brand',
     'post_status' => 'publish',
     'posts_per_page' => 12,
     'orderby' => 'title',
     'order' => 'ASC',
-]);
+    'paged' => max(1, get_query_var('paged')),
+];
+if ($search !== '') {
+    $queryArgs['s'] = $search;
+}
+
+$metaQuery = [];
+if ($country !== '') {
+    $metaQuery[] = [
+        'key' => 'brand_origin_country',
+        'value' => $country,
+    ];
+}
+if ($helmetType !== '') {
+    $queryArgs['tax_query'] = [[
+        'taxonomy' => 'helmet_type',
+        'field' => 'slug',
+        'terms' => $helmetType,
+    ]];
+}
+if ($cert !== '') {
+    $metaQuery[] = [
+        'key' => 'brand_certification_coverage',
+        'value' => $cert,
+        'compare' => 'LIKE',
+    ];
+}
+if ($metaQuery !== []) {
+    $queryArgs['meta_query'] = $metaQuery;
+}
+
+$query = new WP_Query($queryArgs);
 ?>
 <section class="hs-section">
     <header class="hs-section__head">
@@ -24,12 +93,63 @@ $query = new WP_Query([
         <div class="hs-panel"><?php the_content(); ?></div>
     <?php endwhile; endif; ?>
 
+    <form class="hs-filter-bar" method="get" action="<?php echo esc_url(get_permalink()); ?>">
+        <input type="search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search brands" />
+        <select name="country">
+            <option value="">All Countries</option>
+            <?php foreach ($countries as $value) : ?>
+                <option value="<?php echo esc_attr($value); ?>" <?php selected($country, $value); ?>><?php echo esc_html($value); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <select name="helmet_type">
+            <option value="">All Helmet Types</option>
+            <?php
+            if (is_array($helmetTypes)) :
+                foreach ($helmetTypes as $term) :
+                    if (! ($term instanceof WP_Term)) {
+                        continue;
+                    }
+                    ?>
+                    <option value="<?php echo esc_attr($term->slug); ?>" <?php selected($helmetType, $term->slug); ?>><?php echo esc_html($term->name); ?></option>
+                <?php
+                endforeach;
+            endif;
+            ?>
+        </select>
+        <select name="cert">
+            <option value="">All Certification Marks</option>
+            <?php foreach ($certs as $value) : ?>
+                <option value="<?php echo esc_attr($value); ?>" <?php selected($cert, $value); ?>><?php echo esc_html($value); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button class="hs-btn hs-btn--primary" type="submit">Apply</button>
+    </form>
+
     <?php if ($query->have_posts()) : ?>
         <div class="helmet-grid">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <?php get_template_part('template-parts/entity', 'card'); ?>
             <?php endwhile; ?>
         </div>
+        <?php
+        $addArgs = [];
+        if (isset($_GET['s'])) {
+            $addArgs['s'] = sanitize_text_field(wp_unslash((string) $_GET['s']));
+        }
+        if (isset($_GET['country'])) {
+            $addArgs['country'] = sanitize_text_field(wp_unslash((string) $_GET['country']));
+        }
+        if (isset($_GET['helmet_type'])) {
+            $addArgs['helmet_type'] = sanitize_text_field(wp_unslash((string) $_GET['helmet_type']));
+        }
+        if (isset($_GET['cert'])) {
+            $addArgs['cert'] = sanitize_text_field(wp_unslash((string) $_GET['cert']));
+        }
+        the_posts_pagination([
+            'total' => $query->max_num_pages,
+            'add_args' => array_filter($addArgs, static fn(string $v): bool => $v !== ''),
+        ]);
+        ?>
         <p><a class="hs-btn hs-btn--ghost" href="<?php echo esc_url(get_post_type_archive_link('brand')); ?>">Browse Full Brand Archive</a></p>
         <?php wp_reset_postdata(); ?>
     <?php else : ?>
@@ -38,4 +158,3 @@ $query = new WP_Query([
 </section>
 <?php
 get_footer();
-

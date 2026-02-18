@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dealer",
+  "type": "object",
+  "required": ["entity", "id", "name", "country_code"],
+  "properties": {
+    "entity": { "const": "dealer" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "country_code": { "type": "string" },
+    "region_code": { "type": "string" },
+    "online_store": { "type": "boolean" },
+    "offline_store": { "type": "boolean" },
+    "brands_stocked": { "type": "array", "items": { "type": "string" } },
+    "marketplaces": { "type": "array", "items": { "type": "string" } },
+    "geo": { "type": "object" }
+  }
+}

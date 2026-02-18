@@ -13,6 +13,7 @@ final class Config
     public const OPTION_SCHEDULER = 'helmetsan_scheduler';
     public const OPTION_ALERTS    = 'helmetsan_alerts';
     public const OPTION_MEDIA     = 'helmetsan_media';
+    public const OPTION_WOO_BRIDGE = 'helmetsan_woo_bridge';
 
     public function analyticsDefaults(): array
     {
@@ -135,6 +136,17 @@ final class Config
             'wikimedia_enabled'     => true,
             'cache_ttl_hours'       => 12,
             'auto_sideload_enabled' => false,
+        ];
+    }
+
+    public function wooBridgeDefaults(): array
+    {
+        return [
+            'enable_bridge' => false,
+            'auto_sync_on_save' => false,
+            'publish_products' => false,
+            'default_currency' => 'USD',
+            'sync_limit_default' => 100,
         ];
     }
 

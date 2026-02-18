@@ -37,6 +37,12 @@
             'fallback_cb'    => false,
         ]);
         ?>
+        <button class="hs-mega-menu-toggle" type="button" aria-expanded="false" aria-controls="hs-mega-menu-panel">
+            Helmets Menu
+        </button>
     </div>
 </header>
+<div id="hs-mega-menu-panel" class="hs-mega-menu-panel" hidden>
+    <?php helmetsan_render_helmet_mega_menu(); ?>
+</div>
 <main class="site-main">

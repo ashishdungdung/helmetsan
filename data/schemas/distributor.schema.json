@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Distributor",
+  "type": "object",
+  "required": ["entity", "id", "name"],
+  "properties": {
+    "entity": { "const": "distributor" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "regions": { "type": "array", "items": { "type": "string" } },
+    "countries": { "type": "array", "items": { "type": "string" } },
+    "brands": { "type": "array", "items": { "type": "string" } },
+    "warehouses": { "type": "array", "items": { "type": "object" } },
+    "contacts": { "type": "array", "items": { "type": "object" } }
+  }
+}

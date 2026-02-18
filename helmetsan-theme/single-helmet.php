@@ -22,10 +22,22 @@ if (have_posts()) {
         $geoPricingJson = (string) get_post_meta($helmetId, 'geo_pricing_json', true);
         $geoLegalityJson = (string) get_post_meta($helmetId, 'geo_legality_json', true);
         $certDocsJson = (string) get_post_meta($helmetId, 'certification_documents_json', true);
+        $variantsJson = (string) get_post_meta($helmetId, 'variants_json', true);
+        $productDetailsJson = (string) get_post_meta($helmetId, 'product_details_json', true);
+        $partNumbersJson = (string) get_post_meta($helmetId, 'part_numbers_json', true);
+        $sizingFitJson = (string) get_post_meta($helmetId, 'sizing_fit_json', true);
+        $relatedVideosJson = (string) get_post_meta($helmetId, 'related_videos_json', true);
         $geoPricing = json_decode($geoPricingJson, true);
         $geoLegality = json_decode($geoLegalityJson, true);
         $certDocs = json_decode($certDocsJson, true);
-
+        $variants = json_decode($variantsJson, true);
+        $productDetails = json_decode($productDetailsJson, true);
+        $partNumbers = json_decode($partNumbersJson, true);
+        $sizingFit = json_decode($sizingFitJson, true);
+        $relatedVideos = json_decode($relatedVideosJson, true);
+        $weightLbs = (string) get_post_meta($helmetId, 'spec_weight_lbs', true);
+        $headShape = (string) get_post_meta($helmetId, 'head_shape', true);
+        $helmetFamily = (string) get_post_meta($helmetId, 'helmet_family', true);
         $helmetTypeTerms = get_the_terms($helmetId, 'helmet_type');
         $helmetTypeSlugs = [];
         if (is_array($helmetTypeTerms)) {
@@ -59,6 +71,32 @@ if (have_posts()) {
                 'meta_query' => array_merge(['relation' => 'OR'], $accessoryMetaQueries),
             ]);
         }
+
+        if (wp_is_mobile()) {
+            get_template_part(
+                'template-parts/helmet',
+                'mobile-pdp',
+                [
+                    'helmet_id' => $helmetId,
+                    'brand_id' => $brandId,
+                    'brand_name' => $brandName,
+                    'weight' => $weight,
+                    'weight_lbs' => $weightLbs,
+                    'shell' => $shell,
+                    'price' => $price,
+                    'certs' => $certs,
+                    'head_shape' => $headShape,
+                    'helmet_family' => $helmetFamily,
+                    'product_details' => is_array($productDetails) ? $productDetails : [],
+                    'variants' => is_array($variants) ? $variants : [],
+                    'sizing_fit' => is_array($sizingFit) ? $sizingFit : [],
+                    'related_videos' => is_array($relatedVideos) ? $relatedVideos : [],
+                    'related_accessories' => is_array($relatedAccessories) ? $relatedAccessories : [],
+                    'related_helmets' => is_array($related) ? $related : [],
+                ]
+            );
+            continue;
+        }
         ?>
         <article <?php post_class('helmet-single hs-section'); ?>>
             <header class="helmet-single__header hs-section__head">
@@ -83,8 +121,11 @@ if (have_posts()) {
                     <h2>Key Specs</h2>
                     <dl class="helmetsan-specs-grid">
                         <div class="helmetsan-specs-row"><dt>Weight</dt><dd><?php echo esc_html($weight !== '' ? $weight . ' g' : 'N/A'); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Weight (lbs)</dt><dd><?php echo esc_html($weightLbs !== '' ? $weightLbs . ' lbs' : 'N/A'); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Shell</dt><dd><?php echo esc_html($shell !== '' ? $shell : 'N/A'); ?></dd></div>
-                        <div class="helmetsan-specs-row"><dt>Certifications</dt><dd><?php echo esc_html($certs); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Head Shape</dt><dd><?php echo esc_html($headShape !== '' ? $headShape : 'N/A'); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Helmet Family</dt><dd><?php echo esc_html($helmetFamily !== '' ? $helmetFamily : 'N/A'); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Certification Marks</dt><dd><?php echo esc_html($certs); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Price</dt><dd><?php echo esc_html($price); ?></dd></div>
                     </dl>
 
@@ -102,6 +143,124 @@ if (have_posts()) {
                 <h2>Technical Analysis</h2>
                 <?php the_content(); ?>
             </div>
+
+            <?php if (is_array($productDetails) && $productDetails !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Product Details</h2>
+                    <div class="hs-table-wrap">
+                        <table class="hs-table">
+                            <tbody>
+                                <tr><th>Product Style</th><td><?php echo esc_html((string) ($productDetails['style'] ?? 'N/A')); ?></td></tr>
+                                <tr><th>MFR Product Number</th><td><?php echo esc_html((string) ($productDetails['mfr_product_number'] ?? 'N/A')); ?></td></tr>
+                                <tr><th>Sizing &amp; Fit</th><td><?php echo esc_html((string) ($productDetails['sizing_fit'] ?? 'See sizing section below')); ?></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php if (! empty($productDetails['description'])) : ?>
+                        <p><?php echo esc_html((string) $productDetails['description']); ?></p>
+                    <?php endif; ?>
+                </section>
+            <?php endif; ?>
+
+            <?php if (is_array($partNumbers) && $partNumbers !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Part Numbers</h2>
+                    <div class="hs-table-wrap">
+                        <table class="hs-table">
+                            <thead>
+                                <tr><th>Type</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($partNumbers as $row) : if (! is_array($row)) { continue; } ?>
+                                <tr>
+                                    <td><?php echo esc_html((string) ($row['label'] ?? 'Part Number')); ?></td>
+                                    <td><?php echo esc_html((string) ($row['value'] ?? 'N/A')); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <?php if (is_array($sizingFit) && $sizingFit !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Sizing &amp; Fit</h2>
+                    <?php if (! empty($sizingFit['fit_notes'])) : ?>
+                        <p><?php echo esc_html((string) $sizingFit['fit_notes']); ?></p>
+                    <?php endif; ?>
+                    <?php if (! empty($sizingFit['head_shape'])) : ?>
+                        <p><strong>Head Shape:</strong> <?php echo esc_html((string) $sizingFit['head_shape']); ?></p>
+                    <?php endif; ?>
+                    <?php if (isset($sizingFit['size_translation']) && is_array($sizingFit['size_translation']) && $sizingFit['size_translation'] !== []) : ?>
+                        <div class="hs-table-wrap">
+                            <table class="hs-table">
+                                <thead>
+                                    <tr><th>Size</th><th>CM</th><th>Inches</th></tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($sizingFit['size_translation'] as $row) : if (! is_array($row)) { continue; } ?>
+                                    <tr>
+                                        <td><?php echo esc_html((string) ($row['size'] ?? '')); ?></td>
+                                        <td><?php echo esc_html((string) ($row['cm'] ?? '')); ?></td>
+                                        <td><?php echo esc_html((string) ($row['in'] ?? '')); ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </section>
+            <?php endif; ?>
+
+            <?php if (is_array($variants) && $variants !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Variants, Colors &amp; Sizes</h2>
+                    <div class="hs-table-wrap">
+                        <table class="hs-table">
+                            <thead>
+                                <tr><th>Variant</th><th>Color/Graphic</th><th>Size</th><th>CM</th><th>Inches</th><th>MFR Part No.</th><th>Price</th><th>Availability</th></tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($variants as $row) : if (! is_array($row)) { continue; } ?>
+                                <tr>
+                                    <td><?php echo esc_html((string) ($row['style'] ?? ($row['id'] ?? 'Variant'))); ?></td>
+                                    <td><?php echo esc_html(trim((string) ($row['color'] ?? '') . ' ' . (string) ($row['graphics'] ?? ''))); ?></td>
+                                    <td><?php echo esc_html((string) ($row['size'] ?? '')); ?></td>
+                                    <td><?php echo esc_html((string) ($row['size_cm'] ?? '')); ?></td>
+                                    <td><?php echo esc_html((string) ($row['size_in'] ?? '')); ?></td>
+                                    <td><?php echo esc_html((string) ($row['mfr_part_number'] ?? ($row['sku'] ?? ''))); ?></td>
+                                    <td><?php echo esc_html((string) ($row['price'] ?? '') . ' ' . (string) ($row['currency'] ?? '')); ?></td>
+                                    <td><?php echo esc_html((string) ($row['availability'] ?? '')); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <?php if (is_array($relatedVideos) && $relatedVideos !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Related Videos</h2>
+                    <div class="hs-meta-grid">
+                        <?php foreach ($relatedVideos as $video) : if (! is_array($video)) { continue; }
+                            $videoUrl = isset($video['url']) ? esc_url((string) $video['url']) : '';
+                            if ($videoUrl === '') { continue; }
+                            $embed = wp_oembed_get($videoUrl);
+                            ?>
+                            <article class="hs-meta-card">
+                                <h3><?php echo esc_html((string) ($video['title'] ?? 'Video')); ?></h3>
+                                <?php if (is_string($embed) && $embed !== '') : ?>
+                                    <div class="helmet-video-embed"><?php echo $embed; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+                                <?php else : ?>
+                                    <p><a class="hs-link" href="<?php echo $videoUrl; ?>" target="_blank" rel="noopener noreferrer">Watch video</a></p>
+                                <?php endif; ?>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
 
             <?php if (is_array($geoPricing) && $geoPricing !== []) : ?>
                 <section class="hs-panel">

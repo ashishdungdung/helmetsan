@@ -45,6 +45,9 @@ wp helmetsan scheduler run --task=sync_pull
 wp helmetsan alerts test --title="Ping" --message="Alerts pipeline check"
 wp helmetsan brand cascade --brand-id=12
 wp helmetsan brand cascade --all
+wp helmetsan woo-bridge sync --helmet-id=123
+wp helmetsan woo-bridge sync --limit=100
+wp helmetsan woo-bridge sync --limit=100 --dry-run
 ```
 
 ## GitHub Sync Setup
@@ -107,6 +110,23 @@ wp helmetsan brand cascade --all
 ## Brand JSON Sync
 - Brand export defaults to repository path: `wp-content/uploads/helmetsan-data/brands/<id>.json`
 - This is GitHub-sync ready with existing `wp helmetsan sync push` flow.
+
+## Extended Entity Auto-Apply
+- `pull+all` now auto-applies JSON datasets for:
+  - `helmet`, `brand`, `accessory`, `motorcycle`, `safety_standard`
+  - `dealer`, `distributor`, `comparison`, `recommendation`
+  - commerce entities: `currency`, `marketplace`, `pricing`, `offer`
+- Commerce records update helmet pricing/offer metas (`pricing_records_json`, `offers_json`, `best_offer_json`, `geo_pricing_json`).
+
+## WooCommerce Bridge
+- Admin page: `Helmetsan > Woo Bridge`
+- Sync options:
+  - single helmet by id
+  - batch sync for helmets with `variants_json`
+- Linkage/meta mapping:
+  - helmet: `wc_product_id`, `wc_variation_map_json`
+  - product: `_helmet_post_id`, `_helmet_unique_id`, `_product_details_json`, `_part_numbers_json`, `_sizing_fit_json`, `_related_videos_json`
+  - variation: `_helmet_variant_id`, `_mfr_part_number`, `_geo_pricing_json`
 
 ## Analytics Instrumentation
 - Frontend event tracking (when enabled):

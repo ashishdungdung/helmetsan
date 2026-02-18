@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offer",
+  "type": "object",
+  "required": ["entity", "id", "helmet_id", "country_code", "currency", "offer_price"],
+  "properties": {
+    "entity": { "const": "offer" },
+    "id": { "type": "string" },
+    "helmet_id": { "type": "string" },
+    "country_code": { "type": "string" },
+    "region_code": { "type": "string" },
+    "shop_name": { "type": "string" },
+    "marketplace_id": { "type": "string" },
+    "currency": { "type": "string" },
+    "offer_price": { "type": "number" },
+    "mrp": { "type": "number" },
+    "discount_percent": { "type": "number" },
+    "url": { "type": "string" },
+    "valid_until": { "type": "string" }
+  }
+}

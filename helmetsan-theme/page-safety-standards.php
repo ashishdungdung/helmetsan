@@ -18,7 +18,7 @@ $query = new WP_Query([
 <section class="hs-section">
     <header class="hs-section__head">
         <h1><?php the_title(); ?></h1>
-        <p>Featured standards with market scope and testing focus.</p>
+        <p>Standards define testing protocols and legal scope. Certification marks are product-level claims linked on helmet pages.</p>
     </header>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <div class="hs-panel"><?php the_content(); ?></div>
@@ -38,4 +38,3 @@ $query = new WP_Query([
 </section>
 <?php
 get_footer();
-

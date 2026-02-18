@@ -1,0 +1,19 @@
+{
+  "entity": "distributor",
+  "id": "helmet-house-usa",
+  "name": "Helmet House USA",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US"],
+  "brands": ["Shoei", "HJC", "Nolan"],
+  "warehouses": [
+    {"id":"ca-calabasas","city":"Calabasas","country":"US"},
+    {"id":"ms-southaven","city":"Southaven","country":"US"}
+  ],
+  "contacts": [
+    {"type":"sales","email":"sales@helmethouse.com"},
+    {"type":"dealer","url":"https://helmethouse.com/dealer-login"}
+  ],
+  "website": "https://helmethouse.com"
+}

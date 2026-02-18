@@ -11,6 +11,28 @@ $terms = get_terms([
     'taxonomy' => 'helmet_type',
     'hide_empty' => false,
 ]);
+
+$allowedSlugs = [
+    'full-face',
+    'modular',
+    'open-face',
+    'half',
+    'dirt-mx',
+    'adventure-dual-sport',
+    'touring',
+    'track-race',
+    'youth',
+    'snow',
+    'carbon-fiber',
+    'graphics',
+    'sale',
+];
+
+if (is_array($terms) && $terms !== []) {
+    $terms = array_values(array_filter($terms, static function ($term) use ($allowedSlugs): bool {
+        return $term instanceof WP_Term && in_array((string) $term->slug, $allowedSlugs, true);
+    }));
+}
 ?>
 <section class="hs-section">
     <header class="hs-section__head">
@@ -39,4 +61,3 @@ $terms = get_terms([
 </section>
 <?php
 get_footer();
-

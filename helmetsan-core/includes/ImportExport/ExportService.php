@@ -119,8 +119,11 @@ final class ExportService
         $externalId  = (string) get_post_meta($postId, '_helmet_unique_id', true);
         $weight      = get_post_meta($postId, 'spec_weight_g', true);
         $material    = (string) get_post_meta($postId, 'spec_shell_material', true);
+        $weightLbs   = get_post_meta($postId, 'spec_weight_lbs', true);
         $price       = get_post_meta($postId, 'price_retail_usd', true);
         $asin        = (string) get_post_meta($postId, 'affiliate_asin', true);
+        $helmetFamily = (string) get_post_meta($postId, 'helmet_family', true);
+        $headShape = (string) get_post_meta($postId, 'head_shape', true);
         $brandId     = (int) get_post_meta($postId, 'rel_brand', true);
         $brandName   = '';
 
@@ -149,14 +152,30 @@ final class ExportService
             $externalId = sanitize_title($post->post_title) . '-' . (string) $postId;
         }
 
+        $variants = $this->decodeJsonMeta($postId, 'variants_json');
+        $productDetails = $this->decodeJsonMeta($postId, 'product_details_json');
+        $partNumbers = $this->decodeJsonMeta($postId, 'part_numbers_json');
+        $sizingFit = $this->decodeJsonMeta($postId, 'sizing_fit_json');
+        $relatedVideos = $this->decodeJsonMeta($postId, 'related_videos_json');
+        $geoPricing = $this->decodeJsonMeta($postId, 'geo_pricing_json');
+        $geoLegality = $this->decodeJsonMeta($postId, 'geo_legality_json');
+        $certDocs = $this->decodeJsonMeta($postId, 'certification_documents_json');
+        $features = $this->decodeJsonMeta($postId, 'features_json');
+        $helmetTypes = $this->decodeJsonMeta($postId, 'helmet_types_json');
+
         return [
             'entity' => 'helmet',
             'id'    => $externalId,
             'title' => (string) $post->post_title,
             'brand' => $brandName,
             'type'  => $helmetType,
+            'helmet_family' => $helmetFamily,
+            'head_shape' => $headShape,
+            'helmet_types' => is_array($helmetTypes) ? $helmetTypes : [],
+            'features' => is_array($features) ? $features : [],
             'specs' => [
                 'weight_g'       => is_numeric((string) $weight) ? (int) $weight : null,
+                'weight_lbs'     => is_numeric((string) $weightLbs) ? (float) $weightLbs : null,
                 'material'       => $material,
                 'certifications' => $certifications,
             ],
@@ -167,6 +186,27 @@ final class ExportService
             'affiliate' => [
                 'amazon_asin' => $asin,
             ],
+            'variants' => is_array($variants) ? $variants : [],
+            'product_details' => is_array($productDetails) ? $productDetails : [],
+            'part_numbers' => is_array($partNumbers) ? $partNumbers : [],
+            'sizing_fit' => is_array($sizingFit) ? $sizingFit : [],
+            'related_videos' => is_array($relatedVideos) ? $relatedVideos : [],
+            'geo_pricing' => is_array($geoPricing) ? $geoPricing : [],
+            'geo_legality' => is_array($geoLegality) ? $geoLegality : [],
+            'certification_documents' => is_array($certDocs) ? $certDocs : [],
         ];
+    }
+
+    /**
+     * @return array<int|string,mixed>
+     */
+    private function decodeJsonMeta(int $postId, string $metaKey): array
+    {
+        $raw = (string) get_post_meta($postId, $metaKey, true);
+        if ($raw === '') {
+            return [];
+        }
+        $decoded = json_decode($raw, true);
+        return is_array($decoded) ? $decoded : [];
     }
 }

@@ -4,11 +4,96 @@
   "title": "Shoei RF-1400",
   "brand": "Shoei",
   "type": "Full Face",
+  "helmet_family": "Shoei RF1400",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Carbon Fiber", "Graphics"],
+  "features": [
+    "Advanced noise reduction",
+    "Dual density EPS liner",
+    "Superior ventilation",
+    "E.Q.R.S. (Emergency Quick-Release System)",
+    "CWR-F2 face shield system",
+    "Pinlock EVO ready",
+    "Snell Certified",
+    "DOT Certified"
+  ],
   "specs": {
     "weight_g": 1600,
+    "weight_lbs": 3.53,
     "material": "Fiberglass",
+    "shell_sizes": 5,
     "certifications": ["DOT", "Snell M2020"]
   },
+  "product_details": {
+    "style": "RF-1400 Street / Sport Touring",
+    "mfr_product_number": "RF1400",
+    "sizing_fit": "Intermediate oval fit profile with interchangeable cheek pads across all sizes.",
+    "description": "Lightweight, stable, and quiet premium full-face helmet with advanced ventilation and safety-focused shell/EPS architecture."
+  },
+  "part_numbers": [
+    { "label": "MFR Product Number", "value": "RF1400" },
+    { "label": "Shield System", "value": "CWR-F2" },
+    { "label": "Pinlock Insert", "value": "Pinlock EVO" }
+  ],
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Most common North American head profile. Riders with round or long oval profiles should check pressure points before final sizing.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "rf1400-matte-black-sm",
+      "style": "Solid",
+      "color": "Black",
+      "graphics": "Solid Color",
+      "size": "SM",
+      "size_cm": "55-56",
+      "size_in": "21.65-22.05",
+      "sku": "SH-RF1400-MBK-SM",
+      "mfr_part_number": "RF1400-MBK-SM",
+      "price": 579.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "rf1400-faust-tc5-md",
+      "style": "Graphic",
+      "color": "Red",
+      "graphics": "Race Replica",
+      "size": "MD",
+      "size_cm": "57-58",
+      "size_in": "22.44-22.83",
+      "sku": "SH-RF1400-FAUST-MD",
+      "mfr_part_number": "RF1400-FAUST-TC5-MD",
+      "price": 649.99,
+      "currency": "USD",
+      "availability": "limited"
+    },
+    {
+      "id": "rf1400-matte-black-xl-in",
+      "style": "Solid",
+      "color": "Black",
+      "graphics": "Solid Color",
+      "size": "XL",
+      "size_cm": "61-62",
+      "size_in": "24.02-24.41",
+      "sku": "SH-RF1400-MBK-XL-IN",
+      "mfr_part_number": "RF1400-MBK-XL",
+      "price": 69999,
+      "currency": "INR",
+      "availability": "import_only",
+      "geo_pricing": {
+        "IN": { "price": 69999, "currency": "INR", "source": "grey_market" }
+      }
+    }
+  ],
   "price": {
     "current": 589.99,
     "currency": "USD"
@@ -67,6 +152,13 @@
       "url": "https://smf.org/"
     }
   ],
+  "related_videos": [
+    {
+      "title": "Shoei RF-1400 Product Overview",
+      "provider": "youtube",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ],
   "geo_media": {
     "US": {
       "hero_image": "https://cdn.helmetsan.com/helmets/shoei-rf-1400/us-hero.jpg",
@@ -78,5 +170,11 @@
   },
   "affiliate": {
     "amazon_asin": "B0EXAMPLE"
-  }
+  },
+  "shipping_restrictions": [
+    {
+      "region": "US",
+      "note": "Due to manufacturer restrictions, Shoei products can only be shipped to addresses within the United States."
+    }
+  ]
 }

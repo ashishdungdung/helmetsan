@@ -8,9 +8,19 @@
     "id": { "type": "string" },
     "title": { "type": "string" },
     "type": { "type": "string" },
+    "parent_category": { "type": "string" },
+    "subcategory": { "type": "string" },
     "compatible_helmet_types": { "type": "array", "items": { "type": "string" } },
     "compatible_brands": { "type": "array", "items": { "type": "string" } },
+    "compatible_helmet_families": { "type": "array", "items": { "type": "string" } },
+    "compatibility": { "type": "object" },
     "features": { "type": "array", "items": { "type": "string" } },
+    "global_filters": { "type": "array", "items": { "type": "string" } },
+    "youth_adult": { "type": "string" },
+    "electric_compatible": { "type": "boolean" },
+    "pinlock_ready": { "type": "boolean" },
+    "snow_compatible": { "type": "boolean" },
+    "color": { "type": "string" },
     "price": { "type": "object" }
   }
 }

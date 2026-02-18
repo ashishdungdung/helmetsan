@@ -13,6 +13,9 @@ $helmetsan_theme_includes = [
     '/inc/setup.php',
     '/inc/enqueue.php',
     '/inc/hooks.php',
+    '/inc/customizer.php',
+    '/inc/footer.php',
+    '/inc/woocommerce.php',
     '/inc/template-tags.php',
     '/inc/compatibility.php',
 ];

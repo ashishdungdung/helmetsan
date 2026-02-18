@@ -116,6 +116,10 @@ body.helmetsan-admin .hs-card-grid {
     margin: 14px 0;
 }
 
+body.helmetsan-admin .hs-card-grid--engine {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
 body.helmetsan-admin .hs-grid {
     display: grid;
     gap: 12px;
@@ -135,6 +139,10 @@ body.helmetsan-admin .hs-card {
     text-decoration: none;
     color: inherit;
     box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+body.helmetsan-admin .hs-card-grid--engine .hs-card-value {
+    font-size: 20px;
 }
 
 body.helmetsan-admin .hs-card-label {

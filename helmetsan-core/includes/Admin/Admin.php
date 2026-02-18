@@ -20,6 +20,7 @@ use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
+use Helmetsan\Core\WooBridge\WooBridgeService;
 
 final class Admin
 {
@@ -39,7 +40,8 @@ final class Admin
         private readonly EventRepository $analyticsEvents,
         private readonly SchedulerService $scheduler,
         private readonly AlertService $alerts,
-        private readonly BrandService $brands
+        private readonly BrandService $brands,
+        private readonly WooBridgeService $wooBridge
     ) {
     }
 
@@ -55,6 +57,7 @@ final class Admin
         add_action('admin_post_helmetsan_import', [$this, 'handleImportAction']);
         add_action('admin_post_helmetsan_export', [$this, 'handleExportAction']);
         add_action('admin_post_helmetsan_media_api_test', [$this, 'handleMediaApiTestAction']);
+        add_action('admin_post_helmetsan_woo_bridge_sync', [$this, 'handleWooBridgeSyncAction']);
     }
 
     public function registerMenu(): void
@@ -62,6 +65,8 @@ final class Admin
         add_menu_page('Helmetsan', 'Helmetsan', 'manage_options', 'helmetsan-dashboard', [$this, 'dashboardPage'], 'dashicons-admin-site', 2);
 
         add_submenu_page('helmetsan-dashboard', 'Catalog', 'Catalog', 'manage_options', 'helmetsan-catalog', [$this, 'catalogPage']);
+        add_submenu_page('helmetsan-dashboard', 'Commerce Engines', 'Commerce Engines', 'manage_options', 'helmetsan-commerce-engines', [$this, 'commerceEnginesPage']);
+        add_submenu_page('helmetsan-dashboard', 'Woo Bridge', 'Woo Bridge', 'manage_options', 'helmetsan-woo-bridge', [$this, 'wooBridgePage']);
         add_submenu_page('helmetsan-dashboard', 'Brands', 'Brands', 'manage_options', 'helmetsan-brands', [$this, 'brandsPage']);
         add_submenu_page('helmetsan-dashboard', 'Ingestion', 'Ingestion', 'manage_options', 'helmetsan-ingestion', [$this, 'ingestionPage']);
         add_submenu_page('helmetsan-dashboard', 'Sync Logs', 'Sync Logs', 'manage_options', 'helmetsan-sync-logs', [$this, 'syncLogsPage']);
@@ -116,6 +121,8 @@ final class Admin
         $links = [
             'helmetsan-dashboard' => 'Discover',
             'helmetsan-catalog' => 'Catalog',
+            'helmetsan-commerce-engines' => 'Commerce',
+            'helmetsan-woo-bridge' => 'Woo Bridge',
             'helmetsan-brands' => 'Brands',
             'helmetsan-media-engine' => 'Media',
             'helmetsan-sync-logs' => 'Sync',
@@ -155,6 +162,208 @@ final class Admin
             echo '<strong class="hs-card-value">' . esc_html($card['value']) . '</strong>';
             echo '</a>';
         }
+        echo '</div>';
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    private function engineSnapshot(): array
+    {
+        global $wpdb;
+
+        $dealerCount = (int) wp_count_posts('dealer')->publish;
+        $distributorCount = (int) wp_count_posts('distributor')->publish;
+        $comparisonCount = (int) wp_count_posts('comparison')->publish;
+        $recommendationCount = (int) wp_count_posts('recommendation')->publish;
+        $marketplaces = get_option('helmetsan_marketplaces_index', []);
+        $marketplaceCount = is_array($marketplaces) ? count($marketplaces) : 0;
+
+        $pricingCount = (int) $wpdb->get_var(
+            "SELECT COUNT(DISTINCT post_id) FROM {$wpdb->postmeta} WHERE meta_key = 'pricing_records_json' AND meta_value <> ''"
+        );
+        $offersCount = (int) $wpdb->get_var(
+            "SELECT COUNT(DISTINCT post_id) FROM {$wpdb->postmeta} WHERE meta_key = 'best_offer_json' AND meta_value <> ''"
+        );
+
+        return [
+            'dealers' => $dealerCount,
+            'distributors' => $distributorCount,
+            'comparisons' => $comparisonCount,
+            'recommendations' => $recommendationCount,
+            'marketplaces' => $marketplaceCount,
+            'pricing' => $pricingCount,
+            'offers' => $offersCount,
+        ];
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function getPostTypeRows(string $postType, int $limit = 5): array
+    {
+        $posts = get_posts([
+            'post_type' => $postType,
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'posts_per_page' => max(1, $limit),
+            'orderby' => 'modified',
+            'order' => 'DESC',
+        ]);
+
+        $rows = [];
+        foreach ($posts as $post) {
+            if (! ($post instanceof \WP_Post)) {
+                continue;
+            }
+            $rows[] = [
+                'id' => (int) $post->ID,
+                'title' => (string) $post->post_title,
+                'status' => (string) $post->post_status,
+                'modified' => (string) $post->post_modified,
+            ];
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function getMarketplaceRows(int $limit = 5): array
+    {
+        $index = get_option('helmetsan_marketplaces_index', []);
+        if (! is_array($index) || $index === []) {
+            return [];
+        }
+
+        $rows = [];
+        foreach ($index as $item) {
+            if (! is_array($item)) {
+                continue;
+            }
+            $rows[] = [
+                'id' => (string) ($item['id'] ?? ''),
+                'name' => (string) ($item['name'] ?? ''),
+                'countries' => isset($item['country_codes']) && is_array($item['country_codes']) ? implode(', ', array_map('strval', $item['country_codes'])) : '',
+                'website' => (string) ($item['website'] ?? ''),
+            ];
+        }
+
+        return array_slice($rows, 0, max(1, $limit));
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function getPricingRows(int $limit = 5): array
+    {
+        $posts = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => 'publish',
+            'posts_per_page' => max(1, $limit * 2),
+            'meta_query' => [
+                [
+                    'key' => 'pricing_records_json',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+
+        $rows = [];
+        foreach ($posts as $post) {
+            if (! ($post instanceof \WP_Post)) {
+                continue;
+            }
+            $raw = (string) get_post_meta($post->ID, 'pricing_records_json', true);
+            $decoded = json_decode($raw, true);
+            if (! is_array($decoded) || $decoded === []) {
+                continue;
+            }
+            $first = $decoded[0];
+            if (! is_array($first)) {
+                continue;
+            }
+            $rows[] = [
+                'helmet' => (string) $post->post_title,
+                'country' => strtoupper((string) ($first['country_code'] ?? '')),
+                'currency' => strtoupper((string) ($first['currency'] ?? '')),
+                'price' => isset($first['current_price']) ? (string) $first['current_price'] : '',
+                'marketplace' => (string) ($first['marketplace_id'] ?? ''),
+            ];
+            if (count($rows) >= $limit) {
+                break;
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    private function getOfferRows(int $limit = 5): array
+    {
+        $posts = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => 'publish',
+            'posts_per_page' => max(1, $limit * 2),
+            'meta_query' => [
+                [
+                    'key' => 'best_offer_json',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+
+        $rows = [];
+        foreach ($posts as $post) {
+            if (! ($post instanceof \WP_Post)) {
+                continue;
+            }
+            $raw = (string) get_post_meta($post->ID, 'best_offer_json', true);
+            $best = json_decode($raw, true);
+            if (! is_array($best) || $best === []) {
+                continue;
+            }
+            $rows[] = [
+                'helmet' => (string) $post->post_title,
+                'country' => strtoupper((string) ($best['country_code'] ?? '')),
+                'shop' => (string) ($best['shop_name'] ?? ''),
+                'currency' => strtoupper((string) ($best['currency'] ?? '')),
+                'price' => isset($best['offer_price']) ? (string) $best['offer_price'] : '',
+            ];
+            if (count($rows) >= $limit) {
+                break;
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
+     * @param array<int,array<string,mixed>> $rows
+     */
+    private function renderMiniTable(string $title, array $headers, array $rows): void
+    {
+        echo '<div class="hs-panel">';
+        echo '<h3>' . esc_html($title) . '</h3>';
+        echo '<table class="widefat striped hs-table-compact"><thead><tr>';
+        foreach ($headers as $header) {
+            echo '<th>' . esc_html((string) $header) . '</th>';
+        }
+        echo '</tr></thead><tbody>';
+        if ($rows === []) {
+            echo '<tr><td colspan="' . esc_attr((string) count($headers)) . '">No records yet.</td></tr>';
+        } else {
+            foreach ($rows as $row) {
+                echo '<tr>';
+                foreach (array_keys($headers) as $key) {
+                    echo '<td>' . esc_html((string) ($row[$key] ?? '')) . '</td>';
+                }
+                echo '</tr>';
+            }
+        }
+        echo '</tbody></table>';
         echo '</div>';
     }
 
@@ -207,6 +416,12 @@ final class Admin
             'type'              => 'array',
             'sanitize_callback' => [$this, 'sanitizeMedia'],
             'default'           => $this->config->mediaDefaults(),
+        ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_WOO_BRIDGE, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeWooBridge'],
+            'default'           => $this->config->wooBridgeDefaults(),
         ]);
     }
 
@@ -360,6 +575,21 @@ final class Admin
         return $merged;
     }
 
+    public function sanitizeWooBridge($value): array
+    {
+        $defaults = $this->config->wooBridgeDefaults();
+        $value    = is_array($value) ? $value : [];
+        $merged   = wp_parse_args($value, $defaults);
+
+        $merged['enable_bridge'] = ! empty($merged['enable_bridge']);
+        $merged['auto_sync_on_save'] = ! empty($merged['auto_sync_on_save']);
+        $merged['publish_products'] = ! empty($merged['publish_products']);
+        $merged['default_currency'] = strtoupper(sanitize_text_field((string) $merged['default_currency']));
+        $merged['sync_limit_default'] = max(1, (int) $merged['sync_limit_default']);
+
+        return $merged;
+    }
+
     public function handleMediaApiTestAction(): void
     {
         if (! current_user_can('manage_options')) {
@@ -446,6 +676,7 @@ final class Admin
         $goLive = $this->checklist->report();
         $syncRows = $this->syncLogs->tableExists() ? $this->syncLogs->fetch(1, 5, 'all', 'all', '') : [];
         $repoStatus = (string) ($report['status'] ?? 'unknown');
+        $engines = $this->engineSnapshot();
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Helmetsan', 'Mission control for repository, sync, analytics, and go-live readiness.');
@@ -468,6 +699,8 @@ final class Admin
             ['label' => 'Status', 'value' => $repoStatus, 'page' => 'helmetsan-repo-health'],
             ['label' => 'Helmets', 'value' => (string) ($report['database']['cpt_helmet_rows'] ?? 0), 'page' => 'helmetsan-catalog'],
             ['label' => 'Brands', 'value' => (string) ($report['database']['cpt_brand_rows'] ?? 0), 'page' => 'helmetsan-brands'],
+            ['label' => 'Pricing Models', 'value' => (string) ($engines['pricing'] ?? 0), 'page' => 'helmetsan-catalog'],
+            ['label' => 'Offer Models', 'value' => (string) ($engines['offers'] ?? 0), 'page' => 'helmetsan-catalog'],
             ['label' => 'Sync Logs', 'value' => (string) ($report['sync_logs']['rows'] ?? 0), 'page' => 'helmetsan-sync-logs'],
             ['label' => 'Analytics Events', 'value' => (string) ($report['analytics_events']['rows'] ?? 0), 'page' => 'helmetsan-analytics'],
             ['label' => 'Go-Live Score', 'value' => (string) ((int) ($goLive['score'] ?? 0)) . '/100', 'page' => 'helmetsan-go-live'],
@@ -503,6 +736,68 @@ final class Admin
             echo '</tbody></table>';
         }
         echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Commerce & Network Engines</h3>';
+        echo '<div class="hs-card-grid hs-card-grid--engine">';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=dealer')) . '"><span class="hs-card-label">Dealers</span><strong class="hs-card-value">' . esc_html((string) ($engines['dealers'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=distributor')) . '"><span class="hs-card-label">Distributors</span><strong class="hs-card-value">' . esc_html((string) ($engines['distributors'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=comparison')) . '"><span class="hs-card-label">Comparisons</span><strong class="hs-card-value">' . esc_html((string) ($engines['comparisons'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=recommendation')) . '"><span class="hs-card-label">Recommendations</span><strong class="hs-card-value">' . esc_html((string) ($engines['recommendations'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(add_query_arg(['page' => 'helmetsan-catalog'], admin_url('admin.php'))) . '"><span class="hs-card-label">Marketplaces</span><strong class="hs-card-value">' . esc_html((string) ($engines['marketplaces'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(add_query_arg(['page' => 'helmetsan-catalog'], admin_url('admin.php'))) . '"><span class="hs-card-label">Best Offers</span><strong class="hs-card-value">' . esc_html((string) ($engines['offers'] ?? 0)) . '</strong></a>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        $this->renderMiniTable('Pricing (Sample)', [
+            'helmet' => 'Helmet',
+            'country' => 'Country',
+            'currency' => 'Currency',
+            'price' => 'Price',
+            'marketplace' => 'Marketplace',
+        ], $this->getPricingRows(6));
+
+        $this->renderMiniTable('Offers (Best Sample)', [
+            'helmet' => 'Helmet',
+            'country' => 'Country',
+            'shop' => 'Shop',
+            'currency' => 'Currency',
+            'price' => 'Offer',
+        ], $this->getOfferRows(6));
+        echo '</div>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        $this->renderMiniTable('Marketplaces', [
+            'id' => 'ID',
+            'name' => 'Name',
+            'countries' => 'Countries',
+            'website' => 'Website',
+        ], $this->getMarketplaceRows(6));
+
+        $this->renderMiniTable('Dealers (Recent)', [
+            'id' => 'ID',
+            'title' => 'Name',
+            'status' => 'Status',
+            'modified' => 'Updated',
+        ], $this->getPostTypeRows('dealer', 6));
+        echo '</div>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        $this->renderMiniTable('Distributors (Recent)', [
+            'id' => 'ID',
+            'title' => 'Name',
+            'status' => 'Status',
+            'modified' => 'Updated',
+        ], $this->getPostTypeRows('distributor', 6));
+
+        $this->renderMiniTable('Recommendations (Recent)', [
+            'id' => 'ID',
+            'title' => 'Title',
+            'status' => 'Status',
+            'modified' => 'Updated',
+        ], $this->getPostTypeRows('recommendation', 6));
         echo '</div>';
 
         echo '<div class="hs-panel">';
@@ -598,6 +893,7 @@ final class Admin
                 ],
             ],
         ]));
+        $engines = $this->engineSnapshot();
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Catalog', 'Browse helmets and entity directories.');
@@ -606,7 +902,39 @@ final class Admin
             ['label' => 'Brand Linked', 'value' => (string) $brandLinked, 'page' => 'helmetsan-catalog'],
             ['label' => 'Certification Linked', 'value' => (string) $certLinked, 'page' => 'helmetsan-catalog'],
             ['label' => 'Brands Directory', 'value' => (string) (isset(wp_count_posts('brand')->publish) ? (int) wp_count_posts('brand')->publish : 0), 'page' => 'helmetsan-brands'],
+            ['label' => 'Pricing Models', 'value' => (string) ($engines['pricing'] ?? 0), 'page' => 'helmetsan-catalog'],
+            ['label' => 'Offers', 'value' => (string) ($engines['offers'] ?? 0), 'page' => 'helmetsan-catalog'],
         ]);
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Commerce + Store/Distributor Index</h3>';
+        echo '<div class="hs-card-grid hs-card-grid--engine">';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=dealer')) . '"><span class="hs-card-label">Dealers</span><strong class="hs-card-value">' . esc_html((string) ($engines['dealers'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=distributor')) . '"><span class="hs-card-label">Distributors</span><strong class="hs-card-value">' . esc_html((string) ($engines['distributors'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=comparison')) . '"><span class="hs-card-label">Comparisons</span><strong class="hs-card-value">' . esc_html((string) ($engines['comparisons'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(admin_url('edit.php?post_type=recommendation')) . '"><span class="hs-card-label">Recommendations</span><strong class="hs-card-value">' . esc_html((string) ($engines['recommendations'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(add_query_arg(['page' => 'helmetsan-catalog'], admin_url('admin.php'))) . '"><span class="hs-card-label">Marketplaces</span><strong class="hs-card-value">' . esc_html((string) ($engines['marketplaces'] ?? 0)) . '</strong></a>';
+        echo '<a class="hs-card" href="' . esc_url(add_query_arg(['page' => 'helmetsan-catalog'], admin_url('admin.php'))) . '"><span class="hs-card-label">Best Offers</span><strong class="hs-card-value">' . esc_html((string) ($engines['offers'] ?? 0)) . '</strong></a>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        $this->renderMiniTable('Pricing (Catalog Sample)', [
+            'helmet' => 'Helmet',
+            'country' => 'Country',
+            'currency' => 'Currency',
+            'price' => 'Price',
+            'marketplace' => 'Marketplace',
+        ], $this->getPricingRows(5));
+
+        $this->renderMiniTable('Offers (Catalog Sample)', [
+            'helmet' => 'Helmet',
+            'country' => 'Country',
+            'shop' => 'Shop',
+            'currency' => 'Currency',
+            'price' => 'Offer',
+        ], $this->getOfferRows(5));
+        echo '</div>';
 
         echo '<div class="hs-panel">';
         echo '<form method="get" class="hs-inline-form">';
@@ -718,6 +1046,12 @@ final class Admin
     {
         $done = isset($_GET['hs_brand_cascade']) ? (int) $_GET['hs_brand_cascade'] : 0;
         $count = isset($_GET['hs_brand_count']) ? (int) $_GET['hs_brand_count'] : 0;
+        $search = isset($_GET['s']) ? sanitize_text_field((string) $_GET['s']) : '';
+        $country = isset($_GET['country']) ? sanitize_text_field((string) $_GET['country']) : '';
+        $helmetType = isset($_GET['helmet_type']) ? sanitize_text_field((string) $_GET['helmet_type']) : '';
+        $cert = isset($_GET['cert']) ? sanitize_text_field((string) $_GET['cert']) : '';
+        $paged = isset($_GET['paged']) ? max(1, (int) $_GET['paged']) : 1;
+        $perPage = 25;
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Brands', 'Deep brand metadata, cascade, and JSON export.');
@@ -732,6 +1066,54 @@ final class Admin
         echo '</form>';
 
         $rows = $this->brands->listBrandOverview();
+        $filtered = [];
+        foreach ($rows as $row) {
+            if (! is_array($row)) {
+                continue;
+            }
+            $haystack = strtolower(implode(' ', array_map('strval', [
+                $row['title'] ?? '',
+                $row['origin_country'] ?? '',
+                $row['helmet_types'] ?? '',
+                $row['certification_coverage'] ?? '',
+                $row['warranty'] ?? '',
+            ])));
+            if ($search !== '' && ! str_contains($haystack, strtolower($search))) {
+                continue;
+            }
+            if ($country !== '' && stripos((string) ($row['origin_country'] ?? ''), $country) === false) {
+                continue;
+            }
+            if ($helmetType !== '' && stripos((string) ($row['helmet_types'] ?? ''), $helmetType) === false) {
+                continue;
+            }
+            if ($cert !== '' && stripos((string) ($row['certification_coverage'] ?? ''), $cert) === false) {
+                continue;
+            }
+            $filtered[] = $row;
+        }
+
+        $totalRows = count($filtered);
+        $totalPages = (int) max(1, ceil($totalRows / $perPage));
+        $paged = min($paged, $totalPages);
+        $offset = ($paged - 1) * $perPage;
+        $rows = array_slice($filtered, $offset, $perPage);
+
+        echo '<div class="hs-panel">';
+        echo '<form method="get" class="hs-inline-form">';
+        echo '<input type="hidden" name="page" value="helmetsan-brands" />';
+        echo '<label for="hs-brand-search">Search</label>';
+        echo '<input id="hs-brand-search" type="search" name="s" value="' . esc_attr($search) . '" placeholder="Brand, country, cert, type" />';
+        echo '<label for="hs-brand-country">Country</label>';
+        echo '<input id="hs-brand-country" type="text" name="country" value="' . esc_attr($country) . '" class="small-text" placeholder="JP, US, IN" />';
+        echo '<label for="hs-brand-helmet-type">Helmet Type</label>';
+        echo '<input id="hs-brand-helmet-type" type="text" name="helmet_type" value="' . esc_attr($helmetType) . '" class="regular-text" placeholder="Full Face, Modular" />';
+        echo '<label for="hs-brand-cert">Certification</label>';
+        echo '<input id="hs-brand-cert" type="text" name="cert" value="' . esc_attr($cert) . '" class="regular-text" placeholder="ECE, DOT, Snell" />';
+        submit_button('Apply Filters', 'secondary', '', false);
+        echo '</form>';
+        echo '</div>';
+
         echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Brand</th><th>Linked Helmets</th><th>Total Models</th><th>Helmet Types</th><th>Cert Coverage</th><th>Origin</th><th>Warranty</th><th>Support URL</th><th>Action</th></tr></thead><tbody>';
         if ($rows === []) {
             echo '<tr><td colspan="10">No brands found.</td></tr>';
@@ -766,7 +1148,564 @@ final class Admin
                 echo '</tr>';
             }
         }
-        echo '</tbody></table></div>';
+        echo '</tbody></table>';
+
+        if ($totalPages > 1) {
+            $baseUrl = add_query_arg([
+                'page' => 'helmetsan-brands',
+                's' => $search,
+                'country' => $country,
+                'helmet_type' => $helmetType,
+                'cert' => $cert,
+                'paged' => '%#%',
+            ], admin_url('admin.php'));
+            echo '<div class="tablenav"><div class="tablenav-pages" style="margin:12px 0;">';
+            echo wp_kses_post(paginate_links([
+                'base'      => $baseUrl,
+                'format'    => '',
+                'current'   => $paged,
+                'total'     => $totalPages,
+                'type'      => 'plain',
+                'prev_text' => '&laquo;',
+                'next_text' => '&raquo;',
+            ]));
+            echo '</div></div>';
+        }
+        echo '<p><strong>Total matched:</strong> ' . esc_html((string) $totalRows) . '</p>';
+        echo '</div>';
+    }
+
+    public function wooBridgePage(): void
+    {
+        $cfg = wp_parse_args((array) get_option(Config::OPTION_WOO_BRIDGE, []), $this->config->wooBridgeDefaults());
+        $available = $this->wooBridge->available();
+        $resultOk = isset($_GET['hs_woo_ok']) ? (int) $_GET['hs_woo_ok'] : -1;
+        $resultMsg = isset($_GET['hs_woo_msg']) ? sanitize_text_field((string) $_GET['hs_woo_msg']) : '';
+        $helmetId = isset($_GET['hs_woo_helmet']) ? (int) $_GET['hs_woo_helmet'] : 0;
+        $report = [];
+        if (isset($_GET['hs_woo_report'])) {
+            $report = json_decode(rawurldecode((string) $_GET['hs_woo_report']), true);
+            if (! is_array($report)) {
+                $report = [];
+            }
+        }
+
+        echo '<div class="wrap helmetsan-wrap">';
+        $this->renderAppHeader('Woo Bridge', 'Sync Helmet CPT data to WooCommerce variable products and variations.');
+
+        if ($resultOk >= 0 && $resultMsg !== '') {
+            $cls = $resultOk === 1 ? 'notice-success' : 'notice-error';
+            echo '<div class="notice ' . esc_attr($cls) . ' is-dismissible"><p>' . esc_html($resultMsg) . '</p></div>';
+        }
+
+        echo '<section class="hs-hero">';
+        echo '<div class="hs-hero__meta">';
+        echo '<p class="hs-eyebrow">WooCommerce Bridge</p>';
+        echo '<h2>Helmet model to variable product sync</h2>';
+        echo '<p>Uses <code>variants_json</code> for sellable options and writes product/variation links back to helmet meta.</p>';
+        echo '</div>';
+        echo '<div class="hs-hero__status">';
+        echo '<p><strong>WooCommerce:</strong> ' . wp_kses_post($this->renderStatusPill($available ? 'AVAILABLE' : 'MISSING', $available)) . '</p>';
+        echo '<p><strong>Auto Sync on Save:</strong> ' . wp_kses_post($this->renderStatusPill(! empty($cfg['auto_sync_on_save']) ? 'ON' : 'OFF', ! empty($cfg['auto_sync_on_save']))) . '</p>';
+        echo '</div>';
+        echo '</section>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        echo '<div class="hs-panel">';
+        echo '<h3>Run Sync</h3>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" class="hs-inline-form">';
+        wp_nonce_field('helmetsan_woo_bridge_sync_action', 'helmetsan_woo_bridge_sync_nonce');
+        echo '<input type="hidden" name="action" value="helmetsan_woo_bridge_sync" />';
+        echo '<label for="hs-woo-helmet-id">Helmet ID (optional)</label>';
+        echo '<input id="hs-woo-helmet-id" type="number" min="1" name="helmet_id" value="' . esc_attr($helmetId > 0 ? (string) $helmetId : '') . '" class="small-text" />';
+        echo '<label for="hs-woo-limit">Batch Limit</label>';
+        echo '<input id="hs-woo-limit" type="number" min="1" name="limit" value="' . esc_attr((string) ((int) ($cfg['sync_limit_default'] ?? 100))) . '" class="small-text" />';
+        echo '<label><input type="checkbox" name="dry_run" value="1" /> Dry Run</label>';
+        submit_button('Run Woo Sync', 'secondary', '', false);
+        echo '</form>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Bridge Settings</h3>';
+        echo '<form method="post" action="options.php">';
+        settings_fields('helmetsan_settings');
+        echo '<table class="form-table"><tbody>';
+        echo '<tr><th>Enable Bridge</th><td><label><input type="checkbox" name="' . esc_attr(Config::OPTION_WOO_BRIDGE) . '[enable_bridge]" value="1" ' . checked(! empty($cfg['enable_bridge']), true, false) . ' /> Enable Woo bridge hooks</label></td></tr>';
+        echo '<tr><th>Auto Sync on Helmet Save</th><td><label><input type="checkbox" name="' . esc_attr(Config::OPTION_WOO_BRIDGE) . '[auto_sync_on_save]" value="1" ' . checked(! empty($cfg['auto_sync_on_save']), true, false) . ' /> Sync when helmet is saved</label></td></tr>';
+        echo '<tr><th>Publish Woo Products</th><td><label><input type="checkbox" name="' . esc_attr(Config::OPTION_WOO_BRIDGE) . '[publish_products]" value="1" ' . checked(! empty($cfg['publish_products']), true, false) . ' /> Publish instead of draft</label></td></tr>';
+        echo '<tr><th>Default Currency</th><td><input type="text" name="' . esc_attr(Config::OPTION_WOO_BRIDGE) . '[default_currency]" value="' . esc_attr((string) ($cfg['default_currency'] ?? 'USD')) . '" class="small-text" /></td></tr>';
+        echo '<tr><th>Default Batch Limit</th><td><input type="number" min="1" name="' . esc_attr(Config::OPTION_WOO_BRIDGE) . '[sync_limit_default]" value="' . esc_attr((string) ((int) ($cfg['sync_limit_default'] ?? 100))) . '" class="small-text" /></td></tr>';
+        echo '</tbody></table>';
+        submit_button('Save Woo Bridge Settings');
+        echo '</form>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Linked Helmets</h3>';
+        $linked = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => ['publish', 'draft', 'private'],
+            'posts_per_page' => 20,
+            'meta_query' => [
+                [
+                    'key' => 'wc_product_id',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+        echo '<table class="widefat striped hs-table-compact"><thead><tr><th>Helmet ID</th><th>Helmet</th><th>Woo Product ID</th><th>Actions</th></tr></thead><tbody>';
+        if (! is_array($linked) || $linked === []) {
+            echo '<tr><td colspan="4">No linked helmets yet.</td></tr>';
+        } else {
+            foreach ($linked as $post) {
+                if (! ($post instanceof \WP_Post)) {
+                    continue;
+                }
+                $pid = (int) get_post_meta($post->ID, 'wc_product_id', true);
+                $editHelmet = get_edit_post_link($post->ID);
+                $editProduct = $pid > 0 ? get_edit_post_link($pid) : '';
+                echo '<tr>';
+                echo '<td>' . esc_html((string) $post->ID) . '</td>';
+                echo '<td>' . esc_html((string) $post->post_title) . '</td>';
+                echo '<td>' . esc_html((string) $pid) . '</td>';
+                echo '<td>';
+                if (is_string($editHelmet)) {
+                    echo '<a class="button button-small" href="' . esc_url($editHelmet) . '">Edit Helmet</a> ';
+                }
+                if (is_string($editProduct) && $editProduct !== '') {
+                    echo '<a class="button button-small" href="' . esc_url($editProduct) . '">Edit Product</a>';
+                }
+                echo '</td>';
+                echo '</tr>';
+            }
+        }
+        echo '</tbody></table>';
+        echo '</div>';
+
+        if ($report !== []) {
+            echo '<div class="hs-panel">';
+            echo '<h3>Last Sync Report</h3>';
+            echo '<pre>' . esc_html(wp_json_encode($report, JSON_PRETTY_PRINT)) . '</pre>';
+            echo '</div>';
+        }
+
+        echo '</div>';
+    }
+
+    public function commerceEnginesPage(): void
+    {
+        $engine = isset($_GET['engine']) ? sanitize_key((string) $_GET['engine']) : 'pricing';
+        $allowedEngines = ['pricing', 'offers', 'marketplaces', 'dealers', 'distributors', 'recommendations'];
+        if (! in_array($engine, $allowedEngines, true)) {
+            $engine = 'pricing';
+        }
+
+        $search = isset($_GET['s']) ? sanitize_text_field((string) $_GET['s']) : '';
+        $country = strtoupper(sanitize_text_field((string) ($_GET['country'] ?? '')));
+        $marketplace = sanitize_title((string) ($_GET['marketplace'] ?? ''));
+        $paged = isset($_GET['paged']) ? max(1, (int) $_GET['paged']) : 1;
+        $perPage = 25;
+        $engines = $this->engineSnapshot();
+
+        echo '<div class="wrap helmetsan-wrap">';
+        $this->renderAppHeader('Commerce Engines', 'Pricing, offers, marketplaces, store/distributor network, and recommendation intelligence.');
+
+        $this->renderMetricCards([
+            ['label' => 'Pricing Models', 'value' => (string) ($engines['pricing'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+            ['label' => 'Offer Models', 'value' => (string) ($engines['offers'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+            ['label' => 'Marketplaces', 'value' => (string) ($engines['marketplaces'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+            ['label' => 'Dealers', 'value' => (string) ($engines['dealers'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+            ['label' => 'Distributors', 'value' => (string) ($engines['distributors'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+            ['label' => 'Recommendations', 'value' => (string) ($engines['recommendations'] ?? 0), 'page' => 'helmetsan-commerce-engines'],
+        ]);
+
+        echo '<div class="hs-panel">';
+        echo '<div class="hs-shell-tabs">';
+        $engineTabs = [
+            'pricing' => 'Pricing',
+            'offers' => 'Offers',
+            'marketplaces' => 'Marketplaces',
+            'dealers' => 'Dealers',
+            'distributors' => 'Distributors',
+            'recommendations' => 'Recommendations',
+        ];
+        foreach ($engineTabs as $slug => $label) {
+            $url = add_query_arg([
+                'page' => 'helmetsan-commerce-engines',
+                'engine' => $slug,
+            ], admin_url('admin.php'));
+            $class = $slug === $engine ? 'hs-tab is-active' : 'hs-tab';
+            echo '<a class="' . esc_attr($class) . '" href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
+        }
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel">';
+        echo '<form method="get" class="hs-inline-form">';
+        echo '<input type="hidden" name="page" value="helmetsan-commerce-engines" />';
+        echo '<input type="hidden" name="engine" value="' . esc_attr($engine) . '" />';
+        echo '<label for="hs-commerce-search">Search</label>';
+        echo '<input id="hs-commerce-search" type="search" name="s" value="' . esc_attr($search) . '" placeholder="Helmet, shop, marketplace, id" />';
+        echo '<label for="hs-commerce-country">Country</label>';
+        echo '<input id="hs-commerce-country" type="text" name="country" value="' . esc_attr($country) . '" placeholder="US, IN, DE" class="small-text" />';
+        echo '<label for="hs-commerce-marketplace">Marketplace</label>';
+        echo '<input id="hs-commerce-marketplace" type="text" name="marketplace" value="' . esc_attr($marketplace) . '" placeholder="amazon-us" class="regular-text" />';
+        submit_button('Apply', 'secondary', '', false);
+        echo '</form>';
+        echo '</div>';
+
+        if ($engine === 'pricing') {
+            $all = $this->collectPricingRecords($country, $marketplace, $search);
+            $this->renderCommercePaginationTable(
+                $engine,
+                $paged,
+                $perPage,
+                $all,
+                ['helmet' => 'Helmet', 'country' => 'Country', 'currency' => 'Currency', 'price' => 'Current', 'launch_price' => 'Launch', 'mrp' => 'MRP', 'marketplace' => 'Marketplace', 'captured_at' => 'Captured']
+            );
+        } elseif ($engine === 'offers') {
+            $all = $this->collectOfferRecords($country, $marketplace, $search);
+            $this->renderCommercePaginationTable(
+                $engine,
+                $paged,
+                $perPage,
+                $all,
+                ['helmet' => 'Helmet', 'country' => 'Country', 'shop' => 'Shop', 'currency' => 'Currency', 'price' => 'Offer', 'discount' => 'Discount%', 'marketplace' => 'Marketplace', 'valid_until' => 'Valid Until']
+            );
+        } elseif ($engine === 'marketplaces') {
+            $all = $this->collectMarketplaceRecords($country, $search);
+            $this->renderCommercePaginationTable(
+                $engine,
+                $paged,
+                $perPage,
+                $all,
+                ['id' => 'ID', 'name' => 'Name', 'countries' => 'Countries', 'website' => 'Website', 'online' => 'Online', 'offline' => 'Offline']
+            );
+        } elseif ($engine === 'dealers') {
+            $this->renderCommercePostTypeTable('dealer', $engine, $paged, $perPage, $country, $search, ['dealer_country_code', 'dealer_region_code', 'dealer_city']);
+        } elseif ($engine === 'distributors') {
+            $this->renderCommercePostTypeTable('distributor', $engine, $paged, $perPage, $country, $search, ['distributor_country_code']);
+        } else {
+            $this->renderCommercePostTypeTable('recommendation', $engine, $paged, $perPage, $country, $search, ['recommendation_region', 'recommendation_use_case']);
+        }
+
+        echo '</div>';
+    }
+
+    /**
+     * @return array<int,array<string,string>>
+     */
+    private function collectPricingRecords(string $country, string $marketplace, string $search): array
+    {
+        $posts = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+            'meta_query' => [
+                [
+                    'key' => 'pricing_records_json',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+
+        $rows = [];
+        foreach ($posts as $postId) {
+            $postId = (int) $postId;
+            $title = (string) get_the_title($postId);
+            $raw = (string) get_post_meta($postId, 'pricing_records_json', true);
+            $records = json_decode($raw, true);
+            if (! is_array($records)) {
+                continue;
+            }
+            foreach ($records as $record) {
+                if (! is_array($record)) {
+                    continue;
+                }
+                $rowCountry = strtoupper((string) ($record['country_code'] ?? ''));
+                $rowMarketplace = sanitize_title((string) ($record['marketplace_id'] ?? ''));
+                if ($country !== '' && $rowCountry !== $country) {
+                    continue;
+                }
+                if ($marketplace !== '' && $rowMarketplace !== $marketplace) {
+                    continue;
+                }
+
+                $row = [
+                    'helmet' => $title,
+                    'country' => $rowCountry,
+                    'currency' => strtoupper((string) ($record['currency'] ?? '')),
+                    'price' => (string) ($record['current_price'] ?? ''),
+                    'launch_price' => (string) ($record['launch_price'] ?? ''),
+                    'mrp' => (string) ($record['mrp'] ?? ''),
+                    'marketplace' => $rowMarketplace,
+                    'captured_at' => (string) ($record['captured_at'] ?? ''),
+                ];
+
+                if ($search !== '') {
+                    $haystack = strtolower(implode(' ', $row));
+                    if (! str_contains($haystack, strtolower($search))) {
+                        continue;
+                    }
+                }
+
+                $rows[] = $row;
+            }
+        }
+
+        usort($rows, static function (array $a, array $b): int {
+            return strcmp((string) ($b['captured_at'] ?? ''), (string) ($a['captured_at'] ?? ''));
+        });
+
+        return $rows;
+    }
+
+    /**
+     * @return array<int,array<string,string>>
+     */
+    private function collectOfferRecords(string $country, string $marketplace, string $search): array
+    {
+        $posts = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'posts_per_page' => -1,
+            'fields' => 'ids',
+            'meta_query' => [
+                [
+                    'key' => 'offers_json',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+
+        $rows = [];
+        foreach ($posts as $postId) {
+            $postId = (int) $postId;
+            $title = (string) get_the_title($postId);
+            $raw = (string) get_post_meta($postId, 'offers_json', true);
+            $records = json_decode($raw, true);
+            if (! is_array($records)) {
+                continue;
+            }
+            foreach ($records as $record) {
+                if (! is_array($record)) {
+                    continue;
+                }
+                $rowCountry = strtoupper((string) ($record['country_code'] ?? ''));
+                $rowMarketplace = sanitize_title((string) ($record['marketplace_id'] ?? ''));
+                if ($country !== '' && $rowCountry !== $country) {
+                    continue;
+                }
+                if ($marketplace !== '' && $rowMarketplace !== $marketplace) {
+                    continue;
+                }
+
+                $row = [
+                    'helmet' => $title,
+                    'country' => $rowCountry,
+                    'shop' => (string) ($record['shop_name'] ?? ''),
+                    'currency' => strtoupper((string) ($record['currency'] ?? '')),
+                    'price' => (string) ($record['offer_price'] ?? ''),
+                    'discount' => (string) ($record['discount_percent'] ?? ''),
+                    'marketplace' => $rowMarketplace,
+                    'valid_until' => (string) ($record['valid_until'] ?? ''),
+                ];
+
+                if ($search !== '') {
+                    $haystack = strtolower(implode(' ', $row));
+                    if (! str_contains($haystack, strtolower($search))) {
+                        continue;
+                    }
+                }
+
+                $rows[] = $row;
+            }
+        }
+
+        usort($rows, static function (array $a, array $b): int {
+            return strcmp((string) ($a['price'] ?? ''), (string) ($b['price'] ?? ''));
+        });
+
+        return $rows;
+    }
+
+    /**
+     * @return array<int,array<string,string>>
+     */
+    private function collectMarketplaceRecords(string $country, string $search): array
+    {
+        $index = get_option('helmetsan_marketplaces_index', []);
+        if (! is_array($index)) {
+            return [];
+        }
+
+        $rows = [];
+        foreach ($index as $item) {
+            if (! is_array($item)) {
+                continue;
+            }
+            $countries = isset($item['country_codes']) && is_array($item['country_codes']) ? array_map('strtoupper', array_map('strval', $item['country_codes'])) : [];
+            if ($country !== '' && ! in_array($country, $countries, true)) {
+                continue;
+            }
+            $row = [
+                'id' => (string) ($item['id'] ?? ''),
+                'name' => (string) ($item['name'] ?? ''),
+                'countries' => implode(', ', $countries),
+                'website' => (string) ($item['website'] ?? ''),
+                'online' => ! empty($item['supports_online']) ? 'yes' : 'no',
+                'offline' => ! empty($item['supports_offline']) ? 'yes' : 'no',
+            ];
+            if ($search !== '') {
+                $haystack = strtolower(implode(' ', $row));
+                if (! str_contains($haystack, strtolower($search))) {
+                    continue;
+                }
+            }
+            $rows[] = $row;
+        }
+
+        usort($rows, static function (array $a, array $b): int {
+            return strcmp((string) ($a['name'] ?? ''), (string) ($b['name'] ?? ''));
+        });
+
+        return $rows;
+    }
+
+    /**
+     * @param array<int,array<string,string>> $rows
+     * @param array<string,string> $headers
+     */
+    private function renderCommercePaginationTable(string $engine, int $paged, int $perPage, array $rows, array $headers): void
+    {
+        $totalRows = count($rows);
+        $totalPages = (int) max(1, ceil($totalRows / $perPage));
+        $paged = min($paged, $totalPages);
+        $offset = ($paged - 1) * $perPage;
+        $pageRows = array_slice($rows, $offset, $perPage);
+
+        echo '<div class="hs-panel">';
+        echo '<table class="widefat striped"><thead><tr>';
+        foreach ($headers as $label) {
+            echo '<th>' . esc_html($label) . '</th>';
+        }
+        echo '</tr></thead><tbody>';
+        if ($pageRows === []) {
+            echo '<tr><td colspan="' . esc_attr((string) count($headers)) . '">No records found.</td></tr>';
+        } else {
+            foreach ($pageRows as $row) {
+                echo '<tr>';
+                foreach (array_keys($headers) as $key) {
+                    echo '<td>' . esc_html((string) ($row[$key] ?? '')) . '</td>';
+                }
+                echo '</tr>';
+            }
+        }
+        echo '</tbody></table>';
+        echo '<p><strong>Total:</strong> ' . esc_html((string) $totalRows) . '</p>';
+        $this->renderCommercePagination($engine, $paged, $totalPages);
+        echo '</div>';
+    }
+
+    /**
+     * @param array<int,string> $metaColumns
+     */
+    private function renderCommercePostTypeTable(string $postType, string $engine, int $paged, int $perPage, string $country, string $search, array $metaColumns): void
+    {
+        $args = [
+            'post_type' => $postType,
+            'post_status' => ['publish', 'draft', 'private', 'pending'],
+            'posts_per_page' => $perPage,
+            'paged' => $paged,
+            'orderby' => 'modified',
+            'order' => 'DESC',
+        ];
+        if ($search !== '') {
+            $args['s'] = $search;
+        }
+        if ($country !== '') {
+            $countryMeta = $postType === 'dealer' ? 'dealer_country_code' : ($postType === 'distributor' ? 'distributor_country_code' : 'recommendation_region');
+            $args['meta_query'] = [
+                [
+                    'key' => $countryMeta,
+                    'value' => $country,
+                    'compare' => 'LIKE',
+                ],
+            ];
+        }
+
+        $query = new \WP_Query($args);
+
+        echo '<div class="hs-panel">';
+        echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Title</th><th>Status</th>';
+        foreach ($metaColumns as $metaColumn) {
+            echo '<th>' . esc_html(str_replace('_', ' ', $metaColumn)) . '</th>';
+        }
+        echo '<th>Actions</th></tr></thead><tbody>';
+        if (! $query->have_posts()) {
+            echo '<tr><td colspan="' . esc_attr((string) (5 + count($metaColumns))) . '">No records found.</td></tr>';
+        } else {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $postId = get_the_ID();
+                echo '<tr>';
+                echo '<td>' . esc_html((string) $postId) . '</td>';
+                echo '<td>' . esc_html((string) get_the_title()) . '</td>';
+                echo '<td>' . esc_html((string) get_post_status($postId)) . '</td>';
+                foreach ($metaColumns as $metaColumn) {
+                    echo '<td>' . esc_html((string) get_post_meta($postId, $metaColumn, true)) . '</td>';
+                }
+                $editUrl = get_edit_post_link($postId);
+                $viewUrl = get_permalink($postId);
+                echo '<td>';
+                if (is_string($viewUrl)) {
+                    echo '<a class="button button-small" href="' . esc_url($viewUrl) . '" target="_blank" rel="noopener noreferrer">View</a> ';
+                }
+                if (is_string($editUrl)) {
+                    echo '<a class="button button-small" href="' . esc_url($editUrl) . '">Edit</a>';
+                }
+                echo '</td>';
+                echo '</tr>';
+            }
+            wp_reset_postdata();
+        }
+        echo '</tbody></table>';
+
+        $totalPages = (int) $query->max_num_pages;
+        echo '<p><strong>Total:</strong> ' . esc_html((string) ((int) $query->found_posts)) . '</p>';
+        $this->renderCommercePagination($engine, $paged, $totalPages);
+        echo '</div>';
+    }
+
+    private function renderCommercePagination(string $engine, int $paged, int $totalPages): void
+    {
+        if ($totalPages <= 1) {
+            return;
+        }
+
+        $baseArgs = [
+            'page' => 'helmetsan-commerce-engines',
+            'engine' => $engine,
+            's' => isset($_GET['s']) ? sanitize_text_field((string) $_GET['s']) : '',
+            'country' => isset($_GET['country']) ? strtoupper(sanitize_text_field((string) $_GET['country'])) : '',
+            'marketplace' => isset($_GET['marketplace']) ? sanitize_title((string) $_GET['marketplace']) : '',
+            'paged' => '%#%',
+        ];
+        $baseUrl = add_query_arg($baseArgs, admin_url('admin.php'));
+
+        echo '<div class="tablenav"><div class="tablenav-pages" style="margin:12px 0;">';
+        echo wp_kses_post(paginate_links([
+            'base'      => $baseUrl,
+            'format'    => '',
+            'current'   => $paged,
+            'total'     => $totalPages,
+            'type'      => 'plain',
+            'prev_text' => '&laquo;',
+            'next_text' => '&raquo;',
+        ]));
+        echo '</div></div>';
     }
 
     public function handleBrandActions(): void
@@ -1060,6 +1999,40 @@ final class Admin
             'page' => 'helmetsan-sync-logs',
             'hs_sync' => 1,
             'hs_sync_msg' => $msg,
+        ], admin_url('admin.php')));
+        exit;
+    }
+
+    public function handleWooBridgeSyncAction(): void
+    {
+        if (! current_user_can('manage_options')) {
+            wp_die('Unauthorized');
+        }
+
+        $nonce = isset($_POST['helmetsan_woo_bridge_sync_nonce']) ? (string) $_POST['helmetsan_woo_bridge_sync_nonce'] : '';
+        if (! wp_verify_nonce($nonce, 'helmetsan_woo_bridge_sync_action')) {
+            wp_die('Invalid nonce');
+        }
+
+        $helmetId = isset($_POST['helmet_id']) ? max(0, (int) $_POST['helmet_id']) : 0;
+        $limit = isset($_POST['limit']) ? max(1, (int) $_POST['limit']) : 100;
+        $dryRun = isset($_POST['dry_run']);
+
+        $result = $helmetId > 0
+            ? $this->wooBridge->syncHelmet($helmetId, $dryRun)
+            : $this->wooBridge->syncBatch($limit, $dryRun);
+
+        $ok = ! empty($result['ok']);
+        $msg = $ok
+            ? ($helmetId > 0 ? 'Woo sync completed for helmet #' . (string) $helmetId : 'Woo batch sync completed.')
+            : (string) ($result['message'] ?? 'Woo sync failed');
+
+        wp_safe_redirect(add_query_arg([
+            'page' => 'helmetsan-woo-bridge',
+            'hs_woo_ok' => $ok ? 1 : 0,
+            'hs_woo_msg' => $msg,
+            'hs_woo_helmet' => $helmetId > 0 ? $helmetId : '',
+            'hs_woo_report' => rawurlencode(wp_json_encode($result)),
         ], admin_url('admin.php')));
         exit;
     }
@@ -1480,6 +2453,7 @@ final class Admin
         $totals = isset($report['totals']) && is_array($report['totals']) ? $report['totals'] : [];
         $checks = isset($report['checks']) && is_array($report['checks']) ? $report['checks'] : [];
         $criticalFailures = isset($report['critical_failures']) && is_array($report['critical_failures']) ? $report['critical_failures'] : [];
+        $engines = $this->engineSnapshot();
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Go Live', 'Production readiness gate with objective launch criteria.');
@@ -1503,6 +2477,30 @@ final class Admin
             ['label' => 'Critical Failures', 'value' => (string) count($criticalFailures), 'page' => 'helmetsan-go-live'],
             ['label' => 'Score', 'value' => (string) $score . '/100', 'page' => 'helmetsan-go-live'],
         ]);
+
+        echo '<div class="hs-panel">';
+        echo '<h3>Engine Readiness</h3>';
+        echo '<table class="widefat striped hs-table-compact"><thead><tr><th>Engine</th><th>Volume</th><th>Status</th><th>Guidance</th></tr></thead><tbody>';
+        $engineRows = [
+            ['name' => 'Pricing', 'count' => (int) ($engines['pricing'] ?? 0), 'min' => 1, 'guide' => 'At least one helmet has geo pricing records.'],
+            ['name' => 'Offers', 'count' => (int) ($engines['offers'] ?? 0), 'min' => 1, 'guide' => 'At least one best-offer record is resolved.'],
+            ['name' => 'Marketplaces', 'count' => (int) ($engines['marketplaces'] ?? 0), 'min' => 1, 'guide' => 'Marketplace index exists for routing offers.'],
+            ['name' => 'Dealers', 'count' => (int) ($engines['dealers'] ?? 0), 'min' => 1, 'guide' => 'Store network has at least one dealer.'],
+            ['name' => 'Distributors', 'count' => (int) ($engines['distributors'] ?? 0), 'min' => 1, 'guide' => 'Authorized distributor list is seeded.'],
+            ['name' => 'Recommendations', 'count' => (int) ($engines['recommendations'] ?? 0), 'min' => 1, 'guide' => 'Recommendation engine has published bundles.'],
+            ['name' => 'Comparisons', 'count' => (int) ($engines['comparisons'] ?? 0), 'min' => 1, 'guide' => 'Comparison engine has at least one profile.'],
+        ];
+        foreach ($engineRows as $engineRow) {
+            $ok = $engineRow['count'] >= $engineRow['min'];
+            echo '<tr>';
+            echo '<td>' . esc_html((string) $engineRow['name']) . '</td>';
+            echo '<td>' . esc_html((string) $engineRow['count']) . '</td>';
+            echo '<td>' . wp_kses_post($this->renderStatusPill($ok ? 'READY' : 'MISSING', $ok)) . '</td>';
+            echo '<td>' . esc_html((string) $engineRow['guide']) . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody></table>';
+        echo '</div>';
 
         if ($criticalFailures !== []) {
             echo '<div class="hs-panel">';

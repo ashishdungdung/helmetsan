@@ -23,6 +23,7 @@ use Helmetsan\Core\Seo\SchemaService;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
+use Helmetsan\Core\WooBridge\WooBridgeService;
 
 final class Commands
 {
@@ -45,7 +46,8 @@ final class Commands
         private readonly SchedulerService $scheduler,
         private readonly AlertService $alerts,
         private readonly BrandService $brands,
-        private readonly MediaEngine $media
+        private readonly MediaEngine $media,
+        private readonly WooBridgeService $wooBridge
     ) {
     }
 
@@ -74,6 +76,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan alerts test', [$this, 'alertsTest']);
         \WP_CLI::add_command('helmetsan brand cascade', [$this, 'brandCascade']);
         \WP_CLI::add_command('helmetsan media backfill-brand-logos', [$this, 'mediaBackfillBrandLogos']);
+        \WP_CLI::add_command('helmetsan woo-bridge sync', [$this, 'wooBridgeSync']);
     }
 
     /**
@@ -636,6 +639,30 @@ final class Commands
             'total_events' => $total,
             'by_event'     => $byEvent,
         ], JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Sync helmets to WooCommerce product/variations.
+     *
+     * ## OPTIONS
+     * [--helmet-id=<id>]
+     * : Sync a single helmet post id.
+     * [--limit=<n>]
+     * : Batch size when helmet-id is not provided. Default 100.
+     * [--dry-run]
+     * : Validate/match only without persisting.
+     */
+    public function wooBridgeSync(array $args, array $assoc): void
+    {
+        $helmetId = isset($assoc['helmet-id']) ? max(0, (int) $assoc['helmet-id']) : 0;
+        $limit = isset($assoc['limit']) ? max(1, (int) $assoc['limit']) : 100;
+        $dryRun = isset($assoc['dry-run']);
+
+        $result = $helmetId > 0
+            ? $this->wooBridge->syncHelmet($helmetId, $dryRun)
+            : $this->wooBridge->syncBatch($limit, $dryRun);
+
+        \WP_CLI::line(wp_json_encode($result, JSON_PRETTY_PRINT));
     }
 
     public function schedulerStatus(array $args, array $assoc): void

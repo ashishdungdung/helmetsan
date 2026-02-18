@@ -6,8 +6,13 @@ namespace Helmetsan\Core\Sync;
 
 use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Brands\BrandService;
+use Helmetsan\Core\Commerce\CommerceService;
+use Helmetsan\Core\Comparison\ComparisonService;
+use Helmetsan\Core\Dealer\DealerService;
+use Helmetsan\Core\Distributor\DistributorService;
 use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
+use Helmetsan\Core\Recommendation\RecommendationService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\Config;
@@ -24,7 +29,12 @@ final class SyncService
         private readonly ?IngestionService $ingestion = null,
         private readonly ?AccessoryService $accessories = null,
         private readonly ?MotorcycleService $motorcycles = null,
-        private readonly ?SafetyStandardService $safetyStandards = null
+        private readonly ?SafetyStandardService $safetyStandards = null,
+        private readonly ?DealerService $dealers = null,
+        private readonly ?DistributorService $distributors = null,
+        private readonly ?ComparisonService $comparisons = null,
+        private readonly ?RecommendationService $recommendations = null,
+        private readonly ?CommerceService $commerce = null
     ) {
     }
 
@@ -149,6 +159,11 @@ final class SyncService
         $accessoryFiles = [];
         $motorcycleFiles = [];
         $safetyStandardFiles = [];
+        $dealerFiles = [];
+        $distributorFiles = [];
+        $comparisonFiles = [];
+        $recommendationFiles = [];
+        $commerceFiles = [];
         foreach ($selected as $item) {
             $path = (string) ($item['path'] ?? '');
             $blobSha = (string) ($item['sha'] ?? '');
@@ -206,6 +221,16 @@ final class SyncService
                 $motorcycleFiles[] = $local;
             } elseif ($this->isSafetyStandardFile($relative)) {
                 $safetyStandardFiles[] = $local;
+            } elseif ($this->isDealerFile($relative)) {
+                $dealerFiles[] = $local;
+            } elseif ($this->isDistributorFile($relative)) {
+                $distributorFiles[] = $local;
+            } elseif ($this->isComparisonFile($relative)) {
+                $comparisonFiles[] = $local;
+            } elseif ($this->isRecommendationFile($relative)) {
+                $recommendationFiles[] = $local;
+            } elseif ($this->isCommerceFile($relative)) {
+                $commerceFiles[] = $local;
             }
         }
 
@@ -259,6 +284,51 @@ final class SyncService
             'rejected' => 0,
             'failed' => 0,
         ];
+        $dealerApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($dealerFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $distributorApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($distributorFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $comparisonApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($comparisonFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $recommendationApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($recommendationFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+        $commerceApply = [
+            'enabled' => $applyHelmets,
+            'files' => count($commerceFiles),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
         if ($applyHelmets && $helmetFiles !== []) {
             $helmetApply = $this->applyHelmetFiles($helmetFiles, $dryRun);
             $failed += (int) ($helmetApply['failed'] ?? 0) + (int) ($helmetApply['rejected'] ?? 0);
@@ -274,6 +344,26 @@ final class SyncService
         if ($applyHelmets && $safetyStandardFiles !== []) {
             $safetyStandardApply = $this->applySafetyStandardFiles($safetyStandardFiles, $dryRun);
             $failed += (int) ($safetyStandardApply['failed'] ?? 0) + (int) ($safetyStandardApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $dealerFiles !== []) {
+            $dealerApply = $this->applyDealerFiles($dealerFiles, $dryRun);
+            $failed += (int) ($dealerApply['failed'] ?? 0) + (int) ($dealerApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $distributorFiles !== []) {
+            $distributorApply = $this->applyDistributorFiles($distributorFiles, $dryRun);
+            $failed += (int) ($distributorApply['failed'] ?? 0) + (int) ($distributorApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $comparisonFiles !== []) {
+            $comparisonApply = $this->applyComparisonFiles($comparisonFiles, $dryRun);
+            $failed += (int) ($comparisonApply['failed'] ?? 0) + (int) ($comparisonApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $recommendationFiles !== []) {
+            $recommendationApply = $this->applyRecommendationFiles($recommendationFiles, $dryRun);
+            $failed += (int) ($recommendationApply['failed'] ?? 0) + (int) ($recommendationApply['rejected'] ?? 0);
+        }
+        if ($applyHelmets && $commerceFiles !== []) {
+            $commerceApply = $this->applyCommerceFiles($commerceFiles, $dryRun);
+            $failed += (int) ($commerceApply['failed'] ?? 0) + (int) ($commerceApply['rejected'] ?? 0);
         }
 
         $result = [
@@ -296,6 +386,11 @@ final class SyncService
             'accessory_auto_apply' => $accessoryApply,
             'motorcycle_auto_apply' => $motorcycleApply,
             'safety_standard_auto_apply' => $safetyStandardApply,
+            'dealer_auto_apply' => $dealerApply,
+            'distributor_auto_apply' => $distributorApply,
+            'comparison_auto_apply' => $comparisonApply,
+            'recommendation_auto_apply' => $recommendationApply,
+            'commerce_auto_apply' => $commerceApply,
         ];
 
         $this->logSync('pull', $failed > 0 ? 'partial' : 'success', [
@@ -397,6 +492,41 @@ final class SyncService
     {
         $path = str_replace('\\', '/', strtolower($relativePath));
         return strpos('/' . ltrim($path, '/'), '/safety-standards/') !== false;
+    }
+
+    private function isDealerFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/dealers/') !== false;
+    }
+
+    private function isDistributorFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/distributors/') !== false;
+    }
+
+    private function isComparisonFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/comparisons/') !== false;
+    }
+
+    private function isRecommendationFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        return strpos('/' . ltrim($path, '/'), '/recommendations/') !== false;
+    }
+
+    private function isCommerceFile(string $relativePath): bool
+    {
+        $path = str_replace('\\', '/', strtolower($relativePath));
+        $normalized = '/' . ltrim($path, '/');
+
+        return strpos($normalized, '/pricing/') !== false
+            || strpos($normalized, '/offers/') !== false
+            || strpos($normalized, '/marketplaces/') !== false
+            || strpos($normalized, '/currencies/') !== false;
     }
 
     private function isPushExcludedPath(string $relativePath): bool
@@ -637,6 +767,252 @@ final class SyncService
                 continue;
             }
             $upsert = $this->safetyStandards->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyDealerFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->dealers instanceof DealerService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Dealer service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'dealer') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->dealers->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyDistributorFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->distributors instanceof DistributorService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Distributor service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'distributor') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->distributors->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyComparisonFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->comparisons instanceof ComparisonService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Comparison service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'comparison') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->comparisons->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyRecommendationFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->recommendations instanceof RecommendationService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Recommendation service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            if (sanitize_key((string) ($data['entity'] ?? '')) !== 'recommendation') {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->recommendations->upsertFromPayload($data, $file, $dryRun);
+            if (! empty($upsert['ok'])) {
+                $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
+                if ($action === 'skipped' || $action === 'dry-run') {
+                    $result['skipped']++;
+                } else {
+                    $result['accepted']++;
+                }
+            } else {
+                $result['failed']++;
+            }
+            $result['processed']++;
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param array<int,string> $files
+     * @return array<string,mixed>
+     */
+    private function applyCommerceFiles(array $files, bool $dryRun): array
+    {
+        $result = [
+            'enabled' => true,
+            'files' => count($files),
+            'processed' => 0,
+            'accepted' => 0,
+            'skipped' => 0,
+            'rejected' => 0,
+            'failed' => 0,
+        ];
+
+        if (! $this->commerce instanceof CommerceService) {
+            $result['failed'] = count($files);
+            $result['message'] = 'Commerce service unavailable';
+            return $result;
+        }
+
+        foreach ($files as $file) {
+            $data = $this->repository->read($file);
+            if ($data === []) {
+                $result['rejected']++;
+                continue;
+            }
+            $entity = sanitize_key((string) ($data['entity'] ?? ''));
+            if (! in_array($entity, ['currency', 'marketplace', 'pricing', 'offer'], true)) {
+                $result['skipped']++;
+                continue;
+            }
+            $upsert = $this->commerce->upsertFromPayload($data, $file, $dryRun);
             if (! empty($upsert['ok'])) {
                 $action = isset($upsert['action']) ? (string) $upsert['action'] : '';
                 if ($action === 'skipped' || $action === 'dry-run') {

@@ -19,8 +19,14 @@ if ($type === 'brand') {
     $metaA = (string) get_post_meta($postId, 'brand_origin_country', true);
     $metaB = (string) get_post_meta($postId, 'brand_helmet_types', true);
 } elseif ($type === 'accessory') {
-    $metaA = (string) get_post_meta($postId, 'accessory_type', true);
-    $metaB = (string) get_post_meta($postId, 'price_json', true);
+    $metaA = (string) get_post_meta($postId, 'accessory_parent_category', true);
+    if ($metaA === '') {
+        $metaA = (string) get_post_meta($postId, 'accessory_type', true);
+    }
+    $metaB = (string) get_post_meta($postId, 'accessory_subcategory', true);
+    if ($metaB === '') {
+        $metaB = (string) get_post_meta($postId, 'accessory_youth_adult', true);
+    }
 } elseif ($type === 'motorcycle') {
     $metaA = (string) get_post_meta($postId, 'motorcycle_make', true);
     $metaB = (string) get_post_meta($postId, 'bike_segment', true);

@@ -12,6 +12,10 @@
 }
 
 body {
+    --hs-content-max: 1200px;
+}
+
+body {
     margin: 0;
     color: var(--hs-text);
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
@@ -22,9 +26,106 @@ body {
 .site-header__inner,
 .site-footer,
 .site-topbar__inner {
-    max-width: 1200px;
+    max-width: var(--hs-content-max);
     margin: 0 auto;
     padding: 1rem 1.2rem;
+}
+
+.site-content {
+    max-width: var(--hs-content-max);
+    margin: 0 auto;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    box-sizing: border-box;
+}
+
+.site-content .content-area,
+.site-content .site-main {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Enforce deterministic page content alignment regardless of GP wrappers. */
+body.hs-layout-balanced .site-main,
+body.hs-layout-wide .site-main {
+    width: min(var(--hs-content-max), calc(100% - 2.4rem));
+    max-width: var(--hs-content-max);
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+body.hs-layout-left .site-main {
+    width: min(var(--hs-content-max), calc(100% - 2.4rem));
+    max-width: var(--hs-content-max);
+    margin-left: 1.2rem !important;
+    margin-right: auto !important;
+}
+
+/* Center primary content blocks even when main is full-width. */
+body.hs-layout-balanced .site-main > .hs-section,
+body.hs-layout-wide .site-main > .hs-section,
+body.hs-layout-balanced .site-main > article,
+body.hs-layout-wide .site-main > article,
+body.hs-layout-balanced .site-main > .inside-article,
+body.hs-layout-wide .site-main > .inside-article {
+    max-width: var(--hs-content-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.hs-layout-left .site-main > .hs-section,
+body.hs-layout-left .site-main > article,
+body.hs-layout-left .site-main > .inside-article {
+    max-width: var(--hs-content-max);
+    margin-left: 0;
+    margin-right: auto;
+}
+
+body.hs-layout-wide {
+    --hs-content-max: 1380px;
+}
+
+body.hs-layout-left {
+    --hs-content-max: 1260px;
+}
+
+body.hs-layout-left .site-main,
+body.hs-layout-left .site-header__inner,
+body.hs-layout-left .site-footer,
+body.hs-layout-left .site-topbar__inner,
+body.hs-layout-left .site-content,
+body.hs-layout-left .site-content .content-area,
+body.hs-layout-left .site-content .site-main,
+body.hs-layout-left .site-footer__widgets,
+body.hs-layout-left .site-footer__social-wrap,
+body.hs-layout-left .site-footer__bottomline {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+body.hs-layout-balanced .site-main,
+body.hs-layout-balanced .site-header__inner,
+body.hs-layout-balanced .site-footer,
+body.hs-layout-balanced .site-topbar__inner,
+body.hs-layout-balanced .site-content,
+body.hs-layout-balanced .site-content .content-area,
+body.hs-layout-balanced .site-content .site-main {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.hs-layout-wide .site-main,
+body.hs-layout-wide .site-header__inner,
+body.hs-layout-wide .site-footer,
+body.hs-layout-wide .site-topbar__inner,
+body.hs-layout-wide .site-content,
+body.hs-layout-wide .site-content .content-area,
+body.hs-layout-wide .site-content .site-main {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .site-topbar {
@@ -110,10 +211,20 @@ body {
     background: rgba(255, 255, 255, 0.6);
 }
 
+.site-footer__widgets,
+.site-footer__social-wrap,
+.site-footer__bottomline {
+    max-width: var(--hs-content-max);
+    margin: 0 auto;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
 .site-footer__inner {
     display: grid;
     grid-template-columns: 1.2fr 2fr;
     gap: 1rem;
+    padding-top: 1rem;
 }
 
 .site-footer__brand p {
@@ -124,7 +235,7 @@ body {
 
 .site-footer__menus {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
@@ -140,15 +251,123 @@ body {
     font-size: 13px;
 }
 
+.site-footer__india {
+    margin-top: .5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    border: 1px solid rgba(11, 18, 32, 0.12);
+    border-radius: 999px;
+    padding: .2rem .55rem;
+    font-size: 12px;
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer__india-mark {
+    display: inline-flex;
+    color: #f97316;
+}
+
+.site-footer__widget-areas {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(11, 18, 32, 0.08);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.site-footer__widget-col .widget-title {
+    margin: 0 0 .45rem;
+    font-size: 14px;
+}
+
+.site-footer__widget-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: .3rem;
+}
+
+.site-footer__widget-col a {
+    color: var(--hs-muted);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.site-footer__social-wrap {
+    margin-top: 1rem;
+    padding-top: .9rem;
+    border-top: 1px solid rgba(11, 18, 32, 0.08);
+}
+
+.site-footer__social {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.site-footer__social-link {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid var(--hs-border);
+    background: rgba(255, 255, 255, 0.8);
+    color: #111827;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.site-footer__social-link svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+}
+
+.site-footer__bottomline {
+    margin-top: .8rem;
+    padding-top: .8rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid rgba(11, 18, 32, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+    flex-wrap: wrap;
+}
+
 .site-footer__copyright {
     color: var(--hs-muted);
     font-size: 12px;
     margin: 0;
-    padding: 0 1.2rem 1rem;
+    padding: 0;
+}
+
+.menu--legal-inline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu--legal-inline a {
+    color: var(--hs-muted);
+    text-decoration: none;
+    font-size: 12px;
 }
 
 .hs-section {
     margin: 1.2rem 0;
+    max-width: var(--hs-content-max);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hs-section__head h1,
@@ -186,6 +405,10 @@ body {
     }
 
     .site-footer__menus {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer__widget-areas {
         grid-template-columns: 1fr;
     }
 }

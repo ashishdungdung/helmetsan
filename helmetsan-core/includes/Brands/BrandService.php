@@ -18,6 +18,7 @@ final class BrandService
     public const META_TOTAL_MODELS = 'brand_total_models';
     public const META_HELMET_TYPES = 'brand_helmet_types';
     public const META_CERT_COVERAGE = 'brand_certification_coverage';
+    public const META_HELMET_TYPES_JSON = 'brand_helmet_types_json';
 
     /**
      * @return array<string,string>
@@ -34,6 +35,7 @@ final class BrandService
             self::META_SIZE_CHART_JSON => 'Size Chart JSON',
             self::META_TOTAL_MODELS => 'Total Helmet Models (approx)',
             self::META_HELMET_TYPES => 'Helmet Types (comma separated)',
+            self::META_HELMET_TYPES_JSON => 'Helmet Types JSON (read-only sync cache)',
             self::META_CERT_COVERAGE => 'Certification Coverage (comma separated)',
         ];
     }
@@ -167,6 +169,9 @@ final class BrandService
         $input = isset($_POST['helmetsan_brand']) && is_array($_POST['helmetsan_brand']) ? $_POST['helmetsan_brand'] : [];
 
         foreach ($this->fieldMap() as $key => $label) {
+            if ($key === self::META_HELMET_TYPES_JSON) {
+                continue;
+            }
             $raw = isset($input[$key]) ? (string) $input[$key] : '';
             $value = match ($key) {
                 self::META_SUPPORT_URL => esc_url_raw($raw),
@@ -175,6 +180,7 @@ final class BrandService
             };
             update_post_meta($postId, $key, $value);
         }
+        $this->syncBrandHelmetTypeTerms($postId, (string) get_post_meta($postId, self::META_HELMET_TYPES, true));
     }
 
     /**
@@ -347,6 +353,7 @@ final class BrandService
             };
             update_post_meta($postId, $metaKey, $value);
         }
+        $this->syncBrandHelmetTypeTerms($postId, (string) get_post_meta($postId, self::META_HELMET_TYPES, true));
     }
 
     private function findByExternalId(string $externalId): int
@@ -365,5 +372,53 @@ final class BrandService
         }
 
         return (int) $posts[0];
+    }
+
+    /**
+     * Sync brand helmet-type relationship to taxonomy + normalized JSON cache.
+     */
+    private function syncBrandHelmetTypeTerms(int $postId, string $rawTypes): void
+    {
+        $items = array_filter(array_map('trim', explode(',', $rawTypes)));
+        $normalized = [];
+        foreach ($items as $item) {
+            $slug = $this->normalizeHelmetType((string) $item);
+            if ($slug !== '') {
+                $normalized[] = $slug;
+            }
+        }
+        $normalized = array_values(array_unique($normalized));
+        update_post_meta($postId, self::META_HELMET_TYPES_JSON, wp_json_encode($normalized, JSON_UNESCAPED_SLASHES));
+        if ($normalized !== []) {
+            wp_set_object_terms($postId, $normalized, 'helmet_type', false);
+        } else {
+            wp_set_object_terms($postId, [], 'helmet_type', false);
+        }
+    }
+
+    private function normalizeHelmetType(string $value): string
+    {
+        $normalized = strtolower(trim($value));
+        $normalized = str_replace(['&', '/'], [' and ', ' '], $normalized);
+        $normalized = preg_replace('/\s+/', ' ', $normalized) ?? $normalized;
+        $normalized = str_replace('helmets', '', $normalized);
+        $normalized = trim($normalized);
+
+        return match ($normalized) {
+            'full face', 'full-face' => 'full-face',
+            'modular' => 'modular',
+            'open face', 'open-face' => 'open-face',
+            'half', 'half helmet', 'half-helmet' => 'half',
+            'dirt', 'mx', 'dirt mx', 'dirt motocross', 'off road', 'off-road', 'motocross' => 'dirt-mx',
+            'adventure', 'dual sport', 'adventure dual sport', 'adventure and dual sport' => 'adventure-dual-sport',
+            'touring' => 'touring',
+            'track', 'race', 'track race' => 'track-race',
+            'youth' => 'youth',
+            'snow', 'snowmobile' => 'snow',
+            'carbon fiber', 'carbon-fiber' => 'carbon-fiber',
+            'graphics', 'graphic' => 'graphics',
+            'sale', 'closeout' => 'sale',
+            default => '',
+        };
     }
 }

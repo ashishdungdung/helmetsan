@@ -1,0 +1,23 @@
+.hs-legal-sortable {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hs-legal-sortable__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    background: #fff;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    cursor: move;
+}
+
+.hs-legal-sortable__handle {
+    color: #6b7280;
+    font-weight: 700;
+    letter-spacing: 1px;
+}

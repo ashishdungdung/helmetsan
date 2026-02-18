@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Comparison",
+  "type": "object",
+  "required": ["entity", "id", "title", "helmet_ids"],
+  "properties": {
+    "entity": { "const": "comparison" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "helmet_ids": { "type": "array", "items": { "type": "string" } },
+    "parameters": { "type": "array", "items": { "type": "object" } },
+    "scores": { "type": "array", "items": { "type": "object" } },
+    "recommendations": { "type": "array", "items": { "type": "object" } }
+  }
+}
