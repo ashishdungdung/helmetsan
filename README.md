@@ -51,7 +51,7 @@ It provides objective score, critical blockers, and per-check diagnostics.
 | **Brands in Catalog** | 54 | ✅ |
 | **Helmets Indexed** | 1 | 🏗️  Ingesting |
 | **Logo Coverage** | 91% (49/50) | 🎨 Enriched |
-| **Last Sync** | 2026-02-18 05:25:10 | 📡 Active |
+| **Last Sync** | 2026-02-18 05:30:10 | 📡 Active |
 
 > _Stats generated automatically by `scripts/update_stats.php`_
 

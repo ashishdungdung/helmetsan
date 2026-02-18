@@ -19,6 +19,9 @@ final class BrandService
     public const META_HELMET_TYPES = 'brand_helmet_types';
     public const META_CERT_COVERAGE = 'brand_certification_coverage';
     public const META_HELMET_TYPES_JSON = 'brand_helmet_types_json';
+    public const META_MOTTO = 'brand_motto';
+    public const META_STORY = 'brand_story';
+    public const META_FOUNDED_YEAR = 'brand_founded_year';
 
     /**
      * @return array<string,string>
@@ -37,6 +40,9 @@ final class BrandService
             self::META_HELMET_TYPES => 'Helmet Types (comma separated)',
             self::META_HELMET_TYPES_JSON => 'Helmet Types JSON (read-only sync cache)',
             self::META_CERT_COVERAGE => 'Certification Coverage (comma separated)',
+            self::META_MOTTO => 'Brand Motto',
+            self::META_STORY => 'Brand Story / History',
+            self::META_FOUNDED_YEAR => 'Founded Year',
         ];
     }
 
@@ -140,7 +146,7 @@ final class BrandService
         foreach ($this->fieldMap() as $key => $label) {
             $value = (string) get_post_meta($post->ID, $key, true);
             echo '<tr><th><label for="' . esc_attr($key) . '">' . esc_html($label) . '</label></th><td>';
-            if ($key === self::META_MANUFACTURING_ETHOS || $key === self::META_DISTRIBUTOR_REGIONS || $key === self::META_SIZE_CHART_JSON) {
+            if ($key === self::META_MANUFACTURING_ETHOS || $key === self::META_DISTRIBUTOR_REGIONS || $key === self::META_SIZE_CHART_JSON || $key === self::META_STORY) {
                 echo '<textarea id="' . esc_attr($key) . '" name="helmetsan_brand[' . esc_attr($key) . ']" rows="4" class="large-text">' . esc_textarea($value) . '</textarea>';
             } else {
                 $type = ($key === self::META_SUPPORT_EMAIL) ? 'email' : (($key === self::META_SUPPORT_URL) ? 'url' : 'text');
@@ -215,6 +221,9 @@ final class BrandService
                     'total_models' => (string) get_post_meta($postId, self::META_TOTAL_MODELS, true),
                     'helmet_types' => (string) get_post_meta($postId, self::META_HELMET_TYPES, true),
                     'certification_coverage' => (string) get_post_meta($postId, self::META_CERT_COVERAGE, true),
+                    'motto' => (string) get_post_meta($postId, self::META_MOTTO, true),
+                    'story' => (string) get_post_meta($postId, self::META_STORY, true),
+                    'founded_year' => (string) get_post_meta($postId, self::META_FOUNDED_YEAR, true),
                 ],
             ],
         ];
@@ -242,6 +251,9 @@ final class BrandService
             self::META_TOTAL_MODELS => (string) get_post_meta($brandId, self::META_TOTAL_MODELS, true),
             self::META_HELMET_TYPES => (string) get_post_meta($brandId, self::META_HELMET_TYPES, true),
             self::META_CERT_COVERAGE => (string) get_post_meta($brandId, self::META_CERT_COVERAGE, true),
+            self::META_MOTTO => (string) get_post_meta($brandId, self::META_MOTTO, true),
+            self::META_STORY => (string) get_post_meta($brandId, self::META_STORY, true),
+            self::META_FOUNDED_YEAR => (string) get_post_meta($brandId, self::META_FOUNDED_YEAR, true),
         ];
 
         $q = new \WP_Query([
@@ -342,6 +354,9 @@ final class BrandService
             'total_models' => self::META_TOTAL_MODELS,
             'helmet_types' => self::META_HELMET_TYPES,
             'certification_coverage' => self::META_CERT_COVERAGE,
+            'motto' => self::META_MOTTO,
+            'story' => self::META_STORY,
+            'founded_year' => self::META_FOUNDED_YEAR,
         ];
 
         foreach ($mapping as $inputKey => $metaKey) {

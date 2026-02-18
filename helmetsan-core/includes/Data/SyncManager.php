@@ -35,13 +35,18 @@ class SyncManager
 
         if ($query->have_posts()) {
             foreach ($query->posts as $post) {
-                $data[] = [
-                    'id'       => $post->ID,
-                    'name'     => $post->post_title,
-                    'slug'     => $post->post_name,
-                    'url'      => get_permalink($post->ID),
-                    'logo_url' => get_the_post_thumbnail_url($post->ID, 'full') ?: null,
-                ];
+                $full_data = (new \Helmetsan\Core\Brands\BrandService())->exportPayloadByPostId($post->ID);
+                if ($full_data['ok']) {
+                    $payload = $full_data['payload'];
+                    $data[] = [
+                        'id'       => $post->ID,
+                        'name'     => $post->post_title,
+                        'slug'     => $post->post_name,
+                        'url'      => get_permalink($post->ID),
+                        'logo_url' => get_the_post_thumbnail_url($post->ID, 'full') ?: null,
+                        'profile'  => $payload['profile']
+                    ];
+                }
             }
         }
 
