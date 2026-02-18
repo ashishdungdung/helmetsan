@@ -21,6 +21,11 @@ vendor/
 *.zip
 *.tar.gz
 
+# Accidental junk (code snippets/identifiers extracted as root filenames)
+/config
+/save
+/ids
+
 # WordPress runtime/temp artifacts
 wp-content/uploads/helmetsan-runtime/
 wp-content/uploads/helmetsan-data/_imports/
