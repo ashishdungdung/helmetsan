@@ -1,65 +1,73 @@
-# Terms and Conditions
+# Terms of Use
 
-**Last Updated:** 2026-02-18
+**Effective Date:** 2026-02-18
 
-## 1. Agreement to Terms
+These Terms of Use (the “Terms”) describe the rules that apply to the websites and mobile applications of **Helmetsan**, part of the **DazeStack™** ecosystem, owned and operated by **Ashish Digital Services** (collectively, the “Companies” or “we”, “our,” or “us”).
 
-These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and **Helmetsan**, part of the **DazeStack™** ecosystem, owned and operated by **Ashish Digital Services** ("we," "us," or "our"), concerning your access to and use of the **helmetsan.com** website as well as any other media form, media channel, mobile website, or mobile application related, linked, or otherwise connected thereto (collectively, the "Site").
+These Terms are designed to protect you, us, and other users of our websites and apps. By accessing, downloading, using or browsing our websites or apps, you acknowledge and agree to be bound by these Terms. IF YOU DO NOT AGREE TO THESE TERMS, PLEASE DO NOT USE OUR SERVICES.
 
-You agree that by accessing the Site, you have read, understood, and agreed to be bound by all of these Terms and Conditions. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS AND CONDITIONS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+## 1. Limited Right to Use
 
-## 2. Intellectual Property Rights
+In exchange for your agreement to these Terms, we grant you a limited, non-exclusive, personal, revocable right and license to access and use our websites and apps for **personal and non-commercial use** only. You may not copy, reproduce, distribute, reverse engineer, or scrape our content without our express written permission.
 
-Unless otherwise indicated, the Site is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the "Content") and the trademarks, service marks, and logos contained therein (the "Marks") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws and various other intellectual property rights and unfair competition laws of India, foreign jurisdictions, and international conventions.
+## 2. Accounts & Eligibility
 
-The Content and the Marks are provided on the Site "AS IS" for your information and personal use only. Except as expressly provided in these Terms and Conditions, no part of the Site and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
+You must be at least **16 years of age** to use our Services or create an account. You agree to provide truthful and accurate information when creating an account. You are responsible for maintaining the security of your password and for all activities that occur under your account. We reserve the right to terminate accounts for violations of these Terms.
 
-## 3. User Representations
+## 3. Intellectual Property
 
-By using the Site, you represent and warrant that:
+**Ashish Digital Services** owns all rights, title, and interest in our websites/apps, including all content, graphics, code, and the "look and feel".
 
-1.  All registration information you submit will be true, accurate, current, and complete.
-2.  You will maintain the accuracy of such information and promptly update such registration information as necessary.
-3.  You have the legal capacity and you agree to comply with these Terms and Conditions.
-4.  You are not a minor in the jurisdiction in which you reside.
-5.  You will not access the Site through automated or non-human means, whether through a bot, script, or otherwise.
-6.  You will not use the Site for any illegal or unauthorized purpose.
-7.  Your use of the Site will not violate any applicable law or regulation.
+- **Trademarks**: **Helmetsan**, **DazeStack™**, and other marks used are our proprietary trademarks. You may not use them without prior written consent.
+- **Copyright**: All content is protected by copyright laws. Unauthorized use may result in penalties.
 
-## 4. Products
+## 4. User-Generated Content
 
-We make every effort to display as accurately as possible the colors, features, specifications, and details of the products available on the Site. However, we do not guarantee that the colors, features, specifications, and details of the products will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products.
+We love when you share! We allow users to post reviews, photos, and content ("User Content").
 
-All products are subject to availability, and we cannot guarantee that items will be in stock. We reserve the right to discontinue any products at any time for any reason. Prices for all products are subject to change.
+- **License Grant**: By posting User Content or using specific hashtags (e.g., `#YesHelmetsan`), you grant us a non-exclusive, royalty-free, perpetual, worldwide license to use, reproduce, and display your content for commercial purposes (marketing, social media, etc.).
+- **Guidelines**: You agree not to post content that is illegal, offensive, infringing, or harmful. We reserve the right to remove any content at our sole discretion.
 
-## 5. Review and Ratings
+## 5. Product Availability & Accuracy
 
-We may provide you areas on the Site to leave reviews or ratings. When posting a review, you must comply with the following criteria:
+- **Availability**: Product availability is not guaranteed and may change without notice.
+- **Accuracy**: We strive for accuracy, but errors in descriptions, pricing, or images may occur. We reserve the right to correct errors and cancel orders if extracting information is inaccurate (even after submission).
+- **Colors**: Actual product colors may vary from what is displayed on your screen.
 
-1.  You should have firsthand experience with the person/entity being reviewed.
-2.  Your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language.
-3.  Your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability.
-4.  Your reviews should not contain references to illegal activity.
-5.  You should not be affiliated with competitors if posting negative reviews.
-6.  You should not make any conclusions as to the legality of conduct.
-7.  You may not post any false or misleading statements.
-8.  You may not organize a campaign encouraging others to post reviews, whether positive or negative.
+## 6. Racing Parts & Emissions
 
-## 6. Limitation of Liability
+By purchasing aftermarket parts (e.g., exhausts, ECUs) that modify emission control systems, you acknowledge that these may be legal **only for closed-course competition use** and not for street use. You are responsible for complying with all local laws regarding vehicle modifications.
 
-IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+## 7. Disclaimer of Warranty
 
-## 7. Indemnification
+OUR SERVICES AND PRODUCTS ARE PROVIDED "AS IS" AND "AS AVAILABLE". TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. WE DO NOT WARRANT THAT OUR SERVICES WILL BE ERROR-FREE OR UNINTERRUPTED.
 
-You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees and expenses, made by any third party due to or arising out of: (1) your contributions; (2) use of the Site; (3) breach of these Terms and Conditions; (4) any breach of your representations and warranties set forth in these Terms and Conditions; (5) your violation of the rights of a third party, including but not limited to intellectual property rights; or (6) any overt harmful act toward any other user of the Site with whom you connected via the Site.
+## 8. Limitation of Liability
 
-## 8. Governing Law
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL **ASHISH DIGITAL SERVICES** BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF YOUR USE OF THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE LAST YEAR OR $250 USD (WHICHEVER IS GREATER).
 
-These Terms shall be governed by and defined following the laws of **India**. **Helmetsan / Ashish Digital Services** and yourself irrevocably consent that the courts of **Rourkela, Odisha, India** shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
+## 9. Dispute Resolution
 
-## 9. Contact Us
+We aim to resolve issues informally. If we cannot:
 
-In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:
+- **Mediation/Arbitration**: Any disputes shall be first submitted to mediation, then binding arbitration if necessary.
+- **Jurisdiction**: These Terms are governed by the laws of **India**. You consent to the exclusive jurisdiction of the courts located in **Rourkela, Odisha, India**.
+- **Class Action Waiver**: You agree to resolve disputes on an individual basis and waive any right to participate in a class action lawsuit.
+
+## 10. Digital Millennium Copyright Act (DMCA) / Copyright Complaints
+
+We respect intellectual property. If you believe your work has been infringed, please provide a written notice to our designated agent at **info@helmetsan.com** including:
+
+1.  Identification of the copyrighted work.
+2.  Identification of the infringing material.
+3.  Your contact information.
+4.  A statement of good faith belief and accuracy.
+
+## 11. Changes to Terms
+
+We reserve the right to modify these Terms at any time. Updated versions will be posted here. Continued use of the Services signifies your acceptance of the changes.
+
+## 12. Contact Us
 
 **Helmetsan** (Ashish Digital Services)  
 Rourkela, Odisha, India  

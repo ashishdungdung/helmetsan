@@ -2,80 +2,109 @@
 
 **Effective Date:** 2026-02-18
 
-Welcome to **Helmetsan**, part of the **DazeStack™** ecosystem, owned and operated by **Ashish Digital Services** ("we," "us," or "our"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website **helmetsan.com**.
+This Privacy Policy (the “Privacy Policy”) describes how **Ashish Digital Services** and our affiliated entities collect, use, and share your personal data and information (collectively “personal information”). This Privacy Policy applies to **Helmetsan**, part of the **DazeStack™** ecosystem (collectively, the “Companies” or “we”, “our,” or “us”).
 
-## 1. Information We Collect
+This Privacy Policy applies to your use of the Companies’ websites, our mobile applications, and all other digital and online services provided by the Companies, as well as information collected offline (collectively, the “Services”), and describes our privacy practices relating to the Services.
 
-We may collect information about you in a variety of ways. The information we may collect on the Site includes:
+## Your Privacy Is Important to Us
 
-### Personal Data
+We value your privacy, and are committed to protecting it. Generally, we need to collect, process, and use your personal information to operate our organization and provide you with certain Services as discussed in more detail in this Privacy Policy. Before accessing, using, or interacting with the Services you should carefully review the terms and conditions of this Privacy Policy. Your use of the Services is governed by this Privacy Policy and our Terms of Use.
 
-Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site, such as online chat and message boards.
+## Personal Information We Collect About You
 
-### Derivative Data
+Personal information is information that can be used to identify you (whether alone or in combination with other information), and may include:
 
-Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.
+- **Identity Data**: Name, Title, Email Address, Postal Address (billing and shipping), Telephone Number, Date of Birth.
+- **Profile Data**: Gender, Riding Style, **Physical Traits** (such as measurements and sizes for helmets, apparel, etc.) - _Crucial for our fitment services_.
+- **Vehicle Information**: Vehicle and Equipment Information.
+- **Technical Data**: IP Addresses, Geolocation Information, Device Information (device IDs, screen size).
+- **Usage Data**: Log file information (browser type, access times, pages visited, referring/exit pages), Search terms.
+- **Financial Data**: Payment Information (processed securely by third-party providers; we do not store full credit card details).
+- **Social Data**: Social Media and Third-Party Login Information (e.g., Google/Facebook login data), Online Moniker or Alias.
 
-### Financial Data
+## How We Collect Your Personal Information
 
-Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the Site. We store only very limited, if any, financial information that we collect. Otherwise, all financial information is stored by our payment processor (e.g., Stripe, PayPal), and you are encouraged to review their privacy policy and contact them directly for responses to your questions.
+The Companies collect your personal information through various means, including when you directly provide information to us and when we automatically collect information about you through your use of the Services.
 
-## 2. Use of Your Information
+### Information You Provide to Us
 
-Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:
+We may collect personal information you provide directly to us, including via:
 
-- Create and manage your account.
-- Process your orders and deliver the products and services you request.
-- Email you regarding your account or order.
-- Fulfill and manage purchases, orders, payments, and other transactions related to the Site.
-- Generate a personal profile about you to make future visits to the Site more personalized.
-- Increase the efficiency and operation of the Site.
-- Monitor and analyze usage and trends to improve your experience with the Site.
-- Notify you of updates to the Site, new products, and services.
-- Perform other business activities as needed.
-- Prevent fraudulent transactions, monitor against theft, and protect against criminal activity.
+- Purchasing goods or services;
+- Registering or maintaining an account;
+- Finding the best-fitting products (e.g., providing head shape/size data);
+- Posting comments to our online communities;
+- Obtaining technical support;
+- Participating in surveys, contests, or promotions;
+- Connecting with us via social media (e.g., using hashtags like `#YesHelmetsan`).
 
-## 3. Disclosure of Your Information
+### Information We Collect Automatically
 
-We may share information we have collected about you in certain situations. Your information may be disclosed as follows:
+We and our Service Providers (agents, vendors, consultants) may use cookies, web beacons, and other tracking technologies to automatically collect info about your interactions, such as:
 
-### By Law or to Protect Rights
+- IP address and browser fingerprints.
+- Browsing behavior (pages viewed, duration, clicks).
+- **Cookies**: We use cookies to optimize functionality, analyze usage, and provide interest-based content. You can control cookies via your browser settings.
+- **Analytics**: We use tools like **Google Analytics** to analyze user activity. You may opt-out of Google Analytics via their opt-out browser add-on.
 
-If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.
+## How We Use Your Personal Information
 
-### Third-Party Service Providers
+We use your information to serve you better and improve your experience. Key purposes include:
 
-We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.
+1.  **Fulfillment**: Processing orders, payments, returns, and delivering products.
+2.  **Service Improvement**: helping you find the right gear (Fitment), personalizing recommendations.
+3.  **Communication**: Sending order updates, support responses, and (with permission) marketing about new products/events.
+4.  **Security**: Detecting and preventing fraud, protecting our website security.
+5.  **Legal**: Complying with legal obligations and enforcing our Terms.
 
-### Affiliates
+## How We Share Your Personal Information
 
-We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include our parent company **Ashish Digital Services**, the **DazeStack™** ecosystem, and any other subsidiaries, joint venture partners, or other companies that we control or that are under common control with us.
+We do not sell your personal information to third parties for their independent use without your consent. We my share information as follows:
 
-## 4. Tracking Technologies
+- **Affiliates**: Within the **Ashish Digital Services / DazeStack™** family.
+- **Service Providers**: With contractors who perform services for us (shipping, payment processing, hosting, analytics). They are contractually bound to protect your data.
+- **Legal Compliance**: To comply with legal process, public authority requests, or to protect our rights and safety.
+- **Business Transfers**: In connection with a merger, sale, or acquisition of our business.
+- **Social Media**: If you connect via social media or use our hashtags (e.g., `#YesHelmetsan`), your post/content may be shared with us and appear on our sites.
 
-### Cookies and Web Beacons
+## User-Generated Content & Social Media
 
-We may use cookies, web beacons, tracking pixels, and other tracking technologies on the Site to help customize the Site and improve your experience. When you access the Site, your personal information is not collected through the use of tracking technology. Most browsers are set to accept cookies by default. You can remove or reject cookies, but be aware that such action could affect the availability and functionality of the Site.
+We allow users to share content (reviews, photos, etc.). By using our hashtags (e.g., `#YesHelmetsan`) or responding to usage requests, you grant us a license to use that content for commercial purposes (see Terms of Use). Please be aware that information you post in public forums or reviews can be read by others.
 
-## 5. Security of Your Information
+## Information Security
 
-We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.
+We implement reasonable physical, technical, and administrative safeguards to protect your data. However, no method of transmission over the Internet is 100% secure. You are responsible for maintaining the secrecy of your account credentials.
 
-## 6. Policy for Children
+## Data Retention
 
-We do not knowingly solicit information from or market to children under the age of 13. If you become aware that any data has been collected from children under age 13, please contact us using the contact information provided below.
+We retain personal information as long as necessary to fulfill the purposes outlined here, comply with legal obligations, resolve disputes, and enforce our agreements.
 
-## 7. Controls for Do-Not-Track Features
+## Your Privacy Rights
 
-Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. No uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online.
+Depending on your jurisdiction (e.g., India, EU, California), you may have specific rights regarding your personal information, such as:
 
-## 8. Jurisdiction
+- **Access**: Request a copy of the personal data we hold about you.
+- **Correction**: Request correction of inaccurate data.
+- **Deletion**: Request deletion of your data (subject to legal retention requirements).
+- **Opt-Out**: Opt-out of marketing communications or certain data processing.
 
-This Privacy Policy is governed by the laws of **India**. Any disputes arising under or in connection with this Policy shall be subject to the exclusive jurisdiction of the courts located in **Rourkela, Odisha, India**.
+To exercise these rights, please contact us at **info@helmetsan.com**.
 
-## 9. Contact Us
+## International Transfers
 
-If you have questions or comments about this Privacy Policy, please contact us at:
+**Helmetsan** is based in **India**. Information we collect may be transferred to, stored, and processed in India or other countries where our service providers maintain facilities. By using our Services, you consent to any such transfer of information outside of your country.
+
+## Children's Privacy
+
+Our Services are not intended for children under the age of 16. We do not knowingly collect personal information from children under 16.
+
+## Changes to This Policy
+
+We reserve the right to revise this Privacy Policy at any time. Changes will be posted on this page with an updated effective date.
+
+## Contact Us
+
+If you have questions about this Privacy Policy, please contact us:
 
 **Helmetsan** (Ashish Digital Services)  
 Rourkela, Odisha, India  
