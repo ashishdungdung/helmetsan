@@ -86,9 +86,9 @@ It provides objective score, critical blockers, and per-check diagnostics.
 
 | Metric                | Value       | Status      |
 | :-------------------- | :---------- | :---------- |
-| **Brands in Catalog** | 30          | ✅          |
-| **Helmets Indexed**   | 1,156       | ✅ Live     |
-| **Parent Models**     | 142         | ✅          |
+| **Brands in Catalog** | 48          | ✅          |
+| **Helmets Indexed**   | 1,511       | ✅ Live     |
+| **Parent Models**     | 242         | ✅          |
 | **Logo Coverage**     | 91% (49/50) | 🎨 Enriched |
 | **Last Sync**         | 2026-02-19  | 📡 Active   |
 

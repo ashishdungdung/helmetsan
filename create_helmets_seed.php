@@ -252,6 +252,169 @@ $brands = [
         'D-Skwal 3' => ['type' => 'Full Face', 'price' => 249.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Thermoplastic', 'desc' => 'Sporty entry-level with aggressive design and anti-fog visor.', '_real_brand' => 'Shark'],
         'Evo-One 2' => ['type' => 'Modular', 'price' => 549.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1580, 'mat' => 'Composite', 'desc' => 'Full 180° flip modular — chin bar rotates completely behind the helmet.', '_real_brand' => 'Shark'],
     ],
+    // ── New Brands (Batch 2) ──────────────────────────────────────────
+    'Airoh' => [
+        'GP550 S' => ['type' => 'Track / Race', 'price' => 499.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1250, 'mat' => 'HPC Composite', 'desc' => 'Italian racetrack helmet with carbon-aramid shell and multi-density EPS.'],
+        'Matryx' => ['type' => 'Full Face', 'price' => 599.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'HPC Carbon', 'desc' => 'Carbon sport helmet with Airoh Progressive Compound shell tech.'],
+        'Commander 2' => ['type' => 'Adventure / Dual Sport', 'price' => 549.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1550, 'mat' => 'HRT Composite', 'desc' => 'Adventure modular with peak visor, sun shield, and GPS mount.'],
+        'Aviator 3' => ['type' => 'Dirt / MX', 'price' => 699.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Carbon Kevlar', 'desc' => 'Pro-level MX helmet with AMS2 system and emergency cheek pad release.'],
+        'Spark 2' => ['type' => 'Full Face', 'price' => 349.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'HRT Composite', 'desc' => 'Sport touring with integrated sun visor and Pinlock included.'],
+        'Helios' => ['type' => 'Open Face', 'price' => 229.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'HPC Composite', 'desc' => 'Lightweight jet helmet with retractable sun visor and Bluetooth ready.'],
+        'Twist 3' => ['type' => 'Dirt / MX', 'price' => 179.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'HRT Thermoplastic', 'desc' => 'Entry-level MX with excellent ventilation and replaceable liner.'],
+        'TRR S' => ['type' => 'Adventure / Dual Sport', 'price' => 299.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'HRT Thermoplastic', 'desc' => 'Dual-sport with removable chin guard for open-face conversion.'],
+    ],
+    'MT Helmets' => [
+        'Thunder 4 SV' => ['type' => 'Full Face', 'price' => 199.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'HPFC Composite', 'desc' => 'Spanish sport helmet with Max Vision visor and multi-density EPS.'],
+        'Atom 2 SV' => ['type' => 'Modular', 'price' => 249.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'HPFC Composite', 'desc' => 'P/J-rated modular with wide panoramic visor and speaker pockets.'],
+        'Rapide Pro' => ['type' => 'Full Face', 'price' => 159.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Fiberglass', 'desc' => 'Aggressive street design with pinlock-ready shield at a great price.'],
+        'District SV' => ['type' => 'Open Face', 'price' => 99.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Thermoplastic', 'desc' => 'Urban jet helmet with retractable sun visor for city commuters.'],
+        'Falcon' => ['type' => 'Dirt / MX', 'price' => 129.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1250, 'mat' => 'Thermoplastic', 'desc' => 'Entry-level MX with large eye port for goggle compatibility.'],
+        'Streetfighter SV' => ['type' => 'Full Face', 'price' => 179.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'HPFC Composite', 'desc' => 'Aggressive naked-bike helmet with dark visor and spoiler.'],
+    ],
+    'Suomy' => [
+        'SR-GP Evo' => ['type' => 'Track / Race', 'price' => 799.99, 'cert' => ['ECE 22.06', 'FIM'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Carbon Fiber', 'desc' => 'FIM-homologated race helmet worn in World Superbike Championship.'],
+        'Speedstar' => ['type' => 'Full Face', 'price' => 499.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Tri-Fiber', 'desc' => 'Sport road helmet with wide visor and advanced channeling ventilation.'],
+        'MX-Speed Pro' => ['type' => 'Dirt / MX', 'price' => 399.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1150, 'mat' => 'Carbon Fiber', 'desc' => 'Lightweight carbon motocross helmet with ALCANTARA interior.'],
+        'Stellar' => ['type' => 'Full Face', 'price' => 349.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Fiberglass', 'desc' => 'Feature-rich mid-range with double visor and anti-allergic liner.'],
+    ],
+    'Lazer' => [
+        'Rafale SR' => ['type' => 'Full Face', 'price' => 449.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'Fiberglass', 'desc' => 'Belgian sport helmet with Optivision visor and PCM cooling liner.'],
+        'Monaco Evo 2.0' => ['type' => 'Modular', 'price' => 499.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'Fiberglass', 'desc' => 'Flip-up touring helmet with 180° rotation and P/J certification.'],
+        'Vertigo Evo' => ['type' => 'Open Face', 'price' => 199.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1050, 'mat' => 'Polycarbonate', 'desc' => 'Urban open-face with drop-down visor and removable chin guard option.'],
+        'OR-3' => ['type' => 'Adventure / Dual Sport', 'price' => 349.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1550, 'mat' => 'Composite', 'desc' => 'Dual-sport adventure with removable peak and Pinlock-ready visor.'],
+    ],
+    'OGK Kabuto' => [
+        'Aeroblade 6' => ['type' => 'Full Face', 'price' => 549.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'ACT Composite', 'desc' => 'Japanese precision with ultra-aerodynamic shell and Wake Stabilizer.'],
+        'Kamui-3' => ['type' => 'Full Face', 'price' => 349.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Composite', 'desc' => 'All-around sport helmet with internal sun visor and UV-cut shield.'],
+        'Exceed' => ['type' => 'Open Face', 'price' => 279.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Composite', 'desc' => 'Premium jet helmet with IR-cut shield and large eye port.'],
+        'Shuma' => ['type' => 'Full Face', 'price' => 449.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'ACT Composite', 'desc' => 'Track-capable with spoiler and dual-density EPS for racing use.'],
+    ],
+    'Premier' => [
+        'Trophy' => ['type' => 'Full Face', 'price' => 399.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Fiberglass', 'desc' => 'Italian retro-classic full face inspired by 1970s motorsport heritage.'],
+        'Vintage' => ['type' => 'Open Face', 'price' => 249.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1000, 'mat' => 'Fiberglass', 'desc' => 'Authentic retro open face with chrome trim and custom paint options.'],
+        'Hyper Carbon' => ['type' => 'Full Face', 'price' => 599.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'Carbon Fiber', 'desc' => 'Modern sport design with full carbon shell and titanium hardware.'],
+        'JT5' => ['type' => 'Open Face', 'price' => 179.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1050, 'mat' => 'Polycarbonate', 'desc' => 'Classic cafe racer style with peak and interchangeable visor system.'],
+    ],
+    'ROOF' => [
+        'Boxxer 2' => ['type' => 'Modular', 'price' => 549.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Composite', 'desc' => 'Unique chin bar slides upward over the shell — French engineering at its finest.'],
+        'RO200 Carbon' => ['type' => 'Full Face', 'price' => 499.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'Carbon Fiber', 'desc' => 'Full carbon race replica with panoramic visor and aerodynamic profile.'],
+        'Roadster Classic' => ['type' => 'Open Face', 'price' => 329.99, 'cert' => ['ECE 22.06'], 'shape' => 'Round Oval', 'weight' => 1100, 'mat' => 'Fiberglass', 'desc' => 'Heritage open-face with goggles for cafe racer and scrambler riders.'],
+    ],
+    'Torc' => [
+        'T-1 Retro' => ['type' => 'Full Face', 'price' => 249.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'Fiberglass', 'desc' => 'Vintage-inspired full face with wide eye port and flat shield.'],
+        'T-15B' => ['type' => 'Full Face', 'price' => 299.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Fiberglass', 'desc' => 'Bluetooth-integrated full face with 3D speakers and 10-hour battery.'],
+        'T-55' => ['type' => 'Open Face', 'price' => 149.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1050, 'mat' => 'Fiberglass', 'desc' => 'Cafe racer open face with classic bubble shield compatibility.'],
+        'T-14B' => ['type' => 'Full Face', 'price' => 279.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Fiberglass', 'desc' => 'Mako-style full face with built-in Bluetooth and sun lens.'],
+    ],
+    'Daytona' => [
+        'Skull Cap' => ['type' => 'Half', 'price' => 59.99, 'cert' => ['DOT'], 'shape' => 'Round Oval', 'weight' => 750, 'mat' => 'ABS', 'desc' => 'Ultra-slim DOT half helmet — one of the smallest profiles available.'],
+        'Cruiser' => ['type' => 'Half', 'price' => 79.99, 'cert' => ['DOT'], 'shape' => 'Round Oval', 'weight' => 850, 'mat' => 'Polycarbonate', 'desc' => 'Classic cruiser half with inner sun shield and padded comfort liner.'],
+        'Glide' => ['type' => 'Modular', 'price' => 149.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'Polycarbonate', 'desc' => 'Budget modular with flip-up chin and inner sun visor.'],
+        'Detour' => ['type' => 'Full Face', 'price' => 99.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Polycarbonate', 'desc' => 'Entry full face with quick-release shield and ventilation.'],
+    ],
+    'Zox' => [
+        'Condor SVS' => ['type' => 'Modular', 'price' => 169.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'Polycarbonate', 'desc' => 'Double sun visor modular at a competitive price point.'],
+        'Primo C' => ['type' => 'Full Face', 'price' => 89.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Polycarbonate', 'desc' => 'No-frills DOT full face — great starter helmet for new riders.'],
+        'Brigade SVS' => ['type' => 'Full Face', 'price' => 129.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Polycarbonate', 'desc' => 'Mid-range full face with internal drop-down sun visor.'],
+        'Route 66' => ['type' => 'Half', 'price' => 59.99, 'cert' => ['DOT'], 'shape' => 'Round Oval', 'weight' => 800, 'mat' => 'ABS', 'desc' => 'Classic cruiser half helmet with snap-on face shield option.'],
+    ],
+    'GIVI' => [
+        'X.27 Tourer' => ['type' => 'Adventure / Dual Sport', 'price' => 349.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1600, 'mat' => 'Composite', 'desc' => 'Touring-adventure with massive visor, peak, and integrated Bluetooth prep.'],
+        '50.8 Racer' => ['type' => 'Full Face', 'price' => 249.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Thermoplastic', 'desc' => 'Sporty road helmet with spoiler and double-D ring closure.'],
+        'X.21 Challenger' => ['type' => 'Modular', 'price' => 299.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1700, 'mat' => 'Composite', 'desc' => 'P/J modular with wide flip-up mechanism and micro-ratchet buckle.'],
+        '12.5 Solid' => ['type' => 'Open Face', 'price' => 99.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1000, 'mat' => 'Thermoplastic', 'desc' => 'Compact jet with retractable visor for scooter and city commuting.'],
+    ],
+    'Studds' => [
+        'Thunder D7' => ['type' => 'Full Face', 'price' => 49.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'ABS', 'desc' => 'Popular budget full face for emerging markets with anti-scratch visor.'],
+        'Shifter D8' => ['type' => 'Full Face', 'price' => 59.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'ABS', 'desc' => 'Sporty design with large air vents and hypoallergenic padding.'],
+        'Marshall' => ['type' => 'Open Face', 'price' => 34.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 950, 'mat' => 'ABS', 'desc' => 'Budget-friendly open face for commuters with adjustable visor.'],
+        'Motocross D5' => ['type' => 'Dirt / MX', 'price' => 44.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1250, 'mat' => 'ABS', 'desc' => 'Affordable off-road helmet with large eye port and ABS shell.'],
+    ],
+    'Steelbird' => [
+        'SBA-21 GT' => ['type' => 'Full Face', 'price' => 69.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'ABS', 'desc' => 'Indian-made full face with chrome visor option and GT styling.'],
+        'SBH-40 Trip' => ['type' => 'Adventure / Dual Sport', 'price' => 89.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'ABS', 'desc' => 'Budget adventure helmet with removable peak and dual visor.'],
+        'Adonis' => ['type' => 'Open Face', 'price' => 29.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 900, 'mat' => 'Polycarbonate', 'desc' => 'Ultra-budget open face for daily commuting in warm climates.'],
+        'SBA-7' => ['type' => 'Full Face', 'price' => 54.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'ABS', 'desc' => 'Multi-color graphic options with internal sun shield.'],
+    ],
+    'Vega' => [
+        'Crux DX' => ['type' => 'Full Face', 'price' => 39.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'ABS', 'desc' => 'Feature-packed budget full face with double visor and breath guard.'],
+        'Lark' => ['type' => 'Open Face', 'price' => 24.99, 'cert' => ['DOT'], 'shape' => 'Round Oval', 'weight' => 850, 'mat' => 'ABS', 'desc' => 'Lightest open face in its class — perfect for short city rides.'],
+        'Off-Road D/V' => ['type' => 'Dirt / MX', 'price' => 34.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'ABS', 'desc' => 'Budget off-road with adjustable visor and removable liner.'],
+        'Boolean Flip-Up' => ['type' => 'Modular', 'price' => 59.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1600, 'mat' => 'ABS', 'desc' => 'Most affordable modular with basic flip-up mechanism and sun visor.'],
+    ],
+    'Bilmola' => [
+        'Defender' => ['type' => 'Full Face', 'price' => 149.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'Fiberglass', 'desc' => 'Thai-made sport helmet with pinlock-ready visor and dual-density EPS.'],
+        'Explorer' => ['type' => 'Adventure / Dual Sport', 'price' => 179.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1550, 'mat' => 'Fiberglass', 'desc' => 'Budget adventure helmet with removable peak and chin curtain.'],
+        'Nex' => ['type' => 'Open Face', 'price' => 89.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1000, 'mat' => 'ABS', 'desc' => 'Urban open face with inner visor and air-channel ventilation.'],
+    ],
+    'WCL' => [
+        'Modular Full Face' => ['type' => 'Modular', 'price' => 109.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'ABS', 'desc' => 'Amazon-popular modular with Bluetooth-ready speaker pockets.'],
+        'Raider Full Face' => ['type' => 'Full Face', 'price' => 79.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'ABS', 'desc' => 'Starter full face with quick-release buckle and clear shield.'],
+        'Beanie Half' => ['type' => 'Half', 'price' => 39.99, 'cert' => ['DOT'], 'shape' => 'Round Oval', 'weight' => 700, 'mat' => 'ABS', 'desc' => 'Super-slim DOT half helmet for short-distance cruiser rides.'],
+    ],
+    'CKX' => [
+        'Tranz 1.5 AMS' => ['type' => 'Modular', 'price' => 299.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1700, 'mat' => 'Polycarbonate', 'desc' => 'Canadian-designed modular with electric shield for cold-weather riding.'],
+        'Titan Original' => ['type' => 'Full Face', 'price' => 249.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1600, 'mat' => 'Polycarbonate', 'desc' => 'Snowmobile-crossover full face with electric lens and breath box.'],
+        'TX696' => ['type' => 'Dirt / MX', 'price' => 179.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Polycarbonate', 'desc' => 'Four-season off-road with electric shield and dual-sport capability.'],
+        'Mission AMS' => ['type' => 'Adventure / Dual Sport', 'price' => 349.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'Composite', 'desc' => 'All-season adventure with carbon fiber chin bar and heated shield.'],
+    ],
+    'Vemar' => [
+        'Hurricane Claw' => ['type' => 'Full Face', 'price' => 399.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1400, 'mat' => 'Tri-Composite', 'desc' => 'Italian sport helmet with advanced cooling channels and quick-release visor.'],
+        'Kona' => ['type' => 'Adventure / Dual Sport', 'price' => 349.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1600, 'mat' => 'Fiberglass', 'desc' => 'Dual-sport with removable peak, Pinlock visor, and anti-fog system.'],
+        'Sharki' => ['type' => 'Modular', 'price' => 329.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1650, 'mat' => 'Composite', 'desc' => 'Feature-packed modular with double sun visor and intercom cavity.'],
+    ],
+    // ── Additional models for existing brands (Batch 2 Extra) ─────────
+    'Schuberth Extra' => [
+        'R2 Carbon' => ['type' => 'Track / Race', 'price' => 899.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Long Oval', 'weight' => 1300, 'mat' => 'Carbon Fiber', 'desc' => 'Schuberth\'s first pure race helmet with carbon shell and MIPS.', '_real_brand' => 'Schuberth'],
+        'M2' => ['type' => 'Adventure / Dual Sport', 'price' => 749.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Long Oval', 'weight' => 1650, 'mat' => 'Fiberglass', 'desc' => 'Premium adventure modular with S-Com ready and electric sun visor.', '_real_brand' => 'Schuberth'],
+    ],
+    'Nolan Extra' => [
+        'N120-1' => ['type' => 'Modular', 'price' => 549.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1700, 'mat' => 'Lexan', 'desc' => 'Crossover flip-up/jet modular with wide visor field and N-Com ready.', '_real_brand' => 'Nolan'],
+        'N60-6' => ['type' => 'Full Face', 'price' => 249.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Polycarbonate', 'desc' => 'Mid-range sport with VPS sun shield and Clima Comfort liner.', '_real_brand' => 'Nolan'],
+        'N21 Visor' => ['type' => 'Open Face', 'price' => 199.99, 'cert' => ['ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Polycarbonate', 'desc' => 'Urban open face with integrated visor and N-Com communication ready.', '_real_brand' => 'Nolan'],
+    ],
+    'Klim Extra' => [
+        'TK1200 Karbon' => ['type' => 'Modular', 'price' => 699.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1550, 'mat' => 'Carbon Fiber', 'desc' => 'Carbon modular with Transitions photochromic face shield and Sena 10U.', '_real_brand' => 'Klim'],
+        'F3 Carbon' => ['type' => 'Dirt / MX', 'price' => 399.99, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'Carbon Fiber', 'desc' => 'Lightweight carbon MX helmet with Klim channeled EPS ventilation.', '_real_brand' => 'Klim'],
+    ],
+    'LS2 Extra' => [
+        'Challenger Carbon' => ['type' => 'Full Face', 'price' => 359.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Carbon Fiber', 'desc' => 'Carbon shell sport with HPFC multi-axial direction impact protection.', '_real_brand' => 'LS2'],
+        'Explorer C' => ['type' => 'Adventure / Dual Sport', 'price' => 399.99, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Carbon Fiber', 'desc' => 'Carbon adventure with removable peak, Pinlock, and speaker pockets.', '_real_brand' => 'LS2'],
+        'Copter' => ['type' => 'Open Face', 'price' => 99.99, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1050, 'mat' => 'Polycarbonate', 'desc' => 'Budget-friendly urban open face with retractable sun visor.', '_real_brand' => 'LS2'],
+    ],
+    'Icon Extra' => [
+        'Airform MIPS' => ['type' => 'Full Face', 'price' => 275.00, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Polycarbonate', 'desc' => 'Airform with MIPS rotational impact protection and Icon styling.', '_real_brand' => 'Icon'],
+        'Domain MIPS' => ['type' => 'Full Face', 'price' => 399.00, 'cert' => ['DOT', 'ECE 22.05', 'Snell M2020'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Fiberglass', 'desc' => 'Triple-certified with MIPS — Icon\'s most protective street helmet.', '_real_brand' => 'Icon'],
+    ],
+    'Fox Racing Extra' => [
+        'V1 Lux' => ['type' => 'Dirt / MX', 'price' => 179.95, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1350, 'mat' => 'Polycarbonate', 'desc' => 'Entry MX with MIPS liner and magnetic visor release system.', '_real_brand' => 'Fox Racing'],
+        'Proframe RS' => ['type' => 'Dirt / MX', 'price' => 299.95, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 750, 'mat' => 'Composite', 'desc' => 'Open-face mountain / enduro with full MIPS and ultra-light design.', '_real_brand' => 'Fox Racing'],
+    ],
+    '6D Extra' => [
+        'ATR-2Y' => ['type' => 'Dirt / MX', 'price' => 595.00, 'cert' => ['DOT', 'ECE 22.05'], 'shape' => 'Intermediate Oval', 'weight' => 1150, 'mat' => 'Carbon-Kevlar', 'desc' => 'Youth version of ATR-2 with ODS suspension for smaller heads.', '_real_brand' => '6D'],
+        'ATB-2T' => ['type' => 'Dirt / MX', 'price' => 499.00, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 950, 'mat' => 'Carbon-Kevlar', 'desc' => 'Trail/enduro open-face with ODS technology and extended rear coverage.', '_real_brand' => '6D'],
+    ],
+    'Fly Racing Extra' => [
+        'Revolt Rush' => ['type' => 'Full Face', 'price' => 249.95, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1500, 'mat' => 'Polycarbonate', 'desc' => 'Street full face with aggressive venting and anti-fog inner shield.', '_real_brand' => 'Fly Racing'],
+        'Odyssey Summit' => ['type' => 'Adventure / Dual Sport', 'price' => 179.95, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1600, 'mat' => 'Polycarbonate', 'desc' => 'Budget dual-sport with electric shield option and peak visor.', '_real_brand' => 'Fly Racing'],
+    ],
+    'GMax Extra' => [
+        'GM-11S' => ['type' => 'Dirt / MX', 'price' => 109.95, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1450, 'mat' => 'Polycarbonate', 'desc' => 'Snowmobile/MX crossover with dual lens shield and breath deflector.', '_real_brand' => 'GMax'],
+        'MX-46Y' => ['type' => 'Dirt / MX', 'price' => 69.95, 'cert' => ['DOT'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Polycarbonate', 'desc' => 'Youth-sized MX helmet with adjustable visor and washable liner.', '_real_brand' => 'GMax'],
+    ],
+    'Biltwell Extra' => [
+        'Lanesplitter V2' => ['type' => 'Full Face', 'price' => 219.95, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1300, 'mat' => 'ABS', 'desc' => 'Updated lane-splitter with improved ventilation and ECE certification.', '_real_brand' => 'Biltwell'],
+        'Gringo ECE' => ['type' => 'Full Face', 'price' => 269.95, 'cert' => ['ECE 22.06'], 'shape' => 'Round Oval', 'weight' => 1350, 'mat' => 'ABS', 'desc' => 'ECE-only version with thinner shell and lighter weight.', '_real_brand' => 'Biltwell'],
+    ],
+    'Troy Lee Designs Extra' => [
+        'D4 Composite' => ['type' => 'Dirt / MX', 'price' => 425.00, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'Composite', 'desc' => 'Downhill/enduro with MIPS Spherical and breakaway visor.', '_real_brand' => 'Troy Lee Designs'],
+        'GP Mono' => ['type' => 'Dirt / MX', 'price' => 129.00, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1100, 'mat' => 'Polycarbonate', 'desc' => 'Solid color version of the GP for riders who prefer clean aesthetics.', '_real_brand' => 'Troy Lee Designs'],
+    ],
+    'Alpinestars Extra' => [
+        'S-M10' => ['type' => 'Dirt / MX', 'price' => 599.95, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1200, 'mat' => 'Carbon Fiber', 'desc' => 'Top MX with full carbon shell and A-Head fitting system.', '_real_brand' => 'Alpinestars'],
+        'S-M5 Action' => ['type' => 'Dirt / MX', 'price' => 249.95, 'cert' => ['DOT', 'ECE 22.06'], 'shape' => 'Intermediate Oval', 'weight' => 1150, 'mat' => 'Composite', 'desc' => 'Mid-tier MX with composite shell and multi-density EPS liner.', '_real_brand' => 'Alpinestars'],
+    ],
+
 ];
 
 $output = [];
