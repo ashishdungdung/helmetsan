@@ -25,6 +25,42 @@ Helmetsan is a WordPress-based, AI-assisted helmet data platform with:
 4. (Optional) Activate theme:
    - `wp theme activate helmetsan-theme`
 
+## Data Schema (v2 - Deterministic)
+
+The catalog now uses a deterministic data processing pipeline. Variants are no longer randomly generated at ingestion time but are explicitly defined in the seed generator.
+
+### 1. Variant Structure
+
+- **Colorways**: Defined per-model in `create_helmets_seed.php`.
+- **SKU**: Generated as `{BRAND_PREFIX}-{MODEL_PREFIX}-{COLOR_CODE}` (e.g., `SHO-RF14-MBK`).
+- **IDs**: Slugs are now deterministic based on color name (e.g., `shoei_rf_1400_matte-black`).
+- **Pricing**: Base price defined at model level; variants have specific `price_adj` deltas (e.g., +$50 for Graphics).
+
+### 2. Standardized Taxonomies
+
+- **Color Family**: 10 primary buckets for checking/filtering (Black, White, Red, Blue, Green, Yellow/Hi-Viz, Orange, Grey/Silver, Multi/Graphic, Carbon).
+- **Finish**: `matte` or `gloss`.
+- **Type**: Full Face, Modular, Open Face, etc.
+
+## Usage
+
+### Ingesting Data
+
+The pipeline is automated via `scripts/reseed.sh`.
+
+```bash
+./scripts/reseed.sh             # Full cycle: Generate -> Deploy -> Ingest
+./scripts/reseed.sh --skip-deploy # Just generate and ingest locally/remotely
+```
+
+### Resetting Data
+
+To completely wipe the database (required for schema changes):
+
+```bash
+ssh root@helmetsan.com "cd /var/www/helmetsan.com/public && wp eval-file ../reset_helmets.php --allow-root"
+```
+
 ## Data Pipeline
 
 The helmet catalog is managed through a seed → deploy → ingest pipeline.

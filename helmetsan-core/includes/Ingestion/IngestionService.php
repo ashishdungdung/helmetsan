@@ -376,6 +376,13 @@ final class IngestionService
             if (isset($data['price']['current'])) update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
         }
 
+        // New Variant Meta (Phase 6)
+        if (isset($data['color_family'])) update_post_meta($resolvedPostId, 'color_family', sanitize_text_field($data['color_family']));
+        if (isset($data['sku'])) update_post_meta($resolvedPostId, 'sku', sanitize_text_field($data['sku']));
+        if (isset($data['finish'])) update_post_meta($resolvedPostId, 'finish', sanitize_text_field($data['finish']));
+        if (isset($data['is_graphic'])) update_post_meta($resolvedPostId, 'is_graphic', $data['is_graphic'] ? '1' : '0');
+        if (isset($data['availability'])) update_post_meta($resolvedPostId, 'availability', sanitize_text_field($data['availability']));
+
         // Handle Parent/Child Relationship
         if (isset($data['parent_id']) && $data['parent_id'] !== '') {
             $parentId = $this->findHelmetPostId($data['parent_id']);
