@@ -31,6 +31,22 @@
         animation: hs-mega-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    /* Bridge: invisible area above the panel prevents mouseout gap on scroll */
+    .menu-item .hs-mega-menu::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+    }
+
+    /* Keep the li as a hover zone even at edges */
+    .menu-item[class*="mega-menu--"] > a {
+        padding-bottom: 12px;
+        margin-bottom: -12px;
+    }
+
     /* Show on hover / focus-within */
     .menu-item:hover > .hs-mega-menu,
     .menu-item:focus-within > .hs-mega-menu {

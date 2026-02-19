@@ -390,28 +390,25 @@ function helmetsan_mega_menu_item_url(string $label, string $heading, string $ty
     $label = trim($label);
     $heading = trim($heading);
 
-    // --- STRATEGY FOR BRANDS ---
+    // --- BRANDS MENU ---
     if ($type === 'brands') {
-         // Link to /brand/slug/
-         $slug = sanitize_title($label);
-         return (string) home_url('/brand/' . $slug . '/');
+        $slug = sanitize_title($label);
+        return (string) home_url('/brands/' . $slug . '/');
     }
 
-    // --- STRATEGY FOR ACCESSORIES ---
+    // --- ACCESSORIES MENU ---
     if ($type === 'accessories') {
-        // Link to /accessory-category/slug/
-        // Assuming labels map to accessory_category terms
         $slug = sanitize_title($label);
         return (string) home_url('/accessory-category/' . $slug . '/');
     }
 
-    // --- STRATEGY FOR MOTORCYCLES ---
+    // --- MOTORCYCLES MENU ---
     if ($type === 'motorcycles') {
-        // Link to /motorcycles/?s=Label for now, as we don't have a robust taxonomy yet
-        return (string) add_query_arg('s', $label, get_post_type_archive_link('motorcycle'));
+        $slug = sanitize_title($label);
+        return (string) home_url('/motorcycles/?s=' . rawurlencode($label));
     }
 
-    // --- DEFAULT: HELMETS ---
+    // --- HELMETS MENU (default) ---
     $helmetsArchive = (string) get_post_type_archive_link('helmet');
     if ($helmetsArchive === '') {
         $helmetsArchive = (string) home_url('/helmets/');
@@ -420,38 +417,43 @@ function helmetsan_mega_menu_item_url(string $label, string $heading, string $ty
         return $helmetsArchive;
     }
 
+    // "Shop by Brand" column → /brands/slug/
     if (stripos($heading, 'Brand') !== false) {
-        // Updated: use /brand/slug/ instead of query arg if new strategy is fully adopted?
-        // But keeping query arg for backward compat if flexible.
-        // Actually, user wants "integrate the same". Let's use the new Singular Taxonomy URL strategy.
         $slug = sanitize_title($label);
-        return (string) home_url('/brand/' . $slug . '/');
+        return (string) home_url('/brands/' . $slug . '/');
     }
 
+    // "Shop by Type" column → /helmet-type/slug/
     if (stripos($heading, 'Type') !== false || helmetsan_is_type_label($label)) {
         $slug = helmetsan_find_term_slug_by_label('helmet_type', $label);
-        // Use new URL strategy: /helmet-type/slug/
         return (string) home_url('/helmet-type/' . $slug . '/');
     }
 
-    if (stripos($heading, 'Safety') !== false || helmetsan_is_certification_label($label)) {
-        $slug = helmetsan_find_term_slug_by_label('certification', $label);
-        return (string) home_url('/reviews/?certification=' . $slug); // Or archive if we have one. Certification archive?
-        // Registrar says: rewrite slug 'certification'. So /certification/slug/
-        return (string) home_url('/certification/' . $slug . '/');
-    }
-
-    if (stripos($heading, 'Model') !== false || str_contains(strtolower($label), 'rf1400') || str_contains(strtolower($label), 'pista')) {
-        return (string) add_query_arg(['helmet_family' => $label], $helmetsArchive);
-    }
-
-    if (stripos($heading, 'Style') !== false || stripos($heading, 'Feature') !== false || stripos($heading, 'Riding') !== false) {
+    // "Riding Style & Safety" column → certifications or features
+    if (stripos($heading, 'Safety') !== false || stripos($heading, 'Riding') !== false) {
+        if (helmetsan_is_certification_label($label)) {
+            $slug = helmetsan_find_term_slug_by_label('certification', $label);
+            return (string) home_url('/certification/' . $slug . '/');
+        }
+        // Riding styles → feature tags
         $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
-        // /feature/slug/ ? Registrar: rewrite slug 'feature'.
         return (string) home_url('/feature/' . $slug . '/');
     }
 
-    return (string) add_query_arg(['feature' => helmetsan_find_term_slug_by_label('feature_tag', $label)], $helmetsArchive);
+    // "Features & Style" column → /feature/slug/
+    if (stripos($heading, 'Style') !== false || stripos($heading, 'Feature') !== false) {
+        $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
+        return (string) home_url('/feature/' . $slug . '/');
+    }
+
+    // "Model Family" column → query param
+    if (stripos($heading, 'Model') !== false) {
+        return (string) add_query_arg(['helmet_family' => $label], $helmetsArchive);
+    }
+
+    // Fallback: feature tag filter
+    $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
+    return (string) home_url('/feature/' . $slug . '/');
 }
 
 function helmetsan_render_mega_menu(string $type = 'helmet'): void
