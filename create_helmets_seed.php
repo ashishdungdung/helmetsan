@@ -13363,6 +13363,13 @@ foreach ($brands as $brandName => $models) {
             }
         }
         
+        // Generate Images
+        $baseImages = [];
+        for ($i = 1; $i <= 3; $i++) {
+            $text = urlencode($brandName . ' ' . $modelName . ' ' . $i);
+            $baseImages[] = "https://via.placeholder.com/800x800.png?text={$text}";
+        }
+
         // Parent Item
         $item = [
             'id' => $modelId,
@@ -13374,15 +13381,27 @@ foreach ($brands as $brandName => $models) {
                 'current' => $specs['price'],
                 'currency' => 'USD'
             ],
-            'certifications' => $specs['cert'],
+            // 'certifications' => $specs['cert'], // Moved to specs
+            'head_shape' => $specs['shape'],      // Moved to top level
             'specs' => [
                 'material' => $specs['mat'],
                 'weight_g' => $specs['weight'],
                 'weight_lbs' => round($specs['weight'] / 453.592, 2),
-                'shape' => $specs['shape'],
+                // 'shape' => $specs['shape'],    // Moved to top level
+                'certifications' => $specs['cert'], // Moved here
             ],
             'description' => $specs['desc'],
-            'variants' => $variants
+            'variants' => array_map(function($v) use ($brandName, $modelName) {
+                 // Add images to variants too
+                 $vText = urlencode($v['title']);
+                 $v['images'] = [
+                     "https://via.placeholder.com/800x800.png?text={$vText}",
+                     "https://via.placeholder.com/800x800.png?text={$vText}+Side",
+                     "https://via.placeholder.com/800x800.png?text={$vText}+Back"
+                 ];
+                 return $v;
+            }, $variants),
+            'images' => $baseImages
         ];
         
         $output[] = $item;
