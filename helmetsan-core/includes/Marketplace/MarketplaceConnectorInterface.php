@@ -52,6 +52,24 @@ interface MarketplaceConnectorInterface
     public function fetchOffers(string $helmetRef): array;
 
     /**
+     * Fetch the current price for a helmet in a specific country.
+     *
+     * @param string $helmetRef    Helmetsan slug, e.g. "shoei-rf-1400"
+     * @param string $countryCode  ISO 3166-1 alpha-2, e.g. "DE"
+     * @return PriceResult|null    null if no listing found for that country
+     */
+    public function fetchPriceForCountry(string $helmetRef, string $countryCode): ?PriceResult;
+
+    /**
+     * Fetch all offers for a helmet filtered to a specific country.
+     *
+     * @param string $helmetRef
+     * @param string $countryCode
+     * @return PriceResult[]
+     */
+    public function fetchOffersForCountry(string $helmetRef, string $countryCode): array;
+
+    /**
      * Search for a helmet by EAN/UPC barcode.
      *
      * @param string $ean

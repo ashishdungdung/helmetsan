@@ -124,6 +124,19 @@ final class JumiaConnector implements MarketplaceConnectorInterface
     /**
      * @return PriceResult[]
      */
+    public function fetchOffersForCountry(string $helmetRef, string $countryCode): array
+    {
+        $cc = strtoupper($countryCode);
+        if (!isset(self::MARKETS[$cc])) {
+            return [];
+        }
+
+        return $this->searchProducts($helmetRef, $cc);
+    }
+
+    /**
+     * @return PriceResult[]
+     */
     public function searchByEan(string $ean): array
     {
         // Jumia API doesn't support EAN search — fall back to keyword

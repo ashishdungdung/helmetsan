@@ -1,0 +1,72 @@
+[
+  {
+    "id": "acc-bt-comms-001",
+    "title": "Bluetooth Comms Kit",
+    "accessory_type": "electronics",
+    "parent_category": "Communication & Tech",
+    "subcategory": "Bluetooth Headsets",
+    "price": {
+      "current": 299.99,
+      "usd": 299.99
+    },
+    "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+    "features": ["Mesh 2.0", "Harman Kardon Audio", "Voice Commands"],
+    "brand": "Sena"
+  },
+  {
+    "id": "acc-cheek-pads-001",
+    "title": "Cheek Pad Set",
+    "accessory_type": "comfort",
+    "parent_category": "Comfort & Care",
+    "subcategory": "Cheek Pads",
+    "price": {
+      "current": 49.99,
+      "usd": 49.99
+    },
+    "compatible_helmet_types": ["Full Face"],
+    "features": ["Moisture Wicking", "Quick Release", "Washable"],
+    "brand": "Shoei"
+  },
+  {
+    "id": "acc-photo-visor-001",
+    "title": "Photochromic Visor",
+    "accessory_type": "visor",
+    "parent_category": "Visors & Optics",
+    "subcategory": "Face Shields",
+    "price": {
+      "current": 149.99,
+      "usd": 149.99
+    },
+    "compatible_helmet_types": ["Full Face", "Modular"],
+    "features": ["Transitions", "UV Protection", "Anti-Scratch"],
+    "brand": "Bell"
+  },
+  {
+    "id": "acc-pinlock-120-001",
+    "title": "Pinlock 120 Lens",
+    "accessory_type": "visor",
+    "parent_category": "Visors & Optics",
+    "subcategory": "Pinlock Inserts",
+    "price": {
+      "current": 34.99,
+      "usd": 34.99
+    },
+    "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+    "features": ["Max Vision", "Anti-Fog", "Clear"],
+    "brand": "Pinlock"
+  },
+  {
+    "id": "acc-visor-clean-001",
+    "title": "Visor Cleaning Kit",
+    "accessory_type": "care",
+    "parent_category": "Comfort & Care",
+    "subcategory": "Visor Cleaners",
+    "price": {
+      "current": 19.99,
+      "usd": 19.99
+    },
+    "compatible_helmet_types": ["All"],
+    "features": ["Streak Free", "Travel Size", "Microfiber Cloth"],
+    "brand": "Muc-Off"
+  }
+]

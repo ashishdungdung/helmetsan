@@ -52,7 +52,7 @@ final class HelmetDataBlock
         $rows = [
             'Weight'        => $weight !== '' ? (string) $weight . ' g' : 'N/A',
             'Shell Material'=> $material !== '' ? (string) $material : 'N/A',
-            'Price'         => $price !== '' ? '$' . (string) $price : 'N/A',
+            'Price'         => $price !== '' ? (new \Helmetsan\Core\Price\CurrencyFormatter())->format((float) $price, 'USD') : 'N/A',
             'Certification' => $certificates !== [] ? implode(', ', $certificates) : 'N/A',
         ];
 

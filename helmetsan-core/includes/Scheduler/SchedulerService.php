@@ -18,6 +18,7 @@ final class SchedulerService
     public const HOOK_RETRY_FAILED = 'helmetsan_cron_retry_failed';
     public const HOOK_CLEANUP_LOGS = 'helmetsan_cron_cleanup_logs';
     public const HOOK_HEALTH_SNAPSHOT = 'helmetsan_cron_health_snapshot';
+    public const HOOK_INGESTION = 'helmetsan_cron_ingestion';
 
     public function __construct(
         private readonly Config $config,
@@ -38,6 +39,7 @@ final class SchedulerService
         add_action(self::HOOK_RETRY_FAILED, [$this, 'runRetryFailed']);
         add_action(self::HOOK_CLEANUP_LOGS, [$this, 'runCleanupLogs']);
         add_action(self::HOOK_HEALTH_SNAPSHOT, [$this, 'runHealthSnapshot']);
+        add_action(self::HOOK_INGESTION, [$this, 'runIngestion']);
 
         add_action('init', [$this, 'scheduleEvents']);
     }
@@ -53,6 +55,7 @@ final class SchedulerService
         $this->clearHook(self::HOOK_RETRY_FAILED);
         $this->clearHook(self::HOOK_CLEANUP_LOGS);
         $this->clearHook(self::HOOK_HEALTH_SNAPSHOT);
+        $this->clearHook(self::HOOK_INGESTION);
     }
 
     /**
@@ -104,6 +107,9 @@ final class SchedulerService
         } else {
             $this->clearHook(self::HOOK_HEALTH_SNAPSHOT);
         }
+
+        $ingestionRecurrence = $this->recurrenceFromHours((int) ($cfg['ingestion_interval_hours'] ?? 6));
+        $this->ensureEvent(self::HOOK_INGESTION, $ingestionRecurrence);
     }
 
     /**
@@ -118,6 +124,7 @@ final class SchedulerService
                 'retry_failed'    => wp_next_scheduled(self::HOOK_RETRY_FAILED),
                 'cleanup_logs'    => wp_next_scheduled(self::HOOK_CLEANUP_LOGS),
                 'health_snapshot' => wp_next_scheduled(self::HOOK_HEALTH_SNAPSHOT),
+                'ingestion'       => wp_next_scheduled(self::HOOK_INGESTION),
             ],
             'settings' => $this->config->schedulerConfig(),
         ];
@@ -133,6 +140,7 @@ final class SchedulerService
             'retry_failed' => $this->runRetryFailed(),
             'cleanup_logs' => $this->runCleanupLogs(),
             'health_snapshot' => $this->runHealthSnapshot(),
+            'ingestion' => $this->runIngestion(),
             default => ['ok' => false, 'message' => 'Unknown task: ' . $task],
         };
     }
@@ -242,6 +250,24 @@ final class SchedulerService
         return $result;
     }
 
+    /**
+     * @return array<string,mixed>
+     */
+    public function runIngestion(): array
+    {
+        $path = $this->config->dataRoot();
+        if (! is_dir($path)) {
+            $result = ['ok' => false, 'message' => 'Data root not found: ' . $path];
+            $this->maybeAlert('ingestion', $result);
+            return $result;
+        }
+
+        $result = $this->ingestion->ingestPath($path, 100, null, false);
+        $this->maybeAlert('ingestion', $result);
+
+        return $result;
+    }
+
     private function ensureEvent(string $hook, string $recurrence): void
     {
         if (! wp_next_scheduled($hook)) {
@@ -281,7 +307,7 @@ final class SchedulerService
         if (! $ok) {
             $flag = match ($task) {
                 'sync_pull' => ! empty($cfg['alert_on_sync_error']),
-                'retry_failed' => ! empty($cfg['alert_on_ingest_error']),
+                'retry_failed', 'ingestion' => ! empty($cfg['alert_on_ingest_error']),
                 default => true,
             };
             if ($flag) {

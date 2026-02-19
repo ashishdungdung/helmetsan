@@ -95,6 +95,27 @@ final class AffiliateFeedConnector implements MarketplaceConnectorInterface
         return $results;
     }
 
+    public function fetchPriceForCountry(string $helmetRef, string $countryCode): ?PriceResult
+    {
+        if (!$this->supports($countryCode)) {
+            return null;
+        }
+
+        return $this->fetchPrice($helmetRef);
+    }
+
+    /**
+     * @return PriceResult[]
+     */
+    public function fetchOffersForCountry(string $helmetRef, string $countryCode): array
+    {
+        if (!$this->supports($countryCode)) {
+            return [];
+        }
+
+        return $this->fetchOffers($helmetRef);
+    }
+
     /**
      * @return PriceResult[]
      */

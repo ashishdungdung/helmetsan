@@ -15,6 +15,12 @@ final class Registrar
     {
         add_action('init', [$this, 'registerTypes']);
         add_action('init', [$this, 'registerTaxonomies']);
+        add_action('init', function() {
+            if (!get_option('helmetsan_rules_flushed_v3')) {
+                flush_rewrite_rules();
+                update_option('helmetsan_rules_flushed_v3', true);
+            }
+        }, 99);
     }
 
     public function registerTypes(): void

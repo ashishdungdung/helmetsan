@@ -179,16 +179,33 @@ final class CommerceService
 
         $geoPricing = $this->readJsonMetaAssoc($helmetId, 'geo_pricing_json');
         $geoPricing[$country] = [
-            'price' => $entry['current_price'] ?? $entry['mrp'],
-            'currency' => $entry['currency'],
-            'availability' => sanitize_text_field((string) ($data['availability'] ?? 'unknown')),
-            'source' => $marketplace,
-            'updated_at' => gmdate('Y-m-d'),
+            'country_code'   => $country,
+            'marketplace_id' => $marketplace,
+            'current_price'  => $entry['current_price'] ?? $entry['mrp'],
+            'currency'       => $entry['currency'],
+            'availability'   => sanitize_text_field((string) ($data['availability'] ?? 'unknown')),
+            'updated_at'     => gmdate('Y-m-d'),
         ];
         update_post_meta($helmetId, 'geo_pricing_json', wp_json_encode($geoPricing, JSON_UNESCAPED_SLASHES));
 
         if (isset($entry['current_price']) && $entry['current_price'] !== null) {
-            update_post_meta($helmetId, 'price_retail_usd', (string) $entry['current_price']);
+            if ($entry['currency'] === 'USD') {
+                update_post_meta($helmetId, 'price_retail_usd', (string) $entry['current_price']);
+            } else {
+                $currencyMetaMap = [
+                    'EUR' => 'price_eur',
+                    'GBP' => 'price_gbp',
+                    'INR' => 'price_inr',
+                    'CAD' => 'price_cad',
+                    'AUD' => 'price_aud',
+                    'JPY' => 'price_jpy',
+                    'MXN' => 'price_mxn',
+                    'PLN' => 'price_pln',
+                    'NGN' => 'price_ngn',
+                ];
+                $metaKey = $currencyMetaMap[$entry['currency']] ?? 'price_' . strtolower($entry['currency']);
+                update_post_meta($helmetId, $metaKey, (string) $entry['current_price']);
+            }
         }
 
         return ['ok' => true, 'action' => 'updated', 'post_id' => $helmetId, 'key' => $key];

@@ -9,6 +9,7 @@ use Helmetsan\Core\Admin\Admin;
 use Helmetsan\Core\Alerts\AlertService;
 use Helmetsan\Core\Analytics\EventRepository;
 use Helmetsan\Core\Analytics\EventService;
+use Helmetsan\Core\Analytics\DataLayerService;
 use Helmetsan\Core\Analytics\SmokeTestService;
 use Helmetsan\Core\Brands\BrandService;
 use Helmetsan\Core\CPT\MetaRegistrar;
@@ -79,6 +80,7 @@ final class Plugin
     private SmokeTestService $smoke;
     private EventRepository $analyticsEvents;
     private EventService $analyticsEventService;
+    private DataLayerService $dataLayer;
     private SchedulerService $scheduler;
     private AlertService $alerts;
     private ChecklistService $checklist;
@@ -119,10 +121,10 @@ final class Plugin
         $this->health     = new HealthService($this->validator, $this->repository);
         $this->seeder     = new Seeder($this->logger);
         $this->ingestionLogs = new LogRepository();
-        $this->ingestion  = new IngestionService($this->validator, $this->repository, $this->logger, $this->ingestionLogs);
+        $this->accessories = new AccessoryService();
+        $this->ingestion  = new IngestionService($this->validator, $this->repository, $this->logger, $this->ingestionLogs, $this->accessories);
         $this->syncLogs   = new SyncLogRepository();
         $this->brands     = new BrandService();
-        $this->accessories = new AccessoryService();
         $this->motorcycles = new MotorcycleService();
         $this->safetyStandards = new SafetyStandardService();
         $this->dealers = new DealerService();
@@ -147,6 +149,7 @@ final class Plugin
             $this->priceHistory,
             $this->currencyFormatter
         );
+        $this->dataLayer = new DataLayerService($this->price);
         $this->priceApi = new PriceController($this->price, $this->priceHistory);
         $this->sync       = new SyncService(
             $this->repository,
@@ -226,7 +229,6 @@ final class Plugin
         $this->brandApi->register();
         $this->search->register();
         $this->helmets->register();
-        (new \Helmetsan\Core\Search\SearchService())->register();
 
         (new Admin(
             $this->health,
@@ -249,6 +251,7 @@ final class Plugin
         ))->register();
         $this->helmetDataBlock->register();
         $this->tracker->register();
+        $this->dataLayer->register();
         $this->analyticsEventService->register();
         $this->scheduler->register();
         $this->schema->register();
@@ -282,7 +285,9 @@ final class Plugin
                 $this->alerts,
                 $this->brands,
                 $this->mediaEngine,
-                $this->wooBridge
+                $this->wooBridge,
+                $this->price,
+                $this->priceHistory
             ))->register();
         }
     }
@@ -339,6 +344,11 @@ final class Plugin
     public function router(): MarketplaceRouter
     {
         return $this->router;
+    }
+
+    public function revenue(): RevenueService
+    {
+        return $this->revenue;
     }
 
     /**

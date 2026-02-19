@@ -3,7 +3,7 @@
  * Plugin Name: Helmetsan Core
  * Plugin URI: https://helmetsan.com
  * Description: ERP-style control plane for data, ingestion, analytics, and publishing workflows.
- * Version: 0.1.0
+ * Version: 0.1.1
  * Requires at least: 6.4
  * Requires PHP: 8.1
  * Author: Helmetsan
@@ -18,7 +18,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('HELMETSAN_CORE_VERSION', '0.1.0');
+define('HELMETSAN_CORE_VERSION', '0.1.1');
 define('HELMETSAN_CORE_FILE', __FILE__);
 define('HELMETSAN_CORE_DIR', plugin_dir_path(__FILE__));
 define('HELMETSAN_CORE_URL', plugin_dir_url(__FILE__));

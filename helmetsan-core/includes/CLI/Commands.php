@@ -24,6 +24,9 @@ use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\WooBridge\WooBridgeService;
+use Helmetsan\Core\Price\PriceService;
+use Helmetsan\Core\Price\PriceHistory;
+
 
 final class Commands
 {
@@ -47,7 +50,9 @@ final class Commands
         private readonly AlertService $alerts,
         private readonly BrandService $brands,
         private readonly MediaEngine $media,
-        private readonly WooBridgeService $wooBridge
+        private readonly WooBridgeService $wooBridge,
+        private readonly PriceService $price,
+        private readonly PriceHistory $priceHistory
     ) {
     }
 
@@ -77,7 +82,10 @@ final class Commands
         \WP_CLI::add_command('helmetsan brand cascade', [$this, 'brandCascade']);
         \WP_CLI::add_command('helmetsan media backfill-brand-logos', [$this, 'mediaBackfillBrandLogos']);
         \WP_CLI::add_command('helmetsan woo-bridge sync', [$this, 'wooBridgeSync']);
+
         \WP_CLI::add_command('helmetsan ingest-seed', [$this, 'ingestSeed']);
+        \WP_CLI::add_command('helmetsan revenue import-links', [$this, 'revenueImportLinks']);
+        \WP_CLI::add_command('helmetsan price seed-history', [$this, 'priceSeedHistory']);
     }
 
     /**
@@ -886,6 +894,104 @@ final class Commands
 
         $result = $this->media->backfillBrandLogos($limit, $force, $dryRun);
         \WP_CLI::line(wp_json_encode($result, JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Import affiliate links from JSON.
+     *
+     * JSON format:
+     * {
+     *   "helmet_id_or_sku": {
+     *     "network_key": { "network": "...", "url": "...", "tag": "..." }
+     *   }
+     * }
+     *
+     * ## OPTIONS
+     * --file=<file>
+     * : JSON file path.
+     */
+    public function revenueImportLinks(array $args, array $assoc): void
+    {
+        $file = (string) ($assoc['file'] ?? '');
+        if (!file_exists($file)) {
+            \WP_CLI::error("File not found: $file");
+            return;
+        }
+
+        $data = json_decode(file_get_contents($file), true);
+        if (!is_array($data)) {
+            \WP_CLI::error("Invalid JSON.");
+            return;
+        }
+
+        $updated = 0;
+        foreach ($data as $id => $links) {
+            $postId = 0;
+            if (is_numeric($id)) {
+                $postId = (int)$id;
+            } else {
+                // Try SKU lookup
+                $posts = get_posts([
+                    'post_type' => 'helmet',
+                    'meta_key' => 'sku',
+                    'meta_value' => $id,
+                    'posts_per_page' => 1,
+                    'fields' => 'ids'
+                ]);
+                if (!empty($posts)) {
+                    $postId = $posts[0];
+                }
+            }
+
+            if ($postId > 0) {
+                update_post_meta($postId, 'affiliate_links_json', wp_json_encode($links));
+                $updated++;
+            }
+        }
+
+        \WP_CLI::success("Updated links for $updated helmets.");
+    }
+
+    /**
+     * Seed random price history for testing.
+     *
+     * ## OPTIONS
+     * [--days=<n>]
+     * : Days of history. Default 90.
+     * [--helmet-id=<id>]
+     * : Specific helmet ID.
+     */
+    public function priceSeedHistory(array $args, array $assoc): void
+    {
+        $days = isset($assoc['days']) ? (int)$assoc['days'] : 90;
+        $helmetId = isset($assoc['helmet-id']) ? (int)$assoc['helmet-id'] : 0;
+
+        $helmets = $helmetId > 0 ? [$helmetId] : get_posts(['post_type' => 'helmet', 'posts_per_page' => -1, 'fields' => 'ids']);
+
+        $count = 0;
+        foreach ($helmets as $id) {
+            $basePrice = (float)get_post_meta($id, 'price_retail_usd', true);
+            if ($basePrice <= 0) $basePrice = 200.0;
+
+            for ($d = $days; $d >= 0; $d--) {
+                $date = date('Y-m-d H:i:s', strtotime("-$d days"));
+                
+                // Simulate fluctuation
+                $price = $basePrice * (1 + (rand(-10, 10) / 100));
+                
+                $this->priceHistory->record($id, 'amazon-us', 'US', 'USD', $price, $date);
+                
+                // Sometimes add a second marketplace
+                if (rand(0, 1)) {
+                     $price2 = $basePrice * (1 + (rand(-15, 5) / 100));
+                     $this->priceHistory->record($id, 'revzilla', 'US', 'USD', $price2, $date);
+                }
+            }
+            $count++;
+            \WP_CLI::line("Seeded history for helmet $id");
+        }
+        
+        \WP_CLI::success("Seeded history for $count helmets.");
     }
 
     private function renderAssoc(array $assoc, string $format): void

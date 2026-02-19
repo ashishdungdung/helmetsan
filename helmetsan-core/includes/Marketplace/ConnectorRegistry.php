@@ -74,7 +74,7 @@ final class ConnectorRegistry
         $best = null;
 
         foreach ($connectors as $c) {
-            $result = $this->safeFetchPrice($c, $helmetRef);
+            $result = $this->safeFetchPriceForCountry($c, $helmetRef, $countryCode);
             if ($result === null || !$result->isAvailable()) {
                 continue;
             }
@@ -97,7 +97,7 @@ final class ConnectorRegistry
         $all = [];
 
         foreach ($connectors as $c) {
-            $offers = $this->safeFetchOffers($c, $helmetRef);
+            $offers = $this->safeFetchOffersForCountry($c, $helmetRef, $countryCode);
             foreach ($offers as $offer) {
                 $all[] = $offer;
             }
@@ -144,6 +144,19 @@ final class ConnectorRegistry
     }
 
     /**
+     * Fetch price for a specific country with error isolation.
+     */
+    private function safeFetchPriceForCountry(MarketplaceConnectorInterface $c, string $helmetRef, string $countryCode): ?PriceResult
+    {
+        try {
+            return $c->fetchPriceForCountry($helmetRef, $countryCode);
+        } catch (\Throwable $e) {
+            do_action('helmetsan_connector_error', $c->id(), 'fetchPriceForCountry', $e);
+            return null;
+        }
+    }
+
+    /**
      * @return PriceResult[]
      */
     private function safeFetchOffers(MarketplaceConnectorInterface $c, string $helmetRef): array
@@ -152,6 +165,19 @@ final class ConnectorRegistry
             return $c->fetchOffers($helmetRef);
         } catch (\Throwable $e) {
             do_action('helmetsan_connector_error', $c->id(), 'fetchOffers', $e);
+            return [];
+        }
+    }
+
+    /**
+     * @return PriceResult[]
+     */
+    private function safeFetchOffersForCountry(MarketplaceConnectorInterface $c, string $helmetRef, string $countryCode): array
+    {
+        try {
+            return $c->fetchOffersForCountry($helmetRef, $countryCode);
+        } catch (\Throwable $e) {
+            do_action('helmetsan_connector_error', $c->id(), 'fetchOffersForCountry', $e);
             return [];
         }
     }

@@ -88,6 +88,27 @@ final class AllegroConnector implements MarketplaceConnectorInterface
         return $ean !== '' ? $this->searchByEan($ean) : $this->searchByKeyword($helmetRef);
     }
 
+    public function fetchPriceForCountry(string $helmetRef, string $countryCode): ?PriceResult
+    {
+        if (strtoupper($countryCode) !== 'PL') {
+            return null;
+        }
+
+        return $this->fetchPrice($helmetRef);
+    }
+
+    /**
+     * @return PriceResult[]
+     */
+    public function fetchOffersForCountry(string $helmetRef, string $countryCode): array
+    {
+        if (strtoupper($countryCode) !== 'PL') {
+            return [];
+        }
+
+        return $this->fetchOffers($helmetRef);
+    }
+
     /**
      * @return PriceResult[]
      */

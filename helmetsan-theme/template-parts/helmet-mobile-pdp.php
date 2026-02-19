@@ -87,6 +87,75 @@ if ($asin !== '') {
         <?php endif; ?>
     </section>
 
+    <!-- Where to Buy (Mobile) -->
+    <?php
+    $plugin = helmetsan_core();
+    $priceService = $plugin->price();
+    $bestOffer = $priceService->getBestPrice($helmetId);
+    $allOffers = $priceService->getAllOffers($helmetId);
+    ?>
+    <?php if (!empty($allOffers) || $bestOffer !== null) : ?>
+        <section class="hs-panel hs-where-to-buy" id="where-to-buy">
+            <h2>🛒 Where to Buy</h2>
+
+            <?php if ($bestOffer !== null) : ?>
+                <div class="hs-best-badge">
+                    <span class="hs-best-badge__label">Best Price Today</span>
+                    <span class="hs-best-badge__price"><?php echo esc_html($priceService->formatPrice($bestOffer->price, $bestOffer->currency)); ?></span>
+                    <span class="hs-best-badge__source"><?php echo esc_html(ucfirst($bestOffer->marketplaceId)); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($allOffers)) : ?>
+                <div class="hs-table-wrap">
+                    <table class="hs-table hs-price-table">
+                        <thead>
+                            <tr>
+                                <th>Marketplace</th>
+                                <th>Price</th>
+                                <th>Updated</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($allOffers as $offer) :
+                            $isBest = $bestOffer !== null && $offer->marketplaceId === $bestOffer->marketplaceId && $offer->price === $bestOffer->price;
+                            $mpId = $offer->marketplaceId;
+                            $slug = (string) get_post_field('post_name', $helmetId);
+                            $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($mpId) . '&source=mobile_pdp');
+                        ?>
+                            <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
+                                <td>
+                                    <?php if ($isBest) : ?><span class="hs-price-table__best-tag">★ Best</span><?php endif; ?>
+                                    <?php echo esc_html(ucfirst(str_replace('-', ' ', $mpId))); ?>
+                                </td>
+                                <td><strong><?php echo esc_html($priceService->formatPrice($offer->price, $offer->currency)); ?></strong></td>
+                                <td><small><?php echo esc_html($offer->capturedAt !== '' ? human_time_diff(strtotime($offer->capturedAt), time()) . ' ago' : '—'); ?></small></td>
+                                <td>
+                                    <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">
+                                        Buy
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php endif; ?>
+            
+            <!-- Price History Chart (Mobile) -->
+            <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
+                <h3>Price History</h3>
+                <div class="hs-price-date-toggles" id="hs-date-toggles">
+                    <button class="hs-btn hs-btn--sm is-active" data-days="30">30d</button>
+                    <button class="hs-btn hs-btn--sm" data-days="90">90d</button>
+                    <button class="hs-btn hs-btn--sm" data-days="365">1y</button>
+                </div>
+                <canvas id="hs-price-chart" data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>" height="250"></canvas>
+            </div>
+        </section>
+    <?php endif; ?>
+
     <!-- About the Helmet (Mobile) -->
     <?php
     $analysis = helmetsan_get_technical_analysis($helmetId);

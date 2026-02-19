@@ -423,6 +423,18 @@ final class Admin
             'sanitize_callback' => [$this, 'sanitizeWooBridge'],
             'default'           => $this->config->wooBridgeDefaults(),
         ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_MARKETPLACE, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeMarketplace'],
+            'default'           => $this->config->marketplaceDefaults(),
+        ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_GEO, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeGeo'],
+            'default'           => $this->config->geoDefaults(),
+        ]);
     }
 
     public function sanitizeAnalytics($value): array
@@ -586,6 +598,68 @@ final class Admin
         $merged['publish_products'] = ! empty($merged['publish_products']);
         $merged['default_currency'] = strtoupper(sanitize_text_field((string) $merged['default_currency']));
         $merged['sync_limit_default'] = max(1, (int) $merged['sync_limit_default']);
+
+        return $merged;
+    }
+
+    public function sanitizeMarketplace($value): array
+    {
+        $defaults = $this->config->marketplaceDefaults();
+        $value    = is_array($value) ? $value : [];
+        $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_MARKETPLACE, []), $defaults);
+
+        // Booleans
+        $bools = ['amazon_enabled', 'allegro_enabled', 'jumia_enabled'];
+        foreach ($bools as $key) {
+            $merged[$key] = ! empty($merged[$key]);
+        }
+
+        // Secrets (masked)
+        $secrets = [
+            'amazon_client_secret', 'amazon_refresh_token',
+            'allegro_client_secret', 'allegro_refresh_token',
+            'jumia_api_key'
+        ];
+        foreach ($secrets as $key) {
+            $val = sanitize_text_field((string) ($merged[$key] ?? ''));
+            $merged[$key] = $val !== '' ? $val : (string) ($existing[$key] ?? '');
+        }
+
+        // Standard text
+        $text = ['amazon_client_id', 'amazon_affiliate_tag', 'allegro_client_id', 'allegro_affiliate_id', 'jumia_affiliate_id'];
+        foreach ($text as $key) {
+            $merged[$key] = sanitize_text_field((string) ($merged[$key] ?? ''));
+        }
+
+        // Feed configs are complex nested arrays, simplicity for now: maintain existing structure if not posted
+        // In a real UI, we'd iterate `affiliate_feeds` and sanitize each.
+        // For MVP, we presume the settings page might not expose full feed editing yet, or we just trust admin input for now (sanitized recursively).
+        if (isset($value['affiliate_feeds']) && is_array($value['affiliate_feeds'])) {
+            $merged['affiliate_feeds'] = $value['affiliate_feeds']; // TODO: Deep sanitize
+        } else {
+             $merged['affiliate_feeds'] = $defaults['affiliate_feeds'];
+        }
+
+        return $merged;
+    }
+
+    public function sanitizeGeo($value): array
+    {
+        $defaults = $this->config->geoDefaults();
+        $value    = is_array($value) ? $value : [];
+        $merged   = wp_parse_args($value, $defaults);
+
+        $merged['mode'] = in_array(($merged['mode'] ?? ''), ['auto', 'force'], true) ? $merged['mode'] : 'auto';
+        $merged['force_country'] = strtoupper(substr(sanitize_text_field((string) ($merged['force_country'] ?? '')), 0, 2));
+
+        if (isset($value['supported_countries']) && is_string($value['supported_countries'])) {
+            // UI sends JSON string for the map
+            $decoded = json_decode(stripslashes($value['supported_countries']), true);
+            if (is_array($decoded)) {
+                $merged['supported_countries'] = $decoded;
+            }
+        }
 
         return $merged;
     }
@@ -2549,6 +2623,8 @@ final class Admin
     public function settingsPage(): void
     {
         $values = wp_parse_args((array) get_option(Config::OPTION_ANALYTICS, []), $this->config->analyticsDefaults());
+        $marketplace = wp_parse_args((array) get_option(Config::OPTION_MARKETPLACE, []), $this->config->marketplaceDefaults());
+        $geo = wp_parse_args((array) get_option(Config::OPTION_GEO, []), $this->config->geoDefaults());
         $github = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $this->config->githubDefaults());
         $revenue = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $this->config->revenueDefaults());
         $scheduler = wp_parse_args((array) get_option(Config::OPTION_SCHEDULER, []), $this->config->schedulerDefaults());
@@ -2598,6 +2674,95 @@ final class Admin
         }
 
         echo '</tbody></table>';
+
+        echo '<h2>Marketplaces</h2>';
+        echo '<table class="form-table"><tbody>';
+        foreach ($marketplace as $key => $current) {
+            $isSecret = str_contains($key, 'secret') || str_contains($key, 'token') || str_contains($key, 'key');
+            $val = $isSecret && ! empty($current) ? '' : (string) $current;
+            $placeholder = $isSecret && ! empty($current) ? 'Saved. Enter new value to replace.' : '';
+            
+            echo '<tr><th><label for="mk_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
+            if (is_bool($current)) {
+                echo '<input type="checkbox" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
+            } elseif (is_array($current)) {
+                echo '<em>Complex configuration (feeds). Use code or DB to edit for now.</em>';
+            } else {
+                echo '<input type="text" class="regular-text" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="' . esc_attr($val) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+
+        echo '<h2>Geo / Localization</h2>';
+        echo '<table class="form-table"><tbody>';
+        
+        // Mode
+        $geoMode = isset($geo['mode']) ? (string) $geo['mode'] : 'auto';
+        echo '<tr><th><label for="geo_mode">Mode</label></th><td>';
+        echo '<select id="geo_mode" name="' . esc_attr(Config::OPTION_GEO) . '[mode]">';
+        echo '<option value="auto" ' . selected($geoMode, 'auto', false) . '>Auto (CloudFlare/Cookie)</option>';
+        echo '<option value="force" ' . selected($geoMode, 'force', false) . '>Force (Debug)</option>';
+        echo '</select></td></tr>';
+        
+        // Force Country
+        $forceCountry = isset($geo['force_country']) ? (string) $geo['force_country'] : '';
+        echo '<tr><th><label for="geo_force">Force Country</label></th><td>';
+        echo '<input type="text" class="small-text" id="geo_force" name="' . esc_attr(Config::OPTION_GEO) . '[force_country]" value="' . esc_attr($forceCountry) . '" maxlength="2" />';
+        echo '<p class="description">2-letter code (e.g. US, JP, DE). Only used if Mode is Force.</p></td></tr>';
+        
+        // Supported Countries (JSON editor)
+        $mapData = isset($geo['supported_countries']) ? $geo['supported_countries'] : [];
+        $mapJson = empty($mapData) ? '' : wp_json_encode($mapData, JSON_PRETTY_PRINT);
+        echo '<tr><th><label for="geo_map">Supported Countries (JSON)</label></th><td>';
+        echo '<textarea id="geo_map" name="' . esc_attr(Config::OPTION_GEO) . '[supported_countries]" rows="10" class="large-text code">' . esc_textarea($mapJson) . '</textarea>';
+        echo '<p class="description">Leave empty to use system defaults. Format: <code>{"US": {"region": "NA", "currency": "USD"}}</code></p></td></tr>';
+        echo '</tbody></table>';
+
+        echo '<h2>Marketplaces</h2>';
+        echo '<table class="form-table"><tbody>';
+        foreach ($marketplace as $key => $current) {
+            $isSecret = str_contains($key, 'secret') || str_contains($key, 'token') || str_contains($key, 'key');
+            $val = $isSecret && ! empty($current) ? '' : (string) $current;
+            $placeholder = $isSecret && ! empty($current) ? 'Saved. Enter new value to replace.' : '';
+            
+            echo '<tr><th><label for="mk_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
+            if (is_bool($current)) {
+                echo '<input type="checkbox" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
+            } elseif (is_array($current)) {
+                echo '<em>Complex configuration (feeds). Use code or DB to edit for now.</em>';
+            } else {
+                echo '<input type="text" class="regular-text" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="' . esc_attr($val) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+
+        echo '<h2>Geo / Localization</h2>';
+        echo '<table class="form-table"><tbody>';
+        
+        // Mode
+        $geoMode = isset($geo['mode']) ? (string) $geo['mode'] : 'auto';
+        echo '<tr><th><label for="geo_mode">Mode</label></th><td>';
+        echo '<select id="geo_mode" name="' . esc_attr(Config::OPTION_GEO) . '[mode]">';
+        echo '<option value="auto" ' . selected($geoMode, 'auto', false) . '>Auto (CloudFlare/Cookie)</option>';
+        echo '<option value="force" ' . selected($geoMode, 'force', false) . '>Force (Debug)</option>';
+        echo '</select></td></tr>';
+        
+        // Force Country
+        $forceCountry = isset($geo['force_country']) ? (string) $geo['force_country'] : '';
+        echo '<tr><th><label for="geo_force">Force Country</label></th><td>';
+        echo '<input type="text" class="small-text" id="geo_force" name="' . esc_attr(Config::OPTION_GEO) . '[force_country]" value="' . esc_attr($forceCountry) . '" maxlength="2" />';
+        echo '<p class="description">2-letter code (e.g. US, JP, DE). Only used if Mode is Force.</p></td></tr>';
+        
+        // Supported Countries (JSON editor)
+        $mapData = isset($geo['supported_countries']) ? $geo['supported_countries'] : [];
+        $mapJson = empty($mapData) ? '' : wp_json_encode($mapData, JSON_PRETTY_PRINT);
+        echo '<tr><th><label for="geo_map">Supported Countries (JSON)</label></th><td>';
+        echo '<textarea id="geo_map" name="' . esc_attr(Config::OPTION_GEO) . '[supported_countries]" rows="10" class="large-text code">' . esc_textarea($mapJson) . '</textarea>';
+        echo '<p class="description">Leave empty to use system defaults. Format: <code>{"US": {"region": "NA", "currency": "USD"}}</code></p></td></tr>';
+        echo '</tbody></table>';
+
         echo '<h2>Revenue</h2>';
         echo '<table class="form-table"><tbody>';
         foreach ($revenue as $key => $current) {

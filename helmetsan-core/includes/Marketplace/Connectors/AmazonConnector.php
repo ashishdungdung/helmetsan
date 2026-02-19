@@ -171,6 +171,18 @@ final class AmazonConnector implements MarketplaceConnectorInterface
     }
 
     /**
+     * Fetch offers scoped to a single country to avoid rate-limiting.
+     *
+     * @return PriceResult[]
+     */
+    public function fetchOffersForCountry(string $helmetRef, string $countryCode): array
+    {
+        $result = $this->fetchPriceForCountry($helmetRef, $countryCode);
+
+        return $result !== null ? [$result] : [];
+    }
+
+    /**
      * @return PriceResult[]
      */
     public function searchByEan(string $ean): array
@@ -420,7 +432,8 @@ final class AmazonConnector implements MarketplaceConnectorInterface
     private function currencyForCountry(string $cc): string
     {
         return match (strtoupper($cc)) {
-            'US', 'CA' => 'USD',
+            'US'       => 'USD',
+            'CA'       => 'CAD',
             'UK'       => 'GBP',
             'DE', 'FR', 'IT', 'ES' => 'EUR',
             'IN'       => 'INR',

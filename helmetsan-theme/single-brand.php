@@ -23,20 +23,46 @@ if (have_posts()) {
         $motto = (string) get_post_meta($brandId, 'brand_motto', true);
         $ethos = (string) get_post_meta($brandId, 'brand_manufacturing_ethos', true);
         
-        // Fetch ALL helmets for this brand
-        $helmets = get_posts([
+        // Fetch Helmets: Dual Strategy (Meta OR Taxonomy) to ensure we catch everything
+        $brandSlug = get_post_field('post_name', $brandId);
+
+        // 1. Meta Query (Legacy/Direct Link)
+        $metaIds = get_posts([
             'post_type' => 'helmet',
             'post_status' => 'publish',
             'posts_per_page' => -1,
-            'meta_query' => [
+            'meta_query' => [['key' => 'rel_brand', 'value' => $brandId]],
+            'fields' => 'ids',
+        ]);
+
+        // 2. Taxonomy Query (Standard Link)
+        $taxIds = get_posts([
+            'post_type' => 'helmet',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'tax_query' => [
                 [
-                    'key' => 'rel_brand',
-                    'value' => $brandId,
+                    'taxonomy' => 'helmet_brand',
+                    'field' => 'slug',
+                    'terms' => $brandSlug,
                 ],
             ],
-            'orderby' => 'title',
-            'order' => 'ASC',
+            'fields' => 'ids',
         ]);
+
+        $uniqueIds = array_unique(array_merge($metaIds, $taxIds));
+        $helmets = [];
+
+        if (!empty($uniqueIds)) {
+            $helmets = get_posts([
+                'post_type' => 'helmet',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+                'post__in' => $uniqueIds,
+                'orderby' => 'title',
+                'order' => 'ASC',
+            ]);
+        }
 
         // Group helmets by type
         $groupedHelmets = [];

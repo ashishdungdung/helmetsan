@@ -1057,3 +1057,194 @@
     padding: 0;
   }
 }
+
+/* =========================================
+   Filter UI Overhaul
+   ========================================= */
+
+.hs-filter-group {
+    background: #fff;
+    border: 1px solid var(--hs-border);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.hs-filter-group summary {
+    background: #f8fafc;
+    padding: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.hs-filter-group summary:hover {
+    background: #f1f5f9;
+}
+
+.hs-filter-group summary::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--hs-muted);
+    border-bottom: 2px solid var(--hs-muted);
+    transform: rotate(45deg);
+    transition: transform 0.2s;
+    margin-left: 10px;
+}
+
+.hs-filter-group[open] summary::after {
+    transform: rotate(-135deg);
+}
+
+.hs-filter-checks {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.hs-filter-checks label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--hs-text);
+    cursor: pointer;
+}
+
+.hs-filter-checks input[type="checkbox"],
+.hs-filter-checks input[type="radio"] {
+    accent-color: var(--hs-accent);
+    width: 16px;
+    height: 16px;
+}
+
+.hs-pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.hs-pill-input {
+    cursor: pointer;
+}
+
+.hs-pill-input input {
+    display: none;
+}
+
+.hs-pill-input span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--hs-border);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--hs-muted);
+    transition: all 0.2s;
+}
+
+.hs-pill-input input:checked + span {
+    background: var(--hs-accent);
+    color: #fff;
+    border-color: var(--hs-accent);
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.25);
+}
+
+.hs-price-range {
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.hs-price-range input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--hs-border);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.hs-filter-scroll {
+    max-height: 240px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--hs-border) transparent;
+}
+
+/* =========================================
+   Pagination Overhaul
+   ========================================= */
+
+.hs-pagination-wrap {
+    margin-top: 4rem;
+    border-top: 1px solid var(--hs-border);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.hs-pagination-wrap .pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hs-pagination-wrap .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 0.5rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--hs-border);
+    color: var(--hs-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.hs-pagination-wrap .page-numbers.current {
+    background: var(--hs-accent);
+    color: #fff;
+    border-color: var(--hs-accent);
+    box-shadow: 0 4px 12px rgba(10, 132, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.hs-pagination-wrap .page-numbers:not(.current):hover {
+    border-color: var(--hs-accent);
+    color: var(--hs-accent);
+    background: rgba(10, 132, 255, 0.05);
+}
+
+.hs-pagination-wrap .page-numbers.dots {
+    border: none;
+    background: transparent;
+    cursor: default;
+}
+
+.hs-pagination-wrap .page-numbers.prev,
+.hs-pagination-wrap .page-numbers.next {
+    padding: 0 1.2rem;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}

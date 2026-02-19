@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Pricing",
   "type": "object",
-  "required": ["entity", "id", "helmet_id", "country_code", "currency", "current_price"],
+  "required": ["entity", "helmet_id", "country_code", "currency", "current_price"],
   "properties": {
     "entity": { "const": "pricing" },
     "id": { "type": "string" },

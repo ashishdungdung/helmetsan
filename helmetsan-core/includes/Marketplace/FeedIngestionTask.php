@@ -208,10 +208,18 @@ final class FeedIngestionTask
             }
         }
 
-        // Fuzzy name match as fallback (exact title match)
-        $post = get_page_by_title($name, OBJECT, 'helmet');
-        if ($post instanceof \WP_Post) {
-            return (int) $post->ID;
+        // WP_Query exact title match (get_page_by_title deprecated in WP 6.2)
+        $query = new \WP_Query([
+            'post_type'      => 'helmet',
+            'post_status'    => 'any',
+            'title'          => $name,
+            'posts_per_page' => 1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+        ]);
+
+        if (!empty($query->posts)) {
+            return (int) $query->posts[0];
         }
 
         return 0;

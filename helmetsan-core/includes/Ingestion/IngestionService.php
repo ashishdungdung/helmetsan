@@ -45,7 +45,8 @@ final class IngestionService
         private readonly Validator $validator,
         private readonly JsonRepository $repository,
         private readonly Logger $logger,
-        private readonly LogRepository $logs
+        private readonly LogRepository $logs,
+        private readonly \Helmetsan\Core\Accessory\AccessoryService $accessories
     ) {
     }
 
@@ -123,6 +124,33 @@ final class IngestionService
                 }
 
                 $encoded = wp_json_encode($data);
+                $isAccessory = isset($data['accessory_type']) 
+                    || isset($data['compatible_helmet_types']) 
+                    || (isset($data['type']) && !array_key_exists(strtolower((string)$data['type']), self::HELMET_TYPE_CANONICAL));
+
+                if ($isAccessory) {
+                    $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
+                    if ($upsert['ok']) {
+                         $ok++;
+                        if ($upsert['action'] === 'created') {
+                            $created++;
+                        } else {
+                            $updated++;
+                        }
+                        $this->logs->add(
+                            $file,
+                            $upsert['action'],
+                            'Accessory upsert successful',
+                            (string) $data['id'],
+                            (int) $upsert['post_id']
+                        );
+                    } else {
+                        $fail++;
+                        $this->logs->add($file, 'failed', 'Accessory upsert failed: ' . ($upsert['message'] ?? 'Unknown error'));
+                    }
+                    continue;
+                }
+
                 $payloadHash = hash('sha256', is_string($encoded) ? $encoded : serialize($data));
                 $postId      = $this->findHelmetPostId((string) $data['id']);
                 $existingHash = $postId > 0 ? (string) get_post_meta($postId, '_source_hash', true) : '';
@@ -172,6 +200,12 @@ final class IngestionService
                     (string) $data['id'],
                     (int) $upsert['post_id']
                 );
+
+                // Aggregate child ingestion counters
+                $created += (int) ($upsert['child_created'] ?? 0);
+                $updated += (int) ($upsert['child_updated'] ?? 0);
+                $fail    += (int) ($upsert['child_failed'] ?? 0);
+                $ok      += (int) ($upsert['child_created'] ?? 0) + (int) ($upsert['child_updated'] ?? 0);
             }
         }
 
@@ -393,6 +427,10 @@ final class IngestionService
         }
 
         // Recursive Child Ingestion
+        $childCreated = 0;
+        $childUpdated = 0;
+        $childFailed  = 0;
+
         if (isset($data['children']) && is_array($data['children'])) {
             foreach ($data['children'] as $child) {
                 // Ensure child knows its parent's external ID
@@ -404,12 +442,51 @@ final class IngestionService
                 
                 $childHash = hash('sha256', serialize($child));
                 $childId = $this->findHelmetPostId((string) $child['id']);
+                $childExternalId = isset($child['id']) ? (string) $child['id'] : '';
                 
-                $this->upsertHelmet($child, $sourceFile, $childHash, $childId);
+                $childResult = $this->upsertHelmet($child, $sourceFile, $childHash, $childId);
+
+                if ($childResult['ok']) {
+                    if ($childResult['action'] === 'created') {
+                        $childCreated++;
+                    } else {
+                        $childUpdated++;
+                    }
+                    $this->logger->info('Child helmet upserted: ' . $childExternalId . ' (action: ' . $childResult['action'] . ')');
+                    $this->logs->add(
+                        $sourceFile,
+                        $childResult['action'],
+                        'Child helmet upsert successful (parent: ' . (string) $data['id'] . ')',
+                        $childExternalId,
+                        (int) $childResult['post_id']
+                    );
+
+                    // Accumulate grandchild counts
+                    $childCreated += (int) ($childResult['child_created'] ?? 0);
+                    $childUpdated += (int) ($childResult['child_updated'] ?? 0);
+                    $childFailed  += (int) ($childResult['child_failed'] ?? 0);
+                } else {
+                    $childFailed++;
+                    $this->logger->info('Child helmet upsert failed: ' . $childExternalId . ' in ' . $sourceFile);
+                    $this->logs->add(
+                        $sourceFile,
+                        'failed',
+                        'Child helmet upsert failed (parent: ' . (string) $data['id'] . ')',
+                        $childExternalId,
+                        $childId
+                    );
+                }
             }
         }
 
-        return ['ok' => true, 'action' => $action, 'post_id' => $resolvedPostId];
+        return [
+            'ok'            => true,
+            'action'        => $action,
+            'post_id'       => $resolvedPostId,
+            'child_created' => $childCreated,
+            'child_updated' => $childUpdated,
+            'child_failed'  => $childFailed,
+        ];
     }
 
     /**

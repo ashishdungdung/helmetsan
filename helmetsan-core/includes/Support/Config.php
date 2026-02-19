@@ -15,6 +15,7 @@ final class Config
     public const OPTION_MEDIA     = 'helmetsan_media';
     public const OPTION_WOO_BRIDGE = 'helmetsan_woo_bridge';
     public const OPTION_MARKETPLACE = 'helmetsan_marketplace';
+    public const OPTION_GEO       = 'helmetsan_geo';
 
     public function analyticsDefaults(): array
     {
@@ -81,6 +82,12 @@ final class Config
                 'allegro' => ['enabled' => false, 'aff_id' => ''],
                 'jumia'   => ['enabled' => false, 'aff_id' => ''],
             ],
+            'network_cpc' => [
+                'amazon'  => 0.06,
+                'cj'      => 0.04,
+                'allegro' => 0.03,
+                'jumia'   => 0.02,
+            ],
         ];
     }
 
@@ -121,6 +128,16 @@ final class Config
             'cleanup_logs_enabled'     => true,
             'cleanup_logs_days'        => 30,
             'health_snapshot_enabled'  => true,
+            'ingestion_interval_hours' => 6,
+        ];
+    }
+
+    public function geoDefaults(): array
+    {
+        return [
+            'mode'                => 'auto', // auto, force
+            'force_country'       => 'US',
+            'supported_countries' => [],     // Empty means use hardcoded map
         ];
     }
 
@@ -328,6 +345,9 @@ final class Config
         if (defined('HELMETSAN_AMZ_REFRESH_TOKEN') && HELMETSAN_AMZ_REFRESH_TOKEN !== '') {
             $cfg['amazon_refresh_token'] = (string) HELMETSAN_AMZ_REFRESH_TOKEN;
         }
+        if (defined('HELMETSAN_AMZ_AFFILIATE_TAG') && HELMETSAN_AMZ_AFFILIATE_TAG !== '') {
+            $cfg['amazon_affiliate_tag'] = (string) HELMETSAN_AMZ_AFFILIATE_TAG;
+        }
         if (defined('HELMETSAN_ALLEGRO_CLIENT_ID') && HELMETSAN_ALLEGRO_CLIENT_ID !== '') {
             $cfg['allegro_client_id'] = (string) HELMETSAN_ALLEGRO_CLIENT_ID;
         }
@@ -339,5 +359,13 @@ final class Config
         }
 
         return $cfg;
+    }
+    /**
+     * @return array<string,mixed>
+     */
+    public function geoConfig(): array
+    {
+        $saved = get_option(self::OPTION_GEO, []);
+        return wp_parse_args(is_array($saved) ? $saved : [], $this->geoDefaults());
     }
 }

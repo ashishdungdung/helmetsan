@@ -17,8 +17,22 @@ final class Tracker
 
     public function register(): void
     {
+        add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_action('wp_head', [$this, 'printHeadScripts'], 20);
         add_action('wp_footer', [$this, 'printFooterScripts'], 20);
+    }
+
+    public function enqueueScripts(): void
+    {
+        if (is_singular('helmet')) {
+            wp_enqueue_script(
+                'helmetsan-tracker',
+                get_template_directory_uri() . '/assets/js/tracker.js',
+                [],
+                '1.0.0',
+                true
+            );
+        }
     }
 
     public function printHeadScripts(): void
@@ -71,8 +85,9 @@ final class Tracker
         $endpoint = esc_js((string) rest_url('helmetsan/v1/event'));
         $outbound = $trackOutbound ? 'true' : 'false';
         $search   = $trackSearch ? 'true' : 'false';
+        $nonce    = esc_js(wp_create_nonce('helmetsan_event'));
 
-        echo "<script>(function(){var cfg={endpoint:'{$endpoint}',trackOutbound:{$outbound},trackSearch:{$search}};function sendEvent(name,meta){var payload={event_name:name,page_url:window.location.href,referrer:document.referrer||'',source:'frontend',meta:meta||{}};try{if(window.dataLayer&&Array.isArray(window.dataLayer)){window.dataLayer.push({event:name,helmetsan:payload});}if(typeof window.gtag==='function'){window.gtag('event',name,meta||{});}if(navigator.sendBeacon){var b=new Blob([JSON.stringify(payload)],{type:'application/json'});navigator.sendBeacon(cfg.endpoint,b);}else{fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true});}}catch(e){}}if(cfg.trackOutbound){document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a){return;}var href=a.getAttribute('href')||'';if(!href){return;}if(href.indexOf('http')!==0){return;}if(href.indexOf(window.location.origin)===0){return;}sendEvent('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});},true);}if(cfg.trackSearch){document.addEventListener('submit',function(ev){var f=ev.target;if(!f||!f.querySelector){return;}var i=f.querySelector('input[name=\"s\"]');if(!i){return;}var q=(i.value||'').trim();if(!q){return;}sendEvent('internal_search',{query:q.slice(0,120)});},true);}})();</script>\n";
+        echo "<script>(function(){var cfg={endpoint:'{$endpoint}',trackOutbound:{$outbound},trackSearch:{$search},nonce:'{$nonce}'};function sendEvent(name,meta){var payload={event_name:name,page_url:window.location.href,referrer:document.referrer||'',source:'frontend',meta:meta||{},_wpnonce:cfg.nonce};try{if(window.dataLayer&&Array.isArray(window.dataLayer)){window.dataLayer.push({event:name,helmetsan:payload});}if(typeof window.gtag==='function'){window.gtag('event',name,meta||{});}if(navigator.sendBeacon){var b=new Blob([JSON.stringify(payload)],{type:'application/json'});navigator.sendBeacon(cfg.endpoint,b);}else{fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json','X-WP-Nonce':cfg.nonce},body:JSON.stringify(payload),keepalive:true});}}catch(e){}}if(cfg.trackOutbound){document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a){return;}var href=a.getAttribute('href')||'';if(!href){return;}if(href.indexOf('http')!==0){return;}if(href.indexOf(window.location.origin)===0){return;}sendEvent('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});},true);}if(cfg.trackSearch){document.addEventListener('submit',function(ev){var f=ev.target;if(!f||!f.querySelector){return;}var i=f.querySelector('input[name=\"s\"]');if(!i){return;}var q=(i.value||'').trim();if(!q){return;}sendEvent('internal_search',{query:q.slice(0,120)});},true);}})();</script>\n";
     }
 
     /**

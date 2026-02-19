@@ -46,6 +46,9 @@ final class RevenueDashboard
         $report = $this->revenue->report($days);
         $byMarketplace = $this->revenue->reportByMarketplace($days);
         $revCfg = $this->config->revenueConfig();
+        $networkCpc = $revCfg['network_cpc'] ?? [];
+        $defaultCpc = 0.04;
+        $snapStats  = $this->priceHistory->getSnapshotStats();
         ?>
         <div class="wrap">
             <h1>Revenue Dashboard</h1>
@@ -70,6 +73,18 @@ final class RevenueDashboard
                     <strong style="font-size:28px;"><?php echo esc_html(number_format($report['total_clicks'] ?? 0)); ?></strong>
                 </div>
                 <div class="postbox" style="padding:16px;margin:0;">
+                    <h3 style="margin:0 0 4px;">Estimated Revenue</h3>
+                    <?php
+                    $estRevenue = 0;
+                    foreach (($report['by_network'] ?? []) as $net => $clicks) {
+                        $cpc = (float) ($networkCpc[$net] ?? $defaultCpc);
+                        $estRevenue += (int) $clicks * $cpc;
+                    }
+                    ?>
+                    <strong style="font-size:28px;">$<?php echo esc_html(number_format($estRevenue, 2)); ?></strong>
+                    <small style="display:block;color:#6b7280;margin-top:2px;">Per-network CPC rates</small>
+                </div>
+                <div class="postbox" style="padding:16px;margin:0;">
                     <h3 style="margin:0 0 4px;">Networks Active</h3>
                     <strong style="font-size:28px;"><?php echo esc_html((string) count($report['by_network'] ?? [])); ?></strong>
                 </div>
@@ -79,21 +94,61 @@ final class RevenueDashboard
                 </div>
             </div>
 
+            <!-- Price Coverage -->
+            <div class="postbox" style="padding:16px;margin:0 0 24px;">
+                <h2>Price Coverage</h2>
+                <?php if ($snapStats['total_snapshots'] > 0) : ?>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:12px;">
+                        <div>
+                            <strong style="font-size:24px;"><?php echo esc_html(number_format($snapStats['total_snapshots'])); ?></strong>
+                            <small style="display:block;color:#6b7280;">Total Snapshots</small>
+                        </div>
+                        <div>
+                            <strong style="font-size:24px;"><?php echo esc_html((string) count($snapStats['by_marketplace'])); ?></strong>
+                            <small style="display:block;color:#6b7280;">Marketplaces Tracked</small>
+                        </div>
+                        <div>
+                            <strong style="font-size:24px;"><?php echo esc_html($snapStats['last_captured_at'] ?? '—'); ?></strong>
+                            <small style="display:block;color:#6b7280;">Last Capture</small>
+                        </div>
+                    </div>
+                    <?php if (!empty($snapStats['by_marketplace'])) : ?>
+                        <table class="widefat striped" style="margin-top:8px;">
+                            <thead><tr><th>Marketplace</th><th>Snapshots</th></tr></thead>
+                            <tbody>
+                            <?php foreach ($snapStats['by_marketplace'] as $mpId => $cnt) : ?>
+                                <tr>
+                                    <td><?php echo esc_html((string) $mpId); ?></td>
+                                    <td><?php echo esc_html(number_format($cnt)); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <p>No price snapshots recorded yet.</p>
+                <?php endif; ?>
+            </div>
+
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
                 <!-- Clicks by Network -->
                 <div class="postbox" style="padding:16px;margin:0;">
                     <h2>Clicks by Network</h2>
                     <table class="widefat striped">
-                        <thead><tr><th>Network</th><th>Clicks</th></tr></thead>
+                        <thead><tr><th>Network</th><th>Clicks</th><th>CPC</th><th>Est. Revenue</th></tr></thead>
                         <tbody>
-                        <?php foreach (($report['by_network'] ?? []) as $net => $clicks) : ?>
+                        <?php foreach (($report['by_network'] ?? []) as $net => $clicks) :
+                            $netCpcRate = (float) ($networkCpc[$net] ?? $defaultCpc);
+                        ?>
                             <tr>
                                 <td><?php echo esc_html((string) $net); ?></td>
                                 <td><?php echo esc_html(number_format((int) $clicks)); ?></td>
+                                <td>$<?php echo esc_html(number_format($netCpcRate, 2)); ?></td>
+                                <td>$<?php echo esc_html(number_format((int) $clicks * $netCpcRate, 2)); ?></td>
                             </tr>
                         <?php endforeach; ?>
                         <?php if (empty($report['by_network'])) : ?>
-                            <tr><td colspan="2">No data yet</td></tr>
+                            <tr><td colspan="4">No data yet</td></tr>
                         <?php endif; ?>
                         </tbody>
                     </table>
@@ -103,40 +158,57 @@ final class RevenueDashboard
                 <div class="postbox" style="padding:16px;margin:0;">
                     <h2>Clicks by Marketplace</h2>
                     <table class="widefat striped">
-                        <thead><tr><th>Marketplace</th><th>Clicks</th></tr></thead>
+                        <thead><tr><th>Marketplace</th><th>Clicks</th><th>Est. Revenue</th></tr></thead>
                         <tbody>
                         <?php foreach ($byMarketplace as $mp => $clicks) : ?>
                             <tr>
                                 <td><?php echo esc_html((string) $mp); ?></td>
                                 <td><?php echo esc_html(number_format((int) $clicks)); ?></td>
+                                <td>$<?php echo esc_html(number_format((int) $clicks * $defaultCpc, 2)); ?></td>
                             </tr>
                         <?php endforeach; ?>
                         <?php if (empty($byMarketplace)) : ?>
-                            <tr><td colspan="2">No data yet</td></tr>
+                            <tr><td colspan="3">No data yet</td></tr>
                         <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Top Helmets -->
+            <!-- Top Helmets with Latest Prices -->
             <div class="postbox" style="padding:16px;margin:24px 0 0;">
                 <h2>Top Clicked Helmets</h2>
                 <table class="widefat striped">
-                    <thead><tr><th>Helmet</th><th>Clicks</th></tr></thead>
+                    <thead><tr><th>Helmet</th><th>Clicks</th><th>Est. Revenue</th><th>Latest Price</th><th>Marketplace</th></tr></thead>
                     <tbody>
-                    <?php foreach (($report['top_helmets'] ?? []) as $helmet) : ?>
+                    <?php foreach (($report['top_helmets'] ?? []) as $helmet) :
+                        $helmetId = (int) $helmet['helmet_id'];
+                        $latestPrices = $this->priceHistory->getLatestByMarketplace($helmetId);
+                        $topPrice = !empty($latestPrices) ? reset($latestPrices) : null;
+                        $topMpId  = !empty($latestPrices) ? key($latestPrices) : null;
+                    ?>
                         <tr>
                             <td>
-                                <a href="<?php echo esc_url(get_edit_post_link((int) $helmet['helmet_id'])); ?>">
+                                <a href="<?php echo esc_url(get_edit_post_link($helmetId)); ?>">
                                     <?php echo esc_html((string) $helmet['title']); ?>
                                 </a>
                             </td>
                             <td><?php echo esc_html(number_format((int) $helmet['clicks'])); ?></td>
+                            <td>$<?php echo esc_html(number_format((int) $helmet['clicks'] * $defaultCpc, 2)); ?></td>
+                            <td>
+                                <?php if ($topPrice) : ?>
+                                    <?php echo esc_html($topPrice['currency'] . ' ' . number_format((float) $topPrice['price'], 2)); ?>
+                                <?php else : ?>
+                                    <em>—</em>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php echo $topMpId ? esc_html($topMpId) : '—'; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     <?php if (empty($report['top_helmets'])) : ?>
-                        <tr><td colspan="2">No data yet</td></tr>
+                        <tr><td colspan="5">No data yet</td></tr>
                     <?php endif; ?>
                     </tbody>
                 </table>

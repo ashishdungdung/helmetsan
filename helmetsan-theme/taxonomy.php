@@ -418,6 +418,10 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
         the_posts_pagination([
             'total' => $query->max_num_pages,
             'add_args' => $currentQuery,
+            'mid_size'  => 2,
+            'prev_text' => __( '&larr; Prev', 'helmetsan-theme' ),
+            'next_text' => __( 'Next &rarr;', 'helmetsan-theme' ),
+            'screen_reader_text' => __( 'Helmet Navigation', 'helmetsan-theme' ),
         ]);
                 wp_reset_postdata();
                 ?>

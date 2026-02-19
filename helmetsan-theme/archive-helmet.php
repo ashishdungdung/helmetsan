@@ -400,9 +400,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                         'total' => $query->max_num_pages,
                         'add_args' => $currentQuery,
                         'mid_size'  => 2,
-                        'prev_text' => '&larr;',
-                        'next_text' => '&rarr;',
+                        'prev_text' => __( '&larr; Prev', 'helmetsan-theme' ),
+                        'next_text' => __( 'Next &rarr;', 'helmetsan-theme' ),
+                        'screen_reader_text' => __( 'Helmet Navigation', 'helmetsan-theme' ),
                     ]);
+
                     ?>
                 </div>
             </section>

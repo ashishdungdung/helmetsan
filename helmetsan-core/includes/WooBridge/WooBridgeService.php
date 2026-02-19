@@ -90,6 +90,22 @@ final class WooBridgeService
 
         $variationResults = $this->syncVariations($productId, $variants, $dryRun);
 
+        // Delete stale variations whose _helmet_variant_id is no longer in variants_json
+        $currentVariantIds = array_keys($variationResults['map']);
+        if ($currentVariantIds === [] && ! $dryRun) {
+            // Rebuild IDs from variant data when map is empty (e.g. dry-run produced no map)
+            foreach ($variants as $v) {
+                if (is_array($v)) {
+                    $vid = sanitize_title((string) ($v['id'] ?? $v['sku'] ?? ''));
+                    if ($vid !== '') {
+                        $currentVariantIds[] = $vid;
+                    }
+                }
+            }
+        }
+        $staleDeleted = $this->deleteStaleVariations($productId, $currentVariantIds, $dryRun);
+        $variationResults['stale_deleted'] = $staleDeleted;
+
         if (! $dryRun && $productId > 0) {
             \WC_Product_Variable::sync($productId);
             wc_delete_product_transients($productId);
@@ -452,6 +468,50 @@ final class WooBridgeService
         }
 
         return (int) $posts[0];
+    }
+
+    /**
+     * Delete product_variation posts whose _helmet_variant_id is not in the current set.
+     *
+     * @param array<int,string> $currentVariantIds
+     */
+    private function deleteStaleVariations(int $productId, array $currentVariantIds, bool $dryRun): int
+    {
+        if ($productId <= 0) {
+            return 0;
+        }
+
+        $existingVariations = get_posts([
+            'post_type'      => 'product_variation',
+            'post_status'    => ['publish', 'private', 'draft'],
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'post_parent'    => $productId,
+        ]);
+
+        if (! is_array($existingVariations) || $existingVariations === []) {
+            return 0;
+        }
+
+        $staleCount = 0;
+
+        foreach ($existingVariations as $variationId) {
+            $variantId = (string) get_post_meta((int) $variationId, '_helmet_variant_id', true);
+
+            // Skip variations without a helmet variant ID (not managed by us)
+            if ($variantId === '') {
+                continue;
+            }
+
+            if (! in_array($variantId, $currentVariantIds, true)) {
+                if (! $dryRun) {
+                    wp_delete_post((int) $variationId, true);
+                }
+                $staleCount++;
+            }
+        }
+
+        return $staleCount;
     }
 
     /**

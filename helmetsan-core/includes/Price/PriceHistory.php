@@ -153,15 +153,16 @@ final class PriceHistory
         }
 
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        $subquery = $wpdb->prepare(
+            "SELECT marketplace_id, MAX(captured_at) as max_date FROM {$table} WHERE helmet_id = %d GROUP BY marketplace_id",
+            $helmetId
+        );
+
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $rows = $wpdb->get_results(
             "SELECT h.marketplace_id, h.currency, h.price, h.captured_at
              FROM {$table} h
-             INNER JOIN (
-                 SELECT marketplace_id, MAX(captured_at) as max_date
-                 FROM {$table}
-                 WHERE helmet_id = {$helmetId}
-                 GROUP BY marketplace_id
-             ) latest ON h.marketplace_id = latest.marketplace_id AND h.captured_at = latest.max_date
+             INNER JOIN ({$subquery}) latest ON h.marketplace_id = latest.marketplace_id AND h.captured_at = latest.max_date
              WHERE {$where}
              ORDER BY h.price ASC",
             ARRAY_A
@@ -181,6 +182,47 @@ final class PriceHistory
         }
 
         return $result;
+    }
+
+    /**
+     * Aggregate snapshot statistics for the Price Coverage dashboard block.
+     *
+     * @return array{total_snapshots: int, by_marketplace: array<string, int>, last_captured_at: string|null}
+     */
+    public function getSnapshotStats(): array
+    {
+        global $wpdb;
+
+        $empty = ['total_snapshots' => 0, 'by_marketplace' => [], 'last_captured_at' => null];
+
+        if (!$this->tableExists()) {
+            return $empty;
+        }
+
+        $table = $this->tableName();
+
+        $total = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$table}");
+
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+        $rows = $wpdb->get_results(
+            "SELECT marketplace_id, COUNT(*) as cnt FROM {$table} GROUP BY marketplace_id ORDER BY cnt DESC",
+            ARRAY_A
+        );
+
+        $byMp = [];
+        if (is_array($rows)) {
+            foreach ($rows as $row) {
+                $byMp[(string) $row['marketplace_id']] = (int) $row['cnt'];
+            }
+        }
+
+        $lastCaptured = $wpdb->get_var("SELECT MAX(captured_at) FROM {$table}");
+
+        return [
+            'total_snapshots'  => $total,
+            'by_marketplace'   => $byMp,
+            'last_captured_at' => $lastCaptured ? (string) $lastCaptured : null,
+        ];
     }
 
     public function tableExists(): bool

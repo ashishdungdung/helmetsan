@@ -51,9 +51,19 @@ final class GeoService
     /**
      * Get the visitor's ISO 3166-1 alpha-2 country code.
      */
+    /**
+     * Get the visitor's ISO 3166-1 alpha-2 country code.
+     */
     public function getCountry(): string
     {
         if ($this->resolvedCountry !== null) {
+            return $this->resolvedCountry;
+        }
+
+        // 0. Check for Forced Mode (Debug/Dev)
+        $config = $this->getGeoConfig();
+        if (($config['mode'] ?? 'auto') === 'force' && ! empty($config['force_country'])) {
+            $this->resolvedCountry = strtoupper(substr((string) $config['force_country'], 0, 2));
             return $this->resolvedCountry;
         }
 
@@ -84,8 +94,9 @@ final class GeoService
     public function getRegion(?string $countryCode = null): string
     {
         $cc = $countryCode ?? $this->getCountry();
+        $map = $this->getSupportedCountries();
 
-        return self::COUNTRY_MAP[strtoupper($cc)]['region'] ?? 'NA';
+        return $map[strtoupper($cc)]['region'] ?? 'NA';
     }
 
     /**
@@ -94,8 +105,9 @@ final class GeoService
     public function getCurrency(?string $countryCode = null): string
     {
         $cc = $countryCode ?? $this->getCountry();
+        $map = $this->getSupportedCountries();
 
-        return self::COUNTRY_MAP[strtoupper($cc)]['currency'] ?? 'USD';
+        return $map[strtoupper($cc)]['currency'] ?? 'USD';
     }
 
     /**
@@ -143,6 +155,32 @@ final class GeoService
     }
 
     // ─── Private Helpers ────────────────────────────────────────────────
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function getGeoConfig(): array
+    {
+        // Avoid dependency on Config class constant if not autoloaded, but it should be.
+        // Using string literal 'helmetsan_geo' to be safe or Config::OPTION_GEO if available.
+        return (array) get_option('helmetsan_geo', []);
+    }
+
+    /**
+     * @return array<string, array{region: string, currency: string}>
+     */
+    private function getSupportedCountries(): array
+    {
+        $config = $this->getGeoConfig();
+        $custom = $config['supported_countries'] ?? [];
+
+        if (is_array($custom) && ! empty($custom)) {
+            // Merge custom on top of default
+            return array_merge(self::COUNTRY_MAP, $custom);
+        }
+
+        return self::COUNTRY_MAP;
+    }
 
     private function fromCloudFlare(): string
     {
