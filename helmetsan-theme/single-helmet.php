@@ -15,9 +15,8 @@ if (have_posts()) {
         $brandId = helmetsan_get_brand_id($helmetId);
         $brandName = helmetsan_get_brand_name($helmetId);
         $related = helmetsan_get_related_helmets_by_brand($helmetId, 6);
-        $weight = (string) get_post_meta($helmetId, 'spec_weight_g', true);
-        $shell = (string) get_post_meta($helmetId, 'spec_shell_material', true);
-        $price = helmetsan_get_helmet_price($helmetId);
+        $weight = helmetsan_get_weight($helmetId);
+        $shell = helmetsan_get_shell_material($helmetId);
         $certs = helmetsan_get_certifications($helmetId);
         $geoPricingJson = (string) get_post_meta($helmetId, 'geo_pricing_json', true);
         $geoLegalityJson = (string) get_post_meta($helmetId, 'geo_legality_json', true);
@@ -36,8 +35,17 @@ if (have_posts()) {
         $sizingFit = json_decode($sizingFitJson, true);
         $relatedVideos = json_decode($relatedVideosJson, true);
         $weightLbs = (string) get_post_meta($helmetId, 'spec_weight_lbs', true);
-        $headShape = (string) get_post_meta($helmetId, 'head_shape', true);
+        $headShape = helmetsan_get_head_shape($helmetId);
         $helmetFamily = (string) get_post_meta($helmetId, 'helmet_family', true);
+        $analysis = helmetsan_get_technical_analysis($helmetId);
+        $parentId = (int) $post->post_parent;
+        $isVariant = $parentId > 0;
+        $parentPost = $isVariant ? get_post($parentId) : null;
+        
+        // Multi-currency price
+        $priceUsd = helmetsan_get_price($helmetId, 'USD');
+        $priceEur = helmetsan_get_price($helmetId, 'EUR');
+        $priceGbp = helmetsan_get_price($helmetId, 'GBP');
         
         // New Schema Fields (v1.1)
         $safetyJson = (string) get_post_meta($helmetId, 'safety_intelligence_json', true);
@@ -112,30 +120,71 @@ if (have_posts()) {
         ?>
         <article <?php post_class('helmet-single hs-section'); ?>>
             <header class="helmet-single__header hs-section__head">
-                <p class="hs-eyebrow"><?php echo esc_html($brandName !== '' ? $brandName : 'Helmet'); ?></p>
+                <?php if ($isVariant && $parentPost) : ?>
+                    <p class="hs-eyebrow">
+                        <a href="<?php echo esc_url(get_permalink($parentPost)); ?>"><?php echo esc_html($parentPost->post_title); ?></a>
+                         &rsaquo; <?php echo esc_html($brandName); ?>
+                    </p>
+                <?php else : ?>
+                    <p class="hs-eyebrow"><?php echo esc_html($brandName !== '' ? $brandName : 'Helmet'); ?></p>
+                <?php endif; ?>
+                
                 <h1><?php the_title(); ?></h1>
+                
                 <div class="helmet-single__meta-chip">
-                    <span><?php echo esc_html($price); ?></span>
+                    <?php if ($priceUsd !== 'N/A') : ?><span><?php echo esc_html($priceUsd); ?></span><?php endif; ?>
+                    <?php if ($priceEur !== 'N/A') : ?><span><?php echo esc_html($priceEur); ?></span><?php endif; ?>
+                    <?php if ($priceGbp !== 'N/A') : ?><span><?php echo esc_html($priceGbp); ?></span><?php endif; ?>
                     <span><?php echo esc_html($certs); ?></span>
                 </div>
             </header>
 
             <div class="helmet-single__layout">
-                <div class="helmet-single__media hs-panel">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <div class="helmet-single__image"><?php the_post_thumbnail('large'); ?></div>
+                <div class="helmet-single__media hs-panel" style="padding:0; overflow:hidden;">
+                    <a href="/comparison/" 
+                       class="js-view-compare hs-btn hs-btn--sm hs-btn--primary is-hidden"
+                       style="position:absolute; top:1rem; right:5rem; z-index:10;">
+                        View Compare
+                    </a>
+                    <button type="button" 
+                            class="js-add-to-compare hs-btn hs-btn--icon" 
+                            data-id="<?php echo esc_attr((string) $helmetId); ?>" 
+                            title="<?php esc_attr_e('Compare', 'helmetsan-theme'); ?>"
+                            aria-pressed="false"
+                            style="position:absolute; top:1rem; right:1rem; z-index:10;">
+                        <span>Compare</span>
+                    </button>
+                    <?php 
+                    $gallery = helmetsan_core()->mediaService()->getProductGallery($helmetId);
+                    if (!empty($gallery)) : 
+                    ?>
+                        <div class="hs-carousel">
+                            <div class="hs-carousel__track">
+                                <?php foreach ($gallery as $item) : ?>
+                                    <div class="hs-carousel__slide">
+                                        <?php if ($item['type'] === 'video') : ?>
+                                            <div class="hs-responsive-embed">
+                                                <?php echo $item['embed']; ?>
+                                            </div>
+                                        <?php else : ?>
+                                            <img src="<?php echo esc_url($item['url']); ?>" alt="<?php echo esc_attr($item['alt'] ?? ''); ?>" loading="lazy">
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
                     <?php else : ?>
-                        <div class="helmet-single__placeholder">No image available</div>
+                        <div class="helmet-single__placeholder" style="padding: 2rem; text-align: center;">No image available</div>
                     <?php endif; ?>
                 </div>
 
                 <aside class="helmet-single__aside hs-panel">
                     <h2>Key Specs</h2>
                     <dl class="helmetsan-specs-grid">
-                        <div class="helmetsan-specs-row"><dt>Weight</dt><dd><?php echo esc_html($weight !== '' ? $weight . ' g' : 'N/A'); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Weight</dt><dd><?php echo esc_html($weight > 0 ? $weight . ' g' : 'N/A'); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Weight (lbs)</dt><dd><?php echo esc_html($weightLbs !== '' ? $weightLbs . ' lbs' : 'N/A'); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Shell</dt><dd><?php echo esc_html($shell !== '' ? $shell : 'N/A'); ?></dd></div>
-                        <div class="helmetsan-specs-row"><dt>Head Shape</dt><dd><?php echo esc_html($headShape !== '' ? $headShape : 'N/A'); ?></dd></div>
+                        <div class="helmetsan-specs-row"><dt>Head Shape</dt><dd><?php echo esc_html($headShape !== '' ? ucwords(str_replace('-', ' ', $headShape)) : 'N/A'); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Helmet Family</dt><dd><?php echo esc_html($helmetFamily !== '' ? $helmetFamily : 'N/A'); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Certification Marks</dt><dd><?php echo esc_html($certs); ?></dd></div>
                         <div class="helmetsan-specs-row"><dt>Price</dt><dd><?php echo esc_html($price); ?></dd></div>
@@ -153,6 +202,11 @@ if (have_posts()) {
 
             <div class="helmet-single__content hs-panel">
                 <h2>Technical Analysis</h2>
+                <?php if ($analysis) : ?>
+                    <div class="hs-analysis-rich-text">
+                        <?php echo wpautop(esc_html($analysis)); ?>
+                    </div>
+                <?php endif; ?>
                 <?php the_content(); ?>
             </div>
 
@@ -301,29 +355,34 @@ if (have_posts()) {
                 </section>
             <?php endif; ?>
 
-            <?php if (is_array($variants) && $variants !== []) : ?>
+            <?php 
+            $children = get_posts([
+                'post_parent'    => $isVariant ? $parentId : $helmetId,
+                'post_type'      => 'helmet',
+                'posts_per_page' => -1,
+                'orderby'        => 'title',
+                'order'          => 'ASC',
+            ]);
+            if (! empty($children)) : 
+            ?>
                 <section class="hs-panel">
-                    <h2>Variants, Colors &amp; Sizes</h2>
-                    <div class="hs-table-wrap">
-                        <table class="hs-table">
-                            <thead>
-                                <tr><th>Variant</th><th>Color/Graphic</th><th>Size</th><th>CM</th><th>Inches</th><th>MFR Part No.</th><th>Price</th><th>Availability</th></tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($variants as $row) : if (! is_array($row)) { continue; } ?>
-                                <tr>
-                                    <td><?php echo esc_html((string) ($row['style'] ?? ($row['id'] ?? 'Variant'))); ?></td>
-                                    <td><?php echo esc_html(trim((string) ($row['color'] ?? '') . ' ' . (string) ($row['graphics'] ?? ''))); ?></td>
-                                    <td><?php echo esc_html((string) ($row['size'] ?? '')); ?></td>
-                                    <td><?php echo esc_html((string) ($row['size_cm'] ?? '')); ?></td>
-                                    <td><?php echo esc_html((string) ($row['size_in'] ?? '')); ?></td>
-                                    <td><?php echo esc_html((string) ($row['mfr_part_number'] ?? ($row['sku'] ?? ''))); ?></td>
-                                    <td><?php echo esc_html((string) ($row['price'] ?? '') . ' ' . (string) ($row['currency'] ?? '')); ?></td>
-                                    <td><?php echo esc_html((string) ($row['availability'] ?? '')); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                    <h2>Available Colors & Graphics</h2>
+                    <div class="hs-variant-grid">
+                        <?php foreach ($children as $child) : 
+                            $isActive = $child->ID === $helmetId;
+                        ?>
+                            <a href="<?php echo esc_url(get_permalink($child)); ?>" class="hs-variant-item <?php echo $isActive ? 'is-active' : ''; ?>">
+                                <div class="hs-variant-item__image">
+                                    <?php if (has_post_thumbnail($child->ID)) : ?>
+                                        <?php echo get_the_post_thumbnail($child->ID, 'thumbnail'); ?>
+                                    <?php else : ?>
+                                        <span style="color: var(--hs-muted); font-size: 10px;">No Image</span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="hs-variant-item__label"><?php echo esc_html($child->post_title); ?></div>
+                                <div class="hs-variant-item__price"><?php echo esc_html(helmetsan_get_helmet_price($child->ID)); ?></div>
+                            </a>
+                        <?php endforeach; ?>
                     </div>
                 </section>
             <?php endif; ?>

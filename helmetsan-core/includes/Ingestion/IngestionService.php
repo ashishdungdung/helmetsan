@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Helmetsan\Core\Ingestion;
 
 use Helmetsan\Core\Repository\JsonRepository;
+use Helmetsan\Core\Support\HelmetTypeNormalizer;
 use Helmetsan\Core\Support\Logger;
 use Helmetsan\Core\Validation\Validator;
 
@@ -261,6 +262,24 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'spec_shell_material', sanitize_text_field($data['specs']['material']));
         }
 
+        if (isset($data['specs']['warranty_years'])) {
+            update_post_meta($resolvedPostId, 'warranty_years', (string) $data['specs']['warranty_years']);
+        }
+
+        if (isset($data['specs']['strap_type']) && is_string($data['specs']['strap_type'])) {
+            update_post_meta($resolvedPostId, 'strap_type', sanitize_text_field($data['specs']['strap_type']));
+        }
+
+        if (isset($data['features_data']['visor']) && is_array($data['features_data']['visor'])) {
+             $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
+             update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values($clean)));
+        }
+
+        if (isset($data['features_data']['liner']) && is_array($data['features_data']['liner'])) {
+             $clean = array_map('sanitize_text_field', $data['features_data']['liner']);
+             update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values($clean)));
+        }
+
         if (isset($data['price']) && is_array($data['price']) && isset($data['price']['current'])) {
             update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
         }
@@ -288,6 +307,8 @@ final class IngestionService
             'related_videos' => 'related_videos_json',
             'features' => 'features_json',
             'helmet_types' => 'helmet_types_json',
+            'key_specs' => 'key_specs_json',
+            'compatible_accessories' => 'compatible_accessories_json',
         ];
         foreach ($jsonMetaMap as $jsonKey => $metaKey) {
             if (! isset($data[$jsonKey])) {
@@ -297,6 +318,10 @@ final class IngestionService
             if (is_string($json) && $json !== '') {
                 update_post_meta($resolvedPostId, $metaKey, $json);
             }
+        }
+
+        if (isset($data['technical_analysis']) && is_string($data['technical_analysis'])) {
+            update_post_meta($resolvedPostId, 'technical_analysis', sanitize_textarea_field($data['technical_analysis']));
         }
 
         if (isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {
@@ -311,18 +336,13 @@ final class IngestionService
 
         $normalizedTypes = [];
         if (isset($data['type']) && is_string($data['type']) && $data['type'] !== '') {
-            $normalized = $this->normalizeHelmetType((string) $data['type']);
+            $normalized = HelmetTypeNormalizer::toLabel((string) $data['type']);
             if ($normalized !== '') {
                 $normalizedTypes[] = $normalized;
             }
         }
         if (isset($data['helmet_types']) && is_array($data['helmet_types'])) {
-            foreach ($data['helmet_types'] as $rawType) {
-                $normalized = $this->normalizeHelmetType((string) $rawType);
-                if ($normalized !== '') {
-                    $normalizedTypes[] = $normalized;
-                }
-            }
+            $normalizedTypes = array_merge($normalizedTypes, HelmetTypeNormalizer::normalizeArray($data['helmet_types']));
         }
         $normalizedTypes = array_values(array_unique($normalizedTypes));
         if ($normalizedTypes !== []) {
@@ -342,6 +362,43 @@ final class IngestionService
             $brandId = $this->findOrCreateBrand($data['brand']);
             if ($brandId > 0) {
                 update_post_meta($resolvedPostId, 'rel_brand', $brandId);
+            }
+            wp_set_object_terms($resolvedPostId, $data['brand'], 'helmet_brand', false);
+        }
+
+        // Multi-currency Pricing (from Child/Simple data)
+        if (isset($data['price']) && is_array($data['price'])) {
+            if (isset($data['price']['usd'])) update_post_meta($resolvedPostId, 'price_usd', (string) $data['price']['usd']);
+            if (isset($data['price']['eur'])) update_post_meta($resolvedPostId, 'price_eur', (string) $data['price']['eur']);
+            if (isset($data['price']['gbp'])) update_post_meta($resolvedPostId, 'price_gbp', (string) $data['price']['gbp']);
+            
+            // Backwards compatibility for 'current'
+            if (isset($data['price']['current'])) update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+        }
+
+        // Handle Parent/Child Relationship
+        if (isset($data['parent_id']) && $data['parent_id'] !== '') {
+            $parentId = $this->findHelmetPostId($data['parent_id']);
+            if ($parentId > 0) {
+                $postData = ['ID' => $resolvedPostId, 'post_parent' => $parentId];
+                wp_update_post($postData);
+            }
+        }
+
+        // Recursive Child Ingestion
+        if (isset($data['children']) && is_array($data['children'])) {
+            foreach ($data['children'] as $child) {
+                // Ensure child knows its parent's external ID
+                $child['parent_id'] = $data['id']; 
+                
+                // Inherit brand/type if missing
+                if (!isset($child['brand'])) $child['brand'] = $data['brand'] ?? '';
+                if (!isset($child['type'])) $child['type'] = $data['type'] ?? '';
+                
+                $childHash = hash('sha256', serialize($child));
+                $childId = $this->findHelmetPostId((string) $child['id']);
+                
+                $this->upsertHelmet($child, $sourceFile, $childHash, $childId);
             }
         }
 
@@ -386,60 +443,7 @@ final class IngestionService
         return (int) $brandId;
     }
 
-    private function normalizeHelmetType(string $raw): string
-    {
-        $value = strtolower(trim(sanitize_text_field($raw)));
-        if ($value === '') {
-            return '';
-        }
-        $value = preg_replace('/\\s+/', ' ', $value) ?? $value;
-
-        if (isset(self::HELMET_TYPE_CANONICAL[$value])) {
-            return self::HELMET_TYPE_CANONICAL[$value];
-        }
-
-        if (str_contains($value, 'full') && str_contains($value, 'face')) {
-            return 'Full Face';
-        }
-        if (str_contains($value, 'modular')) {
-            return 'Modular';
-        }
-        if (str_contains($value, 'open') && str_contains($value, 'face')) {
-            return 'Open Face';
-        }
-        if ($value === 'half helmet' || $value === 'half helmets') {
-            return 'Half';
-        }
-        if (str_contains($value, 'adventure') || str_contains($value, 'dual sport')) {
-            return 'Adventure / Dual Sport';
-        }
-        if (str_contains($value, 'dirt') || str_contains($value, 'motocross') || str_contains($value, 'mx')) {
-            return 'Dirt / MX';
-        }
-        if (str_contains($value, 'tour')) {
-            return 'Touring';
-        }
-        if (str_contains($value, 'track') || str_contains($value, 'race')) {
-            return 'Track / Race';
-        }
-        if (str_contains($value, 'youth')) {
-            return 'Youth';
-        }
-        if (str_contains($value, 'snow')) {
-            return 'Snow';
-        }
-        if (str_contains($value, 'carbon')) {
-            return 'Carbon Fiber';
-        }
-        if (str_contains($value, 'graphic')) {
-            return 'Graphics';
-        }
-        if (str_contains($value, 'sale') || str_contains($value, 'closeout')) {
-            return 'Sale';
-        }
-
-        return '';
-    }
+    // normalizeHelmetType() removed — use HelmetTypeNormalizer::toLabel() instead.
 
     private function startTransaction(): bool
     {

@@ -8,6 +8,103 @@ use WP_Post;
 
 final class MotorcycleService
 {
+    private const NONCE_ACTION = 'helmetsan_motorcycle_meta';
+    private const NONCE_FIELD  = '_helmetsan_motorcycle_nonce';
+
+    /**
+     * Register admin hooks for the meta box.
+     */
+    public function register(): void
+    {
+        add_action('add_meta_boxes_motorcycle', [$this, 'registerMetaBox']);
+        add_action('save_post_motorcycle', [$this, 'saveMeta'], 10, 2);
+    }
+
+    public function registerMetaBox(): void
+    {
+        add_meta_box(
+            'helmetsan_motorcycle_details',
+            'Motorcycle Details',
+            [$this, 'renderMetaBox'],
+            'motorcycle',
+            'normal',
+            'high'
+        );
+    }
+
+    public function renderMetaBox(WP_Post $post): void
+    {
+        wp_nonce_field(self::NONCE_ACTION, self::NONCE_FIELD);
+
+        $fields = [
+            'motorcycle_make'               => ['label' => 'Make',                          'type' => 'text'],
+            'motorcycle_model'              => ['label' => 'Model',                         'type' => 'text'],
+            'bike_segment'                  => ['label' => 'Segment',                       'type' => 'text',   'hint' => 'e.g. sport, adventure, cruiser, touring'],
+            'engine_cc'                     => ['label' => 'Engine CC',                     'type' => 'number'],
+            'recommended_helmet_types_json' => ['label' => 'Recommended Helmet Types (JSON)', 'type' => 'textarea', 'rows' => 3, 'hint' => 'e.g. ["Full Face","Adventure / Dual Sport"]'],
+        ];
+
+        echo '<table class="form-table" role="presentation"><tbody>';
+        foreach ($fields as $key => $field) {
+            $label = esc_html($field['label']);
+            $value = (string) get_post_meta($post->ID, $key, true);
+            $id    = esc_attr('helmetsan_' . $key);
+            $name  = esc_attr($key);
+
+            echo '<tr>';
+            echo '<th scope="row"><label for="' . $id . '">' . $label . '</label></th>';
+            echo '<td>';
+
+            if ($field['type'] === 'textarea') {
+                $rows = isset($field['rows']) ? (int) $field['rows'] : 3;
+                echo '<textarea id="' . $id . '" name="' . $name . '" rows="' . $rows . '" class="large-text">' . esc_textarea($value) . '</textarea>';
+            } else {
+                $type = esc_attr($field['type']);
+                echo '<input type="' . $type . '" id="' . $id . '" name="' . $name . '" value="' . esc_attr($value) . '" class="regular-text" />';
+            }
+
+            if (isset($field['hint'])) {
+                echo '<p class="description">' . esc_html($field['hint']) . '</p>';
+            }
+
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+    }
+
+    public function saveMeta(int $postId, WP_Post $post): void
+    {
+        if (
+            ! isset($_POST[self::NONCE_FIELD]) ||
+            ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST[self::NONCE_FIELD])), self::NONCE_ACTION)
+        ) {
+            return;
+        }
+
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+
+        if (! current_user_can('edit_post', $postId)) {
+            return;
+        }
+
+        $textFields = ['motorcycle_make', 'motorcycle_model', 'bike_segment'];
+        foreach ($textFields as $key) {
+            if (isset($_POST[$key])) {
+                update_post_meta($postId, $key, sanitize_text_field(wp_unslash((string) $_POST[$key])));
+            }
+        }
+
+        if (isset($_POST['engine_cc'])) {
+            update_post_meta($postId, 'engine_cc', (float) $_POST['engine_cc']);
+        }
+
+        if (isset($_POST['recommended_helmet_types_json'])) {
+            update_post_meta($postId, 'recommended_helmet_types_json', sanitize_textarea_field(wp_unslash((string) $_POST['recommended_helmet_types_json'])));
+        }
+    }
+
     /**
      * @param array<string,mixed> $data
      * @return array<string,mixed>
@@ -51,8 +148,8 @@ final class MotorcycleService
         }
 
         $postArgs = [
-            'post_type' => 'motorcycle',
-            'post_title' => $title,
+            'post_type'   => 'motorcycle',
+            'post_title'  => $title,
             'post_status' => 'publish',
         ];
         if ($existingId > 0) {
@@ -118,12 +215,12 @@ final class MotorcycleService
     private function findByExternalId(string $externalId): int
     {
         $posts = get_posts([
-            'post_type' => 'motorcycle',
+            'post_type'   => 'motorcycle',
             'post_status' => 'any',
             'numberposts' => 1,
-            'meta_key' => '_motorcycle_unique_id',
-            'meta_value' => $externalId,
-            'fields' => 'ids',
+            'meta_key'    => '_motorcycle_unique_id',
+            'meta_value'  => $externalId,
+            'fields'      => 'ids',
         ]);
 
         if (! is_array($posts) || $posts === []) {
@@ -133,4 +230,3 @@ final class MotorcycleService
         return (int) $posts[0];
     }
 }
-

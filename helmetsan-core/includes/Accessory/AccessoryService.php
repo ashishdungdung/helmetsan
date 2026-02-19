@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Accessory;
 
+use Helmetsan\Core\Support\HelmetTypeNormalizer;
 use WP_Post;
 
 final class AccessoryService
@@ -114,14 +115,8 @@ final class AccessoryService
 
         $compatibleHelmetTypes = [];
         if (isset($data['compatible_helmet_types']) && is_array($data['compatible_helmet_types'])) {
-            foreach ($data['compatible_helmet_types'] as $item) {
-                $slug = $this->normalizeHelmetType((string) $item);
-                if ($slug !== '') {
-                    $compatibleHelmetTypes[] = $slug;
-                }
-            }
+            $compatibleHelmetTypes = HelmetTypeNormalizer::normalizeArray($data['compatible_helmet_types']);
         }
-        $compatibleHelmetTypes = array_values(array_unique($compatibleHelmetTypes));
         if ($compatibleHelmetTypes !== []) {
             wp_set_object_terms($postId, $compatibleHelmetTypes, 'helmet_type', false);
         } else {
@@ -179,29 +174,5 @@ final class AccessoryService
         return (int) $posts[0];
     }
 
-    private function normalizeHelmetType(string $value): string
-    {
-        $normalized = strtolower(trim($value));
-        $normalized = str_replace(['&', '/'], [' and ', ' '], $normalized);
-        $normalized = preg_replace('/\s+/', ' ', $normalized) ?? $normalized;
-        $normalized = str_replace('helmets', '', $normalized);
-        $normalized = trim($normalized);
-
-        return match ($normalized) {
-            'full face', 'full-face' => 'full-face',
-            'modular' => 'modular',
-            'open face', 'open-face' => 'open-face',
-            'half', 'half helmet', 'half-helmet' => 'half',
-            'dirt', 'mx', 'dirt mx', 'dirt motocross', 'off road', 'off-road', 'motocross' => 'dirt-mx',
-            'adventure', 'dual sport', 'adventure dual sport', 'adventure and dual sport' => 'adventure-dual-sport',
-            'touring' => 'touring',
-            'track', 'race', 'track race' => 'track-race',
-            'youth' => 'youth',
-            'snow', 'snowmobile' => 'snow',
-            'carbon fiber', 'carbon-fiber' => 'carbon-fiber',
-            'graphics', 'graphic' => 'graphics',
-            'sale', 'closeout' => 'sale',
-            default => '',
-        };
-    }
+    // normalizeHelmetType() removed — use HelmetTypeNormalizer::toLabel() instead.
 }

@@ -13,6 +13,9 @@ Thumbs.db
 .env
 .env.*
 
+# Expect scripts (contain credentials — DO NOT COMMIT)
+*.expect
+
 # Dependency folders (if added later)
 node_modules/
 vendor/
@@ -21,13 +24,23 @@ vendor/
 *.zip
 *.tar.gz
 
-# Accidental junk (code snippets/identifiers extracted as root filenames)
+# Accidental junk (identifiers extracted as root filenames)
 /config
 /save
 /ids
+/price_*
+/helmets_seed.json
+
+# Debug artifacts
+/debug_git.sh
+/git_debug.log
+/verify_inheritance_remote.php
 
 # WordPress runtime/temp artifacts
 wp-content/uploads/helmetsan-runtime/
 wp-content/uploads/helmetsan-data/_imports/
 wp-content/uploads/helmetsan-data/_bootstrap/
 wp-content/uploads/helmetsan-data/_exports/
+
+# Generated per-helmet JSON splits (use --split-dir to regenerate)
+helmetsan-core/seed-data/helmets/

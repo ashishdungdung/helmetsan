@@ -8,6 +8,99 @@ use WP_Post;
 
 final class ComparisonService
 {
+    private const NONCE_ACTION = 'helmetsan_comparison_meta';
+    private const NONCE_FIELD  = '_helmetsan_comparison_nonce';
+
+    public function register(): void
+    {
+        add_action('add_meta_boxes_comparison', [$this, 'registerMetaBox']);
+        add_action('save_post_comparison', [$this, 'saveMeta'], 10, 2);
+    }
+
+    public function registerMetaBox(): void
+    {
+        add_meta_box(
+            'helmetsan_comparison_details',
+            'Comparison Details',
+            [$this, 'renderMetaBox'],
+            'comparison',
+            'normal',
+            'high'
+        );
+    }
+
+    public function renderMetaBox(WP_Post $post): void
+    {
+        wp_nonce_field(self::NONCE_ACTION, self::NONCE_FIELD);
+
+        $relHelmets = get_post_meta($post->ID, 'rel_helmets', true);
+        $relHelmetsDisplay = '';
+        if (is_array($relHelmets) && $relHelmets !== []) {
+            $relHelmetsDisplay = implode(', ', array_map('intval', $relHelmets));
+        }
+
+        $fields = [
+            'rel_helmets_display'              => ['label' => 'Linked Helmet IDs (comma-sep)', 'type' => 'text', 'hint' => 'Post IDs of helmets in this comparison', 'value' => $relHelmetsDisplay, 'key' => 'rel_helmets_display'],
+            'comparison_parameters_json'       => ['label' => 'Parameters (JSON)',             'type' => 'textarea', 'rows' => 4, 'hint' => 'e.g. [{"key":"weight","label":"Weight","unit":"g"}]'],
+            'comparison_scores_json'           => ['label' => 'Scores (JSON)',                 'type' => 'textarea', 'rows' => 4, 'hint' => 'Structured scores per helmet per parameter'],
+            'comparison_recommendations_json'  => ['label' => 'Recommendations (JSON)',        'type' => 'textarea', 'rows' => 3, 'hint' => 'e.g. [{"helmet_id":42,"reason":"Best value"}]'],
+        ];
+
+        echo '<table class="form-table" role="presentation"><tbody>';
+        foreach ($fields as $key => $field) {
+            $label = esc_html($field['label']);
+            $metaKey = $field['key'] ?? $key;
+            $value = isset($field['value']) ? $field['value'] : (string) get_post_meta($post->ID, $metaKey, true);
+            $id    = esc_attr('helmetsan_' . $key);
+            $name  = esc_attr($key);
+
+            echo '<tr><th scope="row"><label for="' . $id . '">' . $label . '</label></th><td>';
+
+            if ($field['type'] === 'textarea') {
+                $rows = isset($field['rows']) ? (int) $field['rows'] : 3;
+                echo '<textarea id="' . $id . '" name="' . $name . '" rows="' . $rows . '" class="large-text">' . esc_textarea($value) . '</textarea>';
+            } else {
+                echo '<input type="text" id="' . $id . '" name="' . $name . '" value="' . esc_attr($value) . '" class="regular-text" />';
+            }
+
+            if (isset($field['hint'])) {
+                echo '<p class="description">' . esc_html($field['hint']) . '</p>';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+    }
+
+    public function saveMeta(int $postId, WP_Post $post): void
+    {
+        if (
+            ! isset($_POST[self::NONCE_FIELD]) ||
+            ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST[self::NONCE_FIELD])), self::NONCE_ACTION)
+        ) {
+            return;
+        }
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+        if (! current_user_can('edit_post', $postId)) {
+            return;
+        }
+
+        // Parse comma-separated helmet IDs
+        if (isset($_POST['rel_helmets_display'])) {
+            $raw = sanitize_text_field(wp_unslash((string) $_POST['rel_helmets_display']));
+            $ids = array_values(array_unique(array_filter(array_map('intval', explode(',', $raw)))));
+            update_post_meta($postId, 'rel_helmets', $ids);
+        }
+
+        $jsonFields = ['comparison_parameters_json', 'comparison_scores_json', 'comparison_recommendations_json'];
+        foreach ($jsonFields as $key) {
+            if (isset($_POST[$key])) {
+                update_post_meta($postId, $key, sanitize_textarea_field(wp_unslash((string) $_POST[$key])));
+            }
+        }
+    }
+
     /**
      * @param array<string,mixed> $data
      * @return array<string,mixed>
@@ -53,8 +146,8 @@ final class ComparisonService
         }
 
         $postArgs = [
-            'post_type' => 'comparison',
-            'post_title' => $title,
+            'post_type'   => 'comparison',
+            'post_title'  => $title,
             'post_status' => 'publish',
         ];
         if ($existingId > 0) {
@@ -105,12 +198,12 @@ final class ComparisonService
             }
 
             $posts = get_posts([
-                'post_type' => 'helmet',
+                'post_type'   => 'helmet',
                 'post_status' => 'any',
                 'numberposts' => 1,
-                'meta_key' => '_helmet_unique_id',
-                'meta_value' => $value,
-                'fields' => 'ids',
+                'meta_key'    => '_helmet_unique_id',
+                'meta_value'  => $value,
+                'fields'      => 'ids',
             ]);
             if (is_array($posts) && $posts !== []) {
                 $ids[] = (int) $posts[0];
@@ -140,12 +233,12 @@ final class ComparisonService
     private function findByExternalId(string $externalId): int
     {
         $posts = get_posts([
-            'post_type' => 'comparison',
+            'post_type'   => 'comparison',
             'post_status' => 'any',
             'numberposts' => 1,
-            'meta_key' => '_comparison_unique_id',
-            'meta_value' => $externalId,
-            'fields' => 'ids',
+            'meta_key'    => '_comparison_unique_id',
+            'meta_value'  => $externalId,
+            'fields'      => 'ids',
         ]);
 
         if (! is_array($posts) || $posts === []) {

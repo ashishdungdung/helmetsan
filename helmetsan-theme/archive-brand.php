@@ -42,12 +42,16 @@ foreach ($filterSource as $brandPost) {
 }
 ksort($countries, SORT_NATURAL | SORT_FLAG_CASE);
 ksort($certs, SORT_NATURAL | SORT_FLAG_CASE);
+
+$themeDir = get_stylesheet_directory_uri();
 ?>
+
 <section class="hs-section">
     <header class="hs-section__head">
         <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
         <p>Explore helmet brands with profile metadata and model coverage.</p>
     </header>
+
     <form class="hs-filter-bar" method="get" action="<?php echo esc_url(get_post_type_archive_link('brand')); ?>">
         <input type="search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search brands" />
         <select name="country">
@@ -79,6 +83,7 @@ ksort($certs, SORT_NATURAL | SORT_FLAG_CASE);
         </select>
         <button class="hs-btn hs-btn--primary" type="submit">Apply</button>
     </form>
+
     <?php
     $args = [
         'post_type' => 'brand',
@@ -110,34 +115,56 @@ ksort($certs, SORT_NATURAL | SORT_FLAG_CASE);
     }
     $query = new WP_Query($args);
     if ($query->have_posts()) : ?>
-        <div class="helmet-grid">
-            <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <?php get_template_part('template-parts/entity', 'card'); ?>
-            <?php endwhile; ?>
-        </div>
-        <?php
-        $addArgs = [];
-        if (isset($_GET['s'])) {
-            $addArgs['s'] = sanitize_text_field(wp_unslash((string) $_GET['s']));
-        }
-        if (isset($_GET['country'])) {
-            $addArgs['country'] = sanitize_text_field(wp_unslash((string) $_GET['country']));
-        }
-        if (isset($_GET['helmet_type'])) {
-            $addArgs['helmet_type'] = sanitize_text_field(wp_unslash((string) $_GET['helmet_type']));
-        }
-        if (isset($_GET['cert'])) {
-            $addArgs['cert'] = sanitize_text_field(wp_unslash((string) $_GET['cert']));
-        }
-        the_posts_pagination([
-            'total' => $query->max_num_pages,
-            'add_args' => array_filter($addArgs, static fn(string $v): bool => $v !== ''),
-        ]);
-        wp_reset_postdata();
-        ?>
+        <section class="hs-catalog__results">
+            <div class="helmet-grid">
+                <?php
+                while ($query->have_posts()) : $query->the_post();
+                    $brandId = get_the_ID();
+                    $logoUrl = helmetsan_get_logo_url($brandId);
+                    $helmetCount = helmetsan_get_brand_helmet_count($brandId);
+                    ?>
+                    <article <?php post_class('entity-card hs-panel'); ?>>
+                        <?php if ($logoUrl !== '') : ?>
+                            <div class="entity-card__logo-wrap">
+                                <img class="entity-card__logo" src="<?php echo esc_url($logoUrl); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" />
+                            </div>
+                        <?php endif; ?>
+                        <h3 class="entity-card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <div class="entity-card__excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></div>
+                        <div class="entity-card__meta">
+                            <code><?php printf(esc_html__('%d Helmets', 'helmetsan-theme'), $helmetCount); ?></code>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+
+            <div class="hs-pagination-wrap">
+                <?php
+                $addArgs = [];
+                if (isset($_GET['s'])) {
+                    $addArgs['s'] = sanitize_text_field(wp_unslash((string) $_GET['s']));
+                }
+                if (isset($_GET['country'])) {
+                    $addArgs['country'] = sanitize_text_field(wp_unslash((string) $_GET['country']));
+                }
+                if (isset($_GET['helmet_type'])) {
+                    $addArgs['helmet_type'] = sanitize_text_field(wp_unslash((string) $_GET['helmet_type']));
+                }
+                if (isset($_GET['cert'])) {
+                    $addArgs['cert'] = sanitize_text_field(wp_unslash((string) $_GET['cert']));
+                }
+                the_posts_pagination([
+                    'total' => $query->max_num_pages,
+                    'add_args' => array_filter($addArgs, static fn(string $v): bool => $v !== ''),
+                ]);
+                ?>
+            </div>
+        </section>
+        <?php wp_reset_postdata(); ?>
     <?php else : ?>
         <p>No brands found.</p>
     <?php endif; ?>
 </section>
+
 <?php
 get_footer();

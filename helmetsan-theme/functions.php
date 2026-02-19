@@ -18,6 +18,7 @@ $helmetsan_theme_includes = [
     '/inc/woocommerce.php',
     '/inc/template-tags.php',
     '/inc/compatibility.php',
+    '/inc/class-mega-menu-walker.php',
 ];
 
 foreach ($helmetsan_theme_includes as $file) {

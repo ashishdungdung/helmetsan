@@ -11,6 +11,7 @@ Helmetsan is a WordPress-based, AI-assisted helmet data platform with:
 - `helmetsan-core/` WordPress plugin
 - `helmetsan-theme/` WordPress theme
 - `data/` GitHub source datasets (brands, helmets, accessories, motorcycles, safety standards, dealers, distributors, pricing, offers, marketplaces, currencies, recommendations, comparisons, geo, schemas)
+- `scripts/` deployment, seeding, and enrichment scripts
 - `docs/` architecture and TDD docs
 
 ## Quick Start (Local)
@@ -23,6 +24,43 @@ Helmetsan is a WordPress-based, AI-assisted helmet data platform with:
    - `wp plugin activate helmetsan-core`
 4. (Optional) Activate theme:
    - `wp theme activate helmetsan-theme`
+
+## Data Pipeline
+
+The helmet catalog is managed through a seed → deploy → ingest pipeline.
+
+### One-command pipeline
+
+```bash
+./scripts/reseed.sh              # Generate → Deploy → Ingest
+./scripts/reseed.sh --dry-run    # Validate + deploy, no DB writes
+./scripts/reseed.sh --validate   # Just validate locally
+```
+
+### Individual steps
+
+```bash
+# 1. Generate seed JSON
+php create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_seed.json --stats
+
+# 2. Validate (checks IDs, descriptions, type distribution)
+php create_helmets_seed.php --validate
+
+# 3. Deploy to server
+bash scripts/deploy.sh
+
+# 4. Ingest on server
+ssh root@helmetsan.com "cd /var/www/helmetsan.com/public && wp helmetsan ingest-seed --allow-root"
+```
+
+### WP-CLI Commands
+
+| Command                              | Description                                   |
+| ------------------------------------ | --------------------------------------------- |
+| `wp helmetsan ingest-seed`           | Ingest a seed JSON array file (main workflow) |
+| `wp helmetsan ingest --path=<dir>`   | Ingest per-file JSONs from data root          |
+| `wp helmetsan ingest-seed --dry-run` | Validate without writing to DB                |
+| `wp helmetsan unlock-ingestion`      | Force-remove stale ingestion lock             |
 
 ## GitHub Sync Notes
 
@@ -46,12 +84,13 @@ It provides objective score, critical blockers, and per-check diagnostics.
 
 ## 📊 Project Dashboard (Status: Live)
 
-| Metric | Value | Status |
-| :--- | :--- | :--- |
-| **Brands in Catalog** | 54 | ✅ |
-| **Helmets Indexed** | 1 | 🏗️  Ingesting |
-| **Logo Coverage** | 91% (49/50) | 🎨 Enriched |
-| **Last Sync** | 2026-02-18 05:30:10 | 📡 Active |
+| Metric                | Value       | Status      |
+| :-------------------- | :---------- | :---------- |
+| **Brands in Catalog** | 30          | ✅          |
+| **Helmets Indexed**   | 1,156       | ✅ Live     |
+| **Parent Models**     | 142         | ✅          |
+| **Logo Coverage**     | 91% (49/50) | 🎨 Enriched |
+| **Last Sync**         | 2026-02-19  | 📡 Active   |
 
 > _Stats generated automatically by `scripts/update_stats.php`_
 

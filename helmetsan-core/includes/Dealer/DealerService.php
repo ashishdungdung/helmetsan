@@ -8,6 +8,115 @@ use WP_Post;
 
 final class DealerService
 {
+    private const NONCE_ACTION = 'helmetsan_dealer_meta';
+    private const NONCE_FIELD  = '_helmetsan_dealer_nonce';
+
+    public function register(): void
+    {
+        add_action('add_meta_boxes_dealer', [$this, 'registerMetaBox']);
+        add_action('save_post_dealer', [$this, 'saveMeta'], 10, 2);
+    }
+
+    public function registerMetaBox(): void
+    {
+        add_meta_box(
+            'helmetsan_dealer_details',
+            'Dealer Details',
+            [$this, 'renderMetaBox'],
+            'dealer',
+            'normal',
+            'high'
+        );
+    }
+
+    public function renderMetaBox(WP_Post $post): void
+    {
+        wp_nonce_field(self::NONCE_ACTION, self::NONCE_FIELD);
+
+        $fields = [
+            'dealer_type'         => ['label' => 'Type',          'type' => 'select', 'options' => ['' => '— Select —', 'authorized' => 'Authorized', 'independent' => 'Independent', 'online' => 'Online Only']],
+            'dealer_website'      => ['label' => 'Website',       'type' => 'url'],
+            'dealer_phone'        => ['label' => 'Phone',         'type' => 'text'],
+            'dealer_email'        => ['label' => 'Email',         'type' => 'email'],
+            'dealer_address'      => ['label' => 'Address',       'type' => 'text'],
+            'dealer_city'         => ['label' => 'City',          'type' => 'text'],
+            'dealer_country_code' => ['label' => 'Country Code',  'type' => 'text', 'hint' => 'ISO 3166-1 alpha-2, e.g. US, IN, GB'],
+            'dealer_region_code'  => ['label' => 'Region/State',  'type' => 'text'],
+            'dealer_online_store' => ['label' => 'Online Store?', 'type' => 'checkbox'],
+            'dealer_offline_store'=> ['label' => 'Physical Store?','type' => 'checkbox'],
+            'dealer_brands_json'  => ['label' => 'Brands Stocked (JSON array)', 'type' => 'textarea', 'rows' => 3, 'hint' => 'e.g. ["Shoei","Arai","AGV"]'],
+            'dealer_services_json'=> ['label' => 'Services (JSON array)',        'type' => 'textarea', 'rows' => 3, 'hint' => 'e.g. ["fitting","repair","custom paint"]'],
+        ];
+
+        echo '<table class="form-table" role="presentation"><tbody>';
+        foreach ($fields as $key => $field) {
+            $label = esc_html($field['label']);
+            $value = (string) get_post_meta($post->ID, $key, true);
+            $id    = esc_attr('helmetsan_' . $key);
+            $name  = esc_attr($key);
+
+            echo '<tr><th scope="row"><label for="' . $id . '">' . $label . '</label></th><td>';
+
+            if ($field['type'] === 'checkbox') {
+                $checked = checked($value, '1', false);
+                echo '<input type="checkbox" id="' . $id . '" name="' . $name . '" value="1"' . $checked . ' />';
+            } elseif ($field['type'] === 'select') {
+                echo '<select id="' . $id . '" name="' . $name . '">';
+                foreach ($field['options'] as $optVal => $optLabel) {
+                    echo '<option value="' . esc_attr((string) $optVal) . '"' . selected($value, $optVal, false) . '>' . esc_html($optLabel) . '</option>';
+                }
+                echo '</select>';
+            } elseif ($field['type'] === 'textarea') {
+                $rows = isset($field['rows']) ? (int) $field['rows'] : 3;
+                echo '<textarea id="' . $id . '" name="' . $name . '" rows="' . $rows . '" class="large-text">' . esc_textarea($value) . '</textarea>';
+            } else {
+                echo '<input type="' . esc_attr($field['type']) . '" id="' . $id . '" name="' . $name . '" value="' . esc_attr($value) . '" class="regular-text" />';
+            }
+
+            if (isset($field['hint'])) {
+                echo '<p class="description">' . esc_html($field['hint']) . '</p>';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+    }
+
+    public function saveMeta(int $postId, WP_Post $post): void
+    {
+        if (
+            ! isset($_POST[self::NONCE_FIELD]) ||
+            ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST[self::NONCE_FIELD])), self::NONCE_ACTION)
+        ) {
+            return;
+        }
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+        if (! current_user_can('edit_post', $postId)) {
+            return;
+        }
+
+        $textFields = ['dealer_type', 'dealer_phone', 'dealer_email', 'dealer_address', 'dealer_city', 'dealer_country_code', 'dealer_region_code'];
+        foreach ($textFields as $key) {
+            if (isset($_POST[$key])) {
+                update_post_meta($postId, $key, sanitize_text_field(wp_unslash((string) $_POST[$key])));
+            }
+        }
+
+        if (isset($_POST['dealer_website'])) {
+            update_post_meta($postId, 'dealer_website', esc_url_raw(wp_unslash((string) $_POST['dealer_website'])));
+        }
+
+        update_post_meta($postId, 'dealer_online_store', isset($_POST['dealer_online_store']) ? '1' : '0');
+        update_post_meta($postId, 'dealer_offline_store', isset($_POST['dealer_offline_store']) ? '1' : '0');
+
+        foreach (['dealer_brands_json', 'dealer_services_json'] as $key) {
+            if (isset($_POST[$key])) {
+                update_post_meta($postId, $key, sanitize_textarea_field(wp_unslash((string) $_POST[$key])));
+            }
+        }
+    }
+
     /**
      * @param array<string,mixed> $data
      * @return array<string,mixed>
@@ -48,8 +157,8 @@ final class DealerService
         }
 
         $postArgs = [
-            'post_type' => 'dealer',
-            'post_title' => $title,
+            'post_type'   => 'dealer',
+            'post_title'  => $title,
             'post_status' => 'publish',
         ];
         if ($existingId > 0) {
@@ -142,12 +251,12 @@ final class DealerService
     private function findByExternalId(string $externalId): int
     {
         $posts = get_posts([
-            'post_type' => 'dealer',
+            'post_type'   => 'dealer',
             'post_status' => 'any',
             'numberposts' => 1,
-            'meta_key' => '_dealer_unique_id',
-            'meta_value' => $externalId,
-            'fields' => 'ids',
+            'meta_key'    => '_dealer_unique_id',
+            'meta_value'  => $externalId,
+            'fields'      => 'ids',
         ]);
 
         if (! is_array($posts) || $posts === []) {

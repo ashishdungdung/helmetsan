@@ -1,0 +1,162 @@
+/**
+ * Mega Menu Styles
+ * Handles the full-width positioning and toggle logic for the walker-injected menus.
+ */
+
+/* Desktop Styles */
+@media (min-width: 961px) {
+    /* Allow the absolute positioned mega menu to relate to the site-header, not the li */
+    .menu-item[class*="mega-menu--"] {
+        position: static !important;
+    }
+
+    /* The mega menu container */
+    .menu-item .hs-mega-menu {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%; /* Directly below the header */
+        width: 100%;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--hs-border, #e5e7eb);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        animation: hs-fade-in-down 0.2s ease-out forwards;
+    }
+
+    /* Show on hover / focus */
+    .menu-item:hover .hs-mega-menu,
+    .menu-item:focus-within .hs-mega-menu {
+        display: block;
+    }
+
+    /* Animation */
+    @keyframes hs-fade-in-down {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Hide mobile specific elements on desktop */
+    .hs-mega-menu-mobile {
+        display: none !important;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 960px) {
+    /* 
+     * Mobile Optimization Strategy:
+     * 1. Use native <details> for performant, JS-free toggling.
+     * 2. Style summary as a touch-friendly 44px+ flexible button.
+     * 3. Animate expanding/collapsing (simple height transition or just clean layout).
+     */
+    
+    .menu-item .hs-mega-menu {
+        position: static;
+        display: block; 
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    /* Hide the desktop grid on mobile */
+    .hs-mega-menu__inner {
+        display: none !important; 
+    }
+
+    /* Show the mobile structure */
+    .hs-mega-menu-mobile {
+        display: block !important;
+        padding-left: 0; /* Align with parent */
+        border-left: 2px solid var(--hs-border, #e5e7eb);
+        margin-left: 0.5rem;
+    }
+
+    .hs-mega-menu-mobile__title {
+        display: none; /* Redundant on mobile usually, as parent link is the title */
+    }
+
+    .hs-mobile-nav-group {
+        border-bottom: 1px solid rgba(0,0,0,0.03);
+    }
+    .hs-mobile-nav-group:last-child {
+        border-bottom: none;
+    }
+
+    /* The Toggle Button (Summary) */
+    .hs-mobile-nav-group summary {
+        cursor: pointer;
+        padding: 0.75rem 1rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.2s;
+        border-radius: 6px;
+    }
+    
+    .hs-mobile-nav-group summary:hover,
+    .hs-mobile-nav-group[open] summary {
+        background: rgba(0,0,0,0.02);
+        color: var(--hs-primary, #000);
+    }
+    
+    /* Marker */
+    .hs-mobile-nav-group summary::-webkit-details-marker {
+        display: none;
+    }
+    .hs-mobile-nav-group summary::after {
+        content: '+';
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1;
+        opacity: 0.5;
+        transition: transform 0.3s;
+    }
+    .hs-mobile-nav-group[open] summary::after {
+        transform: rotate(45deg);
+        opacity: 1;
+    }
+
+    /* The List */
+    .hs-mobile-nav-group ul {
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        margin: 0;
+        list-style: none;
+        animation: hs-slide-down 0.2s ease-out;
+    }
+    
+    .hs-mobile-nav-group li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .hs-mobile-nav-group li a {
+        font-size: 0.95rem;
+        color: #555;
+        text-decoration: none;
+        display: block;
+        padding: 0.2rem 0;
+    }
+    .hs-mobile-nav-group li a:hover {
+        color: var(--hs-primary, #000);
+        transform: translateX(4px);
+        transition: transform 0.2s;
+    }
+
+    @keyframes hs-slide-down {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}

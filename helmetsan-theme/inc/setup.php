@@ -25,6 +25,11 @@ function helmetsan_theme_setup(): void
         'footer' => __('Footer Menu', 'helmetsan-theme'),
         'legal' => __('Legal Menu', 'helmetsan-theme'),
         'social' => __('Social Menu', 'helmetsan-theme'),
+        // Mega Menu Locations
+        'mega_brands' => __('Mega Menu: Brands', 'helmetsan-theme'),
+        'mega_accessories' => __('Mega Menu: Accessories', 'helmetsan-theme'),
+        'mega_motorcycles' => __('Mega Menu: Motorcycles', 'helmetsan-theme'),
+        'mega_helmets' => __('Mega Menu: Helmets', 'helmetsan-theme'),
     ]);
 }
 

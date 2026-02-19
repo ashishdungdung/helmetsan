@@ -77,6 +77,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan brand cascade', [$this, 'brandCascade']);
         \WP_CLI::add_command('helmetsan media backfill-brand-logos', [$this, 'mediaBackfillBrandLogos']);
         \WP_CLI::add_command('helmetsan woo-bridge sync', [$this, 'wooBridgeSync']);
+        \WP_CLI::add_command('helmetsan ingest-seed', [$this, 'ingestSeed']);
     }
 
     /**
@@ -126,6 +127,118 @@ final class Commands
 
         $out = $this->ingestion->ingestPath($path, $batchSize, $limit, $dryRun);
         \WP_CLI::line(wp_json_encode($out, JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Ingest a seed array JSON file (single file containing array of helmets).
+     *
+     * ## OPTIONS
+     * [--file=<file>]
+     * : Absolute or plugin-relative path to the seed JSON file.
+     *   Default: seed-data/helmets_seed.json
+     * [--batch-size=<n>]
+     * : Batch size. Default 50.
+     * [--dry-run]
+     * : Validate only, do not write.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ingest-seed
+     *     wp helmetsan ingest-seed --file=/path/to/helmets_seed.json
+     *     wp helmetsan ingest-seed --dry-run
+     */
+    public function ingestSeed(array $args, array $assoc): void
+    {
+        $file = (string) ($assoc['file'] ?? '');
+        $batchSize = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 50;
+        $dryRun = isset($assoc['dry-run']);
+
+        // Resolve file path
+        if ($file === '') {
+            $file = WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json';
+        } elseif (!file_exists($file)) {
+            // Try relative to plugin dir
+            $try = WP_PLUGIN_DIR . '/helmetsan-core/' . ltrim($file, '/');
+            if (file_exists($try)) {
+                $file = $try;
+            }
+        }
+
+        if (!file_exists($file)) {
+            \WP_CLI::error("Seed file not found: {$file}");
+            return;
+        }
+
+        $json = file_get_contents($file);
+        if ($json === false) {
+            \WP_CLI::error("Cannot read file: {$file}");
+            return;
+        }
+
+        $items = json_decode($json, true);
+        if (!is_array($items) || $items === []) {
+            \WP_CLI::error('Seed file is empty or not a valid JSON array.');
+            return;
+        }
+
+        // If it's an object (single helmet), wrap it
+        if (isset($items['id'])) {
+            $items = [$items];
+        }
+
+        $count = count($items);
+        \WP_CLI::log("Seed file: {$file}");
+        \WP_CLI::log("Helmets to process: {$count}");
+        if ($dryRun) {
+            \WP_CLI::log('Mode: DRY RUN (no writes)');
+        }
+
+        // Split into temporary per-file JSONs
+        $tmpDir = sys_get_temp_dir() . '/helmetsan_seed_' . time() . '/';
+        if (!is_dir($tmpDir)) {
+            mkdir($tmpDir, 0755, true);
+        }
+
+        $files = [];
+        $progress = \WP_CLI\Utils\make_progress_bar('Preparing files', $count);
+        foreach ($items as $i => $item) {
+            $id = $item['id'] ?? 'item_' . $i;
+            $path = $tmpDir . $id . '.json';
+            file_put_contents($path, wp_json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+            $files[] = $path;
+            $progress->tick();
+        }
+        $progress->finish();
+
+        // Force unlock stale locks
+        $this->ingestion->forceUnlock();
+
+        // Run ingestion
+        \WP_CLI::log('Starting ingestion...');
+        $result = $this->ingestion->ingestFiles($files, $batchSize, null, $dryRun, 'seed:' . basename($file));
+
+        // Cleanup temp files
+        array_map('unlink', glob($tmpDir . '*.json'));
+        @rmdir($tmpDir);
+
+        // Output results
+        $created  = (int) ($result['created'] ?? 0);
+        $updated  = (int) ($result['updated'] ?? 0);
+        $accepted = (int) ($result['accepted'] ?? 0);
+        $rejected = (int) ($result['rejected'] ?? 0);
+        $skipped  = (int) ($result['skipped'] ?? 0);
+
+        \WP_CLI::log('');
+        \WP_CLI::log("Results:");
+        \WP_CLI::log("  Created:  {$created}");
+        \WP_CLI::log("  Updated:  {$updated}");
+        \WP_CLI::log("  Skipped:  {$skipped}");
+        \WP_CLI::log("  Rejected: {$rejected}");
+
+        if ($rejected > 0) {
+            \WP_CLI::warning("{$rejected} items were rejected. Check ingestion logs.");
+        } else {
+            \WP_CLI::success("Ingested {$accepted} helmets from seed ({$created} new, {$updated} updated, {$skipped} unchanged).");
+        }
     }
 
     /**

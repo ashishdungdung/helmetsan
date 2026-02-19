@@ -110,11 +110,22 @@ if ($taxQuery !== []) {
 $metaQuery = [];
 if ($brandSlug !== '') {
     $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
+    // Fallback: Try with '-helmets' suffix if it was omitted, or vice-versa
+    if (! ($brandPost instanceof WP_Post)) {
+        $altSlug = (str_ends_with($brandSlug, '-helmets')) 
+            ? substr($brandSlug, 0, -8) 
+            : $brandSlug . '-helmets';
+        $brandPost = get_page_by_path($altSlug, OBJECT, 'brand');
+    }
+
     if ($brandPost instanceof WP_Post) {
         $metaQuery[] = [
             'key' => 'rel_brand',
             'value' => (int) $brandPost->ID,
         ];
+    } else {
+        // If brand slug is invalid, force 0 results instead of showing everything
+        $args['post__in'] = [0];
     }
 }
 if ($helmetFamily !== '') {
@@ -374,16 +385,28 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
             </div>
 
             <?php if ($query->have_posts()) : ?>
+                <section class="hs-catalog__results-content">
                 <div class="helmet-grid">
-                    <?php while ($query->have_posts()) : $query->the_post(); ?>
-                        <?php get_template_part('template-parts/helmet', 'card'); ?>
-                    <?php endwhile; ?>
+                    <?php
+                    while ($query->have_posts()) : $query->the_post();
+                        get_template_part('template-parts/helmet-card');
+                    endwhile;
+                    ?>
                 </div>
+
+                <div class="hs-pagination-wrap">
+                    <?php
+                    the_posts_pagination([
+                        'total' => $query->max_num_pages,
+                        'add_args' => $currentQuery,
+                        'mid_size'  => 2,
+                        'prev_text' => '&larr;',
+                        'next_text' => '&rarr;',
+                    ]);
+                    ?>
+                </div>
+            </section>
                 <?php
-        the_posts_pagination([
-            'total' => $query->max_num_pages,
-            'add_args' => $currentQuery,
-        ]);
                 wp_reset_postdata();
                 ?>
             <?php else : ?>

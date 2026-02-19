@@ -1,0 +1,31 @@
+{
+  "entity": "menu",
+  "id": "motorcycles-mega-menu-v1",
+  "title": "Motorcycles Mega Menu",
+  "top_level": "Motorcycles",
+  "columns": [
+    {
+      "heading": "Street",
+      "items": ["Sportbike", "Naked", "Cruiser", "Touring", "Sport Touring", "Retro / Classic", "Cafe Racer"]
+    },
+    {
+      "heading": "Off-Road",
+      "items": ["Motocross", "Enduro", "Trail", "Trials", "Cross Country"]
+    },
+    {
+      "heading": "Adventure",
+      "items": ["Adventure Touring", "Dual Sport", "Scrambler"]
+    },
+    {
+      "heading": "Other",
+      "items": ["Scooter", "Moped", "Electric", "Trike", "Minibike"]
+    }
+  ],
+  "highlight_blocks": [
+    {
+      "heading": "Popular Makes",
+      "items": ["Honda", "Yamaha", "Kawasaki", "Suzuki", "Ducati", "BMW", "KTM", "Harley-Davidson", "Triumph"]
+    }
+  ],
+  "footer": "View All Motorcycles"
+}

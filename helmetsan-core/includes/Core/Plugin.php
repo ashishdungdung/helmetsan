@@ -11,6 +11,7 @@ use Helmetsan\Core\Analytics\EventRepository;
 use Helmetsan\Core\Analytics\EventService;
 use Helmetsan\Core\Analytics\SmokeTestService;
 use Helmetsan\Core\Brands\BrandService;
+use Helmetsan\Core\CPT\MetaRegistrar;
 use Helmetsan\Core\CPT\Registrar;
 use Helmetsan\Core\CLI\Commands;
 use Helmetsan\Core\Commerce\CommerceService;
@@ -26,6 +27,7 @@ use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\ImportExport\ExportService;
 use Helmetsan\Core\ImportExport\ImportService;
 use Helmetsan\Core\Media\MediaEngine;
+use Helmetsan\Core\Media\MediaService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Revenue\RevenueService;
@@ -42,6 +44,9 @@ use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\Analytics\Tracker;
 use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\API\BrandController;
+use Helmetsan\Core\Price\PriceService;
+use Helmetsan\Core\Search\SearchService;
+use Helmetsan\Core\Helmet\HelmetService;
 
 final class Plugin
 {
@@ -78,8 +83,12 @@ final class Plugin
     private RecommendationService $recommendations;
     private CommerceService $commerce;
     private MediaEngine $mediaEngine;
+    private MediaService $mediaService;
     private WooBridgeService $wooBridge;
     private BrandController $brandApi;
+    private SearchService $search;
+    private PriceService $price;
+    private HelmetService $helmets;
 
     public function __construct()
     {
@@ -102,8 +111,12 @@ final class Plugin
         $this->recommendations = new RecommendationService();
         $this->commerce = new CommerceService();
         $this->mediaEngine = new MediaEngine($this->config);
+        $this->mediaService = new MediaService();
         $this->wooBridge = new WooBridgeService($this->config);
         $this->brandApi = new BrandController($this->brands);
+        $this->search = new SearchService();
+        $this->price = new PriceService();
+        $this->helmets = new HelmetService();
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -158,10 +171,20 @@ final class Plugin
     public function boot(): void
     {
         (new Registrar())->register();
+        (new MetaRegistrar())->register();
         $this->brands->register();
+        $this->safetyStandards->register();
+        $this->motorcycles->register();
+        $this->dealers->register();
+        $this->distributors->register();
+        $this->comparisons->register();
+        $this->recommendations->register();
         $this->mediaEngine->register();
         $this->wooBridge->register();
         $this->brandApi->register();
+        $this->search->register();
+        $this->helmets->register();
+        (new \Helmetsan\Core\Search\SearchService())->register();
 
         (new Admin(
             $this->health,
@@ -230,5 +253,20 @@ final class Plugin
     {
         $this->scheduler->deactivate();
         flush_rewrite_rules();
+    }
+
+    public function price(): PriceService
+    {
+        return $this->price;
+    }
+
+    public function helmets(): HelmetService
+    {
+        return $this->helmets;
+    }
+
+    public function mediaService(): MediaService
+    {
+        return $this->mediaService;
     }
 }

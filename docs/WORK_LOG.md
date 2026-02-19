@@ -41,3 +41,38 @@ Tracking daily development work and IDE sources.
 **Changes**:
 - Switched project license to GPLv3 or later (LICENSE, style.css, helmetsan-core.php)
 
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Deployed plugin and theme to helmetsan.com (via parallel rsync)
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Drafted & Committed Legal Docs (Privacy Policy, Terms) 
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Refined Legal Docs to match RevZilla's full depth & complexity
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Scraped 49 Helmet Brands & Created Seeder Script (scripts/seed_brands.php)
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Executed Remote Brand Seeding & Synced JSON Repository (50 Brands)
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Enriched 50 Brand Profiles with High-Res Logos (Google Source) & Synced JSON
+
+## 2026-02-18
+**Source**: Agent (Antigravity)
+**Changes**:
+- Flattened Uploads Directory & Re-seeded 49 Brand Logos (Flat Structure)
+
