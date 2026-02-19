@@ -2620,237 +2620,377 @@ final class Admin
         echo '</ul></div></div>';
     }
 
+    /**
+     * @param array<int,array{key:string,option:string,label:string,desc:string,type:string,choices?:array<string,string>,prefix?:string}> $fields
+     * @param array<string,mixed> $values
+     */
+    private function renderSettingsSection(string $heading, string $intro, array $fields, array $values): void
+    {
+        echo '<h2>' . esc_html($heading) . '</h2>';
+        if ($intro !== '') {
+            echo '<p class="description" style="margin:-8px 0 16px;">' . esc_html($intro) . '</p>';
+        }
+        echo '<table class="form-table"><tbody>';
+        foreach ($fields as $f) {
+            $key = $f['key'];
+            $opt = $f['option'];
+            $label = $f['label'];
+            $desc = $f['desc'] ?? '';
+            $type = $f['type'] ?? 'text';
+            $pfx = $f['prefix'] ?? '';
+            $id = $pfx . $key;
+            $name = esc_attr($opt) . '[' . esc_attr($key) . ']';
+            $cur = $values[$key] ?? '';
+
+            echo '<tr><th><label for="' . esc_attr($id) . '">' . esc_html($label) . '</label></th><td>';
+
+            if ($type === 'checkbox') {
+                echo '<input type="checkbox" id="' . esc_attr($id) . '" name="' . $name . '" value="1" ' . checked(!empty($cur), true, false) . ' />';
+            } elseif ($type === 'select' && isset($f['choices'])) {
+                echo '<select id="' . esc_attr($id) . '" name="' . $name . '">';
+                foreach ($f['choices'] as $v => $l) {
+                    echo '<option value="' . esc_attr($v) . '" ' . selected((string)$cur, $v, false) . '>' . esc_html($l) . '</option>';
+                }
+                echo '</select>';
+            } elseif ($type === 'number') {
+                echo '<input type="number" class="small-text" id="' . esc_attr($id) . '" name="' . $name . '" value="' . esc_attr((string)$cur) . '" min="0" />';
+            } elseif ($type === 'password') {
+                $val = !empty($cur) ? '' : '';
+                $ph = !empty($cur) ? 'Saved (masked). Enter new value to replace.' : '';
+                echo '<input type="password" class="regular-text" id="' . esc_attr($id) . '" name="' . $name . '" value="" placeholder="' . esc_attr($ph) . '" autocomplete="new-password" />';
+            } elseif ($type === 'url') {
+                echo '<input type="url" class="regular-text" id="' . esc_attr($id) . '" name="' . $name . '" value="' . esc_attr((string)$cur) . '" />';
+            } elseif ($type === 'textarea') {
+                echo '<textarea id="' . esc_attr($id) . '" name="' . $name . '" rows="8" class="large-text code">' . esc_textarea((string)$cur) . '</textarea>';
+            } else {
+                echo '<input type="text" class="regular-text" id="' . esc_attr($id) . '" name="' . $name . '" value="' . esc_attr((string)$cur) . '" />';
+            }
+
+            if ($desc !== '') {
+                echo '<p class="description">' . esc_html($desc) . '</p>';
+            }
+            echo '</td></tr>';
+        }
+        echo '</tbody></table>';
+    }
+
     public function settingsPage(): void
     {
-        $values = wp_parse_args((array) get_option(Config::OPTION_ANALYTICS, []), $this->config->analyticsDefaults());
+        $analytics   = wp_parse_args((array) get_option(Config::OPTION_ANALYTICS, []), $this->config->analyticsDefaults());
+        $github      = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $this->config->githubDefaults());
         $marketplace = wp_parse_args((array) get_option(Config::OPTION_MARKETPLACE, []), $this->config->marketplaceDefaults());
-        $geo = wp_parse_args((array) get_option(Config::OPTION_GEO, []), $this->config->geoDefaults());
-        $github = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $this->config->githubDefaults());
-        $revenue = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $this->config->revenueDefaults());
-        $scheduler = wp_parse_args((array) get_option(Config::OPTION_SCHEDULER, []), $this->config->schedulerDefaults());
-        $alerts = wp_parse_args((array) get_option(Config::OPTION_ALERTS, []), $this->config->alertsDefaults());
-        $media = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $this->config->mediaDefaults());
+        $geo         = wp_parse_args((array) get_option(Config::OPTION_GEO, []), $this->config->geoDefaults());
+        $revenue     = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $this->config->revenueDefaults());
+        $scheduler   = wp_parse_args((array) get_option(Config::OPTION_SCHEDULER, []), $this->config->schedulerDefaults());
+        $alerts      = wp_parse_args((array) get_option(Config::OPTION_ALERTS, []), $this->config->alertsDefaults());
+        $media       = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $this->config->mediaDefaults());
+        $wooBridge   = wp_parse_args((array) get_option(Config::OPTION_WOO_BRIDGE, []), $this->config->wooBridgeDefaults());
+
+        $tabs = [
+            'analytics'   => 'Analytics',
+            'github'      => 'GitHub Sync',
+            'marketplace' => 'Marketplace Connectors',
+            'geo'         => 'Geo & Localization',
+            'revenue'     => 'Revenue & Affiliates',
+            'scheduler'   => 'Scheduler',
+            'alerts'      => 'Alerts & Notifications',
+            'media'       => 'Media Engine',
+            'woobridge'   => 'WooBridge',
+        ];
+        $activeTab = isset($_GET['stab']) ? sanitize_key((string) $_GET['stab']) : 'analytics';
+        if (!isset($tabs[$activeTab])) {
+            $activeTab = 'analytics';
+        }
 
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Settings', 'Runtime configuration for sync, analytics, scheduler, and alerts.');
+        $this->renderAppHeader('Settings', 'Plugin configuration organized by module. Each section saves independently.');
         echo '<form method="post" action="options.php">';
         settings_fields('helmetsan_settings');
 
-        echo '<h2>Analytics</h2>';
-        echo '<table class="form-table"><tbody>';
+        // Tab navigation
+        echo '<nav class="nav-tab-wrapper" style="margin-bottom:20px;">';
+        foreach ($tabs as $slug => $label) {
+            $url = add_query_arg(['page' => 'helmetsan-settings', 'stab' => $slug], admin_url('admin.php'));
+            $class = $slug === $activeTab ? 'nav-tab nav-tab-active' : 'nav-tab';
+            echo '<a class="' . esc_attr($class) . '" href="' . esc_url($url) . '">' . esc_html($label) . '</a>';
+        }
+        echo '</nav>';
 
-        foreach ($values as $key => $current) {
-            echo '<tr><th><label for="' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
+        $O_A = Config::OPTION_ANALYTICS;
+        $O_G = Config::OPTION_GITHUB;
+        $O_M = Config::OPTION_MARKETPLACE;
+        $O_GE = Config::OPTION_GEO;
+        $O_R = Config::OPTION_REVENUE;
+        $O_S = Config::OPTION_SCHEDULER;
+        $O_AL = Config::OPTION_ALERTS;
+        $O_ME = Config::OPTION_MEDIA;
+        $O_W = Config::OPTION_WOO_BRIDGE;
 
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_ANALYTICS) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } else {
-                echo '<input type="text" class="regular-text" id="' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_ANALYTICS) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
-            }
+        // ── Analytics ────────────────────────────────────────────
+        if ($activeTab === 'analytics') {
+            $this->renderSettingsSection('Google Analytics & Tag Manager', 'Connect GA4 or GTM. If MonsterInsights is active, respect its tracker by default.', [
+                ['key' => 'enable_analytics', 'option' => $O_A, 'label' => 'Enable Analytics', 'desc' => 'Inject analytics script on the frontend.', 'type' => 'checkbox'],
+                ['key' => 'analytics_respect_monsterinsights', 'option' => $O_A, 'label' => 'Respect MonsterInsights', 'desc' => 'Skip injection if MonsterInsights is active.', 'type' => 'checkbox'],
+                ['key' => 'ga4_measurement_id', 'option' => $O_A, 'label' => 'GA4 Measurement ID', 'desc' => 'e.g. G-XXXXXXXXXX', 'type' => 'text'],
+                ['key' => 'gtm_container_id', 'option' => $O_A, 'label' => 'GTM Container ID', 'desc' => 'e.g. GTM-XXXXXXX. Takes precedence over GA4 if set.', 'type' => 'text'],
+            ], $analytics);
 
-            echo '</td></tr>';
+            $this->renderSettingsSection('Event Tracking', 'Track user interactions like clicks, search, and form submissions.', [
+                ['key' => 'enable_enhanced_event_tracking', 'option' => $O_A, 'label' => 'Enhanced Event Tracking', 'desc' => 'Push custom events to the data layer (helmet views, CTA clicks, etc.).', 'type' => 'checkbox'],
+                ['key' => 'enable_internal_search_tracking', 'option' => $O_A, 'label' => 'Internal Search Tracking', 'desc' => 'Fire a view_search_results event on WP search.', 'type' => 'checkbox'],
+            ], $analytics);
+
+            $this->renderSettingsSection('Heatmaps & Session Recording', 'Optional third-party heatmap providers.', [
+                ['key' => 'enable_heatmap_clarity', 'option' => $O_A, 'label' => 'Microsoft Clarity', 'desc' => 'Enable Clarity heatmaps.', 'type' => 'checkbox'],
+                ['key' => 'clarity_project_id', 'option' => $O_A, 'label' => 'Clarity Project ID', 'desc' => '', 'type' => 'text', 'prefix' => 'a_'],
+                ['key' => 'enable_heatmap_hotjar', 'option' => $O_A, 'label' => 'Hotjar', 'desc' => 'Enable Hotjar heatmaps.', 'type' => 'checkbox'],
+                ['key' => 'hotjar_site_id', 'option' => $O_A, 'label' => 'Hotjar Site ID', 'desc' => '', 'type' => 'text', 'prefix' => 'a_'],
+                ['key' => 'hotjar_version', 'option' => $O_A, 'label' => 'Hotjar Version', 'desc' => 'Usually 6.', 'type' => 'text', 'prefix' => 'a_'],
+            ], $analytics);
         }
 
-        echo '</tbody></table>';
-        echo '<h2>GitHub Sync</h2>';
-        echo '<table class="form-table"><tbody>';
+        // ── GitHub Sync ──────────────────────────────────────────
+        if ($activeTab === 'github') {
+            $this->renderSettingsSection('Repository Connection', 'Connect to a GitHub repo for data synchronization.', [
+                ['key' => 'enabled', 'option' => $O_G, 'label' => 'Enable GitHub Sync', 'desc' => 'Turn on automatic syncing with GitHub.', 'type' => 'checkbox', 'prefix' => 'gh_'],
+                ['key' => 'owner', 'option' => $O_G, 'label' => 'Repository Owner', 'desc' => 'GitHub username or organization.', 'type' => 'text', 'prefix' => 'gh_'],
+                ['key' => 'repo', 'option' => $O_G, 'label' => 'Repository Name', 'desc' => '', 'type' => 'text', 'prefix' => 'gh_'],
+                ['key' => 'token', 'option' => $O_G, 'label' => 'Personal Access Token', 'desc' => 'Fine-grained PAT with contents read/write permission.', 'type' => 'password', 'prefix' => 'gh_'],
+                ['key' => 'branch', 'option' => $O_G, 'label' => 'Branch', 'desc' => 'Branch to sync from (default: main).', 'type' => 'text', 'prefix' => 'gh_'],
+                ['key' => 'remote_path', 'option' => $O_G, 'label' => 'Remote Path', 'desc' => 'Subdirectory inside the repo (e.g. data/helmets).', 'type' => 'text', 'prefix' => 'gh_'],
+            ], $github);
 
-        foreach ($github as $key => $current) {
-            echo '<tr><th><label for="gh_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="gh_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_GITHUB) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } elseif ($key === 'sync_run_profile') {
-                $selected = (string) $current;
-                echo '<select id="gh_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_GITHUB) . '[' . esc_attr($key) . ']">';
-                foreach (['pull-only', 'pull+brands', 'pull+all'] as $profile) {
-                    echo '<option value="' . esc_attr($profile) . '" ' . selected($selected, $profile, false) . '>' . esc_html($profile) . '</option>';
+            $this->renderSettingsSection('Sync Behavior', 'Control how data is pulled and pushed.', [
+                ['key' => 'sync_json_only', 'option' => $O_G, 'label' => 'JSON Files Only', 'desc' => 'Only sync .json files; ignore others.', 'type' => 'checkbox', 'prefix' => 'gh_'],
+                ['key' => 'sync_run_profile', 'option' => $O_G, 'label' => 'Sync Profile', 'desc' => 'Which entities to process after pull.', 'type' => 'select', 'choices' => ['pull-only' => 'Pull Only', 'pull+brands' => 'Pull + Brands', 'pull+all' => 'Pull + All'], 'prefix' => 'gh_'],
+                ['key' => 'sync_profile_lock', 'option' => $O_G, 'label' => 'Lock Profile', 'desc' => 'Prevent profile changes from the sync UI.', 'type' => 'checkbox', 'prefix' => 'gh_'],
+            ], $github);
+
+            $this->renderSettingsSection('Push / PR Settings', 'Configure how outbound changes are pushed to GitHub.', [
+                ['key' => 'push_mode', 'option' => $O_G, 'label' => 'Push Mode', 'desc' => 'Direct commit or open a pull request.', 'type' => 'select', 'choices' => ['commit' => 'Direct Commit', 'pr' => 'Pull Request'], 'prefix' => 'gh_'],
+                ['key' => 'pr_branch_prefix', 'option' => $O_G, 'label' => 'PR Branch Prefix', 'desc' => 'Prefix for auto-created branches.', 'type' => 'text', 'prefix' => 'gh_'],
+                ['key' => 'pr_reuse_open', 'option' => $O_G, 'label' => 'Reuse Open PR', 'desc' => 'Push to an existing open PR branch instead of creating new ones.', 'type' => 'checkbox', 'prefix' => 'gh_'],
+                ['key' => 'pr_auto_merge', 'option' => $O_G, 'label' => 'Auto-Merge PR', 'desc' => 'Automatically merge the PR after creation.', 'type' => 'checkbox', 'prefix' => 'gh_'],
+            ], $github);
+        }
+
+        // ── Marketplace Connectors ───────────────────────────────
+        if ($activeTab === 'marketplace') {
+            $this->renderSettingsSection('Amazon SP-API', 'Connect to Amazon Product Advertising API for pricing data.', [
+                ['key' => 'amazon_enabled', 'option' => $O_M, 'label' => 'Enable Amazon', 'desc' => 'Activate the Amazon connector.', 'type' => 'checkbox', 'prefix' => 'mk_'],
+                ['key' => 'amazon_client_id', 'option' => $O_M, 'label' => 'Client ID', 'desc' => 'SP-API client ID from Amazon Developer Console.', 'type' => 'text', 'prefix' => 'mk_'],
+                ['key' => 'amazon_client_secret', 'option' => $O_M, 'label' => 'Client Secret', 'desc' => '', 'type' => 'password', 'prefix' => 'mk_'],
+                ['key' => 'amazon_refresh_token', 'option' => $O_M, 'label' => 'Refresh Token', 'desc' => '', 'type' => 'password', 'prefix' => 'mk_'],
+                ['key' => 'amazon_affiliate_tag', 'option' => $O_M, 'label' => 'Affiliate Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'mk_'],
+            ], $marketplace);
+            // Amazon countries (array → comma-separated text)
+            $amzCountries = isset($marketplace['amazon_countries']) && is_array($marketplace['amazon_countries']) ? implode(', ', $marketplace['amazon_countries']) : 'US, UK, DE, IN';
+            echo '<table class="form-table"><tbody>';
+            echo '<tr><th><label for="mk_amazon_countries">Amazon Countries</label></th><td>';
+            echo '<input type="text" class="regular-text" id="mk_amazon_countries" name="' . esc_attr($O_M) . '[amazon_countries]" value="' . esc_attr($amzCountries) . '" />';
+            echo '<p class="description">Comma-separated 2-letter codes (e.g. US, UK, DE, IN).</p></td></tr>';
+            echo '</tbody></table>';
+
+            $this->renderSettingsSection('Allegro', 'Central European marketplace connector.', [
+                ['key' => 'allegro_enabled', 'option' => $O_M, 'label' => 'Enable Allegro', 'desc' => '', 'type' => 'checkbox', 'prefix' => 'mk_'],
+                ['key' => 'allegro_client_id', 'option' => $O_M, 'label' => 'Client ID', 'desc' => '', 'type' => 'text', 'prefix' => 'mk2_'],
+                ['key' => 'allegro_client_secret', 'option' => $O_M, 'label' => 'Client Secret', 'desc' => '', 'type' => 'password', 'prefix' => 'mk2_'],
+                ['key' => 'allegro_refresh_token', 'option' => $O_M, 'label' => 'Refresh Token', 'desc' => '', 'type' => 'password', 'prefix' => 'mk2_'],
+                ['key' => 'allegro_affiliate_id', 'option' => $O_M, 'label' => 'Affiliate ID', 'desc' => '', 'type' => 'text', 'prefix' => 'mk2_'],
+            ], $marketplace);
+
+            $this->renderSettingsSection('Jumia', 'African marketplace connector.', [
+                ['key' => 'jumia_enabled', 'option' => $O_M, 'label' => 'Enable Jumia', 'desc' => '', 'type' => 'checkbox', 'prefix' => 'mk_'],
+                ['key' => 'jumia_api_key', 'option' => $O_M, 'label' => 'API Key', 'desc' => '', 'type' => 'password', 'prefix' => 'mk3_'],
+                ['key' => 'jumia_affiliate_id', 'option' => $O_M, 'label' => 'Affiliate ID', 'desc' => '', 'type' => 'text', 'prefix' => 'mk3_'],
+            ], $marketplace);
+            // Jumia countries
+            $jumCountries = isset($marketplace['jumia_countries']) && is_array($marketplace['jumia_countries']) ? implode(', ', $marketplace['jumia_countries']) : 'NG, KE, EG';
+            echo '<table class="form-table"><tbody>';
+            echo '<tr><th><label for="mk_jumia_countries">Jumia Countries</label></th><td>';
+            echo '<input type="text" class="regular-text" id="mk_jumia_countries" name="' . esc_attr($O_M) . '[jumia_countries]" value="' . esc_attr($jumCountries) . '" />';
+            echo '<p class="description">Comma-separated 2-letter codes.</p></td></tr>';
+            echo '</tbody></table>';
+
+            echo '<h2>Affiliate Feeds</h2>';
+            echo '<p class="description" style="margin:-8px 0 16px;">CSV/XML product feeds from affiliate retailers. Configure feed URLs and column mappings.</p>';
+            $feeds = isset($marketplace['affiliate_feeds']) && is_array($marketplace['affiliate_feeds']) ? $marketplace['affiliate_feeds'] : [];
+            if (empty($feeds)) {
+                echo '<p><em>No affiliate feeds configured. Use code or database to add feeds.</em></p>';
+            } else {
+                foreach ($feeds as $feedId => $feedCfg) {
+                    if (!is_array($feedCfg)) {
+                        continue;
+                    }
+                    $feedName = (string) ($feedCfg['name'] ?? $feedId);
+                    $feedEnabled = !empty($feedCfg['enabled']);
+                    $feedUrl = (string) ($feedCfg['url'] ?? '');
+                    $feedCurrency = (string) ($feedCfg['currency'] ?? 'USD');
+                    $feedCountries = isset($feedCfg['countries']) && is_array($feedCfg['countries']) ? implode(', ', $feedCfg['countries']) : '';
+                    $statusLabel = $feedEnabled ? '✅' : '⏸️';
+                    echo '<details style="margin-bottom:12px;border:1px solid #ccc;border-radius:4px;padding:8px 12px;">';
+                    echo '<summary style="cursor:pointer;font-weight:600;">' . $statusLabel . ' ' . esc_html($feedName) . ' <code style="font-weight:normal;margin-left:6px;">' . esc_html($feedId) . '</code></summary>';
+                    echo '<table class="form-table" style="margin-top:8px;"><tbody>';
+                    $bn = esc_attr($O_M) . '[affiliate_feeds][' . esc_attr($feedId) . ']';
+                    echo '<tr><th>Enabled</th><td><input type="checkbox" name="' . $bn . '[enabled]" value="1" ' . checked($feedEnabled, true, false) . ' /></td></tr>';
+                    echo '<tr><th>Name</th><td><input type="text" class="regular-text" name="' . $bn . '[name]" value="' . esc_attr($feedName) . '" /></td></tr>';
+                    echo '<tr><th>Countries</th><td><input type="text" class="regular-text" name="' . $bn . '[countries]" value="' . esc_attr($feedCountries) . '" /><p class="description">Comma-separated.</p></td></tr>';
+                    echo '<tr><th>Currency</th><td><input type="text" class="small-text" name="' . $bn . '[currency]" value="' . esc_attr($feedCurrency) . '" /></td></tr>';
+                    echo '<tr><th>Feed URL</th><td><input type="url" class="large-text" name="' . $bn . '[url]" value="' . esc_attr($feedUrl) . '" /></td></tr>';
+                    echo '</tbody></table></details>';
                 }
-                echo '</select>';
-            } else {
-                $type = $key === 'token' ? 'password' : 'text';
-                echo '<input type="' . esc_attr($type) . '" class="regular-text" id="gh_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_GITHUB) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
             }
-            echo '</td></tr>';
         }
 
-        echo '</tbody></table>';
+        // ── Geo / Localization ───────────────────────────────────
+        if ($activeTab === 'geo') {
+            $this->renderSettingsSection('Country Detection', 'How the visitor country is determined for localized pricing and content.', [
+                ['key' => 'mode', 'option' => $O_GE, 'label' => 'Detection Mode', 'desc' => 'Auto uses CloudFlare headers and cookies. Force overrides to a fixed country (useful for debugging).', 'type' => 'select', 'choices' => ['auto' => 'Auto (CloudFlare / Cookie)', 'force' => 'Force (Debug)'], 'prefix' => 'geo_'],
+                ['key' => 'force_country', 'option' => $O_GE, 'label' => 'Force Country Code', 'desc' => '2-letter ISO code (e.g. US, JP, DE). Only applies in Force mode.', 'type' => 'text', 'prefix' => 'geo_'],
+            ], $geo);
 
-        echo '<h2>Marketplaces</h2>';
-        echo '<table class="form-table"><tbody>';
-        foreach ($marketplace as $key => $current) {
-            $isSecret = str_contains($key, 'secret') || str_contains($key, 'token') || str_contains($key, 'key');
-            $val = $isSecret && ! empty($current) ? '' : (string) $current;
-            $placeholder = $isSecret && ! empty($current) ? 'Saved. Enter new value to replace.' : '';
-            
-            echo '<tr><th><label for="mk_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } elseif (is_array($current)) {
-                echo '<em>Complex configuration (feeds). Use code or DB to edit for now.</em>';
-            } else {
-                echo '<input type="text" class="regular-text" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="' . esc_attr($val) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
-            }
-            echo '</td></tr>';
+            // Supported countries JSON
+            $mapData = isset($geo['supported_countries']) ? $geo['supported_countries'] : [];
+            $mapJson = empty($mapData) ? '' : (string) wp_json_encode($mapData, JSON_PRETTY_PRINT);
+            echo '<h2>Supported Countries Map</h2>';
+            echo '<p class="description" style="margin:-8px 0 16px;">Override the built-in country → region/currency map. Leave empty to use system defaults.</p>';
+            echo '<table class="form-table"><tbody>';
+            echo '<tr><th><label for="geo_supported_countries">JSON Map</label></th><td>';
+            echo '<textarea id="geo_supported_countries" name="' . esc_attr($O_GE) . '[supported_countries]" rows="10" class="large-text code">' . esc_textarea($mapJson) . '</textarea>';
+            echo '<p class="description">Format: <code>{"US": {"region": "NA", "currency": "USD"}, ...}</code></p></td></tr>';
+            echo '</tbody></table>';
         }
-        echo '</tbody></table>';
 
-        echo '<h2>Geo / Localization</h2>';
-        echo '<table class="form-table"><tbody>';
-        
-        // Mode
-        $geoMode = isset($geo['mode']) ? (string) $geo['mode'] : 'auto';
-        echo '<tr><th><label for="geo_mode">Mode</label></th><td>';
-        echo '<select id="geo_mode" name="' . esc_attr(Config::OPTION_GEO) . '[mode]">';
-        echo '<option value="auto" ' . selected($geoMode, 'auto', false) . '>Auto (CloudFlare/Cookie)</option>';
-        echo '<option value="force" ' . selected($geoMode, 'force', false) . '>Force (Debug)</option>';
-        echo '</select></td></tr>';
-        
-        // Force Country
-        $forceCountry = isset($geo['force_country']) ? (string) $geo['force_country'] : '';
-        echo '<tr><th><label for="geo_force">Force Country</label></th><td>';
-        echo '<input type="text" class="small-text" id="geo_force" name="' . esc_attr(Config::OPTION_GEO) . '[force_country]" value="' . esc_attr($forceCountry) . '" maxlength="2" />';
-        echo '<p class="description">2-letter code (e.g. US, JP, DE). Only used if Mode is Force.</p></td></tr>';
-        
-        // Supported Countries (JSON editor)
-        $mapData = isset($geo['supported_countries']) ? $geo['supported_countries'] : [];
-        $mapJson = empty($mapData) ? '' : wp_json_encode($mapData, JSON_PRETTY_PRINT);
-        echo '<tr><th><label for="geo_map">Supported Countries (JSON)</label></th><td>';
-        echo '<textarea id="geo_map" name="' . esc_attr(Config::OPTION_GEO) . '[supported_countries]" rows="10" class="large-text code">' . esc_textarea($mapJson) . '</textarea>';
-        echo '<p class="description">Leave empty to use system defaults. Format: <code>{"US": {"region": "NA", "currency": "USD"}}</code></p></td></tr>';
-        echo '</tbody></table>';
+        // ── Revenue & Affiliates ─────────────────────────────────
+        if ($activeTab === 'revenue') {
+            $this->renderSettingsSection('Redirect Tracking', 'Affiliate link redirection settings.', [
+                ['key' => 'enable_redirect_tracking', 'option' => $O_R, 'label' => 'Enable Redirect Tracking', 'desc' => 'Track outbound clicks through /go/ redirects.', 'type' => 'checkbox', 'prefix' => 'rev_'],
+                ['key' => 'default_affiliate_network', 'option' => $O_R, 'label' => 'Default Network', 'desc' => 'Fallback affiliate network for new helmets (amazon, cj, allegro, jumia).', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag', 'option' => $O_R, 'label' => 'Amazon Affiliate Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'redirect_status_code', 'option' => $O_R, 'label' => 'Redirect HTTP Code', 'desc' => '302 (temporary) or 301/307/308.', 'type' => 'select', 'choices' => ['301' => '301 Permanent', '302' => '302 Found (default)', '307' => '307 Temp Redirect', '308' => '308 Perm Redirect'], 'prefix' => 'rev_'],
+            ], $revenue);
 
-        echo '<h2>Marketplaces</h2>';
-        echo '<table class="form-table"><tbody>';
-        foreach ($marketplace as $key => $current) {
-            $isSecret = str_contains($key, 'secret') || str_contains($key, 'token') || str_contains($key, 'key');
-            $val = $isSecret && ! empty($current) ? '' : (string) $current;
-            $placeholder = $isSecret && ! empty($current) ? 'Saved. Enter new value to replace.' : '';
-            
-            echo '<tr><th><label for="mk_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } elseif (is_array($current)) {
-                echo '<em>Complex configuration (feeds). Use code or DB to edit for now.</em>';
-            } else {
-                echo '<input type="text" class="regular-text" id="mk_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MARKETPLACE) . '[' . esc_attr($key) . ']" value="' . esc_attr($val) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
+            // Per-network CPC
+            $networkCpc = isset($revenue['network_cpc']) && is_array($revenue['network_cpc']) ? $revenue['network_cpc'] : [];
+            echo '<h2>Per-Network CPC Estimates</h2>';
+            echo '<p class="description" style="margin:-8px 0 16px;">Average cost-per-click used for revenue estimation on the dashboard.</p>';
+            echo '<table class="form-table"><tbody>';
+            foreach (['amazon' => 'Amazon', 'cj' => 'CJ', 'allegro' => 'Allegro', 'jumia' => 'Jumia'] as $netKey => $netLabel) {
+                $cpcVal = isset($networkCpc[$netKey]) ? (string) $networkCpc[$netKey] : '0.04';
+                echo '<tr><th><label for="rev_cpc_' . esc_attr($netKey) . '">' . esc_html($netLabel) . ' CPC ($)</label></th><td>';
+                echo '<input type="number" step="0.01" min="0" class="small-text" id="rev_cpc_' . esc_attr($netKey) . '" name="' . esc_attr($O_R) . '[network_cpc][' . esc_attr($netKey) . ']" value="' . esc_attr($cpcVal) . '" />';
+                echo '</td></tr>';
             }
-            echo '</td></tr>';
+            echo '</tbody></table>';
         }
-        echo '</tbody></table>';
 
-        echo '<h2>Geo / Localization</h2>';
-        echo '<table class="form-table"><tbody>';
-        
-        // Mode
-        $geoMode = isset($geo['mode']) ? (string) $geo['mode'] : 'auto';
-        echo '<tr><th><label for="geo_mode">Mode</label></th><td>';
-        echo '<select id="geo_mode" name="' . esc_attr(Config::OPTION_GEO) . '[mode]">';
-        echo '<option value="auto" ' . selected($geoMode, 'auto', false) . '>Auto (CloudFlare/Cookie)</option>';
-        echo '<option value="force" ' . selected($geoMode, 'force', false) . '>Force (Debug)</option>';
-        echo '</select></td></tr>';
-        
-        // Force Country
-        $forceCountry = isset($geo['force_country']) ? (string) $geo['force_country'] : '';
-        echo '<tr><th><label for="geo_force">Force Country</label></th><td>';
-        echo '<input type="text" class="small-text" id="geo_force" name="' . esc_attr(Config::OPTION_GEO) . '[force_country]" value="' . esc_attr($forceCountry) . '" maxlength="2" />';
-        echo '<p class="description">2-letter code (e.g. US, JP, DE). Only used if Mode is Force.</p></td></tr>';
-        
-        // Supported Countries (JSON editor)
-        $mapData = isset($geo['supported_countries']) ? $geo['supported_countries'] : [];
-        $mapJson = empty($mapData) ? '' : wp_json_encode($mapData, JSON_PRETTY_PRINT);
-        echo '<tr><th><label for="geo_map">Supported Countries (JSON)</label></th><td>';
-        echo '<textarea id="geo_map" name="' . esc_attr(Config::OPTION_GEO) . '[supported_countries]" rows="10" class="large-text code">' . esc_textarea($mapJson) . '</textarea>';
-        echo '<p class="description">Leave empty to use system defaults. Format: <code>{"US": {"region": "NA", "currency": "USD"}}</code></p></td></tr>';
-        echo '</tbody></table>';
+        // ── Scheduler ────────────────────────────────────────────
+        if ($activeTab === 'scheduler') {
+            $this->renderSettingsSection('Master Switch', 'Enable or disable all scheduled tasks.', [
+                ['key' => 'enable_scheduler', 'option' => $O_S, 'label' => 'Enable Scheduler', 'desc' => 'Master switch for all WP-Cron background jobs.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+            ], $scheduler);
 
-        echo '<h2>Revenue</h2>';
-        echo '<table class="form-table"><tbody>';
-        foreach ($revenue as $key => $current) {
-            echo '<tr><th><label for="rev_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="rev_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_REVENUE) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } else {
-                echo '<input type="text" class="regular-text" id="rev_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_REVENUE) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
-            }
-            echo '</td></tr>';
-        }
-        echo '</tbody></table>';
-        echo '<h2>Scheduler</h2>';
-        echo '<table class="form-table"><tbody>';
-        foreach ($scheduler as $key => $current) {
-            echo '<tr><th><label for="sch_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="sch_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_SCHEDULER) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } else {
-                echo '<input type="number" class="small-text" id="sch_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_SCHEDULER) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" min="1" />';
-            }
-            echo '</td></tr>';
-        }
-        echo '</tbody></table>';
+            $this->renderSettingsSection('GitHub Sync Schedule', 'Periodic pull from GitHub repository.', [
+                ['key' => 'sync_pull_enabled', 'option' => $O_S, 'label' => 'Enable Sync Pull', 'desc' => 'Periodically pull data from GitHub.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'sync_pull_interval_hours', 'option' => $O_S, 'label' => 'Interval (hours)', 'desc' => 'How often to pull.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'sync_pull_limit', 'option' => $O_S, 'label' => 'File Limit', 'desc' => 'Max files per pull.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'sync_pull_apply_brands', 'option' => $O_S, 'label' => 'Apply Brands', 'desc' => 'Ingest brand entities after pull.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'sync_pull_apply_helmets', 'option' => $O_S, 'label' => 'Apply Helmets', 'desc' => 'Ingest helmet entities after pull.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+            ], $scheduler);
 
-        $status = $this->scheduler->status();
-        echo '<h3>Scheduler Status</h3><pre>' . esc_html(wp_json_encode($status, JSON_PRETTY_PRINT)) . '</pre>';
-        echo '<h2>Alerts</h2>';
-        echo '<table class="form-table"><tbody>';
-        foreach ($alerts as $key => $current) {
-            echo '<tr><th><label for="alt_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="alt_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_ALERTS) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } else {
-                $type = ($key === 'slack_webhook_url') ? 'url' : 'text';
-                echo '<input type="' . esc_attr($type) . '" class="regular-text" id="alt_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_ALERTS) . '[' . esc_attr($key) . ']" value="' . esc_attr((string) $current) . '" />';
-            }
-            echo '</td></tr>';
+            $this->renderSettingsSection('Retry & Cleanup', 'Automatic retry of failed ingestions and log cleanup.', [
+                ['key' => 'retry_failed_enabled', 'option' => $O_S, 'label' => 'Retry Failed Jobs', 'desc' => 'Re-attempt failed ingestion entries.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'retry_failed_limit', 'option' => $O_S, 'label' => 'Retry Limit', 'desc' => 'Max entries to retry per run.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'retry_failed_batch_size', 'option' => $O_S, 'label' => 'Retry Batch Size', 'desc' => 'Entries processed per batch.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'cleanup_logs_enabled', 'option' => $O_S, 'label' => 'Cleanup Old Logs', 'desc' => 'Delete ingestion/sync logs older than the retention period.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'cleanup_logs_days', 'option' => $O_S, 'label' => 'Retention (days)', 'desc' => 'Logs older than this are deleted.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'health_snapshot_enabled', 'option' => $O_S, 'label' => 'Health Snapshots', 'desc' => 'Take periodic health check snapshots.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'ingestion_interval_hours', 'option' => $O_S, 'label' => 'Ingestion Interval (hours)', 'desc' => 'How often marketplace price ingestion runs.', 'type' => 'number', 'prefix' => 'sch_'],
+            ], $scheduler);
+
+            $status = $this->scheduler->status();
+            echo '<h3>Current Scheduler Status</h3><pre style="background:#f5f5f5;padding:12px;border-radius:4px;max-height:300px;overflow:auto;">' . esc_html((string) wp_json_encode($status, JSON_PRETTY_PRINT)) . '</pre>';
         }
-        echo '</tbody></table>';
-        echo '<h2>Media Engine</h2>';
-        $testProvider = isset($_GET['media_test_provider']) ? sanitize_key((string) $_GET['media_test_provider']) : '';
-        $testStatus = isset($_GET['media_test_status']) ? sanitize_key((string) $_GET['media_test_status']) : '';
-        $testDetails = isset($_GET['media_test_details']) ? sanitize_text_field(rawurldecode((string) $_GET['media_test_details'])) : '';
-        if ($testProvider !== '' && $testStatus !== '') {
-            $noticeClass = $testStatus === 'ok' ? 'notice-success' : 'notice-warning';
-            echo '<div class="notice ' . esc_attr($noticeClass) . '"><p><strong>Media API Test (' . esc_html($testProvider) . '):</strong> ' . esc_html($testStatus);
-            if ($testDetails !== '') {
-                echo ' - ' . esc_html($testDetails);
-            }
-            echo '</p></div>';
+
+        // ── Alerts ───────────────────────────────────────────────
+        if ($activeTab === 'alerts') {
+            $this->renderSettingsSection('Alert System', 'Get notified when sync errors, ingestion failures, or health warnings occur.', [
+                ['key' => 'enabled', 'option' => $O_AL, 'label' => 'Enable Alerts', 'desc' => 'Master switch for the alert system.', 'type' => 'checkbox', 'prefix' => 'alt_'],
+            ], $alerts);
+
+            $this->renderSettingsSection('Email Notifications', 'Send alerts via email.', [
+                ['key' => 'email_enabled', 'option' => $O_AL, 'label' => 'Enable Email Alerts', 'desc' => '', 'type' => 'checkbox', 'prefix' => 'alt_'],
+                ['key' => 'to_email', 'option' => $O_AL, 'label' => 'Recipient Email', 'desc' => 'Leave empty to use the admin email. Can be overridden via HELMETSAN_ALERTS_TO_EMAIL constant.', 'type' => 'text', 'prefix' => 'alt_'],
+                ['key' => 'subject_prefix', 'option' => $O_AL, 'label' => 'Subject Prefix', 'desc' => 'Prepended to all alert email subjects.', 'type' => 'text', 'prefix' => 'alt_'],
+            ], $alerts);
+
+            $this->renderSettingsSection('Slack Notifications', 'Post alerts to a Slack channel.', [
+                ['key' => 'slack_enabled', 'option' => $O_AL, 'label' => 'Enable Slack', 'desc' => '', 'type' => 'checkbox', 'prefix' => 'alt_'],
+                ['key' => 'slack_webhook_url', 'option' => $O_AL, 'label' => 'Webhook URL', 'desc' => 'Incoming webhook URL from Slack app settings.', 'type' => 'url', 'prefix' => 'alt_'],
+            ], $alerts);
+
+            $this->renderSettingsSection('Alert Triggers', 'Choose which events generate alerts.', [
+                ['key' => 'alert_on_sync_error', 'option' => $O_AL, 'label' => 'Sync Errors', 'desc' => 'Alert when GitHub sync fails.', 'type' => 'checkbox', 'prefix' => 'alt_'],
+                ['key' => 'alert_on_ingest_error', 'option' => $O_AL, 'label' => 'Ingestion Errors', 'desc' => 'Alert when data ingestion fails.', 'type' => 'checkbox', 'prefix' => 'alt_'],
+                ['key' => 'alert_on_health_warning', 'option' => $O_AL, 'label' => 'Health Warnings', 'desc' => 'Alert when repo health degrades.', 'type' => 'checkbox', 'prefix' => 'alt_'],
+            ], $alerts);
         }
-        echo '<table class="form-table"><tbody>';
-        foreach ($media as $key => $current) {
-            echo '<tr><th><label for="med_' . esc_attr($key) . '">' . esc_html($key) . '</label></th><td>';
-            if (is_bool($current)) {
-                echo '<input type="checkbox" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="1" ' . checked((bool) $current, true, false) . ' />';
-            } else {
-                $type = str_contains($key, 'token') ? 'password' : 'text';
-                $class = $key === 'cache_ttl_hours' ? 'small-text' : 'regular-text';
-                $isToken = str_contains($key, 'token') || str_contains($key, 'key');
-                $value = $isToken ? '' : (string) $current;
-                $placeholder = '';
-                if ($isToken && (string) $current !== '') {
-                    $placeholder = 'Saved token is masked. Enter new token to replace.';
+
+        // ── Media Engine ─────────────────────────────────────────
+        if ($activeTab === 'media') {
+            // Show test results if any
+            $testProvider = isset($_GET['media_test_provider']) ? sanitize_key((string) $_GET['media_test_provider']) : '';
+            $testStatus = isset($_GET['media_test_status']) ? sanitize_key((string) $_GET['media_test_status']) : '';
+            $testDetails = isset($_GET['media_test_details']) ? sanitize_text_field(rawurldecode((string) $_GET['media_test_details'])) : '';
+            if ($testProvider !== '' && $testStatus !== '') {
+                $noticeClass = $testStatus === 'ok' ? 'notice-success' : 'notice-warning';
+                echo '<div class="notice ' . esc_attr($noticeClass) . '"><p><strong>Media API Test (' . esc_html($testProvider) . '):</strong> ' . esc_html($testStatus);
+                if ($testDetails !== '') {
+                    echo ' — ' . esc_html($testDetails);
                 }
-                echo '<input type="' . esc_attr($type) . '" class="' . esc_attr($class) . '" id="med_' . esc_attr($key) . '" name="' . esc_attr(Config::OPTION_MEDIA) . '[' . esc_attr($key) . ']" value="' . esc_attr($value) . '" placeholder="' . esc_attr($placeholder) . '" autocomplete="new-password" />';
+                echo '</p></div>';
             }
-            echo '</td></tr>';
+
+            $this->renderSettingsSection('Media Engine', 'Automatic brand logo and image fetching from multiple providers.', [
+                ['key' => 'enable_media_engine', 'option' => $O_ME, 'label' => 'Enable Media Engine', 'desc' => 'Master switch for all media providers.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'auto_sideload_enabled', 'option' => $O_ME, 'label' => 'Auto Sideload', 'desc' => 'Automatically download remote images into the WP Media Library.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'cache_ttl_hours', 'option' => $O_ME, 'label' => 'Cache TTL (hours)', 'desc' => 'How long fetched logos are cached before refresh.', 'type' => 'number', 'prefix' => 'med_'],
+            ], $media);
+
+            $this->renderSettingsSection('Providers', 'Toggle individual logo providers and enter API keys.', [
+                ['key' => 'simpleicons_enabled', 'option' => $O_ME, 'label' => 'Simple Icons', 'desc' => 'Free SVG brand icons (no key needed).', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'wikimedia_enabled', 'option' => $O_ME, 'label' => 'Wikimedia Commons', 'desc' => 'Free logo images (no key needed).', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'brandfetch_enabled', 'option' => $O_ME, 'label' => 'Brandfetch', 'desc' => 'High-quality brand assets. Requires API token.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'brandfetch_token', 'option' => $O_ME, 'label' => 'Brandfetch Token', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
+                ['key' => 'logodev_enabled', 'option' => $O_ME, 'label' => 'Logo.dev', 'desc' => 'Logo API. Requires publishable + secret key.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'logodev_publishable_key', 'option' => $O_ME, 'label' => 'Logo.dev Publishable Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
+                ['key' => 'logodev_secret_key', 'option' => $O_ME, 'label' => 'Logo.dev Secret Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
+                ['key' => 'logodev_token', 'option' => $O_ME, 'label' => 'Logo.dev Legacy Token', 'desc' => 'Backward-compatible single token. Use publishable/secret keys instead.', 'type' => 'password', 'prefix' => 'med_'],
+            ], $media);
+
+            echo '<p><strong>Connectivity Tests</strong></p>';
+            $testNonce = wp_create_nonce('helmetsan_media_api_test');
+            $brandfetchTestUrl = add_query_arg(['action' => 'helmetsan_media_api_test', 'provider' => 'brandfetch', '_wpnonce' => $testNonce], admin_url('admin-post.php'));
+            $logodevTestUrl = add_query_arg(['action' => 'helmetsan_media_api_test', 'provider' => 'logodev', '_wpnonce' => $testNonce], admin_url('admin-post.php'));
+            echo '<p style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;">';
+            echo '<a class="button button-secondary" href="' . esc_url($brandfetchTestUrl) . '">Test Brandfetch API</a>';
+            echo '<a class="button button-secondary" href="' . esc_url($logodevTestUrl) . '">Test Logo.dev API</a>';
+            echo '</p>';
         }
-        echo '</tbody></table>';
-        echo '<p><strong>Connectivity tests</strong></p>';
-        $testNonce = wp_create_nonce('helmetsan_media_api_test');
-        $brandfetchTestUrl = add_query_arg([
-            'action' => 'helmetsan_media_api_test',
-            'provider' => 'brandfetch',
-            '_wpnonce' => $testNonce,
-        ], admin_url('admin-post.php'));
-        $logodevTestUrl = add_query_arg([
-            'action' => 'helmetsan_media_api_test',
-            'provider' => 'logodev',
-            '_wpnonce' => $testNonce,
-        ], admin_url('admin-post.php'));
-        echo '<p style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px;">';
-        echo '<a class="button button-secondary" href="' . esc_url($brandfetchTestUrl) . '">Test Brandfetch API</a>';
-        echo '<a class="button button-secondary" href="' . esc_url($logodevTestUrl) . '">Test Logo.dev API</a>';
-        echo '</p>';
+
+        // ── WooBridge ────────────────────────────────────────────
+        if ($activeTab === 'woobridge') {
+            $this->renderSettingsSection('WooCommerce Bridge', 'Sync helmet data to WooCommerce products.', [
+                ['key' => 'enable_bridge', 'option' => $O_W, 'label' => 'Enable Bridge', 'desc' => 'Master switch. Requires WooCommerce to be active.', 'type' => 'checkbox', 'prefix' => 'wb_'],
+                ['key' => 'auto_sync_on_save', 'option' => $O_W, 'label' => 'Auto-Sync on Save', 'desc' => 'Automatically push to WooCommerce when a helmet is saved.', 'type' => 'checkbox', 'prefix' => 'wb_'],
+                ['key' => 'publish_products', 'option' => $O_W, 'label' => 'Publish Products', 'desc' => 'Set synced products to "published" (otherwise draft).', 'type' => 'checkbox', 'prefix' => 'wb_'],
+                ['key' => 'default_currency', 'option' => $O_W, 'label' => 'Default Currency', 'desc' => '3-letter ISO code for product prices (e.g. USD, EUR).', 'type' => 'text', 'prefix' => 'wb_'],
+                ['key' => 'sync_limit_default', 'option' => $O_W, 'label' => 'Sync Batch Limit', 'desc' => 'Max helmets to sync in a single batch run.', 'type' => 'number', 'prefix' => 'wb_'],
+            ], $wooBridge);
+        }
+
         submit_button('Save Settings');
         echo '</form></div>';
+
     }
 }
