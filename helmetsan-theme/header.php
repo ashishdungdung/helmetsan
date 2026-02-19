@@ -29,10 +29,14 @@
 <header class="site-header">
     <div class="site-header__inner">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="site-header__brand"><?php bloginfo('name'); ?></a>
+        <button class="hs-nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <?php
         wp_nav_menu([
             'theme_location' => 'primary',
             'container'      => 'nav',
+            'container_class' => 'hs-primary-nav',
             'menu_class'     => 'menu menu--primary',
             'fallback_cb'    => false,
             'walker'         => new Helmetsan_Mega_Menu_Walker(),

@@ -1,162 +1,312 @@
 /**
  * Mega Menu Styles
- * Handles the full-width positioning and toggle logic for the walker-injected menus.
+ * Full-width dropdown panels with column grid, highlight chips, and mobile accordion.
  */
 
-/* Desktop Styles */
+/* ══════════════════════════════════════
+   DESKTOP  (≥ 961 px)
+   ══════════════════════════════════════ */
 @media (min-width: 961px) {
-    /* Allow the absolute positioned mega menu to relate to the site-header, not the li */
+
+    /* Let mega-menu position relative to site-header, not the li */
     .menu-item[class*="mega-menu--"] {
         position: static !important;
     }
 
-    /* The mega menu container */
+    /* ── Panel ──────────────────────────── */
     .menu-item .hs-mega-menu {
         display: none;
         position: absolute;
         left: 0;
         right: 0;
-        top: 100%; /* Directly below the header */
+        top: 100%;
         width: 100%;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.98);
+        background: #fff;
+        border-top: 3px solid var(--hs-accent, #0a84ff);
         border-bottom: 1px solid var(--hs-border, #e5e7eb);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-        animation: hs-fade-in-down 0.2s ease-out forwards;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.10),
+            0 2px 8px rgba(0, 0, 0, 0.06);
+        animation: hs-mega-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* Show on hover / focus */
-    .menu-item:hover .hs-mega-menu,
-    .menu-item:focus-within .hs-mega-menu {
+    /* Show on hover / focus-within */
+    .menu-item:hover > .hs-mega-menu,
+    .menu-item:focus-within > .hs-mega-menu {
         display: block;
     }
 
-    /* Animation */
-    @keyframes hs-fade-in-down {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    @keyframes hs-mega-slide {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Hide mobile specific elements on desktop */
+    /* ── Inner wrapper ─────────────────── */
+    .hs-mega-menu__inner {
+        max-width: var(--hs-content-max, 1200px);
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    /* ── Column grid ───────────────────── */
+    .hs-mega-menu__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 1.5rem 2rem;
+        max-height: 420px;
+        overflow-y: auto;
+    }
+
+    /* Subtle scrollbar */
+    .hs-mega-menu__grid::-webkit-scrollbar {
+        width: 4px;
+    }
+    .hs-mega-menu__grid::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+    }
+
+    /* ── Column heading ────────────────── */
+    .hs-mega-menu__col h3 {
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.4rem;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--hs-accent, #0a84ff);
+        border-bottom: 2px solid rgba(10, 132, 255, 0.15);
+    }
+
+    .hs-mega-menu__col h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .hs-mega-menu__col h3 a:hover {
+        text-decoration: underline;
+    }
+
+    /* ── Column links ──────────────────── */
+    .hs-mega-menu__col ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hs-mega-menu__col li {
+        margin: 0;
+    }
+
+    .hs-mega-menu__col li a {
+        display: block;
+        padding: 0.25rem 0 0.25rem 0;
+        font-size: 13px;
+        color: var(--hs-text, #0b1220);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: padding-left 0.2s, color 0.15s, background 0.15s;
+    }
+
+    .hs-mega-menu__col li a:hover {
+        padding-left: 8px;
+        color: var(--hs-accent, #0a84ff);
+        background: rgba(10, 132, 255, 0.05);
+    }
+
+    /* ── Highlight blocks (chips) ──────── */
+    .hs-mega-menu__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem 2rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid var(--hs-border, #e5e7eb);
+    }
+
+    .hs-mega-menu__highlight h3 {
+        margin: 0 0 0.35rem;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--hs-muted, #51607a);
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .hs-mega-menu__highlight ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .hs-mega-menu__highlight li a {
+        display: inline-block;
+        padding: 0.2rem 0.55rem;
+        font-size: 12px;
+        color: var(--hs-accent, #0a84ff);
+        background: rgba(10, 132, 255, 0.07);
+        border: 1px solid rgba(10, 132, 255, 0.15);
+        border-radius: 999px;
+        text-decoration: none;
+        transition: background 0.15s, border-color 0.15s;
+    }
+
+    .hs-mega-menu__highlight li a:hover {
+        background: rgba(10, 132, 255, 0.14);
+        border-color: rgba(10, 132, 255, 0.3);
+    }
+
+    /* ── Footer CTA ────────────────────── */
+    .hs-mega-menu__footer {
+        margin-top: 0.8rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid var(--hs-border, #e5e7eb);
+        text-align: right;
+    }
+
+    .hs-mega-menu__footer a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.45rem 1.1rem;
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, var(--hs-accent, #0a84ff), var(--hs-accent-2, #00c7be));
+        border-radius: 999px;
+        text-decoration: none;
+        transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .hs-mega-menu__footer a:hover {
+        box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
+        transform: translateY(-1px);
+    }
+
+    /* Hide mobile elements on desktop */
     .hs-mega-menu-mobile {
         display: none !important;
     }
 }
 
-/* Mobile Styles */
+/* ══════════════════════════════════════
+   MOBILE  (≤ 960 px)
+   ══════════════════════════════════════ */
 @media (max-width: 960px) {
-    /* 
-     * Mobile Optimization Strategy:
-     * 1. Use native <details> for performant, JS-free toggling.
-     * 2. Style summary as a touch-friendly 44px+ flexible button.
-     * 3. Animate expanding/collapsing (simple height transition or just clean layout).
-     */
-    
+
     .menu-item .hs-mega-menu {
         position: static;
-        display: block; 
+        display: block;
         box-shadow: none;
         border: none;
         background: transparent;
         padding: 0;
         width: 100%;
-        margin-top: 0.5rem;
+        margin-top: 0.25rem;
     }
 
     /* Hide the desktop grid on mobile */
     .hs-mega-menu__inner {
-        display: none !important; 
+        display: none !important;
     }
 
-    /* Show the mobile structure */
+    /* Show the mobile accordion */
     .hs-mega-menu-mobile {
         display: block !important;
-        padding-left: 0; /* Align with parent */
-        border-left: 2px solid var(--hs-border, #e5e7eb);
+        padding-left: 0;
+        border-left: 2px solid var(--hs-accent, #0a84ff);
         margin-left: 0.5rem;
     }
 
     .hs-mega-menu-mobile__title {
-        display: none; /* Redundant on mobile usually, as parent link is the title */
+        display: none;
     }
 
     .hs-mobile-nav-group {
-        border-bottom: 1px solid rgba(0,0,0,0.03);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
     .hs-mobile-nav-group:last-child {
         border-bottom: none;
     }
 
-    /* The Toggle Button (Summary) */
+    /* Toggle (summary) */
     .hs-mobile-nav-group summary {
         cursor: pointer;
-        padding: 0.75rem 1rem;
-        font-weight: 500;
+        padding: 0.7rem 1rem;
+        font-weight: 600;
+        font-size: 14px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: background 0.2s;
+        transition: background 0.2s, color 0.2s;
         border-radius: 6px;
+        color: var(--hs-text, #0b1220);
     }
-    
+
     .hs-mobile-nav-group summary:hover,
     .hs-mobile-nav-group[open] summary {
-        background: rgba(0,0,0,0.02);
-        color: var(--hs-primary, #000);
+        background: rgba(10, 132, 255, 0.06);
+        color: var(--hs-accent, #0a84ff);
     }
-    
-    /* Marker */
+
+    /* Hide default marker */
     .hs-mobile-nav-group summary::-webkit-details-marker {
         display: none;
     }
+    .hs-mobile-nav-group summary::marker {
+        display: none;
+        content: '';
+    }
     .hs-mobile-nav-group summary::after {
         content: '+';
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 300;
         line-height: 1;
-        opacity: 0.5;
-        transition: transform 0.3s;
+        opacity: 0.4;
+        transition: transform 0.3s, opacity 0.2s;
     }
     .hs-mobile-nav-group[open] summary::after {
         transform: rotate(45deg);
         opacity: 1;
+        color: var(--hs-accent, #0a84ff);
     }
 
-    /* The List */
+    /* Children list */
     .hs-mobile-nav-group ul {
-        padding: 0.5rem 0 0.5rem 1.5rem;
+        padding: 0.3rem 0 0.5rem 1.2rem;
         margin: 0;
         list-style: none;
-        animation: hs-slide-down 0.2s ease-out;
-    }
-    
-    .hs-mobile-nav-group li {
-        margin-bottom: 0.5rem;
-    }
-    
-    .hs-mobile-nav-group li a {
-        font-size: 0.95rem;
-        color: #555;
-        text-decoration: none;
-        display: block;
-        padding: 0.2rem 0;
-    }
-    .hs-mobile-nav-group li a:hover {
-        color: var(--hs-primary, #000);
-        transform: translateX(4px);
-        transition: transform 0.2s;
+        animation: hs-mobile-slide 0.2s ease-out;
     }
 
-    @keyframes hs-slide-down {
-        from { opacity: 0; transform: translateY(-5px); }
-        to { opacity: 1; transform: translateY(0); }
+    .hs-mobile-nav-group li {
+        margin-bottom: 0.3rem;
+    }
+
+    .hs-mobile-nav-group li a {
+        font-size: 14px;
+        color: var(--hs-muted, #51607a);
+        text-decoration: none;
+        display: block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+
+    .hs-mobile-nav-group li a:hover,
+    .hs-mobile-nav-group li a:active {
+        color: var(--hs-accent, #0a84ff);
+        background: rgba(10, 132, 255, 0.06);
+        transform: translateX(4px);
+    }
+
+    @keyframes hs-mobile-slide {
+        from { opacity: 0; transform: translateY(-4px); }
+        to   { opacity: 1; transform: translateY(0); }
     }
 }

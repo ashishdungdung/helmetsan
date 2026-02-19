@@ -392,8 +392,81 @@ body.hs-layout-wide .site-content .site-main {
 @media (max-width: 960px) {
     .site-topbar__inner,
     .site-header__inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* ── Hamburger button ──────────────── */
+    .hs-nav-toggle {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border: 1px solid var(--hs-border, rgba(11, 18, 32, 0.1));
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .hs-nav-toggle:hover {
+        background: rgba(10, 132, 255, 0.06);
+    }
+    .hs-nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--hs-text, #0b1220);
+        border-radius: 2px;
+        transition: transform 0.3s, opacity 0.2s;
+    }
+    /* Animate to X when open */
+    .site-header.is-open .hs-nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .site-header.is-open .hs-nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .site-header.is-open .hs-nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ── Primary nav hidden by default ── */
+    .hs-primary-nav {
+        display: none;
+        width: 100%;
+        order: 3;
+    }
+    .site-header.is-open .hs-primary-nav {
+        display: block;
+        animation: hs-nav-slide 0.25s ease-out;
+    }
+
+    .hs-primary-nav .menu--primary {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0 0.8rem;
+    }
+    .hs-primary-nav .menu--primary > li > a {
+        padding: 0.6rem 0.5rem;
+        font-size: 15px;
+        border-radius: 6px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @keyframes hs-nav-slide {
+        from { opacity: 0; transform: translateY(-8px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Lock body scroll when menu is open */
+    body.hs-menu-open {
+        overflow: hidden;
     }
 
     .menu {
@@ -410,5 +483,12 @@ body.hs-layout-wide .site-content .site-main {
 
     .site-footer__widget-areas {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 961px) {
+    .hs-nav-toggle {
+        display: none;
     }
 }
