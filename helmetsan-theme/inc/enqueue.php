@@ -103,6 +103,35 @@ function helmetsan_theme_enqueue_assets(): void
             true
         );
     }
+
+    // Price history chart (single helmet pages only)
+    if (is_singular('helmet')) {
+        wp_enqueue_script(
+            'chart-js',
+            'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js',
+            [],
+            '4.4.1',
+            true
+        );
+        wp_enqueue_script(
+            'chartjs-adapter-date',
+            'https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3/dist/chartjs-adapter-date-fns.bundle.min.js',
+            ['chart-js'],
+            '3.0.0',
+            true
+        );
+        wp_enqueue_script(
+            'helmetsan-price-history',
+            get_stylesheet_directory_uri() . '/assets/js/price-history.js',
+            ['chart-js', 'chartjs-adapter-date'],
+            helmetsan_theme_asset_version('/assets/js/price-history.js'),
+            true
+        );
+        wp_localize_script('helmetsan-price-history', 'hsPrice', [
+            'apiBase'  => rest_url('hs/v1'),
+            'helmetId' => get_the_ID(),
+        ]);
+    }
 }
 
 function helmetsan_theme_asset_version(string $relativePath): string

@@ -45,8 +45,20 @@ use Helmetsan\Core\Analytics\Tracker;
 use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\API\BrandController;
 use Helmetsan\Core\Price\PriceService;
+use Helmetsan\Core\Price\CurrencyFormatter;
 use Helmetsan\Core\Search\SearchService;
 use Helmetsan\Core\Helmet\HelmetService;
+use Helmetsan\Core\Marketplace\ConnectorRegistry;
+use Helmetsan\Core\Marketplace\Connectors\AmazonConnector;
+use Helmetsan\Core\Marketplace\Connectors\AffiliateFeedConnector;
+use Helmetsan\Core\Marketplace\Connectors\AllegroConnector;
+use Helmetsan\Core\Marketplace\Connectors\JumiaConnector;
+use Helmetsan\Core\Marketplace\MarketplaceRouter;
+use Helmetsan\Core\Geo\GeoService;
+use Helmetsan\Core\Price\PriceHistory;
+use Helmetsan\Core\API\PriceController;
+use Helmetsan\Core\Marketplace\FeedIngestionTask;
+use Helmetsan\Core\Admin\RevenueDashboard;
 
 final class Plugin
 {
@@ -88,7 +100,15 @@ final class Plugin
     private BrandController $brandApi;
     private SearchService $search;
     private PriceService $price;
+    private CurrencyFormatter $currencyFormatter;
     private HelmetService $helmets;
+    private ConnectorRegistry $marketplace;
+    private GeoService $geo;
+    private MarketplaceRouter $router;
+    private PriceHistory $priceHistory;
+    private PriceController $priceApi;
+    private FeedIngestionTask $feedTask;
+    private RevenueDashboard $revenueDashboard;
 
     public function __construct()
     {
@@ -115,8 +135,19 @@ final class Plugin
         $this->wooBridge = new WooBridgeService($this->config);
         $this->brandApi = new BrandController($this->brands);
         $this->search = new SearchService();
-        $this->price = new PriceService();
         $this->helmets = new HelmetService();
+        $this->marketplace = $this->buildMarketplace();
+        $this->geo = new GeoService();
+        $this->router = new MarketplaceRouter($this->geo, $this->marketplace);
+        $this->priceHistory = new PriceHistory();
+        $this->currencyFormatter = new CurrencyFormatter();
+        $this->price = new PriceService(
+            $this->geo,
+            $this->router,
+            $this->priceHistory,
+            $this->currencyFormatter
+        );
+        $this->priceApi = new PriceController($this->price, $this->priceHistory);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -134,6 +165,16 @@ final class Plugin
             $this->commerce
         );
         $this->revenue    = new RevenueService($this->config);
+        $this->feedTask = new FeedIngestionTask(
+            $this->config,
+            $this->marketplace,
+            $this->priceHistory
+        );
+        $this->revenueDashboard = new RevenueDashboard(
+            $this->revenue,
+            $this->priceHistory,
+            $this->config
+        );
         $this->importService = new ImportService(
             $this->ingestion,
             $this->config,
@@ -180,6 +221,7 @@ final class Plugin
         $this->comparisons->register();
         $this->recommendations->register();
         $this->mediaEngine->register();
+        $this->mediaService->register();
         $this->wooBridge->register();
         $this->brandApi->register();
         $this->search->register();
@@ -211,6 +253,13 @@ final class Plugin
         $this->scheduler->register();
         $this->schema->register();
         $this->revenue->register();
+        $this->geo->register();
+        $this->priceApi->register();
+        $this->feedTask->register();
+        $this->revenueDashboard->register();
+
+        // Register custom cron interval
+        add_filter('cron_schedules', [$this->feedTask, 'addInterval']);
 
         if (defined('WP_CLI') && \WP_CLI) {
             (new Commands(
@@ -245,6 +294,8 @@ final class Plugin
         $this->syncLogs->ensureTable();
         $this->revenue->ensureTable();
         $this->analyticsEvents->ensureTable();
+        $this->priceHistory->ensureTable();
+        $this->feedTask->schedule();
         $this->scheduler->activate();
         flush_rewrite_rules();
     }
@@ -268,5 +319,82 @@ final class Plugin
     public function mediaService(): MediaService
     {
         return $this->mediaService;
+    }
+
+    public function marketplace(): ConnectorRegistry
+    {
+        return $this->marketplace;
+    }
+
+    public function priceHistory(): PriceHistory
+    {
+        return $this->priceHistory;
+    }
+
+    public function geo(): GeoService
+    {
+        return $this->geo;
+    }
+
+    public function router(): MarketplaceRouter
+    {
+        return $this->router;
+    }
+
+    /**
+     * Build and populate the marketplace connector registry.
+     */
+    private function buildMarketplace(): ConnectorRegistry
+    {
+        $registry = new ConnectorRegistry();
+        $mktCfg   = $this->config->marketplaceConfig();
+
+        // Amazon SP-API
+        if (!empty($mktCfg['amazon_enabled'])) {
+            $registry->register(new AmazonConnector([
+                'client_id'         => $mktCfg['amazon_client_id'] ?? '',
+                'client_secret'     => $mktCfg['amazon_client_secret'] ?? '',
+                'refresh_token'     => $mktCfg['amazon_refresh_token'] ?? '',
+                'affiliate_tag'     => $mktCfg['amazon_affiliate_tag'] ?? 'helmetsan-20',
+                'enabled_countries' => $mktCfg['amazon_countries'] ?? ['US', 'UK', 'DE', 'IN'],
+            ]));
+        }
+
+        // Allegro
+        if (!empty($mktCfg['allegro_enabled'])) {
+            $registry->register(new AllegroConnector([
+                'client_id'     => $mktCfg['allegro_client_id'] ?? '',
+                'client_secret' => $mktCfg['allegro_client_secret'] ?? '',
+                'refresh_token' => $mktCfg['allegro_refresh_token'] ?? '',
+                'affiliate_id'  => $mktCfg['allegro_affiliate_id'] ?? '',
+            ]));
+        }
+
+        // Jumia
+        if (!empty($mktCfg['jumia_enabled'])) {
+            $registry->register(new JumiaConnector([
+                'api_key'           => $mktCfg['jumia_api_key'] ?? '',
+                'affiliate_id'      => $mktCfg['jumia_affiliate_id'] ?? '',
+                'enabled_countries' => $mktCfg['jumia_countries'] ?? ['NG', 'KE', 'EG'],
+            ]));
+        }
+
+        // Affiliate Feeds (RevZilla, Cycle Gear, FC-Moto)
+        $feeds = $mktCfg['affiliate_feeds'] ?? [];
+        if (is_array($feeds)) {
+            foreach ($feeds as $feedId => $feed) {
+                if (empty($feed['enabled'])) {
+                    continue;
+                }
+                $registry->register(new AffiliateFeedConnector(
+                    feedId:    (string) $feedId,
+                    feedName:  (string) ($feed['name'] ?? $feedId),
+                    countries: isset($feed['countries']) && is_array($feed['countries']) ? $feed['countries'] : ['US'],
+                    feedConfig: $feed,
+                ));
+            }
+        }
+
+        return $registry;
     }
 }

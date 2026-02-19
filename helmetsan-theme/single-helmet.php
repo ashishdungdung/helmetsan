@@ -38,6 +38,17 @@ if (have_posts()) {
         $headShape = helmetsan_get_head_shape($helmetId);
         $helmetFamily = (string) get_post_meta($helmetId, 'helmet_family', true);
         $analysis = helmetsan_get_technical_analysis($helmetId);
+        $featuresJson = (string) get_post_meta($helmetId, 'features_json', true);
+        $featuresArr = json_decode($featuresJson, true);
+        $helmetTypeLabel = '';
+        $helmetTypeTermsRaw = get_the_terms($helmetId, 'helmet_type');
+        if (is_array($helmetTypeTermsRaw) && !empty($helmetTypeTermsRaw)) {
+            $helmetTypeLabel = $helmetTypeTermsRaw[0]->name;
+        }
+        // Variant-specific fields
+        $sku = (string) get_post_meta($helmetId, 'sku', true);
+        $finish = (string) get_post_meta($helmetId, 'finish', true);
+        $colorFamily = (string) get_post_meta($helmetId, 'color_family', true);
         $parentId = (int) $post->post_parent;
         $isVariant = $parentId > 0;
         $parentPost = $isVariant ? get_post($parentId) : null;
@@ -120,14 +131,17 @@ if (have_posts()) {
         ?>
         <article <?php post_class('helmet-single hs-section'); ?>>
             <header class="helmet-single__header hs-section__head">
-                <?php if ($isVariant && $parentPost) : ?>
-                    <p class="hs-eyebrow">
-                        <a href="<?php echo esc_url(get_permalink($parentPost)); ?>"><?php echo esc_html($parentPost->post_title); ?></a>
-                         &rsaquo; <?php echo esc_html($brandName); ?>
-                    </p>
-                <?php else : ?>
-                    <p class="hs-eyebrow"><?php echo esc_html($brandName !== '' ? $brandName : 'Helmet'); ?></p>
-                <?php endif; ?>
+                <p class="hs-eyebrow">
+                    <?php if ($brandName !== '') : ?>
+                        <a href="<?php echo esc_url(get_permalink($brandId)); ?>"><?php echo esc_html($brandName); ?></a>
+                    <?php endif; ?>
+                    <?php if ($helmetFamily !== '') : ?>
+                        &rsaquo; <?php echo esc_html($helmetFamily); ?>
+                    <?php endif; ?>
+                    <?php if ($isVariant && $parentPost) : ?>
+                        &rsaquo; <a href="<?php echo esc_url(get_permalink($parentPost)); ?>"><?php echo esc_html($parentPost->post_title); ?></a>
+                    <?php endif; ?>
+                </p>
                 
                 <h1><?php the_title(); ?></h1>
                 
@@ -157,6 +171,7 @@ if (have_posts()) {
                     <?php 
                     $gallery = helmetsan_core()->mediaService()->getProductGallery($helmetId);
                     if (!empty($gallery)) : 
+                        error_log('Helmetsan Debug: Gallery for ' . $helmetId . ' has ' . count($gallery) . ' items');
                     ?>
                         <div class="hs-carousel">
                             <div class="hs-carousel__track">
@@ -200,15 +215,90 @@ if (have_posts()) {
 
             <?php get_template_part('template-parts/legal', 'warning'); ?>
 
-            <div class="helmet-single__content hs-panel">
-                <h2>Technical Analysis</h2>
-                <?php if ($analysis) : ?>
+            <!-- About the Helmet -->
+            <section class="hs-panel">
+                <div class="hs-about-card">
+                    <div class="hs-about-card__icon">🪖</div>
+                    <div class="hs-about-card__body">
+                        <h2>About the <?php echo esc_html(get_the_title()); ?></h2>
+                        <?php if ($helmetTypeLabel !== '') : ?>
+                            <span class="hs-about-card__type"><?php echo esc_html($helmetTypeLabel); ?></span>
+                        <?php endif; ?>
+                        <?php $descContent = get_the_content(); ?>
+                        <?php if ($descContent) : ?>
+                            <div class="hs-about-card__desc"><?php echo wpautop(wp_kses_post($descContent)); ?></div>
+                        <?php elseif ($analysis) : ?>
+                            <p class="hs-about-card__desc"><?php echo esc_html($analysis); ?></p>
+                        <?php endif; ?>
+                        <div class="hs-about-card__attrs">
+                            <?php if ($certs !== '' && $certs !== 'N/A') : ?>
+                                <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">✅</span> <?php echo esc_html($certs); ?></span>
+                            <?php endif; ?>
+                            <?php if ($headShape !== '') : ?>
+                                <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🧠</span> <?php echo esc_html(ucwords(str_replace('-', ' ', $headShape))); ?></span>
+                            <?php endif; ?>
+                            <?php if ($helmetFamily !== '') : ?>
+                                <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🏷️</span> <?php echo esc_html($helmetFamily); ?> Family</span>
+                            <?php endif; ?>
+                            <?php if ($shell !== '') : ?>
+                                <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🛡️</span> <?php echo esc_html($shell); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Facts -->
+            <section class="hs-panel hs-quick-facts">
+                <div class="hs-stat-grid">
+                    <?php if ($weight > 0) : ?>
+                        <div class="hs-stat-card">
+                            <span>Weight</span>
+                            <strong><?php echo esc_html($weight . 'g'); ?><?php if ($weightLbs !== '') echo ' / ' . esc_html($weightLbs) . ' lbs'; ?></strong>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($shell !== '') : ?>
+                        <div class="hs-stat-card">
+                            <span>Shell Material</span>
+                            <strong><?php echo esc_html($shell); ?></strong>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($headShape !== '') : ?>
+                        <div class="hs-stat-card">
+                            <span>Head Shape</span>
+                            <strong><?php echo esc_html(ucwords(str_replace('-', ' ', $headShape))); ?></strong>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($priceUsd !== 'N/A') : ?>
+                        <div class="hs-stat-card">
+                            <span>Price (USD)</span>
+                            <strong><?php echo esc_html($priceUsd); ?></strong>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </section>
+
+            <!-- Feature Highlights -->
+            <?php if (is_array($featuresArr) && $featuresArr !== []) : ?>
+                <section class="hs-panel">
+                    <h2>Feature Highlights</h2>
+                    <div class="hs-feature-pills">
+                        <?php foreach ($featuresArr as $feature) : ?>
+                            <span class="hs-feature-pill"><?php echo esc_html((string) $feature); ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </section>
+            <?php endif; ?>
+
+            <!-- Technical Analysis -->
+            <?php if ($analysis) : ?>
+                <div class="helmet-single__content hs-panel">
+                    <h2>Technical Analysis</h2>
                     <div class="hs-analysis-rich-text">
                         <?php echo wpautop(esc_html($analysis)); ?>
                     </div>
-                <?php endif; ?>
-                <?php the_content(); ?>
-            </div>
+                </div>
+            <?php endif; ?>
 
             <?php if (is_array($safety) && $safety !== []) : ?>
                 <section class="hs-panel">
@@ -271,21 +361,121 @@ if (have_posts()) {
             <?php endif; ?>
 
 
-            <?php if (is_array($productDetails) && $productDetails !== []) : ?>
+            <?php
+            // Build product details rows — only show fields that have real values
+            $detailRows = [];
+            if (!empty($productDetails['style']) && $productDetails['style'] !== 'N/A') {
+                $detailRows[] = ['Product Style', esc_html((string) $productDetails['style'])];
+            }
+            if (!empty($productDetails['mfr_product_number']) && $productDetails['mfr_product_number'] !== 'N/A') {
+                $detailRows[] = ['MFR Product Number', esc_html((string) $productDetails['mfr_product_number'])];
+            }
+            if ($sku !== '') {
+                $detailRows[] = ['SKU', esc_html($sku)];
+            }
+            if ($colorFamily !== '') {
+                $detailRows[] = ['Color Family', esc_html($colorFamily)];
+            }
+            if ($finish !== '') {
+                $detailRows[] = ['Finish', esc_html(ucfirst($finish))];
+            }
+            if ($helmetFamily !== '') {
+                $detailRows[] = ['Helmet Family', esc_html($helmetFamily)];
+            }
+            if (!empty($productDetails['sizing_fit'])) {
+                $detailRows[] = ['Sizing & Fit', esc_html((string) $productDetails['sizing_fit'])];
+            }
+            ?>
+            <?php if (!empty($detailRows)) : ?>
                 <section class="hs-panel">
                     <h2>Product Details</h2>
                     <div class="hs-table-wrap">
                         <table class="hs-table">
                             <tbody>
-                                <tr><th>Product Style</th><td><?php echo esc_html((string) ($productDetails['style'] ?? 'N/A')); ?></td></tr>
-                                <tr><th>MFR Product Number</th><td><?php echo esc_html((string) ($productDetails['mfr_product_number'] ?? 'N/A')); ?></td></tr>
-                                <tr><th>Sizing &amp; Fit</th><td><?php echo esc_html((string) ($productDetails['sizing_fit'] ?? 'See sizing section below')); ?></td></tr>
+                                <?php foreach ($detailRows as $row) : ?>
+                                    <tr><th><?php echo $row[0]; ?></th><td><?php echo $row[1]; ?></td></tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
-                    <?php if (! empty($productDetails['description'])) : ?>
-                        <p><?php echo esc_html((string) $productDetails['description']); ?></p>
+                </section>
+            <?php endif; ?>
+
+            <!-- ═══ Where to Buy ═══ -->
+            <?php
+            $plugin = helmetsan_core();
+            $priceService = $plugin->price();
+            $bestOffer = $priceService->getBestPrice($helmetId);
+            $allOffers = $priceService->getAllOffers($helmetId);
+            $revenueService = $plugin->revenue();
+            $affiliateLinks = $revenueService->getAffiliateLinks($helmetId);
+            ?>
+            <?php if (!empty($allOffers) || $bestOffer !== null) : ?>
+                <section class="hs-panel hs-where-to-buy" id="where-to-buy">
+                    <h2>🛒 Where to Buy</h2>
+
+                    <?php if ($bestOffer !== null) : ?>
+                        <div class="hs-best-badge">
+                            <span class="hs-best-badge__label">Best Price Today</span>
+                            <span class="hs-best-badge__price"><?php echo esc_html($priceService->formatPrice($bestOffer->price, $bestOffer->currency)); ?></span>
+                            <span class="hs-best-badge__source"><?php echo esc_html(ucfirst($bestOffer->marketplaceId)); ?></span>
+                        </div>
                     <?php endif; ?>
+
+                    <?php if (!empty($allOffers)) : ?>
+                        <div class="hs-table-wrap">
+                            <table class="hs-table hs-price-table">
+                                <thead>
+                                    <tr>
+                                        <th>Marketplace</th>
+                                        <th>Price</th>
+                                        <th>Availability</th>
+                                        <th>Updated</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($allOffers as $offer) :
+                                    $isBest = $bestOffer !== null && $offer->marketplaceId === $bestOffer->marketplaceId && $offer->price === $bestOffer->price;
+                                    $mpId = $offer->marketplaceId;
+                                    $goUrl = home_url('/go/' . $post->post_name . '/?marketplace=' . urlencode($mpId) . '&source=pdp');
+                                ?>
+                                    <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
+                                        <td>
+                                            <?php if ($isBest) : ?><span class="hs-price-table__best-tag">★ Best</span><?php endif; ?>
+                                            <?php echo esc_html(ucfirst(str_replace('-', ' ', $mpId))); ?>
+                                        </td>
+                                        <td><strong><?php echo esc_html($priceService->formatPrice($offer->price, $offer->currency)); ?></strong></td>
+                                        <td>
+                                            <?php if ($offer->availability === 'in_stock') : ?>
+                                                <span style="color: var(--hs-success, #059669);">● In Stock</span>
+                                            <?php else : ?>
+                                                <span style="color: var(--hs-muted);"><?php echo esc_html(ucfirst(str_replace('_', ' ', $offer->availability))); ?></span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><small><?php echo esc_html($offer->capturedAt !== '' ? human_time_diff(strtotime($offer->capturedAt), time()) . ' ago' : '—'); ?></small></td>
+                                        <td>
+                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">
+                                                Buy Now →
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Price History Chart -->
+                    <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
+                        <h3>Price History</h3>
+                        <div class="hs-price-date-toggles" id="hs-date-toggles">
+                            <button class="hs-btn hs-btn--sm is-active" data-days="30">30 Days</button>
+                            <button class="hs-btn hs-btn--sm" data-days="90">90 Days</button>
+                            <button class="hs-btn hs-btn--sm" data-days="365">1 Year</button>
+                        </div>
+                        <canvas id="hs-price-chart" data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>" height="300"></canvas>
+                    </div>
                 </section>
             <?php endif; ?>
 
@@ -373,10 +563,18 @@ if (have_posts()) {
                         ?>
                             <a href="<?php echo esc_url(get_permalink($child)); ?>" class="hs-variant-item <?php echo $isActive ? 'is-active' : ''; ?>">
                                 <div class="hs-variant-item__image">
-                                    <?php if (has_post_thumbnail($child->ID)) : ?>
-                                        <?php echo get_the_post_thumbnail($child->ID, 'thumbnail'); ?>
-                                    <?php else : ?>
-                                        <span style="color: var(--hs-muted); font-size: 10px;">No Image</span>
+                                    <?php 
+                                    $thumb = get_the_post_thumbnail($child->ID, 'thumbnail');
+                                    if ($thumb) : 
+                                        echo $thumb;
+                                    else : 
+                                        $childGeoMedia = json_decode((string) get_post_meta($child->ID, 'geo_media_json', true), true);
+                                        $fallbackUrl = is_array($childGeoMedia) && !empty($childGeoMedia) ? $childGeoMedia[0] : '';
+                                        if ($fallbackUrl) : ?>
+                                            <img src="<?php echo esc_url($fallbackUrl); ?>" alt="<?php echo esc_attr($child->post_title); ?>" loading="lazy">
+                                        <?php else : ?>
+                                            <span style="color: var(--hs-muted); font-size: 10px;">No Image</span>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="hs-variant-item__label"><?php echo esc_html($child->post_title); ?></div>

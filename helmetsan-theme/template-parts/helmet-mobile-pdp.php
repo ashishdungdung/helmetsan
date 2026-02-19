@@ -65,13 +65,81 @@ if ($asin !== '') {
         <p class="helmet-mobile-pdp__price"><?php echo esc_html($price !== '' ? $price : 'N/A'); ?></p>
     </header>
 
-    <section class="helmet-mobile-pdp__gallery hs-panel">
-        <?php if (has_post_thumbnail()) : ?>
-            <div class="helmet-mobile-pdp__image"><?php the_post_thumbnail('large', ['fetchpriority' => 'high']); ?></div>
+    <section class="helmet-mobile-pdp__gallery hs-panel" style="padding:0;">
+        <?php 
+        $gallery = helmetsan_core()->mediaService()->getProductGallery($helmetId);
+        if (!empty($gallery)) : ?>
+            <div class="hs-carousel">
+                <div class="hs-carousel__track">
+                    <?php foreach ($gallery as $item) : ?>
+                        <div class="hs-carousel__slide">
+                            <?php if ($item['type'] === 'video') : ?>
+                                <div class="hs-responsive-embed"><?php echo $item['embed']; ?></div>
+                            <?php else : ?>
+                                <img src="<?php echo esc_url($item['url']); ?>" alt="<?php echo esc_attr($item['alt'] ?? ''); ?>" loading="lazy">
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         <?php else : ?>
-            <div class="helmet-single__placeholder">No image available</div>
+            <div class="helmet-single__placeholder" style="padding: 2rem; text-align: center;">No image available</div>
         <?php endif; ?>
     </section>
+
+    <!-- About the Helmet (Mobile) -->
+    <?php
+    $analysis = helmetsan_get_technical_analysis($helmetId);
+    $helmetTypeLabel = '';
+    $helmetTypeTermsRaw = get_the_terms($helmetId, 'helmet_type');
+    if (is_array($helmetTypeTermsRaw) && !empty($helmetTypeTermsRaw)) {
+        $helmetTypeLabel = $helmetTypeTermsRaw[0]->name;
+    }
+    $featuresJson = (string) get_post_meta($helmetId, 'features_json', true);
+    $featuresArr = json_decode($featuresJson, true);
+    ?>
+    <section class="hs-panel">
+        <div class="hs-about-card">
+            <div class="hs-about-card__icon">🪖</div>
+            <div class="hs-about-card__body">
+                <h2>About the <?php echo esc_html(get_the_title()); ?></h2>
+                <?php if ($helmetTypeLabel !== '') : ?>
+                    <span class="hs-about-card__type"><?php echo esc_html($helmetTypeLabel); ?></span>
+                <?php endif; ?>
+                <?php $descContent = get_the_content(); ?>
+                <?php if ($descContent) : ?>
+                    <div class="hs-about-card__desc"><?php echo wpautop(wp_kses_post($descContent)); ?></div>
+                <?php elseif ($analysis) : ?>
+                    <p class="hs-about-card__desc"><?php echo esc_html($analysis); ?></p>
+                <?php endif; ?>
+                <div class="hs-about-card__attrs">
+                    <?php if ($certs !== '' && $certs !== 'N/A') : ?>
+                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">✅</span> <?php echo esc_html($certs); ?></span>
+                    <?php endif; ?>
+                    <?php if ($headShape !== '') : ?>
+                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🧠</span> <?php echo esc_html(ucwords(str_replace('-', ' ', $headShape))); ?></span>
+                    <?php endif; ?>
+                    <?php if ($helmetFamily !== '') : ?>
+                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🏷️</span> <?php echo esc_html($helmetFamily); ?> Family</span>
+                    <?php endif; ?>
+                    <?php if ($shell !== '') : ?>
+                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🛡️</span> <?php echo esc_html($shell); ?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <?php if (is_array($featuresArr) && $featuresArr !== []) : ?>
+        <section class="hs-panel">
+            <h2>Feature Highlights</h2>
+            <div class="hs-feature-pills">
+                <?php foreach ($featuresArr as $feature) : ?>
+                    <span class="hs-feature-pill"><?php echo esc_html((string) $feature); ?></span>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
 
     <section class="helmet-mobile-pdp__size hs-panel">
         <h2>Size Selection</h2>

@@ -2,7 +2,7 @@
 
 use Helmetsan\Core\Plugin;
 
-require_once __DIR__ . '/../wp-load.php';
+// require_once __DIR__ . '/../wp-load.php'; // Removed for WP-CLI eval-file compatibility
 
 $posts = get_posts([
     'post_type' => 'helmet',

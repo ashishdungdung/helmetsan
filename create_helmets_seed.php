@@ -13325,11 +13325,12 @@ foreach ($brands as $brandName => $models) {
             $variantSlug = strtolower(str_replace([' ', '/'], '-', $cw['name']));
             $variantId = $modelId . '_' . $variantSlug;
             
+
             // Calculate multi-currency
             $vPrice = $specs['price'] + ($cw['price_adj'] ?? 0);
             $priceEur = round($vPrice * 0.92, 2);
             $priceGbp = round($vPrice * 0.79, 2);
-            
+
             $variants[] = [
                 'id' => $variantId,
                 'title' => $brandName . ' ' . $modelName . ' ' . $cw['name'],
@@ -13352,22 +13353,22 @@ foreach ($brands as $brandName => $models) {
                     'sizes' => ['XS', 'S', 'M', 'L', 'XL', '2XL'],
                     'color' => $cw['name']
                 ],
-                'images' => [],
+                'geo_media' => [],
                 'stock_status' => 'instock'
             ];
-            
+
             // Handle Carbon special specs override
             if (isset($cw['family']) && $cw['family'] === 'Carbon') {
                 $variants[count($variants)-1]['specs']['material'] = 'Carbon Fiber';
                 $variants[count($variants)-1]['specs']['weight_g'] = $specs['weight'] - 100;
             }
         }
-        
+
         // Generate Images
         $baseImages = [];
         for ($i = 1; $i <= 3; $i++) {
             $text = urlencode($brandName . ' ' . $modelName . ' ' . $i);
-            $baseImages[] = "https://via.placeholder.com/800x800.png?text={$text}";
+            $baseImages[] = "https://placehold.co/800x800/222/white?text={$text}";
         }
 
         // Parent Item
@@ -13391,23 +13392,69 @@ foreach ($brands as $brandName => $models) {
                 'certifications' => $specs['cert'], // Moved here
             ],
             'description' => $specs['desc'],
-            'variants' => array_map(function($v) use ($brandName, $modelName) {
+            'product_details' => [
+                'description' => $specs['desc']
+            ],
+            'variants' => array_map(function($v) use ($brandName, $modelName, $specs) {
                  // Add images to variants too
+                 // We keep this nested array for the Parent's 'variants_json' meta
                  $vText = urlencode($v['title']);
-                 $v['images'] = [
-                     "https://via.placeholder.com/800x800.png?text={$vText}",
-                     "https://via.placeholder.com/800x800.png?text={$vText}+Side",
-                     "https://via.placeholder.com/800x800.png?text={$vText}+Back"
+                 $v['geo_media'] = [
+                     "https://placehold.co/800x800/222/white?text={$vText}",
+                     "https://placehold.co/800x800/222/white?text={$vText}+Side",
+                     "https://placehold.co/800x800/222/white?text={$vText}+Back"
                  ];
                  return $v;
             }, $variants),
-            'images' => $baseImages
+            'geo_media' => $baseImages
         ];
         
         $output[] = $item;
+
+        // Flatten Variants into Output (Create separate posts for them)
+        foreach ($item['variants'] as $v) {
+            $variantItem = [
+                'id' => $v['id'],
+                'title' => $v['title'],
+                'brand' => $brandName,
+                'type' => 'variant', // IngestionService treats this as 'helmet' CPT
+                'parent_id' => $modelId,
+                'helmet_family' => $modelName,
+                'price' => [
+                    'current' => $v['price']['usd'],
+                    'usd' => $v['price']['usd'],
+                    'eur' => $v['price']['eur'],
+                    'gbp' => $v['price']['gbp']
+                ],
+                'certifications' => $specs['cert'], // Inherit certs
+                'head_shape' => $specs['shape'],    // Inherit shape
+                'specs' => $item['specs'],          // Inherit specs
+                'description' => $specs['desc'],    // Inherit description
+                'product_details' => [
+                    'description' => $specs['desc']
+                ],
+                'geo_media' => $v['geo_media'],
+                // Variant specific fields
+                'color' => $v['color'],
+                'color_family' => $v['color_family'],
+                'sku' => $v['sku'],
+                'finish' => $v['finish'],
+                'is_graphic' => $v['is_graphic'],
+                'availability' => $v['availability']
+            ];
+            
+            // Handle Carbon variant specs override in the flattened item
+            if (isset($v['color_family']) && $v['color_family'] === 'Carbon') {
+                $variantItem['specs']['material'] = 'Carbon Fiber';
+                $variantItem['specs']['weight_g'] = $specs['weight'] - 100;
+            }
+
+            $output[] = $variantItem;
+        }
+
     }
 }
-
+ 
 // ── Output ─────────────────────────────────────────────────────────────
 $jsonData = json_encode($output, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
@@ -13417,32 +13464,23 @@ if (isset($opts['validate'])) {
     $uniqueIds = array_unique($ids);
     $dupes = count($ids) - count($uniqueIds);
     
-    // Check variant ID uniqueness
-    $allVariantIds = [];
-    foreach ($output as $p) {
-        foreach ($p['variants'] as $v) {
-            $allVariantIds[] = $v['id'];
-        }
-    }
-    $uniqueVarIds = array_unique($allVariantIds);
-    $varDupes = count($allVariantIds) - count($uniqueVarIds);
+    // Check variant ID uniqueness (now they are top level)
+    // We don't need distinct variant check loop anymore as they are in $output
     
     fwrite(STDERR, "\n=== Seed Validation ===\n");
-    fwrite(STDERR, "Parent models:  " . count($output) . "\n");
-    fwrite(STDERR, "Variants:       " . count($allVariantIds) . "\n");
-    fwrite(STDERR, "Total posts:    " . (count($output) + count($allVariantIds)) . "\n");
+    fwrite(STDERR, "Total Posts:    " . count($output) . "\n");
     fwrite(STDERR, "Brands:         " . count($brands) . "\n");
     
-    if ($dupes === 0 && $varDupes === 0) {
+    if ($dupes === 0) {
         fwrite(STDERR, "✅ No duplicate IDs\n");
     } else {
-        fwrite(STDERR, "❌ DUPLICATE IDs Found (Parents: $dupes, Variants: $varDupes)\n");
-        if ($varDupes > 0) {
-             $counts = array_count_values($allVariantIds);
+        fwrite(STDERR, "❌ DUPLICATE IDs Found ($dupes)\n");
+        // if ($dupes > 0) { // implied
+             $counts = array_count_values($ids);
              foreach ($counts as $id => $c) {
                  if ($c > 1) fwrite(STDERR, "   - $id\n");
              }
-        }
+        // }
         exit(1);
     }
     exit(0);

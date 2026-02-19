@@ -110,8 +110,22 @@ final class MediaService
             ];
         }
 
-        // 2. Gallery Images (WooCommerce style or custom meta)
-        // Assuming we might use a standard gallery field later, but for now just Featured.
+        // 2. Gallery Images (geo_media_json)
+        $geoMediaJson = get_post_meta($helmetId, 'geo_media_json', true);
+        if ($geoMediaJson) {
+            $media = json_decode($geoMediaJson, true);
+            if (is_array($media)) {
+                foreach ($media as $imageUrl) {
+                    if (!is_string($imageUrl) || $imageUrl === '') continue;
+                    $gallery[] = [
+                        'type' => 'image',
+                        'url' => $imageUrl,
+                        'thumb' => $imageUrl, // External placeholder, use as thumb
+                        'alt' => get_the_title($helmetId),
+                    ];
+                }
+            }
+        }
 
         // 3. Videos
         $videoJson = get_post_meta($helmetId, 'helmet_videos_json', true);

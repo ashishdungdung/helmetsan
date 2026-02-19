@@ -185,8 +185,6 @@ final class SearchService
         }
         $html = ob_get_clean();
 
-        $html = ob_get_clean();
-
         // Pagination: If ajax_load_more is true, we don't need the list pagination as much, 
         // but we DO need to know next page number.
         $nextPage = (int) $query->get('paged') + 1;
