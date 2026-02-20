@@ -58,6 +58,31 @@ EOF
 
 if [ $? -eq 0 ]; then
     echo "✅ Deployment Successful!"
+    
+    # 4. Post-deployment health check
+    echo "🔍 Running post-deployment health check..."
+    $SSHPASS ssh "$USER@$HOST" << HEALTHCHECK
+        cd "$REMOTE_BASE"
+        
+        # Verify plugin is active and loadable
+        PLUGIN_STATUS=\$(wp --allow-root plugin status helmetsan-core 2>/dev/null | grep -c "Status: Active" || true)
+        if [ "\$PLUGIN_STATUS" -eq 1 ]; then
+            echo "   ✅ Plugin is active"
+        else
+            echo "   ⚠️  Plugin may not be active. Run: wp plugin activate helmetsan-core"
+        fi
+        
+        # Verify data root is accessible
+        DATA_ROOT=\$(wp --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null || echo "FAILED")
+        if [ "\$DATA_ROOT" != "FAILED" ] && [ -d "\$DATA_ROOT" ]; then
+            HELMET_COUNT=\$(find "\$DATA_ROOT/helmets" -name '*.json' 2>/dev/null | wc -l)
+            BRAND_COUNT=\$(find "\$DATA_ROOT/brands" -name '*.json' 2>/dev/null | wc -l)
+            echo "   ✅ Data root OK: \$DATA_ROOT"
+            echo "      Helmet JSONs: \$HELMET_COUNT | Brand JSONs: \$BRAND_COUNT"
+        else
+            echo "   ⚠️  Data root not accessible: \$DATA_ROOT"
+        fi
+HEALTHCHECK
 else
     echo "❌ Remote extraction failed."
     exit 1

@@ -71,11 +71,12 @@ $brandPosts = get_posts([
     'order' => 'ASC',
 ]);
 
+$paged = max(1, (int) ($getString('paged') !== '' ? $getString('paged') : get_query_var('paged', 1)));
 $args = [
     'post_type' => 'helmet',
     'post_status' => 'publish',
     'posts_per_page' => 18,
-    'paged' => max(1, get_query_var('paged')),
+    'paged' => $paged,
 ];
 
 $taxQuery = [];
@@ -345,9 +346,24 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 </details>
 
                 <div class="hs-filter-actions">
-                    <a class="hs-btn hs-btn--ghost" href="<?php echo esc_url($archiveUrl); ?>">Clear</a>
+                    <a class="hs-btn hs-btn--text" href="<?php echo esc_url($archiveUrl); ?>">Clear All</a>
                     <button class="hs-btn hs-btn--primary" type="submit">Show <?php echo esc_html((string) max(0, (int) $query->found_posts)); ?> Helmets</button>
                 </div>
+                <script>
+                document.getElementById('hsHelmetFilterForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var form = this;
+                    var params = new URLSearchParams();
+                    var data = new FormData(form);
+                    data.forEach(function(value, key) {
+                        if (value !== '' && value !== null) {
+                            params.append(key, value);
+                        }
+                    });
+                    var qs = params.toString();
+                    window.location.href = form.action + (qs ? '?' + qs : '');
+                });
+                </script>
             </form>
         </aside>
 
@@ -396,14 +412,23 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 
                 <div class="hs-pagination-wrap">
                     <?php
+                    // Temporarily replace the global query with our custom query
+                    // so the_posts_pagination reads the correct page/totals.
+                    global $wp_query;
+                    $original_query = $wp_query;
+                    $wp_query = $query; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
                     the_posts_pagination([
                         'total' => $query->max_num_pages,
+                        'current' => $paged,
                         'add_args' => $currentQuery,
                         'mid_size'  => 2,
                         'prev_text' => __( '&larr; Prev', 'helmetsan-theme' ),
                         'next_text' => __( 'Next &rarr;', 'helmetsan-theme' ),
                         'screen_reader_text' => __( 'Helmet Navigation', 'helmetsan-theme' ),
                     ]);
+
+                    $wp_query = $original_query; // Restore original query
 
                     ?>
                 </div>

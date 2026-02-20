@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Region",
+  "type": "object",
+  "required": ["entity", "id", "name"],
+  "properties": {
+    "entity": { "const": "region" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "countries": { "type": "array", "items": { "type": "string" } }
+  }
+}

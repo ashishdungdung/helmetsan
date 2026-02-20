@@ -1,0 +1,58 @@
+{
+  "entity": "helmet",
+  "id": "caberg-duke-evo",
+  "title": "Caberg Duke Evo",
+  "brand": "Caberg",
+  "type": "Modular",
+  "helmet_family": "Caberg Duke",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Modular", "Touring", "Urban"],
+  "features": [
+    "Polycarbonate shell",
+    "Double homologation P/J",
+    "DVT (Double Visor Tech) integrated sun visor",
+    "Pinlock MaxVision included",
+    "Breath deflector",
+    "Micrometric buckle",
+    "Removable and washable liner",
+    "Prepared for Bluetooth communication"
+  ],
+  "specs": {
+    "weight_g": 1600,
+    "weight_lbs": 3.53,
+    "material": "Polycarbonate",
+    "shell_sizes": 2,
+    "certifications": ["ECE 22.06"]
+  },
+  "product_details": {
+    "style": "Premium Urban/Touring Modular",
+    "mfr_product_number": "DUKE-EVO",
+    "sizing_fit": "Intermediate oval. Italian-engineered comfort focus.",
+    "description": "The Caberg Duke Evo is a versatile touring modular with P/J dual homologation, meaning it's safely certified for both open and closed riding. The DVT integrated sun visor drops down smoothly, and the Pinlock MaxVision visor delivers fog-free clarity in all conditions."
+  },
+  "variants": [
+    {
+      "id": "duke-evo-matte-black-lg",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Solid",
+      "size": "LG",
+      "sku": "CAB-DUKEEVO-MBK-LG",
+      "price": 299.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 299.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 299.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 259.90, "currency": "EUR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
+    "IN": { "price": 24990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Very Good",
+    "sharp_stars": 4,
+    "analysis": "ECE 22.06 P/J dual approval is a strong safety indicator — confirming the chin bar mechanism exceeds the stringent new ECE standard's requirements. Polycarbonate shell offers good impact distribution."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_DUKEEVO" }
+}

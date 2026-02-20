@@ -64,10 +64,10 @@ final class SchedulerService
      */
     public function cronSchedules(array $schedules): array
     {
-        $schedules['helmetsan_1h'] = ['interval' => HOUR_IN_SECONDS, 'display' => 'Helmetsan Every 1 Hour'];
-        $schedules['helmetsan_6h'] = ['interval' => 6 * HOUR_IN_SECONDS, 'display' => 'Helmetsan Every 6 Hours'];
-        $schedules['helmetsan_12h'] = ['interval' => 12 * HOUR_IN_SECONDS, 'display' => 'Helmetsan Every 12 Hours'];
-        $schedules['helmetsan_24h'] = ['interval' => DAY_IN_SECONDS, 'display' => 'Helmetsan Every 24 Hours'];
+        $schedules['helmetsan_1h'] = ['interval' => 3600, 'display' => 'Helmetsan Every 1 Hour'];
+        $schedules['helmetsan_6h'] = ['interval' => 6 * 3600, 'display' => 'Helmetsan Every 6 Hours'];
+        $schedules['helmetsan_12h'] = ['interval' => 12 * 3600, 'display' => 'Helmetsan Every 12 Hours'];
+        $schedules['helmetsan_24h'] = ['interval' => 86400, 'display' => 'Helmetsan Every 24 Hours'];
 
         return $schedules;
     }
@@ -150,17 +150,27 @@ final class SchedulerService
      */
     public function runSyncPull(): array
     {
-        $cfg = $this->config->schedulerConfig();
-        $github = $this->config->githubConfig();
-        $limit = max(1, (int) ($cfg['sync_pull_limit'] ?? 200));
-        $profile = (string) ($github['sync_run_profile'] ?? 'pull-only');
+        if (! $this->acquireLock('sync_pull', 1800)) {
+            $msg = 'Sync pull is already running. Mutex lock blocked execution.';
+            $this->maybeAlert('sync_pull', ['ok' => false, 'message' => $msg]);
+            return ['ok' => false, 'message' => $msg];
+        }
 
-        $result = $this->sync->pull($limit, false, null, null, null, $profile, [
-            'source' => 'scheduler',
-        ]);
-        $this->maybeAlert('sync_pull', $result);
+        try {
+            $cfg = $this->config->schedulerConfig();
+            $github = $this->config->githubConfig();
+            $limit = max(1, (int) ($cfg['sync_pull_limit'] ?? 200));
+            $profile = (string) ($github['sync_run_profile'] ?? 'pull-only');
 
-        return $result;
+            $result = $this->sync->pull($limit, false, null, null, null, $profile, [
+                'source' => 'scheduler',
+            ]);
+            $this->maybeAlert('sync_pull', $result);
+
+            return $result;
+        } finally {
+            $this->releaseLock('sync_pull');
+        }
     }
 
     /**
@@ -168,47 +178,55 @@ final class SchedulerService
      */
     public function runRetryFailed(): array
     {
-        if (! $this->ingestionLogs->tableExists()) {
-            $result = ['ok' => false, 'message' => 'Ingestion log table not found'];
-            $this->maybeAlert('retry_failed', $result);
-            return $result;
+        if (! $this->acquireLock('retry_failed', 1800)) {
+            return ['ok' => false, 'message' => 'Retry failed is already running. Mutex lock blocked execution.'];
         }
 
-        $cfg = $this->config->schedulerConfig();
-        $limit = max(1, (int) ($cfg['retry_failed_limit'] ?? 100));
-        $batch = max(1, (int) ($cfg['retry_failed_batch_size'] ?? 50));
-
-        $failedRows   = $this->ingestionLogs->fetch(1, $limit, 'failed', '');
-        $rejectedRows = $this->ingestionLogs->fetch(1, $limit, 'rejected', '');
-        $rows         = array_merge($failedRows, $rejectedRows);
-
-        usort($rows, static function (array $a, array $b): int {
-            $idA = isset($a['id']) ? (int) $a['id'] : 0;
-            $idB = isset($b['id']) ? (int) $b['id'] : 0;
-            return $idB <=> $idA;
-        });
-
-        $rows  = array_slice($rows, 0, $limit);
-        $files = [];
-        foreach ($rows as $row) {
-            $file = isset($row['source_file']) ? (string) $row['source_file'] : '';
-            if ($file !== '' && file_exists($file)) {
-                $files[] = $file;
+        try {
+            if (! $this->ingestionLogs->tableExists()) {
+                $result = ['ok' => false, 'message' => 'Ingestion log table not found'];
+                $this->maybeAlert('retry_failed', $result);
+                return $result;
             }
+
+            $cfg = $this->config->schedulerConfig();
+            $limit = max(1, (int) ($cfg['retry_failed_limit'] ?? 100));
+            $batch = max(1, (int) ($cfg['retry_failed_batch_size'] ?? 50));
+
+            $failedRows   = $this->ingestionLogs->fetch(1, $limit, 'failed', '');
+            $rejectedRows = $this->ingestionLogs->fetch(1, $limit, 'rejected', '');
+            $rows         = array_merge($failedRows, $rejectedRows);
+
+            usort($rows, static function (array $a, array $b): int {
+                $idA = isset($a['id']) ? (int) $a['id'] : 0;
+                $idB = isset($b['id']) ? (int) $b['id'] : 0;
+                return $idB <=> $idA;
+            });
+
+            $rows  = array_slice($rows, 0, $limit);
+            $files = [];
+            foreach ($rows as $row) {
+                $file = isset($row['source_file']) ? (string) $row['source_file'] : '';
+                if ($file !== '' && file_exists($file)) {
+                    $files[] = $file;
+                }
+            }
+
+            $files = array_values(array_unique($files));
+
+            if ($files === []) {
+                return ['ok' => true, 'message' => 'No retryable files found', 'candidate_logs' => count($rows)];
+            }
+
+            $result = $this->ingestion->ingestFiles($files, $batch, null, false, 'scheduler-retry-failed');
+            $result['candidate_logs'] = count($rows);
+            $result['retry_files'] = count($files);
+            $this->maybeAlert('retry_failed', $result);
+
+            return $result;
+        } finally {
+            $this->releaseLock('retry_failed');
         }
-
-        $files = array_values(array_unique($files));
-
-        if ($files === []) {
-            return ['ok' => true, 'message' => 'No retryable files found', 'candidate_logs' => count($rows)];
-        }
-
-        $result = $this->ingestion->ingestFiles($files, $batch, null, false, 'scheduler-retry-failed');
-        $result['candidate_logs'] = count($rows);
-        $result['retry_files'] = count($files);
-        $this->maybeAlert('retry_failed', $result);
-
-        return $result;
     }
 
     /**
@@ -255,23 +273,33 @@ final class SchedulerService
      */
     public function runIngestion(): array
     {
-        $path = $this->config->dataRoot();
-        if (! is_dir($path)) {
-            $result = ['ok' => false, 'message' => 'Data root not found: ' . $path];
-            $this->maybeAlert('ingestion', $result);
-            return $result;
+        if (! $this->acquireLock('ingestion', 3600)) {
+            $msg = 'Ingestion is already running. Mutex lock blocked execution.';
+            $this->maybeAlert('ingestion', ['ok' => false, 'message' => $msg]);
+            return ['ok' => false, 'message' => $msg];
         }
 
-        $result = $this->ingestion->ingestPath($path, 100, null, false);
-        $this->maybeAlert('ingestion', $result);
+        try {
+            $path = $this->config->dataRoot();
+            if (! is_dir($path)) {
+                $result = ['ok' => false, 'message' => 'Data root not found: ' . $path];
+                $this->maybeAlert('ingestion', $result);
+                return $result;
+            }
 
-        return $result;
+            $result = $this->ingestion->ingestPath($path, 100, null, false);
+            $this->maybeAlert('ingestion', $result);
+
+            return $result;
+        } finally {
+            $this->releaseLock('ingestion');
+        }
     }
 
     private function ensureEvent(string $hook, string $recurrence): void
     {
         if (! wp_next_scheduled($hook)) {
-            wp_schedule_event(time() + MINUTE_IN_SECONDS, $recurrence, $hook);
+            wp_schedule_event(time() + 60, $recurrence, $hook);
         }
     }
 
@@ -280,6 +308,22 @@ final class SchedulerService
         while ($timestamp = wp_next_scheduled($hook)) {
             wp_unschedule_event($timestamp, $hook);
         }
+    }
+
+    private function acquireLock(string $task, int $expiration = 3600): bool
+    {
+        $lockName = 'hs_cron_lock_' . $task;
+        if (get_transient($lockName)) {
+            return false;
+        }
+        set_transient($lockName, time(), $expiration);
+        return true;
+    }
+
+    private function releaseLock(string $task): void
+    {
+        $lockName = 'hs_cron_lock_' . $task;
+        delete_transient($lockName);
     }
 
     private function recurrenceFromHours(int $hours): string

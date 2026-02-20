@@ -1,0 +1,67 @@
+{
+  "entity": "helmet",
+  "id": "smk-stellar",
+  "title": "SMK Stellar",
+  "brand": "SMK",
+  "type": "Full Face",
+  "helmet_family": "SMK Stellar",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Sport Touring"],
+  "features": [
+    "Hydrodynamic dual-visor system",
+    "Pinlock-ready face shield",
+    "Dynamic ventilation with top and chin vents",
+    "Removable and washable inner liner",
+    "Quick release buckle",
+    "Speaker pockets for Bluetooth communication",
+    "Anti-scratch visor coating",
+    "Wind-noise deflector"
+  ],
+  "specs": {
+    "weight_g": 1480,
+    "weight_lbs": 3.26,
+    "material": "High-impact Thermoplastic",
+    "shell_sizes": 2,
+    "certifications": ["ISI IS 4151", "ECE 22.05", "DOT"]
+  },
+  "product_details": {
+    "style": "Affordable Sport Touring",
+    "mfr_product_number": "STELLAR",
+    "sizing_fit": "Intermediate oval. Designed for Asian and Indian head shapes.",
+    "description": "The SMK Stellar is one of India's most popular sport-touring helmets. It packs a remarkable feature set — dual visor, Pinlock-ready shield, and DOT/ECE/ISI triple certification — into a price point that's accessible to most Indian riders."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Designed with the Indian rider in mind. Comfortable for long commutes on two-wheelers.",
+    "size_translation": [
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "stellar-sports-star-black-md",
+      "style": "Graphic",
+      "color": "Black/Yellow",
+      "graphics": "Sports Star",
+      "size": "MD",
+      "sku": "SMK-STL-SSTAR-MD",
+      "price": 5499,
+      "currency": "INR",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 5499, "currency": "INR" },
+  "geo_pricing": {
+    "IN": { "price": 5499, "currency": "INR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
+    "US": { "price": 89.99, "currency": "USD", "availability": "limited", "source": "import", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Good",
+    "sharp_stars": 3,
+    "analysis": "Triple-certified (ISI, ECE, DOT) which is remarkable at this price point. The thermoplastic shell is durable and meets all required impact standards. Best value proposition in the Indian market for commuters who want international-grade safety."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_SMKSTL" }
+}

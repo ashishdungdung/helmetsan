@@ -83,7 +83,7 @@ final class GeoService
         }
 
         // 3. Fallback to default
-        $this->resolvedCountry = 'US';
+        $this->resolvedCountry = 'IN';
 
         return $this->resolvedCountry;
     }

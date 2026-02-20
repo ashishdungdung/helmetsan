@@ -1,0 +1,82 @@
+{
+  "entity": "helmet",
+  "id": "agv-pista-gp-rr",
+  "title": "AGV Pista GP RR",
+  "brand": "AGV",
+  "type": "Full Face",
+  "helmet_family": "AGV Pista GP",
+  "head_shape": "Long Oval",
+  "helmet_types": ["Full Face", "Race", "Carbon Fiber"],
+  "features": [
+    "100% carbon fiber shell",
+    "5-density EPS with integrated hydration channel",
+    "360° Rear Ventilation (RRV)",
+    "Ultravision 190° eye port",
+    "Metal visor lock",
+    "Titanium Double-D ring",
+    "FIM homologated",
+    "MotoGP-derived aerodynamics",
+    "Bespoke Alcantera interior",
+    "Emergency cheek pad release"
+  ],
+  "specs": {
+    "weight_g": 1450,
+    "weight_lbs": 3.20,
+    "material": "100% Carbon Fiber",
+    "shell_sizes": 4,
+    "certifications": ["ECE 22.06", "DOT", "FIM"]
+  },
+  "product_details": {
+    "style": "MotoGP Race Replica",
+    "mfr_product_number": "PISTA-GP-RR",
+    "sizing_fit": "Long oval (Italian ergonomics). Narrower through the temples with elongated front-to-back depth.",
+    "description": "The AGV Pista GP RR is the exact same helmet worn by MotoGP champions. 100% carbon fiber construction, FIM homologated, with 5-density EPS and the widest field of vision of any racing helmet. This is the ultimate expression of racing safety and aerodynamics."
+  },
+  "sizing_fit": {
+    "head_shape": "Long Oval",
+    "fit_notes": "Tight race fit. Long oval shape is typical of Italian helmets — riders with round heads may experience temple pressure. Break-in period is 200+ miles.",
+    "size_translation": [
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MS", "cm": "57", "in": "22.44" },
+      { "size": "ML", "cm": "58", "in": "22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "pista-gp-rr-matte-carbon-md",
+      "style": "Carbon",
+      "color": "Matte Carbon",
+      "graphics": "Solid Carbon",
+      "size": "ML",
+      "sku": "AGV-PGPRR-MCARB-ML",
+      "price": 1599.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "pista-gp-rr-rossi-winter-test-md",
+      "style": "Graphic",
+      "color": "Multi",
+      "graphics": "Rossi Winter Test 2021",
+      "size": "ML",
+      "sku": "AGV-PGPRR-RWNT-ML",
+      "price": 1799.95,
+      "currency": "USD",
+      "availability": "limited"
+    }
+  ],
+  "price": { "current": 1599.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 1599.95, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 1499.00, "currency": "EUR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
+    "IN": { "price": 149990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Exceptional",
+    "sharp_stars": 5,
+    "analysis": "The Pista GP RR represents the absolute pinnacle of helmet engineering. The 5-density EPS system provides graduated energy management matching the demands of 350+ km/h MotoGP impacts. FIM homologation confirms this helmet meets the most stringent global racing standard. The 100% carbon shell achieves the highest strength-to-weight ratio available on any production helmet."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_PGPRR" }
+}

@@ -1,0 +1,86 @@
+{
+  "entity": "helmet",
+  "id": "shark-spartan-rs",
+  "title": "Shark Spartan RS",
+  "brand": "Shark",
+  "type": "Full Face",
+  "helmet_family": "Shark Spartan",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Sport"],
+  "features": [
+    "Multi-axial fiberglass shell",
+    "Multi-density EPS",
+    "Shark Easy Fit for eyeglasses",
+    "Micro-lock buckle",
+    "Pinlock MaxVision included",
+    "Variable Density System (VDS)",
+    "Wide eye port for superior peripheral vision",
+    "Removable and washable Alveotech liner",
+    "Aero blade rear spoiler"
+  ],
+  "specs": {
+    "weight_g": 1480,
+    "weight_lbs": 3.26,
+    "material": "Multi-axial Fiberglass",
+    "shell_sizes": 3,
+    "certifications": ["ECE 22.06", "DOT"]
+  },
+  "product_details": {
+    "style": "Sport Street Full Face",
+    "mfr_product_number": "SPARTAN-RS",
+    "sizing_fit": "Intermediate oval. Shark Easy Fit system creates grooves for eyeglass temples.",
+    "description": "The Spartan RS is Shark's mid-premium sport helmet, delivering an aggressive profile with excellent ventilation and the signature Shark Easy Fit system for glasses wearers. The Variable Density EPS ensures optimal protection across various impact scenarios."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "French fit — slightly more generous around the cheeks compared to Japanese brands. The Easy Fit channel accommodates most eyeglass frames.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "spartan-rs-blank-matte-black-md",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Blank (Solid)",
+      "size": "MD",
+      "sku": "SHARK-SRS-MBK-MD",
+      "price": 399.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "spartan-rs-carbon-md",
+      "style": "Carbon",
+      "color": "Carbon Skin",
+      "graphics": "Carbon DKA",
+      "size": "MD",
+      "sku": "SHARK-SRSC-DKA-MD",
+      "price": 529.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": {
+    "current": 399.99,
+    "currency": "USD"
+  },
+  "geo_pricing": {
+    "US": { "price": 399.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 349.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 37990, "currency": "INR", "availability": "in_stock", "source": "official_importer", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Very Good",
+    "sharp_stars": 4,
+    "analysis": "The multi-axial fiberglass shell provides robust protection. Variable Density EPS system optimizes energy absorption. The micro-lock buckle is more convenient than traditional D-ring for daily commuters."
+  },
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_SRS"
+  }
+}

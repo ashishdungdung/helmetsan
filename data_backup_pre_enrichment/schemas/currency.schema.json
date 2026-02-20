@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Currency",
+  "type": "object",
+  "required": ["entity", "code", "name"],
+  "properties": {
+    "entity": { "const": "currency" },
+    "code": { "type": "string", "minLength": 3, "maxLength": 3 },
+    "name": { "type": "string" },
+    "symbol": { "type": "string" },
+    "decimal_places": { "type": "integer" }
+  }
+}

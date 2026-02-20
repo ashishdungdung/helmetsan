@@ -58,6 +58,7 @@ final class Admin
         add_action('admin_post_helmetsan_export', [$this, 'handleExportAction']);
         add_action('admin_post_helmetsan_media_api_test', [$this, 'handleMediaApiTestAction']);
         add_action('admin_post_helmetsan_woo_bridge_sync', [$this, 'handleWooBridgeSyncAction']);
+        add_action('admin_post_helmetsan_scheduler_task', [$this, 'handleSchedulerTaskAction']);
     }
 
     public function registerMenu(): void
@@ -768,6 +769,24 @@ final class Admin
             admin_url('admin.php')
         );
 
+        wp_safe_redirect($url);
+        exit;
+    }
+
+    public function handleSchedulerTaskAction(): void
+    {
+        if (! current_user_can('manage_options')) {
+            wp_die('Unauthorized');
+        }
+
+        check_admin_referer('helmetsan_scheduler_task');
+        $task = isset($_REQUEST['task']) ? sanitize_key((string) $_REQUEST['task']) : '';
+
+        if ($task !== '') {
+            $this->scheduler->runTask($task);
+        }
+
+        $url = add_query_arg(['page' => 'helmetsan-settings', 'stab' => 'scheduler', 'task_run' => $task], admin_url('admin.php'));
         wp_safe_redirect($url);
         exit;
     }
@@ -2940,7 +2959,33 @@ final class Admin
             ], $scheduler);
 
             $status = $this->scheduler->status();
-            echo '<h3>Current Scheduler Status</h3><pre style="background:#f5f5f5;padding:12px;border-radius:4px;max-height:300px;overflow:auto;">' . esc_html((string) wp_json_encode($status, JSON_PRETTY_PRINT)) . '</pre>';
+            
+            echo '<h2>Scheduler Control Center</h2>';
+            if (isset($_GET['task_run'])) {
+                echo '<div class="notice notice-success is-dismissible" style="margin-left:0;margin-top:10px;"><p>Task <strong>' . esc_html(sanitize_text_field((string)$_GET['task_run'])) . '</strong> executed manually via Control Center.</p></div>';
+            }
+            
+            echo '<table class="widefat striped" style="margin-bottom: 20px;">';
+            echo '<thead><tr><th>Task</th><th>Hook</th><th>Next Run</th><th>Actions</th></tr></thead>';
+            echo '<tbody>';
+            $nextRuns = $status['next_runs'] ?? [];
+            foreach ($nextRuns as $taskKey => $timestamp) {
+                // Determine hook based on task key convention in SchedulerService
+                $hookName = 'helmetsan_cron_' . $taskKey;
+                $nextRunStr = $timestamp ? wp_date('Y-m-d H:i:s', $timestamp) : 'Not Scheduled';
+                $nonceUrl = wp_nonce_url(admin_url('admin-post.php?action=helmetsan_scheduler_task&task=' . $taskKey), 'helmetsan_scheduler_task');
+                
+                echo '<tr>';
+                echo '<td><strong>' . esc_html(ucwords(str_replace('_', ' ', (string)$taskKey))) . '</strong></td>';
+                echo '<td><code>' . esc_html($hookName) . '</code></td>';
+                echo '<td>' . esc_html($nextRunStr) . '</td>';
+                echo '<td><a href="' . esc_url($nonceUrl) . '" class="button button-small">Run Now</a></td>';
+                echo '</tr>';
+            }
+            echo '</tbody>';
+            echo '</table>';
+
+            echo '<h3 style="margin-top:20px;">Raw Config Snapshot</h3><pre style="background:#f5f5f5;padding:12px;border-radius:4px;max-height:300px;overflow:auto;">' . esc_html((string) wp_json_encode($status, JSON_PRETTY_PRINT)) . '</pre>';
         }
 
         // ── Alerts ───────────────────────────────────────────────

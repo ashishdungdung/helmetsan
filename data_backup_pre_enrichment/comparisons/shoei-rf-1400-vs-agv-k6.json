@@ -1,0 +1,20 @@
+{
+  "entity": "comparison",
+  "id": "shoei-rf-1400-vs-agv-k6",
+  "title": "Shoei RF-1400 vs AGV K6",
+  "helmet_ids": ["shoei-rf-1400", "agv-k6"],
+  "parameters": [
+    {"id":"weight","label":"Weight","weight":0.25},
+    {"id":"safety","label":"Safety Certification Depth","weight":0.30},
+    {"id":"noise","label":"Noise Control","weight":0.20},
+    {"id":"value","label":"Value for Money","weight":0.25}
+  ],
+  "scores": [
+    {"helmet_id":"shoei-rf-1400","overall":8.9},
+    {"helmet_id":"agv-k6","overall":8.7}
+  ],
+  "recommendations": [
+    {"segment":"touring","winner":"shoei-rf-1400","reason":"stability and comfort at highway speed"},
+    {"segment":"lightweight-sport","winner":"agv-k6","reason":"lower shell weight"}
+  ]
+}

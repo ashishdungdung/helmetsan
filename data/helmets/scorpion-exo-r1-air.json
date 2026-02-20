@@ -1,0 +1,81 @@
+{
+  "entity": "helmet",
+  "id": "scorpion-exo-r1-air",
+  "title": "Scorpion EXO-R1 Air",
+  "brand": "Scorpion",
+  "type": "Full Face",
+  "helmet_family": "Scorpion EXO-R1",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Race", "Track"],
+  "features": [
+    "TCT (Thermodynamic Composite Technology) shell",
+    "Aero-tuned ventilation with rear exhaust",
+    "Emergency release cheek pads",
+    "MaxVision Pinlock-ready face shield",
+    "Ellip-Tec II ratchet system",
+    "KwikFit cheek pads for eyeglass wearers",
+    "3D fiber interior lining",
+    "Multi-density EPS",
+    "Race-ready aerodynamic profile"
+  ],
+  "specs": {
+    "weight_g": 1399,
+    "weight_lbs": 3.08,
+    "material": "TCT-Ultra (Fiberglass, Aramid, Poly-Resin)",
+    "shell_sizes": 3,
+    "certifications": ["DOT", "ECE 22.05", "Snell M2020"]
+  },
+  "product_details": {
+    "style": "Track / Race Full Face",
+    "mfr_product_number": "EXO-R1-AIR",
+    "sizing_fit": "Intermediate oval with narrow profile for tucking. KwikFit cheek pads for glasses.",
+    "description": "The EXO-R1 Air is Scorpion's pinnacle road-race helmet. Lightweight TCT-Ultra shell, aero-tuned ventilation, and the KwikFit system for glasses make it a track-day warrior that's practical enough for daily use."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Slightly aggressive race fit — the shell is narrow for aerodynamic tucking. Consider sizing up if you're between sizes.",
+    "size_translation": [
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "exo-r1-air-matte-black-md",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Solid",
+      "size": "MD",
+      "sku": "SCORP-R1AIR-MBK-MD",
+      "price": 499.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "exo-r1-air-carbon-md",
+      "style": "Carbon",
+      "color": "Gloss Carbon",
+      "graphics": "Carbon Air",
+      "size": "MD",
+      "sku": "SCORP-R1AIRC-MD",
+      "price": 649.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 499.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 499.95, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 449.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 49990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Excellent",
+    "sharp_stars": 5,
+    "analysis": "Triple-certified (DOT, ECE, Snell) and one of the lightest in its class. The TCT-Ultra shell combines fiberglass layers with aramid and poly-resin to achieve an outstanding strength-to-weight ratio. The aero-tuned design significantly reduces buffeting at track speeds."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_R1AIR" }
+}

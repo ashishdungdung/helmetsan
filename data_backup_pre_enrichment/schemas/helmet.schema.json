@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Helmet",
+  "type": "object",
+  "required": ["entity", "id", "title", "brand", "type", "specs"],
+  "properties": {
+    "entity": { "const": "helmet" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "brand": { "type": "string" },
+    "type": { "type": "string" },
+    "helmet_family": { "type": "string" },
+    "head_shape": { "type": "string" },
+    "specs": {
+      "type": "object",
+      "properties": {
+        "weight_g": { "type": "number" },
+        "weight_lbs": { "type": "number" },
+        "material": { "type": "string" },
+        "shell_sizes": { "type": ["string", "number"] },
+        "certifications": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "current": { "type": "number" },
+        "currency": { "type": "string" }
+      }
+    },
+    "geo_pricing": {
+      "type": "object",
+      "description": "Country-market pricing map"
+    },
+    "variants": {
+      "type": "array",
+      "description": "Color/graphic/size variants with geo pricing",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "sku": { "type": "string" },
+          "mfr_part_number": { "type": "string" },
+          "style": { "type": "string" },
+          "color": { "type": "string" },
+          "graphics": { "type": "string" },
+          "size": { "type": "string" },
+          "size_cm": { "type": "string" },
+          "size_in": { "type": "string" },
+          "price": { "type": "number" },
+          "currency": { "type": "string" },
+          "geo_pricing": { "type": "object" },
+          "availability": { "type": "string" }
+        }
+      }
+    },
+    "product_details": {
+      "type": "object",
+      "properties": {
+        "style": { "type": "string" },
+        "mfr_product_number": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "part_numbers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "sizing_fit": {
+      "type": "object",
+      "properties": {
+        "head_shape": { "type": "string" },
+        "fit_notes": { "type": "string" },
+        "size_chart": { "type": "array", "items": { "type": "object" } },
+        "size_translation": { "type": "array", "items": { "type": "object" } }
+      }
+    },
+    "related_videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "provider": { "type": "string" }
+        }
+      }
+    },
+    "certification_documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "country": { "type": "string" },
+          "url": { "type": "string" },
+          "issuer": { "type": "string" }
+        }
+      }
+    },
+    "safety_intelligence": {
+      "type": "object",
+      "properties": {
+        "homologation_standard": { "type": "string" },
+        "sharp_rating": { "type": "number" },
+        "sharp_impact_zones": {
+          "type": "object",
+          "properties": {
+            "frontal": { "type": "number" },
+            "rear": { "type": "number" },
+            "left": { "type": "number" },
+            "right": { "type": "number" }
+          }
+        },
+        "rotational_mitigation": { "type": "string" }
+      }
+    },
+    "aero_acoustic_profile": {
+      "type": "object",
+      "properties": {
+        "noise_db_at_100kph": { "type": "number" },
+        "drag_coefficient": { "type": "number" },
+        "ventilation_efficiency_score": { "type": "number" }
+      }
+    },
+    "tech_integration": {
+      "type": "object",
+      "properties": {
+        "comms_cutout_type": { "type": "string" },
+        "speaker_pocket_depth_mm": { "type": "number" },
+        "cable_management": { "type": "boolean" },
+        "hud_ready": { "type": "boolean" }
+      }
+    },
+    "fitment_coordinates": {
+      "type": "object",
+      "properties": {
+        "internal_shape_3d": { "type": "string" },
+        "internal_length_mm": { "type": "number" },
+        "internal_width_mm": { "type": "number" },
+        "crown_depth_mm": { "type": "number" }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "entity": "helmet",
+  "id": "bell-star-dlx-mips",
+  "title": "Bell Star DLX MIPS",
+  "brand": "Bell",
+  "type": "Full Face",
+  "helmet_family": "Bell Star",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Sport", "Track"],
+  "features": [
+    "Lightweight carbon composite shell",
+    "MIPS (Multi-directional Impact Protection System)",
+    "Flex impact liner",
+    "Velocity Flow ventilation",
+    "ProVision anti-fog, anti-scratch face shield",
+    "Magnefusion magnetic chin strap",
+    "Panovision panoramic eye port",
+    "Removable/washable Virus Cool Jade liner",
+    "Integrated communication speaker pockets",
+    "NanoGlide cheek pads"
+  ],
+  "specs": {
+    "weight_g": 1520,
+    "weight_lbs": 3.35,
+    "material": "Carbon Composite (TriMatrix)",
+    "shell_sizes": 3,
+    "certifications": ["DOT", "ECE 22.06", "Snell M2020"]
+  },
+  "product_details": {
+    "style": "Premium Sport Full Face",
+    "mfr_product_number": "STAR-DLX-MIPS",
+    "sizing_fit": "Intermediate oval with premium NanoGlide cheek pads.",
+    "description": "The Bell Star DLX MIPS combines Bell's race heritage with revolutionary MIPS rotational impact protection and a premium Flex impact liner. The Magnefusion magnetic chin strap buckle is effortless to use even with gloves."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "True intermediate oval. MIPS liner adds a slight internal layer — consider sizing up if between sizes.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "star-dlx-mips-matte-black-md",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Solid",
+      "size": "MD",
+      "sku": "BELL-STARDLX-MBK-MD",
+      "price": 599.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "star-dlx-mips-isle-of-man-gloss-md",
+      "style": "Graphic",
+      "color": "Black/Yellow",
+      "graphics": "Isle of Man",
+      "size": "MD",
+      "sku": "BELL-STARDLX-IOM-MD",
+      "price": 699.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 599.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 599.95, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 549.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 59990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Excellent",
+    "sharp_stars": 5,
+    "analysis": "Triple certified (DOT/ECE/Snell) with MIPS for rotational impact protection. The Flex impact liner deforms progressively on impact, significantly reducing the g-forces transmitted to the brain. This is one of the safest street helmets money can buy."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_STARDLX" }
+}

@@ -1,0 +1,83 @@
+{
+  "entity": "helmet",
+  "id": "icon-airflite",
+  "title": "Icon Airflite",
+  "brand": "Icon",
+  "type": "Full Face",
+  "helmet_family": "Icon Airflite",
+  "head_shape": "Long Oval",
+  "helmet_types": ["Full Face", "Street"],
+  "features": [
+    "Injection-molded polycarbonate shell",
+    "Hydradry moisture-wicking interior",
+    "Prolock visor locking system",
+    "Fog-free Optics shield",
+    "Removable and washable liner",
+    "Speaker pockets built-in",
+    "Integrated rear spoiler",
+    "Chin curtain included",
+    "Drop-down sun lens"
+  ],
+  "specs": {
+    "weight_g": 1580,
+    "weight_lbs": 3.48,
+    "material": "Polycarbonate",
+    "shell_sizes": 3,
+    "certifications": ["DOT", "ECE 22.05"]
+  },
+  "product_details": {
+    "style": "Urban Street Full Face",
+    "mfr_product_number": "AIRFLITE",
+    "sizing_fit": "Long oval with a slightly aggressive street profile.",
+    "description": "The Icon Airflite is a style-forward street helmet with bold graphics and a functional design. The integrated drop-down sun lens, fog-free shield, and Hydradry liner make it a practical daily companion with serious attitude."
+  },
+  "sizing_fit": {
+    "head_shape": "Long Oval",
+    "fit_notes": "Long oval shape fits narrower through the temples. Icon helmets are known for their aggressive, snug fit out of the box.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" },
+      { "size": "3XL", "cm": "65-66", "in": "25.59-25.98" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "airflite-rubatone-md",
+      "style": "Solid",
+      "color": "Rubatone Black",
+      "graphics": "Solid Rubatone",
+      "size": "MD",
+      "sku": "ICON-AFLT-RBT-MD",
+      "price": 250.00,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "airflite-krom-md",
+      "style": "Graphic",
+      "color": "Silver/Black",
+      "graphics": "Krom",
+      "size": "MD",
+      "sku": "ICON-AFLT-KROM-MD",
+      "price": 280.00,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 250.00, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 250.00, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 229.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 22990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Good",
+    "sharp_stars": 3,
+    "analysis": "Solid polycarbonate construction that meets DOT and ECE standards. The drop-down sun visor adds daily practicality. Shell thickness and EPS density are appropriate for street riding but not ideal for track use."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_AFLT" }
+}

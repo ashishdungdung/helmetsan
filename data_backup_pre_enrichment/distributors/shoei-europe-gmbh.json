@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "shoei-europe-gmbh",
+  "name": "Shoei Europe GmbH",
+  "type": "regional-distributor",
+  "country_code": "DE",
+  "regions": ["eu"],
+  "countries": ["DE", "FR", "IT", "ES"],
+  "brands": ["Shoei"],
+  "warehouses": [
+    {"id":"de-dusseldorf","city":"Düsseldorf","country":"DE"}
+  ],
+  "contacts": [
+    {"type":"sales","email":"sales@shoei-europe.com"},
+    {"type":"support","url":"https://www.shoei-europe.com"}
+  ],
+  "website": "https://www.shoei-europe.com"
+}

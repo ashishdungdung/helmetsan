@@ -1,0 +1,9 @@
+{
+  "entity": "catalog",
+  "id": "helmet-brands-master-v1",
+  "title": "Helmet Brands Master",
+  "items": [
+    "6D Helmets", "AFX", "AGV Helmets", "Airoh Helmets", "Alpinestars", "Answer", "Arai Helmets", "BILT", "Bell Helmets", "Biltwell", "Cardo Systems", "EVS", "FXR", "Fasthouse", "Firstgear", "Fly Racing Dirt", "Fly Racing Street", "Fox Racing", "GMAX Helmets", "HJC Helmets", "Hedon Helmets", "Highway 21", "Icon", "Kini Red Bull", "Klim", "LS2 Helmets", "Leatt", "Nexx Helmets", "Nolan Helmets", "O'Neal", "One Industries", "PCI Race Radios", "SEDICI", "Schuberth Helmets", "Scorpion EXO", "Sena", "Shark Helmets", "Shoei Helmets", "Simpson Helmets", "Skid Lid", "Speed and Strength", "Street & Steel", "Thor", "Troy Lee Designs", "X-Lite Helmets", "Z1R"
+  ],
+  "notes": "Master brand list is phased for enrichment; each item should map to /brands/<slug>.json profile files over time."
+}

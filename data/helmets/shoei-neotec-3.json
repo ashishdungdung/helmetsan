@@ -1,0 +1,82 @@
+{
+  "entity": "helmet",
+  "id": "shoei-neotec-3",
+  "title": "Shoei Neotec 3",
+  "brand": "Shoei",
+  "type": "Modular",
+  "helmet_family": "Shoei Neotec",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Modular", "Touring"],
+  "features": [
+    "Multi-ply matrix AIM+ shell",
+    "QSV-2 integrated sun visor",
+    "CNS-3C face shield with Pinlock EVO",
+    "Sena SRL3 communication ready",
+    "Vortex Generator spoiler",
+    "E.Q.R.S. emergency release",
+    "Noise isolator chin curtain",
+    "3D center pad with max-dry liner",
+    "Dual-layer multi-density EPS"
+  ],
+  "specs": {
+    "weight_g": 1700,
+    "weight_lbs": 3.75,
+    "material": "AIM+ (Advanced Integrated Matrix Plus)",
+    "shell_sizes": 4,
+    "certifications": ["DOT", "ECE 22.06"]
+  },
+  "product_details": {
+    "style": "Premium Touring Modular",
+    "mfr_product_number": "NEOTEC3",
+    "sizing_fit": "Intermediate oval with premium max-dry liner that keeps you cool during all-day rides.",
+    "description": "The Shoei Neotec 3 is the pinnacle of touring modular helmets. The AIM+ shell construction is incredibly quiet at highway speeds, and the integrated Sena SRL3 communication bay offers seamless Bluetooth connectivity without external mounting hardware."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Runs true to Shoei sizing. The Neotec line is known for exceptional long-distance comfort with generous padding around the temples.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "neotec3-matte-black-lg",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Solid",
+      "size": "LG",
+      "sku": "SH-NT3-MBK-LG",
+      "price": 849.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "neotec3-grasp-tc1-md",
+      "style": "Graphic",
+      "color": "Red/White/Black",
+      "graphics": "Grasp TC-1",
+      "size": "MD",
+      "sku": "SH-NT3-GRSP-MD",
+      "price": 939.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 849.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 849.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 799.00, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 89999, "currency": "INR", "availability": "import_only", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Excellent",
+    "sharp_stars": 5,
+    "analysis": "The AIM+ shell is Shoei's most advanced composite formulation, combining organic and inorganic fibers with high-performance resins. The dual-layer multi-density EPS and the ECE 22.06 standard together ensure leading crash protection among modular helmets."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_NT3" }
+}

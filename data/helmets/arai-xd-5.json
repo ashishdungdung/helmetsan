@@ -1,0 +1,70 @@
+{
+  "entity": "helmet",
+  "id": "arai-xd-5",
+  "title": "Arai XD-5",
+  "brand": "Arai",
+  "type": "Adventure",
+  "helmet_family": "Arai XD",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Adventure", "Dual Sport"],
+  "features": [
+    "PB-SNC2 (Peripherally Belted Structural Net Composite) shell",
+    "Variable Axis System (VAS) face shield",
+    "Removable peak visor",
+    "Facial Contour System (FCS) cheek pads",
+    "One-touch brow vents",
+    "Rear exhaust diffuser",
+    "5mm peel-away ear padding",
+    "Emergency release cheek pads",
+    "Diffuser III (3) chin vent system"
+  ],
+  "specs": {
+    "weight_g": 1700,
+    "weight_lbs": 3.75,
+    "material": "PB-SNC2 (Super Fiber, Organic Fiber, Fiberglass)",
+    "shell_sizes": 5,
+    "certifications": ["DOT", "Snell M2020", "ECE 22.06"]
+  },
+  "product_details": {
+    "style": "Premium Adventure / Dual Sport",
+    "mfr_product_number": "XD-5",
+    "sizing_fit": "Intermediate oval with Arai's signature Facial Contour System for custom-like comfort.",
+    "description": "The Arai XD-5 is a premium dual-sport helmet built on Arai's legendary hand-shaped PB-SNC2 shell. It features a removable peak, VAS face shield, and 5 shell sizes for the most precise fit available in the adventure category."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Arai's 5 shell sizes ensure the most precise external-to-internal proportion. The FCS cheek pads can be custom tuned by an Arai dealer for a bespoke fit.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "xd5-matte-black-md",
+      "style": "Solid",
+      "color": "Frost Black",
+      "graphics": "Solid",
+      "size": "MD",
+      "sku": "ARAI-XD5-FBK-MD",
+      "price": 739.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 739.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 739.95, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 699.00, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 74990, "currency": "INR", "availability": "import_only", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Exceptional",
+    "sharp_stars": 5,
+    "analysis": "Arai's hand-shaped PB-SNC2 shell emphasizes smooth external geometry, designed to redirect impact energy by encouraging the helmet to glance off obstacles rather than snag. Combined with Snell M2020 certification, this is one of the safest adventure helmets available."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_XD5" }
+}

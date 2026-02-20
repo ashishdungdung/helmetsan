@@ -1,0 +1,91 @@
+{
+  "entity": "helmet",
+  "id": "hjc-rpha-71",
+  "title": "HJC RPHA 71",
+  "brand": "HJC",
+  "type": "Full Face",
+  "helmet_family": "HJC RPHA",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": ["Full Face", "Sport Touring"],
+  "features": [
+    "Premium Integrated Matrix Plus (PIM+) shell",
+    "Multi-density EPS liner",
+    "Advanced channeling ventilation",
+    "Rapid-Fire II shield ratchet system",
+    "Emergency Quick Release",
+    "Bluetooth speaker pockets",
+    "Crown and cheek pads washable and removable",
+    "Pinlock MaxVision ready",
+    "Anti-fog breathguard"
+  ],
+  "specs": {
+    "weight_g": 1550,
+    "weight_lbs": 3.42,
+    "material": "PIM+ (Carbon, Aramid, Fiberglass)",
+    "shell_sizes": 3,
+    "certifications": ["DOT", "ECE 22.06", "Snell M2020"]
+  },
+  "product_details": {
+    "style": "Sport Touring Full Face",
+    "mfr_product_number": "RPHA71",
+    "sizing_fit": "Intermediate oval with excellent cheek pad support. Generous eye port for peripheral vision.",
+    "description": "The RPHA 71 is HJC's flagship sport-touring full-face helmet, combining the lightweight PIM+ composite shell with superior ventilation, a wide eye port, and premium comfort features for all-day rides."
+  },
+  "sizing_fit": {
+    "head_shape": "Intermediate Oval",
+    "fit_notes": "Runs slightly snug out of the box but breaks in within 50 miles. Interior designed for glasses-friendly temples.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "rpha71-matte-black-md",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "Solid Color",
+      "size": "MD",
+      "sku": "HJC-RPHA71-MBK-MD",
+      "price": 449.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    },
+    {
+      "id": "rpha71-carbon-md",
+      "style": "Carbon",
+      "color": "Carbon Black",
+      "graphics": "Premium Carbon",
+      "size": "MD",
+      "sku": "HJC-RPHA71C-CBN-MD",
+      "price": 549.99,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": {
+    "current": 449.99,
+    "currency": "USD"
+  },
+  "geo_pricing": {
+    "US": { "price": 449.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 419.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "IN": { "price": 42999, "currency": "INR", "availability": "in_stock", "source": "official_importer", "updated_at": "2026-02-20" }
+  },
+  "geo_legality": {
+    "US": { "status": "legal", "certification_required": ["DOT"], "notes": "Snell and DOT dual certified." },
+    "EU": { "status": "legal", "certification_required": ["ECE 22.06"], "notes": "ECE 22.06 homologated." },
+    "IN": { "status": "legal", "certification_required": ["ISI IS 4151"], "notes": "HJC India officially distributes this model." }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Excellent",
+    "sharp_stars": 5,
+    "analysis": "The PIM+ shell construction provides an outstanding strength-to-weight ratio. Multi-density EPS ensures graduated energy absorption across impact zones. The RPHA 71's emergency quick-release system is designed for rapid paramedic extraction."
+  },
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_RPHA71"
+  }
+}

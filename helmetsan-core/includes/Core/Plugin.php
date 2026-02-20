@@ -356,6 +356,31 @@ final class Plugin
         return $this->revenue;
     }
 
+    public function ingestion(): IngestionService
+    {
+        return $this->ingestion;
+    }
+
+    public function sync(): SyncService
+    {
+        return $this->sync;
+    }
+
+    public function brands(): BrandService
+    {
+        return $this->brands;
+    }
+
+    public function accessories(): AccessoryService
+    {
+        return $this->accessories;
+    }
+
+    public function motorcycles(): MotorcycleService
+    {
+        return $this->motorcycles;
+    }
+
     /**
      * Build and populate the marketplace connector registry.
      */

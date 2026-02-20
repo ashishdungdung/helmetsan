@@ -38,8 +38,14 @@ $logoUrl = helmetsan_get_logo_url($helmetId);
                 <div class="helmet-card__image"><?php the_post_thumbnail('medium_large'); ?></div>
             </div>
         <?php else : ?>
-            <div class="helmet-card__image-wrapper helmet-card__image-wrapper--placeholder">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="hs-icon hs-icon--placeholder"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <div class="helmet-card__image-wrapper helmet-card__image-wrapper--placeholder" style="background: var(--hs-bg-alt); display: flex; align-items: center; justify-content: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="var(--hs-border)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="hs-icon hs-icon--placeholder" style="color: var(--hs-border);">
+                    <path d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"></path>
+                    <path d="M6 12h12"></path>
+                    <path d="M12 12v8"></path>
+                    <path d="M8 12v4"></path>
+                    <path d="M16 12v4"></path>
+                </svg>
             </div>
         <?php endif; ?>
         <h3 class="helmet-card__title">

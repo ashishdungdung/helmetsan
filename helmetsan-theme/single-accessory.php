@@ -50,13 +50,47 @@ if (have_posts()) {
             .accessory-hero__title { font-size: 2.5rem; margin-bottom: 1rem; }
             </style>
 
-            <section class="hs-stat-grid">
+            <section class="hs-stat-grid" style="margin-top: 2rem; margin-bottom: 2rem;">
                 <article class="hs-stat-card"><span>Type</span><strong><?php echo esc_html($type !== '' ? $type : 'N/A'); ?></strong></article>
                 <article class="hs-stat-card"><span>Price</span><strong><?php echo esc_html((string) ($price['current'] ?? 'N/A') . ' ' . (string) ($price['currency'] ?? '')); ?></strong></article>
                 <article class="hs-stat-card"><span>Helmet Types</span><strong><?php echo esc_html(is_array($helmetTypes) ? (string) count($helmetTypes) : '0'); ?></strong></article>
             </section>
 
-            <div class="hs-panel"><?php the_content(); ?></div>
+            <div class="hs-panel page-content"><?php the_content(); ?></div>
+
+            <!-- ═══ Where to Buy (Accessories) ═══ -->
+            <?php
+            // Extract the simple affiliate link from the JSON if available, or build a generic one
+            $affiliateLink = '';
+            if (isset($price['url'])) {
+                $affiliateLink = $price['url'];
+            }
+            ?>
+            <?php if ($affiliateLink !== '') : ?>
+                <section class="hs-panel hs-where-to-buy">
+                    <h2>🛒 Where to Buy</h2>
+                    <div class="hs-table-wrap">
+                        <table class="hs-table hs-price-table">
+                            <thead>
+                                <tr>
+                                    <th>Retailer</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Official Partner</strong></td>
+                                    <td><strong><?php echo esc_html((string) ($price['current'] ?? 'N/A') . ' ' . (string) ($price['currency'] ?? '')); ?></strong></td>
+                                    <td>
+                                        <a href="<?php echo esc_url($affiliateLink); ?>" target="_blank" rel="nofollow noopener" class="hs-btn hs-btn--sm">Buy Now &rarr;</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            <?php endif; ?>
 
             <div class="hs-grid hs-grid--2">
                 <section class="hs-panel">
@@ -85,6 +119,37 @@ if (have_posts()) {
                     <?php endforeach; endif; ?>
                 </ul>
             </section>
+
+            <!-- ═══ Compatible Helmets ═══ -->
+            <?php
+            $compatibleIds = (string) get_post_meta($id, 'compatible_helmet_ids_json', true);
+            $helmetIdsArray = json_decode($compatibleIds, true);
+            
+            if (is_array($helmetIdsArray) && !empty($helmetIdsArray)) {
+                // Query these exact post names (slugs)
+                $helmetsQuery = new WP_Query([
+                    'post_type' => 'helmet',
+                    'post_name__in' => $helmetIdsArray,
+                    'posts_per_page' => -1,
+                ]);
+
+                if ($helmetsQuery->have_posts()) : ?>
+                    <section class="hs-section" style="margin-top: 4rem;">
+                        <h2 class="hs-section__title" style="margin-bottom: 2rem;">Compatible Helmets</h2>
+                        <div class="helmet-grid">
+                            <?php 
+                            while ($helmetsQuery->have_posts()) {
+                                $helmetsQuery->the_post();
+                                get_template_part('template-parts/helmet', 'card');
+                            }
+                            wp_reset_postdata();
+                            ?>
+                        </div>
+                    </section>
+                <?php endif;
+            }
+            ?>
+
         </article>
         <?php
     }

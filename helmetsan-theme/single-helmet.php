@@ -227,9 +227,8 @@ if (have_posts()) {
                         <?php $descContent = get_the_content(); ?>
                         <?php if ($descContent) : ?>
                             <div class="hs-about-card__desc"><?php echo wpautop(wp_kses_post($descContent)); ?></div>
-                        <?php elseif ($analysis) : ?>
-                            <p class="hs-about-card__desc"><?php echo esc_html($analysis); ?></p>
                         <?php endif; ?>
+                        
                         <div class="hs-about-card__attrs">
                             <?php if ($certs !== '' && $certs !== 'N/A') : ?>
                                 <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">✅</span> <?php echo esc_html($certs); ?></span>
@@ -277,6 +276,21 @@ if (have_posts()) {
                     <?php endif; ?>
                 </div>
             </section>
+
+            <!-- Technical Analysis -->
+            <?php if ($analysis) : ?>
+                <section class="hs-panel" style="background: var(--hs-bg-alt); border-radius: var(--hs-border-radius); padding: 3rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background: var(--hs-brand-primary); color: white; border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"></path></svg>
+                        </div>
+                        <h2 style="margin: 0;">Technical Analysis</h2>
+                    </div>
+                    <div style="font-size: 1.1rem; line-height: 1.8; color: var(--hs-text-muted);">
+                        <?php echo wpautop(wp_kses_post($analysis)); ?>
+                    </div>
+                </section>
+            <?php endif; ?>
 
             <!-- Feature Highlights -->
             <?php if (is_array($featuresArr) && $featuresArr !== []) : ?>
@@ -384,6 +398,18 @@ if (have_posts()) {
             }
             if (!empty($productDetails['sizing_fit'])) {
                 $detailRows[] = ['Sizing & Fit', esc_html((string) $productDetails['sizing_fit'])];
+            }
+            if ($weight > 0) {
+                $detailRows[] = ['Weight', esc_html($weight . 'g' . ($weightLbs !== '' ? ' / ' . $weightLbs . ' lbs' : ''))];
+            }
+            if ($shell !== '') {
+                $detailRows[] = ['Shell Material', esc_html($shell)];
+            }
+            if ($headShape !== '') {
+                $detailRows[] = ['Head Shape', esc_html(ucwords(str_replace('-', ' ', $headShape)))];
+            }
+            if ($certs !== '') {
+                $detailRows[] = ['Certifications', esc_html($certs)];
             }
             ?>
             <?php if (!empty($detailRows)) : ?>

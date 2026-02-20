@@ -1,0 +1,71 @@
+{
+  "entity": "helmet",
+  "id": "nolan-n100-6",
+  "title": "Nolan N100-6",
+  "brand": "Nolan",
+  "type": "Modular",
+  "helmet_family": "Nolan N100",
+  "head_shape": "Round Oval",
+  "helmet_types": ["Modular", "Touring"],
+  "features": [
+    "Lexan Polycarbonate shell",
+    "DuoAction chin bar release",
+    "Climate Comfort interior",
+    "Ultrawide visor with Pinlock",
+    "N-Com B902 communication ready",
+    "Microlock chin strap",
+    "VPS (Vision Protection System) sun visor",
+    "Airbooster Technology ventilation",
+    "P/J dual homologation"
+  ],
+  "specs": {
+    "weight_g": 1700,
+    "weight_lbs": 3.75,
+    "material": "Lexan Polycarbonate",
+    "shell_sizes": 2,
+    "certifications": ["ECE 22.06", "DOT"]
+  },
+  "product_details": {
+    "style": "Touring Modular",
+    "mfr_product_number": "N100-6",
+    "sizing_fit": "Round oval. Italian sizing — measure carefully as it runs slightly generous.",
+    "description": "The N100-6 is Nolan's latest evolution of the legendary N100 touring modular. Made entirely in Italy, it features the innovative DuoAction chin bar system, integrated sun visor, and is fully compatible with the N-Com communication platform."
+  },
+  "sizing_fit": {
+    "head_shape": "Round Oval",
+    "fit_notes": "Italian-made sizing can differ from Asian brands. The round oval shape suits most European and broad-faced riders well.",
+    "size_translation": [
+      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
+      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
+      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "n100-6-classic-black-lg",
+      "style": "Solid",
+      "color": "Flat Black",
+      "graphics": "Classic N-Com",
+      "size": "LG",
+      "sku": "NOLAN-N1006-FBK-LG",
+      "price": 399.95,
+      "currency": "USD",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 399.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 399.95, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
+    "EU": { "price": 349.00, "currency": "EUR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
+    "IN": { "price": 34999, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Very Good",
+    "sharp_stars": 4,
+    "analysis": "The Lexan polycarbonate shell passes ECE 22.06 with strong margins. DuoAction system has been mechanically tested for over 10,000 cycles without failure. P/J dual homologation means it's certified for both closed and open chin bar riding."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_N1006" }
+}

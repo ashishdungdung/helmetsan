@@ -1,0 +1,75 @@
+{
+  "entity": "helmet",
+  "id": "steelbird-air-sba-21",
+  "title": "Steelbird Air SBA-21",
+  "brand": "Steelbird",
+  "type": "Full Face",
+  "helmet_family": "Steelbird SBA",
+  "head_shape": "Round Oval",
+  "helmet_types": ["Full Face"],
+  "features": [
+    "High-impact ABS shell",
+    "Smoke visor and clear visor included",
+    "Aerodynamic design",
+    "Removable and washable liner",
+    "Multi-point ventilation",
+    "Neck curtain for wind protection",
+    "Padded chin strap with quick release"
+  ],
+  "specs": {
+    "weight_g": 1200,
+    "weight_lbs": 2.65,
+    "material": "High-impact ABS",
+    "shell_sizes": 1,
+    "certifications": ["ISI IS 4151"]
+  },
+  "product_details": {
+    "style": "Budget Commuter Full Face",
+    "mfr_product_number": "SBA-21",
+    "sizing_fit": "Round oval. Standard Indian sizing.",
+    "description": "The Steelbird Air SBA-21 is India's most popular budget full-face helmet. ISI-certified and available in dozens of graphics, it provides essential protection for daily two-wheeler commuters at the most accessible price point possible."
+  },
+  "sizing_fit": {
+    "head_shape": "Round Oval",
+    "fit_notes": "Designed for the average Indian commuter. Lightweight and comfortable for tropical urban riding.",
+    "size_translation": [
+      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
+      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
+      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+    ]
+  },
+  "variants": [
+    {
+      "id": "sba-21-gt-matte-black-lg",
+      "style": "Solid",
+      "color": "Matte Black",
+      "graphics": "GT",
+      "size": "LG",
+      "sku": "SB-SBA21-GT-MBK-LG",
+      "price": 1299,
+      "currency": "INR",
+      "availability": "in_stock"
+    },
+    {
+      "id": "sba-21-gt-white-grey-md",
+      "style": "Graphic",
+      "color": "White/Grey",
+      "graphics": "GT Racing",
+      "size": "MD",
+      "sku": "SB-SBA21-GTR-WG-MD",
+      "price": 1499,
+      "currency": "INR",
+      "availability": "in_stock"
+    }
+  ],
+  "price": { "current": 1299, "currency": "INR" },
+  "geo_pricing": {
+    "IN": { "price": 1299, "currency": "INR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" }
+  },
+  "safety_intelligence": {
+    "impact_rating": "Adequate",
+    "sharp_stars": 2,
+    "analysis": "Meets ISI IS 4151 requirements which ensure a baseline level of impact protection. At this ultra-budget price, the ABS shell provides reasonable coverage for urban commuting speeds. Upgrading to a Pinlock-equipped mid-range helmet is recommended for highway use."
+  },
+  "affiliate": { "amazon_asin": "B0EXAMPLE_SBA21" }
+}
