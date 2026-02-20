@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "iridium-visor-agv",
+  "title": "AGV Pista GP RR Iridium Gold Race Visor",
+  "type": "Face Shield",
+  "compatible_helmet_types": ["Full Face", "Race"],
+  "compatible_brands": ["AGV"],
+  "compatible_helmet_ids": ["agv-pista-gp-rr", "agv-k6"],
+  "features": [
+    "Iridium gold mirror coating",
+    "Scratch-resistant hard coat",
+    "Anti-UV treatment",
+    "Metal visor lock compatible",
+    "Race-ready optics — optical class 1",
+    "Designed for AGV Pista/Corsa/K6 visor mechanism"
+  ],
+  "price": { "current": 129.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 129.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 109.00, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 11999, "currency": "INR", "availability": "limited", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The AGV Iridium Gold Race Visor adds aggressive style and sun protection to your Pista GP RR or K6. The mirror coating reduces glare while maintaining excellent optical clarity. Scratch-resistant and UV-treated, it meets the demands of both track and street riding.</p>"
+}

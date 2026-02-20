@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "balaclava-coolmax",
+  "title": "Alpinestars Race V3 Balaclava",
+  "type": "Riding Gear",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Motocross"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "agv-pista-gp-rr", "scorpion-exo-r1-air", "bell-star-dlx-mips"],
+  "features": [
+    "Coolmax moisture-wicking fabric",
+    "Flat-seam construction prevents pressure points",
+    "Open face design for visor visibility",
+    "Antibacterial treatment",
+    "Quick-dry performance",
+    "Lightweight and breathable"
+  ],
+  "price": { "current": 34.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 34.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 29.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 2990, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The Alpinestars Race V3 Balaclava is a track-ready under-helmet layer that wicks moisture away from the skin, keeping you cool and dry during intense riding. The flat-seam construction prevents pressure points under your helmet, while antibacterial treatment keeps odors at bay.</p>"
+}

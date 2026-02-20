@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "visor-tear-offs",
+  "title": "100% Speedlab Vision System Tear-Offs (Pack of 20)",
+  "type": "Visor Accessory",
+  "compatible_helmet_types": ["Full Face", "Motocross"],
+  "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "Bell", "Scorpion"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "agv-pista-gp-rr", "scorpion-exo-r1-air", "bell-star-dlx-mips"],
+  "features": [
+    "Optically correct tear-off lenses",
+    "Anti-scratch coating",
+    "Standard post spacing",
+    "Easy single-hand removal",
+    "Track-day essential",
+    "Pack of 20 tear-offs"
+  ],
+  "price": { "current": 12.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 12.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 10.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 1199, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Essential for track days and motocross racing, these optically-correct tear-off lenses stack onto your visor posts and can be peeled off one-handed at speed to restore crystal-clear vision. The anti-scratch coating on each layer provides extra durability during high-debris racing conditions.</p>"
+}

@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "neck-gaiter-windproof",
+  "title": "REV'IT! Windproof Neck Tube",
+  "type": "Riding Gear",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "schuberth-c5", "nolan-n100-6", "klim-krios-pro", "shoei-neotec-3"],
+  "features": [
+    "Windproof membrane layer",
+    "Fleece-lined interior",
+    "Seamless tubular construction",
+    "Moisture-wicking outer layer",
+    "Multi-position wear (neck, face, ear cover)",
+    "Fits under any helmet"
+  ],
+  "price": { "current": 29.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 29.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 24.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 2490, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The REV'IT! Windproof Neck Tube blocks cold wind from entering through the helmet chin bar while keeping you warm with a fleece interior. The seamless tubular construction prevents chafing during long rides, and the multi-position design means you can wear it as a neck gaiter, face mask, or ear warmer.</p>"
+}

@@ -1,0 +1,23 @@
+{
+  "entity": "accessory",
+  "id": "dark-smoke-visor",
+  "title": "HJC HJ-31 Dark Smoke Face Shield",
+  "type": "Face Shield",
+  "compatible_helmet_types": ["Full Face"],
+  "compatible_brands": ["HJC"],
+  "compatible_helmet_ids": ["hjc-rpha-71"],
+  "features": [
+    "Dark smoke tint (85% light reduction)",
+    "Anti-scratch coating",
+    "Pinlock MaxVision compatible",
+    "UV 400 protection",
+    "RapidFire II shield ratchet system"
+  ],
+  "price": { "current": 59.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 59.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 49.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 4999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The HJC HJ-31 Dark Smoke face shield provides 85% light reduction for bright riding conditions. Anti-scratch coated and Pinlock MaxVision ready, it's the ideal swap-out visor for sunny days. UV 400 protection blocks 100% of harmful UVA and UVB rays.</p>"
+}

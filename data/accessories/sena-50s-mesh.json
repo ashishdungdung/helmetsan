@@ -1,0 +1,26 @@
+{
+  "entity": "accessory",
+  "id": "sena-50s-mesh",
+  "title": "Sena 50S Mesh 2.0",
+  "type": "Communication System",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+  "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "HJC", "Bell", "Schuberth"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "shoei-neotec-3", "hjc-rpha-71", "arai-xd-5", "bell-star-dlx-mips", "agv-pista-gp-rr"],
+  "features": [
+    "Mesh 2.0 Intercom (virtually unlimited riders)",
+    "Harman Kardon premium audio",
+    "WiFi Adapter for firmware updates",
+    "Smart Audio Mix for simultaneous audio sources",
+    "Voice-activated Google Assistant / Siri",
+    "IP67 waterproof rating",
+    "13-hour battery life",
+    "Advanced Noise Control"
+  ],
+  "price": { "current": 359.00, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 359.00, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 329.00, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 34990, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The Sena 50S is the flagship Bluetooth communication system for motorcycle riders. Featuring Mesh 2.0 intercom technology with virtually unlimited rider-to-rider connectivity, premium Harman Kardon speakers, and 13 hours of talk time, it's the gold standard for group riding. Smart Audio Mix lets you listen to music, GPS, and intercom simultaneously with intelligent volume balancing.</p>"
+}

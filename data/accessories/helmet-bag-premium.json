@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "helmet-bag-premium",
+  "title": "Shoei Premium Fleece-Lined Helmet Bag",
+  "type": "Storage",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face"],
+  "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "HJC", "Bell", "Schuberth"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "shoei-neotec-3", "arai-corsair-x", "arai-xd-5", "hjc-rpha-71", "agv-pista-gp-rr"],
+  "features": [
+    "Soft fleece-lined interior prevents scratches",
+    "Heavy-duty drawstring closure",
+    "Ventilated mesh panels for airflow",
+    "Reinforced carry handle",
+    "Fits helmets up to size 3XL",
+    "Branded embroidered logo"
+  ],
+  "price": { "current": 39.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 39.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 34.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 2999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Protect your investment with a premium fleece-lined helmet bag. The ultra-soft interior prevents scratches on visors and paint, while breathable mesh panels keep your helmets fresh during storage or transport. Fits all standard full-face, modular, and adventure helmets up to size 3XL.</p>"
+}

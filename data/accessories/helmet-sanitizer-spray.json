@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "helmet-sanitizer-spray",
+  "title": "Motul M2 Helmet Interior Cleaner",
+  "type": "Maintenance",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "agv-k6", "arai-corsair-x", "bell-qualifier-dlx-mips", "mt-thunder-3", "steelbird-air-sba-21", "smk-stellar"],
+  "features": [
+    "Antibacterial formula kills 99.9% of odor-causing bacteria",
+    "Safe for all helmet liner materials",
+    "Quick-dry spray application",
+    "Pleasant fresh scent",
+    "250ml aerosol can",
+    "Does not damage EPS foam"
+  ],
+  "price": { "current": 14.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 14.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 11.99, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Keep your helmet fresh and hygienic with Motul M2 Interior Cleaner. The antibacterial formula penetrates helmet liner fibers to eliminate sweat buildup, odors, and bacteria. Safe for all materials including Coolmax, Alveotech, and removable liners. Simply spray, let it sit for 60 seconds, and air dry.</p>"
+}

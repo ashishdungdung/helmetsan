@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "hearing-protection-earplugs",
+  "title": "NoNoise Motorsport Filtered Earplugs",
+  "type": "Hearing Protection",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half", "Motocross"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Patented ceramic filter — reduces wind noise by 24 dB",
+    "Preserves speech and siren frequencies",
+    "Medical-grade thermoplastic — conforms to ear canal",
+    "Reusable and washable",
+    "Aluminum carrying case included",
+    "Designed specifically for motorcycle riding"
+  ],
+  "price": { "current": 24.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 24.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 19.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 1999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Wind noise at highway speeds regularly exceeds 100 dB — enough to cause permanent hearing damage. NoNoise Motorsport earplugs use a patented ceramic filter to reduce harmful wind noise by 24 dB while preserving critical frequencies like speech, horns, and sirens. Essential for any rider who values long-term hearing health.</p>"
+}
