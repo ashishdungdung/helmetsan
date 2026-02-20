@@ -75,7 +75,7 @@ $paged = max(1, (int) ($getString('paged') !== '' ? $getString('paged') : get_qu
 $args = [
     'post_type' => 'helmet',
     'post_status' => 'publish',
-    'posts_per_page' => 18,
+    'posts_per_page' => 40,
     'paged' => $paged,
 ];
 
