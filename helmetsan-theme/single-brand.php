@@ -219,21 +219,17 @@ if (have_posts()) {
                         $hasMore = $total > $limit;
                         $catSlug = sanitize_title($categoryName);
                         
-                        // Build "View All" URL - filters main archive by Brand + Helmet Type
-                        // Assuming 'helmet' archive is /helmets/
-                        $viewAllUrl = add_query_arg([
-                            'post_type' => 'helmet',
-                            'rel_brand' => $brandId, // or use taxonomy filter if ready
-                            'helmet_type' => $catSlug // This might need mapping to actual slug if $categoryName is pretty
-                        ], home_url('/helmets/'));
-                        
-                        // Better approach: Find term slug
+                        $viewAllUrl = home_url('/helmets/');
                         $term = get_term_by('name', $categoryName, 'helmet_type');
                         if ($term) {
-                             $viewAllUrl = add_query_arg([
-                                'brand_filter' => $brandId, // Custom filter logic if supported
-                                'helmet_type' => $term->slug
-                            ], home_url('/helmets/'));
+                            $viewAllUrl = add_query_arg([
+                                'brand_slug' => $brandSlug,
+                                'helmet_type[]' => $term->slug
+                            ], $viewAllUrl);
+                        } else {
+                            $viewAllUrl = add_query_arg([
+                                'brand_slug' => $brandSlug
+                            ], $viewAllUrl);
                         }
                     ?>
                         <div id="cat-<?php echo esc_attr($catSlug); ?>" class="brand-hub__category hs-section">

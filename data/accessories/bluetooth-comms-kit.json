@@ -1,1 +1,32 @@
-{"entity":"accessory","id":"bluetooth-comms-kit","title":"Bluetooth Comms Kit","type":"communication system","compatible_helmet_types":["full-face","modular","adventure"],"compatible_brands":["Universal"],"features":["mesh intercom","voice command","music"],"price":{"current":249.00,"currency":"USD"}}
+{
+    "title": "Cardo Packtalk Edge",
+    "type": "Communication System",
+    "compatible_helmet_types": [
+        "Full Face",
+        "Modular",
+        "Adventure"
+    ],
+    "compatible_brands": [
+        "Universal",
+        "Shoei",
+        "Arai",
+        "AGV"
+    ],
+    "compatible_helmet_ids": [
+        "shoei-rf-1400"
+    ],
+    "features": [
+        "Dynamic Mesh Communication",
+        "Natural Voice Operation",
+        "JBL Audio",
+        "Waterproof",
+        "Air Mount"
+    ],
+    "price": {
+        "current": 389.95,
+        "currency": "USD"
+    },
+    "description": "<p>The Cardo Packtalk Edge represents the pinnacle of motorcycle communication. Featuring second-generation Dynamic Mesh Communication (DMC), it offers unparalleled sound quality, rapid pairing, and robust performance. Its magnetic Air Mount system makes attaching it to your helmet secure and effortless. Custom-tuned JBL speakers ensure you hear every note and instruction with crystal clarity.</p>",
+    "id": "bluetooth-comms-kit",
+    "entity": "accessory"
+}

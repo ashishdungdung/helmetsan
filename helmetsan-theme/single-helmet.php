@@ -292,10 +292,10 @@ if (have_posts()) {
 
             <!-- Technical Analysis -->
             <?php if ($analysis) : ?>
-                <div class="helmet-single__content hs-panel">
-                    <h2>Technical Analysis</h2>
+                <div class="helmet-single__content hs-panel hs-technical-analysis">
+                    <h2><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hs-icon hs-icon--mr"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>Technical Analysis</h2>
                     <div class="hs-analysis-rich-text">
-                        <?php echo wpautop(esc_html($analysis)); ?>
+                        <?php echo wpautop(wp_kses_post($analysis)); ?>
                     </div>
                 </div>
             <?php endif; ?>
@@ -441,9 +441,19 @@ if (have_posts()) {
                                     $goUrl = home_url('/go/' . $post->post_name . '/?marketplace=' . urlencode($mpId) . '&source=pdp');
                                 ?>
                                     <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
-                                        <td>
-                                            <?php if ($isBest) : ?><span class="hs-price-table__best-tag">★ Best</span><?php endif; ?>
-                                            <?php echo esc_html(ucfirst(str_replace('-', ' ', $mpId))); ?>
+                                        <td class="hs-price-table__merchant">
+                                            <?php if ($isBest) : ?><span class="hs-price-table__best-tag" title="Best Price Today">★</span><?php endif; ?>
+                                            <?php 
+                                            $mpLower = strtolower($mpId);
+                                            if (str_contains($mpLower, 'amazon')) {
+                                                echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>';
+                                            } elseif (str_contains($mpLower, 'flipkart')) {
+                                                echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#047BD5" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>';
+                                            } else {
+                                                echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>';
+                                            }
+                                            ?>
+                                            <span class="hs-price-table__merchant-name"><?php echo esc_html(ucwords(str_replace('-', ' ', $mpId))); ?></span>
                                         </td>
                                         <td><strong><?php echo esc_html($priceService->formatPrice($offer->price, $offer->currency)); ?></strong></td>
                                         <td>

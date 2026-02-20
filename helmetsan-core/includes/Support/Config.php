@@ -16,6 +16,7 @@ final class Config
     public const OPTION_WOO_BRIDGE = 'helmetsan_woo_bridge';
     public const OPTION_MARKETPLACE = 'helmetsan_marketplace';
     public const OPTION_GEO       = 'helmetsan_geo';
+    public const OPTION_FEATURES  = 'helmetsan_features';
 
     public function analyticsDefaults(): array
     {
@@ -367,5 +368,21 @@ final class Config
     {
         $saved = get_option(self::OPTION_GEO, []);
         return wp_parse_args(is_array($saved) ? $saved : [], $this->geoDefaults());
+    }
+    public function featuresDefaults(): array
+    {
+        return [
+            'enable_technical_analysis' => false,
+            'enable_ai_chatbot'         => false,
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function featuresConfig(): array
+    {
+        $saved = get_option(self::OPTION_FEATURES, []);
+        return wp_parse_args(is_array($saved) ? $saved : [], $this->featuresDefaults());
     }
 }

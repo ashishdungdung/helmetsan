@@ -164,73 +164,110 @@ final class SyncService
         $comparisonFiles = [];
         $recommendationFiles = [];
         $commerceFiles = [];
-        foreach ($selected as $item) {
-            $path = (string) ($item['path'] ?? '');
-            $blobSha = (string) ($item['sha'] ?? '');
-            if ($path === '' || $blobSha === '') {
-                $failed++;
-                continue;
-            }
 
-            $relative = $remoteBase !== '' ? ltrim(substr($path, strlen($remoteBase)), '/') : $path;
-            $local    = trailingslashit($this->repository->rootPath()) . $relative;
+        $chunks = array_chunk($selected, 25);
+        foreach ($chunks as $chunk) {
+            $requests = [];
+            foreach ($chunk as $item) {
+                $path = (string) ($item['path'] ?? '');
+                $blobSha = (string) ($item['sha'] ?? '');
+                if ($path === '' || $blobSha === '') {
+                    continue;
+                }
+                $requests[$path] = [
+                    'url' => $this->apiBase($cfg) . '/git/blobs/' . rawurlencode($blobSha),
+                    'headers' => [
+                        'Authorization'       => 'Bearer ' . (string) $cfg['token'],
+                        'Accept'              => 'application/vnd.github+json',
+                        'X-GitHub-Api-Version'=> '2022-11-28',
+                        'User-Agent'          => 'Helmetsan-Core/' . HELMETSAN_CORE_VERSION,
+                    ],
+                    'type' => 'GET',
+                    'options' => ['timeout' => 20]
+                ];
+            }
 
             if ($dryRun) {
+                $downloaded += count($chunk);
+                continue;
+            }
+
+            if (class_exists('\\WpOrg\\Requests\\Requests')) {
+                $responses = \WpOrg\Requests\Requests::request_multiple($requests);
+            } elseif (class_exists('\\Requests')) {
+                $responses = \Requests::request_multiple($requests);
+            } else {
+                return ['ok' => false, 'message' => 'WP HTTP Requests library missing'];
+            }
+
+            foreach ($chunk as $item) {
+                $path = (string) ($item['path'] ?? '');
+                if ($path === '' || !isset($responses[$path])) {
+                    $failed++;
+                    continue;
+                }
+
+                $resp = $responses[$path];
+                if ($resp instanceof \Exception || $resp instanceof \WP_Error || $resp->status_code < 200 || $resp->status_code >= 300) {
+                    $failed++;
+                    continue;
+                }
+
+                $blob = json_decode($resp->body, true);
+                if (!is_array($blob)) {
+                    $failed++;
+                    continue;
+                }
+
+                $encoding = isset($blob['encoding']) ? (string) $blob['encoding'] : '';
+                $content  = isset($blob['content']) ? (string) $blob['content'] : '';
+                if ($encoding !== 'base64' || $content === '') {
+                    $failed++;
+                    continue;
+                }
+
+                $decoded = base64_decode(str_replace("\n", '', $content), true);
+                if (!is_string($decoded)) {
+                    $failed++;
+                    continue;
+                }
+
+                $relative = $remoteBase !== '' ? ltrim(substr($path, strlen($remoteBase)), '/') : $path;
+                $local    = trailingslashit($this->repository->rootPath()) . $relative;
+                $dir      = dirname($local);
+
+                if (!is_dir($dir)) {
+                    wp_mkdir_p($dir);
+                }
+
+                $written = file_put_contents($local, $decoded);
+                if ($written === false) {
+                    $failed++;
+                    continue;
+                }
+
                 $downloaded++;
-                continue;
-            }
-
-            $blob = $this->request('GET', $this->apiBase($cfg) . '/git/blobs/' . rawurlencode($blobSha), $cfg);
-            if (! $blob['ok']) {
-                $failed++;
-                continue;
-            }
-
-            $encoding = isset($blob['data']['encoding']) ? (string) $blob['data']['encoding'] : '';
-            $content  = isset($blob['data']['content']) ? (string) $blob['data']['content'] : '';
-            if ($encoding !== 'base64' || $content === '') {
-                $failed++;
-                continue;
-            }
-
-            $decoded = base64_decode(str_replace("\n", '', $content), true);
-            if (! is_string($decoded)) {
-                $failed++;
-                continue;
-            }
-
-            $dir = dirname($local);
-            if (! is_dir($dir)) {
-                wp_mkdir_p($dir);
-            }
-
-            $written = file_put_contents($local, $decoded);
-            if ($written === false) {
-                $failed++;
-                continue;
-            }
-
-            $downloaded++;
-            if ($this->isBrandFile($relative)) {
-                $brandFiles[] = $local;
-            } elseif ($this->isHelmetFile($relative)) {
-                $helmetFiles[] = $local;
-            } elseif ($this->isAccessoryFile($relative)) {
-                $accessoryFiles[] = $local;
-            } elseif ($this->isMotorcycleFile($relative)) {
-                $motorcycleFiles[] = $local;
-            } elseif ($this->isSafetyStandardFile($relative)) {
-                $safetyStandardFiles[] = $local;
-            } elseif ($this->isDealerFile($relative)) {
-                $dealerFiles[] = $local;
-            } elseif ($this->isDistributorFile($relative)) {
-                $distributorFiles[] = $local;
-            } elseif ($this->isComparisonFile($relative)) {
-                $comparisonFiles[] = $local;
-            } elseif ($this->isRecommendationFile($relative)) {
-                $recommendationFiles[] = $local;
-            } elseif ($this->isCommerceFile($relative)) {
-                $commerceFiles[] = $local;
+                if ($this->isBrandFile($relative)) {
+                    $brandFiles[] = $local;
+                } elseif ($this->isHelmetFile($relative)) {
+                    $helmetFiles[] = $local;
+                } elseif ($this->isAccessoryFile($relative)) {
+                    $accessoryFiles[] = $local;
+                } elseif ($this->isMotorcycleFile($relative)) {
+                    $motorcycleFiles[] = $local;
+                } elseif ($this->isSafetyStandardFile($relative)) {
+                    $safetyStandardFiles[] = $local;
+                } elseif ($this->isDealerFile($relative)) {
+                    $dealerFiles[] = $local;
+                } elseif ($this->isDistributorFile($relative)) {
+                    $distributorFiles[] = $local;
+                } elseif ($this->isComparisonFile($relative)) {
+                    $comparisonFiles[] = $local;
+                } elseif ($this->isRecommendationFile($relative)) {
+                    $recommendationFiles[] = $local;
+                } elseif ($this->isCommerceFile($relative)) {
+                    $commerceFiles[] = $local;
+                }
             }
         }
 

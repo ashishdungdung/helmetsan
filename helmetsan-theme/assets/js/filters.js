@@ -2,119 +2,40 @@
     'use strict';
 
     // Config
-    const config = window.helmetsan_ajax || {};
+    const config = window.helmetsan_ajax || { url: '/wp-admin/admin-ajax.php' };
     const form = document.getElementById('hsHelmetFilterForm');
     const container = document.querySelector('.hs-catalog__results');
-    const gridContainer = document.querySelector('.helmet-grid');
-    const paginationContainer = document.querySelector('.pagination'); // Verify selector
-    const chipsContainer = document.querySelector('.hs-catalog__chips');
     const countContainer = document.querySelector('.hs-catalog__count');
+    const chipsContainer = document.querySelector('.hs-catalog__chips');
     const sortSelect = document.getElementById('hsSort');
     
     // State
     let isLoading = false;
-    const mqDesktop = window.matchMedia('(min-width: 961px)');
 
     if (!form || !container) return;
 
-    // --- Core Functions ---
-
-    /**
-     * Fetch Results via AJAX
-     * @param {URLSearchParams} params 
-     */
-    async function fetchResults(params) {
-        if (isLoading) return;
-        setLoading(true);
-
-        const url = new URL(config.url);
-        url.searchParams.set('action', 'helmetsan_filter');
-        // Merge params
-        for (const [key, value] of params) {
-            url.searchParams.append(key, value);
-        }
-
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-
-            if (data.success) {
-                updateUI(data.data);
-                updateURL(params);
-            } else {
-                console.error('Filter error', data);
-            }
-        } catch (err) {
-            console.error('Fetch error', err);
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    /**
-     * Update DOM Elements
-     */
-    function updateUI(data) {
-        // 1. Grid
-        // Check if wrapper exists, if not create/select it
-        let grid = container.querySelector('.helmet-grid');
-        if (!grid) {
-             // Maybe no results previously?
-             const msg = container.querySelector('p');
-             if(msg) msg.remove();
-             grid = document.createElement('div');
-             grid.className = 'helmet-grid';
-             container.appendChild(grid);
-        }
-        
-        if (data.html) {
-            grid.innerHTML = data.html;
+    function setLoading(loading) {
+        isLoading = loading;
+        if (loading) {
+            container.style.opacity = '0.5';
+            container.style.pointerEvents = 'none';
         } else {
-            grid.innerHTML = '<p>No helmets found.</p>';
-        }
-
-    // 3. Pagination (Load More)
-    const paginationContainer = document.querySelector('.navigation.pagination');
-    // Replace standard pagination with Load More if we have results
-    
-    function setupPagination(data) {
-        const oldPag = container.querySelector('.navigation.pagination');
-        if (oldPag) oldPag.remove();
-        
-        const oldBtn = container.querySelector('.hs-load-more');
-        if (oldBtn) oldBtn.remove();
-        
-        if (data.next_page) {
-            const btn = document.createElement('button');
-            btn.className = 'hs-btn hs-btn--secondary hs-load-more';
-            btn.textContent = 'Load More Helmets';
-            btn.dataset.nextPage = data.next_page;
-            
-            // Insert after grid
-            const grid = container.querySelector('.helmet-grid');
-            if (grid) grid.insertAdjacentElement('afterend', btn);
-            
-            btn.addEventListener('click', () => {
-                const formData = new FormData(form);
-                if(sortSelect) formData.set('sort', sortSelect.value);
-                formData.set('paged', data.next_page);
-                
-                const params = new URLSearchParams(formData);
-                fetchResults(params, true); // true = append
-            });
+            container.style.opacity = '1';
+            container.style.pointerEvents = 'auto';
         }
     }
 
-    /**
-     * Fetch Results
-     * @param {URLSearchParams} params 
-     * @param {boolean} append - If true, append results
-     */
+    function updateURL(params) {
+        const url = new URL(window.location.href);
+        url.search = params.toString();
+        window.history.pushState({}, '', url);
+    }
+
     async function fetchResults(params, append = false) {
         if (isLoading) return;
         setLoading(true);
 
-        const url = new URL(config.url);
+        const url = new URL(config.url, window.location.origin);
         url.searchParams.set('action', 'helmetsan_filter');
         for (const [key, value] of params) {
             url.searchParams.append(key, value);
@@ -126,8 +47,9 @@
 
             if (data.success) {
                 updateUI(data.data, append);
-                // Only update URL if NOT appending (don't change URL for page 2 Load More)
                 if (!append) updateURL(params);
+            } else {
+                console.error('Filter error', data);
             }
         } catch (err) {
             console.error('Fetch error', err);
@@ -146,24 +68,52 @@
              container.appendChild(grid);
         }
         
-        if (data.html) {
-            if (append) {
-                grid.insertAdjacentHTML('beforeend', data.html);
-            } else {
-                grid.innerHTML = data.html;
-            }
-        } else if (!append) {
-            grid.innerHTML = '<p>No helmets found.</p>';
+        let targetArea = container.querySelector('.hs-catalog__results-content');
+        if (!targetArea) {
+            targetArea = container; // fallback
+        } else {
+            // we will replace the whole section if present
         }
 
-        // Setup Pagination Button
-        setupPagination(data);
+        if (data.html) {
+            // The API returns the full grid AND pagination
+            if (!append) {
+                const resultsSection = container.querySelector('.hs-catalog__results-content');
+                if (resultsSection) {
+                    resultsSection.innerHTML = data.html;
+                } else {
+                    // Try to inject at bottom
+                    const newWrapper = document.createElement('section');
+                    newWrapper.className = 'hs-catalog__results-content';
+                    newWrapper.innerHTML = data.html;
+                    container.appendChild(newWrapper);
+                }
+            } else {
+                // If appending, assuming data.html has <div class="helmet-grid"> wrap
+                // Extract just the inner HTML of the grid
+                const temp = document.createElement('div');
+                temp.innerHTML = data.html;
+                const newGrid = temp.querySelector('.helmet-grid');
+                if (newGrid && grid) {
+                    grid.insertAdjacentHTML('beforeend', newGrid.innerHTML);
+                }
+                
+                // Replace pagination
+                const oldPag = container.querySelector('.hs-pagination-wrap');
+                const newPag = temp.querySelector('.hs-pagination-wrap');
+                if (oldPag && newPag) {
+                    oldPag.innerHTML = newPag.innerHTML;
+                }
+            }
+        } else if (!append) {
+            const resultsSection = container.querySelector('.hs-catalog__results-content');
+            if (resultsSection) {
+                resultsSection.innerHTML = '<p>No helmets found for the selected filters.</p>';
+            }
+        }
 
         // Count
         if (countContainer) countContainer.textContent = data.count + ' Helmets';
-
-        // Chips
-        if (chipsContainer && !append) chipsContainer.innerHTML = data.chips || '';
 
         // Scroll to top only if NEW filter (not append)
         if (!append) {
@@ -173,62 +123,78 @@
         
         document.body.classList.remove('hs-filter-open');
         document.getElementById('hsFilterPanel')?.classList.remove('is-open');
+
+        // Re-bind pagination clicks
+        bindPagination();
     }
 
-    // 4. Chip Removal & Initial Validation
-    // ... rest of event listeners ...
-    
-    // Initial Load: Check if we need to convert standard pagination to Load More
-    // (Optional: For now, let's just let the standard one exist until first interaction, 
-    // OR we trigger a fetch on load to "hydrate" the button? 
-    // Better: Just hide the standard pagination via CSS if JS is active and init button?
-    // Actually, simple way: The FIRST interaction (filter/sort) will trigger updateUI which adds the button.
-    // The standard pagination works fine for SEO/JS-off.
-    
-    // Chip removal logic
-    if (chipsContainer) {
-        chipsContainer.addEventListener('click', (e) => {
-            const btn = e.target.closest('.hs-chip');
-            if (!btn) return;
-            e.preventDefault();
-            
-            if (btn.tagName === 'A') {
-                // If it's a link, we need to manually parse what to remove or just trigger a reset?
-                // Actually, the links for chips are usually ?param=... excluding the current one.
-                // We can just fetch that URL? No, that's full page.
-                // Best bet: Parse the filter key/value from the chip (if we added data attrs to PHP output).
-                // The PHP output in archive-helmet.php DID NOT add data attrs for initial chips (only URL).
-                // So for initial chips, we might have to just follow the link or accept reload.
-                // Let's allow reload for initial chips to be safe.
-                 window.location.href = btn.href;
-                 return;
-            }
-            
-            const key = btn.dataset.filterKey;
-            const value = btn.dataset.filterValue;
+    function bindPagination() {
+        const pagLinks = container.querySelectorAll('.hs-pagination-wrap a.page-numbers');
+        pagLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = new URL(link.href);
+                const page = url.searchParams.get('paged') || url.pathname.match(/page\/(\d+)/)?.[1] || 1;
                 
-            if (key) {
-                if (value === '') {
-                    const input = form.querySelector(`[name="${key}"]`);
-                    if (input) input.value = '';
-                } else {
-                    const input = form.querySelector(`[name="${key}[]"][value="${value}"], [name="${key}"][value="${value}"]`);
-                    if (input) input.checked = false;
-                }
-                form.dispatchEvent(new Event('submit'));
-            }
+                const formData = new FormData(form);
+                if (sortSelect) formData.set('sort', sortSelect.value);
+                formData.set('paged', page);
+                
+                const params = new URLSearchParams(formData);
+                fetchResults(params, false);
+            });
         });
     }
 
-    // ... rest of listeners ...
+    // Trigger on form input change
+    form.addEventListener('change', (e) => {
+        // Skip text inputs unless they blur
+        if (e.target.type === 'text' || e.target.type === 'number') return;
+        submitFilter();
+    });
 
-    // 5. Back Button
+    // Handle text input enter key or submit button
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitFilter();
+    });
+
+    function submitFilter() {
+        const formData = new FormData(form);
+        if (sortSelect) formData.set('sort', sortSelect.value);
+        // Reset to page 1 on new filter
+        formData.set('paged', '1');
+        const params = new URLSearchParams(formData);
+        fetchResults(params, false);
+    }
+
+    // Handle sort change
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            submitFilter();
+        });
+    }
+
+    // Chip removal logic
+    if (chipsContainer) {
+        chipsContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('a.hs-chip');
+            if (!btn) return;
+            e.preventDefault();
+
+            // Just follow the link which is an absolute URL of the removed filter
+            // Or parse the URL and fetch AJAX.
+            // For simplicity, just follow the link to reload without the filter.
+            window.location.href = btn.href;
+        });
+    }
+
+    // Back Button Support
     window.addEventListener('popstate', () => {
         window.location.reload(); 
-        // Full reload is safer/easier than restoring state from URL to form inputs manually
     });
     
-    // 6. Mobile Toggles (Keep existing UI logic)
+    // Mobile Toggles
     const openBtn = document.querySelector('[data-open-filter]');
     const closeBtn = document.querySelector('[data-close-filter]');
     const panel = document.getElementById('hsFilterPanel');
@@ -245,5 +211,8 @@
             document.body.classList.remove('hs-filter-open');
         });
     }
+
+    // Bind original pagination on load
+    bindPagination();
 
 })();

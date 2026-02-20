@@ -8,8 +8,36 @@ use WP_Post;
 
 final class CommerceService
 {
-    private const OPTION_CURRENCIES = 'helmetsan_currencies_index';
-    private const OPTION_MARKETPLACES = 'helmetsan_marketplaces_index';
+    public static function readMarketplacesIndex(): array
+    {
+        return self::readFileIndex('marketplaces');
+    }
+
+    public static function readCurrenciesIndex(): array
+    {
+        return self::readFileIndex('currencies');
+    }
+
+    private static function readFileIndex(string $name): array
+    {
+        $dir = wp_upload_dir()['basedir'] . '/helmetsan_indexes';
+        $file = $dir . '/' . $name . '.json';
+        if (file_exists($file)) {
+            $data = json_decode((string) file_get_contents($file), true);
+            return is_array($data) ? $data : [];
+        }
+        return get_option('helmetsan_' . $name . '_index', []);
+    }
+
+    private static function writeFileIndex(string $name, array $data): void
+    {
+        $dir = wp_upload_dir()['basedir'] . '/helmetsan_indexes';
+        if (!is_dir($dir)) {
+            wp_mkdir_p($dir);
+        }
+        file_put_contents($dir . '/' . $name . '.json', wp_json_encode($data));
+        delete_option('helmetsan_' . $name . '_index');
+    }
 
     /**
      * @param array<string,mixed> $data
@@ -38,10 +66,7 @@ final class CommerceService
             return ['ok' => false, 'message' => 'Currency code missing/invalid'];
         }
 
-        $index = get_option(self::OPTION_CURRENCIES, []);
-        if (! is_array($index)) {
-            $index = [];
-        }
+        $index = self::readCurrenciesIndex();
 
         $record = [
             'entity' => 'currency',
@@ -67,7 +92,7 @@ final class CommerceService
         $exists = isset($index[$code]);
         $record['_hash'] = $newHash;
         $index[$code] = $record;
-        update_option(self::OPTION_CURRENCIES, $index, false);
+        self::writeFileIndex('currencies', $index);
 
         return ['ok' => true, 'action' => $exists ? 'updated' : 'created', 'key' => $code];
     }
@@ -83,10 +108,7 @@ final class CommerceService
             return ['ok' => false, 'message' => 'Marketplace id missing'];
         }
 
-        $index = get_option(self::OPTION_MARKETPLACES, []);
-        if (! is_array($index)) {
-            $index = [];
-        }
+        $index = self::readMarketplacesIndex();
 
         $record = [
             'entity' => 'marketplace',
@@ -114,7 +136,7 @@ final class CommerceService
         $exists = isset($index[$id]);
         $record['_hash'] = $newHash;
         $index[$id] = $record;
-        update_option(self::OPTION_MARKETPLACES, $index, false);
+        self::writeFileIndex('marketplaces', $index);
 
         return ['ok' => true, 'action' => $exists ? 'updated' : 'created', 'key' => $id];
     }

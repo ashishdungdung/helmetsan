@@ -60,11 +60,13 @@ use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\API\PriceController;
 use Helmetsan\Core\Marketplace\FeedIngestionTask;
 use Helmetsan\Core\Admin\RevenueDashboard;
+use Helmetsan\Core\Core\DatabaseManager;
 
 final class Plugin
 {
     private Config $config;
     private Logger $logger;
+    private DatabaseManager $databaseManager;
     private JsonRepository $repository;
     private Validator $validator;
     private HealthService $health;
@@ -116,6 +118,7 @@ final class Plugin
     {
         $this->config     = new Config();
         $this->logger     = new Logger();
+        $this->databaseManager = new DatabaseManager();
         $this->repository = new JsonRepository($this->config);
         $this->validator  = new Validator();
         $this->health     = new HealthService($this->validator, $this->repository);
@@ -249,6 +252,7 @@ final class Plugin
             $this->brands,
             $this->wooBridge
         ))->register();
+        $this->databaseManager->register();
         $this->helmetDataBlock->register();
         $this->tracker->register();
         $this->dataLayer->register();
@@ -295,6 +299,7 @@ final class Plugin
     public function activate(): void
     {
         (new Registrar())->register();
+        $this->databaseManager->ensureTables();
         $this->ingestionLogs->ensureTable();
         $this->syncLogs->ensureTable();
         $this->revenue->ensureTable();

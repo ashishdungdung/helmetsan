@@ -16,24 +16,36 @@ $logoUrl = helmetsan_get_logo_url($helmetId);
         </div>
     <?php endif; ?>
     <button type="button" 
-            class="js-add-to-compare hs-btn hs-btn--icon" 
+            class="js-add-to-compare hs-btn hs-btn--icon helmet-card__compare-btn" 
             data-id="<?php echo esc_attr((string) $helmetId); ?>" 
             title="<?php esc_attr_e('Compare', 'helmetsan-theme'); ?>"
-            aria-pressed="false">
-        <span>Compare</span>
+            aria-pressed="false"
+            aria-label="Add to comparison">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hs-icon">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
     </button>
     <a href="/comparison/" 
-       class="js-view-compare hs-btn hs-btn--sm hs-btn--primary is-hidden"
-       title="<?php esc_attr_e('View Comparison', 'helmetsan-theme'); ?>"
-       style="position:absolute; top:45px; right:10px; z-index:10; font-size:0.65rem; padding:0.2rem 0.6rem; min-width:auto; line-height:1.2;">
+       class="js-view-compare hs-btn hs-btn--sm hs-btn--primary is-hidden helmet-card__view-compare"
+       title="<?php esc_attr_e('View Comparison', 'helmetsan-theme'); ?>">
        View
     </a>
 
     <a href="<?php the_permalink(); ?>" class="helmet-card__link">
         <?php if (has_post_thumbnail()) : ?>
-            <div class="helmet-card__image"><?php the_post_thumbnail('medium_large'); ?></div>
+            <div class="helmet-card__image-wrapper">
+                <div class="helmet-card__image"><?php the_post_thumbnail('medium_large'); ?></div>
+            </div>
+        <?php else : ?>
+            <div class="helmet-card__image-wrapper helmet-card__image-wrapper--placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="hs-icon hs-icon--placeholder"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            </div>
         <?php endif; ?>
-        <h3 class="helmet-card__title"><?php the_title(); ?></h3>
+        <h3 class="helmet-card__title">
+            <span class="helmet-card__title-text"><?php the_title(); ?></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hs-icon helmet-card__title-icon"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </h3>
     </a>
     
     <?php 

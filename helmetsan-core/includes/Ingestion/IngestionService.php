@@ -405,6 +405,9 @@ final class IngestionService
             if (isset($data['price']['usd'])) update_post_meta($resolvedPostId, 'price_usd', (string) $data['price']['usd']);
             if (isset($data['price']['eur'])) update_post_meta($resolvedPostId, 'price_eur', (string) $data['price']['eur']);
             if (isset($data['price']['gbp'])) update_post_meta($resolvedPostId, 'price_gbp', (string) $data['price']['gbp']);
+            if (isset($data['price']['inr'])) update_post_meta($resolvedPostId, 'price_inr', (string) $data['price']['inr']);
+            if (isset($data['price']['mrp'])) update_post_meta($resolvedPostId, 'price_mrp', (string) $data['price']['mrp']);
+            if (isset($data['price']['mrp_inr'])) update_post_meta($resolvedPostId, 'price_mrp_inr', (string) $data['price']['mrp_inr']);
             
             // Backwards compatibility for 'current'
             if (isset($data['price']['current'])) update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);

@@ -87,6 +87,7 @@ final class PriceService
     public function getBestPrice(int $postId, ?string $countryCode = null): ?PriceResult
     {
         $cc = $countryCode ?? $this->geo->getCountry();
+        $cc = $cc ?: 'IN'; // Default to India routing
 
         // 1. Check recent price history (under 1 hour old)
         $latest = $this->history->getLatestByMarketplace($postId, $cc);
@@ -105,6 +106,7 @@ final class PriceService
                         countryCode: $cc,
                         currency: $entry['currency'],
                         price: $entry['price'],
+                        mrp: $entry['mrp'] ?? null,
                         availability: 'in_stock',
                         capturedAt: $entry['captured_at'],
                     );
@@ -126,7 +128,8 @@ final class PriceService
                     $live->marketplaceId,
                     $live->countryCode,
                     $live->currency,
-                    $live->price
+                    $live->price,
+                    $live->mrp
                 );
                 return $live;
             }
@@ -144,6 +147,7 @@ final class PriceService
     public function getAllOffers(int $postId, ?string $countryCode = null): array
     {
         $cc = $countryCode ?? $this->geo->getCountry();
+        $cc = $cc ?: 'IN'; // Default to India routing
         $helmetRef = (string) get_post_field('post_name', $postId);
 
         if ($helmetRef === '') {
@@ -159,7 +163,8 @@ final class PriceService
                 $offer->marketplaceId,
                 $offer->countryCode,
                 $offer->currency,
-                $offer->price
+                $offer->price,
+                $offer->mrp
             );
         }
 

@@ -152,7 +152,7 @@ final class RevenueService
         $networkCfg = $settings['affiliate_networks'][$network] ?? [];
 
         $affiliateUrl = match ($network) {
-            'amazon' => $this->buildAmazonUrl($url, $entry, $networkCfg),
+            'amazon' => $this->buildAmazonUrl($url, $entry, $networkCfg, $helmetId),
             'cj'     => $this->buildCjUrl($url, $entry, $networkCfg, $helmetId),
             'allegro'=> $this->buildAllegroUrl($url, $entry, $networkCfg),
             'jumia'  => $this->buildJumiaUrl($url, $entry, $networkCfg),
@@ -177,11 +177,43 @@ final class RevenueService
 
     // ─── Network-specific URL builders ───────────────────────────────────
 
-    private function buildAmazonUrl(string $url, array $entry, array $cfg): string
+    private function buildAmazonUrl(string $url, array $entry, array $cfg, int $helmetId): string
     {
-        $tag = $entry['tag'] ?? $cfg['tag'] ?? 'helmetsan-20';
+        $tag = $entry['tag'] ?? '';
+        
+        if ($tag === '') {
+            $tag = $this->getAmazonTagOverride($helmetId);
+        }
+
+        if ($tag === '') {
+            $tag = $cfg['tag'] ?? 'helmetsan-20';
+        }
+
         $separator = str_contains($url, '?') ? '&' : '?';
         return $url . $separator . 'tag=' . rawurlencode($tag);
+    }
+
+    private function getAmazonTagOverride(int $helmetId): string
+    {
+        // 1. Check Brand Level
+        $brands = get_the_terms($helmetId, 'helmet_brand');
+        if (is_array($brands) && count($brands) > 0) {
+            $brandTag = (string) get_term_meta($brands[0]->term_id, 'amazon_tag_override', true);
+            if ($brandTag !== '') {
+                return $brandTag;
+            }
+        }
+
+        // 2. Check Category (Type) Level
+        $types = get_the_terms($helmetId, 'helmet_type');
+        if (is_array($types) && count($types) > 0) {
+            $typeTag = (string) get_term_meta($types[0]->term_id, 'amazon_tag_override', true);
+            if ($typeTag !== '') {
+                return $typeTag;
+            }
+        }
+
+        return '';
     }
 
     private function buildCjUrl(string $url, array $entry, array $cfg, int $helmetId): string
@@ -233,7 +265,11 @@ final class RevenueService
             return '';
         }
 
-        $tag = $settings['amazon_tag'] ?? 'helmetsan-20';
+        $tag = $this->getAmazonTagOverride($helmetId);
+        if ($tag === '') {
+            $tag = $settings['amazon_tag'] ?? 'helmetsan-20';
+        }
+        
         return 'https://www.amazon.com/dp/' . rawurlencode($asin) . '?tag=' . rawurlencode($tag);
     }
 

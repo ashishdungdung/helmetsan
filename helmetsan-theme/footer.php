@@ -76,6 +76,9 @@
         <?php endif; ?>
     </div>
 </footer>
-<?php wp_footer(); ?>
+<?php 
+get_template_part('template-parts/ai-selection-tool');
+wp_footer(); 
+?>
 </body>
 </html>

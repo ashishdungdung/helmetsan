@@ -170,13 +170,18 @@ final class Admin
      */
     private function engineSnapshot(): array
     {
+        $cached = get_transient('helmetsan_engine_snapshot');
+        if (is_array($cached)) {
+            return $cached;
+        }
+
         global $wpdb;
 
         $dealerCount = (int) wp_count_posts('dealer')->publish;
         $distributorCount = (int) wp_count_posts('distributor')->publish;
         $comparisonCount = (int) wp_count_posts('comparison')->publish;
         $recommendationCount = (int) wp_count_posts('recommendation')->publish;
-        $marketplaces = get_option('helmetsan_marketplaces_index', []);
+        $marketplaces = \Helmetsan\Core\Commerce\CommerceService::readMarketplacesIndex();
         $marketplaceCount = is_array($marketplaces) ? count($marketplaces) : 0;
 
         $pricingCount = (int) $wpdb->get_var(
@@ -186,7 +191,7 @@ final class Admin
             "SELECT COUNT(DISTINCT post_id) FROM {$wpdb->postmeta} WHERE meta_key = 'best_offer_json' AND meta_value <> ''"
         );
 
-        return [
+        $result = [
             'dealers' => $dealerCount,
             'distributors' => $distributorCount,
             'comparisons' => $comparisonCount,
@@ -195,6 +200,9 @@ final class Admin
             'pricing' => $pricingCount,
             'offers' => $offersCount,
         ];
+        
+        set_transient('helmetsan_engine_snapshot', $result, HOUR_IN_SECONDS);
+        return $result;
     }
 
     /**
@@ -231,7 +239,7 @@ final class Admin
      */
     private function getMarketplaceRows(int $limit = 5): array
     {
-        $index = get_option('helmetsan_marketplaces_index', []);
+        $index = \Helmetsan\Core\Commerce\CommerceService::readMarketplacesIndex();
         if (! is_array($index) || $index === []) {
             return [];
         }
@@ -435,6 +443,26 @@ final class Admin
             'sanitize_callback' => [$this, 'sanitizeGeo'],
             'default'           => $this->config->geoDefaults(),
         ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_FEATURES, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeFeatures'],
+            'default'           => $this->config->featuresDefaults(),
+        ]);
+    }
+
+    public function sanitizeFeatures($value): array
+    {
+        $defaults = $this->config->featuresDefaults();
+        if (!is_array($value)) {
+            return $defaults;
+        }
+
+        $clean = [];
+        $clean['enable_technical_analysis'] = !empty($value['enable_technical_analysis']);
+        $clean['enable_ai_chatbot']         = !empty($value['enable_ai_chatbot']);
+
+        return array_merge($defaults, $clean);
     }
 
     public function sanitizeAnalytics($value): array
@@ -1610,7 +1638,7 @@ final class Admin
      */
     private function collectMarketplaceRecords(string $country, string $search): array
     {
-        $index = get_option('helmetsan_marketplaces_index', []);
+        $index = \Helmetsan\Core\Commerce\CommerceService::readMarketplacesIndex();
         if (! is_array($index)) {
             return [];
         }
@@ -2685,6 +2713,7 @@ final class Admin
         $alerts      = wp_parse_args((array) get_option(Config::OPTION_ALERTS, []), $this->config->alertsDefaults());
         $media       = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $this->config->mediaDefaults());
         $wooBridge   = wp_parse_args((array) get_option(Config::OPTION_WOO_BRIDGE, []), $this->config->wooBridgeDefaults());
+        $features    = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $this->config->featuresDefaults());
 
         $tabs = [
             'analytics'   => 'Analytics',
@@ -2696,6 +2725,7 @@ final class Admin
             'alerts'      => 'Alerts & Notifications',
             'media'       => 'Media Engine',
             'woobridge'   => 'WooBridge',
+            'features'    => 'Features & Toggles',
         ];
         $activeTab = isset($_GET['stab']) ? sanitize_key((string) $_GET['stab']) : 'analytics';
         if (!isset($tabs[$activeTab])) {
@@ -2725,6 +2755,7 @@ final class Admin
         $O_AL = Config::OPTION_ALERTS;
         $O_ME = Config::OPTION_MEDIA;
         $O_W = Config::OPTION_WOO_BRIDGE;
+        $O_F = Config::OPTION_FEATURES;
 
         // ── Analytics ────────────────────────────────────────────
         if ($activeTab === 'analytics') {
@@ -2987,6 +3018,14 @@ final class Admin
                 ['key' => 'default_currency', 'option' => $O_W, 'label' => 'Default Currency', 'desc' => '3-letter ISO code for product prices (e.g. USD, EUR).', 'type' => 'text', 'prefix' => 'wb_'],
                 ['key' => 'sync_limit_default', 'option' => $O_W, 'label' => 'Sync Batch Limit', 'desc' => 'Max helmets to sync in a single batch run.', 'type' => 'number', 'prefix' => 'wb_'],
             ], $wooBridge);
+        }
+
+        // ── Features ─────────────────────────────────────────────
+        if ($activeTab === 'features') {
+            $this->renderSettingsSection('Beta Features & Toggles', 'Enable experimental or upcoming features.', [
+                ['key' => 'enable_technical_analysis', 'option' => $O_F, 'label' => 'Technical Analysis', 'desc' => 'Show technical analysis section on single helmet pages.', 'type' => 'checkbox', 'prefix' => 'feat_'],
+                ['key' => 'enable_ai_chatbot', 'option' => $O_F, 'label' => 'AI Selection Chatbot', 'desc' => 'Enable AI chatbot widget on the frontend.', 'type' => 'checkbox', 'prefix' => 'feat_'],
+            ], $features);
         }
 
         submit_button('Save Settings');

@@ -19,6 +19,7 @@ $helmetsan_theme_includes = [
     '/inc/template-tags.php',
     '/inc/compatibility.php',
     '/inc/class-mega-menu-walker.php',
+    '/inc/ajax-filter.php',
 ];
 
 foreach ($helmetsan_theme_includes as $file) {

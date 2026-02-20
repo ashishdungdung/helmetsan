@@ -29,6 +29,7 @@ final class PriceHistory
             country_code char(2) NOT NULL DEFAULT 'US',
             currency char(3) NOT NULL DEFAULT 'USD',
             price decimal(10,2) NOT NULL,
+            mrp decimal(10,2) DEFAULT NULL,
             captured_at datetime NOT NULL,
             PRIMARY KEY (id),
             KEY helmet_id (helmet_id),
@@ -61,6 +62,7 @@ final class PriceHistory
         string $countryCode,
         string $currency,
         float  $price,
+        ?float $mrp = null,
         ?string $capturedAt = null
     ): bool {
         global $wpdb;
@@ -77,9 +79,10 @@ final class PriceHistory
                 'country_code'   => strtoupper(substr(sanitize_text_field($countryCode), 0, 2)),
                 'currency'       => strtoupper(substr(sanitize_text_field($currency), 0, 3)),
                 'price'          => $price,
+                'mrp'            => $mrp,
                 'captured_at'    => $capturedAt ?? current_time('mysql'),
             ],
-            ['%d', '%s', '%s', '%s', '%f', '%s']
+            ['%d', '%s', '%s', '%s', '%f', '%f', '%s']
         );
 
         return $result !== false;
@@ -88,7 +91,7 @@ final class PriceHistory
     /**
      * Get price history for a helmet, optionally filtered by marketplace and country.
      *
-     * @return array<int, array{marketplace_id: string, country_code: string, currency: string, price: float, captured_at: string}>
+     * @return array<int, array{marketplace_id: string, country_code: string, currency: string, price: float, mrp: float|null, captured_at: string}>
      */
     public function getHistory(
         int     $helmetId,
@@ -116,7 +119,7 @@ final class PriceHistory
 
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $rows = $wpdb->get_results(
-            "SELECT marketplace_id, country_code, currency, price, captured_at FROM {$table} WHERE {$where} ORDER BY captured_at ASC",
+            "SELECT marketplace_id, country_code, currency, price, mrp, captured_at FROM {$table} WHERE {$where} ORDER BY captured_at ASC",
             ARRAY_A
         );
 
@@ -129,6 +132,7 @@ final class PriceHistory
             'country_code'   => (string) $row['country_code'],
             'currency'       => (string) $row['currency'],
             'price'          => (float) $row['price'],
+            'mrp'            => isset($row['mrp']) ? (float) $row['mrp'] : null,
             'captured_at'    => (string) $row['captured_at'],
         ], $rows);
     }
@@ -136,7 +140,7 @@ final class PriceHistory
     /**
      * Get the latest price for each marketplace for a helmet.
      *
-     * @return array<string, array{price: float, currency: string, captured_at: string}>
+     * @return array<string, array{price: float, mrp: float|null, currency: string, captured_at: string}>
      */
     public function getLatestByMarketplace(int $helmetId, ?string $countryCode = null): array
     {
@@ -160,7 +164,7 @@ final class PriceHistory
 
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $rows = $wpdb->get_results(
-            "SELECT h.marketplace_id, h.currency, h.price, h.captured_at
+            "SELECT h.marketplace_id, h.currency, h.price, h.mrp, h.captured_at
              FROM {$table} h
              INNER JOIN ({$subquery}) latest ON h.marketplace_id = latest.marketplace_id AND h.captured_at = latest.max_date
              WHERE {$where}
@@ -176,6 +180,7 @@ final class PriceHistory
         foreach ($rows as $row) {
             $result[(string) $row['marketplace_id']] = [
                 'price'       => (float) $row['price'],
+                'mrp'         => isset($row['mrp']) ? (float) $row['mrp'] : null,
                 'currency'    => (string) $row['currency'],
                 'captured_at' => (string) $row['captured_at'],
             ];
