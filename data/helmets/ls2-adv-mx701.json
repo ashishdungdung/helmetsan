@@ -60,8 +60,22 @@
       "sku": "LS2-MX7C-SOL-LG",
       "price": 429.98,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=LS2+LS2+Explorer+Carbon+MX701+Carbon+Solid+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=LS2+LS2+Explorer+Carbon+MX701+Carbon+Solid+LG",
+        "amazon_in": "https://www.amazon.in/s?k=LS2+LS2+Explorer+Carbon+MX701+Carbon+Solid+LG",
+        "amazon_de": "https://www.amazon.de/s?k=LS2+LS2+Explorer+Carbon+MX701+Carbon+Solid+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=LS2+LS2+Explorer+Carbon+MX701+Carbon+Solid+LG"
+      }
     }
   ],
-  "entity": "helmet"
+  "entity": "helmet",
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=LS2+LS2+Explorer+Carbon+MX701",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=LS2+LS2+Explorer+Carbon+MX701",
+    "amazon_in": "https://www.amazon.in/s?k=LS2+LS2+Explorer+Carbon+MX701",
+    "amazon_de": "https://www.amazon.de/s?k=LS2+LS2+Explorer+Carbon+MX701",
+    "amazon_fr": "https://www.amazon.fr/s?k=LS2+LS2+Explorer+Carbon+MX701"
+  }
 }

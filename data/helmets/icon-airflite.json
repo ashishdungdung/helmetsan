@@ -6,7 +6,10 @@
   "type": "Full Face",
   "helmet_family": "Icon Airflite",
   "head_shape": "Long Oval",
-  "helmet_types": ["Full Face", "Street"],
+  "helmet_types": [
+    "Full Face",
+    "Street"
+  ],
   "features": [
     "Injection-molded polycarbonate shell",
     "Hydradry moisture-wicking interior",
@@ -23,7 +26,10 @@
     "weight_lbs": 3.48,
     "material": "Polycarbonate",
     "shell_sizes": 3,
-    "certifications": ["DOT", "ECE 22.05"]
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ]
   },
   "product_details": {
     "style": "Urban Street Full Face",
@@ -35,13 +41,41 @@
     "head_shape": "Long Oval",
     "fit_notes": "Long oval shape fits narrower through the temples. Icon helmets are known for their aggressive, snug fit out of the box.",
     "size_translation": [
-      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
-      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
-      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" },
-      { "size": "3XL", "cm": "65-66", "in": "25.59-25.98" }
+      {
+        "size": "XS",
+        "cm": "53-54",
+        "in": "20.87-21.26"
+      },
+      {
+        "size": "SM",
+        "cm": "55-56",
+        "in": "21.65-22.05"
+      },
+      {
+        "size": "MD",
+        "cm": "57-58",
+        "in": "22.44-22.83"
+      },
+      {
+        "size": "LG",
+        "cm": "59-60",
+        "in": "23.23-23.62"
+      },
+      {
+        "size": "XL",
+        "cm": "61-62",
+        "in": "24.02-24.41"
+      },
+      {
+        "size": "2XL",
+        "cm": "63-64",
+        "in": "24.80-25.20"
+      },
+      {
+        "size": "3XL",
+        "cm": "65-66",
+        "in": "25.59-25.98"
+      }
     ]
   },
   "variants": [
@@ -52,9 +86,16 @@
       "graphics": "Solid Rubatone",
       "size": "MD",
       "sku": "ICON-AFLT-RBT-MD",
-      "price": 250.00,
+      "price": 250.0,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Icon+Icon+Airflite+Rubatone+Black+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Icon+Icon+Airflite+Rubatone+Black+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Icon+Icon+Airflite+Rubatone+Black+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Icon+Icon+Airflite+Rubatone+Black+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Icon+Icon+Airflite+Rubatone+Black+MD"
+      }
     },
     {
       "id": "airflite-krom-md",
@@ -63,21 +104,58 @@
       "graphics": "Krom",
       "size": "MD",
       "sku": "ICON-AFLT-KROM-MD",
-      "price": 280.00,
+      "price": 280.0,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Icon+Icon+Airflite+Silver%2FBlack+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Icon+Icon+Airflite+Silver%2FBlack+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Icon+Icon+Airflite+Silver%2FBlack+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Icon+Icon+Airflite+Silver%2FBlack+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Icon+Icon+Airflite+Silver%2FBlack+MD"
+      }
     }
   ],
-  "price": { "current": 250.00, "currency": "USD" },
+  "price": {
+    "current": 250.0,
+    "currency": "USD"
+  },
   "geo_pricing": {
-    "US": { "price": 250.00, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 229.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "IN": { "price": 22990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+    "US": {
+      "price": 250.0,
+      "currency": "USD",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 229.9,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 22990,
+      "currency": "INR",
+      "availability": "limited",
+      "source": "grey_market",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Good",
     "sharp_stars": 3,
     "analysis": "Solid polycarbonate construction that meets DOT and ECE standards. The drop-down sun visor adds daily practicality. Shell thickness and EPS density are appropriate for street riding but not ideal for track use."
   },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_AFLT" }
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_AFLT"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Icon+Icon+Airflite",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Icon+Icon+Airflite",
+    "amazon_in": "https://www.amazon.in/s?k=Icon+Icon+Airflite",
+    "amazon_de": "https://www.amazon.de/s?k=Icon+Icon+Airflite",
+    "amazon_fr": "https://www.amazon.fr/s?k=Icon+Icon+Airflite"
+  }
 }

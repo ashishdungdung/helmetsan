@@ -6,7 +6,10 @@
   "type": "Full Face",
   "helmet_family": "Shark Spartan",
   "head_shape": "Intermediate Oval",
-  "helmet_types": ["Full Face", "Sport"],
+  "helmet_types": [
+    "Full Face",
+    "Sport"
+  ],
   "features": [
     "Multi-axial fiberglass shell",
     "Multi-density EPS",
@@ -23,7 +26,10 @@
     "weight_lbs": 3.26,
     "material": "Multi-axial Fiberglass",
     "shell_sizes": 3,
-    "certifications": ["ECE 22.06", "DOT"]
+    "certifications": [
+      "ECE 22.06",
+      "DOT"
+    ]
   },
   "product_details": {
     "style": "Sport Street Full Face",
@@ -33,13 +39,33 @@
   },
   "sizing_fit": {
     "head_shape": "Intermediate Oval",
-    "fit_notes": "French fit — slightly more generous around the cheeks compared to Japanese brands. The Easy Fit channel accommodates most eyeglass frames.",
+    "fit_notes": "French fit \u2014 slightly more generous around the cheeks compared to Japanese brands. The Easy Fit channel accommodates most eyeglass frames.",
     "size_translation": [
-      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
-      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+      {
+        "size": "XS",
+        "cm": "53-54",
+        "in": "20.87-21.26"
+      },
+      {
+        "size": "SM",
+        "cm": "55-56",
+        "in": "21.65-22.05"
+      },
+      {
+        "size": "MD",
+        "cm": "57-58",
+        "in": "22.44-22.83"
+      },
+      {
+        "size": "LG",
+        "cm": "59-60",
+        "in": "23.23-23.62"
+      },
+      {
+        "size": "XL",
+        "cm": "61-62",
+        "in": "24.02-24.41"
+      }
     ]
   },
   "variants": [
@@ -52,7 +78,14 @@
       "sku": "SHARK-SRS-MBK-MD",
       "price": 399.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Shark+Shark+Spartan+RS+Matte+Black+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Shark+Shark+Spartan+RS+Matte+Black+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Shark+Shark+Spartan+RS+Matte+Black+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Shark+Shark+Spartan+RS+Matte+Black+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Shark+Shark+Spartan+RS+Matte+Black+MD"
+      }
     },
     {
       "id": "spartan-rs-carbon-md",
@@ -63,7 +96,14 @@
       "sku": "SHARK-SRSC-DKA-MD",
       "price": 529.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Shark+Shark+Spartan+RS+Carbon+Skin+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Shark+Shark+Spartan+RS+Carbon+Skin+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Shark+Shark+Spartan+RS+Carbon+Skin+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Shark+Shark+Spartan+RS+Carbon+Skin+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Shark+Shark+Spartan+RS+Carbon+Skin+MD"
+      }
     }
   ],
   "price": {
@@ -71,9 +111,27 @@
     "currency": "USD"
   },
   "geo_pricing": {
-    "US": { "price": 399.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 349.90, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "IN": { "price": 37990, "currency": "INR", "availability": "in_stock", "source": "official_importer", "updated_at": "2026-02-20" }
+    "US": {
+      "price": 399.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 349.9,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 37990,
+      "currency": "INR",
+      "availability": "in_stock",
+      "source": "official_importer",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Very Good",
@@ -82,5 +140,12 @@
   },
   "affiliate": {
     "amazon_asin": "B0EXAMPLE_SRS"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Shark+Shark+Spartan+RS",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Shark+Shark+Spartan+RS",
+    "amazon_in": "https://www.amazon.in/s?k=Shark+Shark+Spartan+RS",
+    "amazon_de": "https://www.amazon.de/s?k=Shark+Shark+Spartan+RS",
+    "amazon_fr": "https://www.amazon.fr/s?k=Shark+Shark+Spartan+RS"
   }
 }

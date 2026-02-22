@@ -6,7 +6,11 @@
   "type": "Modular",
   "helmet_family": "Caberg Duke",
   "head_shape": "Intermediate Oval",
-  "helmet_types": ["Modular", "Touring", "Urban"],
+  "helmet_types": [
+    "Modular",
+    "Touring",
+    "Urban"
+  ],
   "features": [
     "Polycarbonate shell",
     "Double homologation P/J",
@@ -22,7 +26,9 @@
     "weight_lbs": 3.53,
     "material": "Polycarbonate",
     "shell_sizes": 2,
-    "certifications": ["ECE 22.06"]
+    "certifications": [
+      "ECE 22.06"
+    ]
   },
   "product_details": {
     "style": "Premium Urban/Touring Modular",
@@ -40,19 +46,56 @@
       "sku": "CAB-DUKEEVO-MBK-LG",
       "price": 299.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Caberg+Caberg+Duke+Evo+Matte+Black+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Caberg+Caberg+Duke+Evo+Matte+Black+LG",
+        "amazon_in": "https://www.amazon.in/s?k=Caberg+Caberg+Duke+Evo+Matte+Black+LG",
+        "amazon_de": "https://www.amazon.de/s?k=Caberg+Caberg+Duke+Evo+Matte+Black+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=Caberg+Caberg+Duke+Evo+Matte+Black+LG"
+      }
     }
   ],
-  "price": { "current": 299.99, "currency": "USD" },
+  "price": {
+    "current": 299.99,
+    "currency": "USD"
+  },
   "geo_pricing": {
-    "US": { "price": 299.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 259.90, "currency": "EUR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
-    "IN": { "price": 24990, "currency": "INR", "availability": "limited", "source": "grey_market", "updated_at": "2026-02-20" }
+    "US": {
+      "price": 299.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 259.9,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "source": "manufacturer_direct",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 24990,
+      "currency": "INR",
+      "availability": "limited",
+      "source": "grey_market",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Very Good",
     "sharp_stars": 4,
-    "analysis": "ECE 22.06 P/J dual approval is a strong safety indicator — confirming the chin bar mechanism exceeds the stringent new ECE standard's requirements. Polycarbonate shell offers good impact distribution."
+    "analysis": "ECE 22.06 P/J dual approval is a strong safety indicator \u2014 confirming the chin bar mechanism exceeds the stringent new ECE standard's requirements. Polycarbonate shell offers good impact distribution."
   },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_DUKEEVO" }
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_DUKEEVO"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Caberg+Caberg+Duke+Evo",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Caberg+Caberg+Duke+Evo",
+    "amazon_in": "https://www.amazon.in/s?k=Caberg+Caberg+Duke+Evo",
+    "amazon_de": "https://www.amazon.de/s?k=Caberg+Caberg+Duke+Evo",
+    "amazon_fr": "https://www.amazon.fr/s?k=Caberg+Caberg+Duke+Evo"
+  }
 }

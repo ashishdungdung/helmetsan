@@ -136,7 +136,8 @@ final class PriceService
         }
 
         // 3. Static post-meta fallback
-        return $this->buildStaticFallback($postId, $cc);
+        $fallbacks = $this->buildStaticFallbackOffers($postId, $cc);
+        return !empty($fallbacks) ? $fallbacks[0] : null;
     }
 
     /**
@@ -170,10 +171,7 @@ final class PriceService
 
         // If no live offers, include static fallback
         if (empty($offers)) {
-            $static = $this->buildStaticFallback($postId, $cc);
-            if ($static !== null) {
-                $offers[] = $static;
-            }
+            $offers = $this->buildStaticFallbackOffers($postId, $cc);
         }
 
         return $offers;
@@ -208,9 +206,12 @@ final class PriceService
     // ─── Private Helpers ────────────────────────────────────────────────
 
     /**
-     * Build a PriceResult from static post meta (price_usd, price_eur, price_gbp).
+     * Build an array of PriceResults from static post meta (price_usd, price_eur, price_gbp)
+     * and affiliate_links.
+     * 
+     * @return PriceResult[]
      */
-    private function buildStaticFallback(int $postId, string $countryCode): ?PriceResult
+    private function buildStaticFallbackOffers(int $postId, string $countryCode): array
     {
         $currency = $this->geo->getCurrency($countryCode);
 
@@ -239,17 +240,49 @@ final class PriceService
         }
 
         if (!is_numeric($price)) {
-            return null;
+            return [];
         }
 
-        return new PriceResult(
-            marketplaceId: 'static',
-            helmetRef: (string) get_post_field('post_name', $postId),
-            countryCode: $countryCode,
-            currency: $fallbackCurrency,
-            price: (float) $price,
-            availability: 'in_stock',
-            capturedAt: gmdate('c'),
-        );
+        $priceVal = (float) $price;
+        $helmetRef = (string) get_post_field('post_name', $postId);
+
+        // Fetch affiliate_links_json
+        $linksJson = (string) get_post_meta($postId, 'affiliate_links_json', true);
+        $links = json_decode($linksJson, true);
+
+        $offers = [];
+
+        if (is_array($links) && !empty($links)) {
+            $ccLower = strtolower($countryCode);
+            foreach ($links as $mpId => $entry) {
+                if (str_starts_with($mpId, 'amazon-') && $mpId !== 'amazon-' . $ccLower) {
+                    continue;
+                }
+
+                $offers[] = new PriceResult(
+                    marketplaceId: $mpId,
+                    helmetRef: $helmetRef,
+                    countryCode: $countryCode,
+                    currency: $fallbackCurrency,
+                    price: $priceVal,
+                    availability: 'in_stock',
+                    capturedAt: gmdate('c'),
+                );
+            }
+        }
+
+        if (empty($offers)) {
+            $offers[] = new PriceResult(
+                marketplaceId: 'static',
+                helmetRef: $helmetRef,
+                countryCode: $countryCode,
+                currency: $fallbackCurrency,
+                price: $priceVal,
+                availability: 'in_stock',
+                capturedAt: gmdate('c'),
+            );
+        }
+
+        return $offers;
     }
 }

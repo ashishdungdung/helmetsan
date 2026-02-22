@@ -6,7 +6,10 @@
   "type": "Modular",
   "helmet_family": "Shoei Neotec",
   "head_shape": "Intermediate Oval",
-  "helmet_types": ["Modular", "Touring"],
+  "helmet_types": [
+    "Modular",
+    "Touring"
+  ],
   "features": [
     "Multi-ply matrix AIM+ shell",
     "QSV-2 integrated sun visor",
@@ -23,7 +26,10 @@
     "weight_lbs": 3.75,
     "material": "AIM+ (Advanced Integrated Matrix Plus)",
     "shell_sizes": 4,
-    "certifications": ["DOT", "ECE 22.06"]
+    "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ]
   },
   "product_details": {
     "style": "Premium Touring Modular",
@@ -35,12 +41,36 @@
     "head_shape": "Intermediate Oval",
     "fit_notes": "Runs true to Shoei sizing. The Neotec line is known for exceptional long-distance comfort with generous padding around the temples.",
     "size_translation": [
-      { "size": "XS", "cm": "53-54", "in": "20.87-21.26" },
-      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
-      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
+      {
+        "size": "XS",
+        "cm": "53-54",
+        "in": "20.87-21.26"
+      },
+      {
+        "size": "SM",
+        "cm": "55-56",
+        "in": "21.65-22.05"
+      },
+      {
+        "size": "MD",
+        "cm": "57-58",
+        "in": "22.44-22.83"
+      },
+      {
+        "size": "LG",
+        "cm": "59-60",
+        "in": "23.23-23.62"
+      },
+      {
+        "size": "XL",
+        "cm": "61-62",
+        "in": "24.02-24.41"
+      },
+      {
+        "size": "2XL",
+        "cm": "63-64",
+        "in": "24.80-25.20"
+      }
     ]
   },
   "variants": [
@@ -53,7 +83,14 @@
       "sku": "SH-NT3-MBK-LG",
       "price": 849.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Shoei+Shoei+Neotec+3+Matte+Black+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Shoei+Shoei+Neotec+3+Matte+Black+LG",
+        "amazon_in": "https://www.amazon.in/s?k=Shoei+Shoei+Neotec+3+Matte+Black+LG",
+        "amazon_de": "https://www.amazon.de/s?k=Shoei+Shoei+Neotec+3+Matte+Black+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=Shoei+Shoei+Neotec+3+Matte+Black+LG"
+      }
     },
     {
       "id": "neotec3-grasp-tc1-md",
@@ -64,19 +101,56 @@
       "sku": "SH-NT3-GRSP-MD",
       "price": 939.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Shoei+Shoei+Neotec+3+Red%2FWhite%2FBlack+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Shoei+Shoei+Neotec+3+Red%2FWhite%2FBlack+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Shoei+Shoei+Neotec+3+Red%2FWhite%2FBlack+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Shoei+Shoei+Neotec+3+Red%2FWhite%2FBlack+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Shoei+Shoei+Neotec+3+Red%2FWhite%2FBlack+MD"
+      }
     }
   ],
-  "price": { "current": 849.99, "currency": "USD" },
+  "price": {
+    "current": 849.99,
+    "currency": "USD"
+  },
   "geo_pricing": {
-    "US": { "price": 849.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 799.00, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "IN": { "price": 89999, "currency": "INR", "availability": "import_only", "source": "grey_market", "updated_at": "2026-02-20" }
+    "US": {
+      "price": 849.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 799.0,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "source": "authorized_distributor",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 89999,
+      "currency": "INR",
+      "availability": "import_only",
+      "source": "grey_market",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Excellent",
     "sharp_stars": 5,
     "analysis": "The AIM+ shell is Shoei's most advanced composite formulation, combining organic and inorganic fibers with high-performance resins. The dual-layer multi-density EPS and the ECE 22.06 standard together ensure leading crash protection among modular helmets."
   },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_NT3" }
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_NT3"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Shoei+Shoei+Neotec+3",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Shoei+Shoei+Neotec+3",
+    "amazon_in": "https://www.amazon.in/s?k=Shoei+Shoei+Neotec+3",
+    "amazon_de": "https://www.amazon.de/s?k=Shoei+Shoei+Neotec+3",
+    "amazon_fr": "https://www.amazon.fr/s?k=Shoei+Shoei+Neotec+3"
+  }
 }

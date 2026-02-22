@@ -47,8 +47,7 @@ final class IngestionService
         private readonly Logger $logger,
         private readonly LogRepository $logs,
         private readonly \Helmetsan\Core\Accessory\AccessoryService $accessories
-    ) {
-    }
+    ) {}
 
     public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false): array
     {
@@ -80,148 +79,150 @@ final class IngestionService
         }
 
         try {
-        if ($limit !== null && $limit > 0) {
-            $files = array_slice($files, 0, $limit);
-        }
+            if ($limit !== null && $limit > 0) {
+                $files = array_slice($files, 0, $limit);
+            }
 
-        // De-duplicate file list to avoid accidental re-processing.
-        $files = array_values(array_unique($files));
+            // De-duplicate file list to avoid accidental re-processing.
+            $files = array_values(array_unique($files));
 
-        $batchSize = max(1, $batchSize);
-        $batches   = array_chunk($files, $batchSize);
-        $ok    = 0;
-        $fail  = 0;
-        $skipped = 0;
-        $updated = 0;
-        $created = 0;
+            $batchSize = max(1, $batchSize);
+            $batches   = array_chunk($files, $batchSize);
+            $ok    = 0;
+            $fail  = 0;
+            $skipped = 0;
+            $updated = 0;
+            $created = 0;
 
-        foreach ($batches as $index => $batch) {
-            $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files');
+            foreach ($batches as $index => $batch) {
+                $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files');
 
-            foreach ($batch as $file) {
-                $data = $this->repository->read($file);
-                if ($data === []) {
-                    $fail++;
-                    $this->logger->info('Ingest rejected: empty/invalid file ' . $file);
-                    $this->logs->add($file, 'rejected', 'Empty or invalid JSON payload');
-                    continue;
-                }
+                foreach ($batch as $file) {
+                    $data = $this->repository->read($file);
+                    if ($data === []) {
+                        $fail++;
+                        $this->logger->info('Ingest rejected: empty/invalid file ' . $file);
+                        $this->logs->add($file, 'rejected', 'Empty or invalid JSON payload');
+                        continue;
+                    }
 
-                $schema = $this->validator->validateSchema($data);
-                $logic  = $this->validator->validateLogic($data);
+                    $schema = $this->validator->validateSchema($data);
+                    $logic  = $this->validator->validateLogic($data);
 
-                if (! $schema['ok'] || ! $logic['ok']) {
-                    $fail++;
-                    $this->logger->info('Ingest rejected: ' . $file);
-                    $errors = array_merge($schema['errors'] ?? [], $logic['errors'] ?? []);
-                    $this->logs->add(
-                        $file,
-                        'rejected',
-                        implode('; ', array_map('strval', $errors)),
-                        isset($data['id']) ? (string) $data['id'] : ''
-                    );
-                    continue;
-                }
-
-                $encoded = wp_json_encode($data);
-                $isAccessory = isset($data['accessory_type']) 
-                    || isset($data['compatible_helmet_types']) 
-                    || (isset($data['type']) && !array_key_exists(strtolower((string)$data['type']), self::HELMET_TYPE_CANONICAL));
-
-                if ($isAccessory) {
-                    $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
-                    if ($upsert['ok']) {
-                         $ok++;
-                        if ($upsert['action'] === 'created') {
-                            $created++;
-                        } else {
-                            $updated++;
-                        }
+                    if (! $schema['ok'] || ! $logic['ok']) {
+                        $fail++;
+                        $this->logger->info('Ingest rejected: ' . $file);
+                        $errors = array_merge($schema['errors'] ?? [], $logic['errors'] ?? []);
                         $this->logs->add(
                             $file,
-                            $upsert['action'],
-                            'Accessory upsert successful',
-                            (string) $data['id'],
-                            (int) $upsert['post_id']
+                            'rejected',
+                            implode('; ', array_map('strval', $errors)),
+                            isset($data['id']) ? (string) $data['id'] : ''
                         );
-                    } else {
+                        continue;
+                    }
+
+                    $encoded = wp_json_encode($data);
+                    $isAccessory = isset($data['accessory_type'])
+                        || isset($data['compatible_helmet_types'])
+                        || (isset($data['type']) && !array_key_exists(strtolower((string)$data['type']), self::HELMET_TYPE_CANONICAL));
+
+                    if ($isAccessory) {
+                        $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
+                        if ($upsert['ok']) {
+                            $ok++;
+                            if ($upsert['action'] === 'created') {
+                                $created++;
+                            } else {
+                                $updated++;
+                            }
+                            $this->logs->add(
+                                $file,
+                                $upsert['action'],
+                                'Accessory upsert successful',
+                                (string) $data['id'],
+                                (int) $upsert['post_id']
+                            );
+                        } else {
+                            $fail++;
+                            $this->logs->add($file, 'failed', 'Accessory upsert failed: ' . ($upsert['message'] ?? 'Unknown error'));
+                        }
+                        continue;
+                    }
+
+                    $payloadHash = hash('sha256', is_string($encoded) ? $encoded : serialize($data));
+                    $postId      = $this->findHelmetPostId((string) $data['id']);
+                    $existingHash = $postId > 0 ? (string) get_post_meta($postId, '_source_hash', true) : '';
+
+                    $hasType = $postId > 0 && has_term('', 'helmet_type', $postId);
+
+                    if ($existingHash !== '' && hash_equals($existingHash, $payloadHash) && $hasType) {
+                        $skipped++;
+                        $this->logs->add($file, 'skipped', 'Hash unchanged and categorized; record skipped', (string) $data['id'], $postId);
+                        continue;
+                    }
+
+                    if ($dryRun) {
+                        $skipped++;
+                        $this->logs->add($file, 'dry-run', 'Validated in dry-run mode', (string) $data['id'], $postId);
+                        continue;
+                    }
+
+                    $transactionStarted = $this->startTransaction();
+                    $upsert = $this->upsertHelmet($data, $file, $payloadHash, $postId);
+                    if (! $upsert['ok']) {
+                        if ($transactionStarted) {
+                            $this->rollbackTransaction();
+                        }
                         $fail++;
-                        $this->logs->add($file, 'failed', 'Accessory upsert failed: ' . ($upsert['message'] ?? 'Unknown error'));
+                        $this->logs->add(
+                            $file,
+                            'failed',
+                            'Database upsert failed',
+                            (string) $data['id'],
+                            $postId
+                        );
+                        continue;
                     }
-                    continue;
-                }
-
-                $payloadHash = hash('sha256', is_string($encoded) ? $encoded : serialize($data));
-                $postId      = $this->findHelmetPostId((string) $data['id']);
-                $existingHash = $postId > 0 ? (string) get_post_meta($postId, '_source_hash', true) : '';
-
-                if ($existingHash !== '' && hash_equals($existingHash, $payloadHash)) {
-                    $skipped++;
-                    $this->logs->add($file, 'skipped', 'Hash unchanged; record skipped', (string) $data['id'], $postId);
-                    continue;
-                }
-
-                if ($dryRun) {
-                    $skipped++;
-                    $this->logs->add($file, 'dry-run', 'Validated in dry-run mode', (string) $data['id'], $postId);
-                    continue;
-                }
-
-                $transactionStarted = $this->startTransaction();
-                $upsert = $this->upsertHelmet($data, $file, $payloadHash, $postId);
-                if (! $upsert['ok']) {
                     if ($transactionStarted) {
-                        $this->rollbackTransaction();
+                        $this->commitTransaction();
                     }
-                    $fail++;
+
+                    $ok++;
+                    if ($upsert['action'] === 'created') {
+                        $created++;
+                    } else {
+                        $updated++;
+                    }
                     $this->logs->add(
                         $file,
-                        'failed',
-                        'Database upsert failed',
+                        $upsert['action'],
+                        'Entity upsert successful',
                         (string) $data['id'],
-                        $postId
+                        (int) $upsert['post_id']
                     );
-                    continue;
-                }
-                if ($transactionStarted) {
-                    $this->commitTransaction();
-                }
 
-                $ok++;
-                if ($upsert['action'] === 'created') {
-                    $created++;
-                } else {
-                    $updated++;
+                    // Aggregate child ingestion counters
+                    $created += (int) ($upsert['child_created'] ?? 0);
+                    $updated += (int) ($upsert['child_updated'] ?? 0);
+                    $fail    += (int) ($upsert['child_failed'] ?? 0);
+                    $ok      += (int) ($upsert['child_created'] ?? 0) + (int) ($upsert['child_updated'] ?? 0);
                 }
-                $this->logs->add(
-                    $file,
-                    $upsert['action'],
-                    'Entity upsert successful',
-                    (string) $data['id'],
-                    (int) $upsert['post_id']
-                );
-
-                // Aggregate child ingestion counters
-                $created += (int) ($upsert['child_created'] ?? 0);
-                $updated += (int) ($upsert['child_updated'] ?? 0);
-                $fail    += (int) ($upsert['child_failed'] ?? 0);
-                $ok      += (int) ($upsert['child_created'] ?? 0) + (int) ($upsert['child_updated'] ?? 0);
             }
-        }
 
-        return [
-            'ok'           => true,
-            'processed'    => count($files),
-            'accepted'     => $ok,
-            'rejected'     => $fail,
-            'dry_run'      => $dryRun,
-            'skipped'      => $skipped,
-            'created'      => $created,
-            'updated'      => $updated,
-            'batch_size'   => $batchSize,
-            'batches'      => count($batches),
-            'source_path'  => $sourcePath,
-        ];
+            return [
+                'ok'           => true,
+                'processed'    => count($files),
+                'accepted'     => $ok,
+                'rejected'     => $fail,
+                'dry_run'      => $dryRun,
+                'skipped'      => $skipped,
+                'created'      => $created,
+                'updated'      => $updated,
+                'batch_size'   => $batchSize,
+                'batches'      => count($batches),
+                'source_path'  => $sourcePath,
+            ];
         } finally {
             $this->releaseLock();
         }
@@ -305,13 +306,13 @@ final class IngestionService
         }
 
         if (isset($data['features_data']['visor']) && is_array($data['features_data']['visor'])) {
-             $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
-             update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values($clean)));
+            $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
+            update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values($clean)));
         }
 
         if (isset($data['features_data']['liner']) && is_array($data['features_data']['liner'])) {
-             $clean = array_map('sanitize_text_field', $data['features_data']['liner']);
-             update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values($clean)));
+            $clean = array_map('sanitize_text_field', $data['features_data']['liner']);
+            update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values($clean)));
         }
 
         if (isset($data['price']) && is_array($data['price']) && isset($data['price']['current'])) {
@@ -327,6 +328,22 @@ final class IngestionService
 
         if (isset($data['affiliate']) && is_array($data['affiliate']) && isset($data['affiliate']['amazon_asin'])) {
             update_post_meta($resolvedPostId, 'affiliate_asin', sanitize_text_field((string) $data['affiliate']['amazon_asin']));
+        }
+
+        if (isset($data['marketplace_links']) && is_array($data['marketplace_links'])) {
+            $affiliateLinks = [];
+            foreach ($data['marketplace_links'] as $mpKey => $url) {
+                if (!is_string($url) || $url === '') continue;
+                $mpId = str_replace('_', '-', strtolower((string) $mpKey));
+                $network = str_starts_with($mpId, 'amazon') ? 'amazon' : 'direct';
+                $affiliateLinks[$mpId] = [
+                    'url'     => esc_url_raw($url),
+                    'network' => $network,
+                ];
+            }
+            if ($affiliateLinks !== []) {
+                update_post_meta($resolvedPostId, 'affiliate_links_json', wp_json_encode($affiliateLinks, JSON_UNESCAPED_SLASHES));
+            }
         }
 
         $jsonMetaMap = [
@@ -408,9 +425,36 @@ final class IngestionService
             if (isset($data['price']['inr'])) update_post_meta($resolvedPostId, 'price_inr', (string) $data['price']['inr']);
             if (isset($data['price']['mrp'])) update_post_meta($resolvedPostId, 'price_mrp', (string) $data['price']['mrp']);
             if (isset($data['price']['mrp_inr'])) update_post_meta($resolvedPostId, 'price_mrp_inr', (string) $data['price']['mrp_inr']);
-            
+
             // Backwards compatibility for 'current'
             if (isset($data['price']['current'])) update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+        } elseif (isset($data['price']) && is_scalar($data['price'])) {
+            // Check for raw scalar price with currency fallback (typical for variants without full geo pricing)
+            $rawPrice = (float) $data['price'];
+            $rawCurrency = isset($data['currency']) ? strtoupper(trim((string) $data['currency'])) : 'USD';
+
+            // Only perform a crude fallback if no existing price_usd exists
+            if (get_post_meta($resolvedPostId, 'price_usd', true) === '') {
+                if ($rawCurrency === 'USD') {
+                    update_post_meta($resolvedPostId, 'price_usd', (string) $rawPrice);
+                    update_post_meta($resolvedPostId, 'price_retail_usd', (string) $rawPrice);
+                } elseif ($rawCurrency === 'INR') {
+                    // Crude fallback conversion for INR to USD (~83 INR/USD)
+                    $usdEstimate = round($rawPrice / 83.0, 2);
+                    update_post_meta($resolvedPostId, 'price_usd', (string) $usdEstimate);
+                    update_post_meta($resolvedPostId, 'price_retail_usd', (string) $usdEstimate);
+                } elseif ($rawCurrency === 'EUR') {
+                    // Crude fallback conversion for EUR to USD (~1.08 USD/EUR)
+                    $usdEstimate = round($rawPrice * 1.08, 2);
+                    update_post_meta($resolvedPostId, 'price_usd', (string) $usdEstimate);
+                    update_post_meta($resolvedPostId, 'price_retail_usd', (string) $usdEstimate);
+                } elseif ($rawCurrency === 'GBP') {
+                    // Crude fallback conversion for GBP to USD (~1.25 USD/GBP)
+                    $usdEstimate = round($rawPrice * 1.25, 2);
+                    update_post_meta($resolvedPostId, 'price_usd', (string) $usdEstimate);
+                    update_post_meta($resolvedPostId, 'price_retail_usd', (string) $usdEstimate);
+                }
+            }
         }
 
         // New Variant Meta (Phase 6)
@@ -434,19 +478,34 @@ final class IngestionService
         $childUpdated = 0;
         $childFailed  = 0;
 
-        if (isset($data['children']) && is_array($data['children'])) {
-            foreach ($data['children'] as $child) {
+        $children = $data['children'] ?? $data['variants'] ?? [];
+        if (is_array($children) && $children !== []) {
+            foreach ($children as $child) {
                 // Ensure child knows its parent's external ID
-                $child['parent_id'] = $data['id']; 
-                
-                // Inherit brand/type if missing
+                $child['parent_id'] = $data['id'];
+
+                // Inherit brand/types/features if missing
                 if (!isset($child['brand'])) $child['brand'] = $data['brand'] ?? '';
                 if (!isset($child['type'])) $child['type'] = $data['type'] ?? '';
-                
+                if (!isset($child['helmet_types']) && isset($data['helmet_types'])) {
+                    $child['helmet_types'] = $data['helmet_types'];
+                }
+                if (!isset($child['features']) && isset($data['features'])) {
+                    $child['features'] = $data['features'];
+                }
+                if (!isset($child['specs']) && isset($data['specs'])) {
+                    $child['specs'] = $data['specs'];
+                }
+
+                // Fallback: forcefully set features array from parent if empty because variants usually omit this
+                if (empty($child['features']) && !empty($data['features'])) {
+                    $child['features'] = $data['features'];
+                }
+
                 $childHash = hash('sha256', serialize($child));
                 $childId = $this->findHelmetPostId((string) $child['id']);
                 $childExternalId = isset($child['id']) ? (string) $child['id'] : '';
-                
+
                 $childResult = $this->upsertHelmet($child, $sourceFile, $childHash, $childId);
 
                 if ($childResult['ok']) {

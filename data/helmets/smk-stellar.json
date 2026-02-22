@@ -6,7 +6,10 @@
   "type": "Full Face",
   "helmet_family": "SMK Stellar",
   "head_shape": "Intermediate Oval",
-  "helmet_types": ["Full Face", "Sport Touring"],
+  "helmet_types": [
+    "Full Face",
+    "Sport Touring"
+  ],
   "features": [
     "Hydrodynamic dual-visor system",
     "Pinlock-ready face shield",
@@ -22,22 +25,42 @@
     "weight_lbs": 3.26,
     "material": "High-impact Thermoplastic",
     "shell_sizes": 2,
-    "certifications": ["ISI IS 4151", "ECE 22.05", "DOT"]
+    "certifications": [
+      "ISI IS 4151",
+      "ECE 22.05",
+      "DOT"
+    ]
   },
   "product_details": {
     "style": "Affordable Sport Touring",
     "mfr_product_number": "STELLAR",
     "sizing_fit": "Intermediate oval. Designed for Asian and Indian head shapes.",
-    "description": "The SMK Stellar is one of India's most popular sport-touring helmets. It packs a remarkable feature set — dual visor, Pinlock-ready shield, and DOT/ECE/ISI triple certification — into a price point that's accessible to most Indian riders."
+    "description": "The SMK Stellar is one of India's most popular sport-touring helmets. It packs a remarkable feature set \u2014 dual visor, Pinlock-ready shield, and DOT/ECE/ISI triple certification \u2014 into a price point that's accessible to most Indian riders."
   },
   "sizing_fit": {
     "head_shape": "Intermediate Oval",
     "fit_notes": "Designed with the Indian rider in mind. Comfortable for long commutes on two-wheelers.",
     "size_translation": [
-      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+      {
+        "size": "SM",
+        "cm": "55-56",
+        "in": "21.65-22.05"
+      },
+      {
+        "size": "MD",
+        "cm": "57-58",
+        "in": "22.44-22.83"
+      },
+      {
+        "size": "LG",
+        "cm": "59-60",
+        "in": "23.23-23.62"
+      },
+      {
+        "size": "XL",
+        "cm": "61-62",
+        "in": "24.02-24.41"
+      }
     ]
   },
   "variants": [
@@ -50,18 +73,49 @@
       "sku": "SMK-STL-SSTAR-MD",
       "price": 5499,
       "currency": "INR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=SMK+SMK+Stellar+Black%2FYellow+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=SMK+SMK+Stellar+Black%2FYellow+MD",
+        "amazon_in": "https://www.amazon.in/s?k=SMK+SMK+Stellar+Black%2FYellow+MD",
+        "amazon_de": "https://www.amazon.de/s?k=SMK+SMK+Stellar+Black%2FYellow+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=SMK+SMK+Stellar+Black%2FYellow+MD"
+      }
     }
   ],
-  "price": { "current": 5499, "currency": "INR" },
+  "price": {
+    "current": 5499,
+    "currency": "INR"
+  },
   "geo_pricing": {
-    "IN": { "price": 5499, "currency": "INR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" },
-    "US": { "price": 89.99, "currency": "USD", "availability": "limited", "source": "import", "updated_at": "2026-02-20" }
+    "IN": {
+      "price": 5499,
+      "currency": "INR",
+      "availability": "in_stock",
+      "source": "manufacturer_direct",
+      "updated_at": "2026-02-20"
+    },
+    "US": {
+      "price": 89.99,
+      "currency": "USD",
+      "availability": "limited",
+      "source": "import",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Good",
     "sharp_stars": 3,
     "analysis": "Triple-certified (ISI, ECE, DOT) which is remarkable at this price point. The thermoplastic shell is durable and meets all required impact standards. Best value proposition in the Indian market for commuters who want international-grade safety."
   },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_SMKSTL" }
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_SMKSTL"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=SMK+SMK+Stellar",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=SMK+SMK+Stellar",
+    "amazon_in": "https://www.amazon.in/s?k=SMK+SMK+Stellar",
+    "amazon_de": "https://www.amazon.de/s?k=SMK+SMK+Stellar",
+    "amazon_fr": "https://www.amazon.fr/s?k=SMK+SMK+Stellar"
+  }
 }

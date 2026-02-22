@@ -6,7 +6,9 @@
   "type": "Full Face",
   "helmet_family": "Steelbird SBA",
   "head_shape": "Round Oval",
-  "helmet_types": ["Full Face"],
+  "helmet_types": [
+    "Full Face"
+  ],
   "features": [
     "High-impact ABS shell",
     "Smoke visor and clear visor included",
@@ -21,7 +23,9 @@
     "weight_lbs": 2.65,
     "material": "High-impact ABS",
     "shell_sizes": 1,
-    "certifications": ["ISI IS 4151"]
+    "certifications": [
+      "ISI IS 4151"
+    ]
   },
   "product_details": {
     "style": "Budget Commuter Full Face",
@@ -33,9 +37,21 @@
     "head_shape": "Round Oval",
     "fit_notes": "Designed for the average Indian commuter. Lightweight and comfortable for tropical urban riding.",
     "size_translation": [
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" }
+      {
+        "size": "MD",
+        "cm": "57-58",
+        "in": "22.44-22.83"
+      },
+      {
+        "size": "LG",
+        "cm": "59-60",
+        "in": "23.23-23.62"
+      },
+      {
+        "size": "XL",
+        "cm": "61-62",
+        "in": "24.02-24.41"
+      }
     ]
   },
   "variants": [
@@ -48,7 +64,14 @@
       "sku": "SB-SBA21-GT-MBK-LG",
       "price": 1299,
       "currency": "INR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Steelbird+Steelbird+Air+SBA-21+Matte+Black+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Steelbird+Steelbird+Air+SBA-21+Matte+Black+LG",
+        "amazon_in": "https://www.amazon.in/s?k=Steelbird+Steelbird+Air+SBA-21+Matte+Black+LG",
+        "amazon_de": "https://www.amazon.de/s?k=Steelbird+Steelbird+Air+SBA-21+Matte+Black+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=Steelbird+Steelbird+Air+SBA-21+Matte+Black+LG"
+      }
     },
     {
       "id": "sba-21-gt-white-grey-md",
@@ -59,17 +82,42 @@
       "sku": "SB-SBA21-GTR-WG-MD",
       "price": 1499,
       "currency": "INR",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Steelbird+Steelbird+Air+SBA-21+White%2FGrey+MD",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Steelbird+Steelbird+Air+SBA-21+White%2FGrey+MD",
+        "amazon_in": "https://www.amazon.in/s?k=Steelbird+Steelbird+Air+SBA-21+White%2FGrey+MD",
+        "amazon_de": "https://www.amazon.de/s?k=Steelbird+Steelbird+Air+SBA-21+White%2FGrey+MD",
+        "amazon_fr": "https://www.amazon.fr/s?k=Steelbird+Steelbird+Air+SBA-21+White%2FGrey+MD"
+      }
     }
   ],
-  "price": { "current": 1299, "currency": "INR" },
+  "price": {
+    "current": 1299,
+    "currency": "INR"
+  },
   "geo_pricing": {
-    "IN": { "price": 1299, "currency": "INR", "availability": "in_stock", "source": "manufacturer_direct", "updated_at": "2026-02-20" }
+    "IN": {
+      "price": 1299,
+      "currency": "INR",
+      "availability": "in_stock",
+      "source": "manufacturer_direct",
+      "updated_at": "2026-02-20"
+    }
   },
   "safety_intelligence": {
     "impact_rating": "Adequate",
     "sharp_stars": 2,
     "analysis": "Meets ISI IS 4151 requirements which ensure a baseline level of impact protection. At this ultra-budget price, the ABS shell provides reasonable coverage for urban commuting speeds. Upgrading to a Pinlock-equipped mid-range helmet is recommended for highway use."
   },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_SBA21" }
+  "affiliate": {
+    "amazon_asin": "B0EXAMPLE_SBA21"
+  },
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Steelbird+Steelbird+Air+SBA-21",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Steelbird+Steelbird+Air+SBA-21",
+    "amazon_in": "https://www.amazon.in/s?k=Steelbird+Steelbird+Air+SBA-21",
+    "amazon_de": "https://www.amazon.de/s?k=Steelbird+Steelbird+Air+SBA-21",
+    "amazon_fr": "https://www.amazon.fr/s?k=Steelbird+Steelbird+Air+SBA-21"
+  }
 }

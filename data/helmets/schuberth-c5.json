@@ -59,8 +59,22 @@
       "sku": "SCH-C5-MBK-LG",
       "price": 749.0,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Schuberth+Schuberth+C5+Matte+Black+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Schuberth+Schuberth+C5+Matte+Black+LG",
+        "amazon_in": "https://www.amazon.in/s?k=Schuberth+Schuberth+C5+Matte+Black+LG",
+        "amazon_de": "https://www.amazon.de/s?k=Schuberth+Schuberth+C5+Matte+Black+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=Schuberth+Schuberth+C5+Matte+Black+LG"
+      }
     }
   ],
-  "entity": "helmet"
+  "entity": "helmet",
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Schuberth+Schuberth+C5",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Schuberth+Schuberth+C5",
+    "amazon_in": "https://www.amazon.in/s?k=Schuberth+Schuberth+C5",
+    "amazon_de": "https://www.amazon.de/s?k=Schuberth+Schuberth+C5",
+    "amazon_fr": "https://www.amazon.fr/s?k=Schuberth+Schuberth+C5"
+  }
 }

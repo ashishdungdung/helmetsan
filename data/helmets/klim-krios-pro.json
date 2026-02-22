@@ -60,8 +60,22 @@
       "sku": "KLM-KRO-ARS-LG",
       "price": 699.99,
       "currency": "USD",
-      "availability": "in_stock"
+      "availability": "in_stock",
+      "marketplace_links": {
+        "amazon_us": "https://www.amazon.com/s?k=Klim+Klim+Krios+Pro+Arsenal+Gray+LG",
+        "amazon_uk": "https://www.amazon.co.uk/s?k=Klim+Klim+Krios+Pro+Arsenal+Gray+LG",
+        "amazon_in": "https://www.amazon.in/s?k=Klim+Klim+Krios+Pro+Arsenal+Gray+LG",
+        "amazon_de": "https://www.amazon.de/s?k=Klim+Klim+Krios+Pro+Arsenal+Gray+LG",
+        "amazon_fr": "https://www.amazon.fr/s?k=Klim+Klim+Krios+Pro+Arsenal+Gray+LG"
+      }
     }
   ],
-  "entity": "helmet"
+  "entity": "helmet",
+  "marketplace_links": {
+    "amazon_us": "https://www.amazon.com/s?k=Klim+Klim+Krios+Pro",
+    "amazon_uk": "https://www.amazon.co.uk/s?k=Klim+Klim+Krios+Pro",
+    "amazon_in": "https://www.amazon.in/s?k=Klim+Klim+Krios+Pro",
+    "amazon_de": "https://www.amazon.de/s?k=Klim+Klim+Krios+Pro",
+    "amazon_fr": "https://www.amazon.fr/s?k=Klim+Klim+Krios+Pro"
+  }
 }
