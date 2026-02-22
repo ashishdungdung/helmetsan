@@ -1,69 +1,67 @@
 {
-  "entity": "helmet",
   "id": "klim-krios-pro",
   "title": "Klim Krios Pro",
   "brand": "Klim",
-  "type": "Adventure",
-  "helmet_family": "Klim Krios",
+  "type": "Adventure / Dual Sport",
+  "helmet_family": "Krios",
   "head_shape": "Intermediate Oval",
-  "helmet_types": ["Adventure", "Dual Sport", "Carbon Fiber"],
+  "helmet_types": [
+    "Adventure",
+    "Adventure / Dual Sport",
+    "Carbon Fiber"
+  ],
   "features": [
-    "Carbon fiber shell construction",
-    "Koroyd energy-absorbing liner",
-    "Transition adaptive face shield (auto-tinting)",
+    "Full carbon fiber shell construction",
+    "Koroyd energy-absorbing technology built into the EPS",
+    "Transitions photochromic visor included",
     "FIDLOCK magnetic chin strap closure",
-    "Peak visor included",
-    "Adjustable panoramic visor",
-    "Klim Klimatek moisture-wicking liner",
-    "Integrated Cardo communication system",
-    "Emergency A-Release cheek pads"
+    "Four ride modes: Street, Adventure, Dirt, Trail",
+    "Pinlock-ready polycarbonate anti-scratch visor"
   ],
   "specs": {
-    "weight_g": 1360,
-    "weight_lbs": 3.00,
-    "material": "Carbon Fiber",
-    "shell_sizes": 3,
-    "certifications": ["DOT", "ECE 22.06"]
+    "weight_g": 1350,
+    "weight_lbs": 2.97,
+    "material": "Carbon Fiber / Koroyd",
+    "shell_sizes": 2,
+    "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ]
   },
   "product_details": {
-    "style": "Premium Adventure / Dual Sport",
-    "mfr_product_number": "KRIOS-PRO",
-    "sizing_fit": "Intermediate oval with generous brow area for goggles-compatible riding.",
-    "description": "The Klim Krios Pro is the ultimate adventure helmet. Carbon fiber construction makes it featherlight, while the Koroyd crumple-zone liner provides next-generation energy absorption. The transition face shield auto-tints based on UV exposure, eliminating the need to swap visors."
+    "style": "Adventure Touring",
+    "mfr_product_number": "KLIM-KR-PRO",
+    "sizing_fit": "True to size. Intermediate oval.",
+    "description": "Redefining the ADV helmet segment, the Klim Krios Pro integrates Koroyd material that crushes uniformly on impact, reducing trauma. Combined with a Transitions visor and full carbon shell, it offers unbeatable versatility across all terrains."
   },
-  "sizing_fit": {
-    "head_shape": "Intermediate Oval",
-    "fit_notes": "Designed for long-distance adventure touring. The Koroyd liner does not compress as much as traditional EPS over time.",
-    "size_translation": [
-      { "size": "SM", "cm": "55-56", "in": "21.65-22.05" },
-      { "size": "MD", "cm": "57-58", "in": "22.44-22.83" },
-      { "size": "LG", "cm": "59-60", "in": "23.23-23.62" },
-      { "size": "XL", "cm": "61-62", "in": "24.02-24.41" },
-      { "size": "2XL", "cm": "63-64", "in": "24.80-25.20" }
-    ]
+  "price": {
+    "current": 699.99,
+    "currency": "USD"
+  },
+  "geo_pricing": {
+    "US": {
+      "price": 699.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-22"
+    },
+    "EU": {
+      "price": 649.0,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-22"
+    }
   },
   "variants": [
     {
-      "id": "krios-pro-matte-black-lg",
-      "style": "Solid",
-      "color": "Matte Black",
-      "graphics": "Solid Carbon",
+      "id": "klim-krios-pro-arsenal-lg",
+      "color": "Arsenal Gray",
       "size": "LG",
-      "sku": "KLIM-KP-MBK-LG",
+      "sku": "KLM-KRO-ARS-LG",
       "price": 699.99,
       "currency": "USD",
       "availability": "in_stock"
     }
   ],
-  "price": { "current": 699.99, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 699.99, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 649.00, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" }
-  },
-  "safety_intelligence": {
-    "impact_rating": "Excellent",
-    "sharp_stars": 5,
-    "analysis": "Koroyd technology uses thousands of thermally-welded co-polymer tubes that crush on impact, absorbing significantly more energy than traditional EPS at lower g-forces. Combined with the carbon fiber shell, this is one of the most advanced safety platforms on any adventure helmet."
-  },
-  "affiliate": { "amazon_asin": "B0EXAMPLE_KP" }
+  "entity": "helmet"
 }

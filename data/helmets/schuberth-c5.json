@@ -1,92 +1,66 @@
 {
-  "entity": "helmet",
   "id": "schuberth-c5",
   "title": "Schuberth C5",
   "brand": "Schuberth",
   "type": "Modular",
-  "helmet_family": "Schuberth C-Series",
-  "head_shape": "Round Oval",
-  "helmet_types": ["Modular", "Touring"],
+  "helmet_family": "C-Series",
+  "head_shape": "Intermediate Oval",
+  "helmet_types": [
+    "Modular",
+    "Touring"
+  ],
   "features": [
-    "Direct Fibre Processing (DFP) shell",
-    "Anti-Roll-Off System (A.R.O.S.)",
-    "Integrated SC2 communication system ready",
-    "Wind tunnel optimized aerodynamics",
-    "Anti-fog visor with Pinlock MaxVision",
-    "Micro-ratchet chin strap buckle",
-    "City flip-up position lock",
-    "Coolmax interior lining",
-    "Reflective inserts for visibility"
+    "DFP (Direct Fiber Processing) fiberglass shell reinforced with carbon fiber",
+    "Extreme acoustic isolation (85 dB(A) at 100 km/h on a naked bike)",
+    "Pre-installed HD speakers, antennas, and mic for Sena SC2 system",
+    "Anti-Roll-Off-System (A.R.O.S.)",
+    "Memory function visor mechanism",
+    "Customizable interior padding (Schuberth Individual Concept)"
   ],
   "specs": {
-    "weight_g": 1620,
-    "weight_lbs": 3.57,
-    "material": "Direct Fibre Processing (DFP) Fiberglass",
-    "shell_sizes": 4,
-    "certifications": ["ECE 22.06", "DOT"]
+    "weight_g": 1640,
+    "weight_lbs": 3.61,
+    "material": "DFP Fiberglass / Carbon",
+    "shell_sizes": 2,
+    "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ]
   },
   "product_details": {
-    "style": "Premium Touring Modular",
-    "mfr_product_number": "C5",
-    "sizing_fit": "Round oval profile. German-engineered interior designed to distribute pressure evenly during long-haul touring.",
-    "description": "The Schuberth C5 is the benchmark for touring modulars. Exceptionally quiet at highway speeds, it integrates seamlessly with Schuberth's SC2 communication system and features a P/J dual homologation for use in both closed and open configurations."
+    "style": "Premium Touring",
+    "mfr_product_number": "SCH-C5-01",
+    "sizing_fit": "True intermediate oval. Highly customizable.",
+    "description": "The C5 is the state-of-the-art modular from Schuberth. Blending ultimate safety with aerodynamic brilliance, it sets a new standard for noise reduction in flip-up helmets while meeting strict ECE 22.06 standards."
   },
-  "sizing_fit": {
-    "head_shape": "Round Oval",
-    "fit_notes": "German sizing tends to run slightly larger. Check Schuberth's head measurement guide. Round heads will find the best comfort.",
-    "size_translation": [
-      { "size": "XS", "cm": "52-53", "in": "20.47-20.87" },
-      { "size": "SM", "cm": "54-55", "in": "21.26-21.65" },
-      { "size": "MD", "cm": "56-57", "in": "22.05-22.44" },
-      { "size": "LG", "cm": "58-59", "in": "22.83-23.23" },
-      { "size": "XL", "cm": "60-61", "in": "23.62-24.02" },
-      { "size": "2XL", "cm": "62-63", "in": "24.41-24.80" }
-    ]
+  "price": {
+    "current": 749.0,
+    "currency": "USD"
+  },
+  "geo_pricing": {
+    "US": {
+      "price": 749.0,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-22"
+    },
+    "EU": {
+      "price": 629.0,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-22"
+    }
   },
   "variants": [
     {
-      "id": "c5-gloss-white-lg",
-      "style": "Solid",
-      "color": "Gloss White",
-      "graphics": "Solid Color",
+      "id": "schuberth-c5-matte-black-lg",
+      "color": "Matte Black",
       "size": "LG",
-      "sku": "SCH-C5-WHT-LG",
-      "price": 699.00,
-      "currency": "USD",
-      "availability": "in_stock"
-    },
-    {
-      "id": "c5-master-blue-md",
-      "style": "Graphic",
-      "color": "Blue/Silver",
-      "graphics": "Master",
-      "size": "MD",
-      "sku": "SCH-C5-MBL-MD",
-      "price": 799.00,
+      "sku": "SCH-C5-MBK-LG",
+      "price": 749.0,
       "currency": "USD",
       "availability": "in_stock"
     }
   ],
-  "price": {
-    "current": 699.00,
-    "currency": "USD"
-  },
-  "geo_pricing": {
-    "US": { "price": 699.00, "currency": "USD", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "EU": { "price": 629.00, "currency": "EUR", "availability": "in_stock", "source": "authorized_distributor", "updated_at": "2026-02-20" },
-    "IN": { "price": 79990, "currency": "INR", "availability": "limited", "source": "official_importer", "updated_at": "2026-02-20" }
-  },
-  "geo_legality": {
-    "US": { "status": "legal", "certification_required": ["DOT"], "notes": "DOT certified for US road use." },
-    "EU": { "status": "legal", "certification_required": ["ECE 22.06"], "notes": "P/J dual homologated under ECE 22.06." },
-    "IN": { "status": "restricted", "certification_required": ["ISI IS 4151"], "notes": "Available through authorized importers. Check ISI compliance." }
-  },
-  "safety_intelligence": {
-    "impact_rating": "Excellent",
-    "sharp_stars": 5,
-    "analysis": "The Schuberth C5's DFP shell excels in rotational and linear impact absorption. The A.R.O.S. system significantly reduces the risk of roll-off in accidents. Wind tunnel testing achieves class-leading noise reduction at 100+ km/h."
-  },
-  "affiliate": {
-    "amazon_asin": "B0EXAMPLE_C5"
-  }
+  "entity": "helmet"
 }
