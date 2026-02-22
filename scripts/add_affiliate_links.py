@@ -44,15 +44,22 @@ def process_helmets(data_dir):
             asin = data['affiliate']['amazon_asin']
             if not asin.startswith("B0EXAMPLE"): # only use real ASINs
                  data['marketplace_links']['amazon_us'] = f"https://www.amazon.com/dp/{asin}"
+                 data['marketplace_links']['amazon_uk'] = f"https://www.amazon.co.uk/dp/{asin}"
+                 data['marketplace_links']['amazon_in'] = f"https://www.amazon.in/dp/{asin}"
+                 data['marketplace_links']['amazon_de'] = f"https://www.amazon.de/dp/{asin}"
+                 data['marketplace_links']['amazon_fr'] = f"https://www.amazon.fr/dp/{asin}"
             else:
                  data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
+                 data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
+                 data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
+                 data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
+                 data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
         else:
              data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
-             
-        data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
-        data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
-        data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
-        data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
+             data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
+             data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
+             data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
+             data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
              
         # 2. Update variant level marketplace_links
         # Variants inherently have colors and sizes, making search URLs highly specific
