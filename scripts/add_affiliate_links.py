@@ -4,7 +4,7 @@ import urllib.parse
 
 def generate_amazon_link(brand, title, color="", size="", domain="amazon.com"):
     # Generate an Amazon search URL if we don't have a specific ASIN
-    keywords = f"{brand} {title}"
+    keywords = title if title.lower().startswith(brand.lower()) else f"{brand} {title}"
     if color:
         keywords += f" {color}"
     if size:
