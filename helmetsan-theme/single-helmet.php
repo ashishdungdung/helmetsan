@@ -7,6 +7,8 @@
 
 get_header();
 
+// Single helmet: only one post should be in the main query. Guard against any
+// plugin/theme altering the query so we never output duplicate sections.
 if (have_posts()) {
     while (have_posts()) {
         the_post();
@@ -170,8 +172,7 @@ if (have_posts()) {
                     </button>
                     <?php 
                     $gallery = helmetsan_core()->mediaService()->getProductGallery($helmetId);
-                    if (!empty($gallery)) : 
-                        error_log('Helmetsan Debug: Gallery for ' . $helmetId . ' has ' . count($gallery) . ' items');
+                    if (!empty($gallery)) :
                     ?>
                         <div class="hs-carousel">
                             <div class="hs-carousel__track">
@@ -789,6 +790,8 @@ if (have_posts()) {
             <?php endif; ?>
         </article>
         <?php
+        // Single helmet page must show only one product block.
+        break;
     }
 }
 
