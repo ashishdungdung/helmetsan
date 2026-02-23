@@ -58,34 +58,94 @@ if (have_posts()) {
 
             <div class="hs-panel page-content"><?php the_content(); ?></div>
 
-            <!-- ═══ Where to Buy (Accessories) ═══ -->
+            <!-- ═══ Where to Buy (Accessories) — geo-driven, same as helmets ═══ -->
             <?php
-            // Extract the simple affiliate link from the JSON if available, or build a generic one
-            $affiliateLink = '';
-            if (isset($price['url'])) {
-                $affiliateLink = $price['url'];
+            $affiliateLink = isset($price['url']) ? $price['url'] : '';
+            $plugin = function_exists('helmetsan_core') ? helmetsan_core() : null;
+            $revenueService = $plugin && method_exists($plugin, 'revenue') ? $plugin->revenue() : null;
+            $geoService = $plugin && method_exists($plugin, 'geo') ? $plugin->geo() : null;
+            $visitorCountry = $geoService ? strtolower($geoService->getCountry()) : 'us';
+            $visitorSuffix = ($visitorCountry === 'uk' || $visitorCountry === 'gb') ? 'uk' : $visitorCountry;
+            $affiliateLinks = $revenueService ? $revenueService->getAffiliateLinks($id) : [];
+            $geoRelevantLinks = [];
+            if (!empty($affiliateLinks)) {
+                foreach ($affiliateLinks as $mpId => $entry) {
+                    if (str_starts_with($mpId, 'amazon-') && $mpId === 'amazon-' . $visitorSuffix) {
+                        $geoRelevantLinks[$mpId] = $entry;
+                    } elseif (str_ends_with($mpId, '-' . $visitorSuffix)) {
+                        $geoRelevantLinks[$mpId] = $entry;
+                    }
+                }
             }
+            $geoMpId = $revenueService ? $revenueService->getGeoAmazonMarketplaceId(null) : 'amazon-us';
+            $hasGeoRow = !empty($geoRelevantLinks) || $revenueService;
+            $hasWhereToBuy = $affiliateLink !== '' || $hasGeoRow;
+            $accessorySlug = get_post_field('post_name', $id);
             ?>
-            <?php if ($affiliateLink !== '') : ?>
-                <section class="hs-panel hs-where-to-buy">
+            <?php if ($hasWhereToBuy && $accessorySlug !== '') : ?>
+                <section class="hs-panel hs-where-to-buy" id="where-to-buy">
                     <h2>🛒 Where to Buy</h2>
                     <div class="hs-table-wrap">
                         <table class="hs-table hs-price-table">
                             <thead>
                                 <tr>
-                                    <th>Retailer</th>
+                                    <th>Marketplace</th>
                                     <th>Price</th>
-                                    <th>Action</th>
+                                    <th>Availability</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><strong>Official Partner</strong></td>
-                                    <td><strong><?php echo esc_html((string) ($price['current'] ?? 'N/A') . ' ' . (string) ($price['currency'] ?? '')); ?></strong></td>
-                                    <td>
-                                        <a href="<?php echo esc_url($affiliateLink); ?>" target="_blank" rel="nofollow noopener" class="hs-btn hs-btn--sm">Buy Now &rarr;</a>
-                                    </td>
-                                </tr>
+                                <?php if ($affiliateLink !== '') : ?>
+                                    <tr>
+                                        <td class="hs-price-table__merchant">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                            <span class="hs-price-table__merchant-name">Official Partner</span>
+                                        </td>
+                                        <td><strong><?php echo esc_html((string) ($price['current'] ?? 'N/A') . ' ' . (string) ($price['currency'] ?? '')); ?></strong></td>
+                                        <td><span style="color: var(--hs-success, #059669);">● View on site</span></td>
+                                        <td>
+                                            <a href="<?php echo esc_url($affiliateLink); ?>" class="hs-price-cta" target="_blank" rel="nofollow noopener noreferrer sponsored">Buy Now →</a>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                                <?php foreach ($geoRelevantLinks as $mpId => $entry) :
+                                    $goUrl = home_url('/go/' . $accessorySlug . '/?marketplace=' . urlencode($mpId) . '&source=accessory_pdp');
+                                    $mpLower = strtolower($mpId);
+                                ?>
+                                    <tr>
+                                        <td class="hs-price-table__merchant">
+                                            <?php if (str_contains($mpLower, 'amazon')) : ?>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>
+                                            <?php else : ?>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                            <?php endif; ?>
+                                            <span class="hs-price-table__merchant-name"><?php echo esc_html(function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($mpId) : $mpId); ?></span>
+                                        </td>
+                                        <td><strong><span class="hs-muted">Check price</span></strong></td>
+                                        <td><span style="color: var(--hs-success, #059669);">● View on site</span></td>
+                                        <td>
+                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">Buy Now →</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                <?php
+                                // Geo fallback: show regional Amazon row when no stored links for visitor
+                                if (empty($geoRelevantLinks) && $revenueService) :
+                                    $goUrl = home_url('/go/' . $accessorySlug . '/?marketplace=' . urlencode($geoMpId) . '&source=accessory_pdp');
+                                ?>
+                                    <tr>
+                                        <td class="hs-price-table__merchant">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>
+                                            <span class="hs-price-table__merchant-name"><?php echo esc_html(function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($geoMpId) : $geoMpId); ?></span>
+                                        </td>
+                                        <td><strong><span class="hs-muted">Check price</span></strong></td>
+                                        <td><span style="color: var(--hs-success, #059669);">● View on site</span></td>
+                                        <td>
+                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">Buy Now →</a>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>

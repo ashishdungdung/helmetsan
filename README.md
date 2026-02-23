@@ -122,11 +122,11 @@ It provides objective score, critical blockers, and per-check diagnostics.
 
 | Metric                | Value       | Status      |
 | :-------------------- | :---------- | :---------- |
-| **Brands in Catalog** | 48          | ✅          |
-| **Helmets Indexed**   | 1,511       | ✅ Live     |
-| **Parent Models**     | 242         | ✅          |
-| **Logo Coverage**     | 91% (49/50) | 🎨 Enriched |
-| **Last Sync**         | 2026-02-19  | 📡 Active   |
+| **Brands in Catalog** | 73          | ✅          |
+| **Helmets Indexed**   | 1,412       | ✅ Live     |
+| **Parent Models**     | 297         | ✅          |
+| **Logo Coverage**     | 67% (49/73) | 🎨 Enriched |
+| **Last Sync**         | 2026-02-23  | 📡 Active   |
 
 > _Stats generated automatically by `scripts/update_stats.php`_
 

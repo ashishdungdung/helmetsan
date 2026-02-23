@@ -24,10 +24,27 @@ final class Tracker
 
     public function enqueueScripts(): void
     {
+        $theme_uri = get_stylesheet_directory_uri();
         if (is_singular('helmet')) {
             wp_enqueue_script(
                 'helmetsan-tracker',
                 get_template_directory_uri() . '/assets/js/tracker.js',
+                [],
+                '1.0.0',
+                true
+            );
+            wp_enqueue_script(
+                'helmetsan-analytics-events',
+                $theme_uri . '/assets/js/analytics-events.js',
+                ['helmetsan-tracker'],
+                '1.0.0',
+                true
+            );
+        }
+        if (is_post_type_archive('helmet')) {
+            wp_enqueue_script(
+                'helmetsan-list-tracking',
+                $theme_uri . '/assets/js/list-tracking.js',
                 [],
                 '1.0.0',
                 true
@@ -43,16 +60,33 @@ final class Tracker
             return;
         }
 
-        if (! empty($settings['gtm_container_id'])) {
-            $id = esc_js((string) $settings['gtm_container_id']);
+        if (! empty($settings['enable_consent_gate'])) {
+            $cookieName = (string) ($settings['consent_cookie_name'] ?? 'helmetsan_consent_analytics');
+            $cookieName = preg_replace('/[^a-zA-Z0-9_-]/', '', $cookieName) ?: 'helmetsan_consent_analytics';
+            $consent = isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName] !== '';
+            if (! $consent) {
+                return;
+            }
+        }
+
+        $ga4 = ! empty($settings['ga4_measurement_id']) ? (string) $settings['ga4_measurement_id'] : '';
+        $gtm = ! empty($settings['gtm_container_id']) ? (string) $settings['gtm_container_id'] : '';
+        $userId = ! empty($settings['enable_user_id_tracking']) && is_user_logged_in() ? (string) get_current_user_id() : '';
+
+        if ($gtm !== '') {
+            $id = esc_js($gtm);
             echo "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');</script>\n";
+            if ($ga4 === '' && $userId !== '') {
+                echo '<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"helmetsan_user_id",user_id:"' . esc_js($userId) . '"});</script>' . "\n";
+            }
             return;
         }
 
-        if (! empty($settings['ga4_measurement_id'])) {
-            $ga4 = esc_js((string) $settings['ga4_measurement_id']);
-            echo "<script async src='https://www.googletagmanager.com/gtag/js?id={$ga4}'></script>\n";
-            echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','{$ga4}');</script>\n";
+        if ($ga4 !== '') {
+            $ga4e = esc_js($ga4);
+            echo "<script async src='https://www.googletagmanager.com/gtag/js?id={$ga4e}'></script>\n";
+            $config = $userId !== '' ? ",{'user_id':'" . esc_js($userId) . "'}" : '';
+            echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','{$ga4e}'{$config});</script>\n";
         }
     }
 
@@ -62,6 +96,14 @@ final class Tracker
 
         if (! $this->shouldRun($settings)) {
             return;
+        }
+
+        if (! empty($settings['enable_consent_gate'])) {
+            $cookieName = (string) ($settings['consent_cookie_name'] ?? 'helmetsan_consent_analytics');
+            $cookieName = preg_replace('/[^a-zA-Z0-9_-]/', '', $cookieName) ?: 'helmetsan_consent_analytics';
+            if (empty($_COOKIE[$cookieName])) {
+                return;
+            }
         }
 
         if (! empty($settings['enable_heatmap_clarity']) && ! empty($settings['clarity_project_id'])) {
@@ -77,17 +119,23 @@ final class Tracker
 
         $trackOutbound = ! empty($settings['enable_enhanced_event_tracking']);
         $trackSearch   = ! empty($settings['enable_internal_search_tracking']);
+        $trackScroll   = ! empty($settings['enable_scroll_depth_tracking']);
+        $trackFile     = ! empty($settings['enable_file_download_tracking']);
+        $trackEmailPhone = ! empty($settings['enable_email_phone_tracking']);
 
-        if (! $trackOutbound && ! $trackSearch) {
+        if (! $trackOutbound && ! $trackSearch && ! $trackScroll && ! $trackFile && ! $trackEmailPhone) {
             return;
         }
 
         $endpoint = esc_js((string) rest_url('helmetsan/v1/event'));
-        $outbound = $trackOutbound ? 'true' : 'false';
-        $search   = $trackSearch ? 'true' : 'false';
         $nonce    = esc_js(wp_create_nonce('helmetsan_event'));
+        $o = $trackOutbound ? '1' : '0';
+        $s = $trackSearch ? '1' : '0';
+        $sc = $trackScroll ? '1' : '0';
+        $f = $trackFile ? '1' : '0';
+        $ep = $trackEmailPhone ? '1' : '0';
 
-        echo "<script>(function(){var cfg={endpoint:'{$endpoint}',trackOutbound:{$outbound},trackSearch:{$search},nonce:'{$nonce}'};function sendEvent(name,meta){var payload={event_name:name,page_url:window.location.href,referrer:document.referrer||'',source:'frontend',meta:meta||{},_wpnonce:cfg.nonce};try{if(window.dataLayer&&Array.isArray(window.dataLayer)){window.dataLayer.push({event:name,helmetsan:payload});}if(typeof window.gtag==='function'){window.gtag('event',name,meta||{});}if(navigator.sendBeacon){var b=new Blob([JSON.stringify(payload)],{type:'application/json'});navigator.sendBeacon(cfg.endpoint,b);}else{fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json','X-WP-Nonce':cfg.nonce},body:JSON.stringify(payload),keepalive:true});}}catch(e){}}if(cfg.trackOutbound){document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a){return;}var href=a.getAttribute('href')||'';if(!href){return;}if(href.indexOf('http')!==0){return;}if(href.indexOf(window.location.origin)===0){return;}sendEvent('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});},true);}if(cfg.trackSearch){document.addEventListener('submit',function(ev){var f=ev.target;if(!f||!f.querySelector){return;}var i=f.querySelector('input[name=\"s\"]');if(!i){return;}var q=(i.value||'').trim();if(!q){return;}sendEvent('internal_search',{query:q.slice(0,120)});},true);}})();</script>\n";
+        echo "<script>(function(){var cfg={endpoint:'{$endpoint}',nonce:'{$nonce}',o:{$o},s:{$s},sc:{$sc},f:{$f},ep:{$ep}};function send(n,m){var p={event_name:n,page_url:location.href,referrer:document.referrer||'',source:'frontend',meta:m||{},_wpnonce:cfg.nonce};try{if(window.dataLayer){window.dataLayer.push({event:n,helmetsan:p});}if(typeof window.gtag==='function')window.gtag('event',n,m||{});if(navigator.sendBeacon)navigator.sendBeacon(cfg.endpoint,new Blob([JSON.stringify(p)],{type:'application/json'}));}catch(e){}}document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a)return;var href=(a.getAttribute('href')||'').trim();if(!href)return;if(cfg.o&&href.indexOf('http')===0&&href.indexOf(location.origin)!==0)send('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});if(cfg.f&&/\\.(pdf|zip|doc|docx|xls|xlsx)(\\?|$)/i.test(href))send('file_download',{href:href});if(cfg.ep){if(href.indexOf('mailto:')===0)send('email_click',{href:href});if(href.indexOf('tel:')===0)send('phone_click',{href:href});}},true);if(cfg.s)document.addEventListener('submit',function(ev){var i=ev.target&&ev.target.querySelector('input[name=\"s\"]');if(!i)return;var q=(i.value||'').trim();if(q)send('internal_search',{query:q.slice(0,120)});},true);if(cfg.sc){var sd=[25,50,75,90],done={};window.addEventListener('scroll',function(){var h=Math.max(document.documentElement.scrollHeight-document.documentElement.clientHeight,1),y=window.scrollY||window.pageYOffset;sd.forEach(function(d){if(done[d])return;if((y/h)*100>=d){done[d]=1;send('scroll_depth',{depth:d});}});},{passive:true});}})();</script>\n";
     }
 
     /**

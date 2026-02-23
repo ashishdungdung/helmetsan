@@ -30,6 +30,15 @@ $args = [
 $brands_with_logos = count(get_posts($args));
 $logo_percentage = ($brand_count > 0) ? round(($brands_with_logos / $brand_count) * 100) : 0;
 
+// 3b. Parent models (helmets with post_parent = 0)
+$parent_models = count(get_posts([
+    'post_type'      => 'helmet',
+    'post_status'    => 'publish',
+    'post_parent'    => 0,
+    'posts_per_page' => -1,
+    'fields'         => 'ids',
+]));
+
 // 4. Generate Dashboard Markdown
 $last_update = date('Y-m-d H:i:s');
 $dashboard = <<<EOD
@@ -39,8 +48,9 @@ $dashboard = <<<EOD
 | Metric | Value | Status |
 | :--- | :--- | :--- |
 | **Brands in Catalog** | $brand_count | ✅ |
-| **Helmets Indexed** | $helmet_count | 🏗️  Ingesting |
-| **Logo Coverage** | $logo_percentage% ($brands_with_logos/50) | 🎨 Enriched |
+| **Helmets Indexed** | $helmet_count | ✅ Live |
+| **Parent Models** | $parent_models | ✅ |
+| **Logo Coverage** | $logo_percentage% ($brands_with_logos/$brand_count) | 🎨 Enriched |
 | **Last Sync** | $last_update | 📡 Active |
 
 > _Stats generated automatically by `scripts/update_stats.php`_

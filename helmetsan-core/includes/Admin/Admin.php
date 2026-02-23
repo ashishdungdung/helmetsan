@@ -42,8 +42,7 @@ final class Admin
         private readonly AlertService $alerts,
         private readonly BrandService $brands,
         private readonly WooBridgeService $wooBridge
-    ) {
-    }
+    ) {}
 
     public function register(): void
     {
@@ -201,7 +200,7 @@ final class Admin
             'pricing' => $pricingCount,
             'offers' => $offersCount,
         ];
-        
+
         set_transient('helmetsan_engine_snapshot', $result, HOUR_IN_SECONDS);
         return $result;
     }
@@ -477,6 +476,11 @@ final class Admin
             'analytics_respect_monsterinsights',
             'enable_enhanced_event_tracking',
             'enable_internal_search_tracking',
+            'enable_scroll_depth_tracking',
+            'enable_file_download_tracking',
+            'enable_email_phone_tracking',
+            'enable_user_id_tracking',
+            'enable_consent_gate',
             'enable_heatmap_clarity',
             'enable_heatmap_hotjar',
         ];
@@ -485,11 +489,14 @@ final class Admin
             $merged[$key] = ! empty($merged[$key]);
         }
 
-        $merged['ga4_measurement_id'] = sanitize_text_field((string) $merged['ga4_measurement_id']);
-        $merged['gtm_container_id']   = sanitize_text_field((string) $merged['gtm_container_id']);
-        $merged['clarity_project_id'] = sanitize_text_field((string) $merged['clarity_project_id']);
-        $merged['hotjar_site_id']     = sanitize_text_field((string) $merged['hotjar_site_id']);
-        $merged['hotjar_version']     = sanitize_text_field((string) $merged['hotjar_version']);
+        $merged['ga4_measurement_id']   = sanitize_text_field((string) $merged['ga4_measurement_id']);
+        $merged['gtm_container_id']    = sanitize_text_field((string) $merged['gtm_container_id']);
+        $merged['consent_cookie_name']  = sanitize_text_field((string) ($merged['consent_cookie_name'] ?? 'helmetsan_consent_analytics'));
+        $merged['clarity_project_id']  = sanitize_text_field((string) $merged['clarity_project_id']);
+        $merged['hotjar_site_id']      = sanitize_text_field((string) $merged['hotjar_site_id']);
+        $merged['hotjar_version']      = sanitize_text_field((string) $merged['hotjar_version']);
+
+        unset($merged['_gsc_sitemap']);
 
         return $merged;
     }
@@ -501,7 +508,7 @@ final class Admin
         $merged   = wp_parse_args($value, $defaults);
 
         $merged['enabled']       = ! empty($merged['enabled']);
-        $merged['sync_json_only']= ! empty($merged['sync_json_only']);
+        $merged['sync_json_only'] = ! empty($merged['sync_json_only']);
         $merged['sync_profile_lock'] = ! empty($merged['sync_profile_lock']);
         $merged['pr_reuse_open'] = ! empty($merged['pr_reuse_open']);
         $merged['pr_auto_merge'] = ! empty($merged['pr_auto_merge']);
@@ -528,6 +535,10 @@ final class Admin
         $merged['enable_redirect_tracking'] = ! empty($merged['enable_redirect_tracking']);
         $merged['default_affiliate_network'] = sanitize_text_field((string) $merged['default_affiliate_network']);
         $merged['amazon_tag'] = sanitize_text_field((string) $merged['amazon_tag']);
+        $merged['amazon_tag_uk'] = sanitize_text_field((string) ($merged['amazon_tag_uk'] ?? ''));
+        $merged['amazon_tag_in'] = sanitize_text_field((string) ($merged['amazon_tag_in'] ?? ''));
+        $merged['amazon_tag_de'] = sanitize_text_field((string) ($merged['amazon_tag_de'] ?? ''));
+        $merged['amazon_tag_fr'] = sanitize_text_field((string) ($merged['amazon_tag_fr'] ?? ''));
         $code = (int) $merged['redirect_status_code'];
         $merged['redirect_status_code'] = in_array($code, [301, 302, 307, 308], true) ? $code : 302;
 
@@ -646,8 +657,10 @@ final class Admin
 
         // Secrets (masked)
         $secrets = [
-            'amazon_client_secret', 'amazon_refresh_token',
-            'allegro_client_secret', 'allegro_refresh_token',
+            'amazon_client_secret',
+            'amazon_refresh_token',
+            'allegro_client_secret',
+            'allegro_refresh_token',
             'jumia_api_key'
         ];
         foreach ($secrets as $key) {
@@ -667,7 +680,7 @@ final class Admin
         if (isset($value['affiliate_feeds']) && is_array($value['affiliate_feeds'])) {
             $merged['affiliate_feeds'] = $value['affiliate_feeds']; // TODO: Deep sanitize
         } else {
-             $merged['affiliate_feeds'] = $defaults['affiliate_feeds'];
+            $merged['affiliate_feeds'] = $defaults['affiliate_feeds'];
         }
 
         return $merged;
@@ -2788,6 +2801,15 @@ final class Admin
             $this->renderSettingsSection('Event Tracking', 'Track user interactions like clicks, search, and form submissions.', [
                 ['key' => 'enable_enhanced_event_tracking', 'option' => $O_A, 'label' => 'Enhanced Event Tracking', 'desc' => 'Push custom events to the data layer (helmet views, CTA clicks, etc.).', 'type' => 'checkbox'],
                 ['key' => 'enable_internal_search_tracking', 'option' => $O_A, 'label' => 'Internal Search Tracking', 'desc' => 'Fire a view_search_results event on WP search.', 'type' => 'checkbox'],
+                ['key' => 'enable_scroll_depth_tracking', 'option' => $O_A, 'label' => 'Scroll Depth', 'desc' => 'Fire events at 25%, 50%, 75%, 90% scroll.', 'type' => 'checkbox'],
+                ['key' => 'enable_file_download_tracking', 'option' => $O_A, 'label' => 'File Download Tracking', 'desc' => 'Track clicks to PDF, ZIP, DOC, XLS.', 'type' => 'checkbox'],
+                ['key' => 'enable_email_phone_tracking', 'option' => $O_A, 'label' => 'Email & Phone Clicks', 'desc' => 'Track mailto: and tel: link clicks.', 'type' => 'checkbox'],
+            ], $analytics);
+
+            $this->renderSettingsSection('User & Privacy', 'User ID and consent for GDPR/CCPA.', [
+                ['key' => 'enable_user_id_tracking', 'option' => $O_A, 'label' => 'User ID', 'desc' => 'Send logged-in user ID to GA/GTM.', 'type' => 'checkbox'],
+                ['key' => 'enable_consent_gate', 'option' => $O_A, 'label' => 'Consent Gate', 'desc' => 'Only load analytics when consent cookie is set.', 'type' => 'checkbox'],
+                ['key' => 'consent_cookie_name', 'option' => $O_A, 'label' => 'Consent Cookie Name', 'desc' => 'Cookie to check when consent gate is on.', 'type' => 'text'],
             ], $analytics);
 
             $this->renderSettingsSection('Heatmaps & Session Recording', 'Optional third-party heatmap providers.', [
@@ -2797,6 +2819,12 @@ final class Admin
                 ['key' => 'hotjar_site_id', 'option' => $O_A, 'label' => 'Hotjar Site ID', 'desc' => '', 'type' => 'text', 'prefix' => 'a_'],
                 ['key' => 'hotjar_version', 'option' => $O_A, 'label' => 'Hotjar Version', 'desc' => 'Usually 6.', 'type' => 'text', 'prefix' => 'a_'],
             ], $analytics);
+
+            $sitemapUrl = home_url('/wp-sitemap.xml');
+            $this->renderSettingsSection('Google Search Console', 'Submit your sitemap for indexing (WordPress 5.5+ provides a core sitemap).', [
+                ['key' => '_gsc_sitemap', 'option' => $O_A, 'label' => 'Sitemap URL', 'desc' => 'Submit the URL above in Search Console.', 'type' => 'text'],
+            ], array_merge($analytics, ['_gsc_sitemap' => $sitemapUrl]));
+            echo '<p><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Open Google Search Console</a></p>';
         }
 
         // ── GitHub Sync ──────────────────────────────────────────
@@ -2915,8 +2943,12 @@ final class Admin
         if ($activeTab === 'revenue') {
             $this->renderSettingsSection('Redirect Tracking', 'Affiliate link redirection settings.', [
                 ['key' => 'enable_redirect_tracking', 'option' => $O_R, 'label' => 'Enable Redirect Tracking', 'desc' => 'Track outbound clicks through /go/ redirects.', 'type' => 'checkbox', 'prefix' => 'rev_'],
-                ['key' => 'default_affiliate_network', 'option' => $O_R, 'label' => 'Default Network', 'desc' => 'Fallback affiliate network for new helmets (amazon, cj, allegro, jumia).', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag', 'option' => $O_R, 'label' => 'Amazon Affiliate Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'default_affiliate_network', 'option' => $O_R, 'label' => 'Default Network', 'desc' => 'Fallback affiliate network.', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag', 'option' => $O_R, 'label' => 'Amazon US/Default Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag_uk', 'option' => $O_R, 'label' => 'Amazon UK Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag_in', 'option' => $O_R, 'label' => 'Amazon India Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag_de', 'option' => $O_R, 'label' => 'Amazon Germany Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_tag_fr', 'option' => $O_R, 'label' => 'Amazon France Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
                 ['key' => 'redirect_status_code', 'option' => $O_R, 'label' => 'Redirect HTTP Code', 'desc' => '302 (temporary) or 301/307/308.', 'type' => 'select', 'choices' => ['301' => '301 Permanent', '302' => '302 Found (default)', '307' => '307 Temp Redirect', '308' => '308 Perm Redirect'], 'prefix' => 'rev_'],
             ], $revenue);
 
@@ -2959,12 +2991,12 @@ final class Admin
             ], $scheduler);
 
             $status = $this->scheduler->status();
-            
+
             echo '<h2>Scheduler Control Center</h2>';
             if (isset($_GET['task_run'])) {
                 echo '<div class="notice notice-success is-dismissible" style="margin-left:0;margin-top:10px;"><p>Task <strong>' . esc_html(sanitize_text_field((string)$_GET['task_run'])) . '</strong> executed manually via Control Center.</p></div>';
             }
-            
+
             echo '<table class="widefat striped" style="margin-bottom: 20px;">';
             echo '<thead><tr><th>Task</th><th>Hook</th><th>Next Run</th><th>Actions</th></tr></thead>';
             echo '<tbody>';
@@ -2974,7 +3006,7 @@ final class Admin
                 $hookName = 'helmetsan_cron_' . $taskKey;
                 $nextRunStr = $timestamp ? wp_date('Y-m-d H:i:s', $timestamp) : 'Not Scheduled';
                 $nonceUrl = wp_nonce_url(admin_url('admin-post.php?action=helmetsan_scheduler_task&task=' . $taskKey), 'helmetsan_scheduler_task');
-                
+
                 echo '<tr>';
                 echo '<td><strong>' . esc_html(ucwords(str_replace('_', ' ', (string)$taskKey))) . '</strong></td>';
                 echo '<td><code>' . esc_html($hookName) . '</code></td>';
@@ -3075,6 +3107,5 @@ final class Admin
 
         submit_button('Save Settings');
         echo '</form></div>';
-
     }
 }

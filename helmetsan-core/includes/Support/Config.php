@@ -27,6 +27,12 @@ final class Config
             'gtm_container_id'                        => '',
             'enable_enhanced_event_tracking'          => false,
             'enable_internal_search_tracking'         => false,
+            'enable_scroll_depth_tracking'            => false,
+            'enable_file_download_tracking'           => false,
+            'enable_email_phone_tracking'             => false,
+            'enable_user_id_tracking'                 => true,
+            'enable_consent_gate'                     => false,
+            'consent_cookie_name'                     => 'helmetsan_consent_analytics',
             'enable_heatmap_clarity'                  => false,
             'clarity_project_id'                      => '',
             'enable_heatmap_hotjar'                   => false,
@@ -74,8 +80,12 @@ final class Config
     {
         return [
             'enable_redirect_tracking' => true,
-            'default_affiliate_network'=> 'amazon',
+            'default_affiliate_network' => 'amazon',
             'amazon_tag'               => 'helmetsan-20',
+            'amazon_tag_uk'            => '',
+            'amazon_tag_in'            => '',
+            'amazon_tag_de'            => '',
+            'amazon_tag_fr'            => '',
             'redirect_status_code'     => 302,
             'affiliate_networks'       => [
                 'amazon'  => ['enabled' => true,  'tag' => 'helmetsan-20'],
@@ -153,7 +163,7 @@ final class Config
             'slack_webhook_url'      => '',
             'alert_on_sync_error'    => true,
             'alert_on_ingest_error'  => true,
-            'alert_on_health_warning'=> false,
+            'alert_on_health_warning' => false,
         ];
     }
 

@@ -207,8 +207,9 @@ final class PriceService
 
     /**
      * Build an array of PriceResults from static post meta (price_usd, price_eur, price_gbp)
-     * and affiliate_links.
-     * 
+     * and affiliate_links. Geo-driven: only includes marketplaces relevant to visitor's country.
+     * When no price meta exists, still returns offers from stored links with price 0 (theme shows "Check price").
+     *
      * @return PriceResult[]
      */
     private function buildStaticFallbackOffers(int $postId, string $countryCode): array
@@ -231,7 +232,6 @@ final class PriceService
 
         $price = get_post_meta($postId, $metaKey, true);
         if (!is_numeric($price)) {
-            // Try USD fallback
             $price = get_post_meta($postId, 'price_usd', true);
             if (!is_numeric($price)) {
                 $price = get_post_meta($postId, 'price_retail_usd', true);
@@ -239,23 +239,26 @@ final class PriceService
             $fallbackCurrency = 'USD';
         }
 
-        if (!is_numeric($price)) {
-            return [];
-        }
-
-        $priceVal = (float) $price;
+        $priceVal = is_numeric($price) ? (float) $price : 0.0;
         $helmetRef = (string) get_post_field('post_name', $postId);
 
-        // Fetch affiliate_links_json
+        // Fetch affiliate_links_json (stored per-region: amazon-us, amazon-in, amazon-uk, etc.)
         $linksJson = (string) get_post_meta($postId, 'affiliate_links_json', true);
         $links = json_decode($linksJson, true);
 
         $offers = [];
+        $ccLower = strtolower($countryCode);
+        // UK/GB both map to amazon-uk
+        $ccSuffix = ($ccLower === 'uk' || $ccLower === 'gb') ? 'uk' : $ccLower;
 
         if (is_array($links) && !empty($links)) {
-            $ccLower = strtolower($countryCode);
             foreach ($links as $mpId => $entry) {
-                if (str_starts_with($mpId, 'amazon-') && $mpId !== 'amazon-' . $ccLower) {
+                // Geo filter: for Amazon show only the visitor's region; for others allow by suffix (e.g. flipkart-in)
+                if (str_starts_with($mpId, 'amazon-')) {
+                    if ($mpId !== 'amazon-' . $ccSuffix) {
+                        continue;
+                    }
+                } elseif (str_contains($mpId, '-') && !str_ends_with($mpId, '-' . $ccSuffix)) {
                     continue;
                 }
 
@@ -271,9 +274,11 @@ final class PriceService
             }
         }
 
+        // When we have no stored links: show geo-specific Amazon row on every helmet (e.g. India → Amazon India); redirect uses ASIN or search-by-title
         if (empty($offers)) {
+            $amazonMp = 'amazon-' . $ccSuffix;
             $offers[] = new PriceResult(
-                marketplaceId: 'static',
+                marketplaceId: $amazonMp,
                 helmetRef: $helmetRef,
                 countryCode: $countryCode,
                 currency: $fallbackCurrency,

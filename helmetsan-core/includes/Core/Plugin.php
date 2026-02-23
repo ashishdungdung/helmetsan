@@ -170,7 +170,7 @@ final class Plugin
             $this->recommendations,
             $this->commerce
         );
-        $this->revenue    = new RevenueService($this->config);
+        $this->revenue    = new RevenueService($this->config, $this->geo);
         $this->feedTask = new FeedIngestionTask(
             $this->config,
             $this->marketplace,

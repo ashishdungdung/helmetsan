@@ -8,8 +8,18 @@ $helmetId = get_the_ID();
 $price = helmetsan_get_helmet_price($helmetId);
 $certs = helmetsan_get_certifications($helmetId);
 $logoUrl = helmetsan_get_logo_url($helmetId);
+$brandName = '';
+$brandTerms = get_the_terms($helmetId, 'helmet_brand');
+if ($brandTerms && ! is_wp_error($brandTerms)) {
+    $brandName = $brandTerms[0]->name ?? '';
+}
+$priceNum = is_numeric(preg_replace('/[^0-9.]/', '', $price)) ? (float) preg_replace('/[^0-9.]/', '', $price) : 0;
 ?>
-<article <?php post_class('helmet-card hs-panel'); ?>>
+<article <?php post_class('helmet-card hs-panel'); ?>
+    data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>"
+    data-helmet-name="<?php echo esc_attr(get_the_title()); ?>"
+    data-helmet-brand="<?php echo esc_attr($brandName); ?>"
+    data-helmet-price="<?php echo esc_attr((string) $priceNum); ?>">
     <?php if ($logoUrl !== '') : ?>
         <div class="entity-card__logo-wrap">
             <img class="entity-card__logo" src="<?php echo esc_url($logoUrl); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" />

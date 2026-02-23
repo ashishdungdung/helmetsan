@@ -15,6 +15,15 @@ final class EventService
         'internal_search',
         'directory_filter',
         'cta_click',
+        'scroll_depth',
+        'file_download',
+        'email_click',
+        'phone_click',
+        'form_submit',
+        'hs_price_chart_view',
+        'hs_price_chart_toggle',
+        'hs_offer_table_view',
+        'hs_marketplace_click',
     ];
 
     public function __construct(private readonly EventRepository $events)

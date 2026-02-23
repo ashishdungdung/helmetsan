@@ -20,7 +20,7 @@
 
     function trackViewItem(data) {
         const gtag = getGtag();
-        gtag('event', 'view_item', {
+        const params = {
             currency: data.currency || 'USD',
             value: data.price,
             items: [{
@@ -31,7 +31,10 @@
                 price: data.price,
                 quantity: 1
             }]
-        });
+        };
+        if (data.item_list_id) params.item_list_id = data.item_list_id;
+        if (data.item_list_name) params.item_list_name = data.item_list_name;
+        gtag('event', 'view_item', params);
     }
 
     function trackLead(data, marketplace) {

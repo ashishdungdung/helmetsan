@@ -14,6 +14,32 @@ function helmetsan_theme_posted_on(): void
     echo '<span class="posted-on">' . esc_html(get_the_date()) . '</span>';
 }
 
+/**
+ * Human-readable marketplace label for Where to Buy (e.g. amazon-in → Amazon (India)).
+ *
+ * @param string $marketplaceId e.g. amazon-in, amazon-us, static
+ * @return string
+ */
+function helmetsan_marketplace_label(string $marketplaceId): string
+{
+    $labels = [
+        'amazon-us' => 'Amazon (US)',
+        'amazon-in' => 'Amazon (India)',
+        'amazon-uk' => 'Amazon (UK)',
+        'amazon-de' => 'Amazon (Germany)',
+        'amazon-fr' => 'Amazon (France)',
+        'amazon-ca' => 'Amazon (Canada)',
+        'amazon-it' => 'Amazon (Italy)',
+        'amazon-es' => 'Amazon (Spain)',
+        'amazon-jp' => 'Amazon (Japan)',
+        'amazon-au' => 'Amazon (Australia)',
+        'flipkart-in' => 'Flipkart',
+        'static' => 'Amazon',
+    ];
+    $key = strtolower($marketplaceId);
+    return $labels[$key] ?? ucwords(str_replace('-', ' ', $marketplaceId));
+}
+
 function helmetsan_get_brand_id(int $helmetId): int
 {
     return (int) get_post_meta($helmetId, 'rel_brand', true);

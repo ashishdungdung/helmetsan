@@ -6,6 +6,7 @@
  */
 
 get_header();
+echo '<script>window.helmetsanListContext={list_id:"helmet_archive",list_name:"Helmet catalog"};</script>' . "\n";
 
 $archiveUrl = (string) get_post_type_archive_link('helmet');
 if ($archiveUrl === '') {

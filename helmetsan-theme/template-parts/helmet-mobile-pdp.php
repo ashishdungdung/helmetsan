@@ -127,9 +127,9 @@ if ($asin !== '') {
                             <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
                                 <td>
                                     <?php if ($isBest) : ?><span class="hs-price-table__best-tag">★ Best</span><?php endif; ?>
-                                    <?php echo esc_html(ucfirst(str_replace('-', ' ', $mpId))); ?>
+                                    <?php echo esc_html(helmetsan_marketplace_label($mpId)); ?>
                                 </td>
-                                <td><strong><?php echo esc_html($priceService->formatPrice($offer->price, $offer->currency)); ?></strong></td>
+                                <td><strong><?php echo $offer->price > 0 ? esc_html($priceService->formatPrice($offer->price, $offer->currency)) : '<span class="hs-muted">Check price</span>'; ?></strong></td>
                                 <td><small><?php echo esc_html($offer->capturedAt !== '' ? human_time_diff(strtotime($offer->capturedAt), time()) . ' ago' : '—'); ?></small></td>
                                 <td>
                                     <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">
