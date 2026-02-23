@@ -39,6 +39,77 @@
     flex-wrap: wrap;
 }
 
+/* ── Archive / catalog hero (helmets, accessories, brands) ── */
+.hs-archive-hero {
+    margin-bottom: 1.75rem;
+    padding: 1.75rem 1.25rem;
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.06), rgba(106, 92, 255, 0.05));
+    border: 1px solid rgba(10, 132, 255, 0.12);
+    border-radius: var(--hs-radius);
+}
+
+.hs-archive-hero__title {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--hs-text);
+}
+
+.hs-archive-hero__subtitle {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--hs-muted);
+    max-width: 56ch;
+}
+
+.hs-section--archive .hs-catalog__topbar {
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+}
+
+.hs-section--archive .hs-catalog__count {
+    font-weight: 600;
+    color: var(--hs-text);
+}
+
+.hs-section--archive .hs-chip {
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(10, 132, 255, 0.1);
+    color: var(--hs-accent);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.hs-section--archive .hs-chip:hover {
+    background: rgba(10, 132, 255, 0.18);
+}
+
+/* Stacked filter bar (brands sidebar) */
+.hs-filter-bar--stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hs-filter-bar__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--hs-muted);
+    margin-bottom: -0.25rem;
+}
+
+.hs-catalog--brands .hs-catalog__filters {
+    min-width: 260px;
+}
+
+.hs-brand-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
 .helmet-single__layout {
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(280px, .8fr);
@@ -771,4 +842,122 @@
 
 .brand-hub__spotlight .hs-responsive-embed {
     aspect-ratio: 16/9;
+}
+
+/* ── Homepage: quick links ── */
+.hs-home-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--hs-border);
+}
+
+.hs-home-quick-links__label {
+    font-size: 0.85rem;
+    color: var(--hs-muted);
+    margin-right: 0.25rem;
+}
+
+.hs-home-quick-links a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--hs-accent);
+    text-decoration: none;
+}
+
+.hs-home-quick-links a:hover {
+    text-decoration: underline;
+}
+
+/* ── Homepage: brand grid ── */
+.hs-home-brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.hs-home-brand-grid .entity-card {
+    margin: 0;
+}
+
+/* ── Homepage: accessories CTA ── */
+.hs-home-cta {
+    margin-top: 2rem;
+}
+
+.hs-home-cta__inner {
+    background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(106, 92, 255, 0.1));
+    border: 1px solid rgba(10, 132, 255, 0.2);
+    border-radius: var(--hs-radius);
+    padding: 2rem;
+}
+
+.hs-home-cta__content h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hs-home-cta__content p {
+    margin: 0 0 1rem;
+    color: var(--hs-muted);
+    max-width: 52ch;
+}
+
+/* ── Homepage: safety teaser ── */
+.hs-home-safety-teaser__inner {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.hs-home-safety-teaser__inner h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.hs-home-safety-teaser__inner p {
+    margin: 0 0 1rem;
+    color: var(--hs-muted);
+    font-size: 0.95rem;
+}
+
+/* ── Accessories page: category cards + catalog ── */
+.hs-accessories-categories {
+    margin: 2rem 0 3rem;
+}
+
+.hs-accessories-categories__title {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+}
+
+.hs-accessories-categories__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.hs-accessories-catalog {
+    margin-top: 2rem;
+}
+
+.hs-accessories-catalog__title {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+}
+
+.hs-catalog__empty {
+    padding: 2rem;
+    text-align: center;
+    color: var(--hs-muted);
+}
+
+.hs-catalog__empty a {
+    color: var(--hs-accent);
+    font-weight: 600;
 }

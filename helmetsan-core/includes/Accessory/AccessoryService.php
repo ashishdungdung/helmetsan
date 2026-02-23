@@ -109,6 +109,12 @@ final class AccessoryService
         if (isset($data['subcategory']) && is_string($data['subcategory']) && $data['subcategory'] !== '') {
             $categoryTerms[] = sanitize_text_field($data['subcategory']);
         }
+        if ($categoryTerms === [] && $type !== '') {
+            $mapped = $this->mapTypeToAccessoryCategory($type);
+            if ($mapped !== null) {
+                $categoryTerms[] = $mapped;
+            }
+        }
         if ($categoryTerms !== []) {
             wp_set_object_terms($postId, array_values(array_unique($categoryTerms)), 'accessory_category', false);
         }
@@ -143,6 +149,58 @@ final class AccessoryService
         }
 
         return ['ok' => true, 'action' => $action, 'post_id' => $postId];
+    }
+
+    /**
+     * Assign accessory_category term from accessory_type meta when the post has no category terms.
+     * Used to backfill existing accessories so category counts are correct.
+     *
+     * @return bool True if a term was assigned or already had terms, false if type had no mapping
+     */
+    public function assignCategoryFromType(int $postId): bool
+    {
+        $existing = wp_get_object_terms($postId, 'accessory_category');
+        if (! is_wp_error($existing) && is_array($existing) && $existing !== []) {
+            return true;
+        }
+        $type = (string) get_post_meta($postId, 'accessory_type', true);
+        if ($type === '') {
+            return false;
+        }
+        $mapped = $this->mapTypeToAccessoryCategory($type);
+        if ($mapped === null) {
+            return false;
+        }
+        wp_set_object_terms($postId, [$mapped], 'accessory_category', false);
+        return true;
+    }
+
+    /**
+     * Map payload "type" to an existing accessory_category term name when parent_category/subcategory are missing.
+     *
+     * @return string|null Term name or null if no mapping
+     */
+    private function mapTypeToAccessoryCategory(string $type): ?string
+    {
+        $map = [
+            'Communication System' => 'Communications',
+            'Face Shield' => 'Visors & Shields',
+            'Visor' => 'Visors & Shields',
+            'Visor Insert' => 'Visors & Shields',
+            'Visor Accessory' => 'Visors & Shields',
+            'Anti-Fog Lens' => 'Visors & Shields',
+            'Maintenance' => 'Maintenance & Care',
+            'Storage' => 'Maintenance & Care',
+            'Replacement Parts' => 'Inner Liners',
+            'Replacement Liner' => 'Inner Liners',
+            'Riding Gear' => 'Inner Liners',
+            'Camera Mount' => 'Helmet Cameras',
+            'Security' => 'Maintenance & Care',
+            'Hardware' => 'Maintenance & Care',
+            'Hearing Protection' => 'Audio Kits',
+            'Safety' => 'Electronics',
+        ];
+        return $map[$type] ?? null;
     }
 
     private function setJsonMeta(int $postId, string $metaKey, mixed $value): void

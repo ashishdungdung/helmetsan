@@ -62,7 +62,15 @@ final class FlipkartConnector implements MarketplaceConnectorInterface
             return null;
         }
 
-        $flipkartUrl = (string) get_post_meta($post->ID, 'flipkart_url', true);
+        $flipkartUrl = '';
+        $linksJson = (string) get_post_meta($post->ID, 'affiliate_links_json', true);
+        $links = is_string($linksJson) ? json_decode($linksJson, true) : null;
+        if (is_array($links) && isset($links['flipkart-in']['url'])) {
+            $flipkartUrl = (string) $links['flipkart-in']['url'];
+        }
+        if ($flipkartUrl === '') {
+            $flipkartUrl = (string) get_post_meta($post->ID, 'flipkart_url', true);
+        }
         if ($flipkartUrl === '') {
             return null;
         }
@@ -78,7 +86,7 @@ final class FlipkartConnector implements MarketplaceConnectorInterface
             helmetRef:     $helmetRef,
             countryCode:   'IN',
             currency:      'INR',
-            price:         0, // Placeholder until API is fully implemented
+            price:         0,
             mrp:           null,
             url:           $flipkartUrl,
             affiliateUrl:  $affiliateUrl,

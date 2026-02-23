@@ -38,6 +38,17 @@
   letter-spacing: -0.02em;
 }
 
+.hs-stat-card--link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hs-stat-card--link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 132, 255, 0.15);
+}
+
 .hs-btn {
   display: inline-flex;
   align-items: center;

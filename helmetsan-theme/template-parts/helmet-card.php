@@ -48,14 +48,21 @@ $priceNum = is_numeric(preg_replace('/[^0-9.]/', '', $price)) ? (float) preg_rep
                 <div class="helmet-card__image"><?php the_post_thumbnail('medium_large'); ?></div>
             </div>
         <?php else : ?>
+            <?php
+            $defaultHelmetImg = function_exists('helmetsan_core') ? helmetsan_core()->defaultImages()->getDefaultImageUrl('helmet') : '';
+            ?>
             <div class="helmet-card__image-wrapper helmet-card__image-wrapper--placeholder" style="background: var(--hs-bg-alt); display: flex; align-items: center; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="var(--hs-border)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="hs-icon hs-icon--placeholder" style="color: var(--hs-border);">
-                    <path d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"></path>
-                    <path d="M6 12h12"></path>
-                    <path d="M12 12v8"></path>
-                    <path d="M8 12v4"></path>
-                    <path d="M16 12v4"></path>
-                </svg>
+                <?php if ($defaultHelmetImg !== '') : ?>
+                    <img src="<?php echo esc_url($defaultHelmetImg); ?>" alt="" class="helmet-card__placeholder-img" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;" />
+                <?php else : ?>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="var(--hs-border)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="hs-icon hs-icon--placeholder" style="color: var(--hs-border);">
+                        <path d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"></path>
+                        <path d="M6 12h12"></path>
+                        <path d="M12 12v8"></path>
+                        <path d="M8 12v4"></path>
+                        <path d="M16 12v4"></path>
+                    </svg>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
         <h3 class="helmet-card__title">

@@ -6,6 +6,9 @@ namespace Helmetsan\Core\Core;
 
 use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Admin\Admin;
+use Helmetsan\Core\Admin\AiAdmin;
+use Helmetsan\Core\AI\AiService;
+use Helmetsan\Core\AI\ProviderRegistry;
 use Helmetsan\Core\Alerts\AlertService;
 use Helmetsan\Core\Analytics\EventRepository;
 use Helmetsan\Core\Analytics\EventService;
@@ -37,7 +40,10 @@ use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\Seo\SchemaService;
+use Helmetsan\Core\Support\AdSense;
+use Helmetsan\Core\Support\AdsTxt;
 use Helmetsan\Core\Support\Config;
+use Helmetsan\Core\Support\DefaultImages;
 use Helmetsan\Core\Support\Logger;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
@@ -53,6 +59,7 @@ use Helmetsan\Core\Marketplace\ConnectorRegistry;
 use Helmetsan\Core\Marketplace\Connectors\AmazonConnector;
 use Helmetsan\Core\Marketplace\Connectors\AffiliateFeedConnector;
 use Helmetsan\Core\Marketplace\Connectors\AllegroConnector;
+use Helmetsan\Core\Marketplace\Connectors\FlipkartConnector;
 use Helmetsan\Core\Marketplace\Connectors\JumiaConnector;
 use Helmetsan\Core\Marketplace\MarketplaceRouter;
 use Helmetsan\Core\Geo\GeoService;
@@ -113,6 +120,12 @@ final class Plugin
     private PriceController $priceApi;
     private FeedIngestionTask $feedTask;
     private RevenueDashboard $revenueDashboard;
+    private DefaultImages $defaultImages;
+    private AdsTxt $adsTxt;
+    private AdSense $adSense;
+    private ProviderRegistry $providerRegistry;
+    private AiService $aiService;
+    private AiAdmin $aiAdmin;
 
     public function __construct()
     {
@@ -213,6 +226,12 @@ final class Plugin
         $this->docs       = new DocsService();
         $this->helmetDataBlock = new HelmetDataBlock();
         $this->tracker = new Tracker();
+        $this->defaultImages = new DefaultImages($this->config);
+        $this->adsTxt = new AdsTxt();
+        $this->adSense = new AdSense($this->config);
+        $this->providerRegistry = new ProviderRegistry($this->config);
+        $this->aiService = new AiService($this->providerRegistry);
+        $this->aiAdmin = new AiAdmin($this->config, $this->aiService);
     }
 
     public function boot(): void
@@ -233,6 +252,7 @@ final class Plugin
         $this->search->register();
         $this->helmets->register();
 
+        $this->aiAdmin->register();
         (new Admin(
             $this->health,
             $this->smoke,
@@ -261,6 +281,9 @@ final class Plugin
         $this->schema->register();
         $this->revenue->register();
         $this->geo->register();
+        add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
+        $this->adsTxt->register();
+        $this->adSense->register();
         $this->priceApi->register();
         $this->feedTask->register();
         $this->revenueDashboard->register();
@@ -291,9 +314,26 @@ final class Plugin
                 $this->mediaEngine,
                 $this->wooBridge,
                 $this->price,
-                $this->priceHistory
+                $this->priceHistory,
+                $this->aiService
             ))->register();
         }
+    }
+
+    /**
+     * Redirect /accessory-category/ (base URL with no term) to /accessories/.
+     * WordPress has no taxonomy index at the base slug, so this avoids a 404.
+     */
+    public function redirectAccessoryCategoryBaseToAccessories(): void
+    {
+        $path = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
+        $path = strtok($path, '?');
+        $path = $path === false ? '' : trim($path, '/');
+        if ($path !== 'accessory-category') {
+            return;
+        }
+        wp_safe_redirect(home_url('/accessories/'), 302);
+        exit;
     }
 
     public function activate(): void
@@ -307,7 +347,45 @@ final class Plugin
         $this->priceHistory->ensureTable();
         $this->feedTask->schedule();
         $this->scheduler->activate();
+        $this->ensureOptionsPreserveOnUpgrade();
         flush_rewrite_rules();
+    }
+
+    /**
+     * On upgrade/activation: merge current defaults into existing options so new keys get defaults
+     * but saved credentials and settings are never overwritten. Prevents settings vanishing on deploy.
+     */
+    private function ensureOptionsPreserveOnUpgrade(): void
+    {
+        $options = [
+            Config::OPTION_ANALYTICS  => [$this->config, 'analyticsDefaults'],
+            Config::OPTION_GITHUB     => [$this->config, 'githubDefaults'],
+            Config::OPTION_REVENUE    => [$this->config, 'revenueDefaults'],
+            Config::OPTION_SCHEDULER  => [$this->config, 'schedulerDefaults'],
+            Config::OPTION_ALERTS     => [$this->config, 'alertsDefaults'],
+            Config::OPTION_MEDIA      => [$this->config, 'mediaDefaults'],
+            Config::OPTION_WOO_BRIDGE => [$this->config, 'wooBridgeDefaults'],
+            Config::OPTION_MARKETPLACE => [$this->config, 'marketplaceDefaults'],
+            Config::OPTION_GEO        => [$this->config, 'geoDefaults'],
+            Config::OPTION_FEATURES   => [$this->config, 'featuresDefaults'],
+            Config::OPTION_DEFAULT_IMAGES => [$this->config, 'defaultImagesDefaults'],
+            Config::OPTION_ADSENSE => [$this->config, 'adsenseDefaults'],
+            Config::OPTION_AI => [$this->config, 'aiDefaults'],
+        ];
+        foreach ($options as $optionKey => $defaultsCallable) {
+            $existing = get_option($optionKey, null);
+            if ($existing === null || ! is_array($existing)) {
+                continue;
+            }
+            $defaults = $defaultsCallable();
+            $merged = array_merge($defaults, $existing);
+            if ($optionKey === Config::OPTION_AI && isset($defaults['providers'], $merged['providers']) && is_array($merged['providers'])) {
+                $merged['providers'] = array_merge($defaults['providers'], $merged['providers']);
+            }
+            if ($merged !== $existing) {
+                update_option($optionKey, $merged, false);
+            }
+        }
     }
 
     public function deactivate(): void
@@ -376,6 +454,11 @@ final class Plugin
         return $this->accessories;
     }
 
+    public function defaultImages(): DefaultImages
+    {
+        return $this->defaultImages;
+    }
+
     public function motorcycles(): MotorcycleService
     {
         return $this->motorcycles;
@@ -416,6 +499,13 @@ final class Plugin
                 'api_key'           => $mktCfg['jumia_api_key'] ?? '',
                 'affiliate_id'      => $mktCfg['jumia_affiliate_id'] ?? '',
                 'enabled_countries' => $mktCfg['jumia_countries'] ?? ['NG', 'KE', 'EG'],
+            ]));
+        }
+
+        // Flipkart (India)
+        if (!empty($mktCfg['flipkart_enabled'])) {
+            $registry->register(new FlipkartConnector([
+                'affiliate_id' => $mktCfg['flipkart_affiliate_id'] ?? '',
             ]));
         }
 

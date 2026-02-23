@@ -55,4 +55,18 @@ PID_PLUGIN=$!
 wait $PID_THEME
 wait $PID_PLUGIN
 
+# Deploy ads.txt to site root (required for AdSense; IAB ads.txt at domain root)
+if [ -f "$PROJECT_DIR/ads.txt" ]; then
+    echo "[Ads.txt] Copying to site root..."
+    password="${DEPLOY_PASSWORD:-CQz7nF0HSd}"
+    if "$SCRIPT_DIR/deploy-rsync-file.expect" "$password" "$PROJECT_DIR/ads.txt" "${USER}@${HOST}:${REMOTE_WP_PATH}/"; then
+        echo "[Ads.txt] ✅ Done! (available at https://${HOST}/ads.txt)"
+    else
+        echo "[Ads.txt] ❌ Failed!"
+        exit 1
+    fi
+else
+    echo "[Ads.txt] ⚠️  $PROJECT_DIR/ads.txt not found; skipping."
+fi
+
 echo "🎉 Deployment Complete!"

@@ -48,10 +48,12 @@ final class Admin
     {
         add_action('admin_menu', [$this, 'registerMenu']);
         add_action('admin_init', [$this, 'registerSettings']);
+        add_filter('allowed_options', [$this, 'restrictHelmetsanOptionsToPostedOnly'], 10, 1);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
         add_filter('admin_body_class', [$this, 'addAdminBodyClass']);
         add_action('admin_init', [$this, 'handleIngestionActions']);
         add_action('admin_init', [$this, 'handleBrandActions']);
+        add_action('admin_post_helmetsan_reseed', [$this, 'handleReseedAction']);
         add_action('admin_post_helmetsan_sync_pull', [$this, 'handleSyncPullAction']);
         add_action('admin_post_helmetsan_import', [$this, 'handleImportAction']);
         add_action('admin_post_helmetsan_export', [$this, 'handleExportAction']);
@@ -69,6 +71,7 @@ final class Admin
         add_submenu_page('helmetsan-dashboard', 'Woo Bridge', 'Woo Bridge', 'manage_options', 'helmetsan-woo-bridge', [$this, 'wooBridgePage']);
         add_submenu_page('helmetsan-dashboard', 'Brands', 'Brands', 'manage_options', 'helmetsan-brands', [$this, 'brandsPage']);
         add_submenu_page('helmetsan-dashboard', 'Ingestion', 'Ingestion', 'manage_options', 'helmetsan-ingestion', [$this, 'ingestionPage']);
+        add_submenu_page('helmetsan-dashboard', 'Data / Reseed', 'Data / Reseed', 'manage_options', 'helmetsan-reseed', [$this, 'reseedPage']);
         add_submenu_page('helmetsan-dashboard', 'Sync Logs', 'Sync Logs', 'manage_options', 'helmetsan-sync-logs', [$this, 'syncLogsPage']);
         add_submenu_page('helmetsan-dashboard', 'Repo Health', 'Repo Health', 'manage_options', 'helmetsan-repo-health', [$this, 'repoHealthPage']);
         add_submenu_page('helmetsan-dashboard', 'Analytics', 'Analytics', 'manage_options', 'helmetsan-analytics', [$this, 'analyticsPage']);
@@ -84,6 +87,12 @@ final class Admin
     {
         if (! $this->isHelmetsanAdmin()) {
             return;
+        }
+
+        $page = isset($_GET['page']) ? sanitize_key((string) $_GET['page']) : '';
+        $tab = isset($_GET['stab']) ? sanitize_key((string) $_GET['stab']) : '';
+        if ($page === 'helmetsan-settings' && $tab === 'defaults') {
+            wp_enqueue_media();
         }
 
         wp_enqueue_style(
@@ -449,11 +458,76 @@ final class Admin
             'sanitize_callback' => [$this, 'sanitizeFeatures'],
             'default'           => $this->config->featuresDefaults(),
         ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_DEFAULT_IMAGES, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeDefaultImages'],
+            'default'           => $this->config->defaultImagesDefaults(),
+        ]);
+
+        register_setting('helmetsan_settings', Config::OPTION_ADSENSE, [
+            'type'              => 'array',
+            'sanitize_callback' => [$this, 'sanitizeAdsense'],
+            'default'           => $this->config->adsenseDefaults(),
+        ]);
+    }
+
+    /**
+     * When saving via options.php, only update Helmetsan options that are present in the form.
+     * The Settings page uses tabs: only the active tab's option is in POST. Without this filter,
+     * options.php would pass null for missing options and the sanitize callbacks would overwrite
+     * them with defaults, wiping other tabs' saved values.
+     *
+     * Also ensures our option group exists (from global) if WP hasn't merged it yet.
+     *
+     * @param array<string, array<int, string>> $allowed_options
+     * @return array<string, array<int, string>>
+     */
+    public function restrictHelmetsanOptionsToPostedOnly(array $allowed_options): array
+    {
+        $isOurSave = isset($_POST['option_page']) && $_POST['option_page'] === 'helmetsan_settings' && isset($_POST['_wpnonce']);
+        if (!$isOurSave) {
+            return $allowed_options;
+        }
+        $our = $allowed_options['helmetsan_settings'] ?? null;
+        if ($our === null && isset($GLOBALS['new_allowed_options']['helmetsan_settings'])) {
+            $our = $GLOBALS['new_allowed_options']['helmetsan_settings'];
+        }
+        if (!is_array($our) || $our === []) {
+            return $allowed_options;
+        }
+        $allowed_options['helmetsan_settings'] = array_values(array_filter($our, function (string $option): bool {
+            return isset($_POST[$option]);
+        }));
+        return $allowed_options;
+    }
+
+    /**
+     * When options.php passes null (option not in form), return existing value so we don't overwrite with defaults.
+     * Call at the very start of each Helmetsan sanitize callback.
+     */
+    private function preserveExistingIfNotSubmitted(string $option, $value, array $defaults): ?array
+    {
+        if ($value !== null) {
+            return null;
+        }
+        if (!isset($_POST['option_page']) || $_POST['option_page'] !== 'helmetsan_settings') {
+            return null;
+        }
+        $existing = get_option($option, null);
+        if ($existing === null || !is_array($existing)) {
+            return null;
+        }
+        return wp_parse_args($existing, $defaults);
     }
 
     public function sanitizeFeatures($value): array
     {
         $defaults = $this->config->featuresDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_FEATURES, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         if (!is_array($value)) {
             return $defaults;
         }
@@ -468,8 +542,13 @@ final class Admin
     public function sanitizeAnalytics($value): array
     {
         $defaults = $this->config->analyticsDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_ANALYTICS, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_ANALYTICS, []), $defaults);
 
         $bools = [
             'enable_analytics',
@@ -495,6 +574,19 @@ final class Admin
         $merged['clarity_project_id']  = sanitize_text_field((string) $merged['clarity_project_id']);
         $merged['hotjar_site_id']      = sanitize_text_field((string) $merged['hotjar_site_id']);
         $merged['hotjar_version']      = sanitize_text_field((string) $merged['hotjar_version']);
+        // Preserve IDs when submitted empty (e.g. saving another tab or masked field)
+        if ($merged['ga4_measurement_id'] === '') {
+            $merged['ga4_measurement_id'] = (string) ($existing['ga4_measurement_id'] ?? '');
+        }
+        if ($merged['gtm_container_id'] === '') {
+            $merged['gtm_container_id'] = (string) ($existing['gtm_container_id'] ?? '');
+        }
+        if ($merged['clarity_project_id'] === '') {
+            $merged['clarity_project_id'] = (string) ($existing['clarity_project_id'] ?? '');
+        }
+        if ($merged['hotjar_site_id'] === '') {
+            $merged['hotjar_site_id'] = (string) ($existing['hotjar_site_id'] ?? '');
+        }
 
         unset($merged['_gsc_sitemap']);
 
@@ -504,8 +596,13 @@ final class Admin
     public function sanitizeGithub($value): array
     {
         $defaults = $this->config->githubDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_GITHUB, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $defaults);
 
         $merged['enabled']       = ! empty($merged['enabled']);
         $merged['sync_json_only'] = ! empty($merged['sync_json_only']);
@@ -517,6 +614,19 @@ final class Admin
         $merged['token']         = sanitize_text_field((string) $merged['token']);
         $merged['branch']        = sanitize_text_field((string) $merged['branch']);
         $merged['remote_path']   = trim(sanitize_text_field((string) $merged['remote_path']), '/');
+        // Preserve credentials when field is submitted empty (e.g. masked or other tab saved)
+        if ($merged['token'] === '') {
+            $merged['token'] = (string) ($existing['token'] ?? '');
+        }
+        if ($merged['owner'] === '') {
+            $merged['owner'] = (string) ($existing['owner'] ?? '');
+        }
+        if ($merged['repo'] === '') {
+            $merged['repo'] = (string) ($existing['repo'] ?? '');
+        }
+        if ($merged['branch'] === '') {
+            $merged['branch'] = (string) ($existing['branch'] ?? 'main');
+        }
         $profile = sanitize_text_field((string) $merged['sync_run_profile']);
         $merged['sync_run_profile'] = in_array($profile, ['pull-only', 'pull+brands', 'pull+all'], true) ? $profile : 'pull-only';
         $pushMode = sanitize_text_field((string) $merged['push_mode']);
@@ -529,8 +639,13 @@ final class Admin
     public function sanitizeRevenue($value): array
     {
         $defaults = $this->config->revenueDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_REVENUE, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $defaults);
 
         $merged['enable_redirect_tracking'] = ! empty($merged['enable_redirect_tracking']);
         $merged['default_affiliate_network'] = sanitize_text_field((string) $merged['default_affiliate_network']);
@@ -539,8 +654,39 @@ final class Admin
         $merged['amazon_tag_in'] = sanitize_text_field((string) ($merged['amazon_tag_in'] ?? ''));
         $merged['amazon_tag_de'] = sanitize_text_field((string) ($merged['amazon_tag_de'] ?? ''));
         $merged['amazon_tag_fr'] = sanitize_text_field((string) ($merged['amazon_tag_fr'] ?? ''));
+        // Preserve affiliate tags when submitted empty
+        if ($merged['amazon_tag'] === '') {
+            $merged['amazon_tag'] = (string) ($existing['amazon_tag'] ?? $defaults['amazon_tag']);
+        }
+        if ($merged['amazon_tag_uk'] === '') {
+            $merged['amazon_tag_uk'] = (string) ($existing['amazon_tag_uk'] ?? '');
+        }
+        if ($merged['amazon_tag_in'] === '') {
+            $merged['amazon_tag_in'] = (string) ($existing['amazon_tag_in'] ?? '');
+        }
+        if ($merged['amazon_tag_de'] === '') {
+            $merged['amazon_tag_de'] = (string) ($existing['amazon_tag_de'] ?? '');
+        }
+        if ($merged['amazon_tag_fr'] === '') {
+            $merged['amazon_tag_fr'] = (string) ($existing['amazon_tag_fr'] ?? '');
+        }
         $code = (int) $merged['redirect_status_code'];
         $merged['redirect_status_code'] = in_array($code, [301, 302, 307, 308], true) ? $code : 302;
+        // Preserve affiliate_networks: use existing when not submitted, else merge per-network so credentials survive
+        $defNetworks = $defaults['affiliate_networks'];
+        $existingNetworks = isset($existing['affiliate_networks']) && is_array($existing['affiliate_networks'])
+            ? $existing['affiliate_networks']
+            : $defNetworks;
+        if (empty($merged['affiliate_networks']) || ! is_array($merged['affiliate_networks'])) {
+            $merged['affiliate_networks'] = $existingNetworks;
+        } else {
+            foreach (array_keys($defNetworks) as $net) {
+                $merged['affiliate_networks'][$net] = wp_parse_args(
+                    $merged['affiliate_networks'][$net] ?? [],
+                    $existingNetworks[$net] ?? $defNetworks[$net]
+                );
+            }
+        }
 
         return $merged;
     }
@@ -548,6 +694,10 @@ final class Admin
     public function sanitizeScheduler($value): array
     {
         $defaults = $this->config->schedulerDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_SCHEDULER, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
 
@@ -571,6 +721,10 @@ final class Admin
     public function sanitizeAlerts($value): array
     {
         $defaults = $this->config->alertsDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_ALERTS, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
 
@@ -596,9 +750,12 @@ final class Admin
     public function sanitizeMedia($value): array
     {
         $defaults = $this->config->mediaDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_MEDIA, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
-        $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
 
         $bools = [
@@ -630,6 +787,10 @@ final class Admin
     public function sanitizeWooBridge($value): array
     {
         $defaults = $this->config->wooBridgeDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_WOO_BRIDGE, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
 
@@ -645,12 +806,16 @@ final class Admin
     public function sanitizeMarketplace($value): array
     {
         $defaults = $this->config->marketplaceDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_MARKETPLACE, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_MARKETPLACE, []), $defaults);
 
         // Booleans
-        $bools = ['amazon_enabled', 'allegro_enabled', 'jumia_enabled'];
+        $bools = ['amazon_enabled', 'allegro_enabled', 'jumia_enabled', 'flipkart_enabled'];
         foreach ($bools as $key) {
             $merged[$key] = ! empty($merged[$key]);
         }
@@ -669,7 +834,7 @@ final class Admin
         }
 
         // Standard text
-        $text = ['amazon_client_id', 'amazon_affiliate_tag', 'allegro_client_id', 'allegro_affiliate_id', 'jumia_affiliate_id'];
+        $text = ['amazon_client_id', 'amazon_affiliate_tag', 'allegro_client_id', 'allegro_affiliate_id', 'jumia_affiliate_id', 'flipkart_affiliate_id'];
         foreach ($text as $key) {
             $merged[$key] = sanitize_text_field((string) ($merged[$key] ?? ''));
         }
@@ -689,6 +854,10 @@ final class Admin
     public function sanitizeGeo($value): array
     {
         $defaults = $this->config->geoDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_GEO, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
         $value    = is_array($value) ? $value : [];
         $merged   = wp_parse_args($value, $defaults);
 
@@ -703,6 +872,45 @@ final class Admin
             }
         }
 
+        return $merged;
+    }
+
+    public function sanitizeDefaultImages($value): array
+    {
+        $defaults = $this->config->defaultImagesDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_DEFAULT_IMAGES, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
+        $value = is_array($value) ? $value : [];
+        $merged = wp_parse_args($value, $defaults);
+
+        $merged['helmet_attachment_id'] = max(0, (int) ($merged['helmet_attachment_id'] ?? 0));
+        $merged['brand_attachment_id'] = max(0, (int) ($merged['brand_attachment_id'] ?? 0));
+        $merged['accessory_attachment_id'] = max(0, (int) ($merged['accessory_attachment_id'] ?? 0));
+        $merged['helmet_svg_slug'] = sanitize_text_field((string) ($merged['helmet_svg_slug'] ?? ''));
+        $merged['brand_svg_slug'] = sanitize_text_field((string) ($merged['brand_svg_slug'] ?? ''));
+        $merged['accessory_svg_slug'] = sanitize_text_field((string) ($merged['accessory_svg_slug'] ?? ''));
+
+        return $merged;
+    }
+
+    public function sanitizeAdsense($value): array
+    {
+        $defaults = $this->config->adsenseDefaults();
+        $preserved = $this->preserveExistingIfNotSubmitted(Config::OPTION_ADSENSE, $value, $defaults);
+        if ($preserved !== null) {
+            return $preserved;
+        }
+        $value = is_array($value) ? $value : [];
+        $merged = wp_parse_args($value, $defaults);
+        $merged['enable_adsense'] = ! empty($merged['enable_adsense']);
+        $merged['enable_auto_ads'] = ! empty($merged['enable_auto_ads']);
+        $merged['publisher_id'] = sanitize_text_field((string) ($merged['publisher_id'] ?? ''));
+        $merged['publisher_id'] = preg_replace('/[^a-z0-9\-]/i', '', $merged['publisher_id']);
+        if ($merged['publisher_id'] !== '' && ! str_starts_with(strtolower($merged['publisher_id']), 'ca-pub-')) {
+            $merged['publisher_id'] = 'ca-pub-' . $merged['publisher_id'];
+        }
         return $merged;
     }
 
@@ -1900,6 +2108,7 @@ final class Admin
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Ingestion', 'Track imports, retries, and data quality outcomes.');
+        echo '<p><a href="' . esc_url(admin_url('admin.php?page=helmetsan-reseed')) . '">Data / Reseed</a> — Run helmet seed, path-based helmets, accessories, and brands from the dashboard.</p>';
 
         if (! $this->ingestionLogs->tableExists()) {
             echo '<p>Ingestion log table not found. Re-activate plugin or run table migration.</p></div>';
@@ -2356,6 +2565,172 @@ final class Admin
         exit;
     }
 
+    public function handleReseedAction(): void
+    {
+        if (! current_user_can('manage_options')) {
+            wp_safe_redirect(admin_url('admin.php?page=helmetsan-reseed'));
+            exit;
+        }
+
+        $nonce = isset($_POST['helmetsan_reseed_nonce']) ? (string) $_POST['helmetsan_reseed_nonce'] : '';
+        if (! wp_verify_nonce($nonce, 'helmetsan_reseed')) {
+            wp_safe_redirect(admin_url('admin.php?page=helmetsan-reseed&reseed_error=nonce'));
+            exit;
+        }
+
+        $action = isset($_POST['helmetsan_reseed_action']) ? sanitize_key((string) $_POST['helmetsan_reseed_action']) : '';
+        $dryRun = isset($_POST['helmetsan_reseed_dry_run']);
+
+        $baseRedirect = admin_url('admin.php?page=helmetsan-reseed');
+
+        if ($action === 'ingest_seed') {
+            $result = $this->ingestion->ingestSeedFile('', 25, $dryRun);
+            if (! empty($result['locked'])) {
+                wp_safe_redirect(add_query_arg(['reseed_error' => 'locked'], $baseRedirect));
+                exit;
+            }
+            if (empty($result['ok'])) {
+                wp_safe_redirect(add_query_arg(['reseed_error' => 'seed', 'reseed_message' => urlencode($result['message'] ?? '')], $baseRedirect));
+                exit;
+            }
+            wp_safe_redirect(add_query_arg([
+                'reseed_done' => 'seed',
+                'created'     => (int) ($result['created'] ?? 0),
+                'updated'     => (int) ($result['updated'] ?? 0),
+                'skipped'     => (int) ($result['skipped'] ?? 0),
+                'rejected'    => (int) ($result['rejected'] ?? 0),
+            ], $baseRedirect));
+            exit;
+        }
+
+        if ($action === 'ingest_path_helmets' || $action === 'ingest_path_accessories') {
+            $path = $action === 'ingest_path_helmets' ? 'helmets' : 'accessories';
+            $result = $this->ingestion->ingestPath($path, 100, null, $dryRun);
+            if (! empty($result['locked'])) {
+                wp_safe_redirect(add_query_arg(['reseed_error' => 'locked'], $baseRedirect));
+                exit;
+            }
+            if (empty($result['ok'])) {
+                wp_safe_redirect(add_query_arg(['reseed_error' => 'path', 'reseed_message' => urlencode($result['message'] ?? '')], $baseRedirect));
+                exit;
+            }
+            wp_safe_redirect(add_query_arg([
+                'reseed_done' => 'path',
+                'path'        => $path,
+                'created'     => (int) ($result['created'] ?? 0),
+                'updated'     => (int) ($result['updated'] ?? 0),
+                'skipped'     => (int) ($result['skipped'] ?? 0),
+                'rejected'    => (int) ($result['rejected'] ?? 0),
+            ], $baseRedirect));
+            exit;
+        }
+
+        if ($action === 'ingest_path_brands') {
+            $result = $this->sync->ingestBrandsFromPath('brands', $dryRun);
+            wp_safe_redirect(add_query_arg([
+                'reseed_done' => 'brands',
+                'files'       => (int) ($result['files'] ?? 0),
+                'accepted'    => (int) ($result['accepted'] ?? 0),
+                'skipped'     => (int) ($result['skipped'] ?? 0),
+                'failed'      => (int) ($result['failed'] ?? 0),
+            ], $baseRedirect));
+            exit;
+        }
+
+        wp_safe_redirect($baseRedirect);
+        exit;
+    }
+
+    public function reseedPage(): void
+    {
+        $dataRoot = $this->config->dataRoot();
+        $seedPath = defined('WP_PLUGIN_DIR') ? WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json' : '';
+
+        echo '<div class="wrap helmetsan-wrap">';
+        $this->renderAppHeader('Data / Reseed', 'Run ingestion from the dashboard: helmet seed, path-based helmets, accessories, and brands.');
+
+        $reseedError = isset($_GET['reseed_error']) ? sanitize_key((string) $_GET['reseed_error']) : '';
+        $reseedDone = isset($_GET['reseed_done']) ? sanitize_key((string) $_GET['reseed_done']) : '';
+        if ($reseedError === 'locked') {
+            echo '<div class="notice notice-warning is-dismissible"><p>Ingestion is already running. Try again after it completes.</p></div>';
+        } elseif ($reseedError === 'nonce') {
+            echo '<div class="notice notice-error is-dismissible"><p>Security check failed. Please try again.</p></div>';
+        } elseif ($reseedError === 'seed' || $reseedError === 'path') {
+            $msg = isset($_GET['reseed_message']) ? sanitize_text_field((string) $_GET['reseed_message']) : 'Ingestion failed.';
+            echo '<div class="notice notice-error is-dismissible"><p>' . esc_html($msg) . '</p></div>';
+        }
+
+        if ($reseedDone === 'seed') {
+            $created = isset($_GET['created']) ? (int) $_GET['created'] : 0;
+            $updated = isset($_GET['updated']) ? (int) $_GET['updated'] : 0;
+            $skipped = isset($_GET['skipped']) ? (int) $_GET['skipped'] : 0;
+            $rejected = isset($_GET['rejected']) ? (int) $_GET['rejected'] : 0;
+            echo '<div class="notice notice-success is-dismissible"><p>Helmet seed ingested. Created: ' . esc_html((string) $created) . ', Updated: ' . esc_html((string) $updated) . ', Skipped: ' . esc_html((string) $skipped) . ', Rejected: ' . esc_html((string) $rejected) . '.</p></div>';
+        } elseif ($reseedDone === 'path') {
+            $path = isset($_GET['path']) ? sanitize_key((string) $_GET['path']) : '';
+            $created = isset($_GET['created']) ? (int) $_GET['created'] : 0;
+            $updated = isset($_GET['updated']) ? (int) $_GET['updated'] : 0;
+            $skipped = isset($_GET['skipped']) ? (int) $_GET['skipped'] : 0;
+            $rejected = isset($_GET['rejected']) ? (int) $_GET['rejected'] : 0;
+            echo '<div class="notice notice-success is-dismissible"><p>Path <code>' . esc_html($path) . '</code> ingested. Created: ' . esc_html((string) $created) . ', Updated: ' . esc_html((string) $updated) . ', Skipped: ' . esc_html((string) $skipped) . ', Rejected: ' . esc_html((string) $rejected) . '.</p></div>';
+        } elseif ($reseedDone === 'brands') {
+            $files = isset($_GET['files']) ? (int) $_GET['files'] : 0;
+            $accepted = isset($_GET['accepted']) ? (int) $_GET['accepted'] : 0;
+            $skipped = isset($_GET['skipped']) ? (int) $_GET['skipped'] : 0;
+            $failed = isset($_GET['failed']) ? (int) $_GET['failed'] : 0;
+            echo '<div class="notice notice-success is-dismissible"><p>Brands ingested. Files: ' . esc_html((string) $files) . ', Accepted: ' . esc_html((string) $accepted) . ', Skipped: ' . esc_html((string) $skipped) . ', Failed: ' . esc_html((string) $failed) . '.</p></div>';
+        }
+
+        echo '<div class="hs-panel" style="max-width: 640px;">';
+        echo '<p><strong>Data root:</strong> <code>' . esc_html($dataRoot) . '</code></p>';
+        if ($seedPath !== '') {
+            echo '<p><strong>Helmet seed file:</strong> <code>' . esc_html($seedPath) . '</code> ' . (is_file($seedPath) ? '✓' : '<span style="color: #b32d2e;">missing</span>') . '</p>';
+        }
+        echo '<p>Path-based ingestion reads JSON from <code>data root / path</code> (e.g. <code>helmets</code>, <code>accessories</code>, <code>brands</code>). Ensure files are present (e.g. via GitHub Sync or upload).</p>';
+        echo '</div>';
+
+        echo '<div class="hs-panel" style="max-width: 640px; margin-top: 1rem;">';
+        echo '<h2 class="hs-panel__title">Run ingestion</h2>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="margin-bottom: 1rem;">';
+        echo '<input type="hidden" name="action" value="helmetsan_reseed" />';
+        wp_nonce_field('helmetsan_reseed', 'helmetsan_reseed_nonce');
+        echo '<input type="hidden" name="helmetsan_reseed_action" value="ingest_seed" />';
+        echo '<p><label><input type="checkbox" name="helmetsan_reseed_dry_run" value="1" /> Dry run (validate only, no writes)</label></p>';
+        echo '<p><button type="submit" class="button button-primary">Ingest helmet seed</button></p>';
+        echo '<p class="description">Uses the plugin seed file (helmets + variants). Brands are created from helmet data when missing.</p>';
+        echo '</form>';
+
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="margin-bottom: 1rem;">';
+        echo '<input type="hidden" name="action" value="helmetsan_reseed" />';
+        wp_nonce_field('helmetsan_reseed', 'helmetsan_reseed_nonce');
+        echo '<input type="hidden" name="helmetsan_reseed_action" value="ingest_path_helmets" />';
+        echo '<p><label><input type="checkbox" name="helmetsan_reseed_dry_run" value="1" /> Dry run</label></p>';
+        echo '<p><button type="submit" class="button button-primary">Ingest path: helmets</button></p>';
+        echo '<p class="description">JSON files under <code>' . esc_html($dataRoot) . '/helmets</code>.</p>';
+        echo '</form>';
+
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="margin-bottom: 1rem;">';
+        echo '<input type="hidden" name="action" value="helmetsan_reseed" />';
+        wp_nonce_field('helmetsan_reseed', 'helmetsan_reseed_nonce');
+        echo '<input type="hidden" name="helmetsan_reseed_action" value="ingest_path_accessories" />';
+        echo '<p><label><input type="checkbox" name="helmetsan_reseed_dry_run" value="1" /> Dry run</label></p>';
+        echo '<p><button type="submit" class="button button-primary">Ingest path: accessories</button></p>';
+        echo '<p class="description">JSON files under <code>' . esc_html($dataRoot) . '/accessories</code>.</p>';
+        echo '</form>';
+
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+        echo '<input type="hidden" name="action" value="helmetsan_reseed" />';
+        wp_nonce_field('helmetsan_reseed', 'helmetsan_reseed_nonce');
+        echo '<input type="hidden" name="helmetsan_reseed_action" value="ingest_path_brands" />';
+        echo '<p><label><input type="checkbox" name="helmetsan_reseed_dry_run" value="1" /> Dry run</label></p>';
+        echo '<p><button type="submit" class="button button-primary">Ingest path: brands</button></p>';
+        echo '<p class="description">Brand JSON files under <code>' . esc_html($dataRoot) . '/brands</code>. Each file should have <code>entity: "brand"</code> and optional <code>profile</code>.</p>';
+        echo '</form>';
+
+        echo '</div>';
+        echo '</div>';
+    }
+
     public function repoHealthPage(): void
     {
         echo '<div class="wrap helmetsan-wrap">';
@@ -2681,6 +3056,102 @@ final class Admin
     }
 
     /**
+     * Renders the Default Images settings tab: site-wide default helmet, brand, accessory images
+     * with media picker and optional bundled SVG selection.
+     *
+     * @param array<string,mixed> $defaultImages Config array from defaultImagesConfig()
+     * @param string $optionName Config::OPTION_DEFAULT_IMAGES
+     */
+    private function renderDefaultImagesTab(array $defaultImages, string $optionName): void
+    {
+        if (! function_exists('helmetsan_core')) {
+            return;
+        }
+        $service = helmetsan_core()->defaultImages();
+
+        echo '<h2>Default placeholder images</h2>';
+        echo '<p class="description">When a helmet, brand, or accessory has no image, these defaults are used site-wide. You can upload a custom image or pick a bundled HiRes SVG logo. Leave empty to use the built-in default.</p>';
+
+        $types = [
+            'helmet'   => ['label' => 'Default helmet image', 'currentUrl' => $service->getDefaultImageUrl(\Helmetsan\Core\Support\DefaultImages::TYPE_HELMET)],
+            'brand'    => ['label' => 'Default brand image', 'currentUrl' => $service->getDefaultImageUrl(\Helmetsan\Core\Support\DefaultImages::TYPE_BRAND)],
+            'accessory' => ['label' => 'Default accessory image', 'currentUrl' => $service->getDefaultImageUrl(\Helmetsan\Core\Support\DefaultImages::TYPE_ACCESSORY)],
+        ];
+
+        foreach ($types as $type => $info) {
+            $attachmentId = (int) ($defaultImages[$type . '_attachment_id'] ?? 0);
+            $svgSlug = (string) ($defaultImages[$type . '_svg_slug'] ?? '');
+            $currentUrl = $info['currentUrl'];
+            $svgChoices = $service->getAvailableSvgLogos($type);
+            $nameAtt = esc_attr($optionName);
+            $idAtt = esc_attr('default_img_' . $type);
+
+            echo '<div class="hs-panel" style="margin-bottom:20px;">';
+            echo '<h3>' . esc_html($info['label']) . '</h3>';
+            echo '<table class="form-table"><tbody>';
+
+            echo '<tr><th>Current in use</th><td>';
+            if ($currentUrl !== '') {
+                $ext = strtolower(pathinfo(parse_url($currentUrl, PHP_URL_PATH) ?: '', PATHINFO_EXTENSION));
+                if ($ext === 'svg') {
+                    echo '<img src="' . esc_url($currentUrl) . '" alt="" style="max-width:120px;max-height:80px;object-fit:contain;" />';
+                } else {
+                    echo '<img src="' . esc_url($currentUrl) . '" alt="" style="max-width:120px;max-height:80px;object-fit:contain;" />';
+                }
+            } else {
+                echo '<span class="description">—</span>';
+            }
+            echo '</td></tr>';
+
+            echo '<tr><th>Custom image (Media Library)</th><td>';
+            echo '<input type="hidden" name="' . $nameAtt . '[' . esc_attr($type) . '_attachment_id]" id="' . $idAtt . '_aid" value="' . esc_attr((string) $attachmentId) . '" />';
+            echo '<button type="button" class="button helmetsan-default-image-picker" data-target="' . $idAtt . '_aid" data-preview="' . $idAtt . '_preview">Select image</button> ';
+            if ($attachmentId > 0) {
+                $thumb = wp_get_attachment_image_url($attachmentId, 'thumbnail');
+                if ($thumb) {
+                    echo '<span id="' . $idAtt . '_preview"><img src="' . esc_url($thumb) . '" style="max-height:40px;vertical-align:middle;" alt="" /></span>';
+                } else {
+                    echo '<span id="' . $idAtt . '_preview" class="description">ID ' . (int) $attachmentId . '</span>';
+                }
+            } else {
+                echo '<span id="' . $idAtt . '_preview" class="description">None</span>';
+            }
+            echo '</td></tr>';
+
+            echo '<tr><th>Or use bundled SVG logo</th><td>';
+            echo '<select name="' . $nameAtt . '[' . esc_attr($type) . '_svg_slug]">';
+            echo '<option value="">— None (use custom or built-in default) —</option>';
+            foreach ($svgChoices as $slug => $label) {
+                echo '<option value="' . esc_attr($slug) . '" ' . selected($svgSlug, $slug, false) . '>' . esc_html($label) . '</option>';
+            }
+            echo '</select>';
+            echo '</td></tr>';
+
+            echo '</tbody></table></div>';
+        }
+
+        echo '<script>
+        (function(){
+            document.querySelectorAll(".helmetsan-default-image-picker").forEach(function(btn){
+                btn.addEventListener("click", function(){
+                    var targetId = btn.getAttribute("data-target");
+                    var previewId = btn.getAttribute("data-preview");
+                    var frame = wp.media({ multiple: false, library: { type: "image" } });
+                    frame.on("select", function(){
+                        var att = frame.state().get("selection").first().toJSON();
+                        var input = document.getElementById(targetId);
+                        var preview = document.getElementById(previewId);
+                        if (input) input.value = att.id;
+                        if (preview) { preview.innerHTML = "<img src=\"" + (att.sizes && att.sizes.thumbnail ? att.sizes.thumbnail.url : att.url) + "\" style=\"max-height:40px;vertical-align:middle;\" alt=\"\" />"; }
+                    });
+                    frame.open();
+                });
+            });
+        })();
+        </script>';
+    }
+
+    /**
      * @param array<int,array{key:string,option:string,label:string,desc:string,type:string,choices?:array<string,string>,prefix?:string}> $fields
      * @param array<string,mixed> $values
      */
@@ -2746,9 +3217,12 @@ final class Admin
         $media       = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $this->config->mediaDefaults());
         $wooBridge   = wp_parse_args((array) get_option(Config::OPTION_WOO_BRIDGE, []), $this->config->wooBridgeDefaults());
         $features    = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $this->config->featuresDefaults());
+        $defaultImages = $this->config->defaultImagesConfig();
+        $adsense = $this->config->adsenseConfig();
 
         $tabs = [
             'analytics'   => 'Analytics',
+            'adsense'     => 'Google AdSense',
             'github'      => 'GitHub Sync',
             'marketplace' => 'Marketplace Connectors',
             'geo'         => 'Geo & Localization',
@@ -2756,6 +3230,7 @@ final class Admin
             'scheduler'   => 'Scheduler',
             'alerts'      => 'Alerts & Notifications',
             'media'       => 'Media Engine',
+            'defaults'    => 'Default Images',
             'woobridge'   => 'WooBridge',
             'features'    => 'Features & Toggles',
         ];
@@ -2766,8 +3241,9 @@ final class Admin
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Settings', 'Plugin configuration organized by module. Each section saves independently.');
-        echo '<form method="post" action="options.php">';
+        echo '<form method="post" action="' . esc_url(admin_url('options.php')) . '">';
         settings_fields('helmetsan_settings');
+        echo '<input type="hidden" name="action" value="update" />';
 
         // Tab navigation
         echo '<nav class="nav-tab-wrapper" style="margin-bottom:20px;">';
@@ -2788,6 +3264,22 @@ final class Admin
         $O_ME = Config::OPTION_MEDIA;
         $O_W = Config::OPTION_WOO_BRIDGE;
         $O_F = Config::OPTION_FEATURES;
+        $O_D = Config::OPTION_DEFAULT_IMAGES;
+        $O_ADS = Config::OPTION_ADSENSE;
+
+        // ── Google AdSense ────────────────────────────────────────
+        if ($activeTab === 'adsense') {
+            $this->renderSettingsSection('Google AdSense', 'Monetize with AdSense. Ensure ads.txt is published at your site root and your site is approved in the AdSense account.', [
+                ['key' => 'enable_adsense', 'option' => $O_ADS, 'label' => 'Enable AdSense', 'desc' => 'Load the AdSense script on the frontend (header).', 'type' => 'checkbox'],
+                ['key' => 'publisher_id', 'option' => $O_ADS, 'label' => 'Publisher ID', 'desc' => 'Your AdSense client ID, e.g. ca-pub-5006746847998381', 'type' => 'text'],
+                ['key' => 'enable_auto_ads', 'option' => $O_ADS, 'label' => 'Auto ads (dashboard)', 'desc' => 'Enable Auto ads in your AdSense account; this setting is for reference only.', 'type' => 'checkbox'],
+            ], $adsense);
+        }
+
+        // ── Default Images ────────────────────────────────────────
+        if ($activeTab === 'defaults') {
+            $this->renderDefaultImagesTab($defaultImages, $O_D);
+        }
 
         // ── Analytics ────────────────────────────────────────────
         if ($activeTab === 'analytics') {
@@ -2889,6 +3381,11 @@ final class Admin
             echo '<input type="text" class="regular-text" id="mk_jumia_countries" name="' . esc_attr($O_M) . '[jumia_countries]" value="' . esc_attr($jumCountries) . '" />';
             echo '<p class="description">Comma-separated 2-letter codes.</p></td></tr>';
             echo '</tbody></table>';
+
+            $this->renderSettingsSection('Flipkart', 'Indian marketplace. Add flipkart_in URLs in helmet data (marketplace_links) or use flipkart_url post meta; /go/ redirects append your affiliate ID.', [
+                ['key' => 'flipkart_enabled', 'option' => $O_M, 'label' => 'Enable Flipkart', 'desc' => 'Show Flipkart row for IN and append affiliate ID to links.', 'type' => 'checkbox', 'prefix' => 'mk_'],
+                ['key' => 'flipkart_affiliate_id', 'option' => $O_M, 'label' => 'Affiliate ID (affid)', 'desc' => 'Your Flipkart Affiliate Program affid parameter.', 'type' => 'text', 'prefix' => 'mk4_'],
+            ], $marketplace);
 
             echo '<h2>Affiliate Feeds</h2>';
             echo '<p class="description" style="margin:-8px 0 16px;">CSV/XML product feeds from affiliate retailers. Configure feed URLs and column mappings.</p>';

@@ -35,13 +35,22 @@
                     comparedItems = [];
                 } else if (parsed.length > 0 && typeof parsed[0] === 'number') {
                     // MIGRATION: Old format was [id, id, id]
-                    // Convert to new format [{id, title, img}, ...]
                     comparedItems = parsed.map(id => ({ id: id, title: 'Helmet', img: '' }));
-                    save(); // Persist the migrated format
+                    save();
                     console.log('Helmetsan Comparison: Migrated old data format.');
                 } else {
                     comparedItems = parsed;
                 }
+            }
+            // Sync from comparison page URL: when we land with ?ids=, bar should show correct count
+            if (window.helmetsanComparisonIds && Array.isArray(window.helmetsanComparisonIds) && window.helmetsanComparisonIds.length > 0) {
+                const titles = window.helmetsanComparisonTitles || {};
+                comparedItems = window.helmetsanComparisonIds.map(id => ({
+                    id: id,
+                    title: titles[id] || ('Helmet ' + id),
+                    img: ''
+                }));
+                save();
             }
         } catch (e) {
             console.error('Comparison storage error', e);
@@ -169,10 +178,14 @@
         if (floatBar) {
             if (comparedItems.length > 0) {
                 floatBar.classList.remove('is-hidden');
-                floatBar.style.display = 'flex'; 
-                
+                floatBar.style.display = 'flex';
+                const onComparisonPage = typeof window.location !== 'undefined' && window.location.pathname.indexOf('comparison') !== -1;
                 if (countSpan) countSpan.textContent = comparedItems.length;
-                
+                const prefixEl = document.getElementById('hs-comparison-prefix');
+                const labelEl = document.getElementById('hs-comparison-label');
+                if (prefixEl) prefixEl.textContent = onComparisonPage ? 'Comparing ' : '';
+                if (labelEl) labelEl.textContent = onComparisonPage ? ' helmets ' : ' Helmets Selected ';
+
                 // Update Thumbnails
                 if (listContainer) {
                     listContainer.innerHTML = '';
@@ -204,8 +217,9 @@
                 }
 
                 if (viewBtn) {
-                     viewBtn.href = `/comparison/?ids=${currentIds.join(',')}`;
-                     viewBtn.textContent = `Compare Now (${comparedItems.length})`;
+                    const onComparisonPage = typeof window.location !== 'undefined' && window.location.pathname.indexOf('comparison') !== -1;
+                    viewBtn.href = onComparisonPage ? '/helmets/' : `/comparison/?ids=${currentIds.join(',')}`;
+                    viewBtn.textContent = onComparisonPage ? 'Change selection →' : `Compare Now (${comparedItems.length})`;
                 }
             } else {
                 floatBar.classList.add('is-hidden');

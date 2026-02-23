@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="helmet-modern-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="helmet-modern-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.4)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 20c-18 0-34 10-42 26-2 4-3 9-3 14v28c0 4 2 8 5 10l40 22c3 2 7 2 10 0l40-22c3-2 5-6 5-10V60c0-5-1-10-3-14-8-16-24-26-42-26z" fill="url(#helmet-modern-grad)" stroke="#1e293b" stroke-width="2"/>
+  <path d="M22 60c0-20 18-36 42-36s42 16 42 36H22z" fill="url(#helmet-modern-shine)" opacity="0.6"/>
+  <ellipse cx="64" cy="52" rx="28" ry="14" fill="none" stroke="#334155" stroke-width="1.5"/>
+  <path d="M36 58l8 4 12-8 16 8 12-4" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

@@ -141,6 +141,13 @@ final class RevenueService
                     $network = 'amazon';
                 }
             }
+            // No stored Flipkart link: redirect to Flipkart search by helmet title (India)
+            if ($destination === '' && str_starts_with(strtolower($marketplaceId), 'flipkart-')) {
+                $destination = $this->buildFlipkartSearchUrl($helmetId);
+                if ($destination !== '') {
+                    $network = 'flipkart';
+                }
+            }
         }
 
         // When no marketplace or "static": try geo-driven default from stored links
@@ -218,11 +225,12 @@ final class RevenueService
         $networkCfg = $settings['affiliate_networks'][$network] ?? [];
 
         $affiliateUrl = match ($network) {
-            'amazon' => $this->buildAmazonUrl($url, $entry, $networkCfg, $helmetId, $marketplaceId),
-            'cj'     => $this->buildCjUrl($url, $entry, $networkCfg, $helmetId),
-            'allegro' => $this->buildAllegroUrl($url, $entry, $networkCfg),
-            'jumia'  => $this->buildJumiaUrl($url, $entry, $networkCfg),
-            default  => $url,
+            'amazon'   => $this->buildAmazonUrl($url, $entry, $networkCfg, $helmetId, $marketplaceId),
+            'cj'       => $this->buildCjUrl($url, $entry, $networkCfg, $helmetId),
+            'allegro'  => $this->buildAllegroUrl($url, $entry, $networkCfg),
+            'jumia'    => $this->buildJumiaUrl($url, $entry, $networkCfg),
+            'flipkart' => $this->buildFlipkartUrl($url, $entry, $networkCfg),
+            default    => $url,
         };
 
         return ['url' => esc_url_raw($affiliateUrl), 'network' => $network];
@@ -263,6 +271,8 @@ final class RevenueService
 
     private function buildAmazonUrl(string $url, array $entry, array $cfg, int $helmetId, string $marketplaceId = ''): string
     {
+        $url = $this->normalizeAmazonSearchQuery($url, $helmetId);
+
         $tag = $entry['tag'] ?? '';
 
         if ($tag === '') {
@@ -289,6 +299,41 @@ final class RevenueService
 
         $separator = str_contains($url, '?') ? '&' : '?';
         return $url . $separator . 'tag=' . rawurlencode($tag);
+    }
+
+    /**
+     * If the URL is an Amazon search URL and the query looks like the post slug (e.g. ls2-explorer-carbon-solid-lg),
+     * replace it with the post title (e.g. LS2 Explorer Carbon Solid LG) so Amazon search works properly.
+     */
+    private function normalizeAmazonSearchQuery(string $url, int $helmetId): string
+    {
+        if (! str_contains($url, '/s?') && ! str_contains($url, '/s/')) {
+            return $url;
+        }
+        $parsed = wp_parse_url($url);
+        if (! is_array($parsed) || ! isset($parsed['query'])) {
+            return $url;
+        }
+        parse_str($parsed['query'], $params);
+        $k = isset($params['k']) ? (string) $params['k'] : '';
+        if ($k === '') {
+            return $url;
+        }
+        $slug = (string) get_post_field('post_name', $helmetId);
+        $kNorm = strtolower(str_replace(['-', ' '], '', $k));
+        $slugNorm = strtolower(str_replace(['-', ' '], '', $slug));
+        if ($slug === '' || $kNorm !== $slugNorm) {
+            return $url;
+        }
+        $title = (string) get_post_field('post_title', $helmetId);
+        if ($title === '') {
+            return $url;
+        }
+        $params['k'] = $title;
+        $newQuery = http_build_query($params);
+        $path = $parsed['path'] ?? '/s';
+        $host = ($parsed['scheme'] ?? 'https') . '://' . ($parsed['host'] ?? 'www.amazon.com');
+        return $host . $path . '?' . $newQuery;
     }
 
     private function getAmazonTagOverride(int $helmetId): string
@@ -344,6 +389,72 @@ final class RevenueService
         }
         $separator = str_contains($url, '?') ? '&' : '?';
         return $url . $separator . 'aff_id=' . rawurlencode($affId);
+    }
+
+    private function buildFlipkartUrl(string $url, array $entry, array $cfg): string
+    {
+        $affId = $entry['aff_id'] ?? $cfg['aff_id'] ?? '';
+        if ($affId === '') {
+            $affId = $this->config->marketplaceConfig()['flipkart_affiliate_id'] ?? '';
+        }
+        if ($affId === '') {
+            return $url;
+        }
+        $separator = str_contains($url, '?') ? '&' : '?';
+        return $url . $separator . 'affid=' . rawurlencode($affId);
+    }
+
+    /**
+     * Flipkart search URL when no product link is stored (India). Uses helmet title as search query.
+     * If the title looks like a slug (e.g. shoei-x-15-marquez-7-md), converts to readable phrase for better search.
+     */
+    private function buildFlipkartSearchUrl(int $helmetId): string
+    {
+        $title = (string) get_post_field('post_title', $helmetId);
+        if ($title === '') {
+            return '';
+        }
+        $slug = (string) get_post_field('post_name', $helmetId);
+        $query = $this->searchQueryFromTitleOrSlug($title, $slug);
+        $settings = $this->config->revenueConfig();
+        $affId = $settings['affiliate_networks']['flipkart']['aff_id'] ?? '';
+        if ($affId === '') {
+            $affId = $this->config->marketplaceConfig()['flipkart_affiliate_id'] ?? '';
+        }
+        $url = 'https://www.flipkart.com/search?q=' . rawurlencode($query);
+        if ($affId !== '') {
+            $url .= '&affid=' . rawurlencode($affId);
+        }
+        return $url;
+    }
+
+    /**
+     * Prefer human-readable title for search; if title looks like a slug, convert to readable phrase.
+     */
+    private function searchQueryFromTitleOrSlug(string $title, string $slug): string
+    {
+        $trimmed = trim($title);
+        if ($trimmed === '') {
+            $trimmed = $slug;
+        }
+        if ($trimmed === '') {
+            return '';
+        }
+        $norm = strtolower(str_replace(['-', ' '], '', $trimmed));
+        $slugNorm = strtolower(str_replace(['-', ' '], '', $slug));
+        if ($slug !== '' && $norm === $slugNorm) {
+            return ucwords(str_replace('-', ' ', $slug));
+        }
+        return $trimmed;
+    }
+
+    /**
+     * Whether Flipkart is enabled in Marketplace settings (so theme can show Flipkart row for IN visitors).
+     */
+    public function hasFlipkartEnabled(): bool
+    {
+        $cfg = $this->config->marketplaceConfig();
+        return ! empty($cfg['flipkart_enabled']);
     }
 
     /**

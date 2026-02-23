@@ -5,13 +5,43 @@
  * @package HelmetsanTheme
  */
 
-get_header();
-echo '<script>window.helmetsanListContext={list_id:"helmet_archive",list_name:"Helmet catalog"};</script>' . "\n";
-
 $archiveUrl = (string) get_post_type_archive_link('helmet');
 if ($archiveUrl === '') {
     $archiveUrl = (string) home_url('/helmets/');
 }
+// Redirect to clean URL when all filter params are empty.
+$cleanUrl = $archiveUrl;
+$allEmpty = true;
+foreach (['brand_slug', 'helmet_family', 'price_min', 'price_max', 'sort'] as $key) {
+    if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+        $allEmpty = false;
+        break;
+    }
+}
+if ($allEmpty) {
+    foreach (['helmet_type', 'certification', 'feature', 'size'] as $key) {
+        if (isset($_GET[$key])) {
+            $v = $_GET[$key];
+            if (is_array($v) && array_filter(array_map('trim', $v)) !== []) {
+                $allEmpty = false;
+                break;
+            }
+            if (! is_array($v) && trim((string) $v) !== '') {
+                $allEmpty = false;
+                break;
+            }
+        }
+    }
+}
+// Only redirect when we would actually change the URL (strip empty query params). Avoid redirecting
+// when already on the clean URL to prevent redirect loops (ERR_TOO_MANY_REDIRECTS).
+if ($allEmpty && (! isset($_GET['paged']) || (int) $_GET['paged'] <= 1) && ! empty($_GET)) {
+    wp_safe_redirect($cleanUrl, 302);
+    exit;
+}
+
+get_header();
+echo '<script>window.helmetsanListContext={list_id:"helmet_archive",list_name:"Helmet catalog"};</script>' . "\n";
 
 $getString = static function (string $key): string {
     if (! isset($_GET[$key])) {
@@ -220,6 +250,35 @@ foreach ($_GET as $k => $v) {
     }
 }
 
+// Canonical redirect: strip empty query params so pagination and layout stay consistent (no ?brand_slug=&price_min=...).
+$hasEmptyParam = false;
+foreach ($_GET as $k => $v) {
+    if ($k === 'paged') {
+        continue;
+    }
+    if (is_array($v)) {
+        if (array_filter(array_map('trim', array_map('strval', $v))) === []) {
+            $hasEmptyParam = true;
+            break;
+        }
+    } elseif (trim((string) $v) === '') {
+        $hasEmptyParam = true;
+        break;
+    }
+}
+if ($hasEmptyParam) {
+    $canonicalArgs = $currentQuery;
+    if ($paged > 1) {
+        $canonicalArgs['paged'] = $paged;
+    }
+    if (isset($canonicalArgs['sort']) && $canonicalArgs['sort'] === 'newest') {
+        unset($canonicalArgs['sort']);
+    }
+    $canonicalUrl = (string) add_query_arg($canonicalArgs, $archiveUrl);
+    wp_safe_redirect($canonicalUrl, 302);
+    exit;
+}
+
 $removeFilterUrl = static function (string $key, string $value = '') use ($archiveUrl, $currentQuery): string {
     $queryArgs = $currentQuery;
     if (! isset($queryArgs[$key])) {
@@ -272,10 +331,10 @@ if ($priceMax !== '') {
 $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 ?>
 <section class="hs-section hs-section--archive">
-    <div class="hs-section__head">
-        <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
-        <p>Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation.</p>
-    </div>
+    <header class="hs-archive-hero">
+        <h1 class="hs-archive-hero__title"><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
+        <p class="hs-archive-hero__subtitle">Size-first, safety-aware catalog with faceted filters by type, brand, certification, and more.</p>
+    </header>
 
     <div class="hs-catalog">
         <aside id="hsFilterPanel" class="hs-catalog__filters hs-panel" aria-label="Helmet filters">

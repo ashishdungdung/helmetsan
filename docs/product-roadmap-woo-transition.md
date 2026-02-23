@@ -47,7 +47,7 @@ When commerce is enabled:
 - Link Woo product IDs in `helmet` meta (`wc_product_id`, `wc_variation_map_json`).
 
 ## Product Page UX Pattern
-Adopt RevZilla-style depth with data-native sections:
+Adopt full, data-native depth with data-native sections:
 1. Product details (style, MFR product number, sizing & fit summary)
 2. Variants table (color/size/part no/price/availability)
 3. Sizing & fit table (cm + inch translation)

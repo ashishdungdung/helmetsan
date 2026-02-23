@@ -19,7 +19,11 @@ use Helmetsan\Core\Media\MediaEngine;
 use Helmetsan\Core\Revenue\RevenueService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
+use Helmetsan\Core\AI\AiService;
+use Helmetsan\Core\AI\FillMissingService;
+use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
 use Helmetsan\Core\Seo\SchemaService;
+use Helmetsan\Core\Seo\YoastSeoSeeder;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
@@ -52,7 +56,8 @@ final class Commands
         private readonly MediaEngine $media,
         private readonly WooBridgeService $wooBridge,
         private readonly PriceService $price,
-        private readonly PriceHistory $priceHistory
+        private readonly PriceHistory $priceHistory,
+        private readonly ?AiService $aiService = null
     ) {
     }
 
@@ -74,6 +79,8 @@ final class Commands
         \WP_CLI::add_command('helmetsan sync-logs-cleanup', [$this, 'cleanupSyncLogs']);
         \WP_CLI::add_command('helmetsan ingest-logs-cleanup', [$this, 'cleanupIngestionLogs']);
         \WP_CLI::add_command('helmetsan seo schema-check', [$this, 'schemaCheck']);
+        \WP_CLI::add_command('helmetsan seo seed', [$this, 'seoSeed']);
+        \WP_CLI::add_command('helmetsan ai fill-missing', [$this, 'aiFillMissing']);
         \WP_CLI::add_command('helmetsan revenue report', [$this, 'revenueReport']);
         \WP_CLI::add_command('helmetsan analytics report', [$this, 'analyticsReport']);
         \WP_CLI::add_command('helmetsan scheduler status', [$this, 'schedulerStatus']);
@@ -84,6 +91,9 @@ final class Commands
         \WP_CLI::add_command('helmetsan woo-bridge sync', [$this, 'wooBridgeSync']);
 
         \WP_CLI::add_command('helmetsan ingest-seed', [$this, 'ingestSeed']);
+        \WP_CLI::add_command('helmetsan ingest-brands', [$this, 'ingestBrands']);
+        \WP_CLI::add_command('helmetsan seed-accessory-categories', [$this, 'seedAccessoryCategories']);
+        \WP_CLI::add_command('helmetsan backfill-accessory-categories', [$this, 'backfillAccessoryCategories']);
         \WP_CLI::add_command('helmetsan revenue import-links', [$this, 'revenueImportLinks']);
         \WP_CLI::add_command('helmetsan price seed-history', [$this, 'priceSeedHistory']);
     }
@@ -145,7 +155,7 @@ final class Commands
      * : Absolute or plugin-relative path to the seed JSON file.
      *   Default: seed-data/helmets_seed.json
      * [--batch-size=<n>]
-     * : Batch size. Default 50.
+     * : Batch size. Default 25 (smaller batches reduce lock timeouts).
      * [--dry-run]
      * : Validate only, do not write.
      *
@@ -157,78 +167,33 @@ final class Commands
     public function ingestSeed(array $args, array $assoc): void
     {
         $file = (string) ($assoc['file'] ?? '');
-        $batchSize = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 50;
-        $dryRun = isset($assoc['dry-run']);
-
-        // Resolve file path
-        if ($file === '') {
-            $file = WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json';
-        } elseif (!file_exists($file)) {
-            // Try relative to plugin dir
+        if ($file !== '' && ! file_exists($file) && defined('WP_PLUGIN_DIR')) {
             $try = WP_PLUGIN_DIR . '/helmetsan-core/' . ltrim($file, '/');
             if (file_exists($try)) {
                 $file = $try;
             }
         }
 
-        if (!file_exists($file)) {
-            \WP_CLI::error("Seed file not found: {$file}");
-            return;
-        }
+        $batchSize = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 25;
+        $dryRun    = isset($assoc['dry-run']);
 
-        $json = file_get_contents($file);
-        if ($json === false) {
-            \WP_CLI::error("Cannot read file: {$file}");
-            return;
-        }
-
-        $items = json_decode($json, true);
-        if (!is_array($items) || $items === []) {
-            \WP_CLI::error('Seed file is empty or not a valid JSON array.');
-            return;
-        }
-
-        // If it's an object (single helmet), wrap it
-        if (isset($items['id'])) {
-            $items = [$items];
-        }
-
-        $count = count($items);
-        \WP_CLI::log("Seed file: {$file}");
-        \WP_CLI::log("Helmets to process: {$count}");
+        \WP_CLI::log('Seed file: ' . ($file === '' ? '(default)' : $file));
         if ($dryRun) {
             \WP_CLI::log('Mode: DRY RUN (no writes)');
         }
-
-        // Split into temporary per-file JSONs
-        $tmpDir = sys_get_temp_dir() . '/helmetsan_seed_' . time() . '/';
-        if (!is_dir($tmpDir)) {
-            mkdir($tmpDir, 0755, true);
-        }
-
-        $files = [];
-        $progress = \WP_CLI\Utils\make_progress_bar('Preparing files', $count);
-        foreach ($items as $i => $item) {
-            $id = $item['id'] ?? 'item_' . $i;
-            $path = $tmpDir . $id . '.json';
-            file_put_contents($path, wp_json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-            $files[] = $path;
-            $progress->tick();
-        }
-        $progress->finish();
-
-        // Force unlock stale locks
-        $this->ingestion->forceUnlock();
-
-        // Run ingestion
         \WP_CLI::log('Starting ingestion...');
-        $result = $this->ingestion->ingestFiles($files, $batchSize, null, $dryRun, 'seed:' . basename($file));
 
-        // Cleanup temp files
-        array_map('unlink', glob($tmpDir . '*.json'));
-        @rmdir($tmpDir);
+        $result = $this->ingestion->ingestSeedFile($file, $batchSize, $dryRun);
 
-        // Output results
+        if (! empty($result['locked'])) {
+            \WP_CLI::warning($result['message'] ?? 'Ingestion is already running.');
+            return;
+        }
+        if (empty($result['ok'])) {
+            \WP_CLI::error($result['message'] ?? 'Ingestion failed.');
+            return;
+        }
+
         $created  = (int) ($result['created'] ?? 0);
         $updated  = (int) ($result['updated'] ?? 0);
         $accepted = (int) ($result['accepted'] ?? 0);
@@ -236,7 +201,7 @@ final class Commands
         $skipped  = (int) ($result['skipped'] ?? 0);
 
         \WP_CLI::log('');
-        \WP_CLI::log("Results:");
+        \WP_CLI::log('Results:');
         \WP_CLI::log("  Created:  {$created}");
         \WP_CLI::log("  Updated:  {$updated}");
         \WP_CLI::log("  Skipped:  {$skipped}");
@@ -247,6 +212,161 @@ final class Commands
         } else {
             \WP_CLI::success("Ingested {$accepted} helmets from seed ({$created} new, {$updated} updated, {$skipped} unchanged).");
         }
+    }
+
+    /**
+     * Ingest brand JSON files from data root / brands.
+     *
+     * ## OPTIONS
+     * [--path=<path>]
+     * : Relative path under data root. Default: brands
+     * [--dry-run]
+     * : Validate only, do not write.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ingest-brands
+     *     wp helmetsan ingest-brands --path=brands --dry-run
+     */
+    public function ingestBrands(array $args, array $assoc): void
+    {
+        $path   = (string) ($assoc['path'] ?? 'brands');
+        $dryRun = isset($assoc['dry-run']);
+        $result = $this->sync->ingestBrandsFromPath($path, $dryRun);
+        \WP_CLI::line(wp_json_encode($result, JSON_PRETTY_PRINT));
+        if (($result['failed'] ?? 0) > 0) {
+            \WP_CLI::warning('Some files failed. Check payload (entity: "brand", profile).');
+        } else {
+            \WP_CLI::success('Brands ingestion finished. Accepted: ' . (string) ($result['accepted'] ?? 0) . ', Skipped: ' . (string) ($result['skipped'] ?? 0) . '.');
+        }
+    }
+
+    /**
+     * Seed accessory_category taxonomy terms so URLs like /accessory-category/bluetooth-headsets/ work.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan seed-accessory-categories
+     */
+    public function seedAccessoryCategories(array $args, array $assoc): void
+    {
+        $categories = [
+            'Visors & Shields' => 'Premium optical-grade shields, anti-fog inserts, and adaptive tinting solutions.',
+            'Communications' => 'Integrated and universal Bluetooth systems, mesh intercoms, and high-fidelity audio.',
+            'Bluetooth Headsets' => 'Bluetooth helmet communication systems, headsets, and intercoms.',
+            'Mesh Intercoms' => 'Mesh network intercom systems for rider-to-rider and group communication.',
+            'Helmet Cameras' => 'Action cameras, dashcams, and mounts for helmet recording.',
+            'Audio Kits' => 'Helmet speakers, microphones, and audio upgrade kits.',
+            'GPS Navigation' => 'GPS units and mounts for motorcycle navigation.',
+            'Smart Helmet Add-ons' => 'Connectivity and smart features for helmets.',
+            'Maintenance & Care' => 'Specialized cleaners, anti-microbial treatments, and protective wax for shell longevity.',
+            'Electronics' => 'Integrated lighting, backup batteries, and smart dashcam integrations.',
+            'Inner Liners' => 'Replacement comfort liners, cheek pads, and moisture-wicking headliners.',
+            'Face Shields' => 'Full-face and modular helmet face shields and visors.',
+            'Pinlock Inserts' => 'Anti-fog Pinlock lens inserts for visors.',
+            'Tear-Offs' => 'Visor tear-off strips for dirt and racing.',
+            'Goggles' => 'MX and open-face goggles.',
+            'Replacement Lenses' => 'Replacement lenses for visors and goggles.',
+            'Anti-Fog Solutions' => 'Anti-fog treatments and inserts.',
+            'Sun Visors' => 'Internal sun visors and tinted options.',
+            'Cheek Pads' => 'Replacement cheek pads for fit and comfort.',
+            'Liners' => 'Comfort liners and headliners.',
+            'Helmet Cleaners' => 'Cleaning products for helmet shells and interiors.',
+            'Visor Cleaners' => 'Cleaning solutions for visors and lenses.',
+            'Helmet Bags' => 'Carry bags and storage for helmets.',
+            'Balaclavas' => 'Helmet liners and balaclavas.',
+            'Breath Guards' => 'Breath deflectors and guards.',
+            'Breath Boxes' => 'Breath box replacements for modular helmets.',
+            'Peak Visors' => 'Peak and peak visor replacements.',
+            'Replacement Vents' => 'Vent parts and replacements.',
+            'Pivot Kits' => 'Visor pivot and mechanism kits.',
+            'Chin Curtains' => 'Chin curtain replacements.',
+            'Reflective Stickers' => 'Reflective decals and safety stickers.',
+        ];
+
+        $created = 0;
+        foreach ($categories as $name => $desc) {
+            if (! term_exists($name, 'accessory_category')) {
+                $result = wp_insert_term($name, 'accessory_category', ['description' => $desc]);
+                if (! is_wp_error($result)) {
+                    $created++;
+                    \WP_CLI::log("Created: {$name}");
+                }
+            }
+        }
+
+        $pageAcc = get_page_by_path('accessories');
+        if ($pageAcc instanceof \WP_Post) {
+            update_post_meta($pageAcc->ID, '_wp_page_template', 'page-accessories.php');
+            \WP_CLI::log('Accessories page template set to page-accessories.php.');
+        }
+
+        if ($created > 0) {
+            \WP_CLI::success("Created {$created} accessory category terms. Flushing rewrite rules.");
+            flush_rewrite_rules(false);
+        } else {
+            \WP_CLI::success('All accessory categories already exist.');
+        }
+    }
+
+    /**
+     * Backfill accessory_category for all published accessories from their accessory_type meta.
+     * Fixes category counts showing 0 when accessories were ingested before type→category mapping.
+     *
+     * ## OPTIONS
+     * [--force]
+     * : Re-apply category from type even when the accessory already has category terms.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan backfill-accessory-categories
+     *     wp helmetsan backfill-accessory-categories --force
+     */
+    public function backfillAccessoryCategories(array $args, array $assoc): void
+    {
+        if (! function_exists('helmetsan_core')) {
+            \WP_CLI::error('Plugin not loaded.');
+        }
+        $accessories = helmetsan_core()->accessories();
+        $force = isset($assoc['force']);
+
+        $posts = get_posts([
+            'post_type'      => 'accessory',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        ]);
+        $updated = 0;
+        $skipped = 0;
+        $noMap   = 0;
+
+        foreach ($posts as $postId) {
+            if (! $force) {
+                $terms = wp_get_object_terms($postId, 'accessory_category');
+                if (! is_wp_error($terms) && is_array($terms) && $terms !== []) {
+                    $skipped++;
+                    continue;
+                }
+            } else {
+                wp_set_object_terms($postId, [], 'accessory_category', false);
+            }
+            $type = (string) get_post_meta($postId, 'accessory_type', true);
+            if ($type === '') {
+                $noMap++;
+                continue;
+            }
+            $ok = $accessories->assignCategoryFromType($postId);
+            if ($ok) {
+                $updated++;
+                \WP_CLI::log("Assigned category for post {$postId} ({$type})");
+            } else {
+                $noMap++;
+            }
+        }
+
+        \WP_CLI::success(sprintf(
+            'Backfill complete: %d updated, %d skipped (already had category), %d had no mapping.',
+            $updated,
+            $skipped,
+            $noMap
+        ));
     }
 
     /**
@@ -676,6 +796,201 @@ final class Commands
         }
 
         \WP_CLI::line(wp_json_encode($report, JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Seed Yoast SEO title, meta description and focus keyword for helmets, brands, accessories.
+     *
+     * ## OPTIONS
+     * [--post-type=<type>]
+     * : helmet|brand|accessory|all. Default: all
+     * [--batch-size=<n>]
+     * : Number of posts per batch. Default: 300
+     * [--limit=<n>]
+     * : Max posts to process per type (0 = no limit). Default: 0
+     * [--dry-run]
+     * : Do not save; only report counts
+     * [--use-ai]
+     * : Use Groq + Gemini (load-balanced) for meta descriptions. Set HELMETSAN_GROQ_API_KEY and HELMETSAN_GEMINI_API_KEY in wp-config.php. Free tier only.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan seo seed --post-type=helmet
+     *     wp helmetsan seo seed --post-type=all --batch-size=500
+     *     wp helmetsan seo seed --dry-run
+     *     wp helmetsan seo seed --use-ai --post-type=helmet --limit=100
+     */
+    public function seoSeed(array $args, array $assoc): void
+    {
+        $postType = (string) ($assoc['post-type'] ?? 'all');
+        $batchSize = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 300;
+        $limit = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : 0;
+        $dryRun = isset($assoc['dry-run']);
+        $useAi = isset($assoc['use-ai']);
+
+        $allowed = ['helmet', 'brand', 'accessory', 'all'];
+        if (! in_array($postType, $allowed, true)) {
+            \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, or all.');
+            return;
+        }
+
+        $aiProvider = null;
+        if ($useAi) {
+            $aiProvider = new AiSeoDescriptionProvider($this->aiService);
+            if (! $aiProvider->hasAnyKey()) {
+                \WP_CLI::error('--use-ai requires API keys. Set HELMETSAN_GROQ_API_KEY and/or HELMETSAN_GEMINI_API_KEY in wp-config.php (or env).');
+                return;
+            }
+            \WP_CLI::log('Using AI (Groq + Gemini, load-balanced) for meta descriptions. Free tier only.');
+        }
+
+        $seeder = new YoastSeoSeeder($aiProvider);
+        $types = $postType === 'all' ? ['helmet', 'brand', 'accessory'] : [$postType];
+        $totalUpdated = 0;
+        $startTime = microtime(true);
+
+        foreach ($types as $type) {
+            $offset = 0;
+            $remaining = $limit > 0 ? $limit : null;
+            $typeTotal = 0;
+
+            while (true) {
+                $batchLimit = $remaining !== null ? min($batchSize, $remaining) : $batchSize;
+                if ($batchLimit < 1) {
+                    break;
+                }
+
+                $result = $type === 'helmet'
+                    ? $seeder->seedHelmets($batchLimit, $offset, $dryRun)
+                    : ($type === 'brand'
+                        ? $seeder->seedBrands($batchLimit, $offset, $dryRun)
+                        : $seeder->seedAccessories($batchLimit, $offset, $dryRun));
+
+                $updated = (int) ($result['updated'] ?? 0);
+                $typeTotal += $updated;
+                $totalUpdated += $updated;
+
+                if ($updated > 0) {
+                    \WP_CLI::log(sprintf('[%s] %s %d (offset %d, total %d)', $type, $dryRun ? 'Would update' : 'Updated', $updated, $offset, $typeTotal));
+                }
+
+                if ($updated < $batchLimit) {
+                    break;
+                }
+                $offset += $updated;
+                if ($remaining !== null) {
+                    $remaining -= $updated;
+                    if ($remaining <= 0) {
+                        break;
+                    }
+                }
+            }
+
+            if ($typeTotal > 0) {
+                $label = $type === 'accessory' ? 'Accessories' : (ucfirst($type) . 's');
+                \WP_CLI::log(sprintf('%s: %d done.', $label, $typeTotal));
+            }
+        }
+
+        $elapsed = round(microtime(true) - $startTime, 1);
+        \WP_CLI::success(sprintf('SEO seed complete. Total %s: %d in %s s', $dryRun ? 'would update' : 'updated', $totalUpdated, $elapsed));
+    }
+
+    /**
+     * Phase 2: Fill missing entity fields using AI (context-aware).
+     *
+     * ## OPTIONS
+     * [--post-type=<type>]
+     * : helmet|brand|accessory|all. Default: all
+     * [--limit=<n>]
+     * : Max posts to process per type (0 = no limit). Default: 50
+     * [--offset=<n>]
+     * : Offset for pagination. Default: 0
+     * [--dry-run]
+     * : Do not save; only report counts
+     * [--fields=<keys>]
+     * : Comma-separated meta keys to fill (e.g. head_shape,technical_analysis). If omitted, all fillable fields are used.
+     * [--only-incomplete]
+     * : Only process posts that have at least one empty fillable field.
+     * [--verbose]
+     * : Log each filled field and each failure (post ID, meta key, value or reason).
+     * [--strict]
+     * : On empty or invalid AI output, leave field empty and do not retry (saves API calls).
+     * [--no-cache]
+     * : Disable 24h cache for identical context (more API calls).
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai fill-missing --post-type=helmet --limit=10
+     *     wp helmetsan ai fill-missing --post-type=helmet --fields=head_shape,spec_shell_material
+     *     wp helmetsan ai fill-missing --dry-run --verbose
+     *     wp helmetsan ai fill-missing --only-incomplete --strict
+     */
+    public function aiFillMissing(array $args, array $assoc): void
+    {
+        if ($this->aiService === null || ! $this->aiService->hasAnyConfiguredProvider()) {
+            \WP_CLI::error('AI module has no configured providers. Configure at least one under Helmetsan → AI.');
+            return;
+        }
+        $postType = (string) ($assoc['post-type'] ?? 'all');
+        $limit = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : 50;
+        $offset = isset($assoc['offset']) ? max(0, (int) $assoc['offset']) : 0;
+        $dryRun = isset($assoc['dry-run']);
+        $onlyIncomplete = isset($assoc['only-incomplete']);
+        $verbose = isset($assoc['verbose']);
+        $strictMode = isset($assoc['strict']);
+        $noCache = isset($assoc['no-cache']);
+        $cacheTtl = $noCache ? 0 : 86400;
+        $fieldsOpt = isset($assoc['fields']) ? trim((string) $assoc['fields']) : '';
+        $onlyFields = $fieldsOpt !== '' ? array_map('trim', array_filter(explode(',', $fieldsOpt))) : null;
+        $allowed = ['helmet', 'brand', 'accessory', 'all'];
+        if (! in_array($postType, $allowed, true)) {
+            \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, or all.');
+            return;
+        }
+        $types = $postType === 'all' ? ['helmet', 'brand', 'accessory'] : [$postType];
+        if ($onlyFields !== null) {
+            foreach ($types as $type) {
+                $fillableKeys = FillMissingService::getFillableKeys($type);
+                $unknown = array_diff($onlyFields, $fillableKeys);
+                if ($unknown !== []) {
+                    \WP_CLI::error(sprintf('Invalid --fields for %s: %s. Allowed: %s', $type, implode(', ', $unknown), implode(', ', $fillableKeys)));
+                    return;
+                }
+            }
+        }
+        $fillService = new FillMissingService($this->aiService);
+        $totalFilled = 0;
+        $totalSkipped = 0;
+        $totalErrors = 0;
+        $totalApiCalls = 0;
+        $startTime = microtime(true);
+        foreach ($types as $type) {
+            $onProgress = static function (int $processed, int $total, int $postId) use ($type): void {
+                if ($total > 5 && $processed % max(1, (int) ($total / 10)) === 0) {
+                    \WP_CLI::log(sprintf('[%s] Progress: %d / %d posts (post ID %d)', $type, $processed, $total, $postId));
+                }
+            };
+            $onVerbose = $verbose ? static function (string $verbType, int $postId, string $metaKey, ?string $detail) use ($type): void {
+                if ($verbType === 'filled') {
+                    \WP_CLI::log(sprintf('[%s] Filled post %d %s = %s', $type, $postId, $metaKey, $detail !== null ? substr($detail, 0, 60) . (strlen($detail) > 60 ? '…' : '') : ''));
+                } elseif ($verbType === 'error') {
+                    \WP_CLI::log(sprintf('[%s] Error post %d %s: %s', $type, $postId, $metaKey, $detail ?? ''));
+                }
+            } : null;
+            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $onProgress, $onVerbose, $cacheTtl);
+            $filled = (int) ($result['filled'] ?? 0);
+            $skipped = (int) ($result['skipped'] ?? 0);
+            $errors = (int) ($result['errors'] ?? 0);
+            $apiCalls = (int) ($result['api_calls'] ?? 0);
+            $totalFilled += $filled;
+            $totalSkipped += $skipped;
+            $totalErrors += $errors;
+            $totalApiCalls += $apiCalls;
+            if ($result['total_posts'] > 0 || $filled > 0 || $skipped > 0 || $errors > 0) {
+                \WP_CLI::log(sprintf('[%s] posts=%d filled=%d skipped=%d errors=%d api_calls=%d', $type, (int) ($result['total_posts'] ?? 0), $filled, $skipped, $errors, $apiCalls));
+            }
+        }
+        $elapsed = round(microtime(true) - $startTime, 1);
+        \WP_CLI::success(sprintf('Fill missing complete. Filled: %d, skipped: %d, errors: %d, API calls: %d in %s s', $totalFilled, $totalSkipped, $totalErrors, $totalApiCalls, $elapsed));
     }
 
     /**

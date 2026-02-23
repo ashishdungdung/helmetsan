@@ -44,11 +44,35 @@
     const wrap = document.getElementById('hs-price-chart-wrap');
 
     if (!data || !data.series || data.series.length === 0) {
-      if (wrap) wrap.style.display = 'none';
+      if (wrap) {
+        wrap.style.display = '';
+        var emptyEl = document.getElementById('hs-price-chart-empty');
+        if (emptyEl) {
+          emptyEl.style.display = '';
+        } else {
+          var p = document.createElement('p');
+          p.id = 'hs-price-chart-empty';
+          p.className = 'hs-muted';
+          p.textContent = 'No price history recorded yet.';
+          if (canvas && canvas.parentNode) {
+            canvas.parentNode.insertBefore(p, canvas);
+          }
+        }
+        if (canvas) canvas.style.display = 'none';
+        var toggles = document.getElementById('hs-date-toggles');
+        if (toggles) toggles.style.display = 'none';
+      }
       return;
     }
 
-    if (wrap) wrap.style.display = '';
+    if (wrap) {
+      wrap.style.display = '';
+      var emptyEl = document.getElementById('hs-price-chart-empty');
+      if (emptyEl) emptyEl.style.display = 'none';
+      if (canvas) canvas.style.display = '';
+      var toggles = document.getElementById('hs-date-toggles');
+      if (toggles) toggles.style.display = '';
+    }
 
     const datasets = data.series.map(function (s, i) {
       return {

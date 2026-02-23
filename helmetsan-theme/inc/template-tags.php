@@ -146,6 +146,34 @@ function helmetsan_get_certifications(int $helmetId): string
     return implode(', ', $names);
 }
 
+/**
+ * Key features as HTML for comparison table (list or fallback text).
+ *
+ * @return string Safe HTML (ul/li or span)
+ */
+function helmetsan_get_helmet_key_features_html(int $helmetId): string
+{
+    $json = (string) get_post_meta($helmetId, 'features_json', true);
+    $features = is_string($json) && $json !== '' ? json_decode($json, true) : null;
+    if (is_array($features) && $features !== []) {
+        $out = '<ul class="hs-comp-feature-list">';
+        foreach (array_slice($features, 0, 12) as $item) {
+            $out .= '<li>' . esc_html((string) $item) . '</li>';
+        }
+        if (count($features) > 12) {
+            $out .= '<li class="hs-comp-feature-more">+' . (count($features) - 12) . ' more</li>';
+        }
+        $out .= '</ul>';
+        return $out;
+    }
+    $terms = get_the_terms($helmetId, 'feature_tag');
+    if (is_array($terms) && $terms !== []) {
+        $names = wp_list_pluck($terms, 'name');
+        return '<span class="hs-comp-feature-tags">' . esc_html(implode(', ', $names)) . '</span>';
+    }
+    return '<span class="hs-comp-feature-empty">—</span>';
+}
+
 function helmetsan_get_logo_url(int $postId): string
 {
     $attachmentId = (int) get_post_meta($postId, '_helmetsan_logo_attachment_id', true);
@@ -195,7 +223,20 @@ function helmetsan_get_logo_url(int $postId): string
     if ($postType === 'helmet') {
         $brandId = helmetsan_get_brand_id($postId);
         if ($brandId > 0) {
-            return (string) get_post_meta($brandId, '_helmetsan_logo_url', true);
+            $brandLogo = (string) get_post_meta($brandId, '_helmetsan_logo_url', true);
+            if ($brandLogo !== '') {
+                return $brandLogo;
+            }
+        }
+    }
+
+    // Site-wide default placeholder when nothing is set (Settings → Default Images).
+    if (function_exists('helmetsan_core')) {
+        $svc = helmetsan_core()->defaultImages();
+        $type = $postType === 'brand' ? 'brand' : ($postType === 'accessory' ? 'accessory' : 'helmet');
+        $default = $svc->getDefaultImageUrl($type);
+        if ($default !== '') {
+            return $default;
         }
     }
 
@@ -482,6 +523,25 @@ function helmetsan_mega_menu_item_url(string $label, string $heading, string $ty
     return (string) home_url('/feature/' . $slug . '/');
 }
 
+/**
+ * Return the "View All" archive URL for a mega menu type (no double-s or wrong path).
+ *
+ * @param string $type One of: helmet, helmets, brands, accessories, motorcycles
+ * @return string Full URL for the archive
+ */
+function helmetsan_mega_menu_footer_url(string $type): string
+{
+    $slug = [
+        'helmet'      => 'helmets',
+        'helmets'     => 'helmets',
+        'brands'      => 'brands',
+        'accessories' => 'accessories',
+        'motorcycles' => 'motorcycles',
+    ];
+    $path = $slug[$type] ?? $type;
+    return (string) home_url('/' . $path . '/');
+}
+
 function helmetsan_render_mega_menu(string $type = 'helmet'): void
 {
     // 1. Try to render from WP Nav Menu (The "Control" Way)
@@ -517,7 +577,7 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
             $jsonData = helmetsan_get_mega_menu_data($type);
             $title = $jsonData['title'] ?? ucfirst($type) . ' Menu';
             $footerLabel = $jsonData['footer'] ?? 'View All ' . ucfirst($type);
-            $footerUrl = home_url('/' . ($type === 'brand' ? 'brands' : $type . 's') . '/');
+            $footerUrl = helmetsan_mega_menu_footer_url($type);
             
             ?>
             <div class="hs-mega-menu">
@@ -609,19 +669,8 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
         return;
     }
 
-    // Determine footer link based on type
-    $footerUrl = '#'; 
-    if ($type === 'helmet') {
-        $footerUrl = '/brands/';
-    } elseif ($type === 'brands') {
-        $footerUrl = '/brands/';
-    } elseif ($type === 'accessories') {
-        $footerUrl = '/accessories/';
-    } elseif ($type === 'motorcycles') {
-        $footerUrl = '/motorcycles/';
-    }
-    
-    // ... (Compact output for JSON fallback to save space in file) ...
+    $footerUrl  = helmetsan_mega_menu_footer_url($type);
+    $footerLabel = $menu['footer'] ?? 'View All ' . ucfirst($type);
     ?>
     <section class="hs-mega-menu" aria-label="<?php echo esc_attr(ucfirst($type)); ?> mega menu">
         <div class="hs-mega-menu__inner">
@@ -644,7 +693,9 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
                     </article>
                 <?php endforeach; ?>
             </div>
-             <!-- ... Highlights omitted for brevity in fallback, user wants Nav Menu control ... -->
+            <div class="hs-mega-menu__footer">
+                <a href="<?php echo esc_url($footerUrl); ?>"><?php echo esc_html($footerLabel); ?> &rarr;</a>
+            </div>
         </div>
     </section>
     <?php

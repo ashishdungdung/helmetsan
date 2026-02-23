@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="helmet-sport-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="50%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#eab308"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 16c-22 0-42 14-50 34-2 5-3 11-3 16v32c0 5 3 9 7 11l46 24c4 2 8 2 12 0l46-24c4-2 7-6 7-11V66c0-5-1-11-3-16-8-20-28-34-50-34z" fill="url(#helmet-sport-grad)" stroke="#1e293b" stroke-width="2"/>
+  <path d="M64 28c16 0 30 8 38 20H26c8-12 22-20 38-20z" fill="#1e293b"/>
+  <path d="M44 52h40v6H44z" fill="#0f172a"/>
+  <circle cx="64" cy="72" r="6" fill="#fbbf24"/>
+  <path d="M58 78v12h12V78" fill="none" stroke="#1e293b" stroke-width="2"/>
+</svg>

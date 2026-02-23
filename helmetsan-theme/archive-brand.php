@@ -5,6 +5,24 @@
  * @package HelmetsanTheme
  */
 
+$brandArchiveUrl = get_post_type_archive_link('brand');
+if (! is_string($brandArchiveUrl) || $brandArchiveUrl === '') {
+    $brandArchiveUrl = home_url('/brands/');
+}
+// Redirect to clean URL when all query params are empty.
+$allEmpty = true;
+foreach (['s', 'country', 'helmet_type', 'cert'] as $key) {
+    if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
+        $allEmpty = false;
+        break;
+    }
+}
+// Only redirect when stripping empty query params; avoid loop when already on clean URL.
+if ($allEmpty && (! isset($_GET['paged']) || (int) $_GET['paged'] <= 1) && ! empty($_GET)) {
+    wp_safe_redirect($brandArchiveUrl, 302);
+    exit;
+}
+
 get_header();
 
 $search = isset($_GET['s']) ? sanitize_text_field((string) $_GET['s']) : '';
@@ -46,44 +64,57 @@ ksort($certs, SORT_NATURAL | SORT_FLAG_CASE);
 $themeDir = get_stylesheet_directory_uri();
 ?>
 
-<section class="hs-section">
-    <header class="hs-section__head">
-        <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
-        <p>Explore helmet brands with profile metadata and model coverage.</p>
+<section class="hs-section hs-section--archive">
+    <header class="hs-archive-hero">
+        <h1 class="hs-archive-hero__title"><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
+        <p class="hs-archive-hero__subtitle">Explore helmet brands with profile metadata, origin, and model coverage.</p>
     </header>
 
-    <form class="hs-filter-bar" method="get" action="<?php echo esc_url(get_post_type_archive_link('brand')); ?>">
-        <input type="search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search brands" />
-        <select name="country">
-            <option value="">All Countries</option>
-            <?php foreach ($countries as $value) : ?>
-                <option value="<?php echo esc_attr($value); ?>" <?php selected($country, $value); ?>><?php echo esc_html($value); ?></option>
-            <?php endforeach; ?>
-        </select>
-        <select name="helmet_type">
-            <option value="">All Helmet Types</option>
-            <?php
-            if (is_array($helmetTypes)) :
-                foreach ($helmetTypes as $term) :
-                    if (! ($term instanceof WP_Term)) {
-                        continue;
-                    }
+    <div class="hs-catalog hs-catalog--brands">
+        <aside class="hs-catalog__filters hs-panel" aria-label="Brand filters">
+            <div class="hs-catalog__filters-head">
+                <strong>Filters</strong>
+            </div>
+            <form class="hs-filter-bar hs-filter-bar--stacked" method="get" action="<?php echo esc_url(get_post_type_archive_link('brand')); ?>">
+                <label class="hs-filter-bar__label">Search</label>
+                <input type="search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search brands" />
+                <label class="hs-filter-bar__label">Country</label>
+                <select name="country">
+                    <option value="">All Countries</option>
+                    <?php foreach ($countries as $value) : ?>
+                        <option value="<?php echo esc_attr($value); ?>" <?php selected($country, $value); ?>><?php echo esc_html($value); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <label class="hs-filter-bar__label">Helmet type</label>
+                <select name="helmet_type">
+                    <option value="">All Helmet Types</option>
+                    <?php
+                    if (is_array($helmetTypes)) :
+                        foreach ($helmetTypes as $term) :
+                            if (! ($term instanceof WP_Term)) {
+                                continue;
+                            }
+                            ?>
+                            <option value="<?php echo esc_attr($term->slug); ?>" <?php selected($helmetType, $term->slug); ?>><?php echo esc_html($term->name); ?></option>
+                        <?php
+                        endforeach;
+                    endif;
                     ?>
-                    <option value="<?php echo esc_attr($term->slug); ?>" <?php selected($helmetType, $term->slug); ?>><?php echo esc_html($term->name); ?></option>
-                <?php
-                endforeach;
-            endif;
-            ?>
-        </select>
-        <select name="cert">
-            <option value="">All Certification Marks</option>
-            <?php foreach ($certs as $value) : ?>
-                <option value="<?php echo esc_attr($value); ?>" <?php selected($cert, $value); ?>><?php echo esc_html($value); ?></option>
-            <?php endforeach; ?>
-        </select>
-        <button class="hs-btn hs-btn--primary" type="submit">Apply</button>
-    </form>
-
+                </select>
+                <label class="hs-filter-bar__label">Certification</label>
+                <select name="cert">
+                    <option value="">All Certification Marks</option>
+                    <?php foreach ($certs as $value) : ?>
+                        <option value="<?php echo esc_attr($value); ?>" <?php selected($cert, $value); ?>><?php echo esc_html($value); ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <div class="hs-filter-actions">
+                    <a class="hs-btn hs-btn--text" href="<?php echo esc_url($brandArchiveUrl); ?>">Clear all</a>
+                    <button class="hs-btn hs-btn--primary" type="submit">Apply</button>
+                </div>
+            </form>
+        </aside>
+        <div class="hs-catalog__results">
     <?php
     $args = [
         'post_type' => 'brand',
@@ -115,8 +146,11 @@ $themeDir = get_stylesheet_directory_uri();
     }
     $query = new WP_Query($args);
     if ($query->have_posts()) : ?>
-        <section class="hs-catalog__results">
-            <div class="helmet-grid">
+            <div class="hs-catalog__topbar hs-panel">
+                <div class="hs-catalog__count"><?php echo esc_html(number_format_i18n((int) $query->found_posts)); ?> Brands</div>
+            </div>
+            <section class="hs-catalog__results-content">
+            <div class="helmet-grid hs-brand-grid">
                 <?php
                 while ($query->have_posts()) : $query->the_post();
                     $brandId = get_the_ID();
@@ -137,7 +171,6 @@ $themeDir = get_stylesheet_directory_uri();
                     </article>
                 <?php endwhile; ?>
             </div>
-
             <div class="hs-pagination-wrap">
                 <?php
                 $addArgs = [];
@@ -159,11 +192,13 @@ $themeDir = get_stylesheet_directory_uri();
                 ]);
                 ?>
             </div>
-        </section>
-        <?php wp_reset_postdata(); ?>
+            </section>
+            <?php wp_reset_postdata(); ?>
     <?php else : ?>
-        <p>No brands found.</p>
+            <p class="hs-catalog__empty">No brands match the filters. <a href="<?php echo esc_url($brandArchiveUrl); ?>">Clear filters</a>.</p>
     <?php endif; ?>
+        </div>
+    </div>
 </section>
 
 <?php

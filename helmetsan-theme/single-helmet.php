@@ -452,6 +452,10 @@ if (have_posts()) {
                     }
                 }
             }
+            // For India: show Flipkart row when enabled even if no stored link (redirect will use search URL)
+            if ($visitorSuffix === 'in' && $revenueService && $revenueService->hasFlipkartEnabled() && !isset($geoRelevantLinks['flipkart-in'])) {
+                $geoRelevantLinks['flipkart-in'] = ['url' => '', 'network' => 'flipkart'];
+            }
             $hasWhereToBuy = $hasWhereToBuy || !empty($geoRelevantLinks);
             ?>
             <?php if ($hasWhereToBuy) : ?>
@@ -543,6 +547,8 @@ if (have_posts()) {
                                         <td class="hs-price-table__merchant">
                                             <?php if (str_contains($mpLower, 'amazon')) : ?>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>
+                                            <?php elseif (str_contains($mpLower, 'flipkart')) : ?>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#047BD5" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                                             <?php else : ?>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                                             <?php endif; ?>
@@ -560,9 +566,10 @@ if (have_posts()) {
                         </div>
                     <?php endif; ?>
 
-                    <!-- Price History Chart -->
+                    <!-- Price History Chart (section always visible; chart or "No history" message) -->
                     <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
                         <h3>Price History</h3>
+                        <p id="hs-price-chart-empty" class="hs-muted" style="display:none;">No price history recorded yet.</p>
                         <div class="hs-price-date-toggles" id="hs-date-toggles">
                             <button class="hs-btn hs-btn--sm is-active" data-days="30">30 Days</button>
                             <button class="hs-btn hs-btn--sm" data-days="90">90 Days</button>

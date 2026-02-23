@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="brand-shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 12L24 28v36c0 28 18 44 40 52 22-8 40-24 40-52V28L64 12z" fill="url(#brand-shield-grad)" stroke="#1e3a5f" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M64 12L24 28v36c0 28 18 44 40 52 22-8 40-24 40-52V28L64 12z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="4 2" stroke-linejoin="round"/>
+  <path d="M64 36v44c16-6 28-18 32-32 0-12-8-20-32-12zM64 36c-24-8-32 0-32 12 4 14 16 26 32 32V36z" fill="#0c4a6e" opacity="0.4"/>
+</svg>

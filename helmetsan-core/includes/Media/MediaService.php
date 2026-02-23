@@ -77,9 +77,9 @@ final class MediaService
         }
 
         if (isset($_POST['helmet_videos_json'])) {
-            // Validate JSON
             $json = wp_unslash($_POST['helmet_videos_json']);
-            if (empty($json) || json_decode($json) !== null) {
+            $json = is_string($json) ? $json : '';
+            if ($json === '' || json_decode($json) !== null) {
                 update_post_meta($postId, 'helmet_videos_json', $json);
             }
         }
@@ -112,15 +112,21 @@ final class MediaService
 
         // 2. Gallery Images (geo_media_json)
         $geoMediaJson = get_post_meta($helmetId, 'geo_media_json', true);
-        if ($geoMediaJson) {
+        if (is_string($geoMediaJson) && $geoMediaJson !== '') {
             $media = json_decode($geoMediaJson, true);
             if (is_array($media)) {
                 foreach ($media as $imageUrl) {
-                    if (!is_string($imageUrl) || $imageUrl === '') continue;
+                    if (! is_string($imageUrl) || $imageUrl === '') {
+                        continue;
+                    }
+                    $imageUrl = esc_url_raw($imageUrl);
+                    if ($imageUrl === '') {
+                        continue;
+                    }
                     $gallery[] = [
                         'type' => 'image',
                         'url' => $imageUrl,
-                        'thumb' => $imageUrl, // External placeholder, use as thumb
+                        'thumb' => $imageUrl,
                         'alt' => get_the_title($helmetId),
                     ];
                 }
@@ -129,30 +135,46 @@ final class MediaService
 
         // 3. Videos
         $videoJson = get_post_meta($helmetId, 'helmet_videos_json', true);
-        if ($videoJson) {
+        if (is_string($videoJson) && $videoJson !== '') {
             $videos = json_decode($videoJson, true);
             if (is_array($videos)) {
                 foreach ($videos as $videoUrl) {
+                    if (! is_string($videoUrl) || trim($videoUrl) === '') {
+                        continue;
+                    }
+                    $videoUrl = esc_url_raw(trim($videoUrl));
+                    if ($videoUrl === '') {
+                        continue;
+                    }
                     $gallery[] = [
                         'type' => 'video',
                         'url' => $videoUrl,
                         'embed' => $this->getEmbedCode($videoUrl),
-                        'thumb' => $this->getVideoThumbnail($videoUrl), // Placeholder
+                        'thumb' => $this->getVideoThumbnail($videoUrl),
                     ];
                 }
             }
         }
 
-        return $gallery;
+        return apply_filters('helmetsan_product_gallery', $gallery, $helmetId);
     }
 
     public function getEmbedCode(string $url): string
     {
-        // Simple YouTube Parser
+        $url = trim($url);
+        if ($url === '') {
+            return '';
+        }
         if (strpos($url, 'youtube.com') !== false || strpos($url, 'youtu.be') !== false) {
             $videoId = $this->getYoutubeId($url);
             if ($videoId) {
-                return '<iframe width="100%" height="315" src="https://www.youtube.com/embed/' . esc_attr($videoId) . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                return '<iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/' . esc_attr($videoId) . '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+            }
+        }
+        if (strpos($url, 'vimeo.com') !== false) {
+            $videoId = $this->getVimeoId($url);
+            if ($videoId) {
+                return '<iframe width="100%" height="315" src="https://player.vimeo.com/video/' . esc_attr($videoId) . '" title="Vimeo video player" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
             }
         }
         return '';
@@ -167,12 +189,32 @@ final class MediaService
         return null;
     }
 
+    private function getVimeoId(string $url): ?string
+    {
+        if (preg_match('#vimeo\.com/(?:video/)?(\d+)#i', $url, $match)) {
+            return $match[1];
+        }
+        return null;
+    }
+
     private function getVideoThumbnail(string $url): string
     {
-        $videoId = $this->getYoutubeId($url);
-        if ($videoId) {
-            return "https://img.youtube.com/vi/{$videoId}/0.jpg";
+        $youtubeId = $this->getYoutubeId($url);
+        if ($youtubeId) {
+            return 'https://img.youtube.com/vi/' . $youtubeId . '/mqdefault.jpg';
         }
-        return ''; // Default placeholder?
+        $vimeoId = $this->getVimeoId($url);
+        if ($vimeoId) {
+            $resp = wp_remote_get('https://vimeo.com/api/v2/video/' . $vimeoId . '.json', ['timeout' => 4]);
+            if (! is_wp_error($resp) && wp_remote_retrieve_response_code($resp) === 200) {
+                $body = wp_remote_retrieve_body($resp);
+                $data = is_string($body) ? json_decode($body, true) : null;
+                $thumb = is_array($data) && isset($data[0]['thumbnail_large']) ? $data[0]['thumbnail_large'] : (isset($data[0]['thumbnail_medium']) ? $data[0]['thumbnail_medium'] : '');
+                if (is_string($thumb) && $thumb !== '') {
+                    return $thumb;
+                }
+            }
+        }
+        return '';
     }
 }

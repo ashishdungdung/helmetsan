@@ -501,6 +501,18 @@ final class SyncService
         return $result;
     }
 
+    /**
+     * Ingest brand JSON files from a path under the data root (e.g. "brands").
+     * Used by dashboard Reseed and by CLI to apply brands from data/brands.
+     *
+     * @return array{enabled: bool, files: int, processed: int, accepted: int, skipped: int, rejected: int, failed: int, message?: string}
+     */
+    public function ingestBrandsFromPath(string $relativePath = 'brands', bool $dryRun = false): array
+    {
+        $files = $this->repository->listJsonFiles($relativePath);
+        return $this->applyBrandFiles($files, $dryRun);
+    }
+
     private function isBrandFile(string $relativePath): bool
     {
         $path = str_replace('\\', '/', strtolower($relativePath));

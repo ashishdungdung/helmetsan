@@ -89,11 +89,7 @@ function helmetsan_migrate_json_to_menu($type, $jsonFile, $menuName, $location) 
                     // /brand/slug/
                     $url = home_url('/brand/' . sanitize_title($label) . '/');
                 } elseif ($type === 'accessory') {
-                    // /accessory-category/slug/ or /accessories/?section=...
-                    // For now, map to search or best guess. 
-                    // Most accessory items in current JSON are simple labels.
-                    // Let's assume a search or broad category if not specific.
-                    $url = home_url('/?s=' . urlencode($label) . '&post_type=product');
+                    $url = home_url('/accessory-category/' . sanitize_title($label) . '/');
                 } elseif ($type === 'motorcycle') {
                     // /motorcycles/?type=...
                     $url = home_url('/motorcycles/?type=' . urlencode($label));

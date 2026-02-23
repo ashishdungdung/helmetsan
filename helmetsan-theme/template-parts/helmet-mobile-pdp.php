@@ -146,6 +146,7 @@ if ($asin !== '') {
             <!-- Price History Chart (Mobile) -->
             <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
                 <h3>Price History</h3>
+                <p id="hs-price-chart-empty" class="hs-muted" style="display:none;">No price history recorded yet.</p>
                 <div class="hs-price-date-toggles" id="hs-date-toggles">
                     <button class="hs-btn hs-btn--sm is-active" data-days="30">30d</button>
                     <button class="hs-btn hs-btn--sm" data-days="90">90d</button>

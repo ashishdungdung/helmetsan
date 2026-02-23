@@ -288,6 +288,32 @@ final class PriceService
             );
         }
 
+        // India: add Flipkart row when enabled (redirect will use search URL if no stored link)
+        if ($ccSuffix === 'in') {
+            $mkt = get_option('helmetsan_marketplace', []);
+            if (!empty($mkt['flipkart_enabled']) && !$this->offersContainMarketplace($offers, 'flipkart-in')) {
+                $offers[] = new PriceResult(
+                    marketplaceId: 'flipkart-in',
+                    helmetRef: $helmetRef,
+                    countryCode: $countryCode,
+                    currency: 'INR',
+                    price: 0,
+                    availability: 'in_stock',
+                    capturedAt: gmdate('c'),
+                );
+            }
+        }
+
         return $offers;
+    }
+
+    private function offersContainMarketplace(array $offers, string $marketplaceId): bool
+    {
+        foreach ($offers as $o) {
+            if ($o->marketplaceId === $marketplaceId) {
+                return true;
+            }
+        }
+        return false;
     }
 }

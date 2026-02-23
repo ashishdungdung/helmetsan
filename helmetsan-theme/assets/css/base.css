@@ -371,6 +371,15 @@ body.hs-layout-wide .site-content .site-main {
     margin-right: auto;
 }
 
+.hs-section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
 .hs-section__head h1,
 .hs-section__head h2 {
     margin: 0;
@@ -379,6 +388,17 @@ body.hs-layout-wide .site-content .site-main {
 
 .hs-section__head p {
     color: var(--hs-muted);
+}
+
+.hs-section__view-all {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--hs-accent);
+    text-decoration: none;
+}
+
+.hs-section__view-all:hover {
+    text-decoration: underline;
 }
 
 .hs-eyebrow {

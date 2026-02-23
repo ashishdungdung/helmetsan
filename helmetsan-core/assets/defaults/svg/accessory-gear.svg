@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="accessory-gear-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 20l-8 12h-16l-4 14 14 8v16l-14 8 4 14h16l8 12 8-12h16l4-14-14-8v-16l14-8-4-14H72L64 20z" fill="url(#accessory-gear-grad)" stroke="#4c1d95" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="64" cy="64" r="18" fill="#1e1b4b" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="64" cy="64" r="8" fill="#a78bfa"/>
+</svg>

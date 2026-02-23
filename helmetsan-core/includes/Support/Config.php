@@ -17,6 +17,47 @@ final class Config
     public const OPTION_MARKETPLACE = 'helmetsan_marketplace';
     public const OPTION_GEO       = 'helmetsan_geo';
     public const OPTION_FEATURES  = 'helmetsan_features';
+    public const OPTION_DEFAULT_IMAGES = 'helmetsan_default_images';
+    public const OPTION_ADSENSE = 'helmetsan_adsense';
+    public const OPTION_AI = 'helmetsan_ai';
+
+    public function aiDefaults(): array
+    {
+        return [
+            'providers' => [
+                'groq' => ['enabled' => false, 'api_key' => '', 'model' => 'llama-3.1-8b-instant', 'tier' => 'free'],
+                'gemini' => ['enabled' => false, 'api_key' => '', 'model' => 'gemini-1.5-flash', 'tier' => 'free'],
+                'mistral' => ['enabled' => false, 'api_key' => '', 'model' => 'mistral-small-latest', 'tier' => 'free'],
+                'openrouter' => ['enabled' => false, 'api_key' => '', 'model' => 'google/gemini-flash-1.5', 'tier' => 'free'],
+                'huggingface' => ['enabled' => false, 'api_key' => '', 'model' => 'mistralai/Mistral-7B-Instruct-v0.2', 'tier' => 'free'],
+                'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
+                'perplexity' => ['enabled' => false, 'api_key' => '', 'model' => 'sonar', 'tier' => 'premium'],
+            ],
+            'default_free' => 'groq',
+            'default_premium' => 'openai',
+            'phase1_seo_enabled' => true,
+            'phase2_fill_enabled' => false,
+            'phase3_integrity_enabled' => false,
+        ];
+    }
+
+    public function adsenseDefaults(): array
+    {
+        return [
+            'enable_adsense'   => false,
+            'publisher_id'    => 'ca-pub-5006746847998381',
+            'enable_auto_ads' => false,
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function adsenseConfig(): array
+    {
+        $saved = get_option(self::OPTION_ADSENSE, []);
+        return wp_parse_args(is_array($saved) ? $saved : [], $this->adsenseDefaults());
+    }
 
     public function analyticsDefaults(): array
     {
@@ -92,12 +133,14 @@ final class Config
                 'cj'      => ['enabled' => false, 'website_id' => '', 'advertiser_id' => ''],
                 'allegro' => ['enabled' => false, 'aff_id' => ''],
                 'jumia'   => ['enabled' => false, 'aff_id' => ''],
+                'flipkart'=> ['enabled' => false, 'aff_id' => ''],
             ],
             'network_cpc' => [
                 'amazon'  => 0.06,
                 'cj'      => 0.04,
                 'allegro' => 0.03,
                 'jumia'   => 0.02,
+                'flipkart'=> 0.04,
             ],
         ];
     }
@@ -281,6 +324,27 @@ final class Config
         return $cfg;
     }
 
+    public function defaultImagesDefaults(): array
+    {
+        return [
+            'helmet_attachment_id'   => 0,
+            'helmet_svg_slug'        => '',
+            'brand_attachment_id'    => 0,
+            'brand_svg_slug'         => '',
+            'accessory_attachment_id' => 0,
+            'accessory_svg_slug'     => '',
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function defaultImagesConfig(): array
+    {
+        $saved = get_option(self::OPTION_DEFAULT_IMAGES, []);
+        return wp_parse_args(is_array($saved) ? $saved : [], $this->defaultImagesDefaults());
+    }
+
     public function marketplaceDefaults(): array
     {
         return [
@@ -304,6 +368,10 @@ final class Config
             'jumia_api_key'          => '',
             'jumia_affiliate_id'     => '',
             'jumia_countries'        => ['NG', 'KE', 'EG'],
+
+            // Flipkart (India)
+            'flipkart_enabled'       => false,
+            'flipkart_affiliate_id'  => '',
 
             // Affiliate feeds keyed by feed ID
             'affiliate_feeds'        => [
@@ -367,6 +435,9 @@ final class Config
         }
         if (defined('HELMETSAN_JUMIA_API_KEY') && HELMETSAN_JUMIA_API_KEY !== '') {
             $cfg['jumia_api_key'] = (string) HELMETSAN_JUMIA_API_KEY;
+        }
+        if (defined('HELMETSAN_FLIPKART_AFFILIATE_ID') && HELMETSAN_FLIPKART_AFFILIATE_ID !== '') {
+            $cfg['flipkart_affiliate_id'] = (string) HELMETSAN_FLIPKART_AFFILIATE_ID;
         }
 
         return $cfg;

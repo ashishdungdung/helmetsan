@@ -53,6 +53,21 @@ The pipeline is automated via `scripts/reseed.sh`.
 ./scripts/reseed.sh --skip-deploy # Just generate and ingest locally/remotely
 ```
 
+### AI module (Phase 1: SEO; Phases 2–4 planned)
+
+Configure providers (Groq, Gemini, Mistral, OpenRouter, Hugging Face, OpenAI, Perplexity) under **Helmetsan → AI**. Use free/low-cost first; premium providers have dedicated controls. See `docs/ai-module.md`.
+
+### SEO seed (Yoast title, meta description, focus keyword)
+
+Seed SEO fields for helmets, brands, and accessories. Optional AI-generated descriptions (Groq + Gemini, free tier). See `docs/seo-seed-plan.md` for details.
+
+**On server** (from WordPress root `/var/www/helmetsan.com/public`):
+```bash
+wp helmetsan seo seed                    # Template-only, all types
+wp helmetsan seo seed --use-ai          # With AI descriptions (set API keys in wp-config or env)
+wp helmetsan seo seed --use-ai --limit=5 # Test run
+```
+
 ### Resetting Data
 
 To completely wipe the database (required for schema changes):
@@ -87,16 +102,28 @@ bash scripts/deploy.sh
 
 # 4. Ingest on server
 ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest-seed --allow-root"
+
+# Optional: also ingest curated per-helmet JSONs from data/helmets (richer data, marketplace links)
+ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest --path=data/helmets --allow-root"
 ```
 
 ### WP-CLI Commands
 
-| Command                              | Description                                   |
-| ------------------------------------ | --------------------------------------------- |
-| `wp helmetsan ingest-seed`           | Ingest a seed JSON array file (main workflow) |
-| `wp helmetsan ingest --path=<dir>`   | Ingest per-file JSONs from data root          |
-| `wp helmetsan ingest-seed --dry-run` | Validate without writing to DB                |
-| `wp helmetsan unlock-ingestion`      | Force-remove stale ingestion lock             |
+| Command                              | Description                                                   |
+| ------------------------------------ | ------------------------------------------------------------- |
+| `wp helmetsan ingest-seed`           | Ingest a seed JSON array file (main workflow)                 |
+| `wp helmetsan ingest --path=<dir>`   | Ingest per-file JSONs from data root (helmets, accessories)   |
+| `wp helmetsan ingest-brands`        | Ingest brand JSONs from data root / brands                    |
+| `wp helmetsan ingest-seed --dry-run` | Validate without writing to DB                                |
+| `wp helmetsan unlock-ingestion`      | Force-remove stale ingestion lock                             |
+| `wp helmetsan seed-accessory-categories` | Create accessory_category terms (fixes /accessory-category/bluetooth-headsets/ etc.) |
+
+**Dashboard:** Use **Helmetsan > Data / Reseed** to run helmet seed, path-based helmets, accessories, and brands from the admin UI (with optional dry run).
+
+### Consistency and safety
+
+- **Ingestion is upsert-only:** Items are matched by `_helmet_unique_id` (or brand/accessory equivalent). Re-running seed or path ingest only **creates** new items and **updates** existing ones; it **never deletes** posts. Your existing 1400+ helmets and 70+ brands stay intact; new or changed seed data is merged in.
+- **Yoast SEO:** During bulk ingestion, Yoast indexable creation is temporarily suppressed to avoid MySQL lock timeouts. After a full reseed, run Yoast’s indexation from **SEO > Tools** if you want fresh indexables for imported content.
 
 ## GitHub Sync Notes
 

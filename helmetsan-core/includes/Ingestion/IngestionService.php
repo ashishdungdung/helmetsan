@@ -55,6 +55,61 @@ final class IngestionService
         return $this->ingestFiles($files, $batchSize, $limit, $dryRun, $path);
     }
 
+    /**
+     * Ingest a single seed JSON file (array of helmet/accessory items).
+     * Resolves default seed path when $seedFilePath is empty.
+     *
+     * @return array{ok: bool, created?: int, updated?: int, skipped?: int, rejected?: int, accepted?: int, locked?: bool, message?: string}
+     */
+    public function ingestSeedFile(string $seedFilePath = '', int $batchSize = 25, bool $dryRun = false): array
+    {
+        if ($seedFilePath === '') {
+            $seedFilePath = defined('WP_PLUGIN_DIR') ? WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json' : '';
+        }
+        if ($seedFilePath === '' || ! is_file($seedFilePath)) {
+            return [
+                'ok'      => false,
+                'message' => 'Seed file not found: ' . $seedFilePath,
+            ];
+        }
+
+        $json = file_get_contents($seedFilePath);
+        if ($json === false) {
+            return ['ok' => false, 'message' => 'Cannot read seed file.'];
+        }
+
+        $items = json_decode($json, true);
+        if (! is_array($items) || $items === []) {
+            return ['ok' => false, 'message' => 'Seed file is empty or not a valid JSON array.'];
+        }
+
+        if (isset($items['id']) && ! isset($items[0])) {
+            $items = [$items];
+        }
+
+        $tmpDir = sys_get_temp_dir() . '/helmetsan_seed_' . time() . '_' . wp_rand(1000, 9999) . '/';
+        if (! is_dir($tmpDir)) {
+            mkdir($tmpDir, 0755, true);
+        }
+
+        $files = [];
+        foreach ($items as $i => $item) {
+            $id   = isset($item['id']) ? (string) $item['id'] : 'item_' . $i;
+            $path = $tmpDir . sanitize_file_name($id) . '.json';
+            file_put_contents($path, wp_json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+            $files[] = $path;
+        }
+
+        $this->forceUnlock();
+        $sourceLabel = 'seed:' . basename($seedFilePath);
+        $result      = $this->ingestFiles($files, $batchSize, null, $dryRun, $sourceLabel);
+
+        array_map('unlink', array_filter(glob($tmpDir . '*.json') ?: []));
+        @rmdir($tmpDir);
+
+        return $result;
+    }
+
     public function forceUnlock(): void
     {
         $this->releaseLock();
@@ -77,6 +132,8 @@ final class IngestionService
                 'message' => 'Ingestion is already running. Try again after current job completes.',
             ];
         }
+
+        $this->suppressYoastIndexablesDuringBulkIngest(true);
 
         try {
             if ($limit !== null && $limit > 0) {
@@ -224,7 +281,24 @@ final class IngestionService
                 'source_path'  => $sourcePath,
             ];
         } finally {
+            $this->suppressYoastIndexablesDuringBulkIngest(false);
             $this->releaseLock();
+        }
+    }
+
+    /**
+     * During bulk ingestion, Yoast SEO's Indexable_Post_Watcher runs on every wp_insert_post
+     * and can cause MySQL lock wait timeouts (e.g. on wp_yoast_indexable). Suppressing
+     * indexable creation for the duration of ingestion avoids that. Re-index in Yoast
+     * after import if you need fresh indexables for the imported content.
+     */
+    private function suppressYoastIndexablesDuringBulkIngest(bool $suppress): void
+    {
+        $filter = 'Yoast\WP\SEO\should_index_indexables';
+        if ($suppress) {
+            add_filter($filter, '__return_false', 0);
+        } else {
+            remove_filter($filter, '__return_false', 0);
         }
     }
 
@@ -335,7 +409,7 @@ final class IngestionService
             foreach ($data['marketplace_links'] as $mpKey => $url) {
                 if (!is_string($url) || $url === '') continue;
                 $mpId = str_replace('_', '-', strtolower((string) $mpKey));
-                $network = str_starts_with($mpId, 'amazon') ? 'amazon' : 'direct';
+                $network = str_starts_with($mpId, 'amazon') ? 'amazon' : (str_starts_with($mpId, 'flipkart') ? 'flipkart' : 'direct');
                 $affiliateLinks[$mpId] = [
                     'url'     => esc_url_raw($url),
                     'network' => $network,

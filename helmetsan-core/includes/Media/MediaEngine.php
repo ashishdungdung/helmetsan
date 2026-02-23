@@ -52,8 +52,22 @@ final class MediaEngine
 
     public function enqueueAssets(string $hook): void
     {
-        if (! in_array($hook, ['post.php', 'post-new.php'], true)) {
+        $isMediaEnginePage = (
+            $hook === 'helmetsan-dashboard_page_helmetsan-media-engine'
+            || $hook === 'media_page_helmetsan-media-engine'
+        );
+        if (! in_array($hook, ['post.php', 'post-new.php'], true) && ! $isMediaEnginePage) {
             return;
+        }
+
+        if ($isMediaEnginePage) {
+            wp_enqueue_script(
+                'helmetsan-media-engine-page',
+                plugins_url('assets/js/media-engine-admin.js', HELMETSAN_CORE_FILE),
+                ['jquery'],
+                HELMETSAN_CORE_VERSION,
+                true
+            );
         }
 
         wp_enqueue_media();
@@ -80,11 +94,27 @@ final class MediaEngine
         $saved  = isset($_GET['saved']) ? (int) $_GET['saved'] : 0;
         $imported = isset($_GET['imported']) ? (int) $_GET['imported'] : 0;
         $assigned = isset($_GET['assigned']) ? (int) $_GET['assigned'] : 0;
+        $refresh = isset($_GET['refresh']) && (int) $_GET['refresh'] === 1;
+        $errorMessage = isset($_GET['error']) ? sanitize_text_field((string) $_GET['error']) : '';
 
         $candidates = [];
         $diagnostics = [];
         $searchContext = [];
         if ($name !== '' || $domain !== '') {
+            if ($refresh) {
+                $cacheKey = 'helmetsan_media_' . md5(strtolower(trim($name . '|' . $domain . '|' . $type . '|' . $provider)));
+                delete_transient($cacheKey);
+                delete_transient($cacheKey . '_diag');
+                wp_safe_redirect(add_query_arg(array_filter([
+                    'page' => 'helmetsan-media-engine',
+                    'name' => $name ?: null,
+                    'domain' => $domain ?: null,
+                    'entity' => $type !== 'brand' ? $type : null,
+                    'provider' => $provider !== 'all' ? $provider : null,
+                    'post_id' => $postId > 0 ? $postId : null,
+                ]), admin_url('admin.php')));
+                exit;
+            }
             $searchContext = $this->buildSearchContext($name, $domain);
             $candidates = $this->resolveCandidates($name, $domain, $type, $provider, $diagnostics);
         }
@@ -100,7 +130,10 @@ final class MediaEngine
         if ($assigned === 1) {
             echo '<div class="notice notice-success is-dismissible"><p>Logo assigned to post successfully.</p></div>';
         }
-        echo '<p>Resolve logos from Simple Icons, Brandfetch, Logo.dev, and Wikimedia. Apply selected logo to any post/page/CPT.</p>';
+        if ($errorMessage !== '') {
+            echo '<div class="notice notice-error is-dismissible"><p><strong>Import failed:</strong> ' . esc_html($errorMessage) . '</p></div>';
+        }
+        echo '<p>Resolve logos from Simple Icons, Brandfetch, Logo.dev, and Wikimedia. Apply selected logo to any post/page/CPT. Use <strong>Refresh</strong> to bypass cache.</p>';
 
         echo '<form method="get" class="hs-inline-form" style="margin:12px 0;">';
         echo '<input type="hidden" name="page" value="helmetsan-media-engine" />';
@@ -123,6 +156,10 @@ final class MediaEngine
         echo '<label for="hs-logo-post">Post ID (optional)</label>';
         echo '<input id="hs-logo-post" type="number" min="1" name="post_id" value="' . esc_attr($postId > 0 ? (string) $postId : '') . '" />';
         submit_button('Find Logos', 'secondary', '', false);
+        if ($name !== '' || $domain !== '') {
+            $refreshUrl = add_query_arg(array_merge($_GET, ['refresh' => 1]), admin_url('admin.php'));
+            echo ' <a href="' . esc_url($refreshUrl) . '" class="button">Refresh results</a>';
+        }
         echo '</form>';
 
         if (($name !== '' || $domain !== '') && is_array($searchContext)) {
@@ -171,7 +208,8 @@ final class MediaEngine
                 echo '<div style="min-height:72px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px;">';
                 echo '<img src="' . esc_url($url) . '" alt="' . esc_attr($label) . '" style="max-height:64px;max-width:100%;object-fit:contain;" />';
                 echo '</div>';
-                echo '<p><a class="hs-link" href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">Open source URL</a></p>';
+                echo '<p><a class="hs-link" href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">Open source URL</a> ';
+                echo '<button type="button" class="button button-small helmetsan-copy-logo-url" data-url="' . esc_attr($url) . '" title="Copy URL">Copy URL</button></p>';
                 echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
                 wp_nonce_field('helmetsan_media_apply_logo', 'helmetsan_media_nonce');
                 echo '<input type="hidden" name="action" value="helmetsan_media_apply_logo" />';
@@ -379,6 +417,7 @@ final class MediaEngine
         $assign = isset($_POST['assign']) && (int) $_POST['assign'] === 1;
         $didImport = false;
         $didAssign = false;
+        $sideloadError = '';
 
         if ($url !== '') {
             if ($assign && $postId > 0 && ! current_user_can('edit_post', $postId)) {
@@ -396,6 +435,9 @@ final class MediaEngine
                 if (! empty($media['attachment_id'])) {
                     $attachmentId = (int) $media['attachment_id'];
                 }
+                if (isset($media['error']) && (string) $media['error'] !== '') {
+                    $sideloadError = (string) $media['error'];
+                }
             }
 
             if ($assign && $postId > 0) {
@@ -409,10 +451,14 @@ final class MediaEngine
         }
 
         $return = isset($_POST['return']) ? esc_url_raw((string) $_POST['return']) : '';
+        $queryArgs = ['saved' => $didAssign ? 1 : 0, 'imported' => $didImport ? 1 : 0, 'assigned' => $didAssign ? 1 : 0];
+        if ($sideloadError !== '') {
+            $queryArgs['error'] = rawurlencode($sideloadError);
+        }
         if ($return === '') {
-            $return = add_query_arg(['page' => 'helmetsan-media-engine', 'saved' => $didAssign ? 1 : 0, 'imported' => $didImport ? 1 : 0, 'assigned' => $didAssign ? 1 : 0], admin_url('admin.php'));
+            $return = add_query_arg(array_merge(['page' => 'helmetsan-media-engine'], $queryArgs), admin_url('admin.php'));
         } else {
-            $return = add_query_arg(['saved' => $didAssign ? 1 : 0, 'imported' => $didImport ? 1 : 0, 'assigned' => $didAssign ? 1 : 0], $return);
+            $return = add_query_arg($queryArgs, $return);
         }
         wp_safe_redirect($return);
         exit;
@@ -998,7 +1044,12 @@ final class MediaEngine
 
         $resp = wp_remote_head($url, ['timeout' => 6]);
         if (is_wp_error($resp)) {
-            return ['ok' => false, 'status' => 'error', 'note' => $resp->get_error_message()];
+            $err = $resp->get_error_message();
+            $retry = wp_remote_head($url, ['timeout' => 6]);
+            if (is_wp_error($retry)) {
+                return ['ok' => false, 'status' => 'error', 'note' => $err];
+            }
+            $resp = $retry;
         }
         $code = (int) wp_remote_retrieve_response_code($resp);
         if ($code < 200 || $code > 299) {

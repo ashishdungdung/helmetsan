@@ -93,7 +93,7 @@ if $DRY_RUN; then
 fi
 
 ssh -o StrictHostKeyChecking=no "$REMOTE_HOST" \
-    "wp --path=$REMOTE_WP_PATH helmetsan ingest-seed $INGEST_FLAGS --allow-root 2>&1"
+    "wp --path=$REMOTE_WP_PATH helmetsan ingest-seed --batch-size=25 $INGEST_FLAGS --allow-root 2>&1"
 
 echo ""
 echo "╔══════════════════════════════════════════╗"

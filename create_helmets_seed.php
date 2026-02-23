@@ -3533,6 +3533,55 @@ $brands = array (
         ),
       ),
     ),
+    'SRT Modular' =>
+    array (
+      'type' => 'Modular',
+      'price' => 349.95,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1720,
+      'mat' => 'Composite',
+      'desc' => 'Street-focused modular with flip-up chin bar and integrated sun visor.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'BEL-SRT-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'BEL-SRT-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'BEL-SRT-GRE',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Hi-Viz Yellow',
+          'family' => 'Yellow',
+          'finish' => 'gloss',
+          'sku' => 'BEL-SRT-YEL',
+          'price_adj' => 20,
+        ),
+      ),
+    ),
   ),
   'Schuberth' => 
   array (
@@ -4846,6 +4895,55 @@ $brands = array (
         ),
       ),
     ),
+    'EXO-T520' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 229.95,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1580,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Sport touring full face with EverClear anti-fog and Ellip-Tec II face shield.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'SCO-T520-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'SCO-T520-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Anthracite',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'SCO-T520-ANT',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'SCO-T520-RED',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
   ),
   'Shark' => 
   array (
@@ -5517,6 +5615,47 @@ $brands = array (
         ),
       ),
     ),
+    'N87' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 329.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1580,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Sport touring full face with drop-down sun visor and emergency release.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'NOL-N87-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'NOL-N87-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'NOL-N87-GRE',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
   ),
   'LS2' => 
   array (
@@ -5929,6 +6068,104 @@ $brands = array (
           'sku' => 'LS2-COPT-APE',
           'price_adj' => 50,
           'is_graphic' => true,
+        ),
+      ),
+    ),
+    'Challenger GT' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 249.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1500,
+      'mat' => 'KPA',
+      'desc' => 'Sport touring full face with Dynamic Flow-Through ventilation and Pinlock MaxVision.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'LS2-CHGT-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'LS2-CHGT-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'LS2-CHGT-GRE',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Hi-Viz Yellow',
+          'family' => 'Yellow',
+          'finish' => 'gloss',
+          'sku' => 'LS2-CHGT-YEL',
+          'price_adj' => 20,
+        ),
+      ),
+    ),
+    'Thunder' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 119.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1580,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Entry-level full face with good ventilation and removable liner.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'LS2-THN-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'LS2-THN-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'LS2-THN-RED',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Blue',
+          'family' => 'Blue',
+          'finish' => 'gloss',
+          'sku' => 'LS2-THN-BLU',
+          'price_adj' => 0,
         ),
       ),
     ),
@@ -13306,6 +13543,703 @@ $brands = array (
           'sku' => 'VEM-SHAR-TRA',
           'price_adj' => 50,
           'is_graphic' => true,
+        ),
+      ),
+    ),
+  ),
+  'Leatt' =>
+  array (
+    'MTB 4.0 V21' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 299.99,
+      'cert' => array (0 => 'DOT', 1 => 'ECE 22.05'),
+      'shape' => 'Intermediate Oval',
+      'weight' => 980,
+      'mat' => 'Carbon Fiber',
+      'desc' => 'Ultra-light full face for enduro and downhill MTB.',
+      'colorways' =>
+      array (
+        0 => array ('name' => 'Matte Black', 'family' => 'Black', 'finish' => 'matte', 'sku' => 'LEA-MTB4-MBK', 'price_adj' => 0),
+        1 => array ('name' => 'Gloss Red', 'family' => 'Red', 'finish' => 'gloss', 'sku' => 'LEA-MTB4-RED', 'price_adj' => 0),
+        2 => array ('name' => 'Carbon', 'family' => 'Carbon', 'finish' => 'matte', 'sku' => 'LEA-MTB4-CAR', 'price_adj' => 50),
+      ),
+    ),
+    'Velocity 4.0' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 149.99,
+      'cert' => array (0 => 'DOT', 1 => 'ECE 22.05'),
+      'shape' => 'Intermediate Oval',
+      'weight' => 520,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Lightweight open face with 360° Turbine technology.',
+      'colorways' =>
+      array (
+        0 => array ('name' => 'Black', 'family' => 'Black', 'finish' => 'matte', 'sku' => 'LEA-VEL4-BLK', 'price_adj' => 0),
+        1 => array ('name' => 'White', 'family' => 'White', 'finish' => 'gloss', 'sku' => 'LEA-VEL4-WHT', 'price_adj' => 0),
+      ),
+    ),
+  ),
+  'Moose Racing' =>
+  array (
+    'M1 MIPS' =>
+    array (
+      'type' => 'Dirt / Motocross',
+      'price' => 189.99,
+      'cert' => array (0 => 'DOT', 1 => 'ECE 22.05'),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1420,
+      'mat' => 'Composite',
+      'desc' => 'MX helmet with MIPS for reduced rotational impact.',
+      'colorways' =>
+      array (
+        0 => array ('name' => 'Black', 'family' => 'Black', 'finish' => 'matte', 'sku' => 'MOO-M1-BLK', 'price_adj' => 0),
+        1 => array ('name' => 'White', 'family' => 'White', 'finish' => 'gloss', 'sku' => 'MOO-M1-WHT', 'price_adj' => 0),
+        2 => array ('name' => 'Red', 'family' => 'Red', 'finish' => 'gloss', 'sku' => 'MOO-M1-RED', 'price_adj' => 0),
+      ),
+    ),
+    'Voyager' =>
+    array (
+      'type' => 'Adventure / Dual Sport',
+      'price' => 229.99,
+      'cert' => array (0 => 'DOT', 1 => 'ECE 22.05'),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1550,
+      'mat' => 'Fiberglass',
+      'desc' => 'Adventure touring helmet with removable peak and good ventilation.',
+      'colorways' =>
+      array (
+        0 => array ('name' => 'Matte Black', 'family' => 'Black', 'finish' => 'matte', 'sku' => 'MOO-VOY-MBK', 'price_adj' => 0),
+        1 => array ('name' => 'Gloss White', 'family' => 'White', 'finish' => 'gloss', 'sku' => 'MOO-VOY-WHT', 'price_adj' => 0),
+      ),
+    ),
+  ),
+  'DMD' =>
+  array (
+    'Classic' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 179.99,
+      'cert' => array (0 => 'DOT', 1 => 'ECE 22.05'),
+      'shape' => 'Round Oval',
+      'weight' => 950,
+      'mat' => 'Fiberglass',
+      'desc' => 'Classic open face with vintage styling and modern certifications.',
+      'colorways' =>
+      array (
+        0 => array ('name' => 'Black', 'family' => 'Black', 'finish' => 'gloss', 'sku' => 'DMD-CLS-BLK', 'price_adj' => 0),
+        1 => array ('name' => 'Ivory', 'family' => 'White', 'finish' => 'gloss', 'sku' => 'DMD-CLS-IVY', 'price_adj' => 0),
+        2 => array ('name' => 'Silver', 'family' => 'Grey', 'finish' => 'gloss', 'sku' => 'DMD-CLS-SLV', 'price_adj' => 0),
+      ),
+    ),
+  ),
+  'SMK' =>
+  array (
+    'Stellar' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 149.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1520,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Affordable full face with integrated sun visor and good ventilation for commuting.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'SMK-STL-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'SMK-STL-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'SMK-STL-GRE',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'SMK-STL-RED',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'Phoenix' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 189.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1480,
+      'mat' => 'Fiberglass',
+      'desc' => 'Mid-range full face with dual homologation and drop-down sun visor.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'SMK-PHN-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'SMK-PHN-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Anthracite',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'SMK-PHN-ANT',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Blue',
+          'family' => 'Blue',
+          'finish' => 'gloss',
+          'sku' => 'SMK-PHN-BLU',
+          'price_adj' => 0,
+        ),
+        4 =>
+        array (
+          'name' => 'Graphic Storm',
+          'family' => 'Multi',
+          'finish' => 'matte',
+          'sku' => 'SMK-PHN-GRA',
+          'price_adj' => 30,
+          'is_graphic' => true,
+        ),
+      ),
+    ),
+  ),
+  'X-Lite' =>
+  array (
+    'X-803 RS Ultra Carbon' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 649.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1350,
+      'mat' => 'Carbon Fiber',
+      'desc' => 'Premium sport helmet with full carbon shell and race-bred aerodynamics.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'XLT-803-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'XLT-803-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Carbon',
+          'family' => 'Carbon',
+          'finish' => 'matte',
+          'sku' => 'XLT-803-CAR',
+          'price_adj' => 50,
+        ),
+        3 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'XLT-803-RED',
+          'price_adj' => 30,
+        ),
+      ),
+    ),
+    'X-551' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 279.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1520,
+      'mat' => 'Fiberglass',
+      'desc' => 'Sport touring full face with integrated sun visor and good value.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'XLT-551-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'XLT-551-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'XLT-551-GRE',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+  ),
+  'Spada' =>
+  array (
+    'Sting' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 139.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1550,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Entry-level full face with drop-down sun visor and removable liner.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'SPA-STI-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'SPA-STI-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'SPA-STI-RED',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'Viento' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 89.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 980,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Lightweight open face for urban riding with classic styling.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Black',
+          'family' => 'Black',
+          'finish' => 'gloss',
+          'sku' => 'SPA-VIE-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'SPA-VIE-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Silver',
+          'family' => 'Grey',
+          'finish' => 'gloss',
+          'sku' => 'SPA-VIE-SLV',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+  ),
+  'Marushin' =>
+  array (
+    'Ninja' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 199.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1540,
+      'mat' => 'Fiberglass',
+      'desc' => 'Japanese-built full face with integrated sun visor and quiet ride focus.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'MAR-NIN-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'MAR-NIN-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'MAR-NIN-RED',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'Speedster' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 129.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Round Oval',
+      'weight' => 920,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Classic open face with modern certifications for urban and cruiser use.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Black',
+          'family' => 'Black',
+          'finish' => 'gloss',
+          'sku' => 'MAR-SPD-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Silver',
+          'family' => 'Grey',
+          'finish' => 'gloss',
+          'sku' => 'MAR-SPD-SLV',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+  ),
+  'Hawk' =>
+  array (
+    'GT-2' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 89.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1620,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Budget full face with drop-down sun visor and basic ventilation.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'HAW-GT2-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'HAW-GT2-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Red',
+          'family' => 'Red',
+          'finish' => 'gloss',
+          'sku' => 'HAW-GT2-RED',
+          'price_adj' => 0,
+        ),
+        3 =>
+        array (
+          'name' => 'Blue',
+          'family' => 'Blue',
+          'finish' => 'gloss',
+          'sku' => 'HAW-GT2-BLU',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'H-40' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 49.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 880,
+      'mat' => 'ABS',
+      'desc' => 'Entry-level open face for short trips and scooters.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Black',
+          'family' => 'Black',
+          'finish' => 'gloss',
+          'sku' => 'HAW-H40-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'HAW-H40-WHT',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+  ),
+  'Bering' =>
+  array (
+    'Hero 2' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 179.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1520,
+      'mat' => 'Polycarbonate',
+      'desc' => 'European full face with integrated sun visor and good ventilation.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'BER-HR2-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Gloss White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'BER-HR2-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'BER-HR2-GRE',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'Avalon' =>
+    array (
+      'type' => 'Modular',
+      'price' => 249.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.06',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1680,
+      'mat' => 'Fiberglass',
+      'desc' => 'Flip-up modular with sun visor and prepared for comms.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'BER-AVL-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'BER-AVL-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Anthracite',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'BER-AVL-ANT',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+  ),
+  'Macna' =>
+  array (
+    'Rage' =>
+    array (
+      'type' => 'Full Face',
+      'price' => 159.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 1500,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Sporty full face with drop-down sun visor and removable liner.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Matte Black',
+          'family' => 'Black',
+          'finish' => 'matte',
+          'sku' => 'MCN-RAG-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'White',
+          'family' => 'White',
+          'finish' => 'gloss',
+          'sku' => 'MCN-RAG-WHT',
+          'price_adj' => 0,
+        ),
+        2 =>
+        array (
+          'name' => 'Blue',
+          'family' => 'Blue',
+          'finish' => 'gloss',
+          'sku' => 'MCN-RAG-BLU',
+          'price_adj' => 0,
+        ),
+      ),
+    ),
+    'Blaze' =>
+    array (
+      'type' => 'Open Face',
+      'price' => 79.99,
+      'cert' =>
+      array (
+        0 => 'DOT',
+        1 => 'ECE 22.05',
+      ),
+      'shape' => 'Intermediate Oval',
+      'weight' => 950,
+      'mat' => 'Polycarbonate',
+      'desc' => 'Lightweight open face for city and casual riding.',
+      'colorways' =>
+      array (
+        0 =>
+        array (
+          'name' => 'Black',
+          'family' => 'Black',
+          'finish' => 'gloss',
+          'sku' => 'MCN-BLZ-BLK',
+          'price_adj' => 0,
+        ),
+        1 =>
+        array (
+          'name' => 'Grey',
+          'family' => 'Grey',
+          'finish' => 'matte',
+          'sku' => 'MCN-BLZ-GRE',
+          'price_adj' => 0,
         ),
       ),
     ),
