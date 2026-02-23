@@ -1,5 +1,40 @@
 # Operations Manual 🛠️
 
+## SSH key & multiplexing
+
+Use key-based auth so deploy and ad-hoc `ssh`/`rsync` don’t need a password. Reuse one connection (multiplexing) so repeated SSH/rsync is fast.
+
+**1. Key (not stored in repo)**  
+Use your local key (e.g. `~/.ssh/id_rsa`) and add the public key to the server:
+
+```bash
+# On server (one-time)
+mkdir -p ~/.ssh
+echo "PASTE_CONTENTS_OF_~/.ssh/id_rsa.pub" >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
+
+**2. Store this in `~/.ssh/config` (local machine)**  
+Then `ssh root@helmetsan.com` and `scripts/deploy.sh` (rsync over SSH) will reuse a single connection:
+
+```
+Host helmetsan.com
+  User root
+  HostName helmetsan.com
+  ControlMaster auto
+  ControlPath ~/.ssh/control-%r@%h:%p
+  ControlPersist 10m
+```
+
+- **ControlMaster auto**: first connection opens a master; later ones reuse it.  
+- **ControlPath**: socket path; `%r`=user, `%h`=host, `%p`=port.  
+- **ControlPersist 10m**: keep master alive 10 minutes after last session.
+
+Ensure `~/.ssh` is mode `700` so only you can use the control socket.
+
+---
+
 ## Environment Paths
 
 | Environment        | Path                                               | Notes                |
