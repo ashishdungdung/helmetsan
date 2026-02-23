@@ -58,7 +58,7 @@ The pipeline is automated via `scripts/reseed.sh`.
 To completely wipe the database (required for schema changes):
 
 ```bash
-ssh root@helmetsan.com "cd /var/www/helmetsan.com/public && wp eval-file ../reset_helmets.php --allow-root"
+ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public eval-file ../reset_helmets.php --allow-root"
 ```
 
 ## Data Pipeline
@@ -86,7 +86,7 @@ php create_helmets_seed.php --validate
 bash scripts/deploy.sh
 
 # 4. Ingest on server
-ssh root@helmetsan.com "cd /var/www/helmetsan.com/public && wp helmetsan ingest-seed --allow-root"
+ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest-seed --allow-root"
 ```
 
 ### WP-CLI Commands

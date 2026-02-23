@@ -1,17 +1,28 @@
 #!/bin/bash
 set -e
 
-# Configuration from .vscode/sftp.json
-HOST="helmetsan.com"
-USER="root"
-REMOTE_PATH="/var/www/helmetsan.com/public"
-PORT="22"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+if [ ! -f "$SCRIPT_DIR/config" ]; then
+    echo "❌ scripts/config not found. Cannot get REMOTE_WP_PATH. Run from repo root."
+    exit 1
+fi
+. "$SCRIPT_DIR/config"
+if [ -z "${REMOTE_WP_PATH:-}" ]; then
+    echo "❌ REMOTE_WP_PATH not set in scripts/config."
+    exit 1
+fi
 
-# Paths to deploy
-THEME_SRC="./helmetsan-theme"
-THEME_DEST="${REMOTE_PATH}/wp-content/themes/" 
-PLUGIN_SRC="./helmetsan-core"
-PLUGIN_DEST="${REMOTE_PATH}/wp-content/plugins/"
+# Paths to deploy (relative to repo root; run from repo root)
+THEME_SRC="$PROJECT_DIR/helmetsan-theme"
+PLUGIN_SRC="$PROJECT_DIR/helmetsan-core"
+THEME_DEST="${REMOTE_WP_PATH}/wp-content/themes/" 
+PLUGIN_DEST="${REMOTE_WP_PATH}/wp-content/plugins/"
+
+if [ ! -d "$THEME_SRC" ] || [ ! -d "$PLUGIN_SRC" ]; then
+    echo "❌ Theme or plugin dir missing. Run from repo root (expected: $THEME_SRC, $PLUGIN_SRC)."
+    exit 1
+fi
 
 echo "🚀 Starting Parallel Deployment to ${USER}@${HOST}..."
 
@@ -23,7 +34,7 @@ deploy_component() {
     local password="CQz7nF0HSd" # Should be env var in production
 
     echo "[${name}] Syncing..."
-    ./scripts/deploy-rsync.expect "$password" "$src" "${USER}@${HOST}:${dest}"
+    "$SCRIPT_DIR/deploy-rsync.expect" "$password" "$src" "${USER}@${HOST}:${dest}"
     
     if [ $? -eq 0 ]; then
         echo "[${name}] ✅ Done!"

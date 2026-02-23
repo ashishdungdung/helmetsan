@@ -1,0 +1,13 @@
+# Single source of truth for remote server paths.
+# Source from script dir: SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)" && . "$SCRIPT_DIR/config"
+# Use wp --path="$REMOTE_WP_PATH" for every WP-CLI call so CWD does not matter.
+
+REMOTE_WP_PATH="/var/www/helmetsan.com/public"
+REMOTE_HOST="root@helmetsan.com"
+HOST="helmetsan.com"
+USER="root"
+
+# Derived paths (for scripts that need them)
+REMOTE_PLUGIN_DATA_PATH="${REMOTE_WP_PATH}/wp-content/plugins/helmetsan-core/data"
+
+export REMOTE_WP_PATH REMOTE_HOST HOST USER REMOTE_PLUGIN_DATA_PATH

@@ -11,11 +11,21 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+if [ ! -f "$SCRIPT_DIR/config" ]; then
+    echo "❌ scripts/config not found. Run from repo root."
+    exit 1
+fi
+. "$SCRIPT_DIR/config"
+[ -n "${REMOTE_WP_PATH:-}" ] || { echo "❌ REMOTE_WP_PATH not set in scripts/config."; exit 1; }
+
 SEED_SCRIPT="$PROJECT_DIR/create_helmets_seed.php"
 SEED_OUTPUT="$PROJECT_DIR/helmetsan-core/seed-data/helmets_seed.json"
 DEPLOY_SCRIPT="$SCRIPT_DIR/deploy.sh"
-REMOTE_HOST="root@helmetsan.com"
-REMOTE_WP_PATH="/var/www/helmetsan.com/public"
+
+if [ ! -f "$SEED_SCRIPT" ]; then
+    echo "❌ Seed script not found: $SEED_SCRIPT (run from repo root?)."
+    exit 1
+fi
 
 DRY_RUN=false
 VALIDATE_ONLY=false
@@ -83,7 +93,7 @@ if $DRY_RUN; then
 fi
 
 ssh -o StrictHostKeyChecking=no "$REMOTE_HOST" \
-    "cd $REMOTE_WP_PATH && wp helmetsan ingest-seed $INGEST_FLAGS --allow-root 2>&1"
+    "wp --path=$REMOTE_WP_PATH helmetsan ingest-seed $INGEST_FLAGS --allow-root 2>&1"
 
 echo ""
 echo "╔══════════════════════════════════════════╗"

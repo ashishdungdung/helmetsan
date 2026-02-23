@@ -6,9 +6,11 @@
 # actual WP data root (resolved dynamically via WP-CLI), and
 # then triggers WP-CLI ingestion for all entity types.
 
-USER="root"
-HOST="helmetsan.com"
-REMOTE_BASE="/var/www/helmetsan.com/public"
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+[ -f "$ROOT_DIR/scripts/config" ] || { echo "❌ scripts/config not found. Run from repo root."; exit 1; }
+. "$ROOT_DIR/scripts/config"
+[ -n "${REMOTE_WP_PATH:-}" ] || { echo "❌ REMOTE_WP_PATH not set in scripts/config."; exit 1; }
+REMOTE_BASE="$REMOTE_WP_PATH"
 
 # Retrieve password from sftp.json using perl to handle regex parsing reliably
 SSHPASS=$(perl -n -e '/"password":\s*"([^"]+)"/ && print $1' .vscode/sftp.json)
@@ -26,7 +28,7 @@ export SSHPASS
 # ──────────────────────────────────────────────────
 echo "🔍 Pre-flight: Resolving remote data root via WP-CLI..."
 REMOTE_DATA_ROOT=$(sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" \
-    "cd $REMOTE_BASE && wp --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null")
+    "wp --path=$REMOTE_WP_PATH --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null")
 
 if [ -z "$REMOTE_DATA_ROOT" ]; then
     echo "⚠️  Warning: Could not resolve data root from WP-CLI. Falling back to default."
@@ -81,27 +83,26 @@ fi
 echo "⚙️  Triggering WP-CLI ingestion on server..."
 sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" << EOF
     set -e
-    
-    cd "$REMOTE_BASE"
+    WP_PATH="$REMOTE_WP_PATH"
     echo "   -> Ingesting Brands..."
-    wp --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("brands", 200);'
+    wp --path="\$WP_PATH" --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("brands", 200);'
     
     echo "   -> Ingesting Helmets..."
-    wp --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("helmets", 200);'
+    wp --path="\$WP_PATH" --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("helmets", 200);'
     
     echo "   -> Ingesting Accessories..."
-    wp --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("accessories", 200);'
+    wp --path="\$WP_PATH" --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("accessories", 200);'
     
     echo "   -> Ingesting Motorcycles..."
-    wp --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("motorcycles", 200);'
+    wp --path="\$WP_PATH" --allow-root eval 'helmetsan_core()->ingestion()->ingestPath("motorcycles", 200);'
     
     echo "   -> Flushing Cache..."
-    wp --allow-root cache flush
+    wp --path="\$WP_PATH" --allow-root cache flush
     
     echo "   -> Post-ingestion counts:"
-    echo "      Helmets:     \$(wp --allow-root post list --post_type=helmet --post_status=publish --format=count)"
-    echo "      Brands:      \$(wp --allow-root post list --post_type=brand --post_status=publish --format=count)"
-    echo "      Accessories: \$(wp --allow-root post list --post_type=accessory --post_status=publish --format=count)"
+    echo "      Helmets:     \$(wp --path="\$WP_PATH" --allow-root post list --post_type=helmet --post_status=publish --format=count)"
+    echo "      Brands:      \$(wp --path="\$WP_PATH" --allow-root post list --post_type=brand --post_status=publish --format=count)"
+    echo "      Accessories: \$(wp --path="\$WP_PATH" --allow-root post list --post_type=accessory --post_status=publish --format=count)"
 EOF
 
 if [ $? -eq 0 ]; then

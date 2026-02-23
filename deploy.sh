@@ -2,10 +2,9 @@
 # Helmetsan Deployment Script
 # Usage: ./deploy.sh [password]
 
-# Configuration from .vscode/sftp.json
-USER="root"
-HOST="helmetsan.com"
-REMOTE_BASE="/var/www/helmetsan.com/public"
+ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
+. "$ROOT_DIR/scripts/config"
+REMOTE_BASE="$REMOTE_WP_PATH"
 REMOTE_CONTENT="$REMOTE_BASE/wp-content"
 
 # Optional: Password support via sshpass if installed, otherwise relies on SSH keys or interactive prompt
@@ -62,18 +61,16 @@ if [ $? -eq 0 ]; then
     # 4. Post-deployment health check
     echo "🔍 Running post-deployment health check..."
     $SSHPASS ssh "$USER@$HOST" << HEALTHCHECK
-        cd "$REMOTE_BASE"
-        
-        # Verify plugin is active and loadable
-        PLUGIN_STATUS=\$(wp --allow-root plugin status helmetsan-core 2>/dev/null | grep -c "Status: Active" || true)
+        # Verify plugin is active and loadable (--path so CWD does not matter)
+        PLUGIN_STATUS=\$(wp --path="$REMOTE_WP_PATH" --allow-root plugin status helmetsan-core 2>/dev/null | grep -c "Status: Active" || true)
         if [ "\$PLUGIN_STATUS" -eq 1 ]; then
             echo "   ✅ Plugin is active"
         else
-            echo "   ⚠️  Plugin may not be active. Run: wp plugin activate helmetsan-core"
+            echo "   ⚠️  Plugin may not be active. Run: wp --path=$REMOTE_WP_PATH plugin activate helmetsan-core"
         fi
         
         # Verify data root is accessible
-        DATA_ROOT=\$(wp --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null || echo "FAILED")
+        DATA_ROOT=\$(wp --path="$REMOTE_WP_PATH" --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null || echo "FAILED")
         if [ "\$DATA_ROOT" != "FAILED" ] && [ -d "\$DATA_ROOT" ]; then
             HELMET_COUNT=\$(find "\$DATA_ROOT/helmets" -name '*.json' 2>/dev/null | wc -l)
             BRAND_COUNT=\$(find "\$DATA_ROOT/brands" -name '*.json' 2>/dev/null | wc -l)
