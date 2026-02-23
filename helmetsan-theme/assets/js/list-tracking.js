@@ -9,8 +9,9 @@
         if (typeof window.gtag === 'function') return window.gtag;
         if (typeof window.dataLayer !== 'undefined') {
             return function(cmd, action, params) {
-                if (cmd === 'event' && action === 'view_item_list')
-                    window.dataLayer.push({ event: action, ecommerce: params });
+                if (cmd === 'event' && action === 'view_item_list' && params && typeof params === 'object') {
+                    window.dataLayer.push({ event: action, ...params });
+                }
             };
         }
         return function() {};

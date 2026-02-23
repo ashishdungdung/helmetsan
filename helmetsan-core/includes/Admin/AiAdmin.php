@@ -159,12 +159,12 @@ final class AiAdmin
             echo '<p style="margin-top: 0.75rem;">' . esc_html__('Quick actions (last 10 helmets):', 'helmetsan-core') . '</p>';
             echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display: inline-block; margin-right: 8px;">';
             echo '<input type="hidden" name="action" value="helmetsan_ai_fill_dry" />';
-            wp_nonce_field('helmetsan_ai_fill', '_wpnonce', true, false);
+            wp_nonce_field('helmetsan_ai_fill', '_wpnonce', true, true);
             echo '<input type="submit" class="button" value="' . esc_attr__('Dry run (last 10 helmets)', 'helmetsan-core') . '" />';
             echo '</form>';
             echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display: inline-block;">';
             echo '<input type="hidden" name="action" value="helmetsan_ai_fill_run" />';
-            wp_nonce_field('helmetsan_ai_fill', '_wpnonce', true, false);
+            wp_nonce_field('helmetsan_ai_fill', '_wpnonce', true, true);
             echo '<input type="submit" class="button button-primary" value="' . esc_attr__('Fill last 10 helmets', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Fill missing fields for the last 10 helmets? This will call the AI API.', 'helmetsan-core')) . '\');" />';
             echo '</form>';
             $fillResult = get_transient(self::FILL_RESULT_TRANSIENT);

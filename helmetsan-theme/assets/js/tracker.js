@@ -7,11 +7,8 @@
         }
         if (typeof window.dataLayer !== 'undefined') {
             return function(cmd, action, params) {
-                if (cmd === 'event') {
-                    window.dataLayer.push({
-                        event: action,
-                        ecommerce: params
-                    });
+                if (cmd === 'event' && params && typeof params === 'object') {
+                    window.dataLayer.push({ event: action, ...params });
                 }
             };
         }

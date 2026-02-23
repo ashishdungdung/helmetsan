@@ -19,7 +19,30 @@ final class Tracker
     {
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_action('wp_head', [$this, 'printHeadScripts'], 20);
+        add_action('wp_body_open', [$this, 'printGtmNoscript'], 1);
         add_action('wp_footer', [$this, 'printFooterScripts'], 20);
+    }
+
+    /** GTM noscript iframe (recommended by Google; works when JS is disabled). */
+    public function printGtmNoscript(): void
+    {
+        $settings = $this->getSettings();
+        if (! $this->shouldRun($settings)) {
+            return;
+        }
+        $gtm = isset($settings['gtm_container_id']) ? trim((string) $settings['gtm_container_id']) : '';
+        if ($gtm === '') {
+            return;
+        }
+        if (! empty($settings['enable_consent_gate'])) {
+            $cookieName = (string) ($settings['consent_cookie_name'] ?? 'helmetsan_consent_analytics');
+            $cookieName = preg_replace('/[^a-zA-Z0-9_-]/', '', $cookieName) ?: 'helmetsan_consent_analytics';
+            if (empty($_COOKIE[$cookieName])) {
+                return;
+            }
+        }
+        $id = esc_attr($gtm);
+        echo "<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id={$id}\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n";
     }
 
     public function enqueueScripts(): void
@@ -69,8 +92,8 @@ final class Tracker
             }
         }
 
-        $ga4 = ! empty($settings['ga4_measurement_id']) ? (string) $settings['ga4_measurement_id'] : '';
-        $gtm = ! empty($settings['gtm_container_id']) ? (string) $settings['gtm_container_id'] : '';
+        $ga4 = isset($settings['ga4_measurement_id']) ? trim((string) $settings['ga4_measurement_id']) : '';
+        $gtm = isset($settings['gtm_container_id']) ? trim((string) $settings['gtm_container_id']) : '';
         $userId = ! empty($settings['enable_user_id_tracking']) && is_user_logged_in() ? (string) get_current_user_id() : '';
 
         if ($gtm !== '') {
@@ -82,9 +105,9 @@ final class Tracker
             return;
         }
 
-        if ($ga4 !== '') {
+        if ($ga4 !== '' && preg_match('/^G-[A-Z0-9]{10,}$/i', $ga4)) {
             $ga4e = esc_js($ga4);
-            echo "<script async src='https://www.googletagmanager.com/gtag/js?id={$ga4e}'></script>\n";
+            echo "<script async src=\"https://www.googletagmanager.com/gtag/js?id={$ga4e}\"></script>\n";
             $config = $userId !== '' ? ",{'user_id':'" . esc_js($userId) . "'}" : '';
             echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','{$ga4e}'{$config});</script>\n";
         }

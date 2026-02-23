@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Helmetsan\Core\Analytics;
 
 use Helmetsan\Core\Price\PriceService;
+use Helmetsan\Core\Support\Config;
 
 final class DataLayerService
 {
@@ -19,9 +20,21 @@ final class DataLayerService
         add_action('wp_head', [$this, 'injectDataLayer'], 5);
     }
 
+    private function isAnalyticsEnabled(): bool
+    {
+        $saved = get_option(Config::OPTION_ANALYTICS, []);
+        $defaults = (new Config())->analyticsDefaults();
+        $settings = wp_parse_args(is_array($saved) ? $saved : [], $defaults);
+        return ! empty($settings['enable_analytics'])
+            && (empty($settings['analytics_respect_monsterinsights']) || ! class_exists('MonsterInsights'));
+    }
+
     /** Global page context for GA/GTM (all pages). */
     public function injectPageContext(): void
     {
+        if (! $this->isAnalyticsEnabled()) {
+            return;
+        }
         $pageType = 'other';
         if (is_singular('helmet')) {
             $pageType = 'helmet';
@@ -45,7 +58,7 @@ final class DataLayerService
 
     public function injectDataLayer(): void
     {
-        if (! is_singular('helmet')) {
+        if (! $this->isAnalyticsEnabled() || ! is_singular('helmet')) {
             return;
         }
 
