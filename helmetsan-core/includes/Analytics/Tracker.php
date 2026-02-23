@@ -80,6 +80,7 @@ final class Tracker
         $settings = $this->getSettings();
 
         if (! $this->shouldRun($settings)) {
+            echo "<!-- Helmetsan Analytics: off. Enable in Helmetsan → Settings → Analytics and set GA4 (G-...) or GTM (GTM-...) ID -->\n";
             return;
         }
 
@@ -88,6 +89,7 @@ final class Tracker
             $cookieName = preg_replace('/[^a-zA-Z0-9_-]/', '', $cookieName) ?: 'helmetsan_consent_analytics';
             $consent = isset($_COOKIE[$cookieName]) && $_COOKIE[$cookieName] !== '';
             if (! $consent) {
+                echo "<!-- Helmetsan Analytics: consent gate active; load analytics only after user consent (cookie: {$cookieName}) -->\n";
                 return;
             }
         }
@@ -98,6 +100,7 @@ final class Tracker
 
         if ($gtm !== '') {
             $id = esc_js($gtm);
+            echo "<!-- Helmetsan Analytics: GTM -->\n";
             echo "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');</script>\n";
             if ($ga4 === '' && $userId !== '') {
                 echo '<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"helmetsan_user_id",user_id:"' . esc_js($userId) . '"});</script>' . "\n";
@@ -105,11 +108,17 @@ final class Tracker
             return;
         }
 
-        if ($ga4 !== '' && preg_match('/^G-[A-Z0-9]{10,}$/i', $ga4)) {
+        $ga4Valid = $ga4 !== '' && preg_match('/^G-[A-Za-z0-9_-]+$/i', $ga4);
+        if ($ga4Valid) {
             $ga4e = esc_js($ga4);
+            echo "<!-- Helmetsan Analytics: GA4 -->\n";
             echo "<script async src=\"https://www.googletagmanager.com/gtag/js?id={$ga4e}\"></script>\n";
             $config = $userId !== '' ? ",{'user_id':'" . esc_js($userId) . "'}" : '';
             echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','{$ga4e}'{$config});</script>\n";
+        } elseif ($ga4 !== '') {
+            echo "<!-- Helmetsan Analytics: GA4 ID invalid (use format G-XXXXXXXXXX) -->\n";
+        } else {
+            echo "<!-- Helmetsan Analytics: enabled but no GA4 or GTM ID in Settings → Analytics -->\n";
         }
     }
 

@@ -49,6 +49,7 @@ final class Admin
         add_action('admin_menu', [$this, 'registerMenu']);
         add_action('admin_init', [$this, 'registerSettings']);
         add_filter('allowed_options', [$this, 'restrictHelmetsanOptionsToPostedOnly'], 10, 1);
+        add_filter('wp_redirect', [$this, 'preserveSettingsTabOnRedirect'], 10, 1);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
         add_filter('admin_body_class', [$this, 'addAdminBodyClass']);
         add_action('admin_init', [$this, 'handleIngestionActions']);
@@ -473,6 +474,24 @@ final class Admin
     }
 
     /**
+     * After options.php redirect, keep the user on the same settings tab.
+     */
+    public function preserveSettingsTabOnRedirect(string $location): string
+    {
+        if (! isset($_POST['helmetsan_stab']) || $_POST['helmetsan_stab'] === '') {
+            return $location;
+        }
+        if (strpos($location, 'helmetsan-settings') === false && strpos($location, 'options.php') === false) {
+            return $location;
+        }
+        $tab = sanitize_key((string) $_POST['helmetsan_stab']);
+        if ($tab === '') {
+            return $location;
+        }
+        return add_query_arg('stab', $tab, $location);
+    }
+
+    /**
      * When saving via options.php, only update Helmetsan options that are present in the form.
      * The Settings page uses tabs: only the active tab's option is in POST. Without this filter,
      * options.php would pass null for missing options and the sanitize callbacks would overwrite
@@ -529,14 +548,16 @@ final class Admin
             return $preserved;
         }
         if (!is_array($value)) {
-            return $defaults;
+            $existing = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $defaults);
+            return $existing;
         }
 
+        $existing = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $defaults);
         $clean = [];
         $clean['enable_technical_analysis'] = !empty($value['enable_technical_analysis']);
         $clean['enable_ai_chatbot']         = !empty($value['enable_ai_chatbot']);
 
-        return array_merge($defaults, $clean);
+        return array_merge($existing, $clean);
     }
 
     public function sanitizeAnalytics($value): array
@@ -547,8 +568,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_ANALYTICS, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $bools = [
             'enable_analytics',
@@ -601,8 +622,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $merged['enabled']       = ! empty($merged['enabled']);
         $merged['sync_json_only'] = ! empty($merged['sync_json_only']);
@@ -644,8 +665,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_REVENUE, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $merged['enable_redirect_tracking'] = ! empty($merged['enable_redirect_tracking']);
         $merged['default_affiliate_network'] = sanitize_text_field((string) $merged['default_affiliate_network']);
@@ -699,7 +720,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_SCHEDULER, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $merged['enable_scheduler'] = ! empty($merged['enable_scheduler']);
         $merged['sync_pull_enabled'] = ! empty($merged['sync_pull_enabled']);
@@ -726,7 +748,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_ALERTS, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $bools = [
             'enabled',
@@ -755,8 +778,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_MEDIA, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $bools = [
             'enable_media_engine',
@@ -792,7 +815,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_WOO_BRIDGE, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $merged['enable_bridge'] = ! empty($merged['enable_bridge']);
         $merged['auto_sync_on_save'] = ! empty($merged['auto_sync_on_save']);
@@ -811,8 +835,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
         $existing = wp_parse_args((array) get_option(Config::OPTION_MARKETPLACE, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         // Booleans
         $bools = ['amazon_enabled', 'allegro_enabled', 'jumia_enabled', 'flipkart_enabled'];
@@ -859,7 +883,8 @@ final class Admin
             return $preserved;
         }
         $value    = is_array($value) ? $value : [];
-        $merged   = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_GEO, []), $defaults);
+        $merged   = wp_parse_args($value, $existing);
 
         $merged['mode'] = in_array(($merged['mode'] ?? ''), ['auto', 'force'], true) ? $merged['mode'] : 'auto';
         $merged['force_country'] = strtoupper(substr(sanitize_text_field((string) ($merged['force_country'] ?? '')), 0, 2));
@@ -883,7 +908,8 @@ final class Admin
             return $preserved;
         }
         $value = is_array($value) ? $value : [];
-        $merged = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_DEFAULT_IMAGES, []), $defaults);
+        $merged = wp_parse_args($value, $existing);
 
         $merged['helmet_attachment_id'] = max(0, (int) ($merged['helmet_attachment_id'] ?? 0));
         $merged['brand_attachment_id'] = max(0, (int) ($merged['brand_attachment_id'] ?? 0));
@@ -903,7 +929,8 @@ final class Admin
             return $preserved;
         }
         $value = is_array($value) ? $value : [];
-        $merged = wp_parse_args($value, $defaults);
+        $existing = wp_parse_args((array) get_option(Config::OPTION_ADSENSE, []), $defaults);
+        $merged = wp_parse_args($value, $existing);
         $merged['enable_adsense'] = ! empty($merged['enable_adsense']);
         $merged['enable_auto_ads'] = ! empty($merged['enable_auto_ads']);
         $merged['publisher_id'] = sanitize_text_field((string) ($merged['publisher_id'] ?? ''));
@@ -3244,6 +3271,7 @@ final class Admin
         echo '<form method="post" action="' . esc_url(admin_url('options.php')) . '">';
         settings_fields('helmetsan_settings');
         echo '<input type="hidden" name="action" value="update" />';
+        echo '<input type="hidden" name="helmetsan_stab" value="' . esc_attr($activeTab) . '" />';
 
         // Tab navigation
         echo '<nav class="nav-tab-wrapper" style="margin-bottom:20px;">';
