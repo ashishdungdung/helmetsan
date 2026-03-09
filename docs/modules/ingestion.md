@@ -47,7 +47,15 @@ graph TD
 
 ## Meta Fields Written
 
-The ingestion service writes extensive post meta including: `price_usd`, `price_eur`, `price_gbp`, `weight`, `shell_material`, `visor_type`, `ventilation`, `ean`, `model_year`, `safety_standards`, `variants_json`, `features_json`, `geo_media_json`, and many more.
+The ingestion service writes extensive post meta including: `price_usd`, `price_eur`, `price_gbp`, `spec_weight_g`, `spec_shell_material`, `spec_shell_sizes`, `visor_features_json`, `liner_features_json`, `ean`, `model_year` (when present in JSON), `variants_json`, `features_json`, `geo_media_json`, `safety_intelligence_json`, `aero_acoustic_profile_json`, `tech_integration_json`, `fitment_coordinates_json`, and many more. Certifications are also written to the `certification` taxonomy.
+
+### Product identifiers
+
+From the optional `identifiers` object in helmet/accessory JSON, ingestion writes: `ean`, `upc`, `gtin`, `sku`, `mpn`, `fsn`, and `affiliate_asin` (from `identifiers.asin`). Legacy fields are also mapped: `product_details.mfr_product_number` → `mpn`, top-level `sku` → `sku`, and `affiliate.amazon_asin` → `affiliate_asin`. These meta keys power **identifier search** (search by ASIN, EAN, SKU, MPN, FSN) and marketplace feed matching.
+
+### Round-trip and push to GitHub
+
+**ExportService** (Import/Export) builds helmet JSON from WordPress post meta for export. It includes the same fields ingestion writes: `identifiers`, `model_year`, `specs.shell_sizes`, `safety_intelligence`, `aero_acoustic_profile`, `tech_integration`, `fitment_coordinates`, `geo_media`, `key_specs`, `compatible_accessories`, and all other stored JSON blocks. So when you export a helmet to a JSON file and then run sync **push**, the file pushed to GitHub contains the full structure. Ingestion itself does not write to GitHub; see [Sync module](sync.md#ingestion-and-github).
 
 ## Locking Mechanism
 

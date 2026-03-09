@@ -212,6 +212,37 @@
   color: #084298;
 }
 
+.entity-card__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.entity-card__category-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(10, 132, 255, 0.1);
+  color: #084298;
+  text-decoration: none;
+  border: 1px solid rgba(10, 132, 255, 0.2);
+}
+
+.entity-card__category-tag:hover {
+  background: rgba(10, 132, 255, 0.18);
+}
+
+.entity-card__action {
+  margin: 0.75rem 0 0;
+  font-size: 14px;
+}
+
+.entity-card__action .hs-link {
+  font-weight: 500;
+}
+
 .hs-grid {
   display: grid;
   gap: 1rem;

@@ -90,6 +90,20 @@ final class AccessoryService
         if (isset($data['youth_adult']) && is_string($data['youth_adult']) && $data['youth_adult'] !== '') {
             update_post_meta($postId, 'accessory_youth_adult', sanitize_text_field($data['youth_adult']));
         }
+
+        // Product identifiers for search and marketplace matching
+        $idKeys = ['ean', 'upc', 'gtin', 'sku', 'mpn', 'fsn'];
+        $identifiers = isset($data['identifiers']) && is_array($data['identifiers']) ? $data['identifiers'] : [];
+        foreach ($idKeys as $key) {
+            $val = isset($identifiers[$key]) ? trim((string) $identifiers[$key]) : '';
+            if ($val !== '') {
+                update_post_meta($postId, $key, sanitize_text_field($val));
+            }
+        }
+        if (isset($identifiers['asin']) && trim((string) $identifiers['asin']) !== '') {
+            update_post_meta($postId, 'affiliate_asin', sanitize_text_field((string) $identifiers['asin']));
+        }
+
         update_post_meta($postId, 'accessory_electric_compatible', ! empty($data['electric_compatible']) ? '1' : '0');
         update_post_meta($postId, 'accessory_pinlock_ready', ! empty($data['pinlock_ready']) ? '1' : '0');
         update_post_meta($postId, 'accessory_snow_compatible', ! empty($data['snow_compatible']) ? '1' : '0');
@@ -176,31 +190,145 @@ final class AccessoryService
     }
 
     /**
-     * Map payload "type" to an existing accessory_category term name when parent_category/subcategory are missing.
+     * Map payload "type" (or parent_category / subcategory) to an existing accessory_category term name.
+     * Covers Communication & Tech, Visors & Optics, Comfort & Care, Safety & Parts, and common synonyms.
      *
      * @return string|null Term name or null if no mapping
      */
     private function mapTypeToAccessoryCategory(string $type): ?string
     {
+        $normalized = trim($type);
+        if ($normalized === '') {
+            return null;
+        }
         $map = [
+            // Communication & Tech
             'Communication System' => 'Communications',
-            'Face Shield' => 'Visors & Shields',
-            'Visor' => 'Visors & Shields',
-            'Visor Insert' => 'Visors & Shields',
-            'Visor Accessory' => 'Visors & Shields',
-            'Anti-Fog Lens' => 'Visors & Shields',
-            'Maintenance' => 'Maintenance & Care',
-            'Storage' => 'Maintenance & Care',
-            'Replacement Parts' => 'Inner Liners',
-            'Replacement Liner' => 'Inner Liners',
-            'Riding Gear' => 'Inner Liners',
+            'Communications' => 'Communications',
+            'Bluetooth Headset' => 'Bluetooth Headsets',
+            'Bluetooth Headsets' => 'Bluetooth Headsets',
+            'Bluetooth' => 'Bluetooth Headsets',
+            'Mesh Intercom' => 'Mesh Intercoms',
+            'Mesh Intercoms' => 'Mesh Intercoms',
+            'Intercom' => 'Mesh Intercoms',
+            'Helmet Camera' => 'Helmet Cameras',
+            'Helmet Cameras' => 'Helmet Cameras',
             'Camera Mount' => 'Helmet Cameras',
-            'Security' => 'Maintenance & Care',
-            'Hardware' => 'Maintenance & Care',
+            'Action Camera' => 'Helmet Cameras',
             'Hearing Protection' => 'Audio Kits',
+            'Audio Kits' => 'Audio Kits',
+            'Audio' => 'Audio Kits',
+            'Speakers' => 'Audio Kits',
+            'Speaker' => 'Audio Kits',
+            'GPS Navigation' => 'GPS Navigation',
+            'GPS' => 'GPS Navigation',
+            'Smart Helmet Add-ons' => 'Smart Helmet Add-ons',
+            'Smart Helmet' => 'Smart Helmet Add-ons',
+            'Electronics' => 'Electronics',
             'Safety' => 'Electronics',
+            // Visors & Optics
+            'Face Shield' => 'Face Shields',
+            'Face Shields' => 'Face Shields',
+            'Visor' => 'Face Shields',
+            'Visors & Shields' => 'Face Shields',
+            'Visors & Optics' => 'Face Shields',
+            'Pinlock Insert' => 'Pinlock Inserts',
+            'Pinlock Inserts' => 'Pinlock Inserts',
+            'Pinlock' => 'Pinlock Inserts',
+            'Tear-Off' => 'Tear-Offs',
+            'Tear-Offs' => 'Tear-Offs',
+            'Tear Off' => 'Tear-Offs',
+            'Goggles' => 'Goggles',
+            'Goggle' => 'Goggles',
+            'Replacement Lenses' => 'Replacement Lenses',
+            'Replacement Lens' => 'Replacement Lenses',
+            'Lens' => 'Replacement Lenses',
+            'Anti-Fog Lens' => 'Anti-Fog Solutions',
+            'Anti-Fog Solutions' => 'Anti-Fog Solutions',
+            'Anti Fog' => 'Anti-Fog Solutions',
+            'Sun Visor' => 'Sun Visors',
+            'Sun Visors' => 'Sun Visors',
+            'Internal Sun Visor' => 'Sun Visors',
+            // Comfort & Care
+            'Cheek Pads' => 'Cheek Pads',
+            'Cheek Pad' => 'Cheek Pads',
+            'Liners' => 'Liners',
+            'Liner' => 'Liners',
+            'Inner Liners' => 'Liners',
+            'Replacement Liner' => 'Liners',
+            'Helmet Cleaners' => 'Helmet Cleaners',
+            'Helmet Cleaner' => 'Helmet Cleaners',
+            'Visor Cleaners' => 'Visor Cleaners',
+            'Visor Cleaner' => 'Visor Cleaners',
+            'Helmet Bags' => 'Helmet Bags',
+            'Helmet Bag' => 'Helmet Bags',
+            'Balaclavas' => 'Balaclavas',
+            'Balaclava' => 'Balaclavas',
+            'Breath Guards' => 'Breath Guards',
+            'Breath Guard' => 'Breath Guards',
+            // Safety & Parts
+            'Breath Boxes' => 'Breath Boxes',
+            'Breath Box' => 'Breath Boxes',
+            'Peak Visors' => 'Peak Visors',
+            'Peak Visor' => 'Peak Visors',
+            'Replacement Vents' => 'Replacement Vents',
+            'Vents' => 'Replacement Vents',
+            'Pivot Kits' => 'Pivot Kits',
+            'Pivot Kit' => 'Pivot Kits',
+            'Chin Curtains' => 'Chin Curtains',
+            'Chin Curtain' => 'Chin Curtains',
+            'Reflective Stickers' => 'Reflective Stickers',
+            'Reflective Sticker' => 'Reflective Stickers',
+            // Legacy / generic
+            'Maintenance' => 'Helmet Cleaners',
+            'Maintenance & Care' => 'Helmet Cleaners',
+            'Storage' => 'Helmet Bags',
+            'Replacement Parts' => 'Replacement Vents',
+            'Riding Gear' => 'Liners',
+            'Security' => 'Reflective Stickers',
+            'Hardware' => 'Pivot Kits',
+            'Visor Insert' => 'Pinlock Inserts',
+            'Visor Accessory' => 'Face Shields',
         ];
-        return $map[$type] ?? null;
+        if (isset($map[$normalized])) {
+            return $map[$normalized];
+        }
+        $lower = strtolower($normalized);
+        foreach ($map as $key => $termName) {
+            if (strtolower($key) === $lower) {
+                return $termName;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Resolve category term name from accessory meta (parent_category, subcategory, type).
+     * Used by backfill to assign category when ingestion did not set it.
+     *
+     * @return string|null Term name or null
+     */
+    public function resolveCategoryFromMeta(int $postId): ?string
+    {
+        $parent = (string) get_post_meta($postId, 'accessory_parent_category', true);
+        $sub = (string) get_post_meta($postId, 'accessory_subcategory', true);
+        $type = (string) get_post_meta($postId, 'accessory_type', true);
+
+        foreach ([$parent, $sub, $type] as $value) {
+            if ($value === '') {
+                continue;
+            }
+            $mapped = $this->mapTypeToAccessoryCategory($value);
+            if ($mapped !== null) {
+                return $mapped;
+            }
+        }
+        $slug = sanitize_title($parent !== '' ? $parent : ($sub !== '' ? $sub : $type));
+        if ($slug === '') {
+            return null;
+        }
+        $term = get_term_by('slug', $slug, 'accessory_category');
+        return $term instanceof \WP_Term ? $term->name : null;
     }
 
     private function setJsonMeta(int $postId, string $metaKey, mixed $value): void

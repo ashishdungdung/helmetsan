@@ -48,9 +48,15 @@ $categories = [
 ];
 
 foreach ($categories as $name => $desc) {
-    if (!term_exists($name, 'accessory_category')) {
-        wp_insert_term($name, 'accessory_category', ['description' => $desc]);
-        echo "Created category: $name\n";
+    $slug = sanitize_title($name);
+    $existing = get_term_by('slug', $slug, 'accessory_category');
+    if ($existing) {
+        wp_update_term($existing->term_id, 'accessory_category', ['description' => $desc]);
+        continue;
+    }
+    if (! term_exists($name, 'accessory_category')) {
+        wp_insert_term($name, 'accessory_category', ['description' => $desc, 'slug' => $slug]);
+        echo "Created category: $name ($slug)\n";
     }
 }
 

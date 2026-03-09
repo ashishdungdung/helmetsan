@@ -93,9 +93,11 @@ wp helmetsan woo-bridge sync --limit=100 --dry-run
 - Sync actions are audited in `wp_helmetsan_sync_logs` (pull/push mode, branch, counts, status, payload).
 - Admin sync audit view is available at `Helmetsan > Sync Logs` with filters, pagination, and payload detail view.
 
-## SEO Schema
-- Product JSON-LD is injected automatically on single `helmet` pages.
-- Schema audit command: `wp helmetsan seo schema-check` to identify missing required fields.
+## SEO Schema (rich results)
+- **Product** JSON-LD on single helmet, accessory, and motorcycle pages (name, image, brand, offers with **priceValidUntil**, optional aggregateRating/review from meta). See project `docs/seo-rich-schema.md`.
+- **BreadcrumbList** on singular and archive pages; **WebSite** and **Organization** on front page; **ItemList** on helmet/accessory/motorcycle archives.
+- Optional meta for star ratings: `aggregate_rating_json`, `reviews_json` (consumer reviews only).
+- Schema audit: `wp helmetsan seo schema-check` to identify missing required fields for helmets.
 
 ## Revenue Tracking
 - Cloaked outbound links use `/go/{helmet-slug}` and are logged to `wp_helmetsan_clicks`.

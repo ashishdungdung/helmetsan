@@ -595,7 +595,7 @@ final class SyncService
     private function sanitizeProfile(string $profile): string
     {
         $profile = strtolower(trim($profile));
-        if (! in_array($profile, ['pull-only', 'pull+brands', 'pull+all'], true)) {
+        if (! in_array($profile, ['pull-only', 'pull+brands', 'pull+helmets', 'pull+all'], true)) {
             return 'pull-only';
         }
 
@@ -609,6 +609,7 @@ final class SyncService
     {
         $defaults = match ($profile) {
             'pull+brands' => ['apply_brands' => true, 'apply_helmets' => false],
+            'pull+helmets' => ['apply_brands' => false, 'apply_helmets' => true],
             'pull+all' => ['apply_brands' => true, 'apply_helmets' => true],
             default => ['apply_brands' => false, 'apply_helmets' => false],
         };

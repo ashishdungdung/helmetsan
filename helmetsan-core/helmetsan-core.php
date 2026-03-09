@@ -23,6 +23,8 @@ define('HELMETSAN_CORE_FILE', __FILE__);
 define('HELMETSAN_CORE_DIR', plugin_dir_path(__FILE__));
 define('HELMETSAN_CORE_URL', plugin_dir_url(__FILE__));
 
+require_once HELMETSAN_CORE_DIR . 'stubs/helmetsan-constants.php';
+
 spl_autoload_register(static function (string $class): void {
     $prefix = 'Helmetsan\\Core\\';
 

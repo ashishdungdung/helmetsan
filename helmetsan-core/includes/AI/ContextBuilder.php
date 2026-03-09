@@ -21,10 +21,22 @@ final class ContextBuilder
             $type = $data['type'] ?? 'motorcycle helmet';
             $certs = $data['certifications'] ?? [];
             $price = $data['price'] ?? null;
+            $family = $data['helmet_family'] ?? null;
+            $features = $data['feature_tags'] ?? [];
+            $useCase = $data['use_case'] ?? null;
             $prompt = "Write exactly one meta description for a motorcycle helmet product page. "
                 . "Product: {$product}. Type: {$type}. ";
             if ($certs !== []) {
                 $prompt .= "Certifications: " . implode(', ', array_slice($certs, 0, 3)) . ". ";
+            }
+            if ($family !== null && $family !== '') {
+                $prompt .= "Series/family: {$family}. ";
+            }
+            if ($features !== []) {
+                $prompt .= "Features: " . implode(', ', array_slice($features, 0, 4)) . ". ";
+            }
+            if ($useCase !== null && $useCase !== '') {
+                $prompt .= "Use case: {$useCase}. ";
             }
             if ($price !== null && $price !== '') {
                 $prompt .= "Price: {$price}. ";
@@ -37,10 +49,19 @@ final class ContextBuilder
         if ($entityType === 'brand') {
             $brand = $data['brand'] ?? 'Brand';
             $country = $data['country'] ?? '';
-            return "Write exactly one meta description for a motorcycle helmet brand hub page. "
-                . "Brand: {$brand}. " . ($country !== '' ? "Origin: {$country}. " : '')
-                . "Requirements: 150-160 characters. Mention full face, modular, adventure helmets; compare prices and certifications; "
+            $motto = $data['motto'] ?? null;
+            $story = $data['story_snippet'] ?? null;
+            $prompt = "Write exactly one meta description for a motorcycle helmet brand hub page. "
+                . "Brand: {$brand}. " . ($country !== '' ? "Origin: {$country}. " : '');
+            if ($motto !== null && $motto !== '') {
+                $prompt .= "Tagline: {$motto}. ";
+            }
+            if ($story !== null && $story !== '') {
+                $prompt .= "Context: {$story}. ";
+            }
+            $prompt .= "Requirements: 150-160 characters. Mention full face, modular, adventure helmets; compare prices and certifications; "
                 . "end with CTA like 'Official reviews at Helmetsan'. Output ONLY the meta description, no quotes or explanation.";
+            return $prompt;
         }
         if ($entityType === 'accessory') {
             $title = $data['title'] ?? 'Product';

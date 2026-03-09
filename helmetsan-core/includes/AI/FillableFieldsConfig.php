@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace Helmetsan\Core\AI;
 
 /**
- * Defines which entity meta fields can be AI-filled when missing (Phase 2).
+ * Defines which entity meta fields can be AI-filled when missing (Phase 2+).
  * Each field can have: label (for prompt), max_length, allowed_values (validation).
+ * Used by seeder pipeline, standalone CLI (fill-missing), and AI admin.
+ * @see docs/ai-seeder-enrichment-roadmap.md
  * @phpstan-type FieldConfig array{label: string, max_length?: int, allowed_values?: list<string>}
  */
 final class FillableFieldsConfig
@@ -37,6 +39,37 @@ final class FillableFieldsConfig
                 'label' => 'Manufacturer warranty duration in years (single number, e.g. 5)',
                 'max_length' => 10,
                 'allowed_values' => ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            ],
+            // Extended meta (roadmap: seeder, standalone, AI admin)
+            'use_case' => [
+                'label' => 'Primary use case (e.g. touring, racing, commuter, adventure, track)',
+                'max_length' => 80,
+            ],
+            'price_range' => [
+                'label' => 'Price tier for filtering',
+                'allowed_values' => ['budget', 'mid-range', 'premium', 'luxury'],
+            ],
+            'model_year' => [
+                'label' => 'Model year or release year (4 digits, e.g. 2024)',
+                'max_length' => 4,
+            ],
+            // Yoast SEO (AI can suggest; stored as _yoast_wpseo_* by SEO seed or fill-missing)
+            'yoast_title' => [
+                'label' => 'SEO title (under 60 chars, include brand and type)',
+                'max_length' => 60,
+            ],
+            'yoast_metadesc' => [
+                'label' => 'Meta description (under 160 chars, call-to-action, specs/certs)',
+                'max_length' => 160,
+            ],
+            'yoast_focuskw' => [
+                'label' => 'Focus keyphrase (primary search phrase)',
+                'max_length' => 60,
+            ],
+            // Cross-linking (JSON array of internal URLs or post IDs)
+            'outgoing_internal_links_json' => [
+                'label' => 'JSON array of related internal link URLs or post IDs (same brand, type, or cert)',
+                'max_length' => 2000,
             ],
         ];
     }
@@ -153,5 +186,41 @@ final class FillableFieldsConfig
             return null;
         }
         return array_values(array_map('strval', $a));
+    }
+
+    /**
+     * Taxonomies that AI can suggest terms for (term slug/name → wp_set_object_terms).
+     * Used by fill-missing and cross-link; only assign existing terms unless config allows create.
+     *
+     * @return array<string, array<string, string>> post_type => [ taxonomy => label for prompt ]
+     */
+    public static function taxonomyFillableConfig(): array
+    {
+        return [
+            'helmet' => [
+                'helmet_type'   => 'Helmet type (e.g. Full Face, Modular, Open Face)',
+                'certification' => 'Safety certifications (e.g. DOT, ECE, Snell)',
+                'feature_tag'   => 'Feature tags (e.g. Bluetooth-ready, Pinlock, MIPS)',
+                'helmet_brand'  => 'Brand taxonomy term (match to rel_brand when possible)',
+            ],
+            'brand' => [],
+            'accessory' => [
+                'accessory_category' => 'Accessory category (e.g. Visors & Shields, Communications)',
+            ],
+        ];
+    }
+
+    /**
+     * Meta keys that map to Yoast SEO post meta (for fill-missing → Yoast sync).
+     *
+     * @return array<string, string> fillable_key => yoast_meta_key
+     */
+    public static function yoastMetaMapping(): array
+    {
+        return [
+            'yoast_title'    => '_yoast_wpseo_title',
+            'yoast_metadesc' => '_yoast_wpseo_metadesc',
+            'yoast_focuskw'  => '_yoast_wpseo_focuskw',
+        ];
     }
 }

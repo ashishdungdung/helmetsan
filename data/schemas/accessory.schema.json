@@ -8,6 +8,19 @@
     "id": { "type": "string" },
     "title": { "type": "string" },
     "type": { "type": "string" },
+    "identifiers": {
+      "type": "object",
+      "description": "Product identifiers for search and marketplace matching",
+      "properties": {
+        "asin": { "type": "string" },
+        "ean": { "type": "string" },
+        "upc": { "type": "string" },
+        "gtin": { "type": "string" },
+        "sku": { "type": "string" },
+        "mpn": { "type": "string" },
+        "fsn": { "type": "string" }
+      }
+    },
     "parent_category": { "type": "string" },
     "subcategory": { "type": "string" },
     "compatible_helmet_types": { "type": "array", "items": { "type": "string" } },

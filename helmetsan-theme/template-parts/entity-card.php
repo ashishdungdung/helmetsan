@@ -14,14 +14,24 @@ $type   = get_post_type($postId);
 $logoUrl = helmetsan_get_logo_url($postId);
 $metaA  = '';
 $metaB  = '';
+$catTerms = null;
 
 if ($type === 'brand') {
     $metaA = (string) get_post_meta($postId, 'brand_origin_country', true);
     $metaB = (string) get_post_meta($postId, 'brand_helmet_types', true);
 } elseif ($type === 'accessory') {
-    $metaA = (string) get_post_meta($postId, 'accessory_parent_category', true);
+    $catTerms = get_the_terms($postId, 'accessory_category');
+    if (is_array($catTerms) && ! is_wp_error($catTerms) && $catTerms !== []) {
+        $catTerms = array_values($catTerms);
+        $metaA = implode(', ', array_map(static function ($t) {
+            return $t->name;
+        }, array_slice($catTerms, 0, 2)));
+    }
     if ($metaA === '') {
-        $metaA = (string) get_post_meta($postId, 'accessory_type', true);
+        $metaA = (string) get_post_meta($postId, 'accessory_parent_category', true);
+        if ($metaA === '') {
+            $metaA = (string) get_post_meta($postId, 'accessory_type', true);
+        }
     }
     $metaB = (string) get_post_meta($postId, 'accessory_subcategory', true);
     if ($metaB === '') {
@@ -45,12 +55,25 @@ if ($type === 'brand') {
     <?php if (has_excerpt()) : ?>
         <p class="entity-card__excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
     <?php endif; ?>
+    <?php if ($type === 'accessory' && $catTerms !== null && is_array($catTerms) && $catTerms !== []) : ?>
+        <div class="entity-card__categories">
+            <?php foreach (array_slice($catTerms, 0, 3) as $t) :
+                $catUrl = get_term_link($t);
+                if (is_wp_error($catUrl)) {
+                    $catUrl = '#';
+                }
+                ?>
+                <a class="entity-card__category-tag" href="<?php echo esc_url($catUrl); ?>"><?php echo esc_html($t->name); ?></a>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
     <div class="entity-card__meta">
         <?php if ($metaA !== '') : ?>
             <code><?php echo esc_html(wp_trim_words($metaA, 12, '...')); ?></code>
         <?php endif; ?>
-        <?php if ($metaB !== '') : ?>
+        <?php if ($metaB !== '' && $metaB !== $metaA) : ?>
             <code><?php echo esc_html(wp_trim_words($metaB, 12, '...')); ?></code>
         <?php endif; ?>
     </div>
+    <p class="entity-card__action"><a class="hs-link" href="<?php the_permalink(); ?>">View product</a></p>
 </article>

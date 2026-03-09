@@ -60,7 +60,7 @@ final class RevenueService
             KEY click_source (click_source),
             KEY affiliate_network (affiliate_network),
             KEY created_at (created_at)
-        ) {$charset};";;
+        ) {$charset};";
 
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta($sql);

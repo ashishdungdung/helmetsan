@@ -59,6 +59,9 @@ final class AiAdmin
             $postedKey = isset($_POST[$key . '_key']) ? sanitize_text_field(wp_unslash($_POST[$key . '_key'])) : '';
             $providers[$id]['api_key'] = $postedKey !== '' ? $postedKey : (string) ($providers[$id]['api_key'] ?? '');
             $providers[$id]['model'] = isset($_POST[$key . '_model']) ? sanitize_text_field(wp_unslash($_POST[$key . '_model'])) : ($defaults['providers'][$id]['model'] ?? '');
+            if ($id === 'lm_studio' && isset($_POST[$key . '_base_url'])) {
+                $providers[$id]['base_url'] = sanitize_text_field(wp_unslash($_POST[$key . '_base_url']));
+            }
         }
         $settings = get_option(Config::OPTION_AI, $defaults);
         $settings['providers'] = $providers;
@@ -103,17 +106,24 @@ final class AiAdmin
         echo '<div class="hs-panel" style="max-width: 720px; margin-top: 1.5rem;">';
         echo '<h2 class="title">' . esc_html__('Free / low-cost providers', 'helmetsan-core') . '</h2>';
         echo '<p class="description">' . esc_html__('Use these first to minimize cost. At least one enabled with API key is required for AI features.', 'helmetsan-core') . '</p>';
-        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th></tr></thead><tbody>';
+        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key / Base URL', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th></tr></thead><tbody>';
         foreach ($freeIds as $id) {
-            $p = $providers[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => ''];
+            $p = $providers[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => '', 'base_url' => ''];
             $def = $this->config->aiDefaults()['providers'][$id];
             $model = $p['model'] ?? $def['model'];
             $label = $this->providerLabel($id);
+            $bestFor = $this->providerBestFor($id);
             echo '<tr>';
             echo '<td><strong>' . esc_html($label) . '</strong></td>';
+            echo '<td><span class="description">' . esc_html($bestFor) . '</span></td>';
             echo '<td><input type="checkbox" name="helmetsan_ai_' . esc_attr($id) . '_enabled" value="1" ' . checked(! empty($p['enabled']), true, false) . ' /></td>';
-            echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" placeholder="' . esc_attr__('API key', 'helmetsan-core') . '" /></td>';
-            echo '<td><input type="text" name="helmetsan_ai_' . esc_attr($id) . '_model" value="' . esc_attr($model) . '" class="regular-text" placeholder="' . esc_attr($def['model']) . '" /></td>';
+            if ($id === 'lm_studio') {
+                $baseUrl = (string) ($p['base_url'] ?? $def['base_url'] ?? 'http://localhost:1234/v1');
+                echo '<td><input type="url" name="helmetsan_ai_' . esc_attr($id) . '_base_url" value="' . esc_attr($baseUrl) . '" class="regular-text" placeholder="http://localhost:1234/v1" /></td>';
+            } else {
+                echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" placeholder="' . esc_attr__('API key', 'helmetsan-core') . '" /></td>';
+            }
+            echo '<td><input type="text" name="helmetsan_ai_' . esc_attr($id) . '_model" value="' . esc_attr($model) . '" class="regular-text" placeholder="' . esc_attr($def['model'] ?? '') . '" /></td>';
             echo '</tr>';
         }
         echo '</tbody></table>';
@@ -127,14 +137,16 @@ final class AiAdmin
         echo '<div class="hs-panel" style="max-width: 720px; margin-top: 1.5rem;">';
         echo '<h2 class="title">' . esc_html__('Premium providers', 'helmetsan-core') . '</h2>';
         echo '<p class="description">' . esc_html__('Dedicated controls for higher-quality or paid models. Optional.', 'helmetsan-core') . '</p>';
-        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th></tr></thead><tbody>';
+        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th></tr></thead><tbody>';
         foreach ($premiumIds as $id) {
             $p = $providers[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => ''];
             $def = $this->config->aiDefaults()['providers'][$id];
             $model = $p['model'] ?? $def['model'];
             $label = $this->providerLabel($id);
+            $bestFor = $this->providerBestFor($id);
             echo '<tr>';
             echo '<td><strong>' . esc_html($label) . '</strong></td>';
+            echo '<td><span class="description">' . esc_html($bestFor) . '</span></td>';
             echo '<td><input type="checkbox" name="helmetsan_ai_' . esc_attr($id) . '_enabled" value="1" ' . checked(! empty($p['enabled']), true, false) . ' /></td>';
             echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" /></td>';
             echo '<td><input type="text" name="helmetsan_ai_' . esc_attr($id) . '_model" value="' . esc_attr($model) . '" class="regular-text" placeholder="' . esc_attr($def['model']) . '" /></td>';
@@ -195,7 +207,7 @@ final class AiAdmin
             wp_die(esc_html__('You do not have permission.', 'helmetsan-core'));
         }
         $service = new FillMissingService($this->aiService);
-        $result = $service->run('helmet', 10, 0, true, null, false, false, null, null, 0);
+        $result = $service->run('helmet', 10, 0, true, null, false, false, true, null, null, 0, 0);
         set_transient(self::FILL_RESULT_TRANSIENT, array_merge($result, ['dry' => true]), 60);
         wp_safe_redirect(admin_url('admin.php?page=helmetsan-ai&fill_done=1'));
         exit;
@@ -210,7 +222,7 @@ final class AiAdmin
             wp_die(esc_html__('You do not have permission.', 'helmetsan-core'));
         }
         $service = new FillMissingService($this->aiService);
-        $result = $service->run('helmet', 10, 0, false, null, false, false, null, null, 86400);
+        $result = $service->run('helmet', 10, 0, false, null, false, false, true, null, null, 86400, null);
         set_transient(self::FILL_RESULT_TRANSIENT, array_merge($result, ['dry' => false]), 60);
         wp_safe_redirect(admin_url('admin.php?page=helmetsan-ai&fill_done=1'));
         exit;
@@ -224,9 +236,34 @@ final class AiAdmin
             'mistral' => 'Mistral AI',
             'openrouter' => 'OpenRouter',
             'huggingface' => 'Hugging Face',
+            'together' => 'Together AI',
+            'fireworks' => 'Fireworks AI',
+            'cohere' => 'Cohere',
+            'lm_studio' => 'LM Studio (local)',
             'openai' => 'OpenAI (ChatGPT)',
+            'anthropic' => 'Anthropic (Claude)',
             'perplexity' => 'Perplexity',
             default => $id,
+        };
+    }
+
+    /** Short "best for" description for admin provider table. */
+    private function providerBestFor(string $id): string
+    {
+        return match ($id) {
+            'groq' => 'Meta descriptions, fill-missing (fast, free tier)',
+            'gemini' => 'Meta descriptions, longer copy (free tier)',
+            'mistral' => 'Meta descriptions, fill-missing (good balance)',
+            'openrouter' => 'Many models via one key (pay-per-use)',
+            'huggingface' => 'Fill-missing, classification (rate limits)',
+            'together' => 'Fast inference, fill-missing (free/low-cost)',
+            'fireworks' => 'Fast inference, many OSS models (free tier)',
+            'cohere' => 'Classification, short text (free tier)',
+            'lm_studio' => 'Local LLM (Zed, LM Studio); no API key',
+            'openai' => 'Highest quality when cost justified',
+            'anthropic' => 'Nuanced copy, long context',
+            'perplexity' => 'Research-style queries',
+            default => '—',
         };
     }
 }

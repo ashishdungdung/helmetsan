@@ -9,6 +9,9 @@ use Helmetsan\Core\AI\AiService;
 /**
  * Generates SEO meta descriptions via the AI module (plugin settings) or legacy env keys.
  * When AiService is provided and has configured providers, uses the module; otherwise Groq/Gemini from env.
+ *
+ * Security: API keys are read from plugin options or (legacy) getenv/constants. Do not log or echo
+ * option arrays or key values. The env/constant fallback is legacy; prefer configuring providers under Helmetsan → AI.
  */
 final class AiSeoDescriptionProvider
 {
@@ -89,14 +92,26 @@ final class AiSeoDescriptionProvider
 
     private function buildHelmetPrompt(array $context): string
     {
-        $product = ($context['brand'] !== '' ? $context['brand'] . ' ' : '') . $context['title'];
+        $product = ($context['brand'] !== '' ? $context['brand'] . ' ' : '') . ($context['title'] ?? '');
         $type = $context['type'] ?? 'motorcycle helmet';
         $certs = $context['certifications'] ?? [];
         $price = $context['price'] ?? null;
+        $family = $context['helmet_family'] ?? null;
+        $features = $context['feature_tags'] ?? [];
+        $useCase = $context['use_case'] ?? null;
         $prompt = "Write exactly one meta description for a motorcycle helmet product page. "
             . "Product: {$product}. Type: {$type}. ";
         if ($certs !== []) {
             $prompt .= "Certifications: " . implode(', ', array_slice($certs, 0, 3)) . ". ";
+        }
+        if ($family !== null && $family !== '') {
+            $prompt .= "Series/family: {$family}. ";
+        }
+        if ($features !== []) {
+            $prompt .= "Features: " . implode(', ', array_slice($features, 0, 4)) . ". ";
+        }
+        if ($useCase !== null && $useCase !== '') {
+            $prompt .= "Use case: {$useCase}. ";
         }
         if ($price !== null && $price !== '') {
             $prompt .= "Price: {$price}. ";
@@ -111,10 +126,19 @@ final class AiSeoDescriptionProvider
     {
         $brand = $context['brand'] ?? 'Brand';
         $country = $context['country'] ?? '';
-        return "Write exactly one meta description for a motorcycle helmet brand hub page. "
-            . "Brand: {$brand}. " . ($country !== '' ? "Origin: {$country}. " : '')
-            . "Requirements: 150-160 characters. Mention full face, modular, adventure helmets; compare prices and certifications; "
+        $motto = $context['motto'] ?? null;
+        $story = $context['story_snippet'] ?? null;
+        $prompt = "Write exactly one meta description for a motorcycle helmet brand hub page. "
+            . "Brand: {$brand}. " . ($country !== '' ? "Origin: {$country}. " : '');
+        if ($motto !== null && $motto !== '') {
+            $prompt .= "Tagline: {$motto}. ";
+        }
+        if ($story !== null && $story !== '') {
+            $prompt .= "Context: {$story}. ";
+        }
+        $prompt .= "Requirements: 150-160 characters. Mention full face, modular, adventure helmets; compare prices and certifications; "
             . "end with CTA like 'Official reviews at Helmetsan'. Output ONLY the meta description, no quotes or explanation.";
+        return $prompt;
     }
 
     private function buildAccessoryPrompt(array $context): string

@@ -49,12 +49,13 @@ Modules are grouped by domain. Each has a detailed doc in [`docs/modules/`](file
 
 ### 🔄 Data Pipeline
 
-| Module                                                                            | Service            | Purpose                               |
-| --------------------------------------------------------------------------------- | ------------------ | ------------------------------------- |
-| [Sync](file:///Users/anumac/Documents/Helmetsan/docs/modules/sync.md)             | `SyncService`      | GitHub ↔ WordPress bidirectional sync |
-| [Ingestion](file:///Users/anumac/Documents/Helmetsan/docs/modules/ingestion.md)   | `IngestionService` | JSON → WordPress CPT processing       |
-| [Repository](file:///Users/anumac/Documents/Helmetsan/docs/modules/data-layer.md) | `JsonRepository`   | Local JSON file management            |
-| [Validation](file:///Users/anumac/Documents/Helmetsan/docs/modules/data-layer.md) | `Validator`        | Schema validation & integrity checks  |
+| Module                                                                            | Service            | Purpose                                                                 |
+| --------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------- |
+| [Data flow](data-flow.md)                                                          | —                  | **Concept:** JSON ↔ WordPress ↔ GitHub; ingestion, export, sync pull/push |
+| [Sync](modules/sync.md)                                                            | `SyncService`      | **Pull** = download from GitHub then apply; **Push** = upload local JSON to GitHub |
+| [Ingestion](modules/ingestion.md)                                                 | `IngestionService` | **Read** JSON from disk → WordPress only (does not write to GitHub)    |
+| [Repository](modules/data-layer.md)                                               | `JsonRepository`   | Local JSON file management            |
+| [Validation](modules/data-layer.md)                                                | `Validator`        | Schema validation & integrity checks  |
 
 ### 🛒 Commerce & Marketplace
 
@@ -117,6 +118,8 @@ Modules are grouped by domain. Each has a detailed doc in [`docs/modules/`](file
 
 ## Data Flow
 
+- **Full concept and structure:** [Data flow: JSON ↔ WordPress ↔ GitHub](data-flow.md) — ingestion (read-only from JSON), export (WP → JSON), sync pull (GitHub → local then apply), sync push (local JSON → GitHub).
+
 ```mermaid
 sequenceDiagram
     participant Cron as SchedulerService
@@ -131,7 +134,7 @@ sequenceDiagram
     Cron->>Sync: runSyncPull()
     Sync->>GH: Fetch JSON files
     GH-->>Sync: JSON data
-    Sync->>Ing: ingestFiles()
+    Sync->>Ing: apply (ingest downloaded files)
     Ing->>WP: upsert helmets/brands
 
     Note over PDP: Visitor arrives
@@ -152,7 +155,7 @@ All services are initialized in [`Plugin.php`](file:///Users/anumac/Documents/He
 
 ## Key Design Principles
 
-- **JSON-first data** — Helmet data lives as JSON in GitHub, synced to WordPress
+- **JSON-first data** — Helmet data lives as JSON (in repo or exported from WP). Ingestion reads JSON → WordPress only; sync pull brings GitHub → local, sync push uploads local JSON → GitHub. See [Data flow](data-flow.md).
 - **Pluggable connectors** — Marketplace integrations via `MarketplaceConnectorInterface`
 - **Geo-aware pricing** — Visitors see prices from their country's marketplaces
 - **Error isolation** — One marketplace failure doesn't break the whole price display

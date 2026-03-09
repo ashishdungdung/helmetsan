@@ -2,6 +2,8 @@
 
 The Helmetsan AI module provides a single, configurable layer for all AI-powered features. It is designed for **lowest cost first** (free/low-cost providers) with **premium options** and dedicated controls when needed.
 
+**Data flow:** AI runs on **WordPress** data (fill-missing, SEO seed, cross-link). Ingestion reads JSON → WordPress only; it does not write to GitHub. To get AI-enriched content into the repo: **export** to JSON (Import/Export), then **sync push**. See [Data flow](data-flow.md).
+
 ## Phases
 
 | Phase | Purpose | Status |

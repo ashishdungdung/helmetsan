@@ -12,7 +12,7 @@ if ($archiveUrl === '') {
 // Redirect to clean URL when all filter params are empty.
 $cleanUrl = $archiveUrl;
 $allEmpty = true;
-foreach (['brand_slug', 'helmet_family', 'price_min', 'price_max', 'sort'] as $key) {
+foreach (['s', 'brand_slug', 'helmet_family', 'price_min', 'price_max', 'sort'] as $key) {
     if (isset($_GET[$key]) && trim((string) $_GET[$key]) !== '') {
         $allEmpty = false;
         break;
@@ -76,6 +76,7 @@ $brandSlug = sanitize_title($getString('brand_slug'));
 $helmetFamily = $getString('helmet_family');
 $priceMin = $getString('price_min');
 $priceMax = $getString('price_max');
+$searchTerm = $getString('s');
 $sort = $getString('sort');
 if ($sort === '') {
     $sort = 'newest';
@@ -109,6 +110,9 @@ $args = [
     'posts_per_page' => 40,
     'paged' => $paged,
 ];
+if ($searchTerm !== '') {
+    $args['s'] = $searchTerm;
+}
 
 $taxQuery = [];
 if ($selectedTypes !== []) {

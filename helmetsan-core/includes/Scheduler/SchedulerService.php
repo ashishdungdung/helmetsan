@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Scheduler;
 
+use Helmetsan\Core\AI\AiService;
+use Helmetsan\Core\AI\FillMissingService;
 use Helmetsan\Core\Alerts\AlertService;
 use Helmetsan\Core\Health\HealthService;
 use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository as IngestionLogRepository;
+use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
+use Helmetsan\Core\Seo\YoastSeoSeeder;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
@@ -19,6 +23,7 @@ final class SchedulerService
     public const HOOK_CLEANUP_LOGS = 'helmetsan_cron_cleanup_logs';
     public const HOOK_HEALTH_SNAPSHOT = 'helmetsan_cron_health_snapshot';
     public const HOOK_INGESTION = 'helmetsan_cron_ingestion';
+    public const HOOK_ENRICHMENT = 'helmetsan_cron_enrichment';
 
     public function __construct(
         private readonly Config $config,
@@ -27,7 +32,8 @@ final class SchedulerService
         private readonly IngestionLogRepository $ingestionLogs,
         private readonly SyncLogRepository $syncLogs,
         private readonly HealthService $health,
-        private readonly AlertService $alerts
+        private readonly AlertService $alerts,
+        private readonly ?AiService $aiService = null
     ) {
     }
 
@@ -40,6 +46,7 @@ final class SchedulerService
         add_action(self::HOOK_CLEANUP_LOGS, [$this, 'runCleanupLogs']);
         add_action(self::HOOK_HEALTH_SNAPSHOT, [$this, 'runHealthSnapshot']);
         add_action(self::HOOK_INGESTION, [$this, 'runIngestion']);
+        add_action(self::HOOK_ENRICHMENT, [$this, 'runEnrichment']);
 
         add_action('init', [$this, 'scheduleEvents']);
     }
@@ -56,6 +63,7 @@ final class SchedulerService
         $this->clearHook(self::HOOK_CLEANUP_LOGS);
         $this->clearHook(self::HOOK_HEALTH_SNAPSHOT);
         $this->clearHook(self::HOOK_INGESTION);
+        $this->clearHook(self::HOOK_ENRICHMENT);
     }
 
     /**
@@ -110,6 +118,13 @@ final class SchedulerService
 
         $ingestionRecurrence = $this->recurrenceFromHours((int) ($cfg['ingestion_interval_hours'] ?? 6));
         $this->ensureEvent(self::HOOK_INGESTION, $ingestionRecurrence);
+
+        if (! empty($cfg['enrichment_enabled']) && $this->aiService !== null && $this->aiService->hasAnyConfiguredProvider()) {
+            $enrichmentRecurrence = $this->recurrenceFromHours((int) ($cfg['enrichment_interval_hours'] ?? 24));
+            $this->ensureEvent(self::HOOK_ENRICHMENT, $enrichmentRecurrence);
+        } else {
+            $this->clearHook(self::HOOK_ENRICHMENT);
+        }
     }
 
     /**
@@ -125,6 +140,7 @@ final class SchedulerService
                 'cleanup_logs'    => wp_next_scheduled(self::HOOK_CLEANUP_LOGS),
                 'health_snapshot' => wp_next_scheduled(self::HOOK_HEALTH_SNAPSHOT),
                 'ingestion'       => wp_next_scheduled(self::HOOK_INGESTION),
+                'enrichment'      => wp_next_scheduled(self::HOOK_ENRICHMENT),
             ],
             'settings' => $this->config->schedulerConfig(),
         ];
@@ -141,6 +157,7 @@ final class SchedulerService
             'cleanup_logs' => $this->runCleanupLogs(),
             'health_snapshot' => $this->runHealthSnapshot(),
             'ingestion' => $this->runIngestion(),
+            'enrichment' => $this->runEnrichment(),
             default => ['ok' => false, 'message' => 'Unknown task: ' . $task],
         };
     }
@@ -293,6 +310,107 @@ final class SchedulerService
             return $result;
         } finally {
             $this->releaseLock('ingestion');
+        }
+    }
+
+    /**
+     * Run fill-missing then SEO seed for enabled post types (helmets/brands/accessories).
+     * Uses per-type limits from scheduler config. Requires AI configured.
+     *
+     * @return array<string,mixed>
+     */
+    public function runEnrichment(): array
+    {
+        if ($this->aiService === null || ! $this->aiService->hasAnyConfiguredProvider()) {
+            return ['ok' => false, 'message' => 'Enrichment requires at least one configured AI provider.'];
+        }
+        if (! $this->acquireLock('enrichment', 3600)) {
+            return ['ok' => false, 'message' => 'Enrichment is already running. Mutex lock blocked execution.'];
+        }
+
+        try {
+            $cfg = $this->config->schedulerConfig();
+
+            $typesConfig = [
+                'helmet' => [
+                    'enabled_key'     => 'enrichment_helmets_enabled',
+                    'fill_limit_key'  => 'enrichment_helmets_fill_limit',
+                    'seo_limit_key'   => 'enrichment_helmets_seo_limit',
+                    'fill_taxonomies' => true,
+                ],
+                'brand' => [
+                    'enabled_key'     => 'enrichment_brands_enabled',
+                    'fill_limit_key'  => 'enrichment_brands_fill_limit',
+                    'seo_limit_key'   => 'enrichment_brands_seo_limit',
+                    'fill_taxonomies' => false,
+                ],
+                'accessory' => [
+                    'enabled_key'     => 'enrichment_accessories_enabled',
+                    'fill_limit_key'  => 'enrichment_accessories_fill_limit',
+                    'seo_limit_key'   => 'enrichment_accessories_seo_limit',
+                    'fill_taxonomies' => true,
+                ],
+            ];
+
+            $fillService = new FillMissingService($this->aiService);
+            $aiProvider = new AiSeoDescriptionProvider($this->aiService);
+            $seeder = new YoastSeoSeeder($aiProvider);
+
+            $results = [];
+            $anyEnabled = false;
+
+            foreach ($typesConfig as $postType => $meta) {
+                $enabledKey = $meta['enabled_key'];
+                if (empty($cfg[$enabledKey])) {
+                    continue;
+                }
+                $anyEnabled = true;
+
+                // Fallback to global limits if per-type limits are not set (backwards compatibility).
+                $globalFill = (int) ($cfg['enrichment_fill_limit'] ?? 50);
+                $globalSeo  = (int) ($cfg['enrichment_seo_limit'] ?? 100);
+
+                $fillLimit = max(1, (int) ($cfg[$meta['fill_limit_key']] ?? $globalFill));
+                $seoLimit  = max(0, (int) ($cfg[$meta['seo_limit_key']] ?? $globalSeo));
+
+                $fillResult = $fillService->run(
+                    $postType,
+                    $fillLimit,
+                    0,
+                    false,
+                    null,
+                    true,
+                    false,
+                    (bool) $meta['fill_taxonomies'],
+                    null,
+                    null,
+                    86400
+                );
+
+                if ($postType === 'helmet') {
+                    $seoResult = $seeder->seedHelmets($seoLimit > 0 ? $seoLimit : 0, 0, false);
+                } elseif ($postType === 'brand') {
+                    $seoResult = $seeder->seedBrands($seoLimit > 0 ? $seoLimit : 0, 0, false);
+                } else { // accessory
+                    $seoResult = $seeder->seedAccessories($seoLimit > 0 ? $seoLimit : 0, 0, false);
+                }
+
+                $results[$postType] = [
+                    'fill_missing' => $fillResult,
+                    'seo_seed'     => $seoResult,
+                ];
+            }
+
+            if (! $anyEnabled) {
+                return ['ok' => false, 'message' => 'No enrichment post types are enabled in scheduler settings.'];
+            }
+
+            return [
+                'ok'      => true,
+                'results' => $results,
+            ];
+        } finally {
+            $this->releaseLock('enrichment');
         }
     }
 

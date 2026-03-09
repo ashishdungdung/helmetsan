@@ -28,11 +28,10 @@ Build `Helmetsan Core` as a WordPress plugin that acts as:
 
 ### 1.3 High-Level Topology
 
-1. AI/manual ingestion creates/updates JSON.
-2. GitHub stores/version-controls JSON/content files.
-3. `Helmetsan Core` sync job imports to WordPress read model (CPT + index tables).
-4. GeneratePress child theme renders optimized pages.
-5. Analytics + revenue + health checks run continuously.
+1. JSON in repo (or exported from WordPress) is the canonical data asset; **ingestion** reads JSON and writes to WordPress only (does not write to GitHub).
+2. **Sync pull** downloads JSON from GitHub to local repo; optional apply step runs ingestion so WordPress is updated. **Sync push** uploads local JSON files to GitHub (does not read WordPress). To get WP changes into GitHub: **export** to JSON, then push. See **docs/data-flow.md**.
+3. GeneratePress child theme renders optimized pages.
+4. Analytics + revenue + health checks run continuously.
 
 ---
 
@@ -66,7 +65,9 @@ Build `Helmetsan Core` as a WordPress plugin that acts as:
 - `Helmetsan > Dashboard`
 - `Helmetsan > Catalog`
 - `Helmetsan > Brands`
-- `Helmetsan > Ingestion`
+- `Helmetsan > Ingestion` (logs; ingestion reads JSON → WP only)
+- `Helmetsan > Data / Reseed` (run ingestion from JSON on disk)
+- `Helmetsan > Sync Logs` (pull = download then apply; push = upload local JSON)
 - `Helmetsan > Repo Health`
 - `Helmetsan > Analytics`
 - `Helmetsan > Revenue`
@@ -202,9 +203,11 @@ wp helmetsan docs build-index
 2. Normalize
 3. Validate (A/B/C layers)
 4. Resolve relationships (create-on-miss optional)
-5. Transactional write to read model
-6. Commit/PR to GitHub
-7. Cache purge/warm
+5. Transactional write to read model (WordPress CPT + meta)
+
+**Note:** Ingestion does **not** commit or push to GitHub. To get ingested (or edited) data into the repo: use **Import/Export → Export** to write JSON files, then **Sync push** or Git commit/push. See **docs/data-flow.md**.
+
+6. (Optional) Cache purge/warm
 
 ### 6.2 Transaction Rules
 

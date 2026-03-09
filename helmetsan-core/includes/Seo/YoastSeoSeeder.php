@@ -138,7 +138,10 @@ final class YoastSeoSeeder
         $brandName = $this->getBrandNameForHelmet($postId);
         $typeLabel = $this->getFirstTermName($postId, 'helmet_type');
         $certs = $this->getTermNames($postId, 'certification');
+        $features = $this->getTermNames($postId, 'feature_tag');
         $price = get_post_meta($postId, 'price_retail_usd', true);
+        $family = (string) get_post_meta($postId, 'helmet_family', true);
+        $useCase = (string) get_post_meta($postId, 'use_case', true);
         $titleRaw = (string) $post->post_title;
 
         $typePart = $typeLabel !== '' ? $typeLabel : 'Motorcycle';
@@ -163,12 +166,18 @@ final class YoastSeoSeeder
                 'type' => strtolower($typePart),
                 'certifications' => $certs,
                 'price' => $priceStr !== '' ? $priceStr : null,
+                'helmet_family' => $family !== '' ? $family : null,
+                'feature_tags' => $features,
+                'use_case' => $useCase !== '' ? $useCase : null,
             ]);
         }
         if ($metadesc === null || $metadesc === '') {
             $metadesc = 'Compare the ' . $productPhrase . ' – specs, safety ratings & sizes.';
             if ($certStr !== '') {
                 $metadesc .= ' ' . $certStr . '.';
+            }
+            if ($family !== '') {
+                $metadesc .= ' ' . $family . ' series.';
             }
             if ($priceStr !== '') {
                 $metadesc .= ' From ' . $priceStr . '.';
@@ -178,6 +187,9 @@ final class YoastSeoSeeder
         }
 
         $focuskw = $brandName !== '' ? $brandName . ' ' . $titleRaw : $titleRaw;
+        if ($typeLabel !== '' && strlen($focuskw) + strlen($typeLabel) + 1 <= 60) {
+            $focuskw = $focuskw . ' ' . $typeLabel;
+        }
         $focuskw = $this->truncate($focuskw, 60);
 
         return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
@@ -190,6 +202,8 @@ final class YoastSeoSeeder
     {
         $brandName = (string) $post->post_title;
         $country = (string) get_post_meta($postId, 'brand_origin_country', true);
+        $motto = (string) get_post_meta($postId, 'brand_motto', true);
+        $story = (string) get_post_meta($postId, 'brand_story', true);
         $countryPart = $country !== '' ? ' (' . $country . ')' : '';
 
         $seoTitle = $brandName . ' Helmets | Official Hub & Reviews | Helmetsan';
@@ -200,6 +214,8 @@ final class YoastSeoSeeder
             $metadesc = $this->aiProvider->generateForBrand($postId, [
                 'brand' => $brandName,
                 'country' => $country,
+                'motto' => $motto !== '' ? $motto : null,
+                'story_snippet' => $story !== '' ? wp_trim_words($story, 15) : null,
             ]);
         }
         if ($metadesc === null || $metadesc === '') {
@@ -249,7 +265,10 @@ final class YoastSeoSeeder
             $metadesc = $this->truncate($metadesc, self::META_DESC_MAX);
         }
 
-        $focuskw = $category !== '' ? $titleRaw : $titleRaw;
+        $focuskw = $categoryPart !== '' && $categoryPart !== 'Motorcycle Accessory'
+            ? $titleRaw . ' ' . $categoryPart
+            : $titleRaw;
+        $focuskw = $this->truncate($focuskw, 60);
 
         return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
     }

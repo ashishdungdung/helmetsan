@@ -1,0 +1,30 @@
+{
+  "Shoei": {
+    "RF-1400": {
+      "type": "Full Face",
+      "price": 579.99,
+      "cert": ["DOT", "Snell M2020"],
+      "shape": "Intermediate Oval",
+      "weight": 1640,
+      "mat": "Fiberglass",
+      "desc": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness.",
+      "colorways": [
+        {
+          "name": "Matte Black",
+          "family": "Black",
+          "finish": "matte",
+          "sku": "SHO-RF14-MBK",
+          "price_adj": 0
+        },
+        {
+          "name": "Gloss White",
+          "family": "White",
+          "finish": "gloss",
+          "sku": "SHO-RF14-WHT",
+          "price_adj": 0
+        }
+      ]
+    }
+  }
+}
+

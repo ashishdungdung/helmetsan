@@ -4,13 +4,18 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\AI;
 
+use Helmetsan\Core\AI\Providers\AnthropicProvider;
+use Helmetsan\Core\AI\Providers\CohereProvider;
+use Helmetsan\Core\AI\Providers\FireworksProvider;
 use Helmetsan\Core\AI\Providers\GeminiProvider;
 use Helmetsan\Core\AI\Providers\GroqProvider;
 use Helmetsan\Core\AI\Providers\HuggingFaceProvider;
 use Helmetsan\Core\AI\Providers\MistralProvider;
 use Helmetsan\Core\AI\Providers\OpenAIProvider;
+use Helmetsan\Core\AI\Providers\LMStudioProvider;
 use Helmetsan\Core\AI\Providers\OpenRouterProvider;
 use Helmetsan\Core\AI\Providers\PerplexityProvider;
+use Helmetsan\Core\AI\Providers\TogetherProvider;
 use Helmetsan\Core\Support\Config;
 
 /**
@@ -53,7 +58,7 @@ final class ProviderRegistry
         $defaults = $this->config->aiDefaults();
         $providersConfig = is_array($settings['providers'] ?? null) ? $settings['providers'] : $defaults['providers'];
 
-        $order = ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'openai', 'perplexity'];
+        $order = ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'lm_studio', 'openai', 'anthropic', 'perplexity'];
         $list = [];
         foreach ($order as $id) {
             $p = $this->get($id, $providersConfig);
@@ -69,7 +74,22 @@ final class ProviderRegistry
         $settings = $providersConfig === null ? (get_option(Config::OPTION_AI, $this->config->aiDefaults())['providers'] ?? []) : $providersConfig;
         $defaults = $this->config->aiDefaults()['providers'];
         $cfg = array_merge($defaults[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => '', 'tier' => 'free'], $settings[$id] ?? []);
-        if (empty($cfg['enabled']) || empty(trim((string) ($cfg['api_key'] ?? '')))) {
+        if (empty($cfg['enabled'])) {
+            return null;
+        }
+        if ($id === 'lm_studio') {
+            $baseUrl = trim((string) ($cfg['base_url'] ?? ''));
+            if ($baseUrl === '') {
+                return null;
+            }
+            $model = trim((string) ($cfg['model'] ?? ''));
+            if ($model === '') {
+                $model = $defaults[$id]['model'] ?? 'local';
+            }
+            $key = trim((string) ($cfg['api_key'] ?? ''));
+            return $this->create($id, $key, $model, $cfg);
+        }
+        if (empty(trim((string) ($cfg['api_key'] ?? '')))) {
             return null;
         }
         $key = trim((string) $cfg['api_key']);
@@ -77,10 +97,13 @@ final class ProviderRegistry
         if ($model === '') {
             $model = $defaults[$id]['model'] ?? '';
         }
-        return $this->create($id, $key, $model);
+        return $this->create($id, $key, $model, null);
     }
 
-    private function create(string $id, string $apiKey, string $model): ProviderInterface
+    /**
+     * @param array<string,mixed>|null $extraConfig For lm_studio: base_url, etc.
+     */
+    private function create(string $id, string $apiKey, string $model, ?array $extraConfig = null): ProviderInterface
     {
         if (isset($this->instances[$id . ':' . $model])) {
             return $this->instances[$id . ':' . $model];
@@ -91,7 +114,16 @@ final class ProviderRegistry
             'mistral' => new MistralProvider($apiKey, $model ?: 'mistral-small-latest'),
             'openrouter' => new OpenRouterProvider($apiKey, $model ?: 'google/gemini-flash-1.5'),
             'huggingface' => new HuggingFaceProvider($apiKey, $model ?: 'mistralai/Mistral-7B-Instruct-v0.2'),
+            'together' => new TogetherProvider($apiKey, $model ?: 'meta-llama/Llama-3.2-3B-Instruct-Turbo'),
+            'fireworks' => new FireworksProvider($apiKey, $model ?: 'accounts/fireworks/models/llama-v3p1-8b-instruct'),
+            'cohere' => new CohereProvider($apiKey, $model ?: 'command-r-plus'),
+            'lm_studio' => new LMStudioProvider(
+                (string) ($extraConfig['base_url'] ?? ''),
+                $model ?: 'local',
+                $apiKey
+            ),
             'openai' => new OpenAIProvider($apiKey, $model ?: 'gpt-4o-mini'),
+            'anthropic' => new AnthropicProvider($apiKey, $model ?: 'claude-sonnet-4-20250514'),
             'perplexity' => new PerplexityProvider($apiKey, $model ?: 'sonar'),
             default => throw new \InvalidArgumentException('Unknown provider: ' . $id),
         };
@@ -114,12 +146,12 @@ final class ProviderRegistry
     /** Provider IDs that are free/low-cost. */
     public static function freeProviderIds(): array
     {
-        return ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface'];
+        return ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'lm_studio'];
     }
 
     /** Provider IDs that are premium (dedicated controls). */
     public static function premiumProviderIds(): array
     {
-        return ['openai', 'perplexity'];
+        return ['openai', 'anthropic', 'perplexity'];
     }
 }

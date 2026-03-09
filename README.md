@@ -31,7 +31,9 @@ The catalog now uses a deterministic data processing pipeline. Variants are no l
 
 ### 1. Variant Structure
 
-- **Colorways**: Defined per-model in `create_helmets_seed.php`.
+- **Colorways**: Defined per-model in a structured data source:
+  - Today: `scripts/create_helmets_seed.php` (PHP array, legacy).
+  - Recommended going forward: JSON under `data/helmets/` (e.g. `data/helmets/master.json`) loaded via `--source-json`.
 - **SKU**: Generated as `{BRAND_PREFIX}-{MODEL_PREFIX}-{COLOR_CODE}` (e.g., `SHO-RF14-MBK`).
 - **IDs**: Slugs are now deterministic based on color name (e.g., `shoei_rf_1400_matte-black`).
 - **Pricing**: Base price defined at model level; variants have specific `price_adj` deltas (e.g., +$50 for Graphics).
@@ -53,20 +55,41 @@ The pipeline is automated via `scripts/reseed.sh`.
 ./scripts/reseed.sh --skip-deploy # Just generate and ingest locally/remotely
 ```
 
-### AI module (Phase 1: SEO; Phases 2–4 planned)
+### AI module (Phases 1–5 implemented)
 
-Configure providers (Groq, Gemini, Mistral, OpenRouter, Hugging Face, OpenAI, Perplexity) under **Helmetsan → AI**. Use free/low-cost first; premium providers have dedicated controls. See `docs/ai-module.md`.
+Configure providers under **Helmetsan → AI**: free/low-cost (Groq, Gemini, Mistral, OpenRouter, Hugging Face, Together, Fireworks, Cohere) and premium (OpenAI, Anthropic, Perplexity). Each provider has a “Best for” note in the admin. See `docs/ai-module.md` and **`docs/ai-seeder-enrichment-roadmap.md`** for seeder robustness, fill-missing, SEO relations, cross-linking, and provider details.
 
 ### SEO seed (Yoast title, meta description, focus keyword)
 
-Seed SEO fields for helmets, brands, and accessories. Optional AI-generated descriptions (Groq + Gemini, free tier). See `docs/seo-seed-plan.md` for details.
+Seed SEO fields for helmets, brands, and accessories. Optional AI-generated meta descriptions (uses any configured free provider). See `docs/seo-seed-plan.md` for details.
 
 **On server** (from WordPress root `/var/www/helmetsan.com/public`):
 ```bash
 wp helmetsan seo seed                    # Template-only, all types
-wp helmetsan seo seed --use-ai          # With AI descriptions (set API keys in wp-config or env)
+wp helmetsan seo seed --use-ai           # With AI descriptions (set API keys in Helmetsan → AI or wp-config)
 wp helmetsan seo seed --use-ai --limit=5 # Test run
 ```
+
+### Enrichment pipeline (post-ingest)
+
+After ingesting seed data you can run (in order): **fill-missing** (AI fills **blank** meta and taxonomy terms only), **SEO seed** (overwrites Yoast title/meta/focus kw), then **cross-link** (overwrites suggested internal links). See **`docs/enrichment-process.md`** for the full flow, which fields are filled per entity type, and how to update or enrich all helmets, accessories, and brands. Optional **scheduled enrichment** (fill-missing + SEO seed for helmets) under **Helmetsan → Scheduler → AI Enrichment**.
+
+```bash
+wp helmetsan ai fill-missing --post-type=all --limit=0       # Fill only blank fields (all types)
+wp helmetsan seo seed --use-ai --post-type=all                # Overwrite SEO for all
+wp helmetsan ai cross-link --post-type=all --limit=0         # Overwrite link suggestions
+```
+
+### Accessory categories and filters
+
+If filtering by category on `/accessories/` (e.g. Audio Kits) shows "Nothing Found", seed terms and backfill so every accessory has at least one **accessory_category** term:
+
+```bash
+wp helmetsan seed-accessory-categories      # Create/update category terms (correct slugs)
+wp helmetsan backfill-accessory-categories # Assign category from type/parent_category/subcategory
+```
+
+See **docs/accessories-categories-and-filters.md** for the full category list, type→category mapping, helmet-type compatibility, and optional compatible_helmets JSON.
 
 ### Resetting Data
 
@@ -75,6 +98,16 @@ To completely wipe the database (required for schema changes):
 ```bash
 ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public eval-file ../reset_helmets.php --allow-root"
 ```
+
+## Terminology
+
+| Term | Meaning |
+|------|--------|
+| **Seed** | The generated JSON array of helmet variants (output of `create_helmets_seed.php`). |
+| **ingest-seed** | CLI command that ingests that seed array into WordPress (`wp helmetsan ingest-seed`). |
+| **SEO seed** | Populating Yoast title, meta description, and focus keyword (template or AI); `wp helmetsan seo seed`. |
+| **Reseed** | Full pipeline: generate seed → deploy → ingest-seed (e.g. `./scripts/reseed.sh`). |
+| **Sync** | GitHub pull/push of JSON under `data/`; **ingestion** is the process of applying JSON to posts/meta. |
 
 ## Data Pipeline
 
@@ -90,12 +123,17 @@ The helmet catalog is managed through a seed → deploy → ingest pipeline.
 
 ### Individual steps
 
+**Preferred:** Maintain catalog data in `data/helmets/master.json` (see `data/helmets/master.example.json`) and generate the seed from it so you don’t edit the large PHP array:
+
 ```bash
-# 1. Generate seed JSON
-php create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_seed.json --stats
+# 1. Generate seed JSON (preferred: from JSON source)
+php scripts/create_helmets_seed.php --source-json=data/helmets/master.json --output=helmetsan-core/seed-data/helmets_seed.json --stats
+
+# Or from the in-file PHP array (legacy):
+# php scripts/create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_seed.json --stats
 
 # 2. Validate (checks IDs, descriptions, type distribution)
-php create_helmets_seed.php --validate
+php scripts/create_helmets_seed.php --validate
 
 # 3. Deploy to server
 bash scripts/deploy.sh
@@ -123,15 +161,18 @@ ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest
 ### Consistency and safety
 
 - **Ingestion is upsert-only:** Items are matched by `_helmet_unique_id` (or brand/accessory equivalent). Re-running seed or path ingest only **creates** new items and **updates** existing ones; it **never deletes** posts. Your existing 1400+ helmets and 70+ brands stay intact; new or changed seed data is merged in.
-- **Yoast SEO:** During bulk ingestion, Yoast indexable creation is temporarily suppressed to avoid MySQL lock timeouts. After a full reseed, run Yoast’s indexation from **SEO > Tools** if you want fresh indexables for imported content.
+- **Hash-based skip:** Unchanged payloads are skipped (no duplicate work). See **`docs/ingestion-unique-ids-and-hash.md`** for unique IDs and skip behaviour per entity type.
+- **Batch size:** Default seed batch size is 25 (`--batch-size=25`). Use a smaller value if you hit lock timeouts; ingestion disables PHP time limit for long runs.
+- **Yoast SEO:** During bulk ingestion, Yoast indexable creation is temporarily suppressed to avoid MySQL lock timeouts. **After a full reseed, run Yoast’s indexation from SEO > Tools** if you need fresh indexables for imported content.
 
-## GitHub Sync Notes
+## GitHub Sync and JSON Data
 
-The plugin supports pull/push sync with a GitHub data repository path (default `data/`).
-Set credentials/config in plugin settings and validate with:
+The plugin supports pull/push sync with a GitHub data repository path (default **`data/`**). JSON in the repo under `data/` (brands, helmets, accessories, etc.) is the source for sync pull; the seed generator can use a JSON file (e.g. `data/helmets/master.json`) via `--source-json` instead of the in-file PHP array. See **`docs/json-and-github.md`** for how JSON context and GitHub sync fit together.
+
+Set credentials in **Helmetsan → GitHub** and validate with:
 
 - `wp helmetsan health --format=json`
-- `wp helmetsan sync pull --profile=pull+brands --dry-run`
+- `wp helmetsan sync pull --profile=pull+brands --dry-run` (or `--profile=pull+helmets`, `--profile=pull+all`)
 
 ## Production Readiness
 

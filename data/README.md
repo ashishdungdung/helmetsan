@@ -25,7 +25,7 @@ This directory is the GitHub source-of-truth for structured datasets consumed by
 
 ## Schemas
 
-JSON Schemas are in `schemas/` and should be used by AI agents and CI validation before commits.
+JSON Schemas are in `schemas/` and are the **authoritative reference** for CI validation and AI agents. The Helmetsan plugin does **not** load these files at ingest; it uses PHP-only validation (Validator). See **`docs/schemas-and-validation.md`** in the repo root for details.
 
 ## Brand Enrichment Fields
 
@@ -48,6 +48,8 @@ Brand `profile` supports:
 2. Validate schema with CI/CLI.
 3. Run plugin sync pull profile `pull+brands` or `pull+all`.
 4. Review admin screens (`Catalog`, `Brands`, `Go Live`).
+
+For how this directory ties into the **seed generator** (`--source-json`) and **GitHub sync** (pull/push, `remote_path`), see **`docs/json-and-github.md`** in the repo root.
 
 ## Helmet Family Model
 

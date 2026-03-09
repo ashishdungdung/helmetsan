@@ -63,6 +63,9 @@ final class IngestionService
      */
     public function ingestSeedFile(string $seedFilePath = '', int $batchSize = 25, bool $dryRun = false): array
     {
+        if (function_exists('set_time_limit')) {
+            @set_time_limit(0);
+        }
         if ($seedFilePath === '') {
             $seedFilePath = defined('WP_PLUGIN_DIR') ? WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json' : '';
         }
@@ -125,6 +128,9 @@ final class IngestionService
      */
     public function ingestFiles(array $files, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, string $sourcePath = 'selected-files'): array
     {
+        if (function_exists('set_time_limit')) {
+            @set_time_limit(0);
+        }
         if (! $this->acquireLock()) {
             return [
                 'ok'      => false,
@@ -187,19 +193,25 @@ final class IngestionService
                     if ($isAccessory) {
                         $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
                         if ($upsert['ok']) {
-                            $ok++;
-                            if ($upsert['action'] === 'created') {
-                                $created++;
+                            $action = $upsert['action'] ?? 'updated';
+                            if ($action === 'skipped' || $action === 'dry-run') {
+                                $skipped++;
+                                $this->logs->add($file, 'skipped', 'Accessory hash unchanged; record skipped', (string) ($data['id'] ?? ''), (int) ($upsert['post_id'] ?? 0));
                             } else {
-                                $updated++;
+                                $ok++;
+                                if ($action === 'created') {
+                                    $created++;
+                                } else {
+                                    $updated++;
+                                }
+                                $this->logs->add(
+                                    $file,
+                                    $action,
+                                    'Accessory upsert successful',
+                                    (string) ($data['id'] ?? ''),
+                                    (int) ($upsert['post_id'] ?? 0)
+                                );
                             }
-                            $this->logs->add(
-                                $file,
-                                $upsert['action'],
-                                'Accessory upsert successful',
-                                (string) $data['id'],
-                                (int) $upsert['post_id']
-                            );
                         } else {
                             $fail++;
                             $this->logs->add($file, 'failed', 'Accessory upsert failed: ' . ($upsert['message'] ?? 'Unknown error'));
@@ -378,6 +390,10 @@ final class IngestionService
         if (isset($data['specs']['strap_type']) && is_string($data['specs']['strap_type'])) {
             update_post_meta($resolvedPostId, 'strap_type', sanitize_text_field($data['specs']['strap_type']));
         }
+        if (isset($data['specs']['shell_sizes'])) {
+            $shellSizes = $data['specs']['shell_sizes'];
+            update_post_meta($resolvedPostId, 'spec_shell_sizes', is_numeric($shellSizes) ? (string) (int) $shellSizes : sanitize_text_field((string) $shellSizes));
+        }
 
         if (isset($data['features_data']['visor']) && is_array($data['features_data']['visor'])) {
             $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
@@ -402,6 +418,25 @@ final class IngestionService
 
         if (isset($data['affiliate']) && is_array($data['affiliate']) && isset($data['affiliate']['amazon_asin'])) {
             update_post_meta($resolvedPostId, 'affiliate_asin', sanitize_text_field((string) $data['affiliate']['amazon_asin']));
+        }
+
+        // Product identifiers: from identifiers block and legacy fields (for search and marketplace matching)
+        $idKeys = ['ean', 'upc', 'gtin', 'sku', 'mpn', 'fsn'];
+        $identifiers = isset($data['identifiers']) && is_array($data['identifiers']) ? $data['identifiers'] : [];
+        foreach ($idKeys as $key) {
+            $val = isset($identifiers[$key]) ? trim((string) $identifiers[$key]) : '';
+            if ($val !== '') {
+                update_post_meta($resolvedPostId, $key, sanitize_text_field($val));
+            }
+        }
+        if (isset($identifiers['asin']) && trim((string) $identifiers['asin']) !== '') {
+            update_post_meta($resolvedPostId, 'affiliate_asin', sanitize_text_field((string) $identifiers['asin']));
+        }
+        if (isset($data['product_details']['mfr_product_number']) && trim((string) $data['product_details']['mfr_product_number']) !== '' && empty($identifiers['mpn'])) {
+            update_post_meta($resolvedPostId, 'mpn', sanitize_text_field((string) $data['product_details']['mfr_product_number']));
+        }
+        if (isset($data['sku']) && trim((string) $data['sku']) !== '' && empty($identifiers['sku'])) {
+            update_post_meta($resolvedPostId, 'sku', sanitize_text_field((string) $data['sku']));
         }
 
         if (isset($data['marketplace_links']) && is_array($data['marketplace_links'])) {
@@ -434,6 +469,10 @@ final class IngestionService
             'helmet_types' => 'helmet_types_json',
             'key_specs' => 'key_specs_json',
             'compatible_accessories' => 'compatible_accessories_json',
+            'safety_intelligence' => 'safety_intelligence_json',
+            'aero_acoustic_profile' => 'aero_acoustic_profile_json',
+            'tech_integration' => 'tech_integration_json',
+            'fitment_coordinates' => 'fitment_coordinates_json',
         ];
         foreach ($jsonMetaMap as $jsonKey => $metaKey) {
             if (! isset($data[$jsonKey])) {
@@ -447,6 +486,9 @@ final class IngestionService
 
         if (isset($data['technical_analysis']) && is_string($data['technical_analysis'])) {
             update_post_meta($resolvedPostId, 'technical_analysis', sanitize_textarea_field($data['technical_analysis']));
+        }
+        if (isset($data['model_year']) && (string) $data['model_year'] !== '') {
+            update_post_meta($resolvedPostId, 'model_year', sanitize_text_field((string) $data['model_year']));
         }
 
         if (isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {

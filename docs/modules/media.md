@@ -63,6 +63,22 @@ Handles video and gallery data:
 2. External images from `geo_media_json` post meta (Cloudflare R2 URLs)
 3. Video embeds from `helmet_videos_json` post meta
 
+## Product image by EAN / GTIN
+
+Media Engine can look up **product or brand images by barcode** (EAN-13, UPC) using:
+
+- **EAN-DB.com** — Product API returns an `images` array; enable and set JWT in Settings → Media.
+- **eandata.com** — Image URL pattern for 13-digit EAN; enable and set keycode for future API use.
+
+Use **Media Engine** admin page → “Product image by EAN / GTIN”: enter a barcode, then optionally import to the Media Library and set as **featured image** for a helmet or accessory post. Results are cached for 24 hours.
+
+| Key               | Env Override                 | Description           |
+| ----------------- | ---------------------------- | --------------------- |
+| `ean_db_enabled`  | —                            | Use EAN-DB API        |
+| `ean_db_token`    | `HELMETSAN_EAN_DB_TOKEN`     | EAN-DB JWT            |
+| `eandata_enabled` | —                            | Use eandata URL pattern |
+| `eandata_keycode` | `HELMETSAN_EANDATA_KEYCODE`  | eandata 16-digit key  |
+
 ## Configuration
 
 Logo discovery API keys in `Config::mediaConfig()`:

@@ -1,18 +1,18 @@
 # Data Layer Module
 
-> Local JSON repository and schema validation.
+> Local JSON repository and PHP-based validation at ingest.
 
 ## Files
 
 | File                                                                                                                 | Lines | Purpose                                   |
 | -------------------------------------------------------------------------------------------------------------------- | ----- | ----------------------------------------- |
 | [JsonRepository.php](file:///Users/anumac/Documents/Helmetsan/helmetsan-core/includes/Repository/JsonRepository.php) | ~150  | Local JSON file CRUD operations           |
-| [Validator.php](file:///Users/anumac/Documents/Helmetsan/helmetsan-core/includes/Validation/Validator.php)           | ~200  | JSON schema validation + integrity checks |
+| [Validator.php](file:///Users/anumac/Documents/Helmetsan/helmetsan-core/includes/Validation/Validator.php)           | ~200  | PHP-only validation + integrity checks    |
 | [DataService.php](file:///Users/anumac/Documents/Helmetsan/helmetsan-core/includes/Data/DataService.php)             | ~100  | Data utility functions                    |
 
 ## JsonRepository
 
-Manages the local JSON data directory (`wp-content/helmetsan-data/`):
+Manages the local JSON data directory (`wp-content/uploads/helmetsan-data/` by default):
 
 | Method            | Purpose                             |
 | ----------------- | ----------------------------------- |
@@ -22,28 +22,15 @@ Manages the local JSON data directory (`wp-content/helmetsan-data/`):
 | `writeJson()`     | Write array as formatted JSON       |
 | `dataPath()`      | Get absolute path to data directory |
 
-## Validator
+## Validator (plugin ingestion)
 
-Two modes of validation:
+**Validation at ingest is PHP-only.** The plugin does not load JSON Schema files from `data/schemas/`. Validator provides:
 
-### Schema Validation
+- **validateSchema()**: Required `id`, optional `specs.weight_g` (integer).
+- **validateLogic()**: Weight range warnings, `legal_status` structure.
+- **validateIntegrity()**: Placeholder for cross-reference checks.
 
-Validates individual JSON files against schemas in `data/schemas/`:
-
-- `helmet.schema.json`
-- `brand.schema.json`
-- `marketplace.schema.json`
-- `pricing.schema.json`
-- `offer.schema.json`
-
-### Integrity Checks
-
-Cross-references data consistency:
-
-- All helmets have valid brand references
-- All pricing records reference existing helmets
-- All offers reference existing helmets and marketplaces
-- No orphaned files
+Schemas in **`data/schemas/`** are the authoritative reference for **CI validation and AI agents**; they are not used by the plugin during ingestion. See **`docs/schemas-and-validation.md`** for how schemas and plugin validation relate.
 
 ## JSON Data Structure
 

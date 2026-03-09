@@ -14,9 +14,10 @@ Extends WordPress core search to include post meta fields and taxonomy terms in 
 
 ## Features
 
-- **Meta field search** — JOINs `wp_postmeta` so searches match against `ean`, `model_year`, `shell_material`, etc.
+- **Identifier search** — When the search term `s` is set, results include any helmet or accessory whose post meta **exactly** matches that value for one of: `ean`, `gtin`, `upc`, `affiliate_asin`, `sku`, `mpn`, `fsn`. So users can find a product by pasting an ASIN, EAN, SKU, MPN, or FSN.
+- **Text + identifier** — The main search matches both WordPress title/content and the identifier meta (OR), so keyword and barcode lookup work together.
 - **Taxonomy filtering** — Filter by brand, helmet type, safety standard
-- **AJAX endpoint** — Live search results via `wp_ajax_helmetsan_search`
+- **AJAX endpoint** — Live search results via `wp_ajax_helmetsan_filter`
 - **Filter chips** — Visual "active filter" chips rendered as HTML
 
 ## Key Methods

@@ -162,8 +162,39 @@ final class ExportService
         $certDocs = $this->decodeJsonMeta($postId, 'certification_documents_json');
         $features = $this->decodeJsonMeta($postId, 'features_json');
         $helmetTypes = $this->decodeJsonMeta($postId, 'helmet_types_json');
+        $geoMedia = $this->decodeJsonMeta($postId, 'geo_media_json');
+        $keySpecs = $this->decodeJsonMeta($postId, 'key_specs_json');
+        $compatibleAccessories = $this->decodeJsonMeta($postId, 'compatible_accessories_json');
+        $safetyIntelligence = $this->decodeJsonMeta($postId, 'safety_intelligence_json');
+        $aeroAcoustic = $this->decodeJsonMeta($postId, 'aero_acoustic_profile_json');
+        $techIntegration = $this->decodeJsonMeta($postId, 'tech_integration_json');
+        $fitmentCoordinates = $this->decodeJsonMeta($postId, 'fitment_coordinates_json');
 
-        return [
+        $shellSizes = (string) get_post_meta($postId, 'spec_shell_sizes', true);
+        $modelYear = (string) get_post_meta($postId, 'model_year', true);
+
+        $specs = [
+            'weight_g'       => is_numeric((string) $weight) ? (int) $weight : null,
+            'weight_lbs'     => is_numeric((string) $weightLbs) ? (float) $weightLbs : null,
+            'material'       => $material,
+            'certifications' => $certifications,
+        ];
+        if ($shellSizes !== '') {
+            $specs['shell_sizes'] = is_numeric($shellSizes) ? (int) $shellSizes : $shellSizes;
+        }
+
+        $identifiers = [];
+        foreach (['ean', 'upc', 'gtin', 'sku', 'mpn', 'fsn'] as $key) {
+            $v = (string) get_post_meta($postId, $key, true);
+            if ($v !== '') {
+                $identifiers[$key] = $v;
+            }
+        }
+        if ($asin !== '') {
+            $identifiers['asin'] = $asin;
+        }
+
+        $payload = [
             'entity' => 'helmet',
             'id'    => $externalId,
             'title' => (string) $post->post_title,
@@ -173,12 +204,7 @@ final class ExportService
             'head_shape' => $headShape,
             'helmet_types' => is_array($helmetTypes) ? $helmetTypes : [],
             'features' => is_array($features) ? $features : [],
-            'specs' => [
-                'weight_g'       => is_numeric((string) $weight) ? (int) $weight : null,
-                'weight_lbs'     => is_numeric((string) $weightLbs) ? (float) $weightLbs : null,
-                'material'       => $material,
-                'certifications' => $certifications,
-            ],
+            'specs' => $specs,
             'price' => [
                 'current'  => is_numeric((string) $price) ? (float) $price : null,
                 'currency' => 'USD',
@@ -195,6 +221,36 @@ final class ExportService
             'geo_legality' => is_array($geoLegality) ? $geoLegality : [],
             'certification_documents' => is_array($certDocs) ? $certDocs : [],
         ];
+
+        if ($modelYear !== '') {
+            $payload['model_year'] = $modelYear;
+        }
+        if ($identifiers !== []) {
+            $payload['identifiers'] = $identifiers;
+        }
+        if ($geoMedia !== [] && $geoMedia !== null) {
+            $payload['geo_media'] = $geoMedia;
+        }
+        if ($keySpecs !== [] && is_array($keySpecs)) {
+            $payload['key_specs'] = $keySpecs;
+        }
+        if ($compatibleAccessories !== [] && is_array($compatibleAccessories)) {
+            $payload['compatible_accessories'] = $compatibleAccessories;
+        }
+        if ($safetyIntelligence !== []) {
+            $payload['safety_intelligence'] = $safetyIntelligence;
+        }
+        if ($aeroAcoustic !== []) {
+            $payload['aero_acoustic_profile'] = $aeroAcoustic;
+        }
+        if ($techIntegration !== []) {
+            $payload['tech_integration'] = $techIntegration;
+        }
+        if ($fitmentCoordinates !== []) {
+            $payload['fitment_coordinates'] = $fitmentCoordinates;
+        }
+
+        return $payload;
     }
 
     /**

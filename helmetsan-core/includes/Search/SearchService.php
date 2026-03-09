@@ -150,16 +150,18 @@ final class SearchService
         return new WP_Query($args);
     }
 
+    /** Meta keys used for identifier search (helmet and accessory). */
+    private const IDENTIFIER_META_KEYS = ['ean', 'gtin', 'upc', 'affiliate_asin', 'sku', 'mpn', 'fsn'];
+
     /**
      * Register hook to improve search
      */
     public function register(): void
     {
         add_filter('posts_join', [$this, 'joinPostMeta']);
-        add_filter('posts_where', [$this, 'wherePostMeta']);
+        add_filter('posts_where', [$this, 'wherePostMeta'], 10, 2);
         add_filter('posts_distinct', [$this, 'distinct']);
-        
-        // Register AJAX endpoint
+
         add_action('wp_ajax_helmetsan_filter', [$this, 'handleAjax']);
         add_action('wp_ajax_nopriv_helmetsan_filter', [$this, 'handleAjax']);
     }
@@ -268,23 +270,38 @@ final class SearchService
         return $html;
     }
 
-    /* 
-     * Enhanced Search Logic (Join Meta & Taxonomies)
-     * Limit this to main search query or specifically requested via a flag
-     */ 
     public function joinPostMeta($join) {
-        if (is_admin() || !is_search()) return $join;
-        
-        global $wpdb;
-        // Example: Join postmeta for searching custom fields
-        // This can be heavy. Only do if necessary.
-        // For now, let's keep it simple and focus on the FACETED filtering first.
-        
         return $join;
     }
-    
-    public function wherePostMeta($where) {
-        return $where;
+
+    /**
+     * Extend search so exact match on product identifiers (ASIN, EAN, SKU, MPN, FSN, etc.) also returns the post.
+     * When the query is for helmet or accessory and has a search term, add: OR (post ID in identifier meta match).
+     *
+     * @param string   $where Current WHERE clause.
+     * @param WP_Query $query The query object (WP 4.1+).
+     * @return string Modified WHERE clause.
+     */
+    public function wherePostMeta($where, $query): string
+    {
+        $postType = $query->get('post_type');
+        $types = is_array($postType) ? $postType : [$postType];
+        $allowed = array_intersect($types, ['helmet', 'accessory']);
+        if ($allowed === []) {
+            return $where;
+        }
+
+        $s = $query instanceof WP_Query ? $query->get('s') : null;
+        if (! is_string($s) || trim($s) === '') {
+            return (string) $where;
+        }
+
+        $s = trim($s);
+        global $wpdb;
+        $keys = implode("','", array_map('esc_sql', self::IDENTIFIER_META_KEYS));
+        $escaped = $wpdb->prepare('%s', $s);
+        $extra = " OR ({$wpdb->posts}.ID IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key IN ('{$keys}') AND meta_value = {$escaped}))";
+        return (string) $where . $extra;
     }
 
     public function distinct($distinct) {

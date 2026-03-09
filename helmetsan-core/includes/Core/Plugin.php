@@ -213,6 +213,8 @@ final class Plugin
         $this->analyticsEvents = new EventRepository();
         $this->analyticsEventService = new EventService($this->analyticsEvents);
         $this->alerts     = new AlertService($this->config);
+        $this->providerRegistry = new ProviderRegistry($this->config);
+        $this->aiService = new AiService($this->providerRegistry);
         $this->scheduler = new SchedulerService(
             $this->config,
             $this->sync,
@@ -220,7 +222,8 @@ final class Plugin
             $this->ingestionLogs,
             $this->syncLogs,
             $this->health,
-            $this->alerts
+            $this->alerts,
+            $this->aiService
         );
         $this->checklist  = new ChecklistService($this->health, $this->smoke);
         $this->docs       = new DocsService();
@@ -229,8 +232,6 @@ final class Plugin
         $this->defaultImages = new DefaultImages($this->config);
         $this->adsTxt = new AdsTxt();
         $this->adSense = new AdSense($this->config);
-        $this->providerRegistry = new ProviderRegistry($this->config);
-        $this->aiService = new AiService($this->providerRegistry);
         $this->aiAdmin = new AiAdmin($this->config, $this->aiService);
     }
 

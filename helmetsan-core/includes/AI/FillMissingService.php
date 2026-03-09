@@ -13,6 +13,9 @@ use WP_Post;
 final class FillMissingService
 {
     private const RATE_LIMIT_SECONDS = 1;
+
+    /** When set (e.g. by CLI --no-rate-limit), skip sleep between API calls. */
+    private static ?int $rateLimitOverrideSeconds = null;
     private const DEFAULT_MAX_LENGTH = 5000;
     private const CACHE_PREFIX = 'helmetsan_fill_';
 
@@ -26,6 +29,7 @@ final class FillMissingService
      * @param list<string>|null $onlyFields If set, only fill these meta keys (e.g. from --fields=key1,key2).
      * @param callable(int $processed, int $total, int $postId): void $onProgress Called after each post (optional).
      * @param callable(string $type, int $postId, string $metaKey, string|null $detail): void $onVerbose Optional. $type: 'filled'|'error'|'skipped', $detail: value or reason.
+     * @param int|null $rateLimitSeconds Sleep between API calls (null = default 1s, 0 = no sleep).
      * @return array{filled: int, skipped: int, errors: int, total_posts: int, api_calls: int}
      */
     public function run(
@@ -36,9 +40,11 @@ final class FillMissingService
         ?array $onlyFields = null,
         bool $onlyIncomplete = false,
         bool $strictMode = false,
+        bool $fillTaxonomies = true,
         ?callable $onProgress = null,
         ?callable $onVerbose = null,
-        int $cacheTtl = 86400
+        int $cacheTtl = 86400,
+        ?int $rateLimitSeconds = null
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
         if ($fillable === []) {
@@ -75,6 +81,7 @@ final class FillMissingService
         $apiCalls = 0;
         $useCache = $cacheTtl > 0;
         $processed = 0;
+        self::$rateLimitOverrideSeconds = $rateLimitSeconds;
 
         foreach ($ids as $postId) {
             $post = get_post($postId);
@@ -148,16 +155,76 @@ final class FillMissingService
                 }
                 if (! $dryRun) {
                     update_post_meta($postId, $metaKey, $value);
+                    // Sync fillable Yoast keys to Yoast meta so SEO plugins use them
+                    $yoastMap = FillableFieldsConfig::yoastMetaMapping();
+                    if (isset($yoastMap[$metaKey])) {
+                        update_post_meta($postId, $yoastMap[$metaKey], $value);
+                    }
                 }
                 $filled++;
                 $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
                 $existingData[$metaKey] = $value;
                 $this->rateLimit();
             }
+
+            // Phase B: fill missing taxonomy terms (only assign existing terms)
+            if ($fillTaxonomies) {
+                $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
+                foreach ($taxonomyConfig as $taxonomy => $label) {
+                    $existingTerms = get_the_terms($postId, $taxonomy);
+                    if (is_array($existingTerms) && $existingTerms !== []) {
+                        $skipped++;
+                        $onVerbose && $onVerbose('skipped', $postId, 'taxonomy:' . $taxonomy, null);
+                        continue;
+                    }
+                    $terms = get_terms(['taxonomy' => $taxonomy, 'hide_empty' => false]);
+                    if (is_wp_error($terms) || ! is_array($terms) || $terms === []) {
+                        continue;
+                    }
+                    $allowedNames = array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', array_filter($terms, static fn($t) => $t instanceof \WP_Term));
+                    $allowedNames = array_values(array_filter($allowedNames));
+                    if ($allowedNames === []) {
+                        continue;
+                    }
+                    $value = $this->aiService->generateFillField(
+                        $postType,
+                        'taxonomy_' . $taxonomy,
+                        $existingData,
+                        $label,
+                        null,
+                        $allowedNames
+                    );
+                    $apiCalls++;
+                    if ($value === null || trim((string) $value) === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'empty response');
+                        continue;
+                    }
+                    $value = trim((string) $value);
+                    $term = get_term_by('name', $value, $taxonomy);
+                    if (! $term instanceof \WP_Term) {
+                        $term = get_term_by('slug', sanitize_title($value), $taxonomy);
+                    }
+                    if (! $term instanceof \WP_Term) {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'term not found: ' . $value);
+                        continue;
+                    }
+                    if (! $dryRun) {
+                        wp_set_object_terms($postId, [(int) $term->term_id], $taxonomy, false);
+                    }
+                    $filled++;
+                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $term->name);
+                    $existingData['term_' . $taxonomy] = $term->name;
+                    $this->rateLimit();
+                }
+            }
+
             $processed++;
             $onProgress && $onProgress($processed, $totalPosts, $postId);
         }
 
+        self::$rateLimitOverrideSeconds = null;
         return ['filled' => $filled, 'skipped' => $skipped, 'errors' => $errors, 'total_posts' => $totalPosts, 'api_calls' => $apiCalls];
     }
 
@@ -278,8 +345,15 @@ final class FillMissingService
 
     private function rateLimit(): void
     {
-        $skip = \defined('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT') ? constant('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT') : false;
-        if ($skip) {
+        $seconds = self::$rateLimitOverrideSeconds;
+        if ($seconds !== null) {
+            if ($seconds <= 0) {
+                return;
+            }
+            sleep($seconds);
+            return;
+        }
+        if (\defined('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT') && constant('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT')) {
             return;
         }
         sleep(self::RATE_LIMIT_SECONDS);

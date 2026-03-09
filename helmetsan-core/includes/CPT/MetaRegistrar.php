@@ -38,6 +38,12 @@ final class MetaRegistrar
             'helmet_family'             => 'Helmet family/line',
             'head_shape'                => 'Head shape fit',
             'affiliate_asin'            => 'Amazon ASIN',
+            'ean'                      => 'EAN barcode',
+            'upc'                      => 'UPC barcode',
+            'gtin'                     => 'GTIN',
+            'sku'                      => 'SKU',
+            'mpn'                      => 'Manufacturer part number',
+            'fsn'                      => 'Flipkart FSN',
             'brand_name_cached'         => 'Brand name (cached)',
             'brand_origin_country'      => 'Brand origin country (cached)',
             'brand_warranty_terms'      => 'Brand warranty (cached)',
@@ -45,6 +51,8 @@ final class MetaRegistrar
             'brand_support_email'       => 'Brand support email (cached)',
             'brand_cascade_at'          => 'Brand cascade timestamp',
             'brand_cascade_source'      => 'Brand cascade source',
+            'spec_shell_sizes'          => 'Number of shell sizes',
+            'model_year'                => 'Model year',
         ];
 
         $intMeta = [
@@ -67,6 +75,12 @@ final class MetaRegistrar
             'technical_analysis'              => 'Technical analysis',
             'key_specs_json'                  => 'Key specifications',
             'compatible_accessories_json'     => 'Compatible accessories',
+            'safety_intelligence_json'        => 'Safety intelligence',
+            'aero_acoustic_profile_json'      => 'Aero / acoustic profile',
+            'tech_integration_json'           => 'Tech integration',
+            'fitment_coordinates_json'        => 'Fitment coordinates',
+            'aggregate_rating_json'         => 'Aggregate rating for rich results (ratingValue, reviewCount, bestRating)',
+            'reviews_json'                  => 'Individual reviews for rich results (author, datePublished, reviewBody, reviewRating)',
         ];
 
         foreach ($stringMeta as $key => $description) {
@@ -213,6 +227,13 @@ final class MetaRegistrar
             'accessory_subcategory'              => 'Subcategory',
             'accessory_color'                    => 'Color',
             'accessory_youth_adult'              => 'Youth / Adult',
+            'ean'                                => 'EAN barcode',
+            'upc'                                => 'UPC barcode',
+            'gtin'                               => 'GTIN',
+            'sku'                                => 'SKU',
+            'mpn'                                => 'Manufacturer part number',
+            'fsn'                                => 'Flipkart FSN',
+            'affiliate_asin'                     => 'Amazon ASIN',
             'accessory_electric_compatible'      => 'Electric compatible (0/1)',
             'accessory_pinlock_ready'            => 'Pinlock ready (0/1)',
             'accessory_snow_compatible'          => 'Snow compatible (0/1)',
@@ -223,6 +244,8 @@ final class MetaRegistrar
             'accessory_features_json'            => 'Features (JSON)',
             'accessory_global_filters_json'      => 'Global filters (JSON)',
             'price_json'                         => 'Price (JSON)',
+            'aggregate_rating_json'         => 'Aggregate rating for rich results (ratingValue, reviewCount, bestRating)',
+            'reviews_json'                  => 'Individual reviews for rich results (author, datePublished, reviewBody, reviewRating)',
         ];
 
         foreach ($fields as $key => $description) {

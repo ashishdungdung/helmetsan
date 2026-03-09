@@ -21,6 +21,7 @@ use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\AI\AiService;
 use Helmetsan\Core\AI\FillMissingService;
+use Helmetsan\Core\CrossLink\CrossLinkService;
 use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
 use Helmetsan\Core\Seo\SchemaService;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
@@ -81,6 +82,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan seo schema-check', [$this, 'schemaCheck']);
         \WP_CLI::add_command('helmetsan seo seed', [$this, 'seoSeed']);
         \WP_CLI::add_command('helmetsan ai fill-missing', [$this, 'aiFillMissing']);
+        \WP_CLI::add_command('helmetsan ai cross-link', [$this, 'aiCrossLink']);
         \WP_CLI::add_command('helmetsan revenue report', [$this, 'revenueReport']);
         \WP_CLI::add_command('helmetsan analytics report', [$this, 'analyticsReport']);
         \WP_CLI::add_command('helmetsan scheduler status', [$this, 'schedulerStatus']);
@@ -284,11 +286,20 @@ final class Commands
 
         $created = 0;
         foreach ($categories as $name => $desc) {
+            $slug = sanitize_title($name);
+            $existing = get_term_by('slug', $slug, 'accessory_category');
+            if ($existing instanceof \WP_Term) {
+                wp_update_term($existing->term_id, 'accessory_category', ['description' => $desc]);
+                continue;
+            }
             if (! term_exists($name, 'accessory_category')) {
-                $result = wp_insert_term($name, 'accessory_category', ['description' => $desc]);
+                $result = wp_insert_term($name, 'accessory_category', [
+                    'description' => $desc,
+                    'slug'        => $slug,
+                ]);
                 if (! is_wp_error($result)) {
                     $created++;
-                    \WP_CLI::log("Created: {$name}");
+                    \WP_CLI::log("Created: {$name} ({$slug})");
                 }
             }
         }
@@ -347,17 +358,25 @@ final class Commands
             } else {
                 wp_set_object_terms($postId, [], 'accessory_category', false);
             }
-            $type = (string) get_post_meta($postId, 'accessory_type', true);
-            if ($type === '') {
-                $noMap++;
-                continue;
-            }
-            $ok = $accessories->assignCategoryFromType($postId);
-            if ($ok) {
-                $updated++;
-                \WP_CLI::log("Assigned category for post {$postId} ({$type})");
+            $resolved = $accessories->resolveCategoryFromMeta($postId);
+            if ($resolved !== null) {
+                $term = get_term_by('name', $resolved, 'accessory_category');
+                if ($term instanceof \WP_Term) {
+                    wp_set_object_terms($postId, [(int) $term->term_id], 'accessory_category', false);
+                    $updated++;
+                    \WP_CLI::log("Assigned {$resolved} for post {$postId}");
+                } else {
+                    $noMap++;
+                }
             } else {
-                $noMap++;
+                $ok = $accessories->assignCategoryFromType($postId);
+                if ($ok) {
+                    $updated++;
+                    $type = (string) get_post_meta($postId, 'accessory_type', true);
+                    \WP_CLI::log("Assigned category for post {$postId} ({$type})");
+                } else {
+                    $noMap++;
+                }
             }
         }
 
@@ -915,11 +934,18 @@ final class Commands
      * : Log each filled field and each failure (post ID, meta key, value or reason).
      * [--strict]
      * : On empty or invalid AI output, leave field empty and do not retry (saves API calls).
+     * [--no-taxonomies]
+     * : Skip filling missing taxonomy terms (helmet_type, certification, feature_tag, etc.); only fill meta.
      * [--no-cache]
      * : Disable 24h cache for identical context (more API calls).
+     * [--concurrency=<n>]
+     * : Run N parallel processes (split by offset/limit). Faster for large runs. Only for single --post-type. Default: 1.
+     * [--rate-limit=<sec>]
+     * : Seconds to sleep between API calls. Use 0 to disable (faster; may hit provider limits). Default: 1.
      *
      * ## EXAMPLES
      *     wp helmetsan ai fill-missing --post-type=helmet --limit=10
+     *     wp helmetsan ai fill-missing --post-type=accessory --limit=0 --concurrency=4 --rate-limit=0
      *     wp helmetsan ai fill-missing --post-type=helmet --fields=head_shape,spec_shell_material
      *     wp helmetsan ai fill-missing --dry-run --verbose
      *     wp helmetsan ai fill-missing --only-incomplete --strict
@@ -937,8 +963,11 @@ final class Commands
         $onlyIncomplete = isset($assoc['only-incomplete']);
         $verbose = isset($assoc['verbose']);
         $strictMode = isset($assoc['strict']);
+        $fillTaxonomies = ! isset($assoc['no-taxonomies']);
         $noCache = isset($assoc['no-cache']);
         $cacheTtl = $noCache ? 0 : 86400;
+        $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : 1;
+        $rateLimitSeconds = isset($assoc['rate-limit']) ? max(0, (int) $assoc['rate-limit']) : null;
         $fieldsOpt = isset($assoc['fields']) ? trim((string) $assoc['fields']) : '';
         $onlyFields = $fieldsOpt !== '' ? array_map('trim', array_filter(explode(',', $fieldsOpt))) : null;
         $allowed = ['helmet', 'brand', 'accessory', 'all'];
@@ -957,6 +986,59 @@ final class Commands
                 }
             }
         }
+
+        if ($concurrency > 1 && count($types) === 1) {
+            $singleType = $types[0];
+            $totalQuery = new \WP_Query([
+                'post_type'      => $singleType,
+                'post_status'    => 'publish',
+                'posts_per_page' => $limit > 0 ? $limit : -1,
+                'offset'         => $offset,
+                'fields'         => 'ids',
+            ]);
+            $totalIds = is_array($totalQuery->posts) ? array_map('intval', $totalQuery->posts) : [];
+            $totalCount = count($totalIds);
+            if ($totalCount === 0) {
+                \WP_CLI::success('No posts to process.');
+                return;
+            }
+            $chunkSize = (int) ceil($totalCount / $concurrency);
+            $procs = [];
+            $cmdBase = 'wp helmetsan ai fill-missing --post-type=' . $singleType
+                . ' --offset=%d --limit=' . $chunkSize
+                . ($dryRun ? ' --dry-run' : '')
+                . ($onlyIncomplete ? ' --only-incomplete' : '')
+                . ($strictMode ? ' --strict' : '')
+                . ($rateLimitSeconds !== null ? ' --rate-limit=' . (int) $rateLimitSeconds : '')
+                . ($noCache ? ' --no-cache' : '')
+                . ($fillTaxonomies ? '' : ' --no-taxonomies')
+                . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '');
+            for ($i = 0; $i < $concurrency; $i++) {
+                $off = $offset + ($i * $chunkSize);
+                if ($off >= $offset + $totalCount) {
+                    break;
+                }
+                $cmd = sprintf($cmdBase, $off);
+                $pipes = [];
+                $proc = proc_open(
+                    $cmd,
+                    [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']],
+                    $pipes,
+                    getcwd() ?: null
+                );
+                if ($proc !== false) {
+                    $procs[] = $proc;
+                }
+            }
+            foreach ($procs as $p) {
+                if (is_resource($p)) {
+                    proc_close($p);
+                }
+            }
+            \WP_CLI::success(sprintf('Spawned %d parallel fill-missing processes for %s.', count($procs), $singleType));
+            return;
+        }
+
         $fillService = new FillMissingService($this->aiService);
         $totalFilled = 0;
         $totalSkipped = 0;
@@ -976,7 +1058,7 @@ final class Commands
                     \WP_CLI::log(sprintf('[%s] Error post %d %s: %s', $type, $postId, $metaKey, $detail ?? ''));
                 }
             } : null;
-            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $onProgress, $onVerbose, $cacheTtl);
+            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds);
             $filled = (int) ($result['filled'] ?? 0);
             $skipped = (int) ($result['skipped'] ?? 0);
             $errors = (int) ($result['errors'] ?? 0);
@@ -991,6 +1073,46 @@ final class Commands
         }
         $elapsed = round(microtime(true) - $startTime, 1);
         \WP_CLI::success(sprintf('Fill missing complete. Filled: %d, skipped: %d, errors: %d, API calls: %d in %s s', $totalFilled, $totalSkipped, $totalErrors, $totalApiCalls, $elapsed));
+    }
+
+    /**
+     * Suggest and optionally write internal links (outgoing_internal_links_json) for helmets, brands, accessories.
+     *
+     * ## OPTIONS
+     * [--post-type=<type>]
+     * : helmet|brand|accessory|all. Default: all
+     * [--limit=<n>]
+     * : Max posts to process per type (0 = no limit). Default: 0
+     * [--offset=<n>]
+     * : Offset for pagination. Default: 0
+     * [--dry-run]
+     * : Do not save; only report counts
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai cross-link --post-type=helmet --limit=50
+     *     wp helmetsan ai cross-link --dry-run
+     */
+    public function aiCrossLink(array $args, array $assoc): void
+    {
+        $postType = (string) ($assoc['post-type'] ?? 'all');
+        $limit = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : 0;
+        $offset = isset($assoc['offset']) ? max(0, (int) $assoc['offset']) : 0;
+        $dryRun = isset($assoc['dry-run']);
+        $allowed = ['helmet', 'brand', 'accessory', 'all'];
+        if (! in_array($postType, $allowed, true)) {
+            \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, or all.');
+            return;
+        }
+        $service = new CrossLinkService();
+        $result = $service->run($postType, $limit, $offset, $dryRun);
+        \WP_CLI::line(wp_json_encode($result, JSON_PRETTY_PRINT));
+        \WP_CLI::success(sprintf(
+            'Cross-link: %s %d, skipped %d, total %d.',
+            $dryRun ? 'Would update' : 'Updated',
+            $result['updated'],
+            $result['skipped'],
+            $result['total']
+        ));
     }
 
     /**
@@ -1109,13 +1231,13 @@ final class Commands
     /**
      * ## OPTIONS
      * --task=<task>
-     * : sync_pull|retry_failed|cleanup_logs|health_snapshot
+     * : sync_pull|retry_failed|cleanup_logs|health_snapshot|ingestion|enrichment
      */
     public function schedulerRun(array $args, array $assoc): void
     {
         $task = isset($assoc['task']) ? (string) $assoc['task'] : '';
         if ($task === '') {
-            \WP_CLI::error('Provide --task=<sync_pull|retry_failed|cleanup_logs|health_snapshot>');
+            \WP_CLI::error('Provide --task=<sync_pull|retry_failed|cleanup_logs|health_snapshot|ingestion|enrichment>');
             return;
         }
 
@@ -1294,12 +1416,12 @@ final class Commands
                 // Simulate fluctuation
                 $price = $basePrice * (1 + (rand(-10, 10) / 100));
                 
-                $this->priceHistory->record($id, 'amazon-us', 'US', 'USD', $price, $date);
-                
+                $this->priceHistory->record($id, 'amazon-us', 'US', 'USD', $price, null, $date);
+
                 // Sometimes add a second marketplace
                 if (rand(0, 1)) {
-                     $price2 = $basePrice * (1 + (rand(-15, 5) / 100));
-                     $this->priceHistory->record($id, 'revzilla', 'US', 'USD', $price2, $date);
+                    $price2 = $basePrice * (1 + (rand(-15, 5) / 100));
+                    $this->priceHistory->record($id, 'revzilla', 'US', 'USD', $price2, null, $date);
                 }
             }
             $count++;

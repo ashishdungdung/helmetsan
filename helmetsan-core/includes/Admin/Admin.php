@@ -649,7 +649,7 @@ final class Admin
             $merged['branch'] = (string) ($existing['branch'] ?? 'main');
         }
         $profile = sanitize_text_field((string) $merged['sync_run_profile']);
-        $merged['sync_run_profile'] = in_array($profile, ['pull-only', 'pull+brands', 'pull+all'], true) ? $profile : 'pull-only';
+        $merged['sync_run_profile'] = in_array($profile, ['pull-only', 'pull+brands', 'pull+helmets', 'pull+all'], true) ? $profile : 'pull-only';
         $pushMode = sanitize_text_field((string) $merged['push_mode']);
         $merged['push_mode'] = in_array($pushMode, ['commit', 'pr'], true) ? $pushMode : 'commit';
         $merged['pr_branch_prefix'] = sanitize_text_field((string) $merged['pr_branch_prefix']);
@@ -730,12 +730,28 @@ final class Admin
         $merged['retry_failed_enabled'] = ! empty($merged['retry_failed_enabled']);
         $merged['cleanup_logs_enabled'] = ! empty($merged['cleanup_logs_enabled']);
         $merged['health_snapshot_enabled'] = ! empty($merged['health_snapshot_enabled']);
+        $merged['enrichment_enabled'] = ! empty($merged['enrichment_enabled']);
+        $merged['enrichment_helmets_enabled'] = ! empty($merged['enrichment_helmets_enabled']);
+        $merged['enrichment_brands_enabled'] = ! empty($merged['enrichment_brands_enabled']);
+        $merged['enrichment_accessories_enabled'] = ! empty($merged['enrichment_accessories_enabled']);
 
         $merged['sync_pull_interval_hours'] = max(1, (int) $merged['sync_pull_interval_hours']);
         $merged['sync_pull_limit'] = max(1, (int) $merged['sync_pull_limit']);
         $merged['retry_failed_limit'] = max(1, (int) $merged['retry_failed_limit']);
         $merged['retry_failed_batch_size'] = max(1, (int) $merged['retry_failed_batch_size']);
         $merged['cleanup_logs_days'] = max(1, (int) $merged['cleanup_logs_days']);
+        $merged['enrichment_interval_hours'] = max(1, (int) ($merged['enrichment_interval_hours'] ?? 24));
+
+        // Global limits kept for backwards compatibility; per-type limits can override.
+        $merged['enrichment_fill_limit'] = max(1, (int) ($merged['enrichment_fill_limit'] ?? 50));
+        $merged['enrichment_seo_limit'] = max(0, (int) ($merged['enrichment_seo_limit'] ?? 100));
+
+        $merged['enrichment_helmets_fill_limit'] = max(1, (int) ($merged['enrichment_helmets_fill_limit'] ?? $merged['enrichment_fill_limit']));
+        $merged['enrichment_helmets_seo_limit'] = max(0, (int) ($merged['enrichment_helmets_seo_limit'] ?? $merged['enrichment_seo_limit']));
+        $merged['enrichment_brands_fill_limit'] = max(1, (int) ($merged['enrichment_brands_fill_limit'] ?? $merged['enrichment_fill_limit']));
+        $merged['enrichment_brands_seo_limit'] = max(0, (int) ($merged['enrichment_brands_seo_limit'] ?? $merged['enrichment_seo_limit']));
+        $merged['enrichment_accessories_fill_limit'] = max(1, (int) ($merged['enrichment_accessories_fill_limit'] ?? $merged['enrichment_fill_limit']));
+        $merged['enrichment_accessories_seo_limit'] = max(0, (int) ($merged['enrichment_accessories_seo_limit'] ?? $merged['enrichment_seo_limit']));
 
         return $merged;
     }
@@ -788,6 +804,8 @@ final class Admin
             'logodev_enabled',
             'wikimedia_enabled',
             'auto_sideload_enabled',
+            'ean_db_enabled',
+            'eandata_enabled',
         ];
         foreach ($bools as $key) {
             $merged[$key] = ! empty($merged[$key]);
@@ -802,6 +820,10 @@ final class Admin
         $merged['logodev_publishable_key'] = $logodevPublishable !== '' ? $logodevPublishable : (string) ($existing['logodev_publishable_key'] ?? '');
         $merged['logodev_secret_key'] = $logodevSecret !== '' ? $logodevSecret : (string) ($existing['logodev_secret_key'] ?? '');
         $merged['logodev_token'] = $logodevToken !== '' ? $logodevToken : (string) ($existing['logodev_token'] ?? '');
+        $eanDbToken = sanitize_text_field((string) ($merged['ean_db_token'] ?? ''));
+        $eandataKeycode = sanitize_text_field((string) ($merged['eandata_keycode'] ?? ''));
+        $merged['ean_db_token'] = $eanDbToken !== '' ? $eanDbToken : (string) ($existing['ean_db_token'] ?? '');
+        $merged['eandata_keycode'] = $eandataKeycode !== '' ? $eandataKeycode : (string) ($existing['eandata_keycode'] ?? '');
         $merged['cache_ttl_hours'] = max(1, (int) $merged['cache_ttl_hours']);
 
         return $merged;
@@ -1063,6 +1085,11 @@ final class Admin
         echo wp_kses_post($this->renderScoreBar((int) ($goLive['score'] ?? 0)));
         echo '</div>';
         echo '</section>';
+
+        echo '<div class="hs-panel" style="margin-bottom:20px;">';
+        echo '<h3>Data flow: JSON ↔ WordPress ↔ GitHub</h3>';
+        echo '<p class="description">Ingestion reads JSON from disk and writes to WordPress only (no GitHub write). Export writes WordPress data to JSON files. Sync <strong>pull</strong> downloads from GitHub then you can apply; <strong>push</strong> uploads local JSON to GitHub. To get WP changes into GitHub: export first, then push. <a href="' . esc_url(admin_url('admin.php?page=helmetsan-docs')) . '">Documentation</a>.</p>';
+        echo '</div>';
 
         $cards = [
             ['label' => 'Status', 'value' => $repoStatus, 'page' => 'helmetsan-repo-health'],
@@ -2134,8 +2161,8 @@ final class Admin
         $perPage = 25;
 
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Ingestion', 'Track imports, retries, and data quality outcomes.');
-        echo '<p><a href="' . esc_url(admin_url('admin.php?page=helmetsan-reseed')) . '">Data / Reseed</a> — Run helmet seed, path-based helmets, accessories, and brands from the dashboard.</p>';
+        $this->renderAppHeader('Ingestion', 'Apply JSON to WordPress (reads from data root; does not write to GitHub). View logs and retry failed runs.');
+        echo '<p class="description">Ingestion reads JSON files on disk and creates/updates posts and meta. It does not push to GitHub. To run ingestion: <a href="' . esc_url(admin_url('admin.php?page=helmetsan-reseed')) . '">Data / Reseed</a> (seed or path-based).</p>';
 
         if (! $this->ingestionLogs->tableExists()) {
             echo '<p>Ingestion log table not found. Re-activate plugin or run table migration.</p></div>';
@@ -2272,7 +2299,7 @@ final class Admin
         $viewId  = isset($_GET['view']) ? max(0, (int) $_GET['view']) : 0;
 
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Sync Logs', 'Audit pull/push runs and payload decisions.');
+        $this->renderAppHeader('Sync Logs', 'Pull = download from GitHub then apply. Push = upload local JSON to GitHub. Audit runs and payloads.');
         $synced = isset($_GET['hs_sync']) ? (int) $_GET['hs_sync'] : 0;
         $syncMsg = isset($_GET['hs_sync_msg']) ? sanitize_text_field((string) $_GET['hs_sync_msg']) : '';
         if ($synced === 1 && $syncMsg !== '') {
@@ -2312,7 +2339,7 @@ final class Admin
         $github = wp_parse_args((array) get_option(Config::OPTION_GITHUB, []), $this->config->githubDefaults());
         $savedProfile = isset($github['sync_run_profile']) ? (string) $github['sync_run_profile'] : 'pull-only';
         $profileLocked = ! empty($github['sync_profile_lock']);
-        if (! in_array($savedProfile, ['pull-only', 'pull+brands', 'pull+all'], true)) {
+        if (! in_array($savedProfile, ['pull-only', 'pull+brands', 'pull+helmets', 'pull+all'], true)) {
             $savedProfile = 'pull-only';
         }
 
@@ -2327,6 +2354,7 @@ final class Admin
         echo '<option value="saved">Saved (' . esc_html($savedProfile) . ')</option>';
         echo '<option value="pull-only">pull-only</option>';
         echo '<option value="pull+brands">pull+brands</option>';
+        echo '<option value="pull+helmets">pull+helmets</option>';
         echo '<option value="pull+all">pull+all</option>';
         echo '</select></p>';
         if ($profileLocked) {
@@ -2349,7 +2377,7 @@ final class Admin
 
         $limit = isset($_POST['limit']) ? max(1, (int) $_POST['limit']) : 200;
         $profileRaw = isset($_POST['profile']) ? sanitize_text_field((string) $_POST['profile']) : 'saved';
-        $profile = in_array($profileRaw, ['pull-only', 'pull+brands', 'pull+all'], true) ? $profileRaw : null;
+        $profile = in_array($profileRaw, ['pull-only', 'pull+brands', 'pull+helmets', 'pull+all'], true) ? $profileRaw : null;
 
         $user = wp_get_current_user();
         $audit = [
@@ -2674,7 +2702,7 @@ final class Admin
         $seedPath = defined('WP_PLUGIN_DIR') ? WP_PLUGIN_DIR . '/helmetsan-core/seed-data/helmets_seed.json' : '';
 
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Data / Reseed', 'Run ingestion from the dashboard: helmet seed, path-based helmets, accessories, and brands.');
+        $this->renderAppHeader('Data / Reseed', 'Run ingestion from JSON on disk (data root or path). Use after a sync pull or when editing JSON locally.');
 
         $reseedError = isset($_GET['reseed_error']) ? sanitize_key((string) $_GET['reseed_error']) : '';
         $reseedDone = isset($_GET['reseed_done']) ? sanitize_key((string) $_GET['reseed_done']) : '';
@@ -2856,7 +2884,7 @@ final class Admin
         $message  = isset($_GET['hs_msg']) ? sanitize_text_field((string) $_GET['hs_msg']) : '';
 
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Import/Export', 'Move helmet and brand data in controlled batches.');
+        $this->renderAppHeader('Import/Export', 'Export = WordPress → JSON (for push). Import = JSON file → WordPress.');
 
         if (($imported || $exported) && $message !== '') {
             $class = $ok ? 'notice-success' : 'notice-error';
@@ -3074,8 +3102,9 @@ final class Admin
     {
         $files = $this->docs->listDocs();
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Documentation', 'Local references and engineering docs.');
-        echo '<div class="hs-panel"><ul>';
+        $this->renderAppHeader('Documentation', 'Data flow (JSON ↔ WordPress ↔ GitHub), sync, ingestion, and module references.');
+        echo '<div class="hs-panel"><p class="description"><strong>Data flow:</strong> How data moves between JSON files, WordPress, and GitHub — see <code>data-flow.md</code> in the list below or in project <code>docs/</code>.</p></div>';
+        echo '<div class="hs-panel"><h3>Docs</h3><ul>';
         foreach ($files as $file) {
             echo '<li>' . esc_html(basename($file)) . '</li>';
         }
@@ -3360,7 +3389,7 @@ final class Admin
 
             $this->renderSettingsSection('Sync Behavior', 'Control how data is pulled and pushed.', [
                 ['key' => 'sync_json_only', 'option' => $O_G, 'label' => 'JSON Files Only', 'desc' => 'Only sync .json files; ignore others.', 'type' => 'checkbox', 'prefix' => 'gh_'],
-                ['key' => 'sync_run_profile', 'option' => $O_G, 'label' => 'Sync Profile', 'desc' => 'Which entities to process after pull.', 'type' => 'select', 'choices' => ['pull-only' => 'Pull Only', 'pull+brands' => 'Pull + Brands', 'pull+all' => 'Pull + All'], 'prefix' => 'gh_'],
+                ['key' => 'sync_run_profile', 'option' => $O_G, 'label' => 'Sync Profile', 'desc' => 'Which entities to process after pull.', 'type' => 'select', 'choices' => ['pull-only' => 'Pull Only', 'pull+brands' => 'Pull + Brands', 'pull+helmets' => 'Pull + Helmets', 'pull+all' => 'Pull + All'], 'prefix' => 'gh_'],
                 ['key' => 'sync_profile_lock', 'option' => $O_G, 'label' => 'Lock Profile', 'desc' => 'Prevent profile changes from the sync UI.', 'type' => 'checkbox', 'prefix' => 'gh_'],
             ], $github);
 
@@ -3514,6 +3543,19 @@ final class Admin
                 ['key' => 'health_snapshot_enabled', 'option' => $O_S, 'label' => 'Health Snapshots', 'desc' => 'Take periodic health check snapshots.', 'type' => 'checkbox', 'prefix' => 'sch_'],
                 ['key' => 'ingestion_interval_hours', 'option' => $O_S, 'label' => 'Ingestion Interval (hours)', 'desc' => 'How often marketplace price ingestion runs.', 'type' => 'number', 'prefix' => 'sch_'],
             ], $scheduler);
+            $this->renderSettingsSection('AI Enrichment', 'Optional scheduled fill-missing and SEO seed (requires AI providers configured under Helmetsan → AI). Configure which post types to include; each run calls fill-missing (blank fields only) then SEO seed for the selected types.', [
+                ['key' => 'enrichment_enabled', 'option' => $O_S, 'label' => 'Enable Enrichment', 'desc' => 'Master switch for scheduled enrichment.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_interval_hours', 'option' => $O_S, 'label' => 'Interval (hours)', 'desc' => 'How often to run (e.g. 24 for daily).', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_helmets_enabled', 'option' => $O_S, 'label' => 'Helmets: enable', 'desc' => 'Run fill-missing + SEO seed for helmets.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_helmets_fill_limit', 'option' => $O_S, 'label' => 'Helmets: fill-missing limit', 'desc' => 'Max helmets to fill per run.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_helmets_seo_limit', 'option' => $O_S, 'label' => 'Helmets: SEO seed limit', 'desc' => 'Max helmets to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_brands_enabled', 'option' => $O_S, 'label' => 'Brands: enable', 'desc' => 'Run fill-missing + SEO seed for brands.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_brands_fill_limit', 'option' => $O_S, 'label' => 'Brands: fill-missing limit', 'desc' => 'Max brands to fill per run.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_brands_seo_limit', 'option' => $O_S, 'label' => 'Brands: SEO seed limit', 'desc' => 'Max brands to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_accessories_enabled', 'option' => $O_S, 'label' => 'Accessories: enable', 'desc' => 'Run fill-missing + SEO seed for accessories.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_accessories_fill_limit', 'option' => $O_S, 'label' => 'Accessories: fill-missing limit', 'desc' => 'Max accessories to fill per run.', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_accessories_seo_limit', 'option' => $O_S, 'label' => 'Accessories: SEO seed limit', 'desc' => 'Max accessories to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
+            ], $scheduler);
 
             $status = $this->scheduler->status();
 
@@ -3599,6 +3641,13 @@ final class Admin
                 ['key' => 'logodev_publishable_key', 'option' => $O_ME, 'label' => 'Logo.dev Publishable Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
                 ['key' => 'logodev_secret_key', 'option' => $O_ME, 'label' => 'Logo.dev Secret Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
                 ['key' => 'logodev_token', 'option' => $O_ME, 'label' => 'Logo.dev Legacy Token', 'desc' => 'Backward-compatible single token. Use publishable/secret keys instead.', 'type' => 'password', 'prefix' => 'med_'],
+            ], $media);
+
+            $this->renderSettingsSection('Product image by EAN / GTIN', 'Look up product or brand images by barcode in Media Engine. Env: HELMETSAN_EAN_DB_TOKEN, HELMETSAN_EANDATA_KEYCODE.', [
+                ['key' => 'ean_db_enabled', 'option' => $O_ME, 'label' => 'EAN-DB', 'desc' => 'Enable EAN-DB.com API for product images by barcode.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'ean_db_token', 'option' => $O_ME, 'label' => 'EAN-DB JWT Token', 'desc' => 'JWT from ean-db.com account (Authorization: Bearer).', 'type' => 'password', 'prefix' => 'med_'],
+                ['key' => 'eandata_enabled', 'option' => $O_ME, 'label' => 'eandata.com', 'desc' => 'Enable eandata.com image URL pattern for 13-digit EAN.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'eandata_keycode', 'option' => $O_ME, 'label' => 'eandata Keycode', 'desc' => '16-digit keycode from eandata.com feed page (for future API use).', 'type' => 'text', 'prefix' => 'med_'],
             ], $media);
 
             echo '<p><strong>Connectivity Tests</strong></p>';

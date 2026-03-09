@@ -25,7 +25,7 @@ wp helmetsan ingest-seed --file=/custom.json
 
 ### 2. Improved Seed Script
 
-[create_helmets_seed.php](file:///Users/anumac/Documents/Helmetsan/create_helmets_seed.php) — Added CLI flags:
+[`scripts/create_helmets_seed.php`](../scripts/create_helmets_seed.php) — Added CLI flags:
 
 | Flag                | Purpose                                    |
 | ------------------- | ------------------------------------------ |
@@ -57,14 +57,14 @@ wp helmetsan ingest-seed --file=/custom.json
 
 ## Verification
 
-- `php create_helmets_seed.php --validate` → ✅ 142 models, 0 duplicate IDs, all descriptions
+- `php scripts/create_helmets_seed.php --validate` → ✅ 142 models, 0 duplicate IDs, all descriptions
 - `git status` confirms no `*.expect` files staged
 - Pushed to GitHub: commit `91d182f` (99 files, 39,205 insertions)
 
 ## Workflow for Future Use
 
 ```bash
-# Edit create_helmets_seed.php → add new brands/models
+# Edit scripts/create_helmets_seed.php → add new brands/models
 # Then just:
 ./scripts/reseed.sh
 # Done. 🎉

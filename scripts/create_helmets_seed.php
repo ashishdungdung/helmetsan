@@ -10,18 +10,20 @@
 //   php create_helmets_seed.php --help
 
 // ── CLI Arguments ──────────────────────────────────────────────────────
-$opts = getopt('', ['output:', 'validate', 'stats', 'split-dir:', 'help']);
+$opts = getopt('', ['output:', 'validate', 'stats', 'split-dir:', 'source-json:', 'help']);
 
 if (isset($opts['help'])) {
     fwrite(STDERR, <<<HELP
 Helmetsan Seed Generator (Deterministic)
 
 Options:
-  --output=<file>      Write JSON to file instead of stdout
-  --validate           Validate data (check IDs, descriptions) then exit
-  --stats              Print summary stats to stderr after generation
-  --split-dir=<dir>    Also write individual JSON files to <dir>/ for ingestPath
-  --help               Show this help
+  --output=<file>       Write JSON to file instead of stdout
+  --validate            Validate data (check IDs, descriptions) then exit
+  --stats               Print summary stats to stderr after generation
+  --split-dir=<dir>     Also write individual JSON files to <dir>/ for ingestPath
+  --source-json=<file>  Optional. Load brand/model data from a JSON file instead
+                        of the built-in PHP array (recommended for new edits).
+  --help                Show this help
 
 HELP
     );
@@ -14245,6 +14247,28 @@ $brands = array (
     ),
   ),
 );
+
+// Optional: override $brands from a JSON file so data can live in data/ instead of this PHP array.
+// Usage:
+//   php scripts/create_helmets_seed.php --source-json=data/helmets/master.json ...
+if (isset($opts['source-json'])) {
+    $jsonPath = (string) $opts['source-json'];
+    if ($jsonPath === '') {
+        fwrite(STDERR, "ERROR: --source-json requires a file path.\n");
+        exit(1);
+    }
+    if (! is_file($jsonPath)) {
+        fwrite(STDERR, "ERROR: source JSON file not found: {$jsonPath}\n");
+        exit(1);
+    }
+    $json = file_get_contents($jsonPath);
+    $decoded = json_decode((string) $json, true);
+    if (! is_array($decoded)) {
+        fwrite(STDERR, "ERROR: source JSON is not a valid object/array: {$jsonPath}\n");
+        exit(1);
+    }
+    $brands = $decoded;
+}
 
 $output = [];
 

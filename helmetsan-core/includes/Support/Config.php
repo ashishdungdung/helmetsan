@@ -30,7 +30,12 @@ final class Config
                 'mistral' => ['enabled' => false, 'api_key' => '', 'model' => 'mistral-small-latest', 'tier' => 'free'],
                 'openrouter' => ['enabled' => false, 'api_key' => '', 'model' => 'google/gemini-flash-1.5', 'tier' => 'free'],
                 'huggingface' => ['enabled' => false, 'api_key' => '', 'model' => 'mistralai/Mistral-7B-Instruct-v0.2', 'tier' => 'free'],
+                'together' => ['enabled' => false, 'api_key' => '', 'model' => 'meta-llama/Llama-3.2-3B-Instruct-Turbo', 'tier' => 'free'],
+                'fireworks' => ['enabled' => false, 'api_key' => '', 'model' => 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'tier' => 'free'],
+                'cohere' => ['enabled' => false, 'api_key' => '', 'model' => 'command-r-plus', 'tier' => 'free'],
+                'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => 'http://localhost:1234/v1', 'model' => 'local', 'tier' => 'free'],
                 'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
+                'anthropic' => ['enabled' => false, 'api_key' => '', 'model' => 'claude-sonnet-4-20250514', 'tier' => 'premium'],
                 'perplexity' => ['enabled' => false, 'api_key' => '', 'model' => 'sonar', 'tier' => 'premium'],
             ],
             'default_free' => 'groq',
@@ -154,14 +159,14 @@ final class Config
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->revenueDefaults());
 
         // Env-var overrides for affiliate IDs
-        if (defined('HELMETSAN_CJ_WEBSITE_ID') && HELMETSAN_CJ_WEBSITE_ID !== '') {
-            $cfg['affiliate_networks']['cj']['website_id'] = (string) HELMETSAN_CJ_WEBSITE_ID;
+        if (defined('HELMETSAN_CJ_WEBSITE_ID') && \HELMETSAN_CJ_WEBSITE_ID !== '') {
+            $cfg['affiliate_networks']['cj']['website_id'] = (string) \HELMETSAN_CJ_WEBSITE_ID;
         }
-        if (defined('HELMETSAN_ALLEGRO_AFF_ID') && HELMETSAN_ALLEGRO_AFF_ID !== '') {
-            $cfg['affiliate_networks']['allegro']['aff_id'] = (string) HELMETSAN_ALLEGRO_AFF_ID;
+        if (defined('HELMETSAN_ALLEGRO_AFF_ID') && \HELMETSAN_ALLEGRO_AFF_ID !== '') {
+            $cfg['affiliate_networks']['allegro']['aff_id'] = (string) \HELMETSAN_ALLEGRO_AFF_ID;
         }
-        if (defined('HELMETSAN_JUMIA_AFF_ID') && HELMETSAN_JUMIA_AFF_ID !== '') {
-            $cfg['affiliate_networks']['jumia']['aff_id'] = (string) HELMETSAN_JUMIA_AFF_ID;
+        if (defined('HELMETSAN_JUMIA_AFF_ID') && \HELMETSAN_JUMIA_AFF_ID !== '') {
+            $cfg['affiliate_networks']['jumia']['aff_id'] = (string) \HELMETSAN_JUMIA_AFF_ID;
         }
 
         return $cfg;
@@ -170,19 +175,32 @@ final class Config
     public function schedulerDefaults(): array
     {
         return [
-            'enable_scheduler'         => false,
-            'sync_pull_enabled'        => false,
-            'sync_pull_interval_hours' => 6,
-            'sync_pull_limit'          => 200,
-            'sync_pull_apply_brands'   => true,
-            'sync_pull_apply_helmets'  => false,
-            'retry_failed_enabled'     => false,
-            'retry_failed_limit'       => 100,
-            'retry_failed_batch_size'  => 50,
-            'cleanup_logs_enabled'     => true,
-            'cleanup_logs_days'        => 30,
-            'health_snapshot_enabled'  => true,
-            'ingestion_interval_hours' => 6,
+            'enable_scheduler'           => false,
+            'sync_pull_enabled'          => false,
+            'sync_pull_interval_hours'   => 6,
+            'sync_pull_limit'            => 200,
+            'sync_pull_apply_brands'     => true,
+            'sync_pull_apply_helmets'    => false,
+            'retry_failed_enabled'       => false,
+            'retry_failed_limit'         => 100,
+            'retry_failed_batch_size'    => 50,
+            'cleanup_logs_enabled'       => true,
+            'cleanup_logs_days'          => 30,
+            'health_snapshot_enabled'    => true,
+            'ingestion_interval_hours'   => 6,
+            // AI enrichment (scheduler)
+            'enrichment_enabled'         => false, // master switch
+            'enrichment_interval_hours'  => 24,
+            // Per-type toggles and limits
+            'enrichment_helmets_enabled'     => true,
+            'enrichment_helmets_fill_limit'  => 50,
+            'enrichment_helmets_seo_limit'   => 100,
+            'enrichment_brands_enabled'      => false,
+            'enrichment_brands_fill_limit'   => 50,
+            'enrichment_brands_seo_limit'    => 100,
+            'enrichment_accessories_enabled' => false,
+            'enrichment_accessories_fill_limit' => 50,
+            'enrichment_accessories_seo_limit'  => 100,
         ];
     }
 
@@ -225,6 +243,11 @@ final class Config
             'wikimedia_enabled'     => true,
             'cache_ttl_hours'       => 12,
             'auto_sideload_enabled' => false,
+            // Product image by EAN/GTIN (EAN-DB, eandata)
+            'ean_db_enabled'        => false,
+            'ean_db_token'          => '',
+            'eandata_enabled'       => false,
+            'eandata_keycode'       => '',
         ];
     }
 
@@ -256,11 +279,11 @@ final class Config
         $saved = get_option(self::OPTION_ALERTS, []);
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->alertsDefaults());
 
-        if (defined('HELMETSAN_ALERTS_TO_EMAIL') && HELMETSAN_ALERTS_TO_EMAIL !== '') {
-            $cfg['to_email'] = (string) HELMETSAN_ALERTS_TO_EMAIL;
+        if (defined('HELMETSAN_ALERTS_TO_EMAIL') && \HELMETSAN_ALERTS_TO_EMAIL !== '') {
+            $cfg['to_email'] = (string) \HELMETSAN_ALERTS_TO_EMAIL;
         }
-        if (defined('HELMETSAN_ALERTS_SLACK_WEBHOOK') && HELMETSAN_ALERTS_SLACK_WEBHOOK !== '') {
-            $cfg['slack_webhook_url'] = (string) HELMETSAN_ALERTS_SLACK_WEBHOOK;
+        if (defined('HELMETSAN_ALERTS_SLACK_WEBHOOK') && \HELMETSAN_ALERTS_SLACK_WEBHOOK !== '') {
+            $cfg['slack_webhook_url'] = (string) \HELMETSAN_ALERTS_SLACK_WEBHOOK;
         }
 
         return $cfg;
@@ -274,20 +297,20 @@ final class Config
         $saved = get_option(self::OPTION_GITHUB, []);
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->githubDefaults());
 
-        if (defined('HELMETSAN_GITHUB_OWNER') && HELMETSAN_GITHUB_OWNER !== '') {
-            $cfg['owner'] = (string) HELMETSAN_GITHUB_OWNER;
+        if (defined('HELMETSAN_GITHUB_OWNER') && \HELMETSAN_GITHUB_OWNER !== '') {
+            $cfg['owner'] = (string) \HELMETSAN_GITHUB_OWNER;
         }
-        if (defined('HELMETSAN_GITHUB_REPO') && HELMETSAN_GITHUB_REPO !== '') {
-            $cfg['repo'] = (string) HELMETSAN_GITHUB_REPO;
+        if (defined('HELMETSAN_GITHUB_REPO') && \HELMETSAN_GITHUB_REPO !== '') {
+            $cfg['repo'] = (string) \HELMETSAN_GITHUB_REPO;
         }
-        if (defined('HELMETSAN_GITHUB_TOKEN') && HELMETSAN_GITHUB_TOKEN !== '') {
-            $cfg['token'] = (string) HELMETSAN_GITHUB_TOKEN;
+        if (defined('HELMETSAN_GITHUB_TOKEN') && \HELMETSAN_GITHUB_TOKEN !== '') {
+            $cfg['token'] = (string) \HELMETSAN_GITHUB_TOKEN;
         }
-        if (defined('HELMETSAN_GITHUB_BRANCH') && HELMETSAN_GITHUB_BRANCH !== '') {
-            $cfg['branch'] = (string) HELMETSAN_GITHUB_BRANCH;
+        if (defined('HELMETSAN_GITHUB_BRANCH') && \HELMETSAN_GITHUB_BRANCH !== '') {
+            $cfg['branch'] = (string) \HELMETSAN_GITHUB_BRANCH;
         }
-        if (defined('HELMETSAN_GITHUB_REMOTE_PATH') && HELMETSAN_GITHUB_REMOTE_PATH !== '') {
-            $cfg['remote_path'] = (string) HELMETSAN_GITHUB_REMOTE_PATH;
+        if (defined('HELMETSAN_GITHUB_REMOTE_PATH') && \HELMETSAN_GITHUB_REMOTE_PATH !== '') {
+            $cfg['remote_path'] = (string) \HELMETSAN_GITHUB_REMOTE_PATH;
         }
 
         return $cfg;
@@ -301,17 +324,17 @@ final class Config
         $saved = get_option(self::OPTION_MEDIA, []);
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->mediaDefaults());
 
-        if (defined('HELMETSAN_BRANDFETCH_TOKEN') && HELMETSAN_BRANDFETCH_TOKEN !== '') {
-            $cfg['brandfetch_token'] = (string) HELMETSAN_BRANDFETCH_TOKEN;
+        if (defined('HELMETSAN_BRANDFETCH_TOKEN') && \HELMETSAN_BRANDFETCH_TOKEN !== '') {
+            $cfg['brandfetch_token'] = (string) \HELMETSAN_BRANDFETCH_TOKEN;
         }
-        if (defined('HELMETSAN_LOGODEV_TOKEN') && HELMETSAN_LOGODEV_TOKEN !== '') {
-            $cfg['logodev_token'] = (string) HELMETSAN_LOGODEV_TOKEN;
+        if (defined('HELMETSAN_LOGODEV_TOKEN') && \HELMETSAN_LOGODEV_TOKEN !== '') {
+            $cfg['logodev_token'] = (string) \HELMETSAN_LOGODEV_TOKEN;
         }
-        if (defined('HELMETSAN_LOGODEV_PUBLISHABLE_KEY') && HELMETSAN_LOGODEV_PUBLISHABLE_KEY !== '') {
-            $cfg['logodev_publishable_key'] = (string) HELMETSAN_LOGODEV_PUBLISHABLE_KEY;
+        if (defined('HELMETSAN_LOGODEV_PUBLISHABLE_KEY') && \HELMETSAN_LOGODEV_PUBLISHABLE_KEY !== '') {
+            $cfg['logodev_publishable_key'] = (string) \HELMETSAN_LOGODEV_PUBLISHABLE_KEY;
         }
-        if (defined('HELMETSAN_LOGODEV_SECRET_KEY') && HELMETSAN_LOGODEV_SECRET_KEY !== '') {
-            $cfg['logodev_secret_key'] = (string) HELMETSAN_LOGODEV_SECRET_KEY;
+        if (defined('HELMETSAN_LOGODEV_SECRET_KEY') && \HELMETSAN_LOGODEV_SECRET_KEY !== '') {
+            $cfg['logodev_secret_key'] = (string) \HELMETSAN_LOGODEV_SECRET_KEY;
         }
 
         if ((string) ($cfg['logodev_publishable_key'] ?? '') === '' && (string) ($cfg['logodev_token'] ?? '') !== '') {
@@ -319,6 +342,12 @@ final class Config
         }
         if ((string) ($cfg['logodev_secret_key'] ?? '') === '' && (string) ($cfg['logodev_token'] ?? '') !== '') {
             $cfg['logodev_secret_key'] = (string) $cfg['logodev_token'];
+        }
+        if (defined('HELMETSAN_EAN_DB_TOKEN') && \HELMETSAN_EAN_DB_TOKEN !== '') {
+            $cfg['ean_db_token'] = (string) \HELMETSAN_EAN_DB_TOKEN;
+        }
+        if (defined('HELMETSAN_EANDATA_KEYCODE') && \HELMETSAN_EANDATA_KEYCODE !== '') {
+            $cfg['eandata_keycode'] = (string) \HELMETSAN_EANDATA_KEYCODE;
         }
 
         return $cfg;
@@ -415,29 +444,29 @@ final class Config
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->marketplaceDefaults());
 
         // Environment variable overrides for sensitive keys
-        if (defined('HELMETSAN_AMZ_CLIENT_ID') && HELMETSAN_AMZ_CLIENT_ID !== '') {
-            $cfg['amazon_client_id'] = (string) HELMETSAN_AMZ_CLIENT_ID;
+        if (defined('HELMETSAN_AMZ_CLIENT_ID') && \HELMETSAN_AMZ_CLIENT_ID !== '') {
+            $cfg['amazon_client_id'] = (string) \HELMETSAN_AMZ_CLIENT_ID;
         }
-        if (defined('HELMETSAN_AMZ_CLIENT_SECRET') && HELMETSAN_AMZ_CLIENT_SECRET !== '') {
-            $cfg['amazon_client_secret'] = (string) HELMETSAN_AMZ_CLIENT_SECRET;
+        if (defined('HELMETSAN_AMZ_CLIENT_SECRET') && \HELMETSAN_AMZ_CLIENT_SECRET !== '') {
+            $cfg['amazon_client_secret'] = (string) \HELMETSAN_AMZ_CLIENT_SECRET;
         }
-        if (defined('HELMETSAN_AMZ_REFRESH_TOKEN') && HELMETSAN_AMZ_REFRESH_TOKEN !== '') {
-            $cfg['amazon_refresh_token'] = (string) HELMETSAN_AMZ_REFRESH_TOKEN;
+        if (defined('HELMETSAN_AMZ_REFRESH_TOKEN') && \HELMETSAN_AMZ_REFRESH_TOKEN !== '') {
+            $cfg['amazon_refresh_token'] = (string) \HELMETSAN_AMZ_REFRESH_TOKEN;
         }
-        if (defined('HELMETSAN_AMZ_AFFILIATE_TAG') && HELMETSAN_AMZ_AFFILIATE_TAG !== '') {
-            $cfg['amazon_affiliate_tag'] = (string) HELMETSAN_AMZ_AFFILIATE_TAG;
+        if (defined('HELMETSAN_AMZ_AFFILIATE_TAG') && \HELMETSAN_AMZ_AFFILIATE_TAG !== '') {
+            $cfg['amazon_affiliate_tag'] = (string) \HELMETSAN_AMZ_AFFILIATE_TAG;
         }
-        if (defined('HELMETSAN_ALLEGRO_CLIENT_ID') && HELMETSAN_ALLEGRO_CLIENT_ID !== '') {
-            $cfg['allegro_client_id'] = (string) HELMETSAN_ALLEGRO_CLIENT_ID;
+        if (defined('HELMETSAN_ALLEGRO_CLIENT_ID') && \HELMETSAN_ALLEGRO_CLIENT_ID !== '') {
+            $cfg['allegro_client_id'] = (string) \HELMETSAN_ALLEGRO_CLIENT_ID;
         }
-        if (defined('HELMETSAN_ALLEGRO_CLIENT_SECRET') && HELMETSAN_ALLEGRO_CLIENT_SECRET !== '') {
-            $cfg['allegro_client_secret'] = (string) HELMETSAN_ALLEGRO_CLIENT_SECRET;
+        if (defined('HELMETSAN_ALLEGRO_CLIENT_SECRET') && \HELMETSAN_ALLEGRO_CLIENT_SECRET !== '') {
+            $cfg['allegro_client_secret'] = (string) \HELMETSAN_ALLEGRO_CLIENT_SECRET;
         }
-        if (defined('HELMETSAN_JUMIA_API_KEY') && HELMETSAN_JUMIA_API_KEY !== '') {
-            $cfg['jumia_api_key'] = (string) HELMETSAN_JUMIA_API_KEY;
+        if (defined('HELMETSAN_JUMIA_API_KEY') && \HELMETSAN_JUMIA_API_KEY !== '') {
+            $cfg['jumia_api_key'] = (string) \HELMETSAN_JUMIA_API_KEY;
         }
-        if (defined('HELMETSAN_FLIPKART_AFFILIATE_ID') && HELMETSAN_FLIPKART_AFFILIATE_ID !== '') {
-            $cfg['flipkart_affiliate_id'] = (string) HELMETSAN_FLIPKART_AFFILIATE_ID;
+        if (defined('HELMETSAN_FLIPKART_AFFILIATE_ID') && \HELMETSAN_FLIPKART_AFFILIATE_ID !== '') {
+            $cfg['flipkart_affiliate_id'] = (string) \HELMETSAN_FLIPKART_AFFILIATE_ID;
         }
 
         return $cfg;

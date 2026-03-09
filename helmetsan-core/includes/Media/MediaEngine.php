@@ -10,19 +10,22 @@ use WP_Error;
 
 final class MediaEngine
 {
+    private ProductImageByEanService $productImageByEan;
+
     public function __construct(private readonly Config $config)
     {
+        $this->productImageByEan = new ProductImageByEanService($config);
     }
 
     public function register(): void
     {
-        // Register after the core Helmetsan menu is added.
         add_action('admin_menu', [$this, 'registerMenu'], 20);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
         add_action('media_buttons', [$this, 'renderEditorButton'], 20);
         add_action('add_meta_boxes', [$this, 'registerMetaBoxes']);
         add_action('save_post', [$this, 'saveMetaBox'], 10, 2);
         add_action('admin_post_helmetsan_media_apply_logo', [$this, 'handleApplyLogo']);
+        add_action('admin_post_helmetsan_media_apply_product_image', [$this, 'handleApplyProductImage']);
         add_action('admin_post_helmetsan_media_delete_logo_attachment', [$this, 'handleDeleteLogoAttachment']);
         add_filter('upload_mimes', [$this, 'allowSvgMime']);
         add_filter('wp_check_filetype_and_ext', [$this, 'fixSvgFiletype'], 10, 4);
@@ -130,10 +133,58 @@ final class MediaEngine
         if ($assigned === 1) {
             echo '<div class="notice notice-success is-dismissible"><p>Logo assigned to post successfully.</p></div>';
         }
+        $productImageApplied = isset($_GET['product_image_applied']) && (int) $_GET['product_image_applied'] === 1;
+        if ($productImageApplied) {
+            echo '<div class="notice notice-success is-dismissible"><p>Product image set as featured image successfully.</p></div>';
+        }
         if ($errorMessage !== '') {
             echo '<div class="notice notice-error is-dismissible"><p><strong>Import failed:</strong> ' . esc_html($errorMessage) . '</p></div>';
         }
         echo '<p>Resolve logos from Simple Icons, Brandfetch, Logo.dev, and Wikimedia. Apply selected logo to any post/page/CPT. Use <strong>Refresh</strong> to bypass cache.</p>';
+
+        // Product image by EAN/GTIN (EAN-DB, eandata)
+        $eanLookup = isset($_GET['ean']) ? sanitize_text_field((string) $_GET['ean']) : '';
+        $eanResult = null;
+        if ($eanLookup !== '') {
+            $eanResult = $this->productImageByEan->fetchImageByEan($eanLookup);
+        }
+        $mediaCfg = $this->config->mediaConfig();
+        $eanDbOk = ! empty($mediaCfg['ean_db_enabled']) && (string) ($mediaCfg['ean_db_token'] ?? '') !== '';
+        $eandataOk = ! empty($mediaCfg['eandata_enabled']) && (string) ($mediaCfg['eandata_keycode'] ?? '') !== '';
+        echo '<section class="hs-panel" style="margin:12px 0;">';
+        echo '<h2 style="margin-top:0;">Product image by EAN / GTIN</h2>';
+        echo '<p>Look up product or brand images by barcode (EAN-13, UPC). Uses <strong>EAN-DB</strong> and/or <strong>eandata.com</strong> when configured in Media settings.</p>';
+        if (! $eanDbOk && ! $eandataOk) {
+            echo '<p class="notice notice-warning inline"><strong>No provider configured.</strong> Enable EAN-DB or eandata in Helmetsan → Settings → Media and set the API token/keycode.</p>';
+        }
+        echo '<form method="get" class="hs-inline-form">';
+        echo '<input type="hidden" name="page" value="helmetsan-media-engine" />';
+        echo '<label for="hs-ean-lookup">EAN / UPC / GTIN</label>';
+        echo '<input id="hs-ean-lookup" type="text" name="ean" value="' . esc_attr($eanLookup) . '" placeholder="1234567890123" maxlength="20" />';
+        echo '<label for="hs-ean-post-id">Post ID (optional)</label>';
+        echo '<input id="hs-ean-post-id" type="number" min="0" name="ean_post_id" value="' . esc_attr(isset($_GET['ean_post_id']) ? (string) (int) $_GET['ean_post_id'] : (string) $postId) . '" />';
+        submit_button('Look up image', 'secondary', '', false);
+        echo '</form>';
+        if ($eanResult !== null) {
+            echo '<div class="hs-panel" style="margin-top:12px;">';
+            echo '<p><strong>Found</strong> (' . esc_html($eanResult['provider']) . ')</p>';
+            echo '<div style="min-height:120px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px;">';
+            echo '<img src="' . esc_url($eanResult['url']) . '" alt="Product" style="max-height:200px;max-width:100%;object-fit:contain;" />';
+            echo '</div>';
+            echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
+            wp_nonce_field('helmetsan_media_apply_product_image', 'helmetsan_product_image_nonce');
+            echo '<input type="hidden" name="action" value="helmetsan_media_apply_product_image" />';
+            echo '<input type="hidden" name="image_url" value="' . esc_attr($eanResult['url']) . '" />';
+            echo '<input type="hidden" name="post_id" value="' . esc_attr(isset($_GET['ean_post_id']) ? (string) (int) $_GET['ean_post_id'] : (string) $postId) . '" />';
+            echo '<p><label><input type="checkbox" name="sideload" value="1" /> Import to Media Library</label></p>';
+            echo '<p><label><input type="checkbox" name="assign" value="1" checked="checked" /> Set as featured image for post (if Post ID set)</label></p>';
+            submit_button('Use this image', 'primary', '', false);
+            echo '</form>';
+            echo '</div>';
+        } elseif ($eanLookup !== '') {
+            echo '<p class="notice notice-warning inline">No image found for this EAN/GTIN. Try another code or check provider configuration.</p>';
+        }
+        echo '</section>';
 
         echo '<form method="get" class="hs-inline-form" style="margin:12px 0;">';
         echo '<input type="hidden" name="page" value="helmetsan-media-engine" />';
@@ -460,6 +511,49 @@ final class MediaEngine
         } else {
             $return = add_query_arg($queryArgs, $return);
         }
+        wp_safe_redirect($return);
+        exit;
+    }
+
+    public function handleApplyProductImage(): void
+    {
+        if (! current_user_can('upload_files')) {
+            wp_die('Unauthorized');
+        }
+        $nonce = isset($_POST['helmetsan_product_image_nonce']) ? (string) $_POST['helmetsan_product_image_nonce'] : '';
+        if (! wp_verify_nonce($nonce, 'helmetsan_media_apply_product_image')) {
+            wp_die('Invalid nonce');
+        }
+        $postId = isset($_POST['post_id']) ? (int) $_POST['post_id'] : 0;
+        $url = isset($_POST['image_url']) ? esc_url_raw((string) $_POST['image_url']) : '';
+        $sideload = isset($_POST['sideload']) && (int) $_POST['sideload'] === 1;
+        $assign = isset($_POST['assign']) && (int) $_POST['assign'] === 1;
+
+        if ($url === '') {
+            wp_safe_redirect(add_query_arg(['page' => 'helmetsan-media-engine', 'error' => 'missing_url'], admin_url('admin.php')));
+            exit;
+        }
+
+        $attachmentId = 0;
+        if ($sideload || ($assign && $postId > 0)) {
+            $media = $this->sideloadToMediaLibrary($url, $postId > 0 ? $postId : 0, 'ean-image');
+            if (! empty($media['attachment_id'])) {
+                $attachmentId = (int) $media['attachment_id'];
+            }
+        }
+
+        if ($assign && $postId > 0 && $attachmentId > 0) {
+            if (! current_user_can('edit_post', $postId)) {
+                wp_die('Unauthorized post access');
+            }
+            set_post_thumbnail($postId, $attachmentId);
+        }
+
+        $return = add_query_arg([
+            'page' => 'helmetsan-media-engine',
+            'product_image_applied' => ($assign && $postId > 0 && $attachmentId > 0) ? 1 : 0,
+            'imported' => $attachmentId > 0 ? 1 : 0,
+        ], admin_url('admin.php'));
         wp_safe_redirect($return);
         exit;
     }

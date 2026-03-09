@@ -1,7 +1,9 @@
 # SEO Seed Plan: Title, Meta Description & Focus Keyword
 
 ## Goal
-Seed Yoast SEO fields (`_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw`) for all helmets (1,733), brands (99), and accessories (1,191) to improve search visibility and indexing. Compatible with Yoast SEO; follows best practices for length and keyword placement.
+Seed Yoast SEO fields (`_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wpseo_focuskw`) for all helmets, brands, and accessories to improve search visibility and indexing. Compatible with Yoast SEO; follows best practices for length and keyword placement.
+
+**Where this fits:** Run **after** ingestion (and optionally after [fill-missing](enrichment-process.md#1-fill-missing-blank-fields-only)) so titles and meta can use enriched data. Order: ingest → fill-missing (blanks) → SEO seed → cross-link. To get SEO data into the repo: [export then sync push](data-flow.md).
 
 ## Best Practices (Applied)
 - **SEO Title**: 50–60 characters; primary keyword near the start; brand + product + type.
@@ -21,6 +23,7 @@ Seed Yoast SEO fields (`_yoast_wpseo_title`, `_yoast_wpseo_metadesc`, `_yoast_wp
 - Certifications (taxonomy `certification`, e.g. ECE 22.06, DOT)
 - Price (`price_retail_usd`)
 - Helmet family (`helmet_family`, e.g. RF-1400)
+- Model year (`model_year`) when set — can be included in meta for “latest” or “2024” messaging
 
 ### SEO Title (target ≤60 chars)
 - **Pattern**: `{Brand} {Model} | {Type} Helmet | Helmetsan`

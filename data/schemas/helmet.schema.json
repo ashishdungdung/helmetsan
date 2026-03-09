@@ -8,9 +8,23 @@
     "id": { "type": "string" },
     "title": { "type": "string" },
     "brand": { "type": "string" },
+    "identifiers": {
+      "type": "object",
+      "description": "Product identifiers for search and marketplace matching",
+      "properties": {
+        "asin": { "type": "string", "description": "Amazon Standard Identification Number" },
+        "ean": { "type": "string", "description": "European Article Number (13-digit barcode)" },
+        "upc": { "type": "string", "description": "Universal Product Code (12-digit barcode)" },
+        "gtin": { "type": "string", "description": "Global Trade Item Number (EAN/UPC)" },
+        "sku": { "type": "string", "description": "Stock Keeping Unit (primary/variant)" },
+        "mpn": { "type": "string", "description": "Manufacturer Part Number" },
+        "fsn": { "type": "string", "description": "Flipkart Serial Number" }
+      }
+    },
     "type": { "type": "string" },
     "helmet_family": { "type": "string" },
     "head_shape": { "type": "string" },
+    "model_year": { "type": "string", "description": "Model year (e.g. 2024)" },
     "specs": {
       "type": "object",
       "properties": {

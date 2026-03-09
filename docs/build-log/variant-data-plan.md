@@ -8,7 +8,7 @@
 Transform the helmet catalog from randomly-generated variants to a **deterministic, e-commerce-ready data engine** where the GitHub JSON is the single source of truth.
 
 > [!IMPORTANT]
-> This converts 242 models × ~5 colorways each = **~1,200 hand-defined variant entries** in `create_helmets_seed.php`. The top brands (Shoei, Arai, AGV, Bell, HJC, Schuberth) get real-world colorway names.
+> This converts 242 models × ~5 colorways each = **~1,200 hand-defined variant entries** in `scripts/create_helmets_seed.php`. The top brands (Shoei, Arai, AGV, Bell, HJC, Schuberth) get real-world colorway names.
 
 > [!WARNING]
 > **Breaking change:** Variant IDs change from `shoei_rf_1400_red` to `shoei_rf-1400_matte-black-iridium`. Existing WordPress posts with old IDs become orphans. A full reset + re-ingest is required.
@@ -82,7 +82,7 @@ Standardized set for faceted filtering across the catalog:
 
 ### Data Layer
 
-#### [MODIFY] create_helmets_seed.php
+#### [MODIFY] scripts/create_helmets_seed.php
 
 1. Add `colorways` array to each model definition
 2. Remove random variant generation loop
@@ -106,10 +106,10 @@ Add handling for new variant meta fields:
 
 ```bash
 # 1. Validate seed — zero duplicates
-php create_helmets_seed.php --validate
+php scripts/create_helmets_seed.php --validate
 
 # 2. Regenerate and check
-php create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_seed.json --stats
+php scripts/create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_seed.json --stats
 
 # 3. Deploy + ingest
 ./scripts/reseed.sh
