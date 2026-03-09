@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "competition-accessories-usa",
+  "name": "Competition Accessories",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Tipp City, OH",
+  "city": "Tipp City",
+  "website": "https://www.compacc.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "racing-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "Suomy"],
+  "marketplaces": ["competition-accessories-us"],
+  "geo": {"lat": 39.9612, "lng": -84.1797}
+}

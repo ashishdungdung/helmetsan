@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "amx-australia",
+  "name": "AMX Superstores",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Multiple locations NSW, VIC, QLD",
+  "city": "Sydney",
+  "website": "https://www.amxsuperstores.com.au",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "australia-shipping", "click-and-collect", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan", "Scorpion"],
+  "marketplaces": ["amx-au"],
+  "geo": {"lat": -33.8688, "lng": 151.2093}
+}

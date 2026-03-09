@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "helmets-vietnam-hcmc",
+  "name": "Helmets Vietnam HCMC",
+  "type": "retail",
+  "country_code": "VN",
+  "region_code": "apac",
+  "address": "District 1, Ho Chi Minh City",
+  "city": "Ho Chi Minh City",
+  "website": "https://www.nonbaohovietnam.vn",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "vn-shipping", "vietnam-standard"],
+  "brands_stocked": ["LS2", "HJC", "Nolan", "MT Helmets", "KYT", "AGV", "Caberg"],
+  "marketplaces": ["nonbaohovietnam-vn", "shopee", "lazada"],
+  "geo": {"lat": 10.7769, "lng": 106.7009}
+}

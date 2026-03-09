@@ -1,16 +1,4 @@
-:root {
-    --hs-bg: #f2f5fb;
-    --hs-text: #0b1220;
-    --hs-muted: #51607a;
-    --hs-accent: #0a84ff;
-    --hs-accent-2: #00c7be;
-    --hs-brand-pink: #ff5f9e;
-    --hs-brand-orange: #ff8f1f;
-    --hs-panel: rgba(255, 255, 255, 0.82);
-    --hs-border: rgba(11, 18, 32, 0.1);
-    --hs-radius: 18px;
-}
-
+/* Tokens live in design-tokens.css; :root and [data-theme] define light/dark. */
 body {
     --hs-content-max: 1200px;
 }
@@ -18,8 +6,9 @@ body {
 body {
     margin: 0;
     color: var(--hs-text);
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
-    background: radial-gradient(1200px 700px at 0% -20%, #dbeafe 0%, transparent 65%), radial-gradient(1200px 700px at 100% -10%, #fee2e2 0%, transparent 60%), var(--hs-bg);
+    font-family: var(--hs-font-sans);
+    background: var(--hs-bg-gradient);
+    transition: background var(--hs-transition-slow), color var(--hs-transition);
 }
 
 .site-main,
@@ -130,7 +119,9 @@ body.hs-layout-wide .site-content .site-main {
 
 .site-topbar {
     border-bottom: 1px solid var(--hs-border);
-    background: linear-gradient(90deg, rgba(10, 132, 255, 0.12), rgba(0, 199, 190, 0.12), rgba(255, 95, 158, 0.12));
+    background: var(--hs-panel);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 }
 
 .site-topbar__inner {
@@ -144,9 +135,51 @@ body.hs-layout-wide .site-content .site-main {
 
 .site-topbar__tagline {
     font-size: 12px;
-    color: #0b3b72;
+    color: var(--hs-accent);
     font-weight: 600;
     letter-spacing: .02em;
+}
+
+.site-topbar__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hs-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--hs-border);
+    border-radius: var(--hs-radius-sm);
+    background: var(--hs-panel-strong);
+    color: var(--hs-text);
+    cursor: pointer;
+    transition: background var(--hs-transition), border-color var(--hs-transition), color var(--hs-transition);
+}
+
+.hs-theme-toggle:hover {
+    background: var(--hs-accent);
+    color: #fff;
+    border-color: var(--hs-accent);
+}
+
+.hs-theme-toggle__icon {
+    display: block;
+    line-height: 0;
+}
+
+.hs-theme-toggle__icon--dark {
+    display: none;
+}
+[data-theme="dark"] .hs-theme-toggle__icon--light {
+    display: none;
+}
+[data-theme="dark"] .hs-theme-toggle__icon--dark {
+    display: block;
 }
 
 .site-header {
@@ -155,7 +188,7 @@ body.hs-layout-wide .site-content .site-main {
     z-index: 20;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--hs-panel);
     border-bottom: 1px solid var(--hs-border);
 }
 
@@ -209,7 +242,7 @@ body.hs-layout-wide .site-content .site-main {
 .site-footer {
     margin-top: 2rem;
     border-top: 1px solid var(--hs-border);
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--hs-panel);
 }
 
 .site-footer__widgets,
@@ -386,7 +419,23 @@ body.hs-layout-wide .site-content .site-main {
     letter-spacing: -0.02em;
 }
 
-.hs-section__head p {
+.hs-section__head p,
+.hs-section__sub {
+    margin: 0.25rem 0 0;
+    color: var(--hs-muted);
+    font-size: 0.9rem;
+}
+
+.hs-section__sub {
+    flex-basis: 100%;
+    order: 1;
+}
+
+.hs-section__intro {
+    margin: -0.5rem 0 1rem;
+    max-width: 56ch;
+    font-size: 0.95rem;
+    line-height: 1.55;
     color: var(--hs-muted);
 }
 
@@ -511,5 +560,27 @@ body.hs-layout-wide .site-content .site-main {
 @media (min-width: 961px) {
     .hs-nav-toggle {
         display: none;
+    }
+}
+
+/* Optional section fade-in (add .hs-animate-in to sections for entrance) */
+@keyframes hs-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hs-animate-in {
+    animation: hs-fade-in-up 0.45s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hs-animate-in {
+        animation: none;
     }
 }

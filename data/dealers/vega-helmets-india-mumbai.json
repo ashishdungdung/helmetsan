@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "vega-helmets-india-mumbai",
+  "name": "Vega Helmet World Mumbai",
+  "type": "retail",
+  "country_code": "IN",
+  "region_code": "apac",
+  "address": "Andheri West, Mumbai",
+  "city": "Mumbai",
+  "website": "https://www.vegahelmets.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "india-shipping", "isi-certified"],
+  "brands_stocked": ["Vega", "Studds", "Steelbird", "Axor", "LS2", "MT Helmets", "SMK"],
+  "marketplaces": ["vega-in", "amazon-in", "flipkart-in"],
+  "geo": {"lat": 19.1334, "lng": 72.8467}
+}

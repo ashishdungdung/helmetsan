@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-hong-kong",
+  "name": "Moto Hong Kong / Rider Gear HK",
+  "type": "retail",
+  "country_code": "HK",
+  "region_code": "apac",
+  "address": "Hong Kong",
+  "city": "Hong Kong",
+  "website": "https://www.ridergear.com.hk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "hk-shipping", "asia-imports"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "LS2", "Caberg"],
+  "marketplaces": ["ridergear-hk"],
+  "geo": {"lat": 22.3193, "lng": 114.1694}
+}

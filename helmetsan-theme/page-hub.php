@@ -56,7 +56,7 @@ $themeDir = get_stylesheet_directory_uri();
 
                 if ($item instanceof WP_Term) {
                     $title = $item->name;
-                    $desc = $item->description ?: "Explore our " . $item->name . " collection.";
+                    $desc = $item->description ?: "Browse " . $item->name . ". Compare and find the right gear in the catalog.";
                     $link = get_term_link($item);
                     $img = $themeDir . '/assets/images/hubs/' . $hub_source . '/' . $item->slug . '.png';
                     $count_label = $item->count . ' Items';

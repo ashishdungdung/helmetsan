@@ -133,14 +133,20 @@
         pagLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const url = new URL(link.href);
-                const page = url.searchParams.get('paged') || url.pathname.match(/page\/(\d+)/)?.[1] || 1;
-                
-                const formData = new FormData(form);
-                if (sortSelect) formData.set('sort', sortSelect.value);
-                formData.set('paged', page);
-                
-                const params = new URLSearchParams(formData);
+                const url = new URL(link.href, window.location.origin);
+                const page = url.searchParams.get('paged') || url.pathname.match(/page\/(\d+)/)?.[1] || '1';
+
+                // Prefer params from the link URL so filters and sort stay in sync with server-rendered links
+                let params;
+                if (url.search && url.search.length > 1) {
+                    params = new URLSearchParams(url.search);
+                    params.set('paged', page);
+                } else {
+                    const formData = new FormData(form);
+                    if (sortSelect) formData.set('sort', sortSelect.value);
+                    formData.set('paged', page);
+                    params = new URLSearchParams(formData);
+                }
                 fetchResults(params, false);
             });
         });

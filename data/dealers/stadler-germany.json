@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "stadler-germany",
+  "name": "Stadler",
+  "type": "retail",
+  "country_code": "DE",
+  "region_code": "eu",
+  "address": "Multiple locations across Germany",
+  "city": "Erlangen",
+  "website": "https://www.stadler.de",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["stadler-de", "amazon-de"],
+  "geo": {"lat": 49.5897, "lng": 11.0080}
+}

@@ -349,6 +349,48 @@ When uncertain:
 - Avoid infrastructure changes unless specifically requested.
 - Prefer documentation and logging improvements over speculative behavior changes.
 
+### 8. Token & Discovery Optimizations
+
+These reduce context size and exploratory cost. **Apply only when the task is complex or exploratory.** For small tasks (single-file fix, one-liner, known file), skip optional steps below to avoid burning tokens.
+
+**8.0 Token budget (priority)**
+
+- **Minimize total tokens per conversation.** Do not read this full document or the architecture map for trivial tasks (typo, single parameter, one known file).
+- Prefer the **smallest set of file reads and tool calls** that suffice. Skip "dry run," "interface first," and "architecture map first" when the task is narrow or the relevant code path is already known.
+- When in doubt, **one targeted read** beats "read map → read interface → read implementation."
+
+**8.1 Dry run before broad exploration**
+
+- Before committing to a large refactor or multi-file search, run a **minimal cheap check** to verify structure.
+- Examples: `find helmetsan-core/includes/AI -maxdepth 1 -type f -name "*.php"` or list one directory instead of reading many files.
+- Avoid blindly reading large files (e.g. full Commands.php) until you have narrowed the relevant area.
+- **Caveat:** If the task explicitly requires full-file understanding, use partial reads (line ranges) first; load full file only when necessary.
+
+**8.2 Interface- or outline-first context (when calling a service)**
+
+- When you need to **call** a service (e.g. AiService, SyncService) and have not yet loaded it: read the **interface** or **class outline** (first ~80 lines) rather than the full implementation. Skip this if you are already in the right file or the change is trivial.
+- Do **not** load the full implementation file unless you are modifying that implementation.
+- When fixing a bug **inside** the service, read the implementation; outline-first is for *callers* only.
+
+**8.3 Architecture map (when exploring from scratch)**
+
+- When the task is **exploratory** (e.g. "add a new integration," "find where X lives"), read **`docs/architecture-map.md`** before broad `find`/`grep`. For tasks that already name a file or subsystem, skip the map.
+- If the map is missing something relevant, use targeted search and optionally update the map.
+
+**8.4 Stubbed TDD for complex logic**
+
+- For **complex new business logic** (e.g. validation rules, ingestion transforms), prefer **test-first** when feasible:
+  - You (or the user) provide an **empty or stub test** (e.g. `test_ingestion_sets_region_from_json()`) and instruct the agent: "Implement only the code needed to make this test pass."
+  - This reduces over-engineering and speculative code; the test defines the pass/fail boundary.
+- **Caveat:** Not required for trivial changes, one-line fixes, or when no test harness is in use; apply when the task is complex and tests exist or can be added.
+
+**8.5 CLI and scripts that mutate data**
+
+- When an agent **adds or generates** a new CLI command or script that **modifies the database or writes files**:
+  - The command/script **must** support a **`--dry-run`** (or equivalent) flag that prints intended actions (e.g. SQL, HTTP requests, file writes) **without executing** them.
+  - For **new, one-off, or agent-generated scripts** (not existing Helmetsan commands), prefer **defaulting to dry-run** (no mutation) and requiring an explicit `--execute` or `--yes` to perform changes. This avoids accidental damage and costly undo scripts.
+- **Caveat:** Do **not** change the default behavior of **existing** Helmetsan commands (e.g. `wp helmetsan ingest` remains run-for-real by default); only new scripts/commands should default to dry-run where appropriate.
+
 Agent Capability Matrix (ACM)
 ----------------------------
 

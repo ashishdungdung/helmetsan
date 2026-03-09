@@ -1,5 +1,9 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+# Deploy theme and plugin to production via rsync.
+# Usage: ./scripts/deploy.sh   (from repo root)
+# - If SSH key auth works (ssh USER@HOST): uses rsync over SSH, no password needed.
+# - Else set DEPLOY_PASSWORD and use deploy-rsync.expect / deploy-rsync-file.expect for password auth.
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
@@ -8,15 +12,24 @@ if [ ! -f "$SCRIPT_DIR/config" ]; then
     exit 1
 fi
 . "$SCRIPT_DIR/config"
+[ -f "$SCRIPT_DIR/.env.deploy" ] && . "$SCRIPT_DIR/.env.deploy"
 if [ -z "${REMOTE_WP_PATH:-}" ]; then
     echo "❌ REMOTE_WP_PATH not set in scripts/config."
     exit 1
 fi
 
+PASSWORD="${DEPLOY_PASSWORD:-}"
+EXPECT_RSYNC="$SCRIPT_DIR/deploy-rsync.expect"
+EXPECT_FILE="$SCRIPT_DIR/deploy-rsync-file.expect"
+USE_EXPECT=false
+if [ -n "$PASSWORD" ] && [ -x "$EXPECT_RSYNC" ]; then
+    USE_EXPECT=true
+fi
+
 # Paths to deploy (relative to repo root; run from repo root)
 THEME_SRC="$PROJECT_DIR/helmetsan-theme"
 PLUGIN_SRC="$PROJECT_DIR/helmetsan-core"
-THEME_DEST="${REMOTE_WP_PATH}/wp-content/themes/" 
+THEME_DEST="${REMOTE_WP_PATH}/wp-content/themes/"
 PLUGIN_DEST="${REMOTE_WP_PATH}/wp-content/plugins/"
 
 if [ ! -d "$THEME_SRC" ] || [ ! -d "$PLUGIN_SRC" ]; then
@@ -25,22 +38,34 @@ if [ ! -d "$THEME_SRC" ] || [ ! -d "$PLUGIN_SRC" ]; then
 fi
 
 echo "🚀 Starting Parallel Deployment to ${USER}@${HOST}..."
+if [ "$USE_EXPECT" = true ]; then
+    echo "   (using expect + DEPLOY_PASSWORD)"
+else
+    echo "   (using SSH key)"
+fi
 
-# Function to run rsync via expect
+# Deploy one component: rsync over SSH (key or expect+password)
 deploy_component() {
     local src=$1
     local dest=$2
     local name=$3
-    local password="CQz7nF0HSd" # Should be env var in production
 
     echo "[${name}] Syncing..."
-    "$SCRIPT_DIR/deploy-rsync.expect" "$password" "$src" "${USER}@${HOST}:${dest}"
-    
-    if [ $? -eq 0 ]; then
-        echo "[${name}] ✅ Done!"
+    if [ "$USE_EXPECT" = true ]; then
+        if "$EXPECT_RSYNC" "$PASSWORD" "$src" "${USER}@${HOST}:${dest}"; then
+            echo "[${name}] ✅ Done!"
+        else
+            echo "[${name}] ❌ Failed!"
+            exit 1
+        fi
     else
-        echo "[${name}] ❌ Failed!"
-        exit 1
+        # Sync folder as folder (no trailing slash on src) so we get themes/helmetsan-theme/ and plugins/helmetsan-core/
+        if rsync -avz --delete -e ssh "$src" "${USER}@${HOST}:${dest}"; then
+            echo "[${name}] ✅ Done!"
+        else
+            echo "[${name}] ❌ Failed!"
+            exit 1
+        fi
     fi
 }
 
@@ -58,12 +83,20 @@ wait $PID_PLUGIN
 # Deploy ads.txt to site root (required for AdSense; IAB ads.txt at domain root)
 if [ -f "$PROJECT_DIR/ads.txt" ]; then
     echo "[Ads.txt] Copying to site root..."
-    password="${DEPLOY_PASSWORD:-CQz7nF0HSd}"
-    if "$SCRIPT_DIR/deploy-rsync-file.expect" "$password" "$PROJECT_DIR/ads.txt" "${USER}@${HOST}:${REMOTE_WP_PATH}/"; then
-        echo "[Ads.txt] ✅ Done! (available at https://${HOST}/ads.txt)"
+    if [ "$USE_EXPECT" = true ] && [ -x "$EXPECT_FILE" ]; then
+        if "$EXPECT_FILE" "$PASSWORD" "$PROJECT_DIR/ads.txt" "${USER}@${HOST}:${REMOTE_WP_PATH}/"; then
+            echo "[Ads.txt] ✅ Done! (available at https://${HOST}/ads.txt)"
+        else
+            echo "[Ads.txt] ❌ Failed!"
+            exit 1
+        fi
     else
-        echo "[Ads.txt] ❌ Failed!"
-        exit 1
+        if scp "$PROJECT_DIR/ads.txt" "${USER}@${HOST}:${REMOTE_WP_PATH}/"; then
+            echo "[Ads.txt] ✅ Done! (available at https://${HOST}/ads.txt)"
+        else
+            echo "[Ads.txt] ❌ Failed!"
+            exit 1
+        fi
     fi
 else
     echo "[Ads.txt] ⚠️  $PROJECT_DIR/ads.txt not found; skipping."

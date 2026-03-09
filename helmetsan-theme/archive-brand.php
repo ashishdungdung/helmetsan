@@ -116,11 +116,12 @@ $themeDir = get_stylesheet_directory_uri();
         </aside>
         <div class="hs-catalog__results">
     <?php
+    $paged = max(1, (int) get_query_var('paged', 1));
     $args = [
         'post_type' => 'brand',
         'post_status' => 'publish',
         'posts_per_page' => 18,
-        'paged' => max(1, get_query_var('paged')),
+        'paged' => $paged,
         'orderby' => 'title',
         'order' => 'ASC',
     ];
@@ -171,27 +172,29 @@ $themeDir = get_stylesheet_directory_uri();
                     </article>
                 <?php endwhile; ?>
             </div>
-            <div class="hs-pagination-wrap">
+            <nav class="hs-pagination-wrap" aria-label="<?php esc_attr_e( 'Brand catalog pages', 'helmetsan-theme' ); ?>">
                 <?php
-                $addArgs = [];
-                if (isset($_GET['s'])) {
-                    $addArgs['s'] = sanitize_text_field(wp_unslash((string) $_GET['s']));
-                }
-                if (isset($_GET['country'])) {
-                    $addArgs['country'] = sanitize_text_field(wp_unslash((string) $_GET['country']));
-                }
-                if (isset($_GET['helmet_type'])) {
-                    $addArgs['helmet_type'] = sanitize_text_field(wp_unslash((string) $_GET['helmet_type']));
-                }
-                if (isset($_GET['cert'])) {
-                    $addArgs['cert'] = sanitize_text_field(wp_unslash((string) $_GET['cert']));
-                }
-                the_posts_pagination([
-                    'total' => $query->max_num_pages,
-                    'add_args' => array_filter($addArgs, static fn(string $v): bool => $v !== ''),
-                ]);
+                $brand_current_query = array_filter([
+                    's' => isset($_GET['s']) ? sanitize_text_field(wp_unslash((string) $_GET['s'])) : '',
+                    'country' => isset($_GET['country']) ? sanitize_text_field(wp_unslash((string) $_GET['country'])) : '',
+                    'helmet_type' => isset($_GET['helmet_type']) ? sanitize_text_field(wp_unslash((string) $_GET['helmet_type'])) : '',
+                    'cert' => isset($_GET['cert']) ? sanitize_text_field(wp_unslash((string) $_GET['cert'])) : '',
+                ], static fn($v): bool => $v !== '');
+                $max_num_pages = max(1, (int) $query->max_num_pages);
+                $paged = max(1, min($paged, $max_num_pages));
+                $brand_pagination_base = (string) add_query_arg(array_merge($brand_current_query, [ 'paged' => '%#%' ]), $brandArchiveUrl);
+                echo wp_kses_post(paginate_links([
+                    'base' => $brand_pagination_base,
+                    'format' => '',
+                    'current' => $paged,
+                    'total' => $max_num_pages,
+                    'mid_size' => 2,
+                    'prev_text' => '&larr; Prev',
+                    'next_text' => 'Next &rarr;',
+                    'type' => 'plain',
+                ]));
                 ?>
-            </div>
+            </nav>
             </section>
             <?php wp_reset_postdata(); ?>
     <?php else : ?>

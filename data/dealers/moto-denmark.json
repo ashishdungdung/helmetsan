@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-denmark",
+  "name": "Moto Denmark / MC-Børsen",
+  "type": "retail",
+  "country_code": "DK",
+  "region_code": "eu",
+  "address": "Copenhagen area",
+  "city": "Copenhagen",
+  "website": "https://www.mc-boersen.dk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "nordic-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Schuberth", "Caberg"],
+  "marketplaces": ["mc-boersen-dk"],
+  "geo": {"lat": 55.6761, "lng": 12.5683}
+}

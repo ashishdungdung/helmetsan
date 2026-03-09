@@ -1,7 +1,8 @@
 <?php
 /**
  * Enrich Safety Standards with technical data and official links.
- * Run via: wp eval-file enrich_safety_standards.php --allow-root
+ * Run on server: wp eval-file scripts/enrich_safety_standards.php --allow-root
+ * Requires WordPress (ABSPATH); do not run as standalone PHP.
  */
 
 $standards = [

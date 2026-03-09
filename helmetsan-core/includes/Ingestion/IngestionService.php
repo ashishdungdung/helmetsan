@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Ingestion;
 
+use Helmetsan\Core\Brands\BrandService;
+use Helmetsan\Core\Comparison\ComparisonService;
+use Helmetsan\Core\Dealer\DealerService;
+use Helmetsan\Core\Distributor\DistributorService;
+use Helmetsan\Core\Motorcycle\MotorcycleService;
+use Helmetsan\Core\Recommendation\RecommendationService;
 use Helmetsan\Core\Repository\JsonRepository;
+use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\HelmetTypeNormalizer;
 use Helmetsan\Core\Support\Logger;
 use Helmetsan\Core\Validation\Validator;
@@ -41,18 +48,41 @@ final class IngestionService
     private const LOCK_KEY = 'helmetsan_ingest_lock';
     private const LOCK_TTL = 300;
 
+    /** Entity types dispatched to dedicated services when payload has entity field (ingest path = one file per entity). */
+    private const ENTITY_DISPATCH_TYPES = ['brand', 'motorcycle', 'safety_standard', 'dealer', 'distributor', 'comparison', 'recommendation'];
+
     public function __construct(
         private readonly Validator $validator,
         private readonly JsonRepository $repository,
         private readonly Logger $logger,
         private readonly LogRepository $logs,
-        private readonly \Helmetsan\Core\Accessory\AccessoryService $accessories
+        private readonly \Helmetsan\Core\Accessory\AccessoryService $accessories,
+        private readonly ?BrandService $brands = null,
+        private readonly ?MotorcycleService $motorcycles = null,
+        private readonly ?SafetyStandardService $safetyStandards = null,
+        private readonly ?DealerService $dealers = null,
+        private readonly ?DistributorService $distributors = null,
+        private readonly ?ComparisonService $comparisons = null,
+        private readonly ?RecommendationService $recommendations = null
     ) {}
 
-    public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false): array
+    /**
+     * List JSON file paths under a data path (for CLI concurrency chunking).
+     *
+     * @return list<string>
+     */
+    public function listJsonFiles(string $path): array
+    {
+        return $this->repository->listJsonFiles($path);
+    }
+
+    public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, int $offset = 0): array
     {
         $files = $this->repository->listJsonFiles($path);
-        return $this->ingestFiles($files, $batchSize, $limit, $dryRun, $path);
+        if ($offset > 0 || $limit !== null) {
+            $files = array_slice($files, $offset, $limit ?? count($files));
+        }
+        return $this->ingestFiles($files, $batchSize, null, $dryRun, $path);
     }
 
     /**
@@ -166,6 +196,27 @@ final class IngestionService
                         $fail++;
                         $this->logger->info('Ingest rejected: empty/invalid file ' . $file);
                         $this->logs->add($file, 'rejected', 'Empty or invalid JSON payload');
+                        continue;
+                    }
+
+                    $entity = $this->detectEntityFromPayload($data);
+                    if (in_array($entity, self::ENTITY_DISPATCH_TYPES, true)) {
+                        $dr = $this->dispatchEntityPayload($entity, $data, $file, $dryRun);
+                        if ($dr['status'] === 'ok') {
+                            $ok++;
+                            if (($dr['action'] ?? '') === 'created') {
+                                $created++;
+                            } else {
+                                $updated++;
+                            }
+                            $this->logs->add($file, $dr['action'] ?? 'updated', $entity . ' upsert successful', (string) ($data['id'] ?? ''), (int) ($dr['post_id'] ?? 0));
+                        } elseif ($dr['status'] === 'skipped') {
+                            $skipped++;
+                            $this->logs->add($file, 'skipped', $entity . ' unchanged or dry-run', (string) ($data['id'] ?? ''), (int) ($dr['post_id'] ?? 0));
+                        } else {
+                            $fail++;
+                            $this->logs->add($file, 'failed', $entity . ' upsert failed: ' . ($dr['message'] ?? 'Unknown error'));
+                        }
                         continue;
                     }
 
@@ -312,6 +363,67 @@ final class IngestionService
         } else {
             remove_filter($filter, '__return_false', 0);
         }
+    }
+
+    /**
+     * Detect entity type from payload for ingest-path dispatch (single file = one entity).
+     * @param array<string,mixed> $data
+     */
+    private function detectEntityFromPayload(array $data): string
+    {
+        $entity = isset($data['entity']) ? sanitize_key((string) $data['entity']) : '';
+        if (in_array($entity, self::ENTITY_DISPATCH_TYPES, true)) {
+            return $entity;
+        }
+        if (isset($data['profile']) && is_array($data['profile'])) {
+            return 'brand';
+        }
+        return 'helmet';
+    }
+
+    /**
+     * Dispatch a single payload to the correct entity service when entity is not helmet/accessory.
+     * @param array<string,mixed> $data
+     * @return array{status: string, action?: string, post_id?: int, message?: string}
+     */
+    private function dispatchEntityPayload(string $entity, array $data, string $file, bool $dryRun): array
+    {
+        $service = null;
+        switch ($entity) {
+            case 'brand':
+                $service = $this->brands;
+                break;
+            case 'motorcycle':
+                $service = $this->motorcycles;
+                break;
+            case 'safety_standard':
+                $service = $this->safetyStandards;
+                break;
+            case 'dealer':
+                $service = $this->dealers;
+                break;
+            case 'distributor':
+                $service = $this->distributors;
+                break;
+            case 'comparison':
+                $service = $this->comparisons;
+                break;
+            case 'recommendation':
+                $service = $this->recommendations;
+                break;
+        }
+        if ($service === null) {
+            return ['status' => 'fail', 'message' => 'Service not configured for ' . $entity];
+        }
+        $result = $service->upsertFromPayload($data, $file, $dryRun);
+        if (empty($result['ok'])) {
+            return ['status' => 'fail', 'message' => $result['message'] ?? 'Upsert failed'];
+        }
+        $action = $result['action'] ?? 'updated';
+        if ($action === 'skipped' || $action === 'dry-run') {
+            return ['status' => 'skipped', 'action' => $action, 'post_id' => (int) ($result['post_id'] ?? 0)];
+        }
+        return ['status' => 'ok', 'action' => $action, 'post_id' => (int) ($result['post_id'] ?? 0)];
     }
 
     private function findHelmetPostId(string $externalId): int
@@ -533,6 +645,59 @@ final class IngestionService
             wp_set_object_terms($resolvedPostId, $data['brand'], 'helmet_brand', false);
         }
 
+        if (isset($data['region']) || isset($data['regions']) || isset($data['geo_pricing'])) {
+            $regionTerms = [];
+            if (isset($data['region']) && is_string($data['region']) && $data['region'] !== '') {
+                $regionTerms[] = sanitize_text_field($data['region']);
+            }
+            if (isset($data['regions']) && is_array($data['regions'])) {
+                foreach ($data['regions'] as $r) {
+                    if (is_string($r) && $r !== '') {
+                        $regionTerms[] = sanitize_text_field($r);
+                    }
+                }
+            }
+            if (isset($data['geo_pricing']) && is_array($data['geo_pricing'])) {
+                foreach (array_keys($data['geo_pricing']) as $key) {
+                    if (is_string($key) && $key !== '' && ! in_array($key, $regionTerms, true)) {
+                        $regionTerms[] = sanitize_text_field($key);
+                    }
+                }
+            }
+            $regionTerms = array_values(array_unique($regionTerms));
+            if ($regionTerms !== []) {
+                wp_set_object_terms($resolvedPostId, $regionTerms, 'region', false);
+            }
+        }
+
+        if (isset($data['use_case']) || isset($data['use_cases'])) {
+            $useCaseTerms = [];
+            if (isset($data['use_case']) && is_string($data['use_case']) && $data['use_case'] !== '') {
+                $useCaseTerms[] = sanitize_text_field($data['use_case']);
+            }
+            if (isset($data['use_cases']) && is_array($data['use_cases'])) {
+                foreach ($data['use_cases'] as $u) {
+                    if (is_string($u) && $u !== '') {
+                        $useCaseTerms[] = sanitize_text_field($u);
+                    }
+                }
+            }
+            $useCaseTerms = array_values(array_unique($useCaseTerms));
+            if ($useCaseTerms !== []) {
+                wp_set_object_terms($resolvedPostId, $useCaseTerms, 'use_case', false);
+            }
+        }
+
+        if (isset($data['price_range']) && is_string($data['price_range']) && $data['price_range'] !== '') {
+            wp_set_object_terms($resolvedPostId, sanitize_text_field($data['price_range']), 'price_range', false);
+        } else {
+            $priceUsd = isset($data['price']['usd']) ? (float) $data['price']['usd'] : (isset($data['price']['current']) ? (float) $data['price']['current'] : null);
+            if ($priceUsd !== null && $priceUsd >= 0) {
+                $bucket = $priceUsd < 100 ? 'budget' : ($priceUsd < 300 ? 'mid-range' : ($priceUsd < 600 ? 'premium' : 'luxury'));
+                wp_set_object_terms($resolvedPostId, $bucket, 'price_range', false);
+            }
+        }
+
         // Multi-currency Pricing (from Child/Simple data)
         if (isset($data['price']) && is_array($data['price'])) {
             if (isset($data['price']['usd'])) update_post_meta($resolvedPostId, 'price_usd', (string) $data['price']['usd']);
@@ -730,6 +895,9 @@ final class IngestionService
 
     private function acquireLock(): bool
     {
+        if (getenv('HELMETSAN_INGEST_NO_LOCK') === '1') {
+            return true;
+        }
         $active = get_transient(self::LOCK_KEY);
         if ($active !== false) {
             return false;
@@ -740,6 +908,9 @@ final class IngestionService
 
     private function releaseLock(): void
     {
+        if (getenv('HELMETSAN_INGEST_NO_LOCK') === '1') {
+            return;
+        }
         delete_transient(self::LOCK_KEY);
     }
 }

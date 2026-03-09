@@ -57,8 +57,12 @@ $brand_domains = [
     "Z1R" => "z1r.com"
 ];
 
-$base_url = "https://helmetsan.com/wp-json/hs/v1/brands";
-$secret = "hs_parallel_secret_2026";
+$base_url = getenv('HELMETSAN_API_URL') ?: 'https://helmetsan.com/wp-json/hs/v1/brands';
+$secret   = getenv('HELMETSAN_PARALLEL_SECRET') ?: '';
+if ($secret === '') {
+    fwrite(STDERR, "❌ HELMETSAN_PARALLEL_SECRET must be set for parallel REST API seeding.\n");
+    exit(1);
+}
 
 echo "🚀 Starting Parallel Seeding via REST API...\n";
 

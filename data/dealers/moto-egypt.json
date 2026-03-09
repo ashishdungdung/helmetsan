@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-egypt",
+  "name": "Moto Egypt / Motorcycle Egypt",
+  "type": "retail",
+  "country_code": "EG",
+  "region_code": "mena",
+  "address": "Cairo",
+  "city": "Cairo",
+  "website": "https://www.motorcycleegypt.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "egypt-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "Caberg", "MT Helmets", "Shark"],
+  "marketplaces": ["motorcycleegypt-eg"],
+  "geo": {"lat": 30.0444, "lng": 31.2357}
+}

@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "scorpion-europe",
+  "name": "Scorpion Europe",
+  "type": "regional-distributor",
+  "country_code": "NL",
+  "regions": ["eu"],
+  "countries": ["NL", "DE", "FR", "IT", "ES", "GB", "BE"],
+  "brands": ["Scorpion"],
+  "warehouses": [
+    {"id": "nl-warehouse", "city": "Rotterdam", "country": "NL"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.scorpion.eu"},
+    {"type": "dealer", "url": "https://www.scorpion.eu/dealers"}
+  ],
+  "website": "https://www.scorpion.eu"
+}

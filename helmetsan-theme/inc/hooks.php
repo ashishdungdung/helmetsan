@@ -11,6 +11,7 @@ if (! defined('ABSPATH')) {
 
 add_filter('body_class', 'helmetsan_theme_body_class');
 add_filter('the_content', 'helmetsan_theme_append_about_attribution');
+add_filter('the_content', 'helmetsan_theme_helmet_content_from_technical_analysis', 5);
 add_action('wp_head', 'helmetsan_theme_dynamic_layout_css', 30);
 
 /**
@@ -32,6 +33,28 @@ function helmetsan_theme_body_class(array $classes): array
     $classes[] = 'hs-layout-' . sanitize_html_class($layout);
 
     return $classes;
+}
+
+/**
+ * For helmet singles: when post content is empty, use technical_analysis meta so AI fill-missing populates the About section.
+ */
+function helmetsan_theme_helmet_content_from_technical_analysis(string $content): string
+{
+    if (! is_singular('helmet') || ! in_the_loop() || ! is_main_query()) {
+        return $content;
+    }
+    $id = get_the_ID();
+    if ($id <= 0) {
+        return $content;
+    }
+    if (trim(strip_tags($content)) !== '') {
+        return $content;
+    }
+    $analysis = get_post_meta($id, 'technical_analysis', true);
+    if (! is_string($analysis) || trim($analysis) === '') {
+        return $content;
+    }
+    return wpautop(wp_kses_post($analysis));
 }
 
 function helmetsan_theme_append_about_attribution(string $content): string

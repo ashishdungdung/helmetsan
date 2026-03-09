@@ -1,6 +1,7 @@
 # Single source of truth for remote server paths.
 # Source from script dir: SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)" && . "$SCRIPT_DIR/config"
 # Use wp --path="$REMOTE_WP_PATH" for every WP-CLI call so CWD does not matter.
+# Do not put passwords or secrets here; use DEPLOY_PASSWORD (or similar) in the environment.
 
 REMOTE_WP_PATH="/var/www/helmetsan.com/public"
 REMOTE_HOST="root@helmetsan.com"

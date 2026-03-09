@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "sportbike-track-gear-australia",
+  "name": "Sportbike Track Gear Australia",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Sydney area",
+  "city": "Sydney",
+  "website": "https://www.sportbiketrackgear.com.au",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "au-shipping", "track-gear", "sizing-guide"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "Alpinestars", "Dainese"],
+  "marketplaces": ["sportbike-track-gear-au"],
+  "geo": {"lat": -33.8688, "lng": 151.2093}
+}

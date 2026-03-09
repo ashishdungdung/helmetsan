@@ -21,6 +21,11 @@
         "fsn": { "type": "string", "description": "Flipkart Serial Number" }
       }
     },
+    "marketplace_links": {
+      "type": "object",
+      "description": "Direct product URLs on retailers. Keys: revzilla_us, amazon_us, amazon_uk, flipkart_in, etc. Used for affiliate /go/ redirects and as source for AI data and image enrichment.",
+      "additionalProperties": { "type": "string", "format": "uri" }
+    },
     "type": { "type": "string" },
     "helmet_family": { "type": "string" },
     "head_shape": { "type": "string" },

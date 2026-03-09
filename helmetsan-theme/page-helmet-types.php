@@ -48,7 +48,7 @@ if (is_array($terms) && $terms !== []) {
 <section class="hs-section">
     <header class="hs-section__head">
         <h1><?php the_title(); ?></h1>
-        <p>Explore our curated collections by riding style, safety standards, and specialized features.</p>
+        <p class="hs-section__lead">Choose by riding style and helmet type: full face, modular, adventure, open face, and more. Each type links to a filtered catalog where you can compare specs, certifications, and prices.</p>
     </header>
 
 
@@ -68,7 +68,7 @@ if (is_array($terms) && $terms !== []) {
                         <h3 class="entity-card__title">
                             <a class="hs-link hs-link--stretched" href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo esc_html($term->name); ?></a>
                         </h3>
-                        <p class="entity-card__excerpt"><?php echo esc_html($term->description ?: 'Premium selection of ' . $term->name . ' helmets.'); ?></p>
+                        <p class="entity-card__excerpt"><?php echo esc_html($term->description ?: 'Browse ' . number_format_i18n((int) $term->count) . ' ' . $term->name . ' helmets in the catalog. Filter by brand, certification, and price.'); ?></p>
                         <div class="entity-card__footer">
                             <span class="hs-btn hs-btn--ghost hs-btn--small">View Catalog →</span>
                         </div>

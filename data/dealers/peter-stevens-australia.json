@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "peter-stevens-australia",
+  "name": "Peter Stevens",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Multiple locations VIC, NSW",
+  "city": "Melbourne",
+  "website": "https://www.peterstevens.com.au",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "australia-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Schuberth", "Nolan", "LS2"],
+  "marketplaces": ["peter-stevens-au"],
+  "geo": {"lat": -37.8136, "lng": 144.9631}
+}

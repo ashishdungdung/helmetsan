@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "bikebandit-usa",
+  "name": "BikeBandit",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "San Diego, CA",
+  "city": "San Diego",
+  "website": "https://www.bikebandit.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "us-shipping", "price-match", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "LS2"],
+  "marketplaces": ["bikebandit-us", "amazon-us"],
+  "geo": {"lat": 32.7157, "lng": -117.1611}
+}

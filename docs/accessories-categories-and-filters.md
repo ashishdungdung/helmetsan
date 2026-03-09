@@ -2,6 +2,47 @@
 
 How **accessory_category** and filters work, and how to fix "Nothing Found" when filtering (e.g. by Audio Kits).
 
+## Why do "Browse by category" cards show 0 Items?
+
+Each card shows the **number of accessories assigned to that category term** (`accessory_category` taxonomy). If you have many accessories but most cards show "0 Items", those accessories **do not have that term assigned** yet.
+
+**Fix (on the server):**
+
+1. **Create/update category terms** (if you haven’t already):
+   ```bash
+   wp helmetsan seed-accessory-categories
+   ```
+   (Or run `wp eval-file scripts/seed_accessory_categories.php` from the repo root.)
+
+2. **Assign every accessory to a category** from its meta (`accessory_type`, `accessory_parent_category`, `accessory_subcategory`):
+   ```bash
+   wp --path=/var/www/helmetsan.com/public backfill-accessory-categories --allow-root
+   ```
+   This maps each accessory’s type/parent category to one of the canonical category names and sets the term. After this, category counts on the cards will reflect real assignments.
+
+3. If many accessories still have **no** type/parent_category/subcategory in the DB, use **AI fill-missing** then backfill again:
+   ```bash
+   wp helmetsan ai fill-missing --post-type=accessory --only-incomplete --allow-root
+   wp helmetsan backfill-accessory-categories --allow-root
+   ```
+   Fill-missing uses the AI module (Helmetsan → AI) to set `accessory_type`, `accessory_parent_category`, `accessory_subcategory`, and `accessory_color` from the product title/context. Parent category is constrained to canonical names so backfill can assign the term. Then run backfill to assign the taxonomy term to each accessory.
+
+4. If backfill reports **"had no mapping"** for many accessories (e.g. they have type/parent set to values like "Variant" that don’t match the canonical list), use **refill-unmapped** so AI overwrites those fields with canonical-style values, then backfill again:
+   ```bash
+   wp helmetsan ai fill-missing --post-type=accessory --refill-unmapped --allow-root
+   wp helmetsan backfill-accessory-categories --allow-root
+   ```
+   `--refill-unmapped` includes accessories that have **no** `accessory_category` term and re-fills `accessory_type` and `accessory_parent_category` even when those meta fields are already set, so the backfill mapper can assign a term.
+
+## Why there are two “category” sections (product type vs brand)
+
+Pages that show both **“Browse by category”** (e.g. Accessories) and **“Our brands”** / **“Brands”** are not duplicating the same thing:
+
+- **Accessory (or product) categories** = by **product type**: Visors, Communications, Goggles, Cleaning, etc. These are `accessory_category` terms and are used on `/accessories/` under “Browse by category.”
+- **Brands** = by **manufacturer**: SHOEI, ARAI, Cardo, etc. These are the `brand` post type and are used in “Brands” / “Our brands” sections.
+
+So one axis is “what kind of product,” the other is “who makes it.” To avoid the feeling of “double categories,” the theme labels them clearly: e.g. “Browse by category” with sub “By product type (visors, comms, care, etc.)” and “Brands” with sub “Shop by manufacturer.” Do **not** put helmet types (Full Face, Modular, etc.) into `accessory_category`; those belong to the `helmet_type` taxonomy and to the Helmets section, not the Accessories category grid.
+
 ## Why "Nothing Found" happens
 
 The `/accessories/` archive filters by **taxonomy** `accessory_category` (slug, e.g. `audio-kits`). If no published accessories have that term assigned, the filter returns zero results.

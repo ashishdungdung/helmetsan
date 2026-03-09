@@ -37,6 +37,16 @@ if ($type === 'brand') {
     if ($metaB === '') {
         $metaB = (string) get_post_meta($postId, 'accessory_youth_adult', true);
     }
+    // Don't show placeholder/generic values that aren't real categories
+    $placeholderMeta = ['variant', 'n/a', '—', '-', 'unknown'];
+    $metaA = trim($metaA);
+    $metaB = trim($metaB);
+    if ($metaA !== '' && in_array(strtolower($metaA), $placeholderMeta, true)) {
+        $metaA = '';
+    }
+    if ($metaB !== '' && in_array(strtolower($metaB), $placeholderMeta, true)) {
+        $metaB = '';
+    }
 } elseif ($type === 'motorcycle') {
     $metaA = (string) get_post_meta($postId, 'motorcycle_make', true);
     $metaB = (string) get_post_meta($postId, 'bike_segment', true);
@@ -55,9 +65,23 @@ if ($type === 'brand') {
     <?php if (has_excerpt()) : ?>
         <p class="entity-card__excerpt"><?php echo esc_html(get_the_excerpt()); ?></p>
     <?php endif; ?>
-    <?php if ($type === 'accessory' && $catTerms !== null && is_array($catTerms) && $catTerms !== []) : ?>
+    <?php
+    if ($type === 'accessory' && $catTerms !== null && is_array($catTerms) && $catTerms !== []) {
+        $seen = [];
+        $deduped = [];
+        foreach ($catTerms as $t) {
+            $name = $t instanceof \WP_Term ? $t->name : '';
+            if ($name !== '' && ! isset($seen[ $name ])) {
+                $seen[ $name ] = true;
+                $deduped[] = $t;
+            }
+        }
+        $catTerms = array_slice($deduped, 0, 3);
+    }
+    ?>
+    <?php if ($type === 'accessory' && $catTerms !== null && $catTerms !== []) : ?>
         <div class="entity-card__categories">
-            <?php foreach (array_slice($catTerms, 0, 3) as $t) :
+            <?php foreach ($catTerms as $t) :
                 $catUrl = get_term_link($t);
                 if (is_wp_error($catUrl)) {
                     $catUrl = '#';
@@ -67,6 +91,13 @@ if ($type === 'brand') {
             <?php endforeach; ?>
         </div>
     <?php endif; ?>
+    <?php
+    $showMeta = true;
+    if ($type === 'accessory' && is_array($catTerms) && $catTerms !== []) {
+        $showMeta = false;
+    }
+    ?>
+    <?php if ($showMeta && ($metaA !== '' || $metaB !== '')) : ?>
     <div class="entity-card__meta">
         <?php if ($metaA !== '') : ?>
             <code><?php echo esc_html(wp_trim_words($metaA, 12, '...')); ?></code>
@@ -75,5 +106,8 @@ if ($type === 'brand') {
             <code><?php echo esc_html(wp_trim_words($metaB, 12, '...')); ?></code>
         <?php endif; ?>
     </div>
-    <p class="entity-card__action"><a class="hs-link" href="<?php the_permalink(); ?>">View product</a></p>
+    <?php endif; ?>
+    <p class="entity-card__action">
+        <a class="hs-btn hs-btn--sm hs-btn--primary entity-card__cta" href="<?php the_permalink(); ?>">View</a>
+    </p>
 </article>

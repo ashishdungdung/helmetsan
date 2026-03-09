@@ -166,12 +166,25 @@ $attributes = [
 
 ?>
 
+<?php
+$helmets_link = get_post_type_archive_link('helmet');
+if (! $helmets_link) {
+    $helmets_link = home_url('/helmets/');
+}
+$comparison_link = home_url('/comparison/');
+?>
 <div class="hs-section hs-section--comparison">
     <div class="hs-container">
-        <h1>Helmet Comparison</h1>
-        
+        <header class="hs-comparison-hero">
+            <h1>Helmet Comparison</h1>
+            <p class="hs-comparison-hero__lead">Compare specs, certifications, weight, and price side by side. Add up to four helmets from the catalog, then use this page to see differences at a glance and choose the right one.</p>
+        </header>
+
         <?php if (empty($helmets)): ?>
-            <p>No helmets selected to compare. <a href="/helmets/">Browse Helmets</a></p>
+            <div class="hs-panel hs-comparison-empty">
+                <p><strong>No helmets selected yet.</strong> Browse the catalog and click “Compare” on any helmet to add it here. You can compare up to four helmets at once.</p>
+                <a href="<?php echo esc_url($helmets_link); ?>" class="hs-btn hs-btn--primary">Browse helmets</a>
+            </div>
         <?php else: 
             $helmet_ids = array_map(static fn($p) => $p->ID, $helmets);
             $helmet_titles = array_combine($helmet_ids, array_map(static fn($p) => $p->post_title, $helmets));
@@ -182,7 +195,7 @@ $attributes = [
             </script>
             <p class="hs-comp-toolbar">
                 <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost" id="hs-comp-toggle-empty" aria-pressed="false">Show empty fields</button>
-                <button id="hs-comparison-clear" class="hs-btn hs-btn--ghost">Clear All</button>
+                <button type="button" class="hs-btn hs-btn--ghost js-comparison-clear">Clear All</button>
                 <button type="button" class="hs-btn hs-btn--sm hs-btn--primary js-share-comparison" id="hs-comp-share" title="Copy link to clipboard">
                     Share this comparison
                 </button>
@@ -206,7 +219,15 @@ $attributes = [
                                             <?php echo esc_html($helmet->post_title); ?>
                                         </a>
                                     </div>
-                                    <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost js-add-to-compare is-active" data-id="<?php echo (int) $helmet->ID; ?>">Remove</button>
+                                    <div class="hs-comp-header-actions">
+                                        <a href="<?php echo esc_url(get_permalink($helmet->ID)); ?>" class="hs-btn hs-btn--sm hs-btn--ghost">View</a>
+                                        <?php
+                                        $slug = get_post_field('post_name', $helmet->ID);
+                                        $go_url = $slug ? home_url('/go/' . $slug . '/?source=comparison') : get_permalink($helmet->ID);
+                                        ?>
+                                        <a href="<?php echo esc_url($go_url); ?>" class="hs-btn hs-btn--sm hs-btn--primary" rel="nofollow sponsored">Check price</a>
+                                        <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost js-add-to-compare is-active" data-id="<?php echo (int) $helmet->ID; ?>" aria-label="Remove from comparison">Remove</button>
+                                    </div>
                                 </th>
                             <?php endforeach; ?>
                         </tr>
@@ -241,51 +262,18 @@ $attributes = [
                     </tbody>
                 </table>
             </div>
-            <p class="hs-text-center hs-comp-toolbar-bottom">
-                <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost" id="hs-comp-toggle-empty-bottom" aria-pressed="false">Show empty fields</button>
-                <button type="button" class="hs-btn hs-btn--sm hs-btn--primary js-share-comparison" id="hs-comp-share-bottom" title="Copy link to clipboard">Share this comparison</button>
-                <a href="/helmets/" class="hs-btn hs-btn--sm hs-btn--primary">Compare more helmets</a>
-            </p>
+            <div class="hs-comparison-cta hs-panel">
+                <p class="hs-comparison-cta__lead">Share this comparison or add more helmets to compare.</p>
+                <div class="hs-comp-toolbar-bottom">
+                    <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost" id="hs-comp-toggle-empty-bottom" aria-pressed="false">Show empty fields</button>
+                    <button type="button" class="hs-btn hs-btn--sm hs-btn--primary js-share-comparison" id="hs-comp-share-bottom" title="Copy link to clipboard">Share link</button>
+                    <a href="<?php echo esc_url($helmets_link); ?>" class="hs-btn hs-btn--sm hs-btn--primary">Add more helmets</a>
+                </div>
+            </div>
         <?php endif; ?>
     </div>
 </div>
 
-<style>
-.hs-section--comparison { padding: 4rem 1rem; }
-.hs-comp-toolbar { display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
-.hs-comp-toolbar-bottom { margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.hs-comparison-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.hs-comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-.hs-comparison-table th, .hs-comparison-table td {
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--hs-border, #eee);
-    text-align: left;
-    vertical-align: top;
-}
-.hs-comparison-table th { background: var(--hs-bg-muted, #f5f5f5); font-weight: 600; }
-.hs-comparison-table .hs-comp-section-header th { background: var(--hs-primary, #1a1a1a); color: #fff; padding: 0.5rem 1rem; font-size: 0.9rem; }
-.hs-comp-label-col { width: 140px; min-width: 140px; }
-.hs-comp-label { font-weight: 600; width: 140px; min-width: 140px; background: var(--hs-bg-muted, #fafafa); }
-.hs-comp-header { min-width: 160px; text-align: center; }
-.hs-comp-header .hs-comp-img { margin-bottom: 0.5rem; }
-.hs-comp-img { min-height: 120px; display: flex; align-items: center; justify-content: center; }
-.hs-comp-img img { max-width: 100%; height: auto; max-height: 140px; object-fit: contain; }
-.hs-comp-img-placeholder { color: var(--hs-muted, #999); font-size: 2rem; }
-.hs-comp-title { margin: 0.5rem 0; font-weight: 700; font-size: 0.95rem; line-height: 1.3; }
-.hs-comp-title a { text-decoration: none; color: inherit; }
-.hs-comp-title a:hover { text-decoration: underline; }
-.hs-comp-value { font-size: 0.9rem; }
-.hs-comp-value--features { max-width: 280px; }
-.hs-comp-feature-list { margin: 0; padding-left: 1.25rem; max-height: 8em; overflow-y: auto; list-style: disc; font-size: 0.85rem; line-height: 1.4; }
-.hs-comp-feature-list li { margin-bottom: 0.25rem; }
-.hs-comp-feature-more { color: var(--hs-muted, #666); font-style: italic; }
-.hs-comp-feature-tags { font-size: 0.85rem; }
-.hs-comp-feature-empty { color: var(--hs-muted, #999); }
-.hs-comparison-table tbody tr.hs-comp-row--empty { display: none; }
-.hs-comparison-table.show-empty-rows tbody tr.hs-comp-row--empty { display: table-row; }
-#hs-comp-toggle-empty[aria-pressed="true"],
-#hs-comp-toggle-empty-bottom[aria-pressed="true"] { font-weight: 600; }
-</style>
 <script>
 (function() {
     var table = document.getElementById('hs-comparison-table');

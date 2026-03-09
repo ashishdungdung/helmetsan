@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motocentre-south-africa",
+  "name": "MotoCentre South Africa",
+  "type": "retail",
+  "country_code": "ZA",
+  "region_code": "africa",
+  "address": "Johannesburg",
+  "city": "Johannesburg",
+  "website": "https://www.motocentre.co.za",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "sa-shipping", "fitting-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "LS2", "Nolan", "Caberg"],
+  "marketplaces": ["motocentre-za"],
+  "geo": {"lat": -26.2041, "lng": 28.0473}
+}

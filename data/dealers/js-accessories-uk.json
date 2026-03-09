@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "js-accessories-uk",
+  "name": "J&S Accessories",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Multiple locations across UK",
+  "city": "Manchester",
+  "website": "https://www.jsaccessories.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "click-and-collect", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan"],
+  "marketplaces": ["js-accessories-uk"],
+  "geo": {"lat": 53.4808, "lng": -2.2426}
+}

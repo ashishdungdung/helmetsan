@@ -1,0 +1,48 @@
+{
+  "_comment": "Reference for accessory JSON shape. Ingest from data/accessories/<slug>.json. Add more accessories with detailed compatibility and features for richer catalog.",
+  "items": [
+    {
+      "entity": "accessory",
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "type": "Anti-Fog Lens",
+      "parent_category": "Visors & Shields",
+      "subcategory": "Anti-Fog Inserts",
+      "compatible_helmet_types": ["Full Face"],
+      "compatible_brands": ["Shoei", "AGV", "HJC", "Scorpion EXO"],
+      "compatible_helmet_ids": ["shoei-rf-1400", "agv-k6", "mt-thunder-3"],
+      "compatible_helmet_families": ["RF-1400", "K6", "Thunder 3"],
+      "features": [
+        "Professional level anti-fog performance",
+        "Moisture-absorbing material",
+        "Easy to install and clean",
+        "Max Vision for wider field of view"
+      ],
+      "price": { "current": 39.99, "currency": "USD" },
+      "description": "<p>The Pinlock EVO (120) lens is the premium anti-fog solution. It creates a double-shield system through a silicon seal, preventing condensation effectively.</p>",
+      "identifiers": { "sku": "PIN-120", "mpn": "120" },
+      "marketplace_links": {}
+    },
+    {
+      "entity": "accessory",
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "type": "Communication System",
+      "parent_category": "Audio & Communication",
+      "subcategory": "Bluetooth Kits",
+      "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+      "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "Bell"],
+      "compatible_helmet_ids": ["shoei-rf-1400", "arai-corsair-x", "agv-k6", "bell-qualifier-dlx-mips"],
+      "features": [
+        "Dynamic Mesh Communication",
+        "Natural Voice Operation",
+        "JBL Audio",
+        "Waterproof",
+        "Air Mount"
+      ],
+      "price": { "current": 389.95, "currency": "USD" },
+      "description": "<p>The Cardo Packtalk Edge offers DMC mesh, rapid pairing, and JBL speakers. Magnetic Air Mount for secure attachment.</p>",
+      "electric_compatible": true
+    }
+  ]
+}

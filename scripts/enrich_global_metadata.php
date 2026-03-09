@@ -1,9 +1,13 @@
 <?php
 /**
  * Global Metadata Enrichment Script
+ * Run from WordPress public root: php scripts/enrich_global_metadata.php
+ *   or on server: wp eval-file scripts/enrich_global_metadata.php --allow-root
  */
 
-require_once 'wp-load.php';
+if (! defined('ABSPATH')) {
+    require_once 'wp-load.php'; // Run from WordPress public root
+}
 
 $taxonomy_updates = [
     'accessory_category' => [

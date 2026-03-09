@@ -1,9 +1,13 @@
 <?php
 /**
  * Update Helmet Type Term Descriptions
+ * Run from WordPress public root: php scripts/update_term_descriptions.php
+ *   or on server: wp eval-file scripts/update_term_descriptions.php --allow-root
  */
 
-require_once 'wp-load.php';
+if (! defined('ABSPATH')) {
+    require_once 'wp-load.php'; // Run from WordPress public root (e.g. /var/www/helmetsan.com/public)
+}
 
 $descriptions = [
     'full-face'            => 'Maximum protection with a chin bar and visor. Ideal for road and track.',

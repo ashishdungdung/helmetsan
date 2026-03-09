@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "helmet-house-usa",
+  "name": "Helmet House",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "California",
+  "city": "Ventura",
+  "website": "https://www.helmethouse.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["dealer-network", "returns", "wholesale", "fitting-support"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon"],
+  "marketplaces": ["helmethouse-us"],
+  "geo": {"lat": 34.2746, "lng": -119.2290}
+}

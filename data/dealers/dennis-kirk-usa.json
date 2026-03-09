@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "dennis-kirk-usa",
+  "name": "Dennis Kirk",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Rush City, MN",
+  "city": "Rush City",
+  "website": "https://www.denniskirk.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["returns", "us-shipping", "free-shipping-threshold", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "Fly Racing"],
+  "marketplaces": ["dennis-kirk-us", "amazon-us"],
+  "geo": {"lat": 45.6855, "lng": -92.9655}
+}

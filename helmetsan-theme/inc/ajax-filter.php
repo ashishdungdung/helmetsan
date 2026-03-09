@@ -59,6 +59,7 @@ function helmetsan_ajax_filter_handler(): void
     }
 
     $metaQuery = [];
+    $brandPost = null;
     if ($brandSlug !== '') {
         $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
         if (!$brandPost) {
@@ -111,11 +112,12 @@ function helmetsan_ajax_filter_handler(): void
         $order = "post_id DESC";
         
         if (!empty($selectedTypes)) {
-            $typesList = implode("','", array_map('esc_sql', $selectedTypes));
             $typeNames = [];
             foreach ($selectedTypes as $slug) {
                 $term = get_term_by('slug', $slug, 'helmet_type');
-                if ($term) $typeNames[] = $term->name;
+                if ($term) {
+                    $typeNames[] = $term->name;
+                }
             }
             if (!empty($typeNames)) {
                 $namesList = implode("','", array_map('esc_sql', $typeNames));
@@ -123,7 +125,7 @@ function helmetsan_ajax_filter_handler(): void
             }
         }
 
-        if ($brandPost) {
+        if ($brandPost instanceof WP_Post) {
             $where[] = "brand_id = " . intval($brandPost->ID);
         }
 
@@ -202,27 +204,49 @@ function helmetsan_ajax_filter_handler(): void
         }
         echo '</div>';
 
-        echo '<div class="hs-pagination-wrap">';
-        // Unset any ajax params before generating pagination links
-        unset($_GET['action']);
-        
+        // Pagination base with all current filter params so links work when JS follows or re-fetches.
+        $archive_url = (string) get_post_type_archive_link('helmet');
+        if ($archive_url === '') {
+            $archive_url = (string) home_url('/helmets/');
+        }
+        $ajax_query_args = [
+            'helmet_type' => $selectedTypes,
+            'certification' => $selectedCerts,
+            'feature' => $selectedFeatures,
+            'size' => $selectedSize,
+            'brand_slug' => $brandSlug !== '' ? $brandSlug : null,
+            'helmet_family' => $helmetFamily !== '' ? $helmetFamily : null,
+            'price_min' => $priceMin > 0 ? $priceMin : null,
+            'price_max' => $priceMax > 0 ? $priceMax : null,
+            'sort' => $sort !== 'newest' ? $sort : null,
+            'paged' => '%#%',
+        ];
+        $ajax_query_args = array_filter($ajax_query_args, static function ($v) {
+            return $v !== null && $v !== '' && $v !== [];
+        });
+        $pagination_base = (string) add_query_arg($ajax_query_args, $archive_url);
+
+        echo '<nav class="hs-pagination-wrap" aria-label="Helmet catalog pages">';
         echo paginate_links([
-            'base' => add_query_arg('paged', '%#%'),
+            'base' => $pagination_base,
             'format' => '',
             'current' => $page,
             'total' => $query->max_num_pages,
             'mid_size' => 2,
             'prev_text' => '&larr; Prev',
             'next_text' => 'Next &rarr;',
+            'type' => 'plain',
         ]);
-        echo '</div>';
+        echo '</nav>';
     } else {
         echo '<p>No helmets found for the selected filters.</p>';
     }
-    $html = ob_start() ? ob_get_clean() : '';
+    $html = ob_get_clean();
 
     wp_send_json_success([
         'html' => $html,
-        'count' => $query->found_posts
+        'count' => $query->found_posts,
+        'max_pages' => (int) $query->max_num_pages,
+        'current_page' => $page,
     ]);
 }

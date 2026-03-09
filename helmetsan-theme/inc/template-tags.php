@@ -327,6 +327,30 @@ function helmetsan_get_head_shape($helmetId): string
 }
 
 /**
+ * Get warranty years for a helmet (meta, e.g. from fill-missing).
+ */
+function helmetsan_get_warranty_years($helmetId): string
+{
+    return (string) get_post_meta($helmetId, 'warranty_years', true);
+}
+
+/**
+ * Get use case for a helmet (e.g. touring, racing, commuter).
+ */
+function helmetsan_get_use_case($helmetId): string
+{
+    return (string) get_post_meta($helmetId, 'use_case', true);
+}
+
+/**
+ * Get price range tier for a helmet (e.g. budget, mid-range, premium, luxury).
+ */
+function helmetsan_get_price_range($helmetId): string
+{
+    return (string) get_post_meta($helmetId, 'price_range', true);
+}
+
+/**
  * @param string $type
  * @return array<string,mixed>
  */

@@ -2,7 +2,16 @@
 /**
  * Cleanup Brand Logos
  * Detaches and deletes featured images from Brand posts so they can be re-seeded.
+ * DESTRUCTIVE: Permanently deletes attachment files and post thumbnails.
+ *
+ * Usage (on server, from WP root):
+ *   wp eval-file scripts/cleanup_logos.php --allow-root
  */
+
+if (! defined('ABSPATH')) {
+    fwrite(STDERR, "Must be run in WordPress context (e.g. wp eval-file scripts/cleanup_logos.php).\n");
+    exit(1);
+}
 
 $args = [
     'post_type'      => 'brand',

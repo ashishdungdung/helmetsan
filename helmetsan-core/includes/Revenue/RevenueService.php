@@ -12,14 +12,17 @@ final class RevenueService
     /** Country code (e.g. IN, US) → preferred Amazon marketplace ID for geo fallback */
     private const COUNTRY_TO_AMAZON_MARKETPLACE = [
         'US' => 'amazon-us',
-        'IN' => 'amazon-in',
+        'CA' => 'amazon-ca',
+        'FR' => 'amazon-fr',
+        'DE' => 'amazon-de',
+        'IT' => 'amazon-it',
+        'NL' => 'amazon-nl',
+        'PL' => 'amazon-pl',
+        'ES' => 'amazon-es',
+        'SE' => 'amazon-se',
         'UK' => 'amazon-uk',
         'GB' => 'amazon-uk',
-        'DE' => 'amazon-de',
-        'FR' => 'amazon-fr',
-        'CA' => 'amazon-ca',
-        'IT' => 'amazon-it',
-        'ES' => 'amazon-es',
+        'IN' => 'amazon-in',
         'JP' => 'amazon-jp',
         'AU' => 'amazon-au',
     ];

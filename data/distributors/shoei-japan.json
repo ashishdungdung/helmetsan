@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "shoei-japan",
+  "name": "Shoei Japan",
+  "type": "regional-distributor",
+  "country_code": "JP",
+  "regions": ["apac"],
+  "countries": ["JP", "KR", "TW", "AU", "TH"],
+  "brands": ["Shoei"],
+  "warehouses": [
+    {"id": "jp-tokyo", "city": "Tokyo", "country": "JP"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.shoei.com"},
+    {"type": "support", "url": "https://www.shoei.com/support"}
+  ],
+  "website": "https://www.shoei.com"
+}

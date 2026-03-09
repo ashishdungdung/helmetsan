@@ -21,6 +21,11 @@
         "fsn": { "type": "string" }
       }
     },
+    "marketplace_links": {
+      "type": "object",
+      "description": "Direct product URLs on retailers (revzilla_us, amazon_us, etc.). Used for affiliate /go/ and as source for AI data and images.",
+      "additionalProperties": { "type": "string", "format": "uri" }
+    },
     "parent_category": { "type": "string" },
     "subcategory": { "type": "string" },
     "compatible_helmet_types": { "type": "array", "items": { "type": "string" } },

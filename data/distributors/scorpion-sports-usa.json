@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "scorpion-sports-usa",
+  "name": "Scorpion Sports USA",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["Scorpion"],
+  "warehouses": [
+    {"id": "us-nevada", "city": "Las Vegas", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.scorpionusa.com"},
+    {"type": "dealer", "url": "https://www.scorpionusa.com/dealers"}
+  ],
+  "website": "https://www.scorpionusa.com"
+}

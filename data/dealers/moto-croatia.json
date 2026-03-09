@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-croatia",
+  "name": "Moto Croatia / Moto Centar",
+  "type": "retail",
+  "country_code": "HR",
+  "region_code": "eu",
+  "address": "Zagreb",
+  "city": "Zagreb",
+  "website": "https://www.motocentar.hr",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["motocentar-hr"],
+  "geo": {"lat": 45.8150, "lng": 15.9819}
+}

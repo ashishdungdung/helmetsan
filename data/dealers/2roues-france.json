@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "2roues-france",
+  "name": "2 Roues",
+  "type": "retail",
+  "country_code": "FR",
+  "region_code": "eu",
+  "address": "Multiple locations across France",
+  "city": "Lyon",
+  "website": "https://www.2roues.fr",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Schuberth", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["2roues-fr", "amazon-fr"],
+  "geo": {"lat": 45.7640, "lng": 4.8357}
+}

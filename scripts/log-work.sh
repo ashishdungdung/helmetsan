@@ -1,7 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Append a work log entry to docs/WORK_LOG.md.
+# Usage: ./scripts/log-work.sh [summary] [IDE]   (run from repo root)
+set -euo pipefail
 
-# Definition of the log file
-LOG_FILE="docs/WORK_LOG.md"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+LOG_FILE="$ROOT_DIR/docs/WORK_LOG.md"
+
+if [ ! -d "$ROOT_DIR/docs" ]; then
+    echo "❌ docs/ not found. Run from repo root."
+    exit 1
+fi
 
 # Ensure the log file exists
 if [ ! -f "$LOG_FILE" ]; then
@@ -13,7 +22,7 @@ fi
 # Get date
 DATE=$(date +"%Y-%m-%d")
 
-# Prompt for details if not provided as sizing_fit arguments
+# Prompt for details if not provided as arguments
 SUMMARY=$1
 if [ -z "$SUMMARY" ]; then
     echo "Enter a brief summary of changes:"

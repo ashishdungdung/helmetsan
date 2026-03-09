@@ -238,7 +238,7 @@ if ($snow !== '') {
                     }
                     $link  = get_term_link($term);
                     $title = $term->name;
-                    $desc  = $term->description ?: 'Explore ' . $term->name . '.';
+                    $desc  = $term->description ?: 'Browse ' . $term->name . ' accessories. ' . ( (int) $term->count > 0 ? ( (int) $term->count ) . ' items in catalog.' : 'Filter by type and brand.' );
                     $img   = $themeDir . '/assets/images/hubs/accessory_category/' . $term->slug . '.png';
                     if (! file_exists(get_stylesheet_directory() . '/assets/images/hubs/accessory_category/' . $term->slug . '.png')) {
                         $img = $heroImg;

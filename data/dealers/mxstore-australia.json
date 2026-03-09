@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "mxstore-australia",
+  "name": "MX Store",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Gold Coast, QLD",
+  "city": "Gold Coast",
+  "website": "https://www.mxstore.com.au",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "australia-shipping", "mx-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Fly Racing", "LS2"],
+  "marketplaces": ["mxstore-au"],
+  "geo": {"lat": -28.0167, "lng": 153.4000}
+}

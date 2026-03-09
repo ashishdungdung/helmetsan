@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-argentina",
+  "name": "Moto Argentina / Motos del Sur",
+  "type": "retail",
+  "country_code": "AR",
+  "region_code": "latam",
+  "address": "Buenos Aires",
+  "city": "Buenos Aires",
+  "website": "https://www.motoargentina.com.ar",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "argentina-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["moto-argentina-ar"],
+  "geo": {"lat": -34.6037, "lng": -58.3816}
+}

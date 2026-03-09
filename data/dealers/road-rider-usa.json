@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "road-rider-usa",
+  "name": "Road Rider",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "San Jose, CA",
+  "city": "San Jose",
+  "website": "https://www.roadrider.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Schuberth"],
+  "marketplaces": ["road-rider-us"],
+  "geo": {"lat": 37.3382, "lng": -121.8863}
+}

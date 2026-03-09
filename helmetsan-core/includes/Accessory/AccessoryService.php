@@ -104,6 +104,24 @@ final class AccessoryService
             update_post_meta($postId, 'affiliate_asin', sanitize_text_field((string) $identifiers['asin']));
         }
 
+        if (isset($data['marketplace_links']) && is_array($data['marketplace_links'])) {
+            $affiliateLinks = [];
+            foreach ($data['marketplace_links'] as $mpKey => $url) {
+                if (! is_string($url) || $url === '') {
+                    continue;
+                }
+                $mpId = str_replace('_', '-', strtolower((string) $mpKey));
+                $network = str_starts_with($mpId, 'amazon') ? 'amazon' : (str_starts_with($mpId, 'flipkart') ? 'flipkart' : 'direct');
+                $affiliateLinks[$mpId] = [
+                    'url'     => esc_url_raw($url),
+                    'network' => $network,
+                ];
+            }
+            if ($affiliateLinks !== []) {
+                update_post_meta($postId, 'affiliate_links_json', wp_json_encode($affiliateLinks, JSON_UNESCAPED_SLASHES));
+            }
+        }
+
         update_post_meta($postId, 'accessory_electric_compatible', ! empty($data['electric_compatible']) ? '1' : '0');
         update_post_meta($postId, 'accessory_pinlock_ready', ! empty($data['pinlock_ready']) ? '1' : '0');
         update_post_meta($postId, 'accessory_snow_compatible', ! empty($data['snow_compatible']) ? '1' : '0');

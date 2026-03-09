@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-liberty-usa",
+  "name": "Moto Liberty",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Dallas, TX",
+  "city": "Dallas",
+  "website": "https://www.motoliberty.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "premium-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "Schuberth", "HJC", "Scorpion"],
+  "marketplaces": ["moto-liberty-us"],
+  "geo": {"lat": 32.7767, "lng": -96.7970}
+}

@@ -181,6 +181,15 @@ final class ComparisonService
         $this->setJsonMeta($postId, 'comparison_scores_json', $data['scores'] ?? null);
         $this->setJsonMeta($postId, 'comparison_recommendations_json', $data['recommendations'] ?? null);
 
+        if (isset($data['region']) && (is_string($data['region']) || is_array($data['region']))) {
+            $regionTerms = is_array($data['region'])
+                ? array_filter(array_map('sanitize_text_field', array_map('strval', $data['region'])))
+                : [sanitize_text_field((string) $data['region'])];
+            if ($regionTerms !== []) {
+                wp_set_object_terms($postId, array_values($regionTerms), 'region', false);
+            }
+        }
+
         return ['ok' => true, 'action' => $action, 'post_id' => $postId];
     }
 

@@ -99,7 +99,20 @@ final class ContextBuilder
             if ($maxLength !== null && $maxLength > 0) {
                 $out .= "Use at most {$maxLength} characters. ";
             }
-            $out .= "Output ONLY the value, no explanation or quotes. Keep it short and factual.";
+            if ($entityType === 'helmet' && $fieldName === 'spec_weight_g') {
+                $out .= "Reply with the weight in grams only (integer, e.g. 1450). No unit text.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'technical_analysis') {
+                $out .= "Write 2-4 sentences: safety tech, comfort, ventilation. Factual and product-specific.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'spec_shell_material') {
+                $out .= "Reply with the shell material only (e.g. Polycarbonate, Carbon fiber, AIM+, composite).";
+            } elseif ($entityType === 'helmet' && in_array($fieldName, ['yoast_title', 'yoast_metadesc', 'yoast_focuskw'], true)) {
+                $out .= "SEO value: include product name and type where relevant; factual and search-friendly.";
+            } elseif ($entityType === 'brand') {
+                $out .= "Brand context: be accurate and factual (origin, story, warranty); avoid marketing fluff.";
+            } elseif ($entityType === 'accessory') {
+                $out .= "Use values that match standard accessory categories (e.g. Pinlock Inserts, Bluetooth Headsets) when applicable.";
+            }
+            $out .= " Output ONLY the value, no explanation or quotes. Keep it short and factual.";
         }
         return $out;
     }
@@ -130,5 +143,34 @@ final class ContextBuilder
             . "Entity type: {$entityType}. Data (JSON): {$context}. "
             . "Reply with a short assessment: VALID or INVALID, then one line explaining why (e.g. missing required field, inconsistent type). "
             . "Output format: VALID/INVALID - one line reason.";
+    }
+
+    /**
+     * Build prompt to resolve a helmet product image source (EAN/GTIN or direct image URL).
+     * Used by helmet image enrichment to match our catalog helmets with external product images.
+     * Output must be valid JSON: {"ean":"13 digits or empty","image_url":"https://... or empty"}
+     */
+    public static function forResolveHelmetImageSource(string $title, string $brand): string
+    {
+        $product = $brand !== '' ? $brand . ' ' . $title : $title;
+        return "You are a product data assistant for motorcycle helmet catalogs. "
+            . "Helmet: {$product}. "
+            . "Reply with a JSON object only (no markdown, no explanation). "
+            . "Include exactly two keys: \"ean\" (EAN-13 barcode if you know it for this exact model, else empty string \"\") "
+            . "and \"image_url\" (a direct URL to a product image for this helmet from an official or retail source, else empty string \"\"). "
+            . "If you do not know the EAN or a reliable image URL, use empty strings. Output ONLY the JSON object.";
+    }
+
+    /**
+     * Build prompt to resolve a RevZilla product page URL for a helmet (for image fetch or affiliate link).
+     * Output: a single URL string to the RevZilla product page, or empty if not found.
+     */
+    public static function forResolveRevZillaUrl(string $title, string $brand): string
+    {
+        $product = $brand !== '' ? $brand . ' ' . $title : $title;
+        return "You are a product data assistant for motorcycle gear. "
+            . "Find the RevZilla.com product page URL for this helmet: {$product}. "
+            . "Reply with ONLY the full RevZilla product page URL (https://www.revzilla.com/...), or the word \"none\" if you cannot find a matching RevZilla listing. "
+            . "Do not include any other text, markdown, or explanation.";
     }
 }

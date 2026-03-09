@@ -1,0 +1,103 @@
+/**
+ * Helmetsan design tokens — single source for theming.
+ * Light (default), dark, and optional high-contrast.
+ * @see docs/DESIGN_AND_CONTENT_PHILOSOPHY.md
+ */
+
+/* ── Light theme (default) ───────────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+    /* Surfaces */
+    --hs-bg: #f0f4fc;
+    --hs-bg-elevated: #ffffff;
+    --hs-panel: rgba(255, 255, 255, 0.88);
+    --hs-panel-strong: #ffffff;
+    /* Text */
+    --hs-text: #0f172a;
+    --hs-text-soft: #334155;
+    --hs-muted: #64748b;
+    --hs-muted-strong: #475569;
+    /* Brand & accent */
+    --hs-accent: #0a84ff;
+    --hs-accent-hover: #0066cc;
+    --hs-accent-2: #00c7be;
+    --hs-brand-pink: #e11d48;
+    --hs-brand-orange: #ea580c;
+    --hs-success: #059669;
+    --hs-warning: #d97706;
+    --hs-error: #dc2626;
+    /* Borders & shadows */
+    --hs-border: rgba(15, 23, 42, 0.1);
+    --hs-border-strong: rgba(15, 23, 42, 0.16);
+    --hs-shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+    --hs-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --hs-shadow-lg: 0 10px 24px rgba(15, 23, 42, 0.1);
+    /* Radius & motion */
+    --hs-radius: 14px;
+    --hs-radius-sm: 8px;
+    --hs-radius-lg: 20px;
+    --hs-transition: 0.2s ease;
+    --hs-transition-slow: 0.35s ease;
+    /* Typography (base) */
+    --hs-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --hs-font-display: 'Inter', var(--hs-font-sans);
+    --hs-content-max: 1200px;
+    /* Hero gradient (homepage) — deep blue to teal, distinctive and on-brand */
+    --hs-hero-gradient: linear-gradient(145deg, #0c4a6e 0%, #0e7490 40%, #0d9488 100%);
+    --hs-hero-gradient-subtle: linear-gradient(135deg, rgba(12, 74, 110, 0.06), rgba(13, 148, 136, 0.08));
+}
+
+/* Body gradient (light) */
+:root,
+[data-theme="light"] {
+    --hs-bg-gradient: radial-gradient(1200px 700px at 0% -20%, rgba(224, 242, 254, 0.9) 0%, transparent 65%),
+                      radial-gradient(1000px 600px at 100% -10%, rgba(254, 226, 226, 0.6) 0%, transparent 55%),
+                      var(--hs-bg);
+}
+
+/* ── Dark theme ───────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+    --hs-hero-gradient: linear-gradient(145deg, #0e7490 0%, #0d9488 50%, #14b8a6 100%);
+    --hs-hero-gradient-subtle: linear-gradient(135deg, rgba(14, 116, 144, 0.15), rgba(20, 184, 166, 0.12));
+    --hs-bg: #0f172a;
+    --hs-bg-elevated: #1e293b;
+    --hs-panel: rgba(30, 41, 59, 0.85);
+    --hs-panel-strong: #1e293b;
+    --hs-text: #f1f5f9;
+    --hs-text-soft: #e2e8f0;
+    --hs-muted: #94a3b8;
+    --hs-muted-strong: #cbd5e1;
+    --hs-accent: #38bdf8;
+    --hs-accent-hover: #7dd3fc;
+    --hs-accent-2: #2dd4bf;
+    --hs-brand-pink: #fb7185;
+    --hs-brand-orange: #fb923c;
+    --hs-success: #34d399;
+    --hs-warning: #fbbf24;
+    --hs-error: #f87171;
+    --hs-border: rgba(248, 250, 252, 0.1);
+    --hs-border-strong: rgba(248, 250, 252, 0.18);
+    --hs-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+    --hs-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    --hs-shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.35);
+    --hs-bg-gradient: radial-gradient(1200px 700px at 0% -20%, rgba(30, 58, 138, 0.25) 0%, transparent 65%),
+                      radial-gradient(1000px 600px at 100% -10%, rgba(127, 29, 29, 0.15) 0%, transparent 55%),
+                      var(--hs-bg);
+}
+
+/* ── High-contrast (optional) ──────────────────────────────────────────────── */
+[data-theme="high-contrast"] {
+    --hs-bg: #ffffff;
+    --hs-bg-elevated: #ffffff;
+    --hs-panel: #ffffff;
+    --hs-panel-strong: #f8fafc;
+    --hs-text: #0c0c0c;
+    --hs-text-soft: #1a1a1a;
+    --hs-muted: #404040;
+    --hs-muted-strong: #262626;
+    --hs-accent: #0066cc;
+    --hs-accent-hover: #004499;
+    --hs-border: rgba(0, 0, 0, 0.2);
+    --hs-border-strong: rgba(0, 0, 0, 0.35);
+    --hs-bg-gradient: var(--hs-bg);
+}

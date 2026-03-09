@@ -19,7 +19,7 @@ foreach (['s', 'brand_slug', 'helmet_family', 'price_min', 'price_max', 'sort'] 
     }
 }
 if ($allEmpty) {
-    foreach (['helmet_type', 'certification', 'feature', 'size'] as $key) {
+    foreach (['helmet_type', 'certification', 'feature', 'size', 'price_range', 'region', 'use_case'] as $key) {
         if (isset($_GET[$key])) {
             $v = $_GET[$key];
             if (is_array($v) && array_filter(array_map('trim', $v)) !== []) {
@@ -43,44 +43,52 @@ if ($allEmpty && (! isset($_GET['paged']) || (int) $_GET['paged'] <= 1) && ! emp
 get_header();
 echo '<script>window.helmetsanListContext={list_id:"helmet_archive",list_name:"Helmet catalog"};</script>' . "\n";
 
-$getString = static function (string $key): string {
-    if (! isset($_GET[$key])) {
-        return '';
-    }
-    return sanitize_text_field(wp_unslash((string) $_GET[$key]));
-};
-
-$getArray = static function (string $key): array {
-    if (! isset($_GET[$key])) {
-        return [];
-    }
-    $raw = $_GET[$key];
-    if (! is_array($raw)) {
-        $raw = [$raw];
-    }
-    $out = [];
-    foreach ($raw as $item) {
-        $value = sanitize_text_field(wp_unslash((string) $item));
-        if ($value !== '') {
-            $out[] = $value;
-        }
-    }
-    return array_values(array_unique($out));
-};
-
-$selectedTypes = $getArray('helmet_type');
-$selectedCerts = $getArray('certification');
-$selectedFeatures = $getArray('feature');
-$selectedSize = $getArray('size');
-$brandSlug = sanitize_title($getString('brand_slug'));
-$helmetFamily = $getString('helmet_family');
-$priceMin = $getString('price_min');
-$priceMax = $getString('price_max');
-$searchTerm = $getString('s');
-$sort = $getString('sort');
-if ($sort === '') {
-    $sort = 'newest';
+// Use plugin SearchService for faceted search (single source of truth for params and query).
+$searchService = function_exists('helmetsan_core') ? helmetsan_core()->getSearchService() : null;
+$parsed = $searchService !== null ? $searchService->parseParams($_GET) : [];
+if ($parsed === []) {
+    $getString = static function (string $key): string {
+        return isset($_GET[$key]) ? sanitize_text_field(wp_unslash((string) $_GET[$key])) : '';
+    };
+    $getArray = static function (string $key): array {
+        if (! isset($_GET[$key])) { return []; }
+        $raw = is_array($_GET[$key]) ? $_GET[$key] : [$_GET[$key]];
+        $out = array_values(array_unique(array_filter(array_map(static fn($v) => sanitize_text_field(wp_unslash((string) $v)), $raw))));
+        return $out;
+    };
+    $parsed = [
+        's' => $getString('s'),
+        'helmet_type' => $getArray('helmet_type'),
+        'certification' => $getArray('certification'),
+        'feature' => $getArray('feature'),
+        'size' => $getArray('size'),
+        'price_range' => $getArray('price_range'),
+        'region' => $getArray('region'),
+        'use_case' => $getArray('use_case'),
+        'brand_slug' => sanitize_title($getString('brand_slug')),
+        'helmet_family' => $getString('helmet_family'),
+        'price_min' => $getString('price_min'),
+        'price_max' => $getString('price_max'),
+        'sort' => $getString('sort') ?: 'newest',
+        'paged' => max(1, (int) ($getString('paged') !== '' ? $getString('paged') : get_query_var('paged', 1))),
+    ];
 }
+if (($parsed['sort'] ?? '') === '') {
+    $parsed['sort'] = 'newest';
+}
+$selectedTypes    = is_array($parsed['helmet_type'] ?? null) ? $parsed['helmet_type'] : [];
+$selectedCerts    = is_array($parsed['certification'] ?? null) ? $parsed['certification'] : [];
+$selectedFeatures = is_array($parsed['feature'] ?? null) ? $parsed['feature'] : [];
+$selectedSize     = is_array($parsed['size'] ?? null) ? $parsed['size'] : [];
+$selectedPriceRanges = is_array($parsed['price_range'] ?? null) ? $parsed['price_range'] : [];
+$selectedRegions    = is_array($parsed['region'] ?? null) ? $parsed['region'] : [];
+$selectedUseCases   = is_array($parsed['use_case'] ?? null) ? $parsed['use_case'] : [];
+$brandSlug          = sanitize_title((string) ($parsed['brand_slug'] ?? ''));
+$helmetFamily    = (string) ($parsed['helmet_family'] ?? '');
+$priceMin        = (string) ($parsed['price_min'] ?? '');
+$priceMax        = (string) ($parsed['price_max'] ?? '');
+$searchTerm      = (string) ($parsed['s'] ?? '');
+$sort            = (string) ($parsed['sort'] ?? 'newest');
 
 $helmetTypeTerms = get_terms([
     'taxonomy' => 'helmet_type',
@@ -94,6 +102,18 @@ $featureTerms = get_terms([
     'taxonomy' => 'feature_tag',
     'hide_empty' => true,
 ]);
+$priceRangeTerms = get_terms([
+    'taxonomy' => 'price_range',
+    'hide_empty' => true,
+]);
+$regionTerms = get_terms([
+    'taxonomy' => 'region',
+    'hide_empty' => true,
+]);
+$useCaseTerms = get_terms([
+    'taxonomy' => 'use_case',
+    'hide_empty' => true,
+]);
 
 $brandPosts = get_posts([
     'post_type' => 'brand',
@@ -103,138 +123,25 @@ $brandPosts = get_posts([
     'order' => 'ASC',
 ]);
 
-$paged = max(1, (int) ($getString('paged') !== '' ? $getString('paged') : get_query_var('paged', 1)));
-$args = [
-    'post_type' => 'helmet',
-    'post_status' => 'publish',
-    'posts_per_page' => 40,
-    'paged' => $paged,
-];
-if ($searchTerm !== '') {
-    $args['s'] = $searchTerm;
-}
+$paged = max(1, (int) ($parsed['paged'] ?? get_query_var('paged', 1)));
 
-$taxQuery = [];
-if ($selectedTypes !== []) {
-    $taxQuery[] = [
-        'taxonomy' => 'helmet_type',
-        'field' => 'slug',
-        'terms' => $selectedTypes,
+if ($searchService !== null) {
+    $args = $searchService->buildQueryArgs($parsed);
+    $args['posts_per_page'] = 40;
+    $args['paged'] = $paged;
+} else {
+    $args = [
+        'post_type' => 'helmet',
+        'post_status' => 'publish',
+        'posts_per_page' => 40,
+        'paged' => $paged,
     ];
-}
-if ($selectedCerts !== []) {
-    $taxQuery[] = [
-        'taxonomy' => 'certification',
-        'field' => 'slug',
-        'terms' => $selectedCerts,
-    ];
-}
-if ($selectedFeatures !== []) {
-    $taxQuery[] = [
-        'taxonomy' => 'feature_tag',
-        'field' => 'slug',
-        'terms' => $selectedFeatures,
-    ];
-}
-if ($taxQuery !== []) {
-    if (count($taxQuery) > 1) {
-        $taxQuery['relation'] = 'AND';
-    }
-    $args['tax_query'] = $taxQuery;
-}
-
-$metaQuery = [];
-if ($brandSlug !== '') {
-    $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
-    // Fallback: Try with '-helmets' suffix if it was omitted, or vice-versa
-    if (! ($brandPost instanceof WP_Post)) {
-        $altSlug = (str_ends_with($brandSlug, '-helmets')) 
-            ? substr($brandSlug, 0, -8) 
-            : $brandSlug . '-helmets';
-        $brandPost = get_page_by_path($altSlug, OBJECT, 'brand');
-    }
-
-    if ($brandPost instanceof WP_Post) {
-        $metaQuery[] = [
-            'key' => 'rel_brand',
-            'value' => (int) $brandPost->ID,
-        ];
-    } else {
-        // If brand slug is invalid, force 0 results instead of showing everything
-        $args['post__in'] = [0];
+    if ($searchTerm !== '') {
+        $args['s'] = $searchTerm;
     }
 }
-if ($helmetFamily !== '') {
-    $metaQuery[] = [
-        'key' => 'helmet_family',
-        'value' => $helmetFamily,
-        'compare' => 'LIKE',
-    ];
-}
-if ($selectedSize !== []) {
-    $sizeQuery = ['relation' => 'OR'];
-    foreach ($selectedSize as $sizeValue) {
-        $sizeQuery[] = [
-            'key' => 'size_chart_json',
-            'value' => $sizeValue,
-            'compare' => 'LIKE',
-        ];
-        $sizeQuery[] = [
-            'key' => 'variant_matrix_json',
-            'value' => $sizeValue,
-            'compare' => 'LIKE',
-        ];
-    }
-    $metaQuery[] = $sizeQuery;
-}
-if ($priceMin !== '' && is_numeric($priceMin)) {
-    $metaQuery[] = [
-        'key' => 'price_retail_usd',
-        'value' => (float) $priceMin,
-        'type' => 'NUMERIC',
-        'compare' => '>=',
-    ];
-}
-if ($priceMax !== '' && is_numeric($priceMax)) {
-    $metaQuery[] = [
-        'key' => 'price_retail_usd',
-        'value' => (float) $priceMax,
-        'type' => 'NUMERIC',
-        'compare' => '<=',
-    ];
-}
-if ($metaQuery !== []) {
-    if (count($metaQuery) > 1) {
-        $metaQuery['relation'] = 'AND';
-    }
-    $args['meta_query'] = $metaQuery;
-}
 
-switch ($sort) {
-    case 'price_asc':
-        $args['meta_key'] = 'price_retail_usd';
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'ASC';
-        break;
-    case 'price_desc':
-        $args['meta_key'] = 'price_retail_usd';
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'DESC';
-        break;
-    case 'top_rated':
-        $args['meta_key'] = 'safety_sharp_rating';
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'DESC';
-        break;
-    case 'newest':
-    default:
-        $args['orderby'] = 'date';
-        $args['order'] = 'DESC';
-        break;
-}
-
-$query = new WP_Query($args);
-
+// Build current query args (for pagination base and redirects) before running query.
 $currentQuery = [];
 foreach ($_GET as $k => $v) {
     if ($k === 'paged') {
@@ -253,6 +160,23 @@ foreach ($_GET as $k => $v) {
         }
     }
 }
+
+$query = new WP_Query($args);
+
+$max_num_pages = (int) $query->max_num_pages;
+if ($max_num_pages < 1) {
+    $max_num_pages = 1;
+}
+// Redirect to last valid page if requested page is beyond results (clean URL, avoid empty page)
+if ($paged > $max_num_pages && $max_num_pages > 0) {
+    $redirect_args = $currentQuery;
+    if ($max_num_pages > 1) {
+        $redirect_args['paged'] = $max_num_pages;
+    }
+    wp_safe_redirect((string) add_query_arg($redirect_args, $archiveUrl), 302);
+    exit;
+}
+$paged = max(1, min($paged, $max_num_pages));
 
 // Canonical redirect: strip empty query params so pagination and layout stay consistent (no ?brand_slug=&price_min=...).
 $hasEmptyParam = false;
@@ -319,6 +243,18 @@ foreach ($selectedFeatures as $slug) {
 foreach ($selectedSize as $size) {
     $activeChips[] = ['label' => 'Size ' . strtoupper($size), 'url' => $removeFilterUrl('size', $size)];
 }
+foreach ($selectedPriceRanges as $slug) {
+    $term = get_term_by('slug', $slug, 'price_range');
+    $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : $slug), 'url' => $removeFilterUrl('price_range', $slug)];
+}
+foreach ($selectedRegions as $slug) {
+    $term = get_term_by('slug', $slug, 'region');
+    $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : $slug), 'url' => $removeFilterUrl('region', $slug)];
+}
+foreach ($selectedUseCases as $slug) {
+    $term = get_term_by('slug', $slug, 'use_case');
+    $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : $slug), 'url' => $removeFilterUrl('use_case', $slug)];
+}
 if ($brandSlug !== '') {
     $activeChips[] = ['label' => ucfirst(str_replace('-', ' ', $brandSlug)), 'url' => $removeFilterUrl('brand_slug')];
 }
@@ -337,7 +273,10 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 <section class="hs-section hs-section--archive">
     <header class="hs-archive-hero">
         <h1 class="hs-archive-hero__title"><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
-        <p class="hs-archive-hero__subtitle">Size-first, safety-aware catalog with faceted filters by type, brand, certification, and more.</p>
+        <div class="hs-archive-hero__content">
+            <p class="hs-archive-hero__lead">Browse our catalog of motorcycle helmets: compare specs, certifications, and prices. Use the filters to narrow by helmet type (full face, modular, adventure), brand, safety standard (DOT, ECE, Snell, SHARP), and price range. Each helmet page includes technical analysis and where to buy.</p>
+            <p class="hs-archive-hero__sub">Add helmets to the <a href="<?php echo esc_url(home_url('/comparison/')); ?>">comparison tool</a> to see them side by side, or jump to <a href="<?php echo esc_url(get_post_type_archive_link('brand')); ?>">brands</a> and <a href="<?php echo esc_url(home_url('/helmet-types/')); ?>">helmet types</a> for curated lists.</p>
+        </div>
     </header>
 
     <div class="hs-catalog">
@@ -379,7 +318,15 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 </details>
 
                 <details class="hs-filter-group">
-                    <summary>Price</summary>
+                    <summary>Price range</summary>
+                    <div class="hs-filter-checks">
+                        <?php if (is_array($priceRangeTerms)) : foreach ($priceRangeTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
+                            <label><input type="checkbox" name="price_range[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedPriceRanges, true)); ?> /> <?php echo esc_html($term->name); ?></label>
+                        <?php endforeach; endif; ?>
+                    </div>
+                </details>
+                <details class="hs-filter-group">
+                    <summary>Price (min–max)</summary>
                     <div class="hs-price-range">
                         <input type="number" name="price_min" value="<?php echo esc_attr($priceMin); ?>" min="0" step="1" placeholder="Min" />
                         <input type="number" name="price_max" value="<?php echo esc_attr($priceMax); ?>" min="0" step="1" placeholder="Max" />
@@ -400,6 +347,24 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                     <div class="hs-filter-checks hs-filter-scroll">
                         <?php if (is_array($featureTerms)) : foreach ($featureTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                             <label><input type="checkbox" name="feature[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedFeatures, true)); ?> /> <?php echo esc_html($term->name); ?></label>
+                        <?php endforeach; endif; ?>
+                    </div>
+                </details>
+
+                <details class="hs-filter-group">
+                    <summary>Region</summary>
+                    <div class="hs-filter-checks hs-filter-scroll">
+                        <?php if (is_array($regionTerms)) : foreach ($regionTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
+                            <label><input type="checkbox" name="region[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedRegions, true)); ?> /> <?php echo esc_html($term->name); ?></label>
+                        <?php endforeach; endif; ?>
+                    </div>
+                </details>
+
+                <details class="hs-filter-group">
+                    <summary>Use case</summary>
+                    <div class="hs-filter-checks hs-filter-scroll">
+                        <?php if (is_array($useCaseTerms)) : foreach ($useCaseTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
+                            <label><input type="checkbox" name="use_case[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedUseCases, true)); ?> /> <?php echo esc_html($term->name); ?></label>
                         <?php endforeach; endif; ?>
                     </div>
                 </details>
@@ -474,28 +439,22 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                     ?>
                 </div>
 
-                <div class="hs-pagination-wrap">
+                <nav class="hs-pagination-wrap" aria-label="<?php esc_attr_e( 'Helmet catalog pages', 'helmetsan-theme' ); ?>">
                     <?php
-                    // Temporarily replace the global query with our custom query
-                    // so the_posts_pagination reads the correct page/totals.
-                    global $wp_query;
-                    $original_query = $wp_query;
-                    $wp_query = $query; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-
-                    the_posts_pagination([
-                        'total' => $query->max_num_pages,
-                        'current' => $paged,
-                        'add_args' => $currentQuery,
+                    // Explicit base so all filter params are preserved on every page link (query-string and pretty permalinks).
+                    $pagination_base = (string) add_query_arg(array_merge($currentQuery, [ 'paged' => '%#%' ]), $archiveUrl);
+                    echo wp_kses_post(paginate_links([
+                        'base'      => $pagination_base,
+                        'format'    => '',
+                        'current'   => $paged,
+                        'total'     => $max_num_pages,
                         'mid_size'  => 2,
                         'prev_text' => __( '&larr; Prev', 'helmetsan-theme' ),
                         'next_text' => __( 'Next &rarr;', 'helmetsan-theme' ),
-                        'screen_reader_text' => __( 'Helmet Navigation', 'helmetsan-theme' ),
-                    ]);
-
-                    $wp_query = $original_query; // Restore original query
-
+                        'type'      => 'plain',
+                    ]));
                     ?>
-                </div>
+                </nav>
             </section>
                 <?php
                 wp_reset_postdata();

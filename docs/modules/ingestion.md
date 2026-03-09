@@ -62,8 +62,20 @@ From the optional `identifiers` object in helmet/accessory JSON, ingestion write
 Uses WordPress transients to prevent overlapping runs:
 
 - Lock key: `helmetsan_ingest_lock`
-- Only one ingestion can run at a time
+- Only one ingestion can run at a time (unless lock bypass is used; see below)
 - `forceUnlock()` available for stuck locks
+
+## Concurrency (CLI)
+
+The CLI supports parallel ingestion when you pass `--concurrency=N`:
+
+- **`wp helmetsan ingest --path=... --concurrency=N`**  
+  Lists JSON files under the path, splits them into N chunks by offset/limit, and spawns N child processes. Each child runs with `HELMETSAN_INGEST_NO_LOCK=1` so they do not contend on the transient lock. Results (created/updated/skipped/rejected) are aggregated and printed once.
+
+- **`wp helmetsan ingest-seed --file=... --concurrency=N`**  
+  Reads the seed JSON array, splits it into N chunks, writes N temporary seed files, and spawns N child processes with the lock bypass. Each child ingests its chunk; the parent parses `HELMETSAN_SEED_RESULT` from stdout and aggregates.
+
+**Note:** `HELMETSAN_INGEST_NO_LOCK=1` is for internal use by these CLI concurrency flows. Do not set it when running a single ingest process; the lock is there to prevent accidental overlapping runs.
 
 ## Database Table
 

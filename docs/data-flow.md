@@ -72,6 +72,15 @@ This document describes how catalog data (helmets, accessories, brands) moves be
 3. **Edit JSON locally, then update WordPress**  
    Edit files under `data/helmets/` etc. Run **Data / Reseed** → Ingest path (helmets/accessories/brands). No GitHub step needed unless you also want to push the edits.
 
+4. **AI enrichment → JSON (update catalogs with AI-filled data)**  
+   AI fill-missing (Catalog “Fill all missing / outdated”, “Update certifications only”, “Update specs only”, or CLI `wp helmetsan ai fill-missing`) updates **WordPress only**. To get that data into your JSON catalogs: use **Import/Export** → Export helmets/brands/accessories to JSON, then **sync push** (or commit + push). So: **AI enrichment → Export → Push**.
+
+5. **AI-generated catalog data (helmets)**  
+   Use the same AI credentials (Helmetsan → AI) to **generate** helmet catalog data. On the server: `wp helmetsan ai generate-seed --count=10 --brand=HJC [--output=helmets/generated.json]`. Output is in **master format** (brand → model → type, price, cert, colorways). Merge into `data/helmets/master.json` (or use as `--source-json` after merge), then run the seed script and ingest. Pipeline: **generate-seed → merge → create_helmets_seed.php → deploy → ingest-seed**.
+
+6. **AI-generated accessories**  
+   Generate accessory catalog data: `wp helmetsan ai generate-accessories --count=10 [--category="Bluetooth Headsets"] [--output=accessories/generated.json]`. Validate before ingest: `wp helmetsan validate accessory --file=/path/to/accessories/generated.json`. Then ingest: `wp helmetsan ingest --path=accessories` (or merge generated JSON into your accessories tree and ingest). Admin: Helmetsan → AI → **Generate accessories** (preview) and **Fill coverage report**.
+
 ## Terminology
 
 - **Ingestion** = Applying JSON to WordPress (create/update posts and meta). One-way: JSON → WordPress.
@@ -79,6 +88,22 @@ This document describes how catalog data (helmets, accessories, brands) moves be
 - **Sync pull** = Download files from GitHub to local repo; optional “apply” step runs ingestion/brands on the downloaded files.
 - **Sync push** = Upload local repo files to GitHub. Does not read WordPress.
 - **Seed** = Generated helmet (variant) JSON array; **ingest-seed** = ingest that array. **Reseed** = full pipeline (generate → deploy → ingest-seed). See AGENTS.md.
+
+## Marketplace links (RevZilla, Amazon, etc.)
+
+Helmet and accessory JSON can include **`marketplace_links`**: an object whose keys are marketplace identifiers (e.g. `revzilla_us`, `amazon_us`, `amazon_uk`, `flipkart_in`) and values are **direct product URLs** on those retailers.
+
+- **Ingestion:** These URLs are stored in WordPress as `affiliate_links_json` and used by the **/go/** redirect and “Where to buy” so users can be sent to the correct product page per region.
+- **Affiliate:** Revenue/affiliate settings can append your affiliate ID to those URLs where supported (Amazon tag, RevZilla, etc.).
+- **Source for AI and images:** Linking a helmet to its RevZilla (or Amazon) product page gives a stable source for future workflows: AI can fetch descriptions, part numbers, and sizing from that URL; images can be pulled from the same source into the media pipeline. Add `revzilla_us`, `amazon_us`, etc. to your helmet or accessory JSON and run ingestion so the links are stored.
+
+Schema: `data/schemas/helmet.schema.json` and `data/schemas/accessory.schema.json` define `marketplace_links` as an object of URI strings. Helmet export includes these when present in meta (from `affiliate_links_json`).
+
+**Next steps:**
+
+1. **Add marketplace URLs to JSON** — In each helmet (or accessory) JSON file under `data/helmets/` or `data/accessories/`, add a `marketplace_links` object, e.g. `"marketplace_links": { "revzilla_us": "https://www.revzilla.com/motorcycle/...", "amazon_us": "https://..." }`. Run ingestion (Data / Reseed → path helmets or accessories, or `wp helmetsan sync pull --profile=pull+all` after pushing JSON). Optionally export from WordPress back to JSON so the links stay in the repo.
+2. **Use AI to fill content** — Once links (or other context) are stored, use Catalog “Fill all missing / outdated” or `wp helmetsan ai fill-missing --post-type=helmet --only-incomplete --limit=500` to populate technical analysis, product description, part numbers, sizing, etc. See [Populating content via AI](DESIGN_AND_CONTENT_PHILOSOPHY.md#6-populating-content-via-ai).
+3. **Accessories** — The same `marketplace_links` pattern is supported for accessories: add to schema, ingestion (AccessoryService), and optional export; use for affiliate and as source for AI/data/images.
 
 ## See also
 

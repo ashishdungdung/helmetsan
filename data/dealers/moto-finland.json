@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-finland",
+  "name": "Moto Finland / MotoCenter",
+  "type": "retail",
+  "country_code": "FI",
+  "region_code": "eu",
+  "address": "Helsinki area",
+  "city": "Helsinki",
+  "website": "https://www.motocenter.fi",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "nordic-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Schuberth", "Caberg"],
+  "marketplaces": ["motocenter-fi"],
+  "geo": {"lat": 60.1699, "lng": 24.9384}
+}

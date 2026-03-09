@@ -1,5 +1,13 @@
 <?php
-require_once 'wp-load.php';
+/**
+ * Update navigation menu item URLs to point to post type archives.
+ * Run from WordPress public root: php scripts/update_navigation_links.php
+ *   or on server: wp eval-file scripts/update_navigation_links.php --allow-root
+ */
+
+if (! defined('ABSPATH')) {
+    require_once 'wp-load.php'; // Run from WordPress public root
+}
 
 $mappings = [
     'accessories' => 'accessory',

@@ -78,7 +78,7 @@
             }
 
             // 2. Clear Button
-            const clearBtn = e.target.closest('#hs-comparison-clear');
+            const clearBtn = e.target.closest('#hs-comparison-clear, .js-comparison-clear');
             if (clearBtn) {
                 e.preventDefault();
                 console.log('Helmetsan Comparison: Clearing all');

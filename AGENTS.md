@@ -14,11 +14,11 @@ Those rules define:
 - Infrastructure modification safety
 - Token and context optimization
 
-Before performing modifications, agents must:
+Before performing modifications:
 
 1. Confirm project root and runtime context.
-2. Read `.agent/workflows/ai-optimizations.md`.
-3. Follow the defined execution protocol end‑to‑end.
+2. **Token discipline:** For **small, scoped tasks** (single file, obvious fix, one parameter, typo), do **not** load the full governance doc or architecture map—proceed with minimal context. For **complex, exploratory, or multi-subsystem tasks**, read `.agent/workflows/ai-optimizations.md` and use **`docs/architecture-map.md`** to locate subsystems before broad searches. Prefer the **minimum** file reads and tool calls that suffice.
+3. Follow the execution protocol in ai-optimizations.md when you have loaded it; otherwise apply minimal-change and safety principles (no core dirs, no hardcoded secrets, prefer existing services).
 
 Project root (production server):
 

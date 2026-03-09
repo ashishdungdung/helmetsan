@@ -1,4 +1,5 @@
 {
+  "_comment": "Seed master: Brand → Model → type, price, cert, colorways. Optional keys below add detailed info for richer seed output. Use --source-json=data/helmets/master.json with create_helmets_seed.php.",
   "Shoei": {
     "RF-1400": {
       "type": "Full Face",
@@ -8,6 +9,26 @@
       "weight": 1640,
       "mat": "Fiberglass",
       "desc": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness.",
+      "helmet_family": "RF1400",
+      "model_year": "2024",
+      "features": [
+        "Advanced noise reduction",
+        "Dual density EPS liner",
+        "CWR-F2 face shield system",
+        "Pinlock EVO ready",
+        "E.Q.R.S. (Emergency Quick-Release System)"
+      ],
+      "product_details": {
+        "style": "Street / Sport Touring",
+        "mfr_product_number": "RF1400"
+      },
+      "sizing_fit": {
+        "head_shape": "Intermediate Oval",
+        "fit_notes": "Most common North American head profile. Interchangeable cheek pads across sizes."
+      },
+      "identifiers": {
+        "mpn": "RF1400"
+      },
       "colorways": [
         {
           "name": "Matte Black",
@@ -22,9 +43,47 @@
           "finish": "gloss",
           "sku": "SHO-RF14-WHT",
           "price_adj": 0
+        },
+        {
+          "name": "Nocturne TC-5",
+          "family": "Black",
+          "finish": "matte",
+          "sku": "SHO-RF14-NOC",
+          "price_adj": 50,
+          "is_graphic": true,
+          "marketplace_links": {
+            "revzilla_us": "https://www.revzilla.com/motorcycle/shoei-rf-1400-helmet"
+          }
+        }
+      ]
+    }
+  },
+  "Arai": {
+    "Corsair-X": {
+      "type": "Full Face",
+      "price": 749.99,
+      "cert": ["DOT", "Snell M2020", "ECE 22.06"],
+      "shape": "Round Oval",
+      "weight": 1550,
+      "mat": "PB-SNC2",
+      "desc": "Arai Corsair-X is a premium race-inspired full face with multiple shell sizes and superior fit.",
+      "helmet_family": "Corsair-X",
+      "model_year": "2024",
+      "features": [
+        "Multiple shell sizes",
+        "Periphery Belt Construction",
+        "Emergency Release System",
+        "VAS-V Pro Shield"
+      ],
+      "colorways": [
+        {
+          "name": "Matte Black",
+          "family": "Black",
+          "finish": "matte",
+          "sku": "ARI-CX-MBK",
+          "price_adj": 0
         }
       ]
     }
   }
 }
-

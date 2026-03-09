@@ -23,6 +23,33 @@ final class JsonRepository
     }
 
     /**
+     * List immediate subdirectory names under the data root (e.g. helmets, brands, accessories).
+     * Useful for CLI or admin to discover entity paths without hardcoding.
+     *
+     * @return list<string>
+     */
+    public function listSubdirs(): array
+    {
+        $base = $this->rootPath();
+        if (! is_dir($base)) {
+            return [];
+        }
+        $out = [];
+        $iter = new \DirectoryIterator($base);
+        foreach ($iter as $item) {
+            if (! $item->isDir() || $item->isDot()) {
+                continue;
+            }
+            $name = $item->getFilename();
+            if ($name !== '' && $name[0] !== '.') {
+                $out[] = $name;
+            }
+        }
+        sort($out);
+        return $out;
+    }
+
+    /**
      * @return array<int, string>
      */
     public function listJsonFiles(string $relativePath = ''): array

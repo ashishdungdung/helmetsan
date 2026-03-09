@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "suomy-italy",
+  "name": "Suomy Srl",
+  "type": "regional-distributor",
+  "country_code": "IT",
+  "regions": ["eu"],
+  "countries": ["IT", "DE", "FR", "ES", "GB", "US"],
+  "brands": ["Suomy"],
+  "warehouses": [
+    {"id": "it-veneto", "city": "Montebelluna", "country": "IT"}
+  ],
+  "contacts": [
+    {"type": "sales", "email": "info@suomy.com"},
+    {"type": "support", "url": "https://www.suomy.com"}
+  ],
+  "website": "https://www.suomy.com"
+}

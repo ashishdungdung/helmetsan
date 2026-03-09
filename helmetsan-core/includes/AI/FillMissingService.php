@@ -30,6 +30,9 @@ final class FillMissingService
      * @param callable(int $processed, int $total, int $postId): void $onProgress Called after each post (optional).
      * @param callable(string $type, int $postId, string $metaKey, string|null $detail): void $onVerbose Optional. $type: 'filled'|'error'|'skipped', $detail: value or reason.
      * @param int|null $rateLimitSeconds Sleep between API calls (null = default 1s, 0 = no sleep).
+     * @param bool $refillAccessoryIfNoCategory When true and postType is accessory, also process accessories that have no accessory_category term and re-fill type/parent_category even if set (so backfill can map them).
+     * @param list<string>|null $onlyTaxonomies If set, only fill these taxonomy slugs (e.g. ['certification']). When non-empty, meta fill can be skipped (onlyFields=[]).
+     * @param bool $refillHelmetSpecs When true and postType is helmet, (re)fill spec_weight_g, spec_shell_material, price_retail_usd even if already set (overwrite with AI).
      * @return array{filled: int, skipped: int, errors: int, total_posts: int, api_calls: int}
      */
     public function run(
@@ -44,16 +47,20 @@ final class FillMissingService
         ?callable $onProgress = null,
         ?callable $onVerbose = null,
         int $cacheTtl = 86400,
-        ?int $rateLimitSeconds = null
+        ?int $rateLimitSeconds = null,
+        bool $refillAccessoryIfNoCategory = false,
+        ?array $onlyTaxonomies = null,
+        bool $refillHelmetSpecs = false
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
-        if ($fillable === []) {
-            return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
-        }
         if ($onlyFields !== null && $onlyFields !== []) {
             $fillable = array_intersect_key($fillable, array_flip($onlyFields));
         }
-        if ($fillable === []) {
+        $taxonomyOnly = $onlyTaxonomies !== null && $onlyTaxonomies !== [];
+        if ($fillable === [] && ! $taxonomyOnly) {
+            return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
+        }
+        if ($fillable === [] && $taxonomyOnly && ! $fillTaxonomies) {
             return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
         }
 
@@ -61,18 +68,27 @@ final class FillMissingService
             return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
         }
 
+        // When refill-unmapped for accessories, fetch all so unmapped ones (no category term) are in the set
+        $effectiveLimit = ($refillAccessoryIfNoCategory && $postType === 'accessory')
+            ? -1
+            : ($limit > 0 ? $limit : -1);
         $query = new \WP_Query([
             'post_type' => $postType,
             'post_status' => 'publish',
-            'posts_per_page' => $limit > 0 ? $limit : -1,
+            'posts_per_page' => $effectiveLimit > 0 ? $effectiveLimit : -1,
             'offset' => $offset,
             'orderby' => 'ID',
             'order' => 'ASC',
             'fields' => 'ids',
         ]);
         $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
-        if ($onlyIncomplete) {
+        if ($onlyIncomplete && ! $taxonomyOnly) {
             $ids = $this->filterIncompletePosts($ids, $fillable);
+        }
+        if ($refillAccessoryIfNoCategory && $postType === 'accessory') {
+            $allIds = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+            $noCatIds = array_filter($allIds, [$this, 'accessoryHasNoCategoryTerm']);
+            $ids = array_values(array_unique(array_merge($ids, $noCatIds)));
         }
         $totalPosts = count($ids);
         $filled = 0;
@@ -89,9 +105,14 @@ final class FillMissingService
                 continue;
             }
             $existingData = $this->gatherExistingData($postType, $postId, $post);
+            $helmetSpecKeys = ['spec_weight_g', 'spec_shell_material', 'price_retail_usd'];
             foreach ($fillable as $metaKey => $config) {
                 $current = get_post_meta($postId, $metaKey, true);
-                if ($current !== '' && $current !== null && $current !== []) {
+                $forceRefill = ($refillAccessoryIfNoCategory && $postType === 'accessory'
+                    && ($metaKey === 'accessory_parent_category' || $metaKey === 'accessory_type')
+                    && $this->accessoryHasNoCategoryTerm($postId))
+                    || ($refillHelmetSpecs && $postType === 'helmet' && in_array($metaKey, $helmetSpecKeys, true));
+                if ($current !== '' && $current !== null && $current !== [] && ! $forceRefill) {
                     $skipped++;
                     $onVerbose && $onVerbose('skipped', $postId, $metaKey, null);
                     continue;
@@ -170,6 +191,9 @@ final class FillMissingService
             // Phase B: fill missing taxonomy terms (only assign existing terms)
             if ($fillTaxonomies) {
                 $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
+                if ($onlyTaxonomies !== null && $onlyTaxonomies !== []) {
+                    $taxonomyConfig = array_intersect_key($taxonomyConfig, array_flip($onlyTaxonomies));
+                }
                 foreach ($taxonomyConfig as $taxonomy => $label) {
                     $existingTerms = get_the_terms($postId, $taxonomy);
                     if (is_array($existingTerms) && $existingTerms !== []) {
@@ -229,6 +253,18 @@ final class FillMissingService
     }
 
     /**
+     * True if the post is an accessory with no accessory_category term assigned.
+     */
+    public function accessoryHasNoCategoryTerm(int $postId): bool
+    {
+        if (get_post_type($postId) !== 'accessory') {
+            return false;
+        }
+        $terms = get_the_terms($postId, 'accessory_category');
+        return is_wp_error($terms) || ! is_array($terms) || $terms === [];
+    }
+
+    /**
      * @param array<string, mixed> $fillable
      * @return list<int>
      */
@@ -266,9 +302,12 @@ final class FillMissingService
                 $brand = get_post($brandId);
                 $data['brand'] = $brand instanceof WP_Post ? (string) $brand->post_title : '';
             }
-            $types = get_the_terms($postId, 'helmet_type');
-            if (is_array($types) && $types !== []) {
-                $data['helmet_type'] = implode(', ', array_map(static fn($t) => $t->name, $types));
+            foreach (['helmet_type', 'certification', 'use_case', 'region', 'feature_tag', 'price_range'] as $tax) {
+                $terms = get_the_terms($postId, $tax);
+                if (is_array($terms) && $terms !== []) {
+                    $names = array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', $terms);
+                    $data[$tax] = implode(', ', array_filter($names));
+                }
             }
         }
         if ($postType === 'brand') {
@@ -308,6 +347,13 @@ final class FillMissingService
                     return (string) $opt;
                 }
             }
+            // Normalize spaces to hyphens for slug-like fields (e.g. use_case: "dual sport" -> "dual-sport")
+            $normalized = strtolower(str_replace(' ', '-', preg_replace('/\s+/', ' ', trim($value))));
+            foreach ($allowed as $opt) {
+                if (strtolower((string) $opt) === $normalized) {
+                    return (string) $opt;
+                }
+            }
             if (preg_match('/\b(long[- ]?oval|intermediate[- ]?oval|round[- ]?oval)\b/i', $value, $m)) {
                 $k = strtolower(str_replace(' ', '-', $m[1]));
                 $canon = ['longoval' => 'long-oval', 'intermediateoval' => 'intermediate-oval', 'roundoval' => 'round-oval'];
@@ -328,6 +374,31 @@ final class FillMissingService
                 }
             }
             return '';
+        }
+
+        if ($metaKey === 'spec_weight_g') {
+            if (preg_match('/\b(\d{1,5})\s*(?:g|grams?)?\b/i', $value, $m)) {
+                $g = (int) $m[1];
+                if ($g > 0 && $g <= 99999) {
+                    return (string) $g;
+                }
+            }
+            return '';
+        }
+
+        if ($metaKey === 'price_retail_usd') {
+            if (preg_match('/\$?\s*(\d+(?:\.\d{1,2})?)\b/', $value, $m)) {
+                $p = (float) $m[1];
+                if ($p >= 0 && $p <= 999999.99) {
+                    return $m[1];
+                }
+            }
+            return '';
+        }
+
+        if ($metaKey === 'brand_support_url') {
+            $url = esc_url_raw($value, ['https', 'http']);
+            return $url !== '' ? $url : '';
         }
 
         $maxLength = is_array($config) && isset($config['max_length']) && is_int($config['max_length'])
@@ -357,6 +428,56 @@ final class FillMissingService
             return;
         }
         sleep(self::RATE_LIMIT_SECONDS);
+    }
+
+    /**
+     * Coverage report: per-field counts of set vs empty for a post type (no API calls).
+     *
+     * @return array{total_posts: int, fields: array<string, array{set: int, empty: int, pct: float}>}
+     */
+    public function getCoverageReport(string $postType, int $limit = 0): array
+    {
+        $fillable = FillableFieldsConfig::forPostType($postType);
+        $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
+        $query = new \WP_Query([
+            'post_type'      => $postType,
+            'post_status'    => 'publish',
+            'posts_per_page' => $limit > 0 ? $limit : -1,
+            'orderby'        => 'ID',
+            'order'          => 'ASC',
+            'fields'         => 'ids',
+        ]);
+        $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+        $total = count($ids);
+        $fields = [];
+        foreach (array_keys($fillable) as $metaKey) {
+            $fields[$metaKey] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
+        }
+        foreach (array_keys($taxonomyConfig) as $taxonomy) {
+            $fields['taxonomy:' . $taxonomy] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
+        }
+        foreach ($ids as $postId) {
+            foreach (array_keys($fillable) as $metaKey) {
+                $v = get_post_meta($postId, $metaKey, true);
+                if ($v !== '' && $v !== null && $v !== []) {
+                    $fields[$metaKey]['set']++;
+                } else {
+                    $fields[$metaKey]['empty']++;
+                }
+            }
+            foreach (array_keys($taxonomyConfig) as $taxonomy) {
+                $terms = get_the_terms($postId, $taxonomy);
+                if (is_array($terms) && $terms !== []) {
+                    $fields['taxonomy:' . $taxonomy]['set']++;
+                } else {
+                    $fields['taxonomy:' . $taxonomy]['empty']++;
+                }
+            }
+        }
+        foreach ($fields as $key => $counts) {
+            $fields[$key]['pct'] = $total > 0 ? round($counts['set'] / $total * 100, 1) : 0.0;
+        }
+        return ['total_posts' => $total, 'fields' => $fields];
     }
 
     /**

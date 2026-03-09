@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motostyle-uae",
+  "name": "MotoStyle UAE",
+  "type": "retail",
+  "country_code": "AE",
+  "region_code": "mena",
+  "address": "Dubai",
+  "city": "Dubai",
+  "website": "https://www.motostyle.ae",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "gcc-shipping", "premium-brands"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "Schuberth", "HJC", "Nolan"],
+  "marketplaces": ["motostyle-ae"],
+  "geo": {"lat": 25.2048, "lng": 55.2708}
+}

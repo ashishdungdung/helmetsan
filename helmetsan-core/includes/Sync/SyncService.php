@@ -10,6 +10,7 @@ use Helmetsan\Core\Commerce\CommerceService;
 use Helmetsan\Core\Comparison\ComparisonService;
 use Helmetsan\Core\Dealer\DealerService;
 use Helmetsan\Core\Distributor\DistributorService;
+use Helmetsan\Core\Data\DuplicateCheckerService;
 use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Recommendation\RecommendationService;
@@ -271,6 +272,9 @@ final class SyncService
             }
         }
 
+        $dupCheck = (new DuplicateCheckerService($this->repository))->check(['helmet', 'accessory', 'brand'], true);
+        $repositoryDuplicatesWarning = count($dupCheck['duplicates']);
+
         $brandApply = [
             'enabled' => $applyBrands,
             'files' => count($brandFiles),
@@ -428,6 +432,7 @@ final class SyncService
             'comparison_auto_apply' => $comparisonApply,
             'recommendation_auto_apply' => $recommendationApply,
             'commerce_auto_apply' => $commerceApply,
+            'repository_duplicates_warning' => $repositoryDuplicatesWarning > 0 ? $repositoryDuplicatesWarning : null,
         ];
 
         $this->logSync('pull', $failed > 0 ? 'partial' : 'success', [
@@ -1143,6 +1148,9 @@ final class SyncService
         $files = $this->repository->listJsonFiles();
         $files = array_slice($files, 0, max(1, $limit));
 
+        $dupCheck = (new DuplicateCheckerService($this->repository))->check(['helmet', 'accessory', 'brand'], true);
+        $repositoryDuplicatesWarning = count($dupCheck['duplicates']);
+
         $remoteMapResult = $this->loadRemoteTreeMap($cfg, $branch);
         if (! $remoteMapResult['ok']) {
             $this->logSync('push', 'error', [
@@ -1258,6 +1266,7 @@ final class SyncService
             'remote_path' => $remoteBase,
             'pull_request'=> $pr,
             'auto_merge'  => $autoMerge,
+            'repository_duplicates_warning' => $repositoryDuplicatesWarning > 0 ? $repositoryDuplicatesWarning : null,
         ];
 
         $status = $failed > 0 ? 'partial' : 'success';

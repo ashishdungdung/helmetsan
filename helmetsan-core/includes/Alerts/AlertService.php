@@ -13,13 +13,16 @@ final class AlertService
     }
 
     /**
-     * @param array<string,mixed> $context
+     * Send alert to configured channels (email, Slack).
+     *
+     * @param array<string,mixed> $context Optional context merged into body (e.g. ['severity' => 'critical', 'source' => 'ingestion'])
+     * @return array{ok: bool, message?: string, channels?: array<string, array>}
      */
     public function send(string $type, string $title, string $message, array $context = []): array
     {
         $cfg = $this->config->alertsConfig();
         if (empty($cfg['enabled'])) {
-            return ['ok' => false, 'message' => 'Alerts disabled'];
+            return ['ok' => false, 'message' => 'Alerts disabled', 'channels' => []];
         }
 
         $results = [
@@ -72,15 +75,16 @@ final class AlertService
         $sent = wp_mail($to, $subject, $body, $headers);
 
         return [
-            'ok' => (bool) $sent,
-            'to' => $to,
+            'ok'   => (bool) $sent,
+            'to'   => $to,
             'type' => $type,
+            'message' => $sent ? '' : 'wp_mail returned false',
         ];
     }
 
     /**
      * @param array<string,mixed> $context
-     * @return array<string,mixed>
+     * @return array{ok: bool, code?: int, message?: string}
      */
     private function sendSlack(string $title, string $message, array $context, string $webhook): array
     {
@@ -92,10 +96,11 @@ final class AlertService
             }
         }
 
+        $body = wp_json_encode(['text' => $text]);
         $response = wp_remote_post($webhook, [
             'timeout' => 15,
             'headers' => ['Content-Type' => 'application/json'],
-            'body'    => wp_json_encode(['text' => $text]),
+            'body'    => $body,
         ]);
 
         if (is_wp_error($response)) {
@@ -103,10 +108,29 @@ final class AlertService
         }
 
         $code = (int) wp_remote_retrieve_response_code($response);
+        if ($code >= 200 && $code < 300) {
+            return ['ok' => true, 'code' => $code];
+        }
+
+        if ($code >= 500 || $code === 429) {
+            sleep(2);
+            $retry = wp_remote_post($webhook, [
+                'timeout' => 15,
+                'headers' => ['Content-Type' => 'application/json'],
+                'body'    => $body,
+            ]);
+            if (! is_wp_error($retry)) {
+                $retryCode = (int) wp_remote_retrieve_response_code($retry);
+                if ($retryCode >= 200 && $retryCode < 300) {
+                    return ['ok' => true, 'code' => $retryCode];
+                }
+            }
+        }
 
         return [
-            'ok' => $code >= 200 && $code < 300,
-            'code' => $code,
+            'ok'    => false,
+            'code'  => $code,
+            'message' => 'Slack returned ' . $code,
         ];
     }
 }

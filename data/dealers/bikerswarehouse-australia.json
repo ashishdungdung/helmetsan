@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "bikerswarehouse-australia",
+  "name": "Bikers Warehouse",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Sydney, NSW",
+  "city": "Sydney",
+  "website": "https://www.bikerswarehouse.com.au",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "australia-shipping", "expert-advice", "click-and-collect"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan", "Scorpion"],
+  "marketplaces": ["bikerswarehouse-au"],
+  "geo": {"lat": -33.8688, "lng": 151.2093}
+}

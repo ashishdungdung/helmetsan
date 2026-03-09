@@ -32,6 +32,9 @@ final class SearchService
             'certification' => $getArray('certification'),
             'feature'       => $getArray('feature'),
             'size'          => $getArray('size'),
+            'price_range'   => $getArray('price_range'),
+            'region'        => $getArray('region'),
+            'use_case'      => $getArray('use_case'),
             'brand_slug'    => sanitize_title($getString('brand_slug')),
             'helmet_family' => $getString('helmet_family'),
             'price_min'     => $getString('price_min'),
@@ -72,6 +75,15 @@ final class SearchService
         }
         if ($parsed['feature'] !== []) {
             $taxQuery[] = ['taxonomy' => 'feature_tag', 'field' => 'slug', 'terms' => $parsed['feature']];
+        }
+        if (isset($parsed['price_range']) && is_array($parsed['price_range']) && $parsed['price_range'] !== []) {
+            $taxQuery[] = ['taxonomy' => 'price_range', 'field' => 'slug', 'terms' => $parsed['price_range']];
+        }
+        if (isset($parsed['region']) && is_array($parsed['region']) && $parsed['region'] !== []) {
+            $taxQuery[] = ['taxonomy' => 'region', 'field' => 'slug', 'terms' => $parsed['region']];
+        }
+        if (isset($parsed['use_case']) && is_array($parsed['use_case']) && $parsed['use_case'] !== []) {
+            $taxQuery[] = ['taxonomy' => 'use_case', 'field' => 'slug', 'terms' => $parsed['use_case']];
         }
         if ($taxQuery !== []) {
             if (count($taxQuery) > 1) $taxQuery['relation'] = 'AND';

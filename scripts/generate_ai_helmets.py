@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+Generate high-detail helmet JSON entries (for merging into seed or data/helmets).
+Usage: python3 scripts/generate_ai_helmets.py   (writes under data/ or as configured in script)
+"""
 import json
 import os
 import re

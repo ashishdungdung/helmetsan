@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "champion-helmets-canada",
+  "name": "Champion Helmets Canada",
+  "type": "retail",
+  "country_code": "CA",
+  "region_code": "na",
+  "address": "Toronto area",
+  "city": "Toronto",
+  "website": "https://www.championhelmets.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "canada-shipping", "sizing-guide", "price-match"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Schuberth"],
+  "marketplaces": ["champion-helmets-ca"],
+  "geo": {"lat": 43.6532, "lng": -79.3832}
+}

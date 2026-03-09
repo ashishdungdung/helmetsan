@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-motorrad-germany",
+  "name": "Moto-Motorrad Germany",
+  "type": "retail",
+  "country_code": "DE",
+  "region_code": "eu",
+  "address": "Munich area",
+  "city": "Munich",
+  "website": "https://www.moto-motorrad.de",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-fitting"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg"],
+  "marketplaces": ["moto-motorrad-de", "amazon-de"],
+  "geo": {"lat": 48.1351, "lng": 11.5820}
+}

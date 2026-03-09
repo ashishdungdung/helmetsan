@@ -201,6 +201,10 @@ final class Config
             'enrichment_accessories_enabled' => false,
             'enrichment_accessories_fill_limit' => 50,
             'enrichment_accessories_seo_limit'  => 100,
+            // SEO for taxonomy term archives and other CPTs (from time to time)
+            'enrichment_seo_terms_enabled'      => false,
+            'enrichment_seo_other_cpts_enabled' => false,
+            'enrichment_seo_other_cpts_limit'   => 100,
         ];
     }
 
@@ -383,7 +387,7 @@ final class Config
             'amazon_client_secret'   => '',
             'amazon_refresh_token'   => '',
             'amazon_affiliate_tag'   => 'helmetsan-20',
-            'amazon_countries'       => ['US', 'UK', 'DE', 'IN'],
+            'amazon_countries'       => ['US', 'CA', 'FR', 'DE', 'IT', 'NL', 'PL', 'ES', 'SE', 'UK', 'IN'],
 
             // Allegro
             'allegro_enabled'        => false,

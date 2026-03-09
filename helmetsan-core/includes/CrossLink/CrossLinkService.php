@@ -45,7 +45,7 @@ final class CrossLinkService
      * Run cross-link suggestion for a batch of posts and optionally save to meta.
      *
      * @param 'helmet'|'brand'|'accessory'|'all' $postType
-     * @return array{updated: int, skipped: int, total: int, dry_run: bool}
+     * @return array{updated: int, skipped: int, total: int, dry_run: bool, by_reason: array<string, int>, total_links: int, posts_with_links: int}
      */
     public function run(string $postType, int $limit = 0, int $offset = 0, bool $dryRun = false): array
     {
@@ -53,6 +53,8 @@ final class CrossLinkService
         $updated = 0;
         $skipped = 0;
         $total = 0;
+        $byReason = [];
+        $totalLinks = 0;
 
         foreach ($types as $type) {
             $postIds = $this->getPostIds($type, $limit, $offset);
@@ -63,6 +65,21 @@ final class CrossLinkService
                     $skipped++;
                     continue;
                 }
+                $seenUrl = [];
+                $deduped = [];
+                foreach ($links as $link) {
+                    $url = isset($link['url']) ? (string) $link['url'] : '';
+                    if ($url !== '' && ! isset($seenUrl[$url])) {
+                        $seenUrl[$url] = true;
+                        $deduped[] = $link;
+                    }
+                }
+                $links = $deduped;
+                foreach ($links as $link) {
+                    $reason = $link['reason'] ?? 'other';
+                    $byReason[$reason] = ($byReason[$reason] ?? 0) + 1;
+                }
+                $totalLinks += count($links);
                 if (! $dryRun) {
                     $json = wp_json_encode(array_values($links));
                     if (is_string($json)) {
@@ -76,10 +93,13 @@ final class CrossLinkService
         }
 
         return [
-            'updated' => $updated,
-            'skipped' => $skipped,
-            'total'   => $total,
-            'dry_run' => $dryRun,
+            'updated'          => $updated,
+            'skipped'          => $skipped,
+            'total'            => $total,
+            'dry_run'          => $dryRun,
+            'by_reason'        => $byReason,
+            'total_links'       => $totalLinks,
+            'posts_with_links' => $updated,
         ];
     }
 

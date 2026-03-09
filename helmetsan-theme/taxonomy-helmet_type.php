@@ -95,11 +95,12 @@ $brandPosts = get_posts([
     'order' => 'ASC',
 ]);
 
+$paged = max(1, (int) get_query_var('paged', 1));
 $args = [
     'post_type' => 'helmet',
     'post_status' => 'publish',
     'posts_per_page' => 18,
-    'paged' => max(1, get_query_var('paged')),
+    'paged' => $paged,
 ];
 
 $taxQuery = [];
@@ -221,8 +222,7 @@ switch ($sort) {
         break;
 }
 
-$query = new WP_Query($args);
-
+// Build current query args for pagination base before running query.
 $currentQuery = [];
 foreach ($_GET as $k => $v) {
     if ($k === 'paged') {
@@ -241,6 +241,24 @@ foreach ($_GET as $k => $v) {
         }
     }
 }
+
+$query = new WP_Query($args);
+
+$max_num_pages = (int) $query->max_num_pages;
+if ($max_num_pages < 1) {
+    $max_num_pages = 1;
+}
+if ($paged > $max_num_pages && $max_num_pages > 0) {
+    $term_link = ($queriedObject instanceof WP_Term) ? get_term_link($queriedObject) : $archiveUrl;
+    $redirect_base = (is_wp_error($term_link)) ? $archiveUrl : (string) $term_link;
+    $redirect_args = $currentQuery;
+    if ($max_num_pages > 1) {
+        $redirect_args['paged'] = $max_num_pages;
+    }
+    wp_safe_redirect((string) add_query_arg($redirect_args, $redirect_base), 302);
+    exit;
+}
+$paged = max(1, min($paged, $max_num_pages));
 
 $removeFilterUrl = static function (string $key, string $value = '') use ($archiveUrl, $currentQuery): string {
     $queryArgs = $currentQuery;
@@ -415,17 +433,23 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                             <?php get_template_part('template-parts/helmet', 'card'); ?>
                         <?php endwhile; ?>
                     </div>
-                    <div class="hs-pagination-wrap">
+                    <nav class="hs-pagination-wrap" aria-label="<?php esc_attr_e( 'Helmet catalog pages', 'helmetsan-theme' ); ?>">
                         <?php
-                        the_posts_pagination([
-                            'total' => $query->max_num_pages,
-                            'add_args' => $currentQuery,
+                        $term_link = ($queriedObject instanceof WP_Term) ? get_term_link($queriedObject) : $archiveUrl;
+                        $pagination_base_url = (is_wp_error($term_link)) ? $archiveUrl : (string) $term_link;
+                        $pagination_base = (string) add_query_arg(array_merge($currentQuery, [ 'paged' => '%#%' ]), $pagination_base_url);
+                        echo wp_kses_post(paginate_links([
+                            'base'      => $pagination_base,
+                            'format'    => '',
+                            'current'   => $paged,
+                            'total'     => $max_num_pages,
                             'mid_size'  => 2,
-                            'prev_text' => '&larr;',
-                            'next_text' => '&rarr;',
-                        ]);
+                            'prev_text' => '&larr; Prev',
+                            'next_text' => 'Next &rarr;',
+                            'type'      => 'plain',
+                        ]));
                         ?>
-                    </div>
+                    </nav>
                 </section>
                 <?php wp_reset_postdata(); ?>
             <?php else : ?>

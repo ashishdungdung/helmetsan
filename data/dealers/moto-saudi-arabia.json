@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-saudi-arabia",
+  "name": "Moto Saudi Arabia / Moto KSA",
+  "type": "retail",
+  "country_code": "SA",
+  "region_code": "mena",
+  "address": "Riyadh",
+  "city": "Riyadh",
+  "website": "https://www.motoksa.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "gcc-shipping", "premium-brands"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Nolan", "Schuberth"],
+  "marketplaces": ["motoksa-sa"],
+  "geo": {"lat": 24.7136, "lng": 46.6753}
+}

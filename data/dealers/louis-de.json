@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "louis-de",
+  "name": "Louis.de",
+  "type": "retail",
+  "country_code": "DE",
+  "region_code": "eu",
+  "address": "Multiple locations across Germany",
+  "city": "Munich",
+  "website": "https://www.louis.de",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2", "Scorpion"],
+  "marketplaces": ["louis-de", "amazon-de"],
+  "geo": {"lat": 48.1351, "lng": 11.5820}
+}

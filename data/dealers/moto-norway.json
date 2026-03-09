@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-norway",
+  "name": "Moto Norway / MC-Markt",
+  "type": "retail",
+  "country_code": "NO",
+  "region_code": "eu",
+  "address": "Oslo area",
+  "city": "Oslo",
+  "website": "https://www.mc-markt.no",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "nordic-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Schuberth", "Caberg"],
+  "marketplaces": ["mc-markt-no"],
+  "geo": {"lat": 59.9139, "lng": 10.7522}
+}

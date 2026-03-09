@@ -55,7 +55,7 @@ $selectedCerts = $getArray('certification');
 $selectedFeatures = $getArray('feature');
 $selectedSize = $getArray('size');
 
-// Auto-select if on taxonomy page
+// Auto-select if on taxonomy page (including helmet_brand so /brand/ls2/ shows LS2 helmets)
 if ($queriedObject instanceof WP_Term && empty($_GET)) {
     if ($queriedObject->taxonomy === 'helmet_type') {
         $selectedTypes = [$queriedObject->slug];
@@ -65,7 +65,13 @@ if ($queriedObject instanceof WP_Term && empty($_GET)) {
         $selectedFeatures = [$queriedObject->slug];
     }
 }
-$brandSlug = sanitize_title($getString('brand_slug'));
+// Brand slug: from queried helmet_brand term when on /brand/slug/, else from GET
+if ($queriedObject instanceof WP_Term && $queriedObject->taxonomy === 'helmet_brand') {
+    $brandSlug = $queriedObject->slug;
+} else {
+    $brandSlug = sanitize_title($getString('brand_slug'));
+}
+$brandSlug = sanitize_title($brandSlug);
 $helmetFamily = $getString('helmet_family');
 $priceMin = $getString('price_min');
 $priceMax = $getString('price_max');
@@ -103,6 +109,14 @@ $args = [
 ];
 
 $taxQuery = [];
+// When URL is /brand/ls2/ (helmet_brand term), filter by that term so the correct helmets show
+if ($queriedObject instanceof WP_Term && $queriedObject->taxonomy === 'helmet_brand') {
+    $taxQuery[] = [
+        'taxonomy' => 'helmet_brand',
+        'field'    => 'slug',
+        'terms'    => $queriedObject->slug,
+    ];
+}
 if ($selectedTypes !== []) {
     $taxQuery[] = [
         'taxonomy' => 'helmet_type',
@@ -132,7 +146,9 @@ if ($taxQuery !== []) {
 }
 
 $metaQuery = [];
-if ($brandSlug !== '') {
+// Brand filter: use meta (rel_brand) when brand_slug is from GET; when on /brand/slug/ we already filtered via tax_query above
+$isHelmetBrandTerm = $queriedObject instanceof WP_Term && $queriedObject->taxonomy === 'helmet_brand';
+if ($brandSlug !== '' && ! $isHelmetBrandTerm) {
     $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
     // Fallback: Try with '-helmets' suffix if it was omitted, or vice-versa
     if (! ($brandPost instanceof WP_Post)) {

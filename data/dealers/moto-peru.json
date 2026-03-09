@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-peru",
+  "name": "Moto Peru / Motos Peru",
+  "type": "retail",
+  "country_code": "PE",
+  "region_code": "latam",
+  "address": "Lima",
+  "city": "Lima",
+  "website": "https://www.motosperu.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "peru-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motosperu-pe"],
+  "geo": {"lat": -12.0464, "lng": -77.0428}
+}

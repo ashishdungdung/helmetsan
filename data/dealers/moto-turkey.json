@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-turkey",
+  "name": "Moto Turkey / Motosiklet Pazar",
+  "type": "retail",
+  "country_code": "TR",
+  "region_code": "mena",
+  "address": "Istanbul",
+  "city": "Istanbul",
+  "website": "https://www.motosikletpazar.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "turkey-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "Caberg", "MT Helmets", "Shark"],
+  "marketplaces": ["motosikletpazar-tr"],
+  "geo": {"lat": 41.0082, "lng": 28.9784}
+}

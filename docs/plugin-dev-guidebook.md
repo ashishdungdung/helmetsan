@@ -183,3 +183,5 @@ Install Redis to cache weird WordPress queries (Options, Meta) in memory.
 - **Architecture**: `includes/Core/Plugin.php`
 - **Caching**: `includes/Price/PriceService.php`
 - **Ingestion**: `includes/Ingestion/IngestionService.php`
+
+**See also:** [Data flow](data-flow.md) (JSON ↔ WordPress ↔ GitHub), [Scope & roadmap](HELMETSAN_SCOPE_AND_ROADMAP.md) (product/tech scope), [Commands reference](COMMANDS_REFERENCE.md) (WP-CLI).

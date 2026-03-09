@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-slovakia",
+  "name": "Moto Slovakia",
+  "type": "retail",
+  "country_code": "SK",
+  "region_code": "eu",
+  "address": "Bratislava",
+  "city": "Bratislava",
+  "website": "https://www.moto.sk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["moto-sk"],
+  "geo": {"lat": 48.1486, "lng": 17.1077}
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "centauro-brazil",
+  "name": "Centauro Brasil",
+  "type": "retail",
+  "country_code": "BR",
+  "region_code": "latam",
+  "address": "São Paulo & nationwide",
+  "city": "São Paulo",
+  "website": "https://www.centauro.com.br",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "brazil-shipping", "inmetro-certified"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["centauro-br", "amazon-br"],
+  "geo": {"lat": -23.5505, "lng": -46.6333}
+}

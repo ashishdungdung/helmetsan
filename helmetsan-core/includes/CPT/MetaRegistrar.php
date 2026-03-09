@@ -25,6 +25,7 @@ final class MetaRegistrar
         add_action('init', [$this, 'registerDistributorMeta']);
         add_action('init', [$this, 'registerComparisonMeta']);
         add_action('init', [$this, 'registerRecommendationMeta']);
+        add_action('init', [$this, 'registerAssetMeta']);
     }
 
     public function registerHelmetMeta(): void
@@ -53,6 +54,9 @@ final class MetaRegistrar
             'brand_cascade_source'      => 'Brand cascade source',
             'spec_shell_sizes'          => 'Number of shell sizes',
             'model_year'                => 'Model year',
+            'warranty_years'            => 'Warranty duration in years (e.g. 5)',
+            'use_case'                  => 'Primary use case (e.g. touring, racing, commuter)',
+            'price_range'               => 'Price tier (e.g. budget, mid-range, premium, luxury)',
         ];
 
         $intMeta = [
@@ -244,6 +248,7 @@ final class MetaRegistrar
             'accessory_features_json'            => 'Features (JSON)',
             'accessory_global_filters_json'      => 'Global filters (JSON)',
             'price_json'                         => 'Price (JSON)',
+            'affiliate_links_json'               => 'Marketplace/affiliate links (JSON): revzilla_us, amazon_us, etc.',
             'aggregate_rating_json'         => 'Aggregate rating for rich results (ratingValue, reviewCount, bestRating)',
             'reviews_json'                  => 'Individual reviews for rich results (author, datePublished, reviewBody, reviewRating)',
         ];
@@ -403,6 +408,39 @@ final class MetaRegistrar
 
         // rel_helmets is an array of integers
         register_post_meta('recommendation', 'rel_helmets', [
+            'type'          => 'array',
+            'description'   => 'Related helmet post IDs',
+            'single'        => true,
+            'show_in_rest'  => [
+                'schema' => [
+                    'type'  => 'array',
+                    'items' => ['type' => 'integer'],
+                ],
+            ],
+            'auth_callback' => static fn() => current_user_can('edit_posts'),
+        ]);
+    }
+
+    public function registerAssetMeta(): void
+    {
+        $stringFields = [
+            '_asset_type'          => 'Asset type (e.g. front-view, side-view)',
+            '_asset_source_url'    => 'Source URL of the asset',
+        ];
+
+        foreach ($stringFields as $key => $description) {
+            register_post_meta('asset', $key, [
+                'type'              => 'string',
+                'description'       => $description,
+                'single'            => true,
+                'show_in_rest'      => true,
+                'sanitize_callback' => 'sanitize_text_field',
+                'auth_callback'     => static fn() => current_user_can('edit_posts'),
+            ]);
+        }
+
+        // rel_helmets is an array of integers representing the linked helmets
+        register_post_meta('asset', 'rel_helmets', [
             'type'          => 'array',
             'description'   => 'Related helmet post IDs',
             'single'        => true,

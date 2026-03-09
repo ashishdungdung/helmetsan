@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "mc-market-sweden",
+  "name": "MC-Market Sweden",
+  "type": "retail",
+  "country_code": "SE",
+  "region_code": "eu",
+  "address": "Stockholm area",
+  "city": "Stockholm",
+  "website": "https://www.mc-market.se",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "nordic-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Schuberth", "Caberg"],
+  "marketplaces": ["mc-market-se"],
+  "geo": {"lat": 59.3293, "lng": 18.0686}
+}

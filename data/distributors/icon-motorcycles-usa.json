@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "icon-motorcycles-usa",
+  "name": "Icon Motorsports / Parts Unlimited",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["Icon"],
+  "warehouses": [
+    {"id": "us-oregon", "city": "Portland", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "dealer", "url": "https://www.rideicon.com"},
+    {"type": "support", "url": "https://www.rideicon.com/support"}
+  ],
+  "website": "https://www.rideicon.com"
+}

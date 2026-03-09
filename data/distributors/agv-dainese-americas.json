@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "agv-dainese-americas",
+  "name": "Dainese / AGV Americas",
+  "type": "regional-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["AGV", "Dainese"],
+  "warehouses": [
+    {"id": "us-california", "city": "Torrance", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.agv.com"},
+    {"type": "dealer", "url": "https://www.agv.com/en-us/dealer-locator"}
+  ],
+  "website": "https://www.agv.com"
+}

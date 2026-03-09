@@ -1,6 +1,14 @@
+#!/usr/bin/env python3
+"""
+Add or update Amazon (and other) marketplace_links in helmet JSON files under data/helmets.
+Usage: python3 scripts/add_affiliate_links.py [data_dir]
+  data_dir defaults to repo data/ (script's parent + '/data').
+"""
 import os
 import json
+import sys
 import urllib.parse
+
 
 def generate_amazon_link(brand, title, color="", size="", domain="amazon.com"):
     # Generate an Amazon search URL if we don't have a specific ASIN
@@ -42,24 +50,24 @@ def process_helmets(data_dir):
         # If there's an existing ASIN, use it for Amazon US
         if 'affiliate' in data and 'amazon_asin' in data['affiliate']:
             asin = data['affiliate']['amazon_asin']
-            if not asin.startswith("B0EXAMPLE"): # only use real ASINs
-                 data['marketplace_links']['amazon_us'] = f"https://www.amazon.com/dp/{asin}"
-                 data['marketplace_links']['amazon_uk'] = f"https://www.amazon.co.uk/dp/{asin}"
-                 data['marketplace_links']['amazon_in'] = f"https://www.amazon.in/dp/{asin}"
-                 data['marketplace_links']['amazon_de'] = f"https://www.amazon.de/dp/{asin}"
-                 data['marketplace_links']['amazon_fr'] = f"https://www.amazon.fr/dp/{asin}"
+            if not asin.startswith("B0EXAMPLE"):  # only use real ASINs
+                data['marketplace_links']['amazon_us'] = f"https://www.amazon.com/dp/{asin}"
+                data['marketplace_links']['amazon_uk'] = f"https://www.amazon.co.uk/dp/{asin}"
+                data['marketplace_links']['amazon_in'] = f"https://www.amazon.in/dp/{asin}"
+                data['marketplace_links']['amazon_de'] = f"https://www.amazon.de/dp/{asin}"
+                data['marketplace_links']['amazon_fr'] = f"https://www.amazon.fr/dp/{asin}"
             else:
-                 data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
-                 data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
-                 data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
-                 data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
-                 data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
+                data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
+                data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
+                data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
+                data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
+                data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
         else:
-             data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
-             data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
-             data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
-             data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
-             data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
+            data['marketplace_links']['amazon_us'] = generate_amazon_link(brand, title)
+            data['marketplace_links']['amazon_uk'] = generate_amazon_link(brand, title, domain="amazon.co.uk")
+            data['marketplace_links']['amazon_in'] = generate_amazon_link(brand, title, domain="amazon.in")
+            data['marketplace_links']['amazon_de'] = generate_amazon_link(brand, title, domain="amazon.de")
+            data['marketplace_links']['amazon_fr'] = generate_amazon_link(brand, title, domain="amazon.fr")
              
         # 2. Update variant level marketplace_links
         # Variants inherently have colors and sizes, making search URLs highly specific
@@ -87,5 +95,11 @@ def process_helmets(data_dir):
     print(f"Successfully processed and injected links into {updated_count} helmet JSONs.")
 
 if __name__ == '__main__':
-    data_dir = '/Users/anumac/Documents/Helmetsan/data'
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(script_dir)
+    default_data = os.path.join(root_dir, 'data')
+    data_dir = sys.argv[1] if len(sys.argv) > 1 else default_data
+    if not os.path.isdir(data_dir):
+        print(f"Error: data directory not found: {data_dir}", file=sys.stderr)
+        sys.exit(1)
     process_helmets(data_dir)

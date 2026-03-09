@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "racing-planet-spain",
+  "name": "Racing Planet Spain",
+  "type": "retail",
+  "country_code": "ES",
+  "region_code": "eu",
+  "address": "Barcelona area",
+  "city": "Barcelona",
+  "website": "https://www.racingplanet.es",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "track-gear"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Shark"],
+  "marketplaces": ["racingplanet-es", "amazon-es"],
+  "geo": {"lat": 41.3851, "lng": 2.1734}
+}

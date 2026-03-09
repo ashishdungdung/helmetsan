@@ -14,6 +14,8 @@ if ($brandTerms && ! is_wp_error($brandTerms)) {
     $brandName = $brandTerms[0]->name ?? '';
 }
 $priceNum = is_numeric(preg_replace('/[^0-9.]/', '', $price)) ? (float) preg_replace('/[^0-9.]/', '', $price) : 0;
+$useCase = helmetsan_get_use_case($helmetId);
+$priceRange = helmetsan_get_price_range($helmetId);
 ?>
 <article <?php post_class('helmet-card hs-panel'); ?>
     data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>"
@@ -85,6 +87,12 @@ $priceNum = is_numeric(preg_replace('/[^0-9.]/', '', $price)) ? (float) preg_rep
         <span><?php echo esc_html($price); ?></span>
         <?php if ($count > 0) : ?>
             <span class="hs-badge hs-badge--variants"><?php echo esc_html($count); ?> Colors</span>
+        <?php endif; ?>
+        <?php if ($priceRange !== '') : ?>
+            <span class="hs-badge hs-badge--price-range"><?php echo esc_html(ucwords(str_replace('-', ' ', $priceRange))); ?></span>
+        <?php endif; ?>
+        <?php if ($useCase !== '') : ?>
+            <span class="hs-badge hs-badge--use-case"><?php echo esc_html(ucwords(str_replace('-', ' ', $useCase))); ?></span>
         <?php endif; ?>
         <span><?php echo esc_html($certs); ?></span>
     </div>

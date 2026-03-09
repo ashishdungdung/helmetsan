@@ -201,9 +201,10 @@ if ($snow !== '') {
         <p>Accessory catalog with compatibility metadata and feature tags. Browse by category or filter the full list below.</p>
     </header>
 
-    <!-- Section 1: Category cards -->
+    <!-- Section 1: Accessory category cards (product type, not helmet type or brand) -->
     <div class="hs-accessories-categories">
         <h2 class="hs-accessories-categories__title">Browse by category</h2>
+        <p class="hs-accessories-categories__sub">By product type (visors, comms, care, etc.)</p>
         <div class="hs-accessories-categories__grid">
             <?php
             if (is_array($categoryTerms)) :

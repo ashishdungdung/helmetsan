@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-mundo-spain",
+  "name": "Moto Mundo",
+  "type": "retail",
+  "country_code": "ES",
+  "region_code": "eu",
+  "address": "Madrid",
+  "city": "Madrid",
+  "website": "https://www.motomundo.es",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "LS2", "Nolan", "MT"],
+  "marketplaces": ["moto-mundo-es"],
+  "geo": {"lat": 40.4168, "lng": -3.7038}
+}

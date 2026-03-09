@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "runner-bangladesh",
+  "name": "Runner Helmet Bangladesh",
+  "type": "retail",
+  "country_code": "BD",
+  "region_code": "apac",
+  "address": "Dhaka",
+  "city": "Dhaka",
+  "website": "https://www.runnerhelmet.com.bd",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "bd-shipping", "local-standards"],
+  "brands_stocked": ["Runner", "Studds", "Vega", "LS2", "MT Helmets", "Axor", "Steelbird"],
+  "marketplaces": ["runnerhelmet-bd", "daraz-bd"],
+  "geo": {"lat": 23.8103, "lng": 90.4125}
+}

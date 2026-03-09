@@ -8,10 +8,12 @@ use WP_Post;
 use WP_Term;
 
 /**
- * Seeds Yoast SEO meta (title, meta description, focus keyword) for helmets, brands, and accessories.
+ * Seeds Yoast SEO meta (title, meta description, focus keyword) for CPTs and taxonomy terms.
  * Compatible with Yoast SEO; follows best practices for length and keyword placement.
+ * Focus keyphrase is always stored in lowercase. Meta descriptions should be SEO-strong (primary keyword, CTA).
  *
  * @see docs/seo-seed-plan.md
+ * @see docs/seo-and-ai-coverage.md
  */
 final class YoastSeoSeeder
 {
@@ -54,7 +56,11 @@ final class YoastSeoSeeder
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
-                update_post_meta($postId, self::YOAST_FOCUSKW, $triple['focuskw']);
+                $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
+                if ($focuskw === '') {
+                    $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title, 60));
+                }
+                update_post_meta($postId, self::YOAST_FOCUSKW, $focuskw);
             }
             $updated++;
         }
@@ -88,7 +94,11 @@ final class YoastSeoSeeder
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
-                update_post_meta($postId, self::YOAST_FOCUSKW, $triple['focuskw']);
+                $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
+                if ($focuskw === '') {
+                    $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title . ' helmets', 60));
+                }
+                update_post_meta($postId, self::YOAST_FOCUSKW, $focuskw);
             }
             $updated++;
         }
@@ -122,12 +132,100 @@ final class YoastSeoSeeder
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
-                update_post_meta($postId, self::YOAST_FOCUSKW, $triple['focuskw']);
+                $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
+                if ($focuskw === '') {
+                    $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title, 60));
+                }
+                update_post_meta($postId, self::YOAST_FOCUSKW, $focuskw);
             }
             $updated++;
         }
 
         return ['updated' => $updated, 'total' => count($ids), 'dry_run' => $dryRun];
+    }
+
+    /** Focus keyphrase: always lowercase for consistency. */
+    private function normalizeFocusKw(string $s): string
+    {
+        return strtolower(trim($s));
+    }
+
+    /**
+     * Seed Yoast SEO meta for all terms in a taxonomy (archive pages).
+     * Uses update_term_meta (Yoast 14+ reads from wp_termmeta).
+     *
+     * @return array{updated: int, total: int, dry_run: bool}
+     */
+    public function seedTermsForTaxonomy(string $taxonomy, int $limit = 0, int $offset = 0, bool $dryRun = false): array
+    {
+        $terms = get_terms([
+            'taxonomy'   => $taxonomy,
+            'hide_empty' => false,
+            'number'     => $limit > 0 ? $limit : 0,
+            'offset'     => $offset,
+        ]);
+        if (is_wp_error($terms) || ! is_array($terms)) {
+            return ['updated' => 0, 'total' => 0, 'dry_run' => $dryRun];
+        }
+        $total = count($terms);
+        $updated = 0;
+        foreach ($terms as $term) {
+            if (! $term instanceof WP_Term) {
+                continue;
+            }
+            $triple = $this->buildTermSeo($term, $taxonomy);
+            if ($triple === null) {
+                continue;
+            }
+            if (! $dryRun) {
+                update_term_meta($term->term_id, self::YOAST_TITLE, $triple['title']);
+                update_term_meta($term->term_id, self::YOAST_METADESC, $triple['metadesc']);
+                update_term_meta($term->term_id, self::YOAST_FOCUSKW, $this->normalizeFocusKw($triple['focuskw']));
+            }
+            $updated++;
+        }
+        return ['updated' => $updated, 'total' => $total, 'dry_run' => $dryRun];
+    }
+
+    /**
+     * @return array{title: string, metadesc: string, focuskw: string}|null
+     */
+    private function buildTermSeo(WP_Term $term, string $taxonomy): ?array
+    {
+        $name = (string) $term->name;
+        $slug = (string) $term->slug;
+        $taxLabel = $this->taxonomySeoLabel($taxonomy);
+        $seoTitle = $name . ' | ' . $taxLabel . ' | Helmetsan';
+        $seoTitle = $this->truncate($seoTitle, self::TITLE_MAX);
+        $metadesc = 'Browse ' . $name . ' – compare and find the best options at Helmetsan.';
+        $metadesc = $this->truncate($metadesc, self::META_DESC_MAX);
+        $focuskw = $this->normalizeFocusKw($name . ' ' . str_replace('-', ' ', $slug));
+        $focuskw = $this->truncate($focuskw, 60);
+        return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
+    }
+
+    private function taxonomySeoLabel(string $taxonomy): string
+    {
+        return match ($taxonomy) {
+            'helmet_type' => 'Helmet Types',
+            'region' => 'Regions',
+            'certification' => 'Certifications',
+            'feature_tag' => 'Features',
+            'accessory_category' => 'Accessory Categories',
+            'helmet_brand' => 'Brands',
+            'use_case' => 'Use Cases',
+            'price_range' => 'Price Ranges',
+            default => ucfirst(str_replace('_', ' ', $taxonomy)),
+        };
+    }
+
+    /**
+     * Taxonomies that have archive pages and get term SEO.
+     * @return list<string>
+     */
+    public static function getTaxonomiesForTermSeo(): array
+    {
+        return ['helmet_type', 'region', 'certification', 'feature_tag', 'accessory_category', 'helmet_brand', 'use_case', 'price_range'];
     }
 
     /**
@@ -190,7 +288,7 @@ final class YoastSeoSeeder
         if ($typeLabel !== '' && strlen($focuskw) + strlen($typeLabel) + 1 <= 60) {
             $focuskw = $focuskw . ' ' . $typeLabel;
         }
-        $focuskw = $this->truncate($focuskw, 60);
+        $focuskw = $this->normalizeFocusKw($this->truncate($focuskw, 60));
 
         return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
     }
@@ -223,7 +321,7 @@ final class YoastSeoSeeder
             $metadesc = $this->truncate($metadesc, self::META_DESC_MAX);
         }
 
-        $focuskw = $brandName . ' helmets';
+        $focuskw = $this->normalizeFocusKw($brandName . ' helmets');
 
         return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
     }
@@ -268,9 +366,160 @@ final class YoastSeoSeeder
         $focuskw = $categoryPart !== '' && $categoryPart !== 'Motorcycle Accessory'
             ? $titleRaw . ' ' . $categoryPart
             : $titleRaw;
-        $focuskw = $this->truncate($focuskw, 60);
+        $focuskw = $this->normalizeFocusKw($this->truncate($focuskw, 60));
 
         return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
+    }
+
+    /**
+     * Seed Yoast SEO for a generic CPT (safety_standard, dealer, distributor, technology, motorcycle, comparison, recommendation).
+     *
+     * @return array{updated: int, total: int, dry_run: bool}
+     */
+    public function seedCpt(string $postType, int $limit = 0, int $offset = 0, bool $dryRun = false): array
+    {
+        $query = new \WP_Query([
+            'post_type'      => $postType,
+            'post_status'    => 'publish',
+            'posts_per_page' => $limit > 0 ? $limit : -1,
+            'offset'         => $offset,
+            'fields'         => 'ids',
+            'orderby'        => 'title',
+            'order'          => 'ASC',
+        ]);
+        $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+        $updated = 0;
+        foreach ($ids as $postId) {
+            $post = get_post($postId);
+            if (! $post instanceof WP_Post) {
+                continue;
+            }
+            $triple = $this->buildSeoForGenericCpt($postId, $post, $postType);
+            if ($triple === null) {
+                continue;
+            }
+            if (! $dryRun) {
+                update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
+                update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+                update_post_meta($postId, self::YOAST_FOCUSKW, $this->normalizeFocusKw($triple['focuskw']));
+            }
+            $updated++;
+        }
+        return ['updated' => $updated, 'total' => count($ids), 'dry_run' => $dryRun];
+    }
+
+    /**
+     * @return array{title: string, metadesc: string, focuskw: string}|null
+     */
+    private function buildSeoForGenericCpt(int $postId, WP_Post $post, string $postType): ?array
+    {
+        $title = (string) $post->post_title;
+        $label = $this->cptSeoLabel($postType);
+        $context = $this->getGenericCptSeoContext($postId, $postType);
+        $seoTitle = $title . ' | ' . $label . ' | Helmetsan';
+        $seoTitle = $this->truncate($seoTitle, self::TITLE_MAX);
+        $metadesc = $context !== ''
+            ? $title . ' – ' . $context . '. ' . $label . ' at Helmetsan.'
+            : 'Browse ' . $title . ' – ' . $label . '. Find the best options at Helmetsan.';
+        $metadesc = $this->truncate($metadesc, self::META_DESC_MAX);
+        $focuskw = $context !== ''
+            ? $this->normalizeFocusKw($this->truncate($title . ' ' . $context . ' ' . strtolower($label), 60))
+            : $this->normalizeFocusKw($this->truncate($title . ' ' . str_replace(' ', ' ', strtolower($label)), 60));
+        return ['title' => $seoTitle, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
+    }
+
+    /**
+     * Build a short context string from post meta and taxonomy terms for generic CPT SEO.
+     */
+    private function getGenericCptSeoContext(int $postId, string $postType): string
+    {
+        $parts = [];
+        switch ($postType) {
+            case 'safety_standard':
+                $parts = array_merge(
+                    $this->getTermNames($postId, 'region'),
+                    $this->getTermNames($postId, 'certification')
+                );
+                if ($parts === []) {
+                    $issuing = (string) get_post_meta($postId, 'standard_issuing_body', true);
+                    if ($issuing !== '') {
+                        $parts[] = $issuing;
+                    }
+                }
+                break;
+            case 'dealer':
+                $parts = $this->getTermNames($postId, 'region');
+                if ($parts === []) {
+                    $country = (string) get_post_meta($postId, 'dealer_country_code', true);
+                    $regionCode = (string) get_post_meta($postId, 'dealer_region_code', true);
+                    if ($country !== '') {
+                        $parts[] = $country;
+                    }
+                    if ($regionCode !== '') {
+                        $parts[] = $regionCode;
+                    }
+                }
+                break;
+            case 'distributor':
+                $parts = $this->getTermNames($postId, 'region');
+                if ($parts === []) {
+                    $json = get_post_meta($postId, 'distributor_regions_json', true);
+                    if (is_string($json)) {
+                        $decoded = json_decode($json, true);
+                        if (is_array($decoded)) {
+                            $parts = array_slice(array_map('strval', $decoded), 0, 3);
+                        }
+                    }
+                    if ($parts === []) {
+                        $country = (string) get_post_meta($postId, 'distributor_country_code', true);
+                        if ($country !== '') {
+                            $parts[] = $country;
+                        }
+                    }
+                }
+                break;
+            case 'technology':
+                $parts = $this->getTermNames($postId, 'feature_tag');
+                break;
+            case 'comparison':
+            case 'recommendation':
+                $parts = $this->getTermNames($postId, 'region');
+                if ($parts === [] && $postType === 'recommendation') {
+                    $region = (string) get_post_meta($postId, 'recommendation_region', true);
+                    if ($region !== '') {
+                        $parts[] = $region;
+                    }
+                }
+                break;
+            case 'motorcycle':
+                $parts = $this->getTermNames($postId, 'region');
+                break;
+            default:
+                $parts = $this->getTermNames($postId, 'region');
+                break;
+        }
+        $parts = array_filter(array_map('trim', $parts));
+        return implode(', ', array_slice(array_unique($parts), 0, 3));
+    }
+
+    private function cptSeoLabel(string $postType): string
+    {
+        return match ($postType) {
+            'safety_standard' => 'Safety Standards',
+            'dealer' => 'Dealers',
+            'distributor' => 'Distributors',
+            'technology' => 'Technologies',
+            'motorcycle' => 'Motorcycles',
+            'comparison' => 'Comparisons',
+            'recommendation' => 'Recommendations',
+            default => ucfirst(str_replace('_', ' ', $postType)),
+        };
+    }
+
+    /** @return list<string> */
+    public static function getOtherCptTypesForSeo(): array
+    {
+        return ['safety_standard', 'dealer', 'distributor', 'technology', 'motorcycle', 'comparison', 'recommendation'];
     }
 
     private function getBrandNameForHelmet(int $helmetId): string
@@ -293,13 +542,21 @@ final class YoastSeoSeeder
         return $first instanceof WP_Term ? (string) $first->name : '';
     }
 
+    /** @var array<string, list<string>> request cache: "postId_taxonomy" => term names */
+    private array $termNamesCache = [];
+
     /**
      * @return list<string>
      */
     private function getTermNames(int $postId, string $taxonomy): array
     {
+        $key = $postId . '_' . $taxonomy;
+        if (isset($this->termNamesCache[$key])) {
+            return $this->termNamesCache[$key];
+        }
         $terms = get_the_terms($postId, $taxonomy);
         if (! is_array($terms) || $terms === []) {
+            $this->termNamesCache[$key] = [];
             return [];
         }
         $out = [];
@@ -308,6 +565,7 @@ final class YoastSeoSeeder
                 $out[] = (string) $t->name;
             }
         }
+        $this->termNamesCache[$key] = $out;
         return $out;
     }
 
@@ -323,5 +581,269 @@ final class YoastSeoSeeder
             return substr($s, 0, $last) . '...';
         }
         return $s . '...';
+    }
+
+    /**
+     * Run SEO check across posts and terms with a limit; return summary for admin UI.
+     * Caps total items to avoid timeouts (e.g. max 200 posts + 80 terms).
+     *
+     * @return array{total_checked: int, total_with_issues: int, by_issue: array<string, int>, message: string}
+     */
+    public function runCheckSummary(int $postLimit = 200, int $termLimitPerTax = 50): array
+    {
+        $seeder = new self(null);
+        $totalChecked = 0;
+        $totalWithIssues = 0;
+        $byIssue = [];
+        $primary = ['helmet', 'brand', 'accessory'];
+        $other = self::getOtherCptTypesForSeo();
+        $postTypes = array_merge($primary, $other);
+        $perType = max(1, (int) floor($postLimit / count($postTypes)));
+        foreach ($postTypes as $type) {
+            if ($totalChecked >= $postLimit) {
+                break;
+            }
+            $query = new \WP_Query([
+                'post_type' => $type,
+                'post_status' => 'publish',
+                'posts_per_page' => $perType,
+                'fields' => 'ids',
+            ]);
+            $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+            foreach ($ids as $id) {
+                if ($totalChecked >= $postLimit) {
+                    break;
+                }
+                $totalChecked++;
+                $check = $seeder->checkPostSeo($id);
+                if ($check['issues'] !== []) {
+                    $totalWithIssues++;
+                    foreach ($check['issues'] as $issue) {
+                        $byIssue[$issue] = ($byIssue[$issue] ?? 0) + 1;
+                    }
+                }
+            }
+        }
+        $taxonomies = self::getTaxonomiesForTermSeo();
+        $termCap = min(80, count($taxonomies) * $termLimitPerTax);
+        $termsChecked = 0;
+        foreach ($taxonomies as $tax) {
+            if ($termsChecked >= $termCap) {
+                break;
+            }
+            $terms = get_terms(['taxonomy' => $tax, 'hide_empty' => false, 'number' => $termLimitPerTax, 'fields' => 'ids']);
+            if (! is_array($terms)) {
+                continue;
+            }
+            foreach ($terms as $termId) {
+                if ($termsChecked >= $termCap) {
+                    break;
+                }
+                $termsChecked++;
+                $totalChecked++;
+                $check = $seeder->checkTermSeo((int) $termId, $tax);
+                if ($check['issues'] !== []) {
+                    $totalWithIssues++;
+                    foreach ($check['issues'] as $issue) {
+                        $byIssue[$issue] = ($byIssue[$issue] ?? 0) + 1;
+                    }
+                }
+            }
+        }
+        $message = $totalWithIssues === 0
+            ? __('No SEO issues found in sampled items.', 'helmetsan-core')
+            : sprintf(
+                /* translators: 1: number with issues, 2: total checked */
+                __('%1$d of %2$d sampled items have SEO issues. Run "Fix SEO" or use CLI: wp helmetsan seo update --scope=all', 'helmetsan-core'),
+                $totalWithIssues,
+                $totalChecked
+            );
+        return ['total_checked' => $totalChecked, 'total_with_issues' => $totalWithIssues, 'by_issue' => $byIssue, 'message' => $message];
+    }
+
+    /**
+     * Run SEO fix across posts and terms with a limit; return count fixed for admin UI.
+     *
+     * @return array{fixed: int, total_processed: int, message: string}
+     */
+    public function runFixSummary(int $postLimit = 200, int $termLimitPerTax = 50): array
+    {
+        $seeder = new self(null);
+        $fixed = 0;
+        $totalProcessed = 0;
+        $opts = ['lowercase_focuskw' => true, 'truncate_metadesc' => true, 'truncate_title' => true];
+        $primary = ['helmet', 'brand', 'accessory'];
+        $other = self::getOtherCptTypesForSeo();
+        $postTypes = array_merge($primary, $other);
+        $perType = max(1, (int) floor($postLimit / count($postTypes)));
+        foreach ($postTypes as $type) {
+            if ($totalProcessed >= $postLimit) {
+                break;
+            }
+            $query = new \WP_Query([
+                'post_type' => $type,
+                'post_status' => 'publish',
+                'posts_per_page' => $perType,
+                'fields' => 'ids',
+            ]);
+            $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+            foreach ($ids as $id) {
+                if ($totalProcessed >= $postLimit) {
+                    break;
+                }
+                $totalProcessed++;
+                $result = $seeder->fixPostSeo($id, $opts);
+                $fixed += count($result['fixed']);
+            }
+        }
+        $termCap = min(80, count(self::getTaxonomiesForTermSeo()) * $termLimitPerTax);
+        $termsProcessed = 0;
+        foreach (self::getTaxonomiesForTermSeo() as $tax) {
+            if ($termsProcessed >= $termCap) {
+                break;
+            }
+            $terms = get_terms(['taxonomy' => $tax, 'hide_empty' => false, 'number' => $termLimitPerTax, 'fields' => 'ids']);
+            if (! is_array($terms)) {
+                continue;
+            }
+            foreach ($terms as $termId) {
+                if ($termsProcessed >= $termCap) {
+                    break;
+                }
+                $termsProcessed++;
+                $totalProcessed++;
+                $result = $seeder->fixTermSeo((int) $termId, $tax, $opts);
+                $fixed += count($result['fixed']);
+            }
+        }
+        $message = sprintf(
+            /* translators: 1: number of fields fixed, 2: total items processed */
+            __('Fixed %1$d SEO meta fields across %2$d items.', 'helmetsan-core'),
+            $fixed,
+            $totalProcessed
+        );
+        return ['fixed' => $fixed, 'total_processed' => $totalProcessed, 'message' => $message];
+    }
+
+    /**
+     * Check Yoast SEO meta for a post. Returns issues and current values.
+     *
+     * @return array{issues: list<string>, title: string, metadesc: string, focuskw: string}
+     */
+    public function checkPostSeo(int $postId): array
+    {
+        $title = (string) get_post_meta($postId, self::YOAST_TITLE, true);
+        $metadesc = (string) get_post_meta($postId, self::YOAST_METADESC, true);
+        $focuskw = (string) get_post_meta($postId, self::YOAST_FOCUSKW, true);
+        $issues = [];
+        if ($title === '') {
+            $issues[] = 'missing_title';
+        } elseif (strlen($title) > self::TITLE_MAX) {
+            $issues[] = 'title_too_long';
+        }
+        if ($metadesc === '') {
+            $issues[] = 'missing_metadesc';
+        } elseif (strlen($metadesc) > self::META_DESC_MAX) {
+            $issues[] = 'metadesc_too_long';
+        }
+        if ($focuskw === '') {
+            $issues[] = 'missing_focuskw';
+        } elseif ($focuskw !== $this->normalizeFocusKw($focuskw)) {
+            $issues[] = 'focuskw_not_lowercase';
+        }
+        return ['issues' => $issues, 'title' => $title, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
+    }
+
+    /**
+     * Fix Yoast SEO meta for a post (lowercase focuskw, truncate overlong meta).
+     *
+     * @param array{lowercase_focuskw?: bool, truncate_metadesc?: bool, truncate_title?: bool} $opts
+     * @return array{fixed: list<string>}
+     */
+    public function fixPostSeo(int $postId, array $opts = []): array
+    {
+        $lowercase = $opts['lowercase_focuskw'] ?? true;
+        $truncateDesc = $opts['truncate_metadesc'] ?? true;
+        $truncateTitle = $opts['truncate_title'] ?? true;
+        $fixed = [];
+        $focuskw = (string) get_post_meta($postId, self::YOAST_FOCUSKW, true);
+        if ($focuskw !== '' && $focuskw !== $this->normalizeFocusKw($focuskw)) {
+            if ($lowercase) {
+                update_post_meta($postId, self::YOAST_FOCUSKW, $this->normalizeFocusKw($focuskw));
+                $fixed[] = 'focuskw';
+            }
+        }
+        $metadesc = (string) get_post_meta($postId, self::YOAST_METADESC, true);
+        if ($metadesc !== '' && strlen($metadesc) > self::META_DESC_MAX && $truncateDesc) {
+            update_post_meta($postId, self::YOAST_METADESC, $this->truncate($metadesc, self::META_DESC_MAX));
+            $fixed[] = 'metadesc';
+        }
+        $title = (string) get_post_meta($postId, self::YOAST_TITLE, true);
+        if ($title !== '' && strlen($title) > self::TITLE_MAX && $truncateTitle) {
+            update_post_meta($postId, self::YOAST_TITLE, $this->truncate($title, self::TITLE_MAX));
+            $fixed[] = 'title';
+        }
+        return ['fixed' => $fixed];
+    }
+
+    /**
+     * Check Yoast SEO meta for a term.
+     *
+     * @return array{issues: list<string>, title: string, metadesc: string, focuskw: string}
+     */
+    public function checkTermSeo(int $termId, string $taxonomy): array
+    {
+        $title = (string) get_term_meta($termId, self::YOAST_TITLE, true);
+        $metadesc = (string) get_term_meta($termId, self::YOAST_METADESC, true);
+        $focuskw = (string) get_term_meta($termId, self::YOAST_FOCUSKW, true);
+        $issues = [];
+        if ($title === '') {
+            $issues[] = 'missing_title';
+        } elseif (strlen($title) > self::TITLE_MAX) {
+            $issues[] = 'title_too_long';
+        }
+        if ($metadesc === '') {
+            $issues[] = 'missing_metadesc';
+        } elseif (strlen($metadesc) > self::META_DESC_MAX) {
+            $issues[] = 'metadesc_too_long';
+        }
+        if ($focuskw === '') {
+            $issues[] = 'missing_focuskw';
+        } elseif ($focuskw !== $this->normalizeFocusKw($focuskw)) {
+            $issues[] = 'focuskw_not_lowercase';
+        }
+        return ['issues' => $issues, 'title' => $title, 'metadesc' => $metadesc, 'focuskw' => $focuskw];
+    }
+
+    /**
+     * Fix Yoast SEO meta for a term.
+     *
+     * @param array{lowercase_focuskw?: bool, truncate_metadesc?: bool, truncate_title?: bool} $opts
+     * @return array{fixed: list<string>}
+     */
+    public function fixTermSeo(int $termId, string $taxonomy, array $opts = []): array
+    {
+        $lowercase = $opts['lowercase_focuskw'] ?? true;
+        $truncateDesc = $opts['truncate_metadesc'] ?? true;
+        $truncateTitle = $opts['truncate_title'] ?? true;
+        $fixed = [];
+        $focuskw = (string) get_term_meta($termId, self::YOAST_FOCUSKW, true);
+        if ($focuskw !== '' && $focuskw !== $this->normalizeFocusKw($focuskw)) {
+            if ($lowercase) {
+                update_term_meta($termId, self::YOAST_FOCUSKW, $this->normalizeFocusKw($focuskw));
+                $fixed[] = 'focuskw';
+            }
+        }
+        $metadesc = (string) get_term_meta($termId, self::YOAST_METADESC, true);
+        if ($metadesc !== '' && strlen($metadesc) > self::META_DESC_MAX && $truncateDesc) {
+            update_term_meta($termId, self::YOAST_METADESC, $this->truncate($metadesc, self::META_DESC_MAX));
+            $fixed[] = 'metadesc';
+        }
+        $title = (string) get_term_meta($termId, self::YOAST_TITLE, true);
+        if ($title !== '' && strlen($title) > self::TITLE_MAX && $truncateTitle) {
+            update_term_meta($termId, self::YOAST_TITLE, $this->truncate($title, self::TITLE_MAX));
+            $fixed[] = 'title';
+        }
+        return ['fixed' => $fixed];
     }
 }

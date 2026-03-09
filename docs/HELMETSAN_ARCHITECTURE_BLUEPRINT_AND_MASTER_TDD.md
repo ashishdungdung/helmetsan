@@ -64,11 +64,12 @@ Build `Helmetsan Core` as a WordPress plugin that acts as:
 
 - `Helmetsan > Dashboard`
 - `Helmetsan > Catalog`
+- `Helmetsan > AI` (providers, fill-missing, generate-seed/accessories, fill coverage report)
 - `Helmetsan > Brands`
 - `Helmetsan > Ingestion` (logs; ingestion reads JSON → WP only)
 - `Helmetsan > Data / Reseed` (run ingestion from JSON on disk)
 - `Helmetsan > Sync Logs` (pull = download then apply; push = upload local JSON)
-- `Helmetsan > Repo Health`
+- `Helmetsan > Health` (repository, logs, sync, AI config, validation/enrichment flags)
 - `Helmetsan > Analytics`
 - `Helmetsan > Revenue`
 - `Helmetsan > Contributions`

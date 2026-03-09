@@ -17,6 +17,11 @@ final class MediaEngine
         $this->productImageByEan = new ProductImageByEanService($config);
     }
 
+    public function getProductImageByEanService(): ProductImageByEanService
+    {
+        return $this->productImageByEan;
+    }
+
     public function register(): void
     {
         add_action('admin_menu', [$this, 'registerMenu'], 20);
@@ -141,6 +146,7 @@ final class MediaEngine
             echo '<div class="notice notice-error is-dismissible"><p><strong>Import failed:</strong> ' . esc_html($errorMessage) . '</p></div>';
         }
         echo '<p>Resolve logos from Simple Icons, Brandfetch, Logo.dev, and Wikimedia. Apply selected logo to any post/page/CPT. Use <strong>Refresh</strong> to bypass cache.</p>';
+        echo '<p class="description"><strong>' . esc_html__('Helmet featured images', 'helmetsan-core') . ':</strong> <a href="' . esc_url(admin_url('admin.php?page=helmetsan-helmet-images')) . '">' . esc_html__('Helmet images', 'helmetsan-core') . '</a> — ' . esc_html__('Bulk match and import helmet product images (AI, RevZilla, EAN/GTIN).', 'helmetsan-core') . '</p>';
 
         // Product image by EAN/GTIN (EAN-DB, eandata)
         $eanLookup = isset($_GET['ean']) ? sanitize_text_field((string) $_GET['ean']) : '';
@@ -600,7 +606,7 @@ final class MediaEngine
     /**
      * @return array{url:string,attachment_id:int,error:string}
      */
-    private function sideloadToMediaLibrary(string $url, int $postId, string $provider = ''): array
+    public function sideloadToMediaLibrary(string $url, int $postId, string $provider = ''): array
     {
         if ($url === '' || ! filter_var($url, FILTER_VALIDATE_URL)) {
             return ['url' => '', 'attachment_id' => 0, 'error' => 'invalid_url'];
@@ -643,6 +649,27 @@ final class MediaEngine
 
         $final = (string) wp_get_attachment_url((int) $attachmentId);
         return ['url' => $final, 'attachment_id' => (int) $attachmentId, 'error' => ''];
+    }
+
+    /**
+     * Public API: sideload a remote image into the Media Library and optionally set as featured image.
+     * Used by helmet image enrichment (EAN lookup + AI match) and CLI/batch jobs.
+     *
+     * @return array{attachment_id: int, error: string}
+     */
+    public function sideloadAndSetFeaturedImage(string $url, int $postId, string $provider = ''): array
+    {
+        $out = ['attachment_id' => 0, 'error' => ''];
+        $result = $this->sideloadToMediaLibrary($url, $postId > 0 ? $postId : 0, $provider);
+        $attachmentId = (int) ($result['attachment_id'] ?? 0);
+        $out['error'] = (string) ($result['error'] ?? '');
+        if ($attachmentId > 0) {
+            $out['attachment_id'] = $attachmentId;
+            if ($postId > 0) {
+                set_post_thumbnail($postId, $attachmentId);
+            }
+        }
+        return $out;
     }
 
     private function findExistingAttachmentBySourceUrl(string $url): int
@@ -1001,7 +1028,7 @@ final class MediaEngine
             }
         }
 
-        $items = array_values(array_unique(array_filter($items, static fn ($d): bool => is_string($d) && $d !== '')));
+        $items = array_values(array_unique(array_filter($items, static fn($d): bool => is_string($d) && $d !== '')));
         return array_slice($items, 0, 3);
     }
 

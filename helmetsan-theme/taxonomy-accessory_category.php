@@ -98,7 +98,7 @@ $is_discovery_mode = (empty($search) && empty($category) && empty($helmetType) &
         <div class="helmet-grid">
             <?php foreach ($categories as $term) : 
                 $title = $term->name;
-                $desc = $term->description ?: "Explore our " . $term->name . " collection.";
+                $desc = $term->description ?: "Browse " . $term->name . " accessories. Compatible with a range of helmets; filter by type in the catalog.";
                 $link = get_term_link($term);
                 $img = $themeDir . '/assets/images/hubs/accessory_category/' . $term->slug . '.png';
                 

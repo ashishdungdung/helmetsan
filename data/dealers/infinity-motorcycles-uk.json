@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "infinity-motorcycles-uk",
+  "name": "Infinity Motorcycles",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Multiple locations across UK",
+  "city": "London",
+  "website": "https://www.infinitymotorcycles.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "click-and-collect", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan", "LS2"],
+  "marketplaces": ["infinity-motorcycles-uk"],
+  "geo": {"lat": 51.5074, "lng": -0.1278}
+}

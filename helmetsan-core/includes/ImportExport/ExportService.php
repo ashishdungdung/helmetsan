@@ -228,6 +228,19 @@ final class ExportService
         if ($identifiers !== []) {
             $payload['identifiers'] = $identifiers;
         }
+        $affiliateLinks = $this->decodeJsonMeta($postId, 'affiliate_links_json');
+        if (is_array($affiliateLinks) && $affiliateLinks !== []) {
+            $marketplaceLinks = [];
+            foreach ($affiliateLinks as $mpId => $entry) {
+                $url = is_array($entry) && isset($entry['url']) ? trim((string) $entry['url']) : '';
+                if ($url !== '') {
+                    $marketplaceLinks[str_replace('-', '_', (string) $mpId)] = $url;
+                }
+            }
+            if ($marketplaceLinks !== []) {
+                $payload['marketplace_links'] = $marketplaceLinks;
+            }
+        }
         if ($geoMedia !== [] && $geoMedia !== null) {
             $payload['geo_media'] = $geoMedia;
         }

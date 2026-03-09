@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-nepal",
+  "name": "Moto Nepal",
+  "type": "retail",
+  "country_code": "NP",
+  "region_code": "apac",
+  "address": "Kathmandu",
+  "city": "Kathmandu",
+  "website": "https://www.motonepal.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "local-delivery", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Studds", "Steelbird"],
+  "marketplaces": ["moto-np"],
+  "geo": {"lat": 27.7172, "lng": 85.3240}
+}

@@ -46,6 +46,8 @@ The catalog now uses a deterministic data processing pipeline. Variants are no l
 
 ## Usage
 
+**Full command list:** See **`docs/COMMANDS_REFERENCE.md`** for all scripts and WP-CLI commands with run locations (repo root vs server).
+
 ### Ingesting Data
 
 The pipeline is automated via `scripts/reseed.sh`.
@@ -79,6 +81,8 @@ wp helmetsan ai fill-missing --post-type=all --limit=0       # Fill only blank f
 wp helmetsan seo seed --use-ai --post-type=all                # Overwrite SEO for all
 wp helmetsan ai cross-link --post-type=all --limit=0         # Overwrite link suggestions
 ```
+
+**AI-generated catalog data:** Use the same plugin AI credentials to **generate** new helmet models (master format) instead of editing PHP/JSON in the IDE: `wp helmetsan ai generate-seed --count=10 --brand=HJC [--output=helmets/generated.json]`. Merge the output into `data/helmets/master.json`, then run the seed script and ingest. See **`docs/data-flow.md`** (workflow 5) and **`docs/COMMANDS_REFERENCE.md`** (§4.3).
 
 ### Accessory categories and filters
 
@@ -144,6 +148,22 @@ ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest
 # Optional: also ingest curated per-helmet JSONs from data/helmets (richer data, marketplace links)
 ssh root@helmetsan.com "wp --path=/var/www/helmetsan.com/public helmetsan ingest --path=data/helmets --allow-root"
 ```
+
+### Upgraded seed: more helmets, brands, accessories with detailed info
+
+To grow the catalog with **richer data** (more models, brands, accessories and optional detail fields):
+
+- **Helmets**
+  - Use **`data/helmets/master.json`** (same shape as **`data/helmets/master.example.json`**) with the seed generator. The example file shows optional model-level fields: `helmet_family`, `model_year`, `features`, `product_details`, `sizing_fit`, `identifiers`, and per-colorway `marketplace_links` / `identifiers`. These are passed through to the generated seed and ingested.
+  - To switch from the in-file PHP array to JSON: run  
+    `php scripts/create_helmets_seed.php --export-master=data/helmets/master.json`  
+    to dump the current master to JSON, then maintain `data/helmets/master.json` and use `--source-json=data/helmets/master.json` for future runs.
+- **Brands**
+  - **`data/brands/master.example.json`** is a reference for the full brand profile shape (see also `data/schemas/brand.schema.json`). Add or edit files under **`data/brands/<slug>.json`** for more brands with detailed profiles; ingest with `wp helmetsan ingest-brands` or via **Helmetsan → Data**.
+- **Accessories**
+  - **`data/accessories/master.example.json`** is a reference for the full accessory shape (see `data/schemas/accessory.schema.json`). Add or edit files under **`data/accessories/<slug>.json`** for more accessories with compatibility and features; ingest with `wp helmetsan ingest --path=data/accessories` or via **Helmetsan → Data**.
+
+See **`docs/json-and-github.md`** for JSON workflow and **`docs/data-flow.md`** for the full data-flow concept.
 
 ### WP-CLI Commands
 

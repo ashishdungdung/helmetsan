@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-madness-india",
+  "name": "Moto Madness",
+  "type": "retail",
+  "country_code": "IN",
+  "region_code": "apac",
+  "address": "Bangalore",
+  "city": "Bangalore",
+  "website": "https://www.motomadness.in",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "accessory-install", "returns"],
+  "brands_stocked": ["MT Helmets", "SMK", "Axor", "LS2", "Studds", "Steelbird"],
+  "marketplaces": ["motomadness-in"],
+  "geo": {"lat": 12.9716, "lng": 77.5946}
+}

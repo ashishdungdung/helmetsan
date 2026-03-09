@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-philippines",
+  "name": "Moto Philippines / Motoworld",
+  "type": "retail",
+  "country_code": "PH",
+  "region_code": "apac",
+  "address": "Metro Manila",
+  "city": "Manila",
+  "website": "https://www.motoworld.com.ph",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ph-shipping", "asean"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "MT Helmets", "KYT", "Nolan", "Caberg"],
+  "marketplaces": ["motoworld-ph", "lazada", "shopee"],
+  "geo": {"lat": 14.5995, "lng": 120.9842}
+}

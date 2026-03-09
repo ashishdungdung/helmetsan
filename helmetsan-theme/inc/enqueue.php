@@ -17,6 +17,13 @@ function helmetsan_theme_enqueue_assets(): void
         wp_enqueue_style('generate-style', get_template_directory_uri() . '/style.css', [], wp_get_theme(get_template())->get('Version'));
     }
 
+    wp_enqueue_style(
+        'helmetsan-design-tokens',
+        get_stylesheet_directory_uri() . '/assets/css/design-tokens.css',
+        [],
+        helmetsan_theme_asset_version('/assets/css/design-tokens.css')
+    );
+
     $baseCss = '/assets/css/base.css';
     $compCss = '/assets/css/components.css';
     $pageCss = '/assets/css/pages.css';
@@ -24,7 +31,7 @@ function helmetsan_theme_enqueue_assets(): void
     wp_enqueue_style(
         'helmetsan-theme-base',
         get_stylesheet_directory_uri() . $baseCss,
-        ['generate-style'],
+        ['generate-style', 'helmetsan-design-tokens'],
         helmetsan_theme_asset_version($baseCss)
     );
 
@@ -47,6 +54,21 @@ function helmetsan_theme_enqueue_assets(): void
         get_stylesheet_directory_uri() . '/assets/css/mega-menu.css',
         ['helmetsan-theme-components'],
         helmetsan_theme_asset_version('/assets/css/mega-menu.css')
+    );
+
+    wp_enqueue_style(
+        'helmetsan-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+        ['helmetsan-design-tokens'],
+        null
+    );
+
+    wp_enqueue_script(
+        'helmetsan-theme-toggle',
+        get_stylesheet_directory_uri() . '/assets/js/theme-toggle.js',
+        [],
+        helmetsan_theme_asset_version('/assets/js/theme-toggle.js'),
+        false
     );
 
     wp_enqueue_script(

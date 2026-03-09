@@ -11,7 +11,9 @@ How JSON is used in the seeder and how GitHub sync moves that data between repo 
 | Location | Purpose |
 |----------|--------|
 | **`data/`** (repo root) | Source-of-truth in Git. Entity folders: `brands/`, `helmets/`, `accessories/`, `motorcycles/`, `safety-standards/`, `dealers/`, `distributors/`, `marketplaces/`, `geo/`, `pricing/`, `offers/`, `comparisons/`, `recommendations/`, `catalogs/`, `helmet-types/`, `phases/`, `schemas/`. |
-| **`data/helmets/master.example.json`** | Example structure for **seed generator** when using `--source-json`. Same shape as the in-file PHP array: `Brand → Model → type, price, cert, shape, weight, mat, desc, colorways[]`. |
+| **`data/helmets/master.example.json`** | Example structure for **seed generator** when using `--source-json`. Same shape as the in-file PHP array, plus optional detail: `helmet_family`, `model_year`, `features`, `product_details`, `sizing_fit`, `identifiers`, per-colorway `marketplace_links` / `identifiers`. Use **`--export-master=<file>`** to dump the in-file PHP array to JSON. |
+| **`data/brands/master.example.json`** | Reference for full brand profile shape; add more under `data/brands/<slug>.json` and ingest with `wp helmetsan ingest-brands`. |
+| **`data/accessories/master.example.json`** | Reference for full accessory shape; add more under `data/accessories/<slug>.json` and ingest with `wp helmetsan ingest --path=data/accessories`. |
 | **`data/helmets/*.json`** (per-helmet) | Curated per-helmet JSONs (e.g. `shoei-rf-1400.json`, `agv-k6.json`). Used by **path-based ingest** for richer data and marketplace links. Not the same as the single “seed array” from the generator. |
 | **`helmetsan-core/seed-data/helmets_seed.json`** | **Generated** seed file (array of helmet variants). Produced by `create_helmets_seed.php` and consumed by `wp helmetsan ingest-seed`. Can be committed or deployed to server. |
 
@@ -35,7 +37,7 @@ php scripts/create_helmets_seed.php --output=helmetsan-core/seed-data/helmets_se
 php scripts/create_helmets_seed.php --source-json=data/helmets/master.json --output=helmetsan-core/seed-data/helmets_seed.json --stats
 ```
 
-- If you add **`data/helmets/master.json`** (or any name) with that structure, you can maintain catalog data in the repo under `data/helmets/` and stop editing the large PHP array.
+- If you add **`data/helmets/master.json`** (or any name) with that structure, you can maintain catalog data in the repo under `data/helmets/` and stop editing the large PHP array. To migrate from the PHP array: `php scripts/create_helmets_seed.php --export-master=data/helmets/master.json` writes the current master to JSON; then use `--source-json=data/helmets/master.json` for future runs.
 
 ### B. Path-based ingest (per-file JSON)
 

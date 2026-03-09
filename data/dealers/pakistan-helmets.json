@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "pakistan-helmets",
+  "name": "Helmets Pakistan / Metro Helmets",
+  "type": "retail",
+  "country_code": "PK",
+  "region_code": "apac",
+  "address": "Lahore & Karachi",
+  "city": "Lahore",
+  "website": "https://www.metrohelmets.pk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "pk-shipping", "psa-certified"],
+  "brands_stocked": ["LS2", "HJC", "MT Helmets", "Studds", "Vega", "Axor", "Nolan"],
+  "marketplaces": ["metrohelmets-pk", "daraz-pk"],
+  "geo": {"lat": 31.5204, "lng": 74.3587}
+}

@@ -51,9 +51,105 @@ Remote paths are defined once in **`scripts/config`** (source of truth). Scripts
 Deploys code from Local -> Remote.
 
 - **Command**: `./scripts/deploy.sh`
-- **Syncs**:
-  - `helmetsan-theme` -> `.../wp-content/themes/`
-  - `helmetsan-core` -> `.../wp-content/plugins/`
+- **Syncs** (as proper subdirs, does not overwrite other themes/plugins):
+  - `helmetsan-theme` -> `.../wp-content/themes/helmetsan-theme/`
+  - `helmetsan-core` -> `.../wp-content/plugins/helmetsan-core/`
+
+### Password-based deploy (optional)
+
+To use expect scripts with a password instead of SSH key:
+
+1. Create **`scripts/.env.deploy`** (file is gitignored; do not commit it):
+   ```bash
+   DEPLOY_PASSWORD=your_ssh_or_sudo_password
+   ```
+2. Ensure **`scripts/deploy-rsync.expect`** and **`scripts/deploy-rsync-file.expect`** exist and are executable (templates are not in repo; create from your own expect templates if you use password auth).
+3. Run `./scripts/deploy.sh`; it will source `.env.deploy` and use expect when `DEPLOY_PASSWORD` is set.
+
+### Recovery after a bad deploy (no backup, VPS)
+
+Clean slate: only **GeneratePress + Helmetsan child theme** and **Helmetsan Core + WooCommerce + Yoast SEO**. All other themes and plugins are removed.
+
+1. **From your machine:** Deploy theme and plugin so they exist on the server:
+   ```bash
+   ./scripts/deploy.sh
+   ```
+2. **On the VPS:** Copy and run the recovery script (it removes every other theme/plugin, then configures theme and plugins together):
+   ```bash
+   scp scripts/vps-recover-themes-plugins.sh root@helmetsan.com:/root/
+   ssh root@helmetsan.com 'bash /root/vps-recover-themes-plugins.sh /var/www/helmetsan.com/public'
+   ```
+   Or SSH in and run:
+   ```bash
+   bash /path/to/vps-recover-themes-plugins.sh /var/www/helmetsan.com/public
+   ```
+   The script: activates GeneratePress, deletes all other themes, activates `helmetsan-theme`; deactivates all plugins, deletes all except `helmetsan-core`, installs `woocommerce` and `wordpress-seo`, then activates theme and all three plugins together. Database (posts, settings) is unchanged.
+
+### Duplicate “Helmetsan Core” or “Could not fully remove” on Plugins page
+
+If the Plugins page shows two Helmetsan Core entries or deletion fails, run on the VPS:
+
+```bash
+# Copy and run the fix script (default path)
+scp scripts/vps-fix-duplicate-helmetsan-core.sh root@helmetsan.com:/root/
+ssh root@helmetsan.com 'bash /root/vps-fix-duplicate-helmetsan-core.sh'
+```
+
+The script removes any stray `helmetsan-core.php` at `wp-content/plugins/` (leftover from a bad deploy), deactivates the plugin, dedupes `active_plugins` in the database, then reactivates once. After that, refresh the Plugins page.
+
+### “Could not create directory” when installing themes or plugins
+
+The web server user (e.g. `www-data`, `nginx`) must be able to create directories under `wp-content/themes` and `wp-content/plugins`. On the VPS, fix ownership and permissions (replace `WP_PATH` and `WEB_USER` with your values):
+
+```bash
+# Typical VPS: WordPress under /var/www/helmetsan.com/public, web user www-data
+WP_PATH="/var/www/helmetsan.com/public"
+WEB_USER="www-data"
+
+# Option A: Let the web server own content (recommended)
+sudo chown -R "$WEB_USER:$WEB_USER" "$WP_PATH/wp-content"
+sudo find "$WP_PATH/wp-content" -type d -exec chmod 755 {} \;
+sudo find "$WP_PATH/wp-content" -type f -exec chmod 644 {} \;
+```
+
+To find the web user if unsure:
+
+```bash
+# Nginx
+ps aux | grep nginx | grep -v grep | head -1
+
+# Apache
+ps aux | grep apache | grep -v grep | head -1
+```
+
+Then install GeneratePress via WP-CLI (runs as root, so it doesn’t depend on web permissions):
+
+```bash
+sudo -u "$WEB_USER" wp theme install generatepress --path="$WP_PATH"
+# or as root if wp is in PATH:
+wp theme install generatepress --path="$WP_PATH"
+```
+
+After that, the Add Themes UI should work for future installs.
+
+## Release / tagging
+
+When cutting a new version (e.g. 0.3.0):
+
+1. **Version and changelog** (already done when preparing a release):
+   - Set `Version:` and `HELMETSAN_CORE_VERSION` in `helmetsan-core/helmetsan-core.php`.
+   - In `CHANGELOG.md`, move Unreleased bullets into a new `## X.Y.Z - YYYY-MM-DD` section; leave Unreleased with a placeholder.
+2. **Smoke test** (optional but recommended): On remote or local WP, run `wp helmetsan` (list commands), `wp helmetsan health`, and open Helmetsan → Health in admin. Confirm no fatal errors.
+3. **Tag and push:**
+   ```bash
+   git add CHANGELOG.md helmetsan-core/helmetsan-core.php
+   git commit -m "Release X.Y.Z"
+   git tag -a vX.Y.Z -m "Release X.Y.Z"
+   git push origin main && git push origin vX.Y.Z
+   ```
+4. **Deploy:** Run `./scripts/deploy.sh` to ship the new version to the server (or use your normal deploy process).
+
+---
 
 ## Data Sync (`scripts/pull-data.sh`)
 
@@ -90,3 +186,23 @@ Use this first when something fails — avoids repeated debugging and AI queries
 | **PHP script “ABSPATH not defined”** | Run with `php script.php` instead of via WordPress. | Run via WP-CLI from site root: `wp --path=/var/www/helmetsan.com/public eval-file path/to/script.php --allow-root`. |
 
 Changing the server path in one place: edit **`scripts/config`** and set `REMOTE_WP_PATH`; all scripts that source it will use the new path.
+
+---
+
+## Health & Alerts
+
+**Health (admin):** Helmetsan → **Health** shows repository, ingestion logs, sync, GitHub, AI config, validation/enrichment flags, and scheduler. Use it to confirm data root, failed ingests, and that at least one AI provider is configured before running fill-missing or generate-seed.
+
+**Health (CLI):** From the server (or SSH):
+
+```bash
+wp --path=/var/www/helmetsan.com/public helmetsan health --format=json --allow-root
+```
+
+**Alerts:** Configure email and/or Slack in Helmetsan → Settings → Alert System. Test without sending to production:
+
+```bash
+wp --path=/var/www/helmetsan.com/public helmetsan alerts test --title="Ping" --message="Test" --allow-root
+```
+
+Alerts fire on sync errors, ingestion failures, and (if enabled) health warnings. Slack is retried once on 5xx/429.

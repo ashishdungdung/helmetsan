@@ -17,8 +17,9 @@ if [ ! -f "$SCRIPT_DIR/config" ]; then
 fi
 . "$SCRIPT_DIR/config"
 [ -n "${REMOTE_WP_PATH:-}" ] || { echo "❌ REMOTE_WP_PATH not set in scripts/config."; exit 1; }
+[ -n "${REMOTE_HOST:-}" ] || { echo "❌ REMOTE_HOST not set in scripts/config."; exit 1; }
 
-SEED_SCRIPT="$PROJECT_DIR/create_helmets_seed.php"
+SEED_SCRIPT="$PROJECT_DIR/scripts/create_helmets_seed.php"
 SEED_OUTPUT="$PROJECT_DIR/helmetsan-core/seed-data/helmets_seed.json"
 DEPLOY_SCRIPT="$SCRIPT_DIR/deploy.sh"
 

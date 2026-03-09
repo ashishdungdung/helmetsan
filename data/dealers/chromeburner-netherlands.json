@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "chromeburner-netherlands",
+  "name": "Chromeburner",
+  "type": "retail",
+  "country_code": "NL",
+  "region_code": "eu",
+  "address": "Energieweg 2, Mijdrecht",
+  "city": "Mijdrecht",
+  "website": "https://www.chromeburner.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["chromeburner-nl", "amazon-de"],
+  "geo": {"lat": 52.2065, "lng": 4.8728}
+}

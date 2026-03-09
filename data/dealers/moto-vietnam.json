@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-vietnam",
+  "name": "Moto Vietnam / Phụ Tùng Xe Máy",
+  "type": "retail",
+  "country_code": "VN",
+  "region_code": "apac",
+  "address": "Ho Chi Minh City",
+  "city": "Ho Chi Minh City",
+  "website": "https://www.phutungxemay.vn",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "vn-shipping", "asean"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "MT Helmets", "KYT", "Caberg"],
+  "marketplaces": ["phutungxemay-vn", "shopee", "lazada"],
+  "geo": {"lat": 10.8231, "lng": 106.6297}
+}

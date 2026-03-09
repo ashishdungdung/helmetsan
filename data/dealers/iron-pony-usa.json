@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "iron-pony-usa",
+  "name": "Iron Pony Motorsports",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Columbus, OH",
+  "city": "Columbus",
+  "website": "https://www.ironpony.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "in-store-pickup", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "LS2"],
+  "marketplaces": ["iron-pony-us"],
+  "geo": {"lat": 40.0583, "lng": -82.9244}
+}

@@ -46,3 +46,15 @@ Motorcycle, safety_standard, dealer, distributor, comparison, recommendation, an
 
 - **IngestionService** returns `skipped` in the result; CLI and admin should show it (e.g. “Accepted: N, Skipped: M, Rejected: K”).
 - Log repository: entries with status `skipped` indicate hash-unchanged records that were not updated.
+
+## Validation before ingest
+
+- **Accessory JSON:** Validate schema and logic before ingesting: `wp helmetsan validate accessory --file=/path/to/accessories.json`. File can be a single object or an array of accessory objects. See `Validator::validateAccessorySchema()` and `validateAccessoryLogic()`.
+
+## Duplicate check (repository sanity)
+
+To avoid duplicate **id**s (and duplicate **EAN**s for helmets) across JSON files before ingest or sync:
+
+- **CLI:** `wp helmetsan data check-duplicates` scans the data root (`data/helmets`, `data/accessories`, `data/brands`, `seed-data`) and reports any key that appears more than once, with file paths and indices. Use `--type=helmet|accessory|brand` to limit scope, `--no-ean` to skip EAN checks for helmets, and `--format=table|json|count` for output.
+- **What is checked:** Helmets: `id` and (unless `--no-ean`) `identifiers.ean` / `identifiers.gtin` / `identifiers.upc`; seed arrays and per-file helmet JSON; master-format (brand/model) keys. Accessories: `id` per file or array index. Brands: `id` (or profile slug / title-derived slug).
+- Fix duplicates by editing the JSON (merge or remove duplicate entries, or give one of them a new unique `id`) before running ingest or pushing to the repo.

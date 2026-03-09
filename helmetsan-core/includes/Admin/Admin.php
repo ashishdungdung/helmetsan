@@ -41,7 +41,8 @@ final class Admin
         private readonly SchedulerService $scheduler,
         private readonly AlertService $alerts,
         private readonly BrandService $brands,
-        private readonly WooBridgeService $wooBridge
+        private readonly WooBridgeService $wooBridge,
+        private readonly ?AiAdmin $aiAdmin = null
     ) {}
 
     public function register(): void
@@ -61,6 +62,13 @@ final class Admin
         add_action('admin_post_helmetsan_media_api_test', [$this, 'handleMediaApiTestAction']);
         add_action('admin_post_helmetsan_woo_bridge_sync', [$this, 'handleWooBridgeSyncAction']);
         add_action('admin_post_helmetsan_scheduler_task', [$this, 'handleSchedulerTaskAction']);
+        // Catalog AI enrichment: delegate to AiAdmin so handlers run in same context as Catalog page.
+        if ($this->aiAdmin !== null) {
+            add_action('admin_post_helmetsan_catalog_ai_fill_all', [$this->aiAdmin, 'handleCatalogAiFillAll']);
+            add_action('admin_post_helmetsan_catalog_ai_fill_certs', [$this->aiAdmin, 'handleCatalogAiFillCerts']);
+            add_action('admin_post_helmetsan_catalog_ai_fill_specs', [$this->aiAdmin, 'handleCatalogAiFillSpecs']);
+            add_action('admin_post_helmetsan_catalog_ai_fill_specs_overwrite', [$this->aiAdmin, 'handleCatalogAiFillSpecsOverwrite']);
+        }
     }
 
     public function registerMenu(): void
@@ -73,8 +81,9 @@ final class Admin
         add_submenu_page('helmetsan-dashboard', 'Brands', 'Brands', 'manage_options', 'helmetsan-brands', [$this, 'brandsPage']);
         add_submenu_page('helmetsan-dashboard', 'Ingestion', 'Ingestion', 'manage_options', 'helmetsan-ingestion', [$this, 'ingestionPage']);
         add_submenu_page('helmetsan-dashboard', 'Data / Reseed', 'Data / Reseed', 'manage_options', 'helmetsan-reseed', [$this, 'reseedPage']);
+        add_submenu_page('helmetsan-dashboard', 'Data / Duplicates', 'Data / Duplicates', 'manage_options', 'helmetsan-data-duplicates', [$this, 'dataDuplicatesPage']);
         add_submenu_page('helmetsan-dashboard', 'Sync Logs', 'Sync Logs', 'manage_options', 'helmetsan-sync-logs', [$this, 'syncLogsPage']);
-        add_submenu_page('helmetsan-dashboard', 'Repo Health', 'Repo Health', 'manage_options', 'helmetsan-repo-health', [$this, 'repoHealthPage']);
+        add_submenu_page('helmetsan-dashboard', 'Health', 'Health', 'manage_options', 'helmetsan-repo-health', [$this, 'repoHealthPage']);
         add_submenu_page('helmetsan-dashboard', 'Analytics', 'Analytics', 'manage_options', 'helmetsan-analytics', [$this, 'analyticsPage']);
         add_submenu_page('helmetsan-dashboard', 'Revenue', 'Revenue', 'manage_options', 'helmetsan-revenue', [$this, 'revenuePage']);
         add_submenu_page('helmetsan-dashboard', 'Contributions', 'Contributions', 'manage_options', 'helmetsan-contributions', [$this, 'contributionsPage']);
@@ -734,6 +743,8 @@ final class Admin
         $merged['enrichment_helmets_enabled'] = ! empty($merged['enrichment_helmets_enabled']);
         $merged['enrichment_brands_enabled'] = ! empty($merged['enrichment_brands_enabled']);
         $merged['enrichment_accessories_enabled'] = ! empty($merged['enrichment_accessories_enabled']);
+        $merged['enrichment_seo_terms_enabled'] = ! empty($merged['enrichment_seo_terms_enabled']);
+        $merged['enrichment_seo_other_cpts_enabled'] = ! empty($merged['enrichment_seo_other_cpts_enabled']);
 
         $merged['sync_pull_interval_hours'] = max(1, (int) $merged['sync_pull_interval_hours']);
         $merged['sync_pull_limit'] = max(1, (int) $merged['sync_pull_limit']);
@@ -752,6 +763,7 @@ final class Admin
         $merged['enrichment_brands_seo_limit'] = max(0, (int) ($merged['enrichment_brands_seo_limit'] ?? $merged['enrichment_seo_limit']));
         $merged['enrichment_accessories_fill_limit'] = max(1, (int) ($merged['enrichment_accessories_fill_limit'] ?? $merged['enrichment_fill_limit']));
         $merged['enrichment_accessories_seo_limit'] = max(0, (int) ($merged['enrichment_accessories_seo_limit'] ?? $merged['enrichment_seo_limit']));
+        $merged['enrichment_seo_other_cpts_limit'] = max(0, (int) ($merged['enrichment_seo_other_cpts_limit'] ?? 100));
 
         return $merged;
     }
@@ -806,6 +818,7 @@ final class Admin
             'auto_sideload_enabled',
             'ean_db_enabled',
             'eandata_enabled',
+            'r2_enabled',
         ];
         foreach ($bools as $key) {
             $merged[$key] = ! empty($merged[$key]);
@@ -824,6 +837,19 @@ final class Admin
         $eandataKeycode = sanitize_text_field((string) ($merged['eandata_keycode'] ?? ''));
         $merged['ean_db_token'] = $eanDbToken !== '' ? $eanDbToken : (string) ($existing['ean_db_token'] ?? '');
         $merged['eandata_keycode'] = $eandataKeycode !== '' ? $eandataKeycode : (string) ($existing['eandata_keycode'] ?? '');
+
+        $r2AccountId = sanitize_text_field((string) ($merged['r2_account_id'] ?? ''));
+        $r2AccessKey = sanitize_text_field((string) ($merged['r2_access_key'] ?? ''));
+        $r2SecretKey = sanitize_text_field((string) ($merged['r2_secret_key'] ?? ''));
+        $r2Bucket = sanitize_text_field((string) ($merged['r2_bucket'] ?? ''));
+        $r2PublicUrl = esc_url_raw((string) ($merged['r2_public_url'] ?? ''));
+
+        $merged['r2_account_id'] = $r2AccountId !== '' ? $r2AccountId : (string) ($existing['r2_account_id'] ?? '');
+        $merged['r2_access_key'] = $r2AccessKey !== '' ? $r2AccessKey : (string) ($existing['r2_access_key'] ?? '');
+        $merged['r2_secret_key'] = $r2SecretKey !== '' ? $r2SecretKey : (string) ($existing['r2_secret_key'] ?? '');
+        $merged['r2_bucket'] = $r2Bucket !== '' ? $r2Bucket : (string) ($existing['r2_bucket'] ?? '');
+        $merged['r2_public_url'] = $r2PublicUrl !== '' ? $r2PublicUrl : (string) ($existing['r2_public_url'] ?? '');
+
         $merged['cache_ttl_hours'] = max(1, (int) $merged['cache_ttl_hours']);
 
         return $merged;
@@ -1051,11 +1077,13 @@ final class Admin
 
         check_admin_referer('helmetsan_scheduler_task');
         $task = isset($_REQUEST['task']) ? sanitize_key((string) $_REQUEST['task']) : '';
+        $result = ['ok' => false, 'message' => 'No task run'];
 
         if ($task !== '') {
-            $this->scheduler->runTask($task);
+            $result = $this->scheduler->runTask($task);
         }
 
+        set_transient('helmetsan_scheduler_task_result', ['task' => $task, 'ok' => ! empty($result['ok']), 'message' => (string) ($result['message'] ?? '')], 60);
         $url = add_query_arg(['page' => 'helmetsan-settings', 'stab' => 'scheduler', 'task_run' => $task], admin_url('admin.php'));
         wp_safe_redirect($url);
         exit;
@@ -1089,10 +1117,26 @@ final class Admin
         echo '<div class="hs-panel" style="margin-bottom:20px;">';
         echo '<h3>Data flow: JSON ↔ WordPress ↔ GitHub</h3>';
         echo '<p class="description">Ingestion reads JSON from disk and writes to WordPress only (no GitHub write). Export writes WordPress data to JSON files. Sync <strong>pull</strong> downloads from GitHub then you can apply; <strong>push</strong> uploads local JSON to GitHub. To get WP changes into GitHub: export first, then push. <a href="' . esc_url(admin_url('admin.php?page=helmetsan-docs')) . '">Documentation</a>.</p>';
+        echo '<h4 style="margin-top:1rem;">' . esc_html__('What to do next', 'helmetsan-core') . '</h4>';
+        echo '<ul class="description" style="margin:0; padding-left:1.25rem;">';
+        $helmetCount = (int) ($report['database']['cpt_helmet_rows'] ?? 0);
+        $hasSyncLogs = $this->syncLogs->tableExists() && $this->syncLogs->fetch(1, 1, null, null, '') !== [];
+        if ($helmetCount === 0) {
+            echo '<li>' . esc_html__('Ingest data: run Data / Reseed (ingest seed or path) or Import/Export → Import.', 'helmetsan-core') . '</li>';
+        }
+        if (! $hasSyncLogs) {
+            echo '<li>' . esc_html__('Run Sync Pull (Sync Logs) to fetch latest JSON from GitHub.', 'helmetsan-core') . '</li>';
+        }
+        echo '<li>' . esc_html__('Enrich catalog: use Catalog → AI enrichment or Brands → AI enrichment to fill missing fields.', 'helmetsan-core') . '</li>';
+        echo '<li>' . esc_html__('Add helmet images: Helmetsan → Helmet images (AI, RevZilla, or EAN lookup).', 'helmetsan-core') . '</li>';
+        echo '<li>' . esc_html__('Check Go Live for launch readiness.', 'helmetsan-core') . '</li>';
+        echo '</ul>';
         echo '</div>';
 
+        $dupCount = (int) ($report['repository_duplicates']['count'] ?? 0);
         $cards = [
             ['label' => 'Status', 'value' => $repoStatus, 'page' => 'helmetsan-repo-health'],
+            ['label' => 'Repo duplicates', 'value' => (string) $dupCount, 'page' => 'helmetsan-data-duplicates'],
             ['label' => 'Helmets', 'value' => (string) ($report['database']['cpt_helmet_rows'] ?? 0), 'page' => 'helmetsan-catalog'],
             ['label' => 'Brands', 'value' => (string) ($report['database']['cpt_brand_rows'] ?? 0), 'page' => 'helmetsan-brands'],
             ['label' => 'Pricing Models', 'value' => (string) ($engines['pricing'] ?? 0), 'page' => 'helmetsan-catalog'],
@@ -1332,6 +1376,60 @@ final class Admin
         ], $this->getOfferRows(5));
         echo '</div>';
 
+        $catalogAiResult = isset($_GET['catalog_ai_done']) ? get_transient('helmetsan_catalog_ai_result') : false;
+        if (is_array($catalogAiResult)) {
+            if (! empty($catalogAiResult['error'])) {
+                echo '<div class="notice notice-warning"><p>' . esc_html($catalogAiResult['error']) . '</p></div>';
+            } else {
+                $scopeLabel = $catalogAiResult['scope'] === 'all' ? __('Fill all missing', 'helmetsan-core') : ($catalogAiResult['scope'] === 'certs' ? __('Update certifications', 'helmetsan-core') : ($catalogAiResult['scope'] === 'specs_overwrite' ? __('Update specs (overwrite)', 'helmetsan-core') : __('Update specs', 'helmetsan-core')));
+                $totalPosts = (int) ($catalogAiResult['total_posts'] ?? 0);
+                $msg = sprintf(
+                    /* translators: 1: scope label, 2: filled count, 3: skipped count, 4: errors count, 5: posts count */
+                    __('AI enrichment (%1$s): %2$d filled, %3$d skipped, %4$d errors across %5$d posts.', 'helmetsan-core'),
+                    $scopeLabel,
+                    (int) ($catalogAiResult['filled'] ?? 0),
+                    (int) ($catalogAiResult['skipped'] ?? 0),
+                    (int) ($catalogAiResult['errors'] ?? 0),
+                    $totalPosts
+                );
+                echo '<div class="notice notice-success is-dismissible"><p>' . esc_html($msg) . '</p>';
+                if ($totalPosts === 0) {
+                    echo '<p class="description">' . esc_html__('No published helmets were found. Ensure helmet posts exist and are published, or run ingestion first (Import/Export or CLI).', 'helmetsan-core') . '</p>';
+                }
+                echo '</div>';
+            }
+            delete_transient('helmetsan_catalog_ai_result');
+        }
+
+        echo '<div class="hs-panel">';
+        echo '<h3>' . esc_html__('AI enrichment', 'helmetsan-core') . '</h3>';
+        echo '<p class="description">' . esc_html__('Use AI to fill missing or outdated catalog data (certifications, specs, weight, shell material, price). Each click processes up to 50 helmets (longer runs need higher PHP/nginx timeouts). By default, fields that already have a value are skipped; use "Update specs (overwrite)" to refresh weight/shell/price even when set. After enrichment, export to JSON via Import/Export.', 'helmetsan-core') . '</p>';
+        echo '<p class="description" style="margin-top:4px;"><strong>' . esc_html__('Large batches:', 'helmetsan-core') . '</strong> ' . esc_html__('For 100+ helmets use WP-CLI:', 'helmetsan-core') . ' <code>wp helmetsan ai fill-missing --post-type=helmet --limit=100</code> ' . esc_html__('(or add', 'helmetsan-core') . ' <code>--fields=spec_weight_g,spec_shell_material,price_retail_usd</code> ' . esc_html__('for specs only).', 'helmetsan-core') . ' ' . esc_html__('If you see 504 timeouts, raise PHP and nginx timeouts to 600s; see', 'helmetsan-core') . ' <code>docs/timeouts-ai-enrichment.md</code>.</p>';
+        echo '<div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:8px;">';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_catalog_ai_fill_all" />';
+        wp_nonce_field('helmetsan_catalog_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button button-primary" value="' . esc_attr__('Fill all missing / outdated', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Run AI on up to 50 helmets? This will use your configured AI provider.', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_catalog_ai_fill_certs" />';
+        wp_nonce_field('helmetsan_catalog_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button" value="' . esc_attr__('Update certifications only', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Fill missing certification terms for up to 50 helmets?', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_catalog_ai_fill_specs" />';
+        wp_nonce_field('helmetsan_catalog_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button" value="' . esc_attr__('Update specs only (weight, shell, price)', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Fill missing weight, shell material, and price for up to 50 helmets? Already-set fields are skipped.', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_catalog_ai_fill_specs_overwrite" />';
+        wp_nonce_field('helmetsan_catalog_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button" value="' . esc_attr__('Update specs (overwrite existing)', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Overwrite weight, shell material, and price for up to 50 helmets with AI? Existing values will be replaced.', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo ' <a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai')) . '" class="button">' . esc_html__('AI settings', 'helmetsan-core') . '</a>';
+        echo '</div>';
+        echo '</div>';
+
         echo '<div class="hs-panel">';
         echo '<form method="get" class="hs-inline-form">';
         echo '<input type="hidden" name="page" value="helmetsan-catalog" />';
@@ -1455,11 +1553,48 @@ final class Admin
             echo '<div class="notice notice-success is-dismissible"><p>Cascade complete. Updated helmets: ' . esc_html((string) $count) . '.</p></div>';
         }
 
+        $brandAiResult = isset($_GET['brand_ai_done']) ? get_transient('helmetsan_brand_ai_result') : false;
+        if (is_array($brandAiResult)) {
+            if (! empty($brandAiResult['error'])) {
+                echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html($brandAiResult['error']) . '</p></div>';
+            } else {
+                $scopeLabel = ($brandAiResult['scope'] ?? '') === 'key' ? __('Fill key fields only', 'helmetsan-core') : __('Fill all missing', 'helmetsan-core');
+                $msg = sprintf(
+                    /* translators: 1: scope label, 2: filled, 3: skipped, 4: errors, 5: total posts */
+                    __('AI enrichment (Brands – %1$s): %2$d filled, %3$d skipped, %4$d errors across %5$d brands.', 'helmetsan-core'),
+                    $scopeLabel,
+                    (int) ($brandAiResult['filled'] ?? 0),
+                    (int) ($brandAiResult['skipped'] ?? 0),
+                    (int) ($brandAiResult['errors'] ?? 0),
+                    (int) ($brandAiResult['total_posts'] ?? 0)
+                );
+                echo '<div class="notice notice-success is-dismissible"><p>' . esc_html($msg) . '</p></div>';
+            }
+            delete_transient('helmetsan_brand_ai_result');
+        }
+
         echo '<form method="post" style="margin-bottom:12px;">';
         wp_nonce_field('helmetsan_brand_action', 'helmetsan_brand_nonce');
         echo '<input type="hidden" name="helmetsan_brand_action" value="cascade_all" />';
         submit_button('Cascade All Brands', 'secondary', 'submit', false);
         echo '</form>';
+
+        echo '<div class="hs-panel" style="margin-bottom:1.25rem;">';
+        echo '<h3 style="margin-top:0;">' . esc_html__('AI enrichment', 'helmetsan-core') . '</h3>';
+        echo '<p class="description">' . esc_html__('Use AI to fill missing brand data: total models, helmet types, cert coverage, support URL, warranty, origin. Processes up to 100 brands per click; already-filled fields are skipped.', 'helmetsan-core') . '</p>';
+        echo '<div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:8px;">';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_brand_ai_fill_all" />';
+        wp_nonce_field('helmetsan_brand_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button button-primary" value="' . esc_attr__('Fill all missing / outdated', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Run AI on up to 100 brands? This will use your configured AI provider.', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
+        echo '<input type="hidden" name="action" value="helmetsan_brand_ai_fill_key" />';
+        wp_nonce_field('helmetsan_brand_ai', '_wpnonce', true, true);
+        echo '<input type="submit" class="button" value="' . esc_attr__('Fill key fields only (models, types, cert, support URL, warranty, origin)', 'helmetsan-core') . '" onclick="return confirm(\'' . esc_js(__('Fill total models, helmet types, cert coverage, support URL, warranty, and origin for up to 100 brands?', 'helmetsan-core')) . '\');" />';
+        echo '</form>';
+        echo ' <a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai')) . '" class="button">' . esc_html__('AI settings', 'helmetsan-core') . '</a>';
+        echo '</div></div>';
 
         $rows = $this->brands->listBrandOverview();
         $filtered = [];
@@ -2162,7 +2297,13 @@ final class Admin
 
         echo '<div class="wrap helmetsan-wrap">';
         $this->renderAppHeader('Ingestion', 'Apply JSON to WordPress (reads from data root; does not write to GitHub). View logs and retry failed runs.');
-        echo '<p class="description">Ingestion reads JSON files on disk and creates/updates posts and meta. It does not push to GitHub. To run ingestion: <a href="' . esc_url(admin_url('admin.php?page=helmetsan-reseed')) . '">Data / Reseed</a> (seed or path-based).</p>';
+        echo '<div class="hs-panel" style="margin-bottom:1.25rem;">';
+        echo '<h3 style="margin-top:0;">Steps</h3>';
+        echo '<ol class="description" style="margin:0; padding-left:1.25rem;"><li>' . esc_html__('Select source: run ingestion from Data / Reseed (helmet seed or path: helmets, brands, accessories).', 'helmetsan-core') . '</li>';
+        echo '<li>' . esc_html__('Validate: use dry run to validate without writing.', 'helmetsan-core') . '</li>';
+        echo '<li>' . esc_html__('Ingest: run without dry run; then check logs below and retry failed entries if needed.', 'helmetsan-core') . '</li></ol>';
+        echo '<p class="description" style="margin-top:0.5rem;">' . esc_html__('Ingestion reads JSON from disk only (no GitHub write). To push data to GitHub: Export from Import/Export, then run Sync Push.', 'helmetsan-core') . ' <a href="' . esc_url(admin_url('admin.php?page=helmetsan-reseed')) . '">Data / Reseed</a> | <a href="' . esc_url(admin_url('admin.php?page=helmetsan-import-export')) . '">Import/Export</a></p>';
+        echo '</div>';
 
         if (! $this->ingestionLogs->tableExists()) {
             echo '<p>Ingestion log table not found. Re-activate plugin or run table migration.</p></div>';
@@ -2172,6 +2313,20 @@ final class Admin
         $statusCounts = $this->ingestionLogs->statusCounts();
         $totalRows    = $this->ingestionLogs->count($status, $search);
         $rows         = $this->ingestionLogs->fetch($pageNum, $perPage, $status, $search);
+        $lastRunRows  = $this->ingestionLogs->fetch(1, 1, null, '');
+        $lastRun      = isset($lastRunRows[0]['created_at']) ? (string) $lastRunRows[0]['created_at'] : '';
+
+        if ($lastRun !== '') {
+            echo '<p class="description" style="margin-bottom:12px;">' . esc_html__('Last log entry:', 'helmetsan-core') . ' <strong>' . esc_html($lastRun) . '</strong>. ' . esc_html__('Status counts:', 'helmetsan-core') . ' ';
+            $parts = [];
+            foreach (['created', 'updated', 'failed', 'rejected'] as $k) {
+                if (isset($statusCounts[$k]) && $statusCounts[$k] > 0) {
+                    $parts[] = $k . ': ' . (string) $statusCounts[$k];
+                }
+            }
+            echo esc_html(implode(', ', $parts ?: ['none']));
+            echo '.</p>';
+        }
 
         $retried  = isset($_GET['hs_retry']) ? (int) $_GET['hs_retry'] : 0;
         $accepted = isset($_GET['hs_accepted']) ? (int) $_GET['hs_accepted'] : 0;
@@ -2306,6 +2461,17 @@ final class Admin
             echo '<div class="notice notice-success is-dismissible"><p>' . esc_html($syncMsg) . '</p></div>';
         }
 
+        echo '<div class="hs-panel" style="margin-bottom:1.25rem;">';
+        echo '<h3 style="margin-top:0;">Pull vs Push</h3>';
+        echo '<p class="description" style="margin:0;"><strong>' . esc_html__('Pull', 'helmetsan-core') . ':</strong> ' . esc_html__('Download JSON from GitHub to local data root; optionally apply (ingest) brands/helmets after download. Does not overwrite GitHub.', 'helmetsan-core') . '</p>';
+        echo '<p class="description" style="margin:0.5rem 0 0;"><strong>' . esc_html__('Push', 'helmetsan-core') . ':</strong> ' . esc_html__('Upload local JSON to GitHub (export from Import/Export first if you changed data in WordPress). Uses current branch and sync profile from Settings → GitHub.', 'helmetsan-core') . '</p>';
+        $lastSyncRows = $this->syncLogs->tableExists() ? $this->syncLogs->fetch(1, 1, null, null, '') : [];
+        $lastSync = isset($lastSyncRows[0]) ? $lastSyncRows[0] : null;
+        if ($lastSync !== null && isset($lastSync['created_at'], $lastSync['action'], $lastSync['status'])) {
+            echo '<p class="description" style="margin-top:0.75rem;margin-bottom:0;"><strong>' . esc_html__('Last sync', 'helmetsan-core') . ':</strong> ' . esc_html((string) $lastSync['created_at']) . ' — ' . esc_html((string) $lastSync['action']) . ' (' . esc_html((string) $lastSync['status']) . ')</p>';
+        }
+        echo '</div>';
+
         $this->renderSyncPullControls();
 
         if (! $this->syncLogs->tableExists()) {
@@ -2390,8 +2556,12 @@ final class Admin
         $downloaded = isset($result['downloaded']) ? (int) $result['downloaded'] : 0;
         $failed = isset($result['failed']) ? (int) $result['failed'] : 0;
         $usedProfile = isset($result['profile']) ? (string) $result['profile'] : ($profile ?? 'saved');
+        $dupWarn = isset($result['repository_duplicates_warning']) ? (int) $result['repository_duplicates_warning'] : 0;
 
         $msg = 'Pull complete. profile=' . $usedProfile . ', downloaded=' . (string) $downloaded . ', failed=' . (string) $failed;
+        if ($dupWarn > 0) {
+            $msg .= '. Warning: ' . (string) $dupWarn . ' duplicate key(s) in repository — check Data / Duplicates.';
+        }
 
         wp_safe_redirect(add_query_arg([
             'page' => 'helmetsan-sync-logs',
@@ -2788,9 +2958,94 @@ final class Admin
 
     public function repoHealthPage(): void
     {
+        $report = $this->health->report();
+        $status = (string) ($report['status'] ?? 'unknown');
+        $engines = $this->engineSnapshot();
+
         echo '<div class="wrap helmetsan-wrap">';
-        $this->renderAppHeader('Repo Health', 'Repository, logs, scheduler, and integration health.');
-        echo '<div class="hs-panel"><pre>' . esc_html(wp_json_encode($this->health->report(), JSON_PRETTY_PRINT)) . '</pre></div></div>';
+        $this->renderAppHeader('Health', 'Repository, logs, scheduler, and integration health.');
+        echo '<div class="hs-panel" style="margin-bottom:1.25rem;">';
+        echo '<h2 style="margin-top:0;">Overview</h2>';
+        echo '<p><strong>' . esc_html__('Status', 'helmetsan-core') . ':</strong> ' . wp_kses_post($this->renderStatusPill(strtoupper($status), $status === 'healthy')) . '</p>';
+        $db = $report['database'] ?? [];
+        echo '<p><strong>' . esc_html__('Database', 'helmetsan-core') . ':</strong> ' . esc_html((string) ($db['cpt_helmet_rows'] ?? 0)) . ' helmets, ' . esc_html((string) ($db['cpt_brand_rows'] ?? 0)) . ' brands, ' . esc_html((string) ($db['cpt_accessory_rows'] ?? 0)) . ' accessories.</p>';
+        $repo = $report['repository'] ?? [];
+        echo '<p><strong>' . esc_html__('Repository', 'helmetsan-core') . ':</strong> ' . (isset($repo['root_exists']) && $repo['root_exists'] ? '✓' : '✗') . ' root, ' . esc_html((string) ($repo['json_files'] ?? 0)) . ' JSON files.</p>';
+        $gh = $report['github_sync'] ?? [];
+        echo '<p><strong>' . esc_html__('GitHub Sync', 'helmetsan-core') . ':</strong> ' . (! empty($gh['enabled']) ? 'enabled' : 'disabled') . ', ' . (! empty($gh['configured']) ? 'configured' : 'not configured') . ', profile: ' . esc_html((string) ($gh['sync_run_profile'] ?? '—')) . '.</p>';
+        $ing = $report['ingestion_logs'] ?? [];
+        echo '<p><strong>' . esc_html__('Ingestion logs', 'helmetsan-core') . ':</strong> ' . (! empty($ing['table_exists']) ? (string) ($ing['rows'] ?? 0) . ' rows, ' . (string) ($ing['failed_rows'] ?? 0) . ' failed' : 'table missing') . '.</p>';
+        $sync = $report['sync_logs'] ?? [];
+        echo '<p><strong>' . esc_html__('Sync logs', 'helmetsan-core') . ':</strong> ' . (! empty($sync['table_exists']) ? (string) ($sync['rows'] ?? 0) . ' rows, ' . (string) ($sync['error_rows'] ?? 0) . ' errors' : 'table missing') . '.</p>';
+        $sch = $report['scheduler'] ?? [];
+        echo '<p><strong>' . esc_html__('Scheduler', 'helmetsan-core') . ':</strong> ' . (! empty($sch['enabled']) ? 'enabled' : 'disabled') . '.</p>';
+        $api = $report['api'] ?? [];
+        $ai = $api['ai'] ?? [];
+        $mkt = $api['marketplace'] ?? [];
+        echo '<p><strong>' . esc_html__('API', 'helmetsan-core') . ':</strong> AI ' . (! empty($ai['configured']) ? 'configured' : 'not configured') . ', marketplaces: ' . (is_array($mkt) ? (string) count(array_filter($mkt)) : '0') . ' connected.</p>';
+        echo '<p><strong>' . esc_html__('Pricing / Offers', 'helmetsan-core') . ':</strong> ' . esc_html((string) ($engines['pricing'] ?? 0)) . ' pricing models, ' . esc_html((string) ($engines['offers'] ?? 0)) . ' offers.</p>';
+        $int = $report['integrity'] ?? [];
+        if (! empty($int['errors']) && is_array($int['errors'])) {
+            echo '<p><strong>' . esc_html__('Integrity errors', 'helmetsan-core') . ':</strong> <span style="color:#b32d2e;">' . esc_html(implode('; ', $int['errors'])) . '</span></p>';
+        }
+        $dup = $report['repository_duplicates'] ?? [];
+        $dupCount = (int) ($dup['count'] ?? 0);
+        echo '<p><strong>' . esc_html__('Repository duplicates', 'helmetsan-core') . ':</strong> ' . esc_html((string) $dupCount) . ' duplicate key(s) in JSON (id / EAN). <a href="' . esc_url(admin_url('admin.php?page=helmetsan-data-duplicates')) . '">' . esc_html__('Check & fix', 'helmetsan-core') . '</a></p>';
+        echo '</div>';
+        echo '<div class="hs-panel">';
+        echo '<h2>Raw report (JSON)</h2>';
+        echo '<details><summary>' . esc_html__('Expand', 'helmetsan-core') . '</summary><pre style="white-space:pre-wrap;word-break:break-all;">' . esc_html(wp_json_encode($report, JSON_PRETTY_PRINT)) . '</pre></details>';
+        echo '</div></div>';
+    }
+
+    public function dataDuplicatesPage(): void
+    {
+        if (isset($_GET['recheck']) && $_GET['recheck'] === '1') {
+            delete_transient('helmetsan_dup_check');
+            wp_safe_redirect(remove_query_arg('recheck', wp_unslash($_SERVER['REQUEST_URI'] ?? '')));
+            exit;
+        }
+
+        $result = $this->health->getCachedDuplicateCheck();
+        $duplicates = $result['duplicates'] ?? [];
+        $count = (int) ($result['count'] ?? 0);
+        $totalChecked = $result['total_checked'] ?? [];
+
+        echo '<div class="wrap helmetsan-wrap">';
+        $this->renderAppHeader('Data / Duplicates', 'Scan repository JSON for duplicate ids and EANs. Fix options keep first occurrence or rename duplicates for manual cleanup.');
+        echo '<div class="hs-panel" style="margin-bottom:1rem;">';
+        echo '<p><strong>' . esc_html__('Repository duplicates', 'helmetsan-core') . ':</strong> ' . esc_html((string) $count) . ' duplicate key(s). ';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-data-duplicates&recheck=1')) . '" class="button button-secondary">' . esc_html__('Re-check', 'helmetsan-core') . '</a></p>';
+        if ($totalChecked !== []) {
+            echo '<p class="description">Keys checked: ' . esc_html(wp_json_encode($totalChecked)) . ' (cached 5 min)</p>';
+        }
+        echo '</div>';
+
+        if ($count > 0) {
+            echo '<div class="hs-panel">';
+            echo '<h2>' . esc_html__('Duplicate keys', 'helmetsan-core') . '</h2>';
+            echo '<table class="widefat striped"><thead><tr><th>Type</th><th>Key type</th><th>Key</th><th>Count</th><th>Locations</th></tr></thead><tbody>';
+            foreach ($duplicates as $d) {
+                $locations = $d['locations'] ?? [];
+                $locStr = implode('; ', array_slice($locations, 0, 5));
+                if (count($locations) > 5) {
+                    $locStr .= ' (+' . (count($locations) - 5) . ' more)';
+                }
+                echo '<tr>';
+                echo '<td>' . esc_html((string) ($d['type'] ?? '')) . '</td>';
+                echo '<td>' . esc_html((string) ($d['key_type'] ?? '')) . '</td>';
+                echo '<td><code>' . esc_html((string) ($d['key'] ?? '')) . '</code></td>';
+                echo '<td>' . esc_html((string) ($d['count'] ?? 0)) . '</td>';
+                echo '<td style="max-width:400px;">' . esc_html($locStr) . '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+            echo '<p class="description" style="margin-top:12px;">' . esc_html__('Fix: run CLI', 'helmetsan-core') . ' <code>wp helmetsan data fix-duplicates --dry-run</code> ' . esc_html__('then apply a strategy (rename-suffix or export-deduped). Or edit JSON manually to remove or merge duplicates.', 'helmetsan-core') . '</p>';
+            echo '</div>';
+        } else {
+            echo '<div class="hs-panel"><p>' . esc_html__('No duplicates found. Repository JSON has unique ids (and EANs for helmets) per entity.', 'helmetsan-core') . '</p></div>';
+        }
+        echo '</div>';
     }
 
     public function analyticsPage(): void
@@ -2891,7 +3146,11 @@ final class Admin
             echo '<div class="notice ' . esc_attr($class) . ' is-dismissible"><p>' . esc_html($message) . '</p></div>';
         }
 
-        echo '<h2>Import JSON</h2>';
+        echo '<p class="description" style="margin-bottom:1.25rem;">' . esc_html__('After import, check Catalog or Brands to verify data. After export, use Sync (Sync Logs → Push or CLI) to upload JSON to GitHub.', 'helmetsan-core') . '</p>';
+
+        echo '<div class="hs-panel" style="margin-bottom:1.5rem;">';
+        echo '<h2 style="margin-top:0;">Import JSON</h2>';
+        echo '<p class="description">' . esc_html__('Upload a JSON file or provide a path. Ingestion will create/update posts. Use dry run to validate without writing.', 'helmetsan-core') . '</p>';
         echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" enctype="multipart/form-data">';
         wp_nonce_field('helmetsan_import_action', 'helmetsan_import_nonce');
         echo '<input type="hidden" name="action" value="helmetsan_import" />';
@@ -2903,9 +3162,11 @@ final class Admin
         echo '</tbody></table>';
         submit_button('Run Import');
         echo '</form>';
+        echo '</div>';
 
-        echo '<hr />';
-        echo '<h2>Export JSON</h2>';
+        echo '<div class="hs-panel">';
+        echo '<h2 style="margin-top:0;">Export JSON</h2>';
+        echo '<p class="description">' . esc_html__('Export a single helmet or brand by post ID to JSON. Output can be saved to data root or a custom path for Sync Push.', 'helmetsan-core') . '</p>';
         echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
         wp_nonce_field('helmetsan_export_action', 'helmetsan_export_nonce');
         echo '<input type="hidden" name="action" value="helmetsan_export" />';
@@ -2916,7 +3177,7 @@ final class Admin
         echo '</tbody></table>';
         submit_button('Run Export');
         echo '</form>';
-
+        echo '</div>';
         echo '</div>';
     }
 
@@ -3411,11 +3672,11 @@ final class Admin
                 ['key' => 'amazon_affiliate_tag', 'option' => $O_M, 'label' => 'Affiliate Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'mk_'],
             ], $marketplace);
             // Amazon countries (array → comma-separated text)
-            $amzCountries = isset($marketplace['amazon_countries']) && is_array($marketplace['amazon_countries']) ? implode(', ', $marketplace['amazon_countries']) : 'US, UK, DE, IN';
+            $amzCountries = isset($marketplace['amazon_countries']) && is_array($marketplace['amazon_countries']) ? implode(', ', $marketplace['amazon_countries']) : 'US, CA, FR, DE, IT, NL, PL, ES, SE, UK, IN';
             echo '<table class="form-table"><tbody>';
             echo '<tr><th><label for="mk_amazon_countries">Amazon Countries</label></th><td>';
             echo '<input type="text" class="regular-text" id="mk_amazon_countries" name="' . esc_attr($O_M) . '[amazon_countries]" value="' . esc_attr($amzCountries) . '" />';
-            echo '<p class="description">Comma-separated 2-letter codes (e.g. US, UK, DE, IN).</p></td></tr>';
+            echo '<p class="description">Comma-separated 2-letter codes. Default: US, CA, FR, DE, IT, NL, PL, ES, SE, UK, IN.</p></td></tr>';
             echo '</tbody></table>';
 
             $this->renderSettingsSection('Allegro', 'Central European marketplace connector.', [
@@ -3555,14 +3816,23 @@ final class Admin
                 ['key' => 'enrichment_accessories_enabled', 'option' => $O_S, 'label' => 'Accessories: enable', 'desc' => 'Run fill-missing + SEO seed for accessories.', 'type' => 'checkbox', 'prefix' => 'sch_'],
                 ['key' => 'enrichment_accessories_fill_limit', 'option' => $O_S, 'label' => 'Accessories: fill-missing limit', 'desc' => 'Max accessories to fill per run.', 'type' => 'number', 'prefix' => 'sch_'],
                 ['key' => 'enrichment_accessories_seo_limit', 'option' => $O_S, 'label' => 'Accessories: SEO seed limit', 'desc' => 'Max accessories to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_seo_terms_enabled', 'option' => $O_S, 'label' => 'SEO: taxonomy terms', 'desc' => 'Also seed Yoast SEO for term archives (helmet_type, region, certification, etc.).', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_seo_other_cpts_enabled', 'option' => $O_S, 'label' => 'SEO: other CPTs', 'desc' => 'Also seed Yoast SEO for safety_standard, dealer, distributor, technology, motorcycle, comparison, recommendation.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'enrichment_seo_other_cpts_limit', 'option' => $O_S, 'label' => 'SEO: other CPTs limit', 'desc' => 'Max posts per other CPT to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
             ], $scheduler);
 
             $status = $this->scheduler->status();
+            $taskResult = get_transient('helmetsan_scheduler_task_result');
+            if (isset($_GET['task_run']) && is_array($taskResult) && isset($taskResult['task']) && $taskResult['task'] === $_GET['task_run']) {
+                delete_transient('helmetsan_scheduler_task_result');
+                $trOk = ! empty($taskResult['ok']);
+                $trMsg = (string) ($taskResult['message'] ?? '');
+                $class = $trOk ? 'notice-success' : 'notice-warning';
+                echo '<div class="notice ' . esc_attr($class) . ' is-dismissible" style="margin-left:0;margin-top:10px;"><p><strong>' . esc_html__('Last run', 'helmetsan-core') . ' (' . esc_html(sanitize_text_field((string) $_GET['task_run'])) . '):</strong> ' . esc_html($trMsg) . '</p></div>';
+            }
 
             echo '<h2>Scheduler Control Center</h2>';
-            if (isset($_GET['task_run'])) {
-                echo '<div class="notice notice-success is-dismissible" style="margin-left:0;margin-top:10px;"><p>Task <strong>' . esc_html(sanitize_text_field((string)$_GET['task_run'])) . '</strong> executed manually via Control Center.</p></div>';
-            }
+            echo '<p class="description">' . esc_html__('Next run times are below. Use "Run now" to execute a task immediately; result will appear above.', 'helmetsan-core') . '</p>';
 
             echo '<table class="widefat striped" style="margin-bottom: 20px;">';
             echo '<thead><tr><th>Task</th><th>Hook</th><th>Next Run</th><th>Actions</th></tr></thead>';
@@ -3641,6 +3911,15 @@ final class Admin
                 ['key' => 'logodev_publishable_key', 'option' => $O_ME, 'label' => 'Logo.dev Publishable Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
                 ['key' => 'logodev_secret_key', 'option' => $O_ME, 'label' => 'Logo.dev Secret Key', 'desc' => '', 'type' => 'password', 'prefix' => 'med_'],
                 ['key' => 'logodev_token', 'option' => $O_ME, 'label' => 'Logo.dev Legacy Token', 'desc' => 'Backward-compatible single token. Use publishable/secret keys instead.', 'type' => 'password', 'prefix' => 'med_'],
+            ], $media);
+
+            $this->renderSettingsSection('Cloudflare R2 Storage', 'Scaleable and low-cost image storage. Overrides local media library sideloading when enabled.', [
+                ['key' => 'r2_enabled', 'option' => $O_ME, 'label' => 'Enable R2 Storage', 'desc' => 'Upload image assets directly to R2.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'r2_account_id', 'option' => $O_ME, 'label' => 'Account ID', 'desc' => 'Cloudflare Account ID.', 'type' => 'text', 'prefix' => 'med_'],
+                ['key' => 'r2_access_key', 'option' => $O_ME, 'label' => 'Access Key', 'desc' => 'R2 S3 API Access Key.', 'type' => 'text', 'prefix' => 'med_'],
+                ['key' => 'r2_secret_key', 'option' => $O_ME, 'label' => 'Secret Key', 'desc' => 'R2 S3 API Secret Key.', 'type' => 'password', 'prefix' => 'med_'],
+                ['key' => 'r2_bucket', 'option' => $O_ME, 'label' => 'R2 Bucket Name', 'desc' => 'Name of the R2 bucket.', 'type' => 'text', 'prefix' => 'med_'],
+                ['key' => 'r2_public_url', 'option' => $O_ME, 'label' => 'Public Domain URL', 'desc' => 'Custom domain or R2.dev URL (e.g. https://cdn.example.com).', 'type' => 'url', 'prefix' => 'med_'],
             ], $media);
 
             $this->renderSettingsSection('Product image by EAN / GTIN', 'Look up product or brand images by barcode in Media Engine. Env: HELMETSAN_EAN_DB_TOKEN, HELMETSAN_EANDATA_KEYCODE.', [

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "mcas-australia",
+  "name": "MCAS (Motorcycle Accessories Supermarket)",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Multiple locations NSW, VIC, QLD",
+  "city": "Silverwater",
+  "website": "https://www.mcas.com.au",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "australia-wide-shipping", "trade-accounts"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan"],
+  "marketplaces": ["mcas-au"],
+  "geo": {"lat": -33.8346, "lng": 151.0486}
+}

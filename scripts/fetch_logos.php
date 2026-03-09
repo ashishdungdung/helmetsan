@@ -1,7 +1,8 @@
 <?php
 /**
  * Local Logo Fetcher
- * Downloads logos from Clearbit to local directory.
+ * Downloads logos from Clearbit to local directory (helmetsan-core/data/logos).
+ * Run from repo root: php scripts/fetch_logos.php
  */
 
 $brand_domains = [
@@ -58,6 +59,12 @@ $brand_domains = [
 ];
 
 $save_dir = __DIR__ . '/../helmetsan-core/data/logos';
+if (! is_dir($save_dir)) {
+    if (! @mkdir($save_dir, 0755, true)) {
+        fwrite(STDERR, "Could not create directory: $save_dir\n");
+        exit(1);
+    }
+}
 
 echo "🚀 Fetching Logos Locally...\n";
 

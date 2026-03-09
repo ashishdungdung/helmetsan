@@ -117,6 +117,15 @@ final class Registrar
                 'supports'     => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'],
                 'has_archive'  => true,
             ],
+            'asset' => [
+                'label'        => 'Assets',
+                'singular'     => 'Asset',
+                'slug'         => 'assets',
+                'icon'         => 'dashicons-format-gallery',
+                'menu_pos'     => 15,
+                'supports'     => ['title', 'editor', 'thumbnail', 'revisions', 'custom-fields'],
+                'has_archive'  => false,
+            ],
         ];
 
         foreach ($types as $slug => $config) {

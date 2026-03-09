@@ -7,8 +7,11 @@ namespace Helmetsan\Core\Core;
 use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Admin\Admin;
 use Helmetsan\Core\Admin\AiAdmin;
+use Helmetsan\Core\Admin\HelmetImagesAdmin;
+use Helmetsan\Core\AI\AccessoryGeneratorService;
 use Helmetsan\Core\AI\AiService;
 use Helmetsan\Core\AI\ProviderRegistry;
+use Helmetsan\Core\AI\SeedGeneratorService;
 use Helmetsan\Core\Alerts\AlertService;
 use Helmetsan\Core\Analytics\EventRepository;
 use Helmetsan\Core\Analytics\EventService;
@@ -30,8 +33,16 @@ use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\ImportExport\ExportService;
 use Helmetsan\Core\ImportExport\ImportService;
+use Helmetsan\Core\Media\HelmetImageEnrichmentService;
 use Helmetsan\Core\Media\MediaEngine;
 use Helmetsan\Core\Media\MediaService;
+use Helmetsan\Core\Media\AssetManager;
+use Helmetsan\Core\Ingestion\ScraperService;
+use Helmetsan\Core\AI\ImageAnalysisService;
+use Helmetsan\Core\Media\CloudflareR2Service;
+use Helmetsan\Core\Ingestion\AssetIngestionService;
+use Helmetsan\Core\Admin\AssetManagerAdmin;
+use Helmetsan\Core\Media\RevZillaImageService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Revenue\RevenueService;
@@ -125,7 +136,18 @@ final class Plugin
     private AdSense $adSense;
     private ProviderRegistry $providerRegistry;
     private AiService $aiService;
+    private SeedGeneratorService $seedGenerator;
+    private AccessoryGeneratorService $accessoryGenerator;
     private AiAdmin $aiAdmin;
+    private RevZillaImageService $revZillaImageService;
+    private HelmetImageEnrichmentService $helmetImageEnrichment;
+    private HelmetImagesAdmin $helmetImagesAdmin;
+    private AssetManager $assetManager;
+    private ScraperService $scraperService;
+    private ImageAnalysisService $imageAnalysisService;
+    private CloudflareR2Service $cloudflareR2Service;
+    private AssetIngestionService $assetIngestionService;
+    private AssetManagerAdmin $assetManagerAdmin;
 
     public function __construct()
     {
@@ -134,12 +156,9 @@ final class Plugin
         $this->databaseManager = new DatabaseManager();
         $this->repository = new JsonRepository($this->config);
         $this->validator  = new Validator();
-        $this->health     = new HealthService($this->validator, $this->repository);
         $this->seeder     = new Seeder($this->logger);
         $this->ingestionLogs = new LogRepository();
         $this->accessories = new AccessoryService();
-        $this->ingestion  = new IngestionService($this->validator, $this->repository, $this->logger, $this->ingestionLogs, $this->accessories);
-        $this->syncLogs   = new SyncLogRepository();
         $this->brands     = new BrandService();
         $this->motorcycles = new MotorcycleService();
         $this->safetyStandards = new SafetyStandardService();
@@ -147,6 +166,21 @@ final class Plugin
         $this->distributors = new DistributorService();
         $this->comparisons = new ComparisonService();
         $this->recommendations = new RecommendationService();
+        $this->ingestion  = new IngestionService(
+            $this->validator,
+            $this->repository,
+            $this->logger,
+            $this->ingestionLogs,
+            $this->accessories,
+            $this->brands,
+            $this->motorcycles,
+            $this->safetyStandards,
+            $this->dealers,
+            $this->distributors,
+            $this->comparisons,
+            $this->recommendations
+        );
+        $this->syncLogs   = new SyncLogRepository();
         $this->commerce = new CommerceService();
         $this->mediaEngine = new MediaEngine($this->config);
         $this->mediaService = new MediaService();
@@ -215,6 +249,9 @@ final class Plugin
         $this->alerts     = new AlertService($this->config);
         $this->providerRegistry = new ProviderRegistry($this->config);
         $this->aiService = new AiService($this->providerRegistry);
+        $this->seedGenerator = new SeedGeneratorService($this->aiService);
+        $this->accessoryGenerator = new AccessoryGeneratorService($this->aiService, $this->validator);
+        $this->health = new HealthService($this->validator, $this->repository, $this->aiService, $this->marketplace);
         $this->scheduler = new SchedulerService(
             $this->config,
             $this->sync,
@@ -232,7 +269,28 @@ final class Plugin
         $this->defaultImages = new DefaultImages($this->config);
         $this->adsTxt = new AdsTxt();
         $this->adSense = new AdSense($this->config);
-        $this->aiAdmin = new AiAdmin($this->config, $this->aiService);
+        $this->aiAdmin = new AiAdmin($this->config, $this->aiService, $this->accessoryGenerator, $this->repository);
+        $this->revZillaImageService = new RevZillaImageService();
+        $this->helmetImageEnrichment = new HelmetImageEnrichmentService(
+            $this->mediaEngine,
+            $this->aiService,
+            $this->revZillaImageService
+        );
+        $this->helmetImagesAdmin = new HelmetImagesAdmin($this->helmetImageEnrichment, $this->aiService);
+
+        // Asset Manager / Scraper Services
+        $this->assetManager = new AssetManager();
+        $this->scraperService = new ScraperService();
+        $this->imageAnalysisService = new ImageAnalysisService($this->providerRegistry);
+        $this->cloudflareR2Service = new CloudflareR2Service($this->config);
+        $this->assetIngestionService = new AssetIngestionService(
+            $this->scraperService,
+            $this->imageAnalysisService,
+            $this->assetManager,
+            $this->mediaEngine,
+            $this->cloudflareR2Service
+        );
+        $this->assetManagerAdmin = new AssetManagerAdmin($this->assetIngestionService);
     }
 
     public function boot(): void
@@ -253,7 +311,10 @@ final class Plugin
         $this->search->register();
         $this->helmets->register();
 
+        $this->assetManagerAdmin->register();
+
         $this->aiAdmin->register();
+        $this->helmetImagesAdmin->register();
         (new Admin(
             $this->health,
             $this->smoke,
@@ -271,7 +332,8 @@ final class Plugin
             $this->scheduler,
             $this->alerts,
             $this->brands,
-            $this->wooBridge
+            $this->wooBridge,
+            $this->aiAdmin
         ))->register();
         $this->databaseManager->register();
         $this->helmetDataBlock->register();
@@ -316,9 +378,18 @@ final class Plugin
                 $this->wooBridge,
                 $this->price,
                 $this->priceHistory,
-                $this->aiService
+                $this->aiService,
+                $this->repository,
+                $this->seedGenerator,
+                $this->accessoryGenerator
             ))->register();
         }
+    }
+
+    /** For theme/archive use: faceted helmet search (parse params, build query). */
+    public function getSearchService(): SearchService
+    {
+        return $this->search;
     }
 
     /**
@@ -480,7 +551,7 @@ final class Plugin
                 'client_secret'     => $mktCfg['amazon_client_secret'] ?? '',
                 'refresh_token'     => $mktCfg['amazon_refresh_token'] ?? '',
                 'affiliate_tag'     => $mktCfg['amazon_affiliate_tag'] ?? 'helmetsan-20',
-                'enabled_countries' => $mktCfg['amazon_countries'] ?? ['US', 'UK', 'DE', 'IN'],
+                'enabled_countries' => $mktCfg['amazon_countries'] ?? ['US', 'CA', 'FR', 'DE', 'IT', 'NL', 'PL', 'ES', 'SE', 'UK', 'IN'],
             ]));
         }
 
@@ -518,8 +589,8 @@ final class Plugin
                     continue;
                 }
                 $registry->register(new AffiliateFeedConnector(
-                    feedId:    (string) $feedId,
-                    feedName:  (string) ($feed['name'] ?? $feedId),
+                    feedId: (string) $feedId,
+                    feedName: (string) ($feed['name'] ?? $feedId),
                     countries: isset($feed['countries']) && is_array($feed['countries']) ? $feed['countries'] : ['US'],
                     feedConfig: $feed,
                 ));

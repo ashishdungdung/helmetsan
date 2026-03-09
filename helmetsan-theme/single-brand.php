@@ -149,11 +149,19 @@ if (have_posts()) {
             <!-- 3. Story & Ethos -->
             <div class="brand-hub__layout">
                 <div class="brand-hub__main hs-panel">
-                    <h2>About <?php the_title(); ?></h2>
+                    <h2 id="about-brand">About <?php the_title(); ?></h2>
                     <div class="brand-hub__story-content">
                         <?php the_content(); ?>
-                        <?php if (empty(get_the_content()) && !$ethos) : ?>
-                            <p class="hs-text-muted"><em>Brand story coming soon.</em></p>
+                        <?php
+                        $brandContent = get_the_content();
+                        if (trim(strip_tags($brandContent)) === '' && $ethos === '') :
+                            $helmetsLink = add_query_arg('brand_slug', $brandSlug, get_post_type_archive_link('helmet'));
+                            if (! $helmetsLink) {
+                                $helmetsLink = home_url('/helmets/?brand_slug=' . $brandSlug);
+                            }
+                        ?>
+                            <p><?php the_title(); ?> is a helmet manufacturer<?php echo $origin ? ' based in ' . esc_html($origin) : ''; ?><?php echo $founded ? ' (est. ' . esc_html($founded) . ')' : ''; ?>. Browse their helmets below to compare specs, certifications, and prices, or use the <a href="<?php echo esc_url(home_url('/comparison/')); ?>">comparison tool</a> to see models side by side.</p>
+                            <p><a href="<?php echo esc_url($helmetsLink); ?>" class="hs-btn hs-btn--primary">Browse <?php the_title(); ?> helmets</a></p>
                         <?php endif; ?>
                     </div>
                     
@@ -175,6 +183,15 @@ if (have_posts()) {
                         <?php endif; ?>
                     </ul>
 
+                    <?php
+                    $helmetsArchiveWithBrand = add_query_arg('brand_slug', $brandSlug, get_post_type_archive_link('helmet'));
+                    if (! $helmetsArchiveWithBrand) {
+                        $helmetsArchiveWithBrand = home_url('/helmets/?brand_slug=' . $brandSlug);
+                    }
+                    ?>
+                    <div class="brand-hub__cta">
+                        <a href="<?php echo esc_url($helmetsArchiveWithBrand); ?>" class="hs-btn hs-btn--primary">Browse <?php the_title(); ?> helmets</a>
+                    </div>
                     <?php if ($supportUrl) : ?>
                         <div class="brand-hub__cta">
                             <a href="<?php echo esc_url($supportUrl); ?>" class="hs-btn hs-btn--ghost" target="_blank" rel="noopener">

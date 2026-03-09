@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "fc-moto-germany",
+  "name": "FC-Moto",
+  "type": "retail",
+  "country_code": "DE",
+  "region_code": "eu",
+  "address": "Am Sandberg 1, 98529 Suhl",
+  "city": "Suhl",
+  "website": "https://www.fc-moto.de",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-support"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg"],
+  "marketplaces": ["fc-moto-de", "amazon-de"],
+  "geo": {"lat": 50.6097, "lng": 10.6930}
+}

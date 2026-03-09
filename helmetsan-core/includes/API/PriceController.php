@@ -71,9 +71,12 @@ final class PriceController
         $postId  = (int) $request['id'];
         $country = $request->get_param('country');
 
+        if ($postId <= 0) {
+            return new WP_REST_Response(['error' => true, 'message' => 'Invalid helmet ID'], 400);
+        }
         $post = get_post($postId);
-        if (!$post || $post->post_type !== 'helmet') {
-            return new WP_REST_Response(['message' => 'Helmet not found'], 404);
+        if (! $post || $post->post_type !== 'helmet') {
+            return new WP_REST_Response(['error' => true, 'message' => 'Helmet not found'], 404);
         }
 
         $best   = $this->priceService->getBestPrice($postId, $country);
@@ -100,9 +103,12 @@ final class PriceController
         $marketplace = $request->get_param('marketplace');
         $country     = $request->get_param('country');
 
+        if ($postId <= 0) {
+            return new WP_REST_Response(['error' => true, 'message' => 'Invalid helmet ID'], 400);
+        }
         $post = get_post($postId);
-        if (!$post || $post->post_type !== 'helmet') {
-            return new WP_REST_Response(['message' => 'Helmet not found'], 404);
+        if (! $post || $post->post_type !== 'helmet') {
+            return new WP_REST_Response(['error' => true, 'message' => 'Helmet not found'], 404);
         }
 
         $history = $this->priceHistory->getHistory(

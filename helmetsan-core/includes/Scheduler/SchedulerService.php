@@ -401,7 +401,28 @@ final class SchedulerService
                 ];
             }
 
-            if (! $anyEnabled) {
+            // Optionally seed SEO for taxonomy term archives (helmet_type, region, certification, etc.).
+            if (! empty($cfg['enrichment_seo_terms_enabled'])) {
+                $termResults = [];
+                foreach (YoastSeoSeeder::getTaxonomiesForTermSeo() as $tax) {
+                    $res = $seeder->seedTermsForTaxonomy($tax, 0, 0, false);
+                    $termResults[$tax] = $res;
+                }
+                $results['terms'] = ['seo_seed' => $termResults];
+            }
+
+            // Optionally seed SEO for other CPTs (safety_standard, dealer, distributor, technology, etc.).
+            if (! empty($cfg['enrichment_seo_other_cpts_enabled'])) {
+                $otherLimit = max(0, (int) ($cfg['enrichment_seo_other_cpts_limit'] ?? 100));
+                $otherResults = [];
+                foreach (YoastSeoSeeder::getOtherCptTypesForSeo() as $cpt) {
+                    $res = $seeder->seedCpt($cpt, $otherLimit, 0, false);
+                    $otherResults[$cpt] = $res;
+                }
+                $results['other_cpts'] = ['seo_seed' => $otherResults];
+            }
+
+            if (! $anyEnabled && empty($results['terms']) && empty($results['other_cpts'])) {
                 return ['ok' => false, 'message' => 'No enrichment post types are enabled in scheduler settings.'];
             }
 

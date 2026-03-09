@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "hjc-americas",
+  "name": "HJC America",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["HJC"],
+  "warehouses": [
+    {"id": "us-california", "city": "Irvine", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.hjchelmets.com"},
+    {"type": "dealer", "url": "https://www.hjchelmets.com/dealers"}
+  ],
+  "website": "https://www.hjchelmets.com"
+}

@@ -1,10 +1,10 @@
 .hs-hero {
     position: relative;
-    border-radius: 24px;
+    border-radius: var(--hs-radius-lg);
     overflow: hidden;
-    background: linear-gradient(145deg, #0a84ff 0%, #6a5cff 45%, #ff5f9e 100%);
+    background: var(--hs-hero-gradient, linear-gradient(145deg, #0c4a6e 0%, #0e7490 50%, #0d9488 100%));
     color: #fff;
-    padding: 2.4rem 1.4rem;
+    padding: clamp(2rem, 4vw, 3rem) clamp(1.25rem, 3vw, 2rem);
 }
 
 .hs-hero__gradient {
@@ -33,10 +33,174 @@
 }
 
 .hs-hero__actions {
-    margin-top: .8rem;
+    margin-top: 1rem;
     display: flex;
-    gap: .6rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
+}
+
+/* ── Today's featured helmet (homepage hero CTA) ── */
+.hs-featured-helmet {
+    margin: 2rem 0;
+    max-width: var(--hs-content-max);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hs-featured-helmet__inner {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.45fr) 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--hs-panel-strong);
+    border: 1px solid var(--hs-border);
+    border-radius: var(--hs-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--hs-shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .hs-featured-helmet__inner {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+.hs-featured-helmet__media {
+    position: relative;
+    border-radius: var(--hs-radius);
+    overflow: hidden;
+    background: var(--hs-bg);
+}
+
+.hs-featured-helmet__link {
+    display: block;
+    text-decoration: none;
+}
+
+.hs-featured-helmet__link--placeholder {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hs-featured-helmet__img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: contain;
+    display: block;
+}
+
+.hs-featured-helmet__placeholder {
+    display: block;
+    width: 100%;
+    min-height: 220px;
+    background: var(--hs-hero-gradient-subtle, rgba(12, 74, 110, 0.06));
+}
+
+.hs-featured-helmet__content {
+    padding: 0.25rem 0;
+}
+
+.hs-featured-helmet__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hs-accent);
+}
+
+.hs-featured-helmet__title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+.hs-featured-helmet__title-link {
+    color: var(--hs-text);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.hs-featured-helmet__title-link:hover {
+    color: var(--hs-accent);
+}
+
+.hs-featured-helmet__brand {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: var(--hs-muted);
+}
+
+.hs-featured-helmet__tagline {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--hs-text-soft);
+    max-width: 42ch;
+}
+
+.hs-featured-helmet__specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.hs-featured-helmet__price {
+    font-weight: 600;
+    color: var(--hs-text);
+}
+
+.hs-featured-helmet__certs {
+    color: var(--hs-muted);
+}
+
+.hs-featured-helmet__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.hs-featured-helmet__cta {
+    min-width: 140px;
+}
+
+/* ── Editorial (buying guide, etc.) ── */
+.hs-editorial__header {
+    margin-bottom: 1.5rem;
+}
+
+.hs-editorial__header h1 {
+    margin: 0 0 0.5rem;
+}
+
+.hs-editorial__excerpt {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--hs-muted);
+    max-width: 65ch;
+}
+
+.hs-editorial__body {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.hs-editorial__body h2 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.hs-editorial__body a {
+    color: var(--hs-accent);
+    font-weight: 600;
 }
 
 /* ── Archive / catalog hero (helmets, accessories, brands) ── */
@@ -56,12 +220,31 @@
     color: var(--hs-text);
 }
 
-.hs-archive-hero__subtitle {
+.hs-archive-hero__subtitle,
+.hs-archive-hero__content {
     margin: 0;
     font-size: 1rem;
     line-height: 1.5;
     color: var(--hs-muted);
-    max-width: 56ch;
+    max-width: 64ch;
+}
+
+.hs-archive-hero__lead {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--hs-text-soft, var(--hs-text));
+}
+
+.hs-archive-hero__sub {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--hs-muted);
+}
+
+.hs-archive-hero__sub a {
+    color: var(--hs-accent);
+    font-weight: 600;
 }
 
 .hs-section--archive .hs-catalog__topbar {
@@ -110,11 +293,218 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
+/* Single helmet PDP: hero and layout */
+.helmet-single--pdp {
+    max-width: var(--hs-content-max);
+    margin: 0 auto;
+    padding: 0 1.2rem 3rem;
+}
+
+.helmet-single__hero {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.helmet-single__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.875rem;
+    color: var(--hs-muted);
+}
+.helmet-single__eyebrow a {
+    color: var(--hs-muted);
+    text-decoration: none;
+}
+.helmet-single__eyebrow a:hover {
+    color: var(--hs-accent);
+}
+.helmet-single__eyebrow-sep {
+    margin: 0 0.35rem;
+    opacity: 0.6;
+}
+
+.helmet-single__title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.helmet-single__certs {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--hs-muted);
+}
+
 .helmet-single__layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(280px, .8fr);
-    gap: 1rem;
-    margin: 1rem 0;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.6fr);
+    gap: 1.5rem;
+    margin: 0 0 2.5rem;
+    align-items: start;
+}
+
+.helmet-single__media {
+    position: relative;
+}
+
+.helmet-single__gallery {
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--hs-radius);
+}
+.helmet-single__gallery .hs-carousel__slide img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    display: block;
+}
+
+.helmet-single__media-placeholder {
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--hs-bg-alt, rgba(0, 0, 0, 0.02));
+    border: 1px dashed var(--hs-border);
+    border-radius: var(--hs-radius);
+}
+.helmet-single__placeholder-icon {
+    color: var(--hs-muted);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+.helmet-single__placeholder-text {
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--hs-text);
+}
+.helmet-single__placeholder-hint {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    color: var(--hs-muted);
+}
+
+.helmet-single__media-actions {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    z-index: 5;
+}
+
+.helmet-single__compare-btn,
+.helmet-single__view-compare {
+    flex-shrink: 0;
+}
+
+.helmet-single__aside {
+    position: sticky;
+    top: 1rem;
+}
+.helmet-single__aside-title {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.helmet-single__specs {
+    display: grid;
+    gap: 0.5rem 1rem;
+    margin: 0 0 1.25rem;
+}
+.helmet-single__spec-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    margin: 0;
+    align-items: baseline;
+}
+.helmet-single__spec-row dt {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--hs-muted);
+    font-weight: 500;
+}
+.helmet-single__spec-row dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-align: right;
+}
+.helmet-single__aside-cta {
+    margin-bottom: 1rem;
+}
+.helmet-single__aside-cta .hs-cta-wrap {
+    margin: 0;
+}
+.helmet-single__aside-cta .hs-btn {
+    width: 100%;
+    justify-content: center;
+}
+.helmet-single__brand-link {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+/* Where to buy: single clear CTA */
+.helmet-single__where .hs-section-icon-title {
+    margin-bottom: 1rem;
+}
+.helmet-single__best-offer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(10, 132, 255, 0.06));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--hs-radius);
+}
+.helmet-single__best-offer-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--hs-muted);
+}
+.helmet-single__best-offer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--hs-accent);
+    color: #fff;
+    border-radius: var(--hs-radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity var(--hs-transition), transform var(--hs-transition);
+}
+.helmet-single__best-offer-cta:hover {
+    opacity: 0.95;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.helmet-single__best-offer-price {
+    font-size: 1.15rem;
+}
+.helmet-single__best-offer-source {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.helmet-single__where-all-title {
+    margin: 0 0 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--hs-muted);
 }
 
 .helmet-single__image img {
@@ -128,6 +518,123 @@
     display: grid;
     place-items: center;
     color: var(--hs-muted);
+}
+
+.helmet-single__gallery-title {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+/* Content sections: consistent spacing */
+.helmet-single--pdp .hs-panel {
+    margin-bottom: 1.5rem;
+}
+.helmet-single--pdp .hs-about-section {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 960px) {
+    .helmet-single__aside {
+        position: static;
+    }
+}
+
+/* On-page nav (RevZilla-style jump links) */
+.helmet-single__on-page-nav {
+    margin: 1.25rem 0;
+}
+.helmet-single__tab-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--hs-border);
+}
+.helmet-single__tab-link {
+    display: inline-block;
+    padding: 0.5rem 0.25rem;
+    font-weight: 500;
+    color: var(--hs-muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color var(--hs-transition), border-color var(--hs-transition);
+}
+.helmet-single__tab-link:hover {
+    color: var(--hs-text);
+}
+.helmet-single__tab-link:focus-visible {
+    color: var(--hs-accent);
+    border-bottom-color: var(--hs-accent);
+}
+
+/* Section titles with icon (Product description, Part numbers, Sizing, Related videos) */
+.hs-section-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+}
+.hs-section-icon-title__icon {
+    flex-shrink: 0;
+    color: var(--hs-accent);
+}
+
+/* View on retailers */
+.helmet-single__retailer-links {
+    margin: 1rem 0;
+}
+.helmet-single__retailer-desc {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    color: var(--hs-muted);
+}
+.helmet-single__retailer-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.helmet-single__retailer-link {
+    text-decoration: none;
+}
+
+/* How to measure (Sizing & fit) */
+.hs-how-to-measure {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--hs-border);
+}
+.hs-how-to-measure__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+.hs-how-to-measure__icon {
+    flex-shrink: 0;
+    color: var(--hs-accent);
+}
+.helmet-single__size-chart-title {
+    margin: 0.75rem 0 0.5rem;
+    font-size: 1rem;
+}
+.helmet-single__sizing-disclaimer {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: var(--hs-muted);
+}
+.helmet-single__part-numbers-extra {
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
 }
 
 @media (max-width: 960px) {
@@ -876,11 +1383,15 @@
 .hs-home-brand-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: 1.1rem;
 }
 
 .hs-home-brand-grid .entity-card {
     margin: 0;
+}
+
+.hs-section .helmet-grid {
+    gap: 1.1rem;
 }
 
 /* ── Homepage: accessories CTA ── */
@@ -889,10 +1400,19 @@
 }
 
 .hs-home-cta__inner {
-    background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(106, 92, 255, 0.1));
-    border: 1px solid rgba(10, 132, 255, 0.2);
-    border-radius: var(--hs-radius);
-    padding: 2rem;
+    background: var(--hs-hero-gradient-subtle, linear-gradient(135deg, rgba(12, 74, 110, 0.06), rgba(13, 148, 136, 0.08)));
+    border: 1px solid var(--hs-border-strong);
+    border-radius: var(--hs-radius-lg);
+    padding: 2rem 2.25rem;
+}
+
+.hs-home-cta__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hs-accent);
 }
 
 .hs-home-cta__content h2 {
@@ -902,15 +1422,25 @@
 }
 
 .hs-home-cta__content p {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     color: var(--hs-muted);
     max-width: 52ch;
+    line-height: 1.55;
 }
 
 /* ── Homepage: safety teaser ── */
 .hs-home-safety-teaser__inner {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
+}
+
+.hs-home-safety-teaser__eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hs-accent);
 }
 
 .hs-home-safety-teaser__inner h2 {
@@ -919,9 +1449,12 @@
 }
 
 .hs-home-safety-teaser__inner p {
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     color: var(--hs-muted);
     font-size: 0.95rem;
+    max-width: 48ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ── Accessories page: category cards + catalog ── */
@@ -930,9 +1463,15 @@
 }
 
 .hs-accessories-categories__title {
-    margin: 0 0 1rem;
+    margin: 0 0 0.25rem;
     font-size: 1.35rem;
     letter-spacing: -0.02em;
+}
+
+.hs-accessories-categories__sub {
+    margin: 0 0 1rem;
+    color: var(--hs-muted);
+    font-size: 0.9rem;
 }
 
 .hs-accessories-categories__grid {

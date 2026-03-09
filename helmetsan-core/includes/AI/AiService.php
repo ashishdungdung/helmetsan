@@ -9,7 +9,7 @@ namespace Helmetsan\Core\AI;
  * Load-balances across free providers by seed (e.g. post_id); falls back to next on failure.
  * Use premium provider when explicitly requested (e.g. from admin).
  */
-final class AiService
+final class AiService implements AiServiceInterface
 {
     private const RATE_LIMIT_DELAY_SECONDS = 1;
 
@@ -121,9 +121,152 @@ final class AiService
         return $this->generate($prompt, crc32(json_encode($entityData)), null, ['max_tokens' => 120]);
     }
 
+    /**
+     * Resolve a helmet's product image source: EAN-13 and/or direct image URL.
+     * Used by helmet image enrichment to match catalog helmets with external images.
+     *
+     * @return array{ean: string, image_url: string}|null Parsed JSON or null on failure
+     */
+    public function resolveHelmetImageSource(int $helmetId): ?array
+    {
+        $post = get_post($helmetId);
+        if (! $post instanceof \WP_Post || $post->post_type !== 'helmet') {
+            return null;
+        }
+        $title = $post->post_title;
+        $brand = '';
+        $brandId = (int) get_post_meta($helmetId, 'rel_brand', true);
+        if ($brandId > 0) {
+            $brandPost = get_post($brandId);
+            $brand = $brandPost instanceof \WP_Post ? $brandPost->post_title : '';
+        }
+        if ($brand === '') {
+            $terms = get_the_terms($helmetId, 'helmet_brand');
+            if (is_array($terms) && $terms !== []) {
+                $brand = $terms[0]->name ?? '';
+            }
+        }
+        $prompt = ContextBuilder::forResolveHelmetImageSource($title, $brand);
+        $raw = $this->generate($prompt, $helmetId, null, ['max_tokens' => 256]);
+        if ($raw === null || trim($raw) === '') {
+            return null;
+        }
+        $raw = trim($raw);
+        $raw = preg_replace('/^```\w*\s*|\s*```$/m', '', $raw);
+        $decoded = json_decode($raw, true);
+        if (! is_array($decoded)) {
+            return null;
+        }
+        return [
+            'ean'       => isset($decoded['ean']) && is_string($decoded['ean']) ? preg_replace('/\D/', '', $decoded['ean']) : '',
+            'image_url' => isset($decoded['image_url']) && is_string($decoded['image_url']) ? trim($decoded['image_url']) : '',
+        ];
+    }
+
+    /**
+     * Use AI to find the RevZilla product page URL for a helmet (title + brand).
+     * Used when affiliate_links_json has no RevZilla link; result can be used for image fetch or stored.
+     *
+     * @return string|null RevZilla product URL or null if not found / AI failed
+     */
+    public function resolveRevZillaUrlForHelmet(int $helmetId): ?string
+    {
+        $post = get_post($helmetId);
+        if (! $post instanceof \WP_Post || $post->post_type !== 'helmet') {
+            return null;
+        }
+        $title = $post->post_title;
+        $brand = '';
+        $brandId = (int) get_post_meta($helmetId, 'rel_brand', true);
+        if ($brandId > 0) {
+            $brandPost = get_post($brandId);
+            $brand = $brandPost instanceof \WP_Post ? $brandPost->post_title : '';
+        }
+        if ($brand === '') {
+            $terms = get_the_terms($helmetId, 'helmet_brand');
+            if (is_array($terms) && $terms !== []) {
+                $brand = $terms[0]->name ?? '';
+            }
+        }
+        $prompt = ContextBuilder::forResolveRevZillaUrl($title, $brand);
+        $raw = $this->generate($prompt, $helmetId, null, ['max_tokens' => 256]);
+        if ($raw === null || trim($raw) === '') {
+            return null;
+        }
+        $raw = trim($raw);
+        $raw = preg_replace('/^["\']|["\']$/u', '', $raw);
+        if (strtolower($raw) === 'none' || $raw === '') {
+            return null;
+        }
+        $url = esc_url_raw($raw);
+        if ($url === '' || ! str_contains(strtolower($url), 'revzilla.com')) {
+            return null;
+        }
+        return $url;
+    }
+
     public function hasAnyConfiguredProvider(): bool
     {
         return $this->registry->getEnabledProviders('') !== [];
+    }
+
+    /**
+     * IDs of all enabled providers (any tier). For health/api-check display.
+     * @return list<string>
+     */
+    public function getConfiguredProviderIds(): array
+    {
+        $providers = $this->registry->getEnabledProviders('');
+        $ids = [];
+        foreach ($providers as $p) {
+            $ids[] = $p->getId();
+        }
+        return $ids;
+    }
+
+    /**
+     * Test a single provider with a minimal prompt. For admin "Test connection".
+     * @return array{ok: bool, message?: string}
+     */
+    public function testProvider(string $providerId): array
+    {
+        $provider = $this->registry->get($providerId);
+        if ($provider === null) {
+            return ['ok' => false, 'message' => __('Provider not enabled or not found.', 'helmetsan-core')];
+        }
+        if (! $provider->isConfigured()) {
+            return ['ok' => false, 'message' => __('API key or model missing.', 'helmetsan-core')];
+        }
+        $out = $this->generate('Reply with exactly: OK', 0, $providerId, ['max_tokens' => 5]);
+        if ($out !== null && trim($out) !== '') {
+            return ['ok' => true];
+        }
+        return ['ok' => false, 'message' => __('No response. Check API key and model name.', 'helmetsan-core')];
+    }
+
+    /**
+     * Generate and return which provider responded. For --live API check.
+     * @return array{text: string, provider_id: string}|null
+     */
+    public function generateWithProviderId(string $prompt, int $seed = 0, array $options = []): ?array
+    {
+        $free = $this->registry->getEnabledProviders('free');
+        if ($free === []) {
+            return null;
+        }
+        $index = abs($seed) % count($free);
+        $order = [];
+        for ($i = 0; $i < count($free); $i++) {
+            $order[] = $free[($index + $i) % count($free)];
+        }
+        foreach ($order as $provider) {
+            $out = $provider->generate($prompt, $options);
+            if ($out !== null && $out !== '') {
+                $this->rateLimit();
+                return ['text' => $out, 'provider_id' => $provider->getId()];
+            }
+        }
+        return null;
     }
 
     private function rateLimit(): void

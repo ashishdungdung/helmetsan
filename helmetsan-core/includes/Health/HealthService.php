@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Health;
 
+use Helmetsan\Core\AI\AiService;
+use Helmetsan\Core\Data\DuplicateCheckerService;
+use Helmetsan\Core\Marketplace\ConnectorRegistry;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Validation\Validator;
@@ -12,7 +15,9 @@ final class HealthService
 {
     public function __construct(
         private readonly Validator $validator,
-        private readonly JsonRepository $repository
+        private readonly JsonRepository $repository,
+        private readonly ?AiService $aiService = null,
+        private readonly ?ConnectorRegistry $connectors = null
     ) {
     }
 
@@ -75,6 +80,7 @@ final class HealthService
                 'root_exists' => $this->repository->exists(),
                 'json_files'  => count($jsonFiles),
             ],
+            'repository_duplicates' => $this->getCachedDuplicateCheck(),
             'github_sync' => [
                 'enabled'    => ! empty($githubCfg['enabled']),
                 'configured' => $githubConfigured,
@@ -126,6 +132,60 @@ final class HealthService
                 'ok'     => $integrityResults['ok'],
                 'errors' => $integrityResults['errors'],
             ],
+            'validation' => [
+                'accessory_schema' => true,
+                'accessory_logic'  => true,
+            ],
+            'enrichment' => [
+                'fill_coverage_report_available' => true,
+                'cross_link_report_available'   => true,
+            ],
+            'api' => $this->buildApiReport(),
         ];
+    }
+
+    /**
+     * Repository duplicate check result (cached 5 min). For dashboard and Health page.
+     *
+     * @return array{count: int, total_checked: array<string, int>, duplicates: list<array{type: string, key: string, key_type: string, count: int, locations: list<string>}>}
+     */
+    public function getCachedDuplicateCheck(): array
+    {
+        $cacheKey = 'helmetsan_dup_check';
+        $cached = get_transient($cacheKey);
+        if (is_array($cached) && isset($cached['count'])) {
+            return $cached;
+        }
+        $checker = new DuplicateCheckerService($this->repository);
+        $result = $checker->check(['helmet', 'accessory', 'brand'], true);
+        $out = [
+            'count' => count($result['duplicates']),
+            'total_checked' => $result['total_checked'],
+            'duplicates' => $result['duplicates'],
+        ];
+        set_transient($cacheKey, $out, 300);
+        return $out;
+    }
+
+    /**
+     * API connectivity: AI providers and marketplace connectors.
+     * @return array{ai: array{configured: bool}, marketplace: array<string, bool>}
+     */
+    private function buildApiReport(): array
+    {
+        $report = [
+            'ai' => [
+                'configured' => $this->aiService !== null && $this->aiService->hasAnyConfiguredProvider(),
+                'provider_ids' => [],
+            ],
+            'marketplace' => [],
+        ];
+        if ($this->aiService !== null && $this->aiService->hasAnyConfiguredProvider()) {
+            $report['ai']['provider_ids'] = $this->aiService->getConfiguredProviderIds();
+        }
+        if ($this->connectors !== null) {
+            $report['marketplace'] = $this->connectors->healthCheckAll();
+        }
+        return $report;
     }
 }

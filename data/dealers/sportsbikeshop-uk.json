@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "sportsbikeshop-uk",
+  "name": "SportsBikeShop UK",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Unit 5, Telford Road, Bicester",
+  "city": "Bicester",
+  "website": "https://www.sportsbikeshop.co.uk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth"],
+  "marketplaces": ["sportsbikeshop-uk", "amazon-uk"],
+  "geo": {"lat": 51.8980, "lng": -1.1332}
+}

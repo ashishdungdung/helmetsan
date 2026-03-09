@@ -1,9 +1,13 @@
 <?php
 /**
  * Setup Hub Pages Script
+ * Run from WordPress public root: php scripts/setup_hub_pages.php
+ *   or on server: wp eval-file scripts/setup_hub_pages.php --allow-root
  */
 
-require_once 'wp-load.php';
+if (! defined('ABSPATH')) {
+    require_once 'wp-load.php'; // Run from WordPress public root
+}
 
 $hubs = [
     [
