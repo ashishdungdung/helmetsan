@@ -1792,6 +1792,7 @@ final class Commands
      *     wp helmetsan ai fill-missing --dry-run --verbose
      *     wp helmetsan ai fill-missing --only-incomplete --strict
      *     wp helmetsan ai fill-missing --post-type=accessory --refill-unmapped
+     *     wp helmetsan ai fill-missing --post-type=helmet --multiplex
      */
     public function aiFillMissing(array $args, array $assoc): void
     {
@@ -1811,7 +1812,11 @@ final class Commands
         $fillTaxonomies = ! isset($assoc['no-taxonomies']);
         $noCache = isset($assoc['no-cache']);
         $cacheTtl = $noCache ? 0 : 86400;
-        $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : 1;
+        $cacheTtl = $noCache ? 0 : 86400;
+        $monitor = new \Helmetsan\Core\Support\ResourceMonitor();
+        $defaultConcurrency = $monitor->getRecommendedConcurrency();
+        $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : $defaultConcurrency;
+        $multiplex = isset($assoc['multiplex']);
         $rateLimitSeconds = isset($assoc['rate-limit']) ? max(0, (int) $assoc['rate-limit']) : null;
         $fieldsOpt = isset($assoc['fields']) ? trim((string) $assoc['fields']) : '';
         $onlyFields = $fieldsOpt !== '' ? array_map('trim', array_filter(explode(',', $fieldsOpt))) : null;
@@ -1934,7 +1939,7 @@ final class Commands
                     \WP_CLI::log(sprintf('[%s] Error post %d %s: %s', $type, $postId, $metaKey, $detail ?? ''));
                 }
             } : null;
-            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds, $refillAccessoryIfNoCategory, $onlyTaxonomies);
+            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds, $refillAccessoryIfNoCategory, $onlyTaxonomies, false, $multiplex);
             $filled = (int) ($result['filled'] ?? 0);
             $skipped = (int) ($result['skipped'] ?? 0);
             $errors = (int) ($result['errors'] ?? 0);
@@ -2602,8 +2607,20 @@ final class Commands
      * : Process all helmets (including those that already have a featured image).
      * [--use-ai]
      * : When a helmet has no EAN/GTIN, use AI to resolve EAN or image URL.
+     * [--gallery]
+     * : Import additional images as gallery assets.
+     * [--search]
+     * : Use AI search for manufacturer images if other methods fail.
+     * [--no-high-res]
+     * : Disable automatic high-resolution image upgrades (900px+).
+     * [--no-ean]
+     * : Disable EAN/GTIN barcode lookup.
+     * [--no-revzilla]
+     * : Disable RevZilla product page scraping.
      * [--dry-run]
      * : Do not sideload or set thumbnails; only report what would be done.
+     * [--schedule]
+     * : Offload task to the background scheduler.
      * [--verbose]
      * : Log each helmet result (filled/skipped/error).
      *
@@ -2611,30 +2628,61 @@ final class Commands
      *     wp helmetsan helmet-images --limit=50
      *     wp helmetsan helmet-images --limit=20 --use-ai --dry-run
      *     wp helmetsan helmet-images --all --use-ai
+     *     wp helmetsan helmet-images --no-ean --use-revzilla
      */
     public function helmetImages(array $args, array $assoc): void
     {
-        $limit = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : 0;
+        $limit            = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : 0;
         $onlyMissingThumb = ! isset($assoc['all']);
-        $useAi = isset($assoc['use-ai']);
-        $dryRun = isset($assoc['dry-run']);
+        $useAi            = isset($assoc['use-ai']);
+        $gallery          = isset($assoc['gallery']);
+        $search           = isset($assoc['search']);
+        $highRes          = ! isset($assoc['no-high-res']);
+        $useEan           = ! isset($assoc['no-ean']);
+        $useRevZilla      = ! isset($assoc['no-revzilla']);
+        $dryRun           = isset($assoc['dry-run']);
+        $schedule         = isset($assoc['schedule']);
+        $verbose          = isset($assoc['verbose']);
 
-        if ($useAi && $this->aiService === null) {
-            \WP_CLI::error('AI is required for --use-ai but no AI provider is configured. Run wp helmetsan api-check.');
+        if (($useAi || $search) && $this->aiService === null) {
+            \WP_CLI::error('AI is required for --use-ai or --search but no AI provider is configured. Run wp helmetsan api-check.');
             return;
         }
 
-        $revZilla = new \Helmetsan\Core\Media\RevZillaImageService();
+        if ($schedule) {
+            wp_schedule_single_event(time(), \Helmetsan\Core\Scheduler\SchedulerService::HOOK_IMAGE_ENRICHMENT);
+            \WP_CLI::success('Image enrichment task scheduled to run in the background.');
+            return;
+        }
+
+        $revZilla   = new \Helmetsan\Core\Media\RevZillaImageService();
         $enrichment = new HelmetImageEnrichmentService($this->media, $this->aiService, $revZilla);
-        $verbose = isset($assoc['verbose']);
-        $progress = static function (string $event, int $helmetId, string $message) use ($verbose): void {
+        $verbose    = isset($assoc['verbose']);
+        $progress   = static function (string $event, int $helmetId, string $message) use ($verbose): void {
             if ($verbose || $event === 'error') {
                 \WP_CLI::line(sprintf('[%s] Helmet %d: %s', $event, $helmetId, $message));
             }
         };
 
-        \WP_CLI::line('Running helmet image enrichment (EAN + Media Engine' . ($useAi ? ' + AI' : '') . ')' . ($dryRun ? ' [dry-run]' : '') . '...');
-        $stats = $enrichment->run($limit, $onlyMissingThumb, $useAi, $dryRun, $progress, true, true, $useAi);
+        $msg = 'Running helmet image enrichment' . ($dryRun ? ' [dry-run]' : '');
+        $msg .= $useAi ? ' (+AI)' : '';
+        $msg .= $gallery ? ' (+Gallery)' : '';
+        $msg .= $search ? ' (+Search)' : '';
+        \WP_CLI::line($msg . '...');
+
+        $stats = $enrichment->run(
+            $limit,
+            $onlyMissingThumb,
+            $useAi,
+            $dryRun,
+            $progress,
+            $useEan,
+            $useRevZilla,
+            $useAi, // useAiForEanOrImage
+            $gallery,
+            $search,
+            $highRes
+        );
         \WP_CLI::success(sprintf(
             'Processed: %d, Filled: %d, Skipped: %d, Errors: %d',
             $stats['processed'],

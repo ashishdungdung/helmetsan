@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\AI;
 
+use Helmetsan\Core\Support\RateLimiter;
+
 /**
  * High-level AI service: generates completions using registered providers.
  * Load-balances across free providers by seed (e.g. post_id); falls back to next on failure.
@@ -13,9 +15,13 @@ final class AiService implements AiServiceInterface
 {
     private const RATE_LIMIT_DELAY_SECONDS = 1;
 
+    private readonly RateLimiter $rateLimiter;
+
     public function __construct(
-        private readonly ProviderRegistry $registry
+        private readonly ProviderRegistry $registry,
+        ?RateLimiter $rateLimiter = null
     ) {
+        $this->rateLimiter = $rateLimiter ?? new RateLimiter();
     }
 
     /**
@@ -163,6 +169,45 @@ final class AiService implements AiServiceInterface
         ];
     }
 
+    public function resolveManufacturerImageUrls(int $helmetId): array
+    {
+        if (! $this->rateLimiter->check('ai_search')) {
+            return [];
+        }
+
+        $post = get_post($helmetId);
+        if (! $post instanceof \WP_Post || $post->post_type !== 'helmet') {
+            return [];
+        }
+        $title = $post->post_title;
+        $brand = '';
+        $brandId = (int) get_post_meta($helmetId, 'rel_brand', true);
+        if ($brandId > 0) {
+            $brandPost = get_post($brandId);
+            $brand = $brandPost instanceof \WP_Post ? $brandPost->post_title : '';
+        }
+        if ($brand === '') {
+            $terms = get_the_terms($helmetId, 'helmet_brand');
+            if (is_array($terms) && $terms !== []) {
+                $brand = $terms[0]->name ?? '';
+            }
+        }
+        $prompt = ContextBuilder::forResolveManufacturerImages($title, $brand);
+        $raw = $this->generate($prompt, $helmetId, null, ['max_tokens' => 512]);
+        if ($raw === null || trim($raw) === '') {
+            return [];
+        }
+        $raw = trim($raw);
+        $raw = preg_replace('/^```\w*\s*|\s*```$/m', '', $raw);
+        $decoded = json_decode($raw, true);
+        if (! is_array($decoded) || empty($decoded['images']) || ! is_array($decoded['images'])) {
+            return [];
+        }
+        return array_values(array_filter(array_map('trim', $decoded['images']), function($u) {
+            return filter_var($u, FILTER_VALIDATE_URL) && (str_starts_with(strtolower($u), 'http://') || str_starts_with(strtolower($u), 'https://'));
+        }));
+    }
+
     /**
      * Use AI to find the RevZilla product page URL for a helmet (title + brand).
      * Used when affiliate_links_json has no RevZilla link; result can be used for image fetch or stored.
@@ -267,6 +312,93 @@ final class AiService implements AiServiceInterface
             }
         }
         return null;
+    }
+
+    /**
+     * Generate completions for multiple prompts in parallel, distributing them across providers (field-level parallelism).
+     */
+    public function generateMultiplexed(array $prompts, ?array $providerIds = null, array $options = []): array
+    {
+        if ($prompts === []) {
+            return [];
+        }
+
+        $providers = [];
+        if ($providerIds !== null && $providerIds !== []) {
+            foreach ($providerIds as $id) {
+                $p = $this->registry->get($id);
+                if ($p !== null && $p->isConfigured()) {
+                    $providers[] = $p;
+                }
+            }
+        } else {
+            $providers = $this->registry->getEnabledProviders('free');
+        }
+
+        if ($providers === []) {
+            return array_fill_keys(array_keys($prompts), null);
+        }
+
+        $requests = [];
+        $keyToProvider = [];
+        $providerCount = count($providers);
+        $i = 0;
+
+        foreach ($prompts as $key => $prompt) {
+            $provider = $providers[$i % $providerCount];
+            $req = $provider->prepareRequest($prompt, $options);
+            if ($req !== null) {
+                $requestId = $key . '||' . $provider->getId();
+                $requests[$requestId] = $req;
+                $keyToProvider[$requestId] = [
+                    'key' => $key,
+                    'provider' => $provider
+                ];
+            }
+            $i++;
+        }
+
+        if ($requests === []) {
+            return array_fill_keys(array_keys($prompts), null);
+        }
+
+        $client = new ParallelAiClient();
+        $responses = $client->execute($requests);
+
+        $results = array_fill_keys(array_keys($prompts), null);
+        foreach ($responses as $requestId => $raw) {
+            $mapping = $keyToProvider[$requestId] ?? null;
+            if ($mapping === null || $raw === null || $raw === '') {
+                continue;
+            }
+
+            $key = $mapping['key'];
+            $data = json_decode($raw, true);
+            if (! is_array($data)) {
+                continue;
+            }
+
+            $val = null;
+            if (isset($data['choices'][0]['message']['content'])) {
+                $val = (string) $data['choices'][0]['message']['content'];
+            } elseif (isset($data['candidates'][0]['content']['parts'][0]['text'])) {
+                $val = (string) $data['candidates'][0]['content']['parts'][0]['text'];
+            }
+
+            if ($val !== null && trim($val) !== '') {
+                $results[$key] = $this->normalizeText($val);
+            }
+        }
+
+        $this->rateLimit();
+        return $results;
+    }
+
+    private function normalizeText(string $s): string
+    {
+        $s = trim($s);
+        $s = preg_replace('/^["\']|["\']$/u', '', $s);
+        return trim($s);
     }
 
     private function rateLimit(): void

@@ -672,6 +672,211 @@ final class MediaEngine
         return $out;
     }
 
+    /**
+     * Import a remote image as an 'asset' post linked to a parent helmet/brand.
+     * Used for galleries and supplementary media.
+     *
+     * @return array{asset_id: int, attachment_id: int, error: string}
+     */
+    public function importAsAsset(string $url, int $parentId, string $assetType = 'image', array $meta = []): array
+    {
+        $out = ['asset_id' => 0, 'attachment_id' => 0, 'error' => ''];
+        
+        // 1. Normalize and Validate URL
+        $url = $this->normalizeUrl($url);
+
+        // 1. Validate URL and check headers
+        if ($url === '' || ! filter_var($url, FILTER_VALIDATE_URL)) {
+             $out['error'] = 'Invalid URL: ' . $url;
+             return $out;
+        }
+
+        $response = wp_remote_head($url, ['timeout' => 5]);
+        $code = (int) wp_remote_retrieve_response_code($response);
+        if (is_wp_error($response) || $code < 200 || $code >= 400) {
+            $out['error'] = 'Invalid or unreachable image URL: ' . $url . ' (HTTP ' . $code . ')';
+            return $out;
+        }
+
+        $contentType = wp_remote_retrieve_header($response, 'content-type');
+        if (str_contains(strtolower($contentType), 'text/html')) {
+             $out['error'] = 'URL returned HTML instead of an image: ' . $url;
+             return $out;
+        }
+
+        // 2. Strict Deduplication: check if asset with this parent and source URL already exists
+        $existingAssetId = $this->findExistingAssetBySourceUrl($url, $parentId);
+        if ($existingAssetId > 0) {
+            $out['asset_id'] = $existingAssetId;
+            $out['attachment_id'] = (int) get_post_thumbnail_id($existingAssetId);
+            return $out;
+        }
+
+        // 3. Sideload image
+        $sideload = $this->sideloadToMediaLibrary($url, 0, $meta['provider'] ?? '');
+        if ($sideload['error'] !== '') {
+            $out['error'] = $sideload['error'];
+            return $out;
+        }
+        
+        $attachmentId = $sideload['attachment_id'];
+        $out['attachment_id'] = $attachmentId;
+
+        // 4. Create asset post
+        $parentId = (int) $parentId;
+        $parent = get_post($parentId);
+        $title = ($parent instanceof WP_Post) ? $parent->post_title . ' Asset' : 'Helmet Asset';
+        
+        $assetId = wp_insert_post([
+            'post_title'   => $title,
+            'post_type'    => 'asset',
+            'post_status'  => 'publish',
+            'post_parent'  => $parentId,
+        ]);
+
+        if (is_wp_error($assetId)) {
+            $out['error'] = 'Failed to create asset post: ' . $assetId->get_error_message();
+            return $out;
+        }
+
+        $out['asset_id'] = $assetId;
+
+        // 5. Link attachment and meta
+        set_post_thumbnail($assetId, $attachmentId);
+        update_post_meta($assetId, 'asset_type', $assetType);
+        update_post_meta($assetId, '_helmetsan_source_url', $url);
+        update_post_meta($assetId, '_helmetsan_source_url_hash', md5($url));
+        return $out;
+    }
+
+    /**
+     * Normalize URL for consistent deduplication.
+     */
+    private function normalizeUrl(string $url): string
+    {
+        $url = trim($url);
+        if ($url === '') {
+            return '';
+        }
+
+        $parts = wp_parse_url($url);
+        if (! $parts || ! isset($parts['scheme'], $parts['host'])) {
+            return $url;
+        }
+
+        $scheme = strtolower($parts['scheme']);
+        $host   = strtolower($parts['host']);
+        $path   = $parts['path'] ?? '';
+        $query  = $parts['query'] ?? '';
+
+        // Remove trailing slash from path if not root
+        if ($path !== '/' && str_ends_with($path, '/')) {
+            $path = rtrim($path, '/');
+        }
+
+        // Filter tracking query params
+        if ($query !== '') {
+            parse_str($query, $queryParams);
+            $exclude = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'ref', 'ref_'];
+            foreach ($exclude as $key) {
+                unset($queryParams[$key]);
+            }
+            $query = http_build_query($queryParams);
+        }
+
+        $normalized = $scheme . '://' . $host . $path;
+        if ($query !== '') {
+            $normalized .= '?' . $query;
+        }
+
+        return $normalized;
+    }
+
+    /**
+     * Find an existing 'asset' post by source URL and parent.
+     */
+    private function findExistingAssetBySourceUrl(string $url, int $parentId): int
+    {
+        $urlHash = md5($url);
+        $args = [
+            'post_type'      => 'asset',
+            'post_parent'    => $parentId,
+            'posts_per_page' => 1,
+            'fields'         => 'ids',
+            'meta_query'     => [
+                'relation' => 'OR',
+                [
+                    'key'   => '_helmetsan_source_url_hash',
+                    'value' => $urlHash,
+                ],
+                [
+                    'key'   => '_helmetsan_source_url',
+                    'value' => $url,
+                ],
+            ],
+        ];
+        $posts = get_posts($args);
+        return ! empty($posts) ? (int) $posts[0] : 0;
+    }
+
+    /**
+     * Delete 'asset' posts that no longer have a valid parent or associated attachment.
+     * Prevents database bloat from failed imports or deleted helmets.
+     *
+     * @return int Number of assets deleted.
+     */
+    public function cleanupOrphanedAssets(): int
+    {
+        global $wpdb;
+        $count = 0;
+
+        // 1. Find assets with missing parents (parent_id = 0)
+        $orphanedByParent = get_posts([
+            'post_type'      => 'asset',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'post_parent'    => 0,
+        ]);
+
+        // 2. Find assets where parent doesn't exist anymore
+        $query = "SELECT p.ID FROM {$wpdb->posts} p 
+                  LEFT JOIN {$wpdb->posts} parent ON p.post_parent = parent.ID 
+                  WHERE p.post_type = 'asset' AND parent.ID IS NULL AND p.post_parent > 0";
+        $orphanedByMissingParent = $wpdb->get_col($query);
+
+        // 3. Find redundant duplicates (multiple assets for same parent with same source URL)
+        $duplicateQuery = "
+            SELECT p1.ID FROM {$wpdb->posts} p1
+            JOIN {$wpdb->postmeta} pm1 ON p1.ID = pm1.post_id AND pm1.meta_key = '_helmetsan_source_url'
+            JOIN (
+                SELECT p2.post_parent, pm2.meta_value, MAX(p2.ID) as keep_id
+                FROM {$wpdb->posts} p2
+                JOIN {$wpdb->postmeta} pm2 ON p2.ID = pm2.post_id AND pm2.meta_key = '_helmetsan_source_url'
+                WHERE p2.post_type = 'asset'
+                GROUP BY p2.post_parent, pm2.meta_value
+                HAVING COUNT(*) > 1
+            ) dup ON p1.post_parent = dup.post_parent 
+               AND pm1.meta_value = dup.meta_value 
+               AND p1.ID < dup.keep_id
+            WHERE p1.post_type = 'asset'
+        ";
+        $redundantDuplicates = $wpdb->get_col($duplicateQuery);
+
+        $toDelete = array_unique(array_merge(
+            $orphanedByParent, 
+            ($orphanedByMissingParent ?: []),
+            ($redundantDuplicates ?: [])
+        ));
+
+        foreach ($toDelete as $assetId) {
+            if (wp_delete_post((int) $assetId, true)) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
     private function findExistingAttachmentBySourceUrl(string $url): int
     {
         global $wpdb;
@@ -1343,5 +1548,78 @@ final class MediaEngine
             'note' => $out !== [] ? ('Files: ' . (string) count($out)) : 'No image results',
         ];
         return $out;
+    }
+
+    /**
+     * Download multiple URLs in parallel using curl_multi.
+     * Returns array of [url => ['tmp_name' => string, 'error' => string]]
+     *
+     * @param list<string> $urls
+     * @return array<string, array{tmp_name: string, error: string}>
+     */
+    public function downloadMultiple(array $urls): array
+    {
+        if ($urls === []) {
+            return [];
+        }
+
+        $mh = curl_multi_init();
+        $handles = [];
+        $results = [];
+
+        foreach ($urls as $url) {
+            if (! filter_var($url, FILTER_VALIDATE_URL)) {
+                $results[$url] = ['tmp_name' => '', 'error' => 'invalid_url'];
+                continue;
+            }
+
+            $tmpFile = wp_tempnam($url);
+            $fp = fopen($tmpFile, 'w+');
+            
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FILE, $fp);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_USERAGENT, 'Helmetsan/1.0; Media Engine');
+            
+            curl_multi_add_handle($mh, $ch);
+            $handles[$url] = ['ch' => $ch, 'fp' => $fp, 'tmp' => $tmpFile];
+        }
+
+        if ($handles === []) {
+            curl_multi_close($mh);
+            return $results;
+        }
+
+        $running = null;
+        do {
+            curl_multi_exec($mh, $running);
+            curl_multi_select($mh);
+        } while ($running > 0);
+
+        foreach ($handles as $url => $data) {
+            $ch = $data['ch'];
+            $fp = $data['fp'];
+            $tmp = $data['tmp'];
+
+            $info = curl_getinfo($ch);
+            $code = (int) ($info['http_code'] ?? 0);
+            $error = curl_error($ch);
+
+            curl_multi_remove_handle($mh, $ch);
+            curl_close($ch);
+            fclose($fp);
+
+            if ($error !== '' || $code < 200 || $code >= 400) {
+                @unlink($tmp);
+                $results[$url] = ['tmp_name' => '', 'error' => 'download_failed: ' . ($error !== '' ? $error : "HTTP $code")];
+            } else {
+                $results[$url] = ['tmp_name' => $tmp, 'error' => ''];
+            }
+        }
+
+        curl_multi_close($mh);
+        return $results;
     }
 }

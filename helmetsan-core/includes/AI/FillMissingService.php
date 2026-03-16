@@ -50,7 +50,8 @@ final class FillMissingService
         ?int $rateLimitSeconds = null,
         bool $refillAccessoryIfNoCategory = false,
         ?array $onlyTaxonomies = null,
-        bool $refillHelmetSpecs = false
+        bool $refillHelmetSpecs = false,
+        bool $multiplex = false
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
         if ($onlyFields !== null && $onlyFields !== []) {
@@ -106,6 +107,10 @@ final class FillMissingService
             }
             $existingData = $this->gatherExistingData($postType, $postId, $post);
             $helmetSpecKeys = ['spec_weight_g', 'spec_shell_material', 'price_retail_usd'];
+            $fieldsToFill = [];
+            $metaToProcess = [];
+
+            // 1. Identify missing metadata fields
             foreach ($fillable as $metaKey => $config) {
                 $current = get_post_meta($postId, $metaKey, true);
                 $forceRefill = ($refillAccessoryIfNoCategory && $postType === 'accessory'
@@ -117,78 +122,11 @@ final class FillMissingService
                     $onVerbose && $onVerbose('skipped', $postId, $metaKey, null);
                     continue;
                 }
-                $label = FillableFieldsConfig::getLabel($metaKey, $postType, $config);
-                $maxLen = FillableFieldsConfig::getMaxLength($config);
-                $allowed = FillableFieldsConfig::getAllowedValues($config);
-
-                $cacheKey = null;
-                if ($useCache) {
-                    $cacheKey = self::CACHE_PREFIX . md5($postType . $metaKey . json_encode($existingData));
-                    $cached = get_transient($cacheKey);
-                    if (is_string($cached) && $cached !== '') {
-                        $value = $cached;
-                    } else {
-                        $value = null;
-                    }
-                } else {
-                    $value = null;
-                }
-
-                if ($value === null) {
-                    $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
-                    $apiCalls++;
-                    if (($value === null || trim((string) $value) === '') && ! $strictMode) {
-                        $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
-                        $apiCalls++;
-                    }
-                }
-
-                $rawValue = $value !== null ? trim((string) $value) : '';
-                if ($rawValue === '') {
-                    $errors++;
-                    $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty response');
-                    continue;
-                }
-                $value = self::sanitizeAndValidate($metaKey, $rawValue, $config);
-                if ($value === '') {
-                    if (! $strictMode && $allowed !== null && $allowed !== []) {
-                        $retryValue = $this->aiService->generateFillFieldWithFeedback(
-                            $postType,
-                            $metaKey,
-                            $existingData,
-                            $label,
-                            $allowed,
-                            $rawValue
-                        );
-                        $apiCalls++;
-                        if ($retryValue !== null && trim($retryValue) !== '') {
-                            $value = self::sanitizeAndValidate($metaKey, trim($retryValue), $config);
-                        }
-                    }
-                    if ($value === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'validation failed');
-                        continue;
-                    }
-                }
-                if ($useCache && $cacheKey !== null) {
-                    set_transient($cacheKey, $value, $cacheTtl);
-                }
-                if (! $dryRun) {
-                    update_post_meta($postId, $metaKey, $value);
-                    // Sync fillable Yoast keys to Yoast meta so SEO plugins use them
-                    $yoastMap = FillableFieldsConfig::yoastMetaMapping();
-                    if (isset($yoastMap[$metaKey])) {
-                        update_post_meta($postId, $yoastMap[$metaKey], $value);
-                    }
-                }
-                $filled++;
-                $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
-                $existingData[$metaKey] = $value;
-                $this->rateLimit();
+                $metaToProcess[$metaKey] = $config;
             }
 
-            // Phase B: fill missing taxonomy terms (only assign existing terms)
+            // 2. Identify missing taxonomies
+            $taxToProcess = [];
             if ($fillTaxonomies) {
                 $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
                 if ($onlyTaxonomies !== null && $onlyTaxonomies !== []) {
@@ -202,44 +140,125 @@ final class FillMissingService
                         continue;
                     }
                     $terms = get_terms(['taxonomy' => $taxonomy, 'hide_empty' => false]);
-                    if (is_wp_error($terms) || ! is_array($terms) || $terms === []) {
+                    if (! is_wp_error($terms) && is_array($terms) && $terms !== []) {
+                        $allowedNames = array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', array_filter($terms, static fn($t) => $t instanceof \WP_Term));
+                        $allowedNames = array_values(array_filter($allowedNames));
+                        if ($allowedNames !== []) {
+                            $taxToProcess[$taxonomy] = [
+                                'label' => $label,
+                                'allowed' => $allowedNames
+                            ];
+                        }
+                    }
+                }
+            }
+
+            // 3. Prepare prompts for batch processing if multiplexing is enabled
+            if ($multiplex && ($metaToProcess !== [] || $taxToProcess !== [])) {
+                $batchPrompts = [];
+                foreach ($metaToProcess as $metaKey => $config) {
+                    $label = FillableFieldsConfig::getLabel($metaKey, $postType, $config);
+                    $maxLen = FillableFieldsConfig::getMaxLength($config);
+                    $allowed = FillableFieldsConfig::getAllowedValues($config);
+                    $batchPrompts['meta_' . $metaKey] = ContextBuilder::forFillField($postType, $metaKey, $label, $existingData, $maxLen, $allowed);
+                }
+                foreach ($taxToProcess as $taxonomy => $info) {
+                    $batchPrompts['tax_' . $taxonomy] = ContextBuilder::forFillField($postType, 'taxonomy_' . $taxonomy, $info['label'], $existingData, null, $info['allowed']);
+                }
+
+                $batchResults = $this->aiService->generateMultiplexed($batchPrompts);
+                $apiCalls++; // Counted as one batch call
+
+                // Apply metadata results
+                foreach ($metaToProcess as $metaKey => $config) {
+                    $rawValue = $batchResults['meta_' . $metaKey] ?? '';
+                    if (trim((string) $rawValue) === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty multiplexed response');
                         continue;
                     }
-                    $allowedNames = array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', array_filter($terms, static fn($t) => $t instanceof \WP_Term));
-                    $allowedNames = array_values(array_filter($allowedNames));
-                    if ($allowedNames === []) {
+                    $value = self::sanitizeAndValidate($metaKey, $rawValue, $config);
+                    if ($value === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'multiplexed validation failed');
                         continue;
                     }
-                    $value = $this->aiService->generateFillField(
-                        $postType,
-                        'taxonomy_' . $taxonomy,
-                        $existingData,
-                        $label,
-                        null,
-                        $allowedNames
-                    );
+                    if (! $dryRun) {
+                        update_post_meta($postId, $metaKey, $value);
+                        $yoastMap = FillableFieldsConfig::yoastMetaMapping();
+                        if (isset($yoastMap[$metaKey])) {
+                            update_post_meta($postId, $yoastMap[$metaKey], $value);
+                        }
+                    }
+                    $filled++;
+                    $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
+                    $existingData[$metaKey] = $value;
+                }
+
+                // Apply taxonomy results
+                foreach ($taxToProcess as $taxonomy => $info) {
+                    $rawValue = $batchResults['tax_' . $taxonomy] ?? '';
+                    if (trim((string) $rawValue) === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'empty multiplexed response');
+                        continue;
+                    }
+                    if (! $dryRun) {
+                        wp_set_object_terms($postId, $rawValue, $taxonomy, false);
+                    }
+                    $filled++;
+                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $rawValue);
+                }
+            } else {
+                // FALLBACK: Sequential processing if multiplexing disabled
+                foreach ($metaToProcess as $metaKey => $config) {
+                    $label = FillableFieldsConfig::getLabel($metaKey, $postType, $config);
+                    $maxLen = FillableFieldsConfig::getMaxLength($config);
+                    $allowed = FillableFieldsConfig::getAllowedValues($config);
+                    $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
+                    $apiCalls++;
+                    if (($value === null || trim((string) $value) === '') && ! $strictMode) {
+                        $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
+                        $apiCalls++;
+                    }
+                    $rawValue = $value !== null ? trim((string) $value) : '';
+                    if ($rawValue === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty response');
+                        continue;
+                    }
+                    $value = self::sanitizeAndValidate($metaKey, $rawValue, $config);
+                    if ($value === '') {
+                        $errors++;
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'validation failed');
+                        continue;
+                    }
+                    if (! $dryRun) {
+                        update_post_meta($postId, $metaKey, $value);
+                        $yoastMap = FillableFieldsConfig::yoastMetaMapping();
+                        if (isset($yoastMap[$metaKey])) {
+                            update_post_meta($postId, $yoastMap[$metaKey], $value);
+                        }
+                    }
+                    $filled++;
+                    $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
+                    $existingData[$metaKey] = $value;
+                    $this->rateLimit();
+                }
+
+                foreach ($taxToProcess as $taxonomy => $info) {
+                    $value = $this->aiService->generateFillField($postType, 'taxonomy_' . $taxonomy, $existingData, $info['label'], null, $info['allowed']);
                     $apiCalls++;
                     if ($value === null || trim((string) $value) === '') {
                         $errors++;
                         $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'empty response');
                         continue;
                     }
-                    $value = trim((string) $value);
-                    $term = get_term_by('name', $value, $taxonomy);
-                    if (! $term instanceof \WP_Term) {
-                        $term = get_term_by('slug', sanitize_title($value), $taxonomy);
-                    }
-                    if (! $term instanceof \WP_Term) {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'term not found: ' . $value);
-                        continue;
-                    }
                     if (! $dryRun) {
-                        wp_set_object_terms($postId, [(int) $term->term_id], $taxonomy, false);
+                        wp_set_object_terms($postId, $value, $taxonomy, false);
                     }
                     $filled++;
-                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $term->name);
-                    $existingData['term_' . $taxonomy] = $term->name;
+                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $value);
                     $this->rateLimit();
                 }
             }
