@@ -21,6 +21,7 @@ final class FillMissingService
     private const CACHE_PREFIX = 'helmetsan_fill_';
 
     private ?TaskTracker $tracker = null;
+    private ?string $taskId = null;
 
     public function __construct(
         private readonly AiService $aiService,
@@ -32,6 +33,11 @@ final class FillMissingService
     public function setTracker(TaskTracker $tracker): void
     {
         $this->tracker = $tracker;
+    }
+
+    public function setTaskId(string $id): void
+    {
+        $this->taskId = $id;
     }
 
     /**
@@ -109,6 +115,11 @@ final class FillMissingService
         $useCache = $cacheTtl > 0;
         $processed = 0;
         self::$rateLimitOverrideSeconds = $rateLimitSeconds;
+
+        $id = $this->taskId ?? 'fm-' . getmypid();
+        if ($this->tracker !== null) {
+            $this->tracker->start($id, "Fill Missing ($postType)", 'ai-enrichment');
+        }
 
         foreach ($ids as $postId) {
             $post = get_post($postId);
@@ -275,7 +286,7 @@ final class FillMissingService
 
             $processed++;
             if ($this->tracker !== null) {
-                $this->tracker->heartbeat('fm-' . getmypid(), $processed);
+                $this->tracker->heartbeat($this->taskId ?? 'fm-' . getmypid(), $processed);
             }
             $onProgress && $onProgress($processed, $totalPosts, $postId);
         }

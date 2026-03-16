@@ -1816,7 +1816,6 @@ final class Commands
         $fillTaxonomies = ! isset($assoc['no-taxonomies']);
         $noCache = isset($assoc['no-cache']);
         $cacheTtl = $noCache ? 0 : 86400;
-        $cacheTtl = $noCache ? 0 : 86400;
         $monitor = new \Helmetsan\Core\Support\ResourceMonitor();
         $defaultConcurrency = $monitor->getRecommendedConcurrency();
         $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : $defaultConcurrency;
@@ -1830,6 +1829,7 @@ final class Commands
             $onlyFields = [];
         }
         $reportOnly = isset($assoc['report']);
+        $internalId = isset($assoc['internal-id']) ? (string) $assoc['internal-id'] : null;
         $allowed = ['helmet', 'brand', 'accessory', 'safety_standard', 'dealer', 'distributor', 'technology', 'motorcycle', 'comparison', 'recommendation', 'all'];
         if (! in_array($postType, $allowed, true)) {
             \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, safety_standard, dealer, distributor, technology, motorcycle, comparison, recommendation, or all.');
@@ -1914,7 +1914,8 @@ final class Commands
                 . ($multiplex ? ' --multiplex' : '')
                 . ($fillTaxonomies ? '' : ' --no-taxonomies')
                 . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
-                . (isset($assoc['allow-root']) ? ' --allow-root' : '');
+                . (isset($assoc['allow-root']) ? ' --allow-root' : '')
+                . ' --internal-id=%s';
 
             $debugDir = WP_CONTENT_DIR . '/uploads/helmetsan-data/debug';
             if (! is_dir($debugDir)) {
@@ -1926,8 +1927,13 @@ final class Commands
                 if ($off >= $offset + $totalCount) {
                     break;
                 }
+                $workerId = "fm-{$singleType}-{$off}";
+                if ($this->taskTracker) {
+                    $this->taskTracker->start($workerId, "Fill Missing ($singleType) @$off", 'ai-enrichment');
+                }
+
                 $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
-                $cmd = sprintf($cmdBase, $off) . ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
+                $cmd = "nohup " . sprintf($cmdBase, $off, escapeshellarg($workerId)) . ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
                 
                 if ($i === 0) {
                     \WP_CLI::log('Executing first worker: ' . $cmd);
@@ -1941,9 +1947,12 @@ final class Commands
         }
 
         if ($this->taskTracker) {
-            $this->taskTracker->start('fm-' . getmypid(), "Fill Missing ($postType)", 'ai-enrichment');
+            $this->taskTracker->start($internalId ?? 'fm-' . getmypid(), "Fill Missing ($postType)", 'ai-enrichment');
         }
         $fillService = new FillMissingService($this->aiService, $this->taskTracker);
+        if ($internalId) {
+            $fillService->setTaskId($internalId);
+        }
         $totalFilled = 0;
         $totalSkipped = 0;
         $totalErrors = 0;
