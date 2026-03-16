@@ -35,6 +35,31 @@ final class CohereProvider extends BaseProvider
     {
         return $this->apiKey !== '';
     }
+    public function prepareRequest(string $prompt, array $options = []): ?array
+    {
+        if (! $this->isConfigured()) {
+            return null;
+        }
+        $body = [
+            'message' => $prompt,
+            'model' => $this->model,
+        ];
+        if (isset($options['max_tokens'])) {
+            $body['max_tokens'] = (int) $options['max_tokens'];
+        }
+        if (isset($options['temperature'])) {
+            $body['temperature'] = (float) $options['temperature'];
+        }
+        return [
+            'url' => self::URL,
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->apiKey,
+                'Content-Type' => 'application/json',
+            ],
+            'body' => wp_json_encode($body),
+        ];
+    }
+
 
     public function generate(string $prompt, array $options = []): ?string
     {

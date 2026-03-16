@@ -35,6 +35,27 @@ final class OpenRouterProvider extends BaseProvider
     {
         return $this->apiKey !== '';
     }
+    public function prepareRequest(string $prompt, array $options = []): ?array
+    {
+        if (! $this->isConfigured()) {
+            return null;
+        }
+        return [
+            'url' => self::URL,
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->apiKey,
+                'Content-Type' => 'application/json',
+                'HTTP-Referer' => home_url('/'),
+            ],
+            'body' => wp_json_encode([
+                'model' => $this->model,
+                'messages' => [['role' => 'user', 'content' => $prompt]],
+                'max_tokens' => $options['max_tokens'] ?? self::DEFAULT_MAX_TOKENS,
+                'temperature' => $options['temperature'] ?? self::DEFAULT_TEMPERATURE,
+            ]),
+        ];
+    }
+
 
     public function generate(string $prompt, array $options = []): ?string
     {

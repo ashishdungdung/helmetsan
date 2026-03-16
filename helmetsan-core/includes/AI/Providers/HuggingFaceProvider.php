@@ -40,6 +40,28 @@ final class HuggingFaceProvider extends BaseProvider
         return $this->apiKey !== '';
     }
 
+    public function prepareRequest(string $prompt, array $options = []): ?array
+    {
+        if (! $this->isConfigured()) {
+            return null;
+        }
+        return [
+            'url' => sprintf(self::URL_TEMPLATE, $this->model),
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->apiKey,
+                'Content-Type' => 'application/json',
+            ],
+            'body' => wp_json_encode([
+                'inputs' => $prompt,
+                'parameters' => [
+                    'max_new_tokens' => $options['max_tokens'] ?? self::DEFAULT_MAX_TOKENS,
+                    'temperature' => $options['temperature'] ?? self::DEFAULT_TEMPERATURE,
+                    'return_full_text' => false,
+                ],
+            ]),
+        ];
+    }
+
     public function generate(string $prompt, array $options = []): ?string
     {
         if (! $this->isConfigured()) {

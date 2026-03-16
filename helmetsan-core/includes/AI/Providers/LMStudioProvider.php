@@ -40,6 +40,27 @@ final class LMStudioProvider extends BaseProvider
         return $this->baseUrl !== '';
     }
 
+    public function prepareRequest(string $prompt, array $options = []): ?array
+    {
+        if (! $this->isConfigured()) {
+            return null;
+        }
+        $headers = ['Content-Type' => 'application/json'];
+        if ($this->apiKey !== '') {
+            $headers['Authorization'] = 'Bearer ' . $this->apiKey;
+        }
+        return [
+            'url' => rtrim($this->baseUrl, '/') . '/chat/completions',
+            'headers' => $headers,
+            'body' => wp_json_encode([
+                'model' => $this->model,
+                'messages' => [['role' => 'user', 'content' => $prompt]],
+                'max_tokens' => $options['max_tokens'] ?? self::DEFAULT_MAX_TOKENS,
+                'temperature' => $options['temperature'] ?? self::DEFAULT_TEMPERATURE,
+            ]),
+        ];
+    }
+
     public function generate(string $prompt, array $options = []): ?string
     {
         if (! $this->isConfigured()) {
