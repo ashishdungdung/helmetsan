@@ -1894,15 +1894,14 @@ final class Commands
                 return;
             }
 
+            $phpBin = defined('PHP_BINARY') && is_executable(PHP_BINARY) ? PHP_BINARY : trim((string) @shell_exec('which php') ?: 'php');
             $wpPath = realpath($_SERVER['argv'][0] ?? '');
             if (! $wpPath || ! is_file($wpPath)) {
-                $wpPath = 'wp';
+                $wpPath = trim((string) @shell_exec('which wp') ?: 'wp');
             }
-            $wpBin = defined('PHP_BINARY') ? PHP_BINARY . ' ' . escapeshellarg($wpPath) : 'wp';
-            if (str_contains($wpBin, 'phar://')) {
-                $wpBin = 'wp';
-            }
+            $wpBin = $phpBin . ' ' . escapeshellarg($wpPath);
 
+            $siteRoot = defined('ABSPATH') ? ABSPATH : get_home_path();
             $cmdBase = $wpBin . ' helmetsan ai fill-missing --post-type=' . $singleType
                 . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
                 . ($dryRun ? ' --dry-run' : '')
@@ -1933,7 +1932,12 @@ final class Commands
                 }
 
                 $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
-                $cmd = "nohup " . sprintf($cmdBase, $off, escapeshellarg($workerId)) . ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
+                $fullWorkerCmd = sprintf($cmdBase, $off, escapeshellarg($workerId));
+                $cmd = sprintf(
+                    "nohup sh -c %s > %s 2>&1 &",
+                    escapeshellarg("cd " . escapeshellarg($siteRoot) . " && " . $fullWorkerCmd),
+                    escapeshellarg($logFile)
+                );
                 
                 if ($i === 0) {
                     \WP_CLI::log('Executing first worker: ' . $cmd);
