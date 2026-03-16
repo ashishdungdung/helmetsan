@@ -1886,9 +1886,19 @@ final class Commands
                 \WP_CLI::success('No posts to process.');
                 return;
             }
+
             $chunkSize = (int) ceil($totalCount / $concurrency);
-            $procs = [];
-            $wpBin = defined('PHP_BINARY') ? PHP_BINARY . ' ' . escapeshellarg($_SERVER['argv'][0] ?? 'wp') : 'wp';
+
+            if ($this->taskTracker && ! $this->taskTracker->verify()) {
+                \WP_CLI::error('Tasks directory is not writable. Check permissions for wp-content/uploads/helmetsan-data/tasks/');
+                return;
+            }
+
+            $wpPath = realpath($_SERVER['argv'][0] ?? '');
+            if (! $wpPath || ! is_file($wpPath)) {
+                $wpPath = 'wp';
+            }
+            $wpBin = defined('PHP_BINARY') ? PHP_BINARY . ' ' . escapeshellarg($wpPath) : 'wp';
             if (str_contains($wpBin, 'phar://')) {
                 $wpBin = 'wp';
             }
@@ -1918,6 +1928,11 @@ final class Commands
                 }
                 $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
                 $cmd = sprintf($cmdBase, $off) . ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
+                
+                if ($i === 0) {
+                    \WP_CLI::log('Executing first worker: ' . $cmd);
+                }
+                
                 shell_exec($cmd);
             }
 

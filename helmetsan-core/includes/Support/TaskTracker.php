@@ -14,11 +14,19 @@ final class TaskTracker
 
     private function getTasksDir(): string
     {
-        $dir = WP_CONTENT_DIR . '/uploads/helmetsan-data/tasks';
+        $dir = defined('WP_CONTENT_DIR') ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
+        $dir .= '/uploads/helmetsan-data/tasks';
+        
         if (! is_dir($dir)) {
             wp_mkdir_p($dir);
         }
         return $dir;
+    }
+
+    public function verify(): bool
+    {
+        $dir = $this->getTasksDir();
+        return is_dir($dir) && is_writable($dir);
     }
 
     /**
