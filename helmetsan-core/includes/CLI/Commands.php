@@ -1888,7 +1888,12 @@ final class Commands
             }
             $chunkSize = (int) ceil($totalCount / $concurrency);
             $procs = [];
-            $cmdBase = 'wp helmetsan ai fill-missing --post-type=' . $singleType
+            $wpBin = defined('PHP_BINARY') ? PHP_BINARY . ' ' . escapeshellarg($_SERVER['argv'][0] ?? 'wp') : 'wp';
+            if (str_contains($wpBin, 'phar://')) {
+                $wpBin = 'wp';
+            }
+
+            $cmdBase = $wpBin . ' helmetsan ai fill-missing --post-type=' . $singleType
                 . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
                 . ($dryRun ? ' --dry-run' : '')
                 . ($onlyIncomplete ? ' --only-incomplete' : '')
@@ -1901,16 +1906,22 @@ final class Commands
                 . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
                 . (isset($assoc['allow-root']) ? ' --allow-root' : '');
 
+            $debugDir = WP_CONTENT_DIR . '/uploads/helmetsan-data/debug';
+            if (! is_dir($debugDir)) {
+                wp_mkdir_p($debugDir);
+            }
+
             for ($i = 0; $i < $concurrency; $i++) {
                 $off = $offset + ($i * $chunkSize);
                 if ($off >= $offset + $totalCount) {
                     break;
                 }
-                $cmd = sprintf($cmdBase, $off) . ' > /dev/null 2>&1 &';
+                $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
+                $cmd = sprintf($cmdBase, $off) . ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
                 shell_exec($cmd);
             }
 
-            \WP_CLI::success(sprintf('Spawned %d background fill-missing processes for %s. Check progress with: wp helmetsan ai status', $concurrency, $singleType));
+            \WP_CLI::success(sprintf('Spawned %d background processes for %s. Monitoring active via: wp helmetsan ai status', $concurrency, $singleType));
             return;
         }
 

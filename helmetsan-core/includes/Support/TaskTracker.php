@@ -10,8 +10,16 @@ namespace Helmetsan\Core\Support;
  */
 final class TaskTracker
 {
-    private const OPTION_NAME = 'helmetsan_active_tasks';
     private const EXPIRY_SECONDS = 300;
+
+    private function getTasksDir(): string
+    {
+        $dir = WP_CONTENT_DIR . '/uploads/helmetsan-data/tasks';
+        if (! is_dir($dir)) {
+            wp_mkdir_p($dir);
+        }
+        return $dir;
+    }
 
     /**
      * @param string $id Unique ID (e.g. CLI process hash or 'fill-missing-helmet')
@@ -20,33 +28,36 @@ final class TaskTracker
      */
     public function start(string $id, string $label, string $type): void
     {
-        $tasks = $this->getActiveTasks();
-        $tasks[$id] = [
+        $data = [
+            'id'        => $id,
             'label'     => $label,
             'type'      => $type,
             'start'     => time(),
             'last_ping' => time(),
             'progress'  => 0,
         ];
-        $this->saveTasks($tasks);
+        $this->saveTaskFile($id, $data);
     }
 
     public function heartbeat(string $id, int $progress = 0): void
     {
-        $tasks = $this->getActiveTasks();
-        if (isset($tasks[$id])) {
-            $tasks[$id]['last_ping'] = time();
-            $tasks[$id]['progress']  = $progress;
-            $this->saveTasks($tasks);
+        $path = $this->getTaskFilePath($id);
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $data = $content ? json_decode($content, true) : null;
+            if (is_array($data)) {
+                $data['last_ping'] = time();
+                $data['progress']  = $progress;
+                $this->saveTaskFile($id, $data);
+            }
         }
     }
 
     public function stop(string $id): void
     {
-        $tasks = $this->getActiveTasks();
-        if (isset($tasks[$id])) {
-            unset($tasks[$id]);
-            $this->saveTasks($tasks);
+        $path = $this->getTaskFilePath($id);
+        if (file_exists($path)) {
+            @unlink($path);
         }
     }
 
@@ -55,28 +66,40 @@ final class TaskTracker
      */
     public function getActiveTasks(): array
     {
-        $tasks = get_option(self::OPTION_NAME, []);
-        if (! is_array($tasks)) {
+        $dir = $this->getTasksDir();
+        $files = glob($dir . '/task_*.json');
+        if (! $files) {
             return [];
         }
 
         $now = time();
-        $filtered = [];
-        foreach ($tasks as $id => $data) {
-            if ($now - ($data['last_ping'] ?? 0) < self::EXPIRY_SECONDS) {
-                $filtered[$id] = $data;
+        $active = [];
+        foreach ($files as $file) {
+            $content = file_get_contents($file);
+            $data = $content ? json_decode($content, true) : null;
+            if (! is_array($data) || ! isset($data['id'])) {
+                @unlink($file);
+                continue;
             }
+
+            if ($now - ($data['last_ping'] ?? 0) > self::EXPIRY_SECONDS) {
+                @unlink($file);
+                continue;
+            }
+
+            $active[$data['id']] = $data;
         }
 
-        if (count($filtered) !== count($tasks)) {
-            $this->saveTasks($filtered);
-        }
-
-        return $filtered;
+        return $active;
     }
 
-    private function saveTasks(array $tasks): void
+    private function getTaskFilePath(string $id): string
     {
-        update_option(self::OPTION_NAME, $tasks, false);
+        return $this->getTasksDir() . '/task_' . sanitize_file_name($id) . '.json';
+    }
+
+    private function saveTaskFile(string $id, array $data): void
+    {
+        file_put_contents($this->getTaskFilePath($id), wp_json_encode($data));
     }
 }
