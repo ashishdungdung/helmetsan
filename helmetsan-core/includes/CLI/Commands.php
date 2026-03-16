@@ -67,7 +67,8 @@ final class Commands
         private readonly ?AiService $aiService = null,
         private readonly ?JsonRepository $repository = null,
         private readonly ?SeedGeneratorService $seedGenerator = null,
-        private readonly ?AccessoryGeneratorService $accessoryGenerator = null
+        private readonly ?AccessoryGeneratorService $accessoryGenerator = null,
+        private readonly ?\Helmetsan\Core\Support\TaskTracker $taskTracker = null
     ) {
     }
 
@@ -94,6 +95,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan seo check', [$this, 'seoCheck']);
         \WP_CLI::add_command('helmetsan seo update', [$this, 'seoUpdate']);
         \WP_CLI::add_command('helmetsan ai fill-missing', [$this, 'aiFillMissing']);
+        \WP_CLI::add_command('helmetsan ai status', [$this, 'aiStatus']);
         \WP_CLI::add_command('helmetsan ai generate-seed', [$this, 'aiGenerateSeed']);
         \WP_CLI::add_command('helmetsan ai generate-accessories', [$this, 'aiGenerateAccessories']);
         \WP_CLI::add_command('helmetsan ai generate-all', [$this, 'aiGenerateAll']);
@@ -1913,16 +1915,25 @@ final class Commands
                     $procs[] = $proc;
                 }
             }
+            if ($this->taskTracker) {
+                $this->taskTracker->start('fm-orchestrator-' . $singleType, "Parallel Fill ($singleType)", 'ai-orchestrator');
+            }
             foreach ($procs as $p) {
                 if (is_resource($p)) {
                     proc_close($p);
                 }
             }
+            if ($this->taskTracker) {
+                $this->taskTracker->stop('fm-orchestrator-' . $singleType);
+            }
             \WP_CLI::success(sprintf('Spawned %d parallel fill-missing processes for %s.', count($procs), $singleType));
             return;
         }
 
-        $fillService = new FillMissingService($this->aiService);
+        $fillService = new FillMissingService($this->aiService, $this->taskTracker);
+        if ($this->taskTracker) {
+            $this->taskTracker->start('fm-' . getmypid(), "Fill Missing ($postType)", 'ai-enrichment');
+        }
         $totalFilled = 0;
         $totalSkipped = 0;
         $totalErrors = 0;
@@ -1955,7 +1966,47 @@ final class Commands
             }
         }
         $elapsed = round(microtime(true) - $startTime, 1);
+        if ($this->taskTracker) {
+            $this->taskTracker->stop('fm-' . getmypid());
+        }
         \WP_CLI::success(sprintf('Fill missing complete. Filled: %d, skipped: %d, errors: %d, API calls: %d in %s s', $totalFilled, $totalSkipped, $totalErrors, $totalApiCalls, $elapsed));
+    }
+
+    /**
+     * Show status of active AI background tasks.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai status
+     */
+    public function aiStatus(array $args, array $assoc): void
+    {
+        if ($this->taskTracker === null) {
+            \WP_CLI::error('Task tracker not available.');
+            return;
+        }
+
+        $tasks = $this->taskTracker->getActiveTasks();
+        if ($tasks === []) {
+            \WP_CLI::success('No active AI background tasks.');
+            return;
+        }
+
+        $rows = [];
+        $now = time();
+        foreach ($tasks as $id => $data) {
+            $elapsed = $now - $data['start'];
+            $lastPing = $now - $data['last_ping'];
+            $rows[] = [
+                'id'        => $id,
+                'label'     => $data['label'],
+                'type'      => $data['type'],
+                'progress'  => (string) $data['progress'],
+                'elapsed'   => $elapsed . 's',
+                'last_ping' => $lastPing . 's ago',
+            ];
+        }
+
+        \WP_CLI\Utils\format_items('table', $rows, ['id', 'label', 'type', 'progress', 'elapsed', 'last_ping']);
     }
 
     /**

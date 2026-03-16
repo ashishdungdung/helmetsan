@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Helmetsan\Core\AI;
 
 use WP_Post;
+use Helmetsan\Core\Support\TaskTracker;
 
 /**
  * Phase 2: Fills missing entity fields using the AI module (context-aware).
@@ -19,9 +20,18 @@ final class FillMissingService
     private const DEFAULT_MAX_LENGTH = 5000;
     private const CACHE_PREFIX = 'helmetsan_fill_';
 
+    private ?TaskTracker $tracker = null;
+
     public function __construct(
-        private readonly AiService $aiService
+        private readonly AiService $aiService,
+        ?TaskTracker $tracker = null
     ) {
+        $this->tracker = $tracker;
+    }
+
+    public function setTracker(TaskTracker $tracker): void
+    {
+        $this->tracker = $tracker;
     }
 
     /**
@@ -264,6 +274,9 @@ final class FillMissingService
             }
 
             $processed++;
+            if ($this->tracker !== null) {
+                $this->tracker->heartbeat('fm-' . getmypid(), $processed);
+            }
             $onProgress && $onProgress($processed, $totalPosts, $postId);
         }
 
