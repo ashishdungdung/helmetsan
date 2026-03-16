@@ -1889,51 +1889,35 @@ final class Commands
             $chunkSize = (int) ceil($totalCount / $concurrency);
             $procs = [];
             $cmdBase = 'wp helmetsan ai fill-missing --post-type=' . $singleType
-                . ' --offset=%d --limit=' . $chunkSize
+                . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
                 . ($dryRun ? ' --dry-run' : '')
                 . ($onlyIncomplete ? ' --only-incomplete' : '')
                 . ($refillAccessoryIfNoCategory ? ' --refill-unmapped' : '')
                 . ($strictMode ? ' --strict' : '')
                 . ($rateLimitSeconds !== null ? ' --rate-limit=' . (int) $rateLimitSeconds : '')
                 . ($noCache ? ' --no-cache' : '')
+                . ($multiplex ? ' --multiplex' : '')
                 . ($fillTaxonomies ? '' : ' --no-taxonomies')
-                . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '');
+                . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
+                . (isset($assoc['allow-root']) ? ' --allow-root' : '');
+
             for ($i = 0; $i < $concurrency; $i++) {
                 $off = $offset + ($i * $chunkSize);
                 if ($off >= $offset + $totalCount) {
                     break;
                 }
-                $cmd = sprintf($cmdBase, $off);
-                $pipes = [];
-                $proc = proc_open(
-                    $cmd,
-                    [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']],
-                    $pipes,
-                    getcwd() ?: null
-                );
-                if ($proc !== false) {
-                    $procs[] = $proc;
-                }
+                $cmd = sprintf($cmdBase, $off) . ' > /dev/null 2>&1 &';
+                shell_exec($cmd);
             }
-            if ($this->taskTracker) {
-                $this->taskTracker->start('fm-orchestrator-' . $singleType, "Parallel Fill ($singleType)", 'ai-orchestrator');
-            }
-            foreach ($procs as $p) {
-                if (is_resource($p)) {
-                    proc_close($p);
-                }
-            }
-            if ($this->taskTracker) {
-                $this->taskTracker->stop('fm-orchestrator-' . $singleType);
-            }
-            \WP_CLI::success(sprintf('Spawned %d parallel fill-missing processes for %s.', count($procs), $singleType));
+
+            \WP_CLI::success(sprintf('Spawned %d background fill-missing processes for %s. Check progress with: wp helmetsan ai status', $concurrency, $singleType));
             return;
         }
 
-        $fillService = new FillMissingService($this->aiService, $this->taskTracker);
         if ($this->taskTracker) {
             $this->taskTracker->start('fm-' . getmypid(), "Fill Missing ($postType)", 'ai-enrichment');
         }
+        $fillService = new FillMissingService($this->aiService, $this->taskTracker);
         $totalFilled = 0;
         $totalSkipped = 0;
         $totalErrors = 0;
