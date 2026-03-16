@@ -1782,6 +1782,8 @@ final class Commands
      * : Only fill these taxonomy slugs (e.g. certification). Skips meta fill when used alone.
      * [--report]
      * : Only print coverage report (per-field set/empty and % complete); no API calls or writes.
+     * [--multiplex]
+     * : Process multiple fields in parallel using AI multiplexing for each post.
      *
      * ## EXAMPLES
      *     wp helmetsan ai fill-missing --report --post-type=helmet
