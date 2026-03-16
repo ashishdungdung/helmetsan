@@ -18,6 +18,7 @@ use Helmetsan\Core\ImportExport\ImportService;
 use Helmetsan\Core\Revenue\RevenueService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Support\Config;
+use Helmetsan\Core\Support\TaskTracker;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\WooBridge\WooBridgeService;
@@ -42,6 +43,7 @@ final class Admin
         private readonly AlertService $alerts,
         private readonly BrandService $brands,
         private readonly WooBridgeService $wooBridge,
+        private readonly TaskTracker $taskTracker,
         private readonly ?AiAdmin $aiAdmin = null
     ) {}
 
@@ -598,6 +600,7 @@ final class Admin
             $merged[$key] = ! empty($merged[$key]);
         }
 
+        $merged['cf_analytics_token']   = sanitize_text_field((string) ($merged['cf_analytics_token'] ?? ''));
         $merged['ga4_measurement_id']   = sanitize_text_field((string) $merged['ga4_measurement_id']);
         $merged['gtm_container_id']    = sanitize_text_field((string) $merged['gtm_container_id']);
         $merged['consent_cookie_name']  = sanitize_text_field((string) ($merged['consent_cookie_name'] ?? 'helmetsan_consent_analytics'));
@@ -819,6 +822,7 @@ final class Admin
             'ean_db_enabled',
             'eandata_enabled',
             'r2_enabled',
+            'enable_cloudflare_queues',
         ];
         foreach ($bools as $key) {
             $merged[$key] = ! empty($merged[$key]);
@@ -1108,6 +1112,8 @@ final class Admin
         echo '</div>';
         echo '<div class="hs-hero__status">';
         echo '<p><strong>Repo Health:</strong> ' . wp_kses_post($this->renderStatusPill(strtoupper($repoStatus), $repoStatus === 'healthy')) . '</p>';
+        $eanOk = ! empty($report['api']['enrichment']['ean_db']);
+        echo '<p><strong>EAN-DB API:</strong> ' . wp_kses_post($this->renderStatusPill($eanOk ? 'ONLINE' : 'OFFLINE', $eanOk)) . '</p>';
         echo '<p><strong>Go Live:</strong> ' . wp_kses_post($this->renderStatusPill(! empty($goLive['pass']) ? 'PASS' : 'FAIL', ! empty($goLive['pass']))) . '</p>';
         echo '<p><strong>Score:</strong> ' . esc_html((string) ((int) ($goLive['score'] ?? 0))) . '/100</p>';
         echo wp_kses_post($this->renderScoreBar((int) ($goLive['score'] ?? 0)));
@@ -1146,6 +1152,7 @@ final class Admin
             ['label' => 'Go-Live Score', 'value' => (string) ((int) ($goLive['score'] ?? 0)) . '/100', 'page' => 'helmetsan-go-live'],
         ];
         $this->renderMetricCards($cards);
+        $this->renderActiveTasks();
 
         echo '<div class="hs-grid hs-grid--2">';
         echo '<div class="hs-panel">';
@@ -3536,6 +3543,7 @@ final class Admin
         $features    = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $this->config->featuresDefaults());
         $defaultImages = $this->config->defaultImagesConfig();
         $adsense = $this->config->adsenseConfig();
+        $security = $this->config->securityConfig();
 
         $tabs = [
             'analytics'   => 'Analytics',
@@ -3549,6 +3557,7 @@ final class Admin
             'media'       => 'Media Engine',
             'defaults'    => 'Default Images',
             'woobridge'   => 'WooBridge',
+            'security'    => 'Security & Spam',
             'features'    => 'Features & Toggles',
         ];
         $activeTab = isset($_GET['stab']) ? sanitize_key((string) $_GET['stab']) : 'analytics';
@@ -3584,6 +3593,7 @@ final class Admin
         $O_F = Config::OPTION_FEATURES;
         $O_D = Config::OPTION_DEFAULT_IMAGES;
         $O_ADS = Config::OPTION_ADSENSE;
+        $O_SEC = Config::OPTION_SECURITY;
 
         // ── Google AdSense ────────────────────────────────────────
         if ($activeTab === 'adsense') {
@@ -3601,6 +3611,10 @@ final class Admin
 
         // ── Analytics ────────────────────────────────────────────
         if ($activeTab === 'analytics') {
+            $this->renderSettingsSection('Cloudflare Web Analytics', 'Privacy-first, edge-based analytics with zero impact on page speed.', [
+                ['key' => 'cf_analytics_token', 'option' => $O_A, 'label' => 'Web Analytics Token', 'desc' => 'Your Cloudflare beacon token (found in the snippet data-cf-beacon).', 'type' => 'text'],
+            ], $analytics);
+
             $this->renderSettingsSection('Google Analytics & Tag Manager', 'Connect GA4 or GTM. If MonsterInsights is active, respect its tracker by default.', [
                 ['key' => 'enable_analytics', 'option' => $O_A, 'label' => 'Enable Analytics', 'desc' => 'Inject analytics script on the frontend.', 'type' => 'checkbox'],
                 ['key' => 'analytics_respect_monsterinsights', 'option' => $O_A, 'label' => 'Respect MonsterInsights', 'desc' => 'Skip injection if MonsterInsights is active.', 'type' => 'checkbox'],
@@ -3609,6 +3623,7 @@ final class Admin
             ], $analytics);
 
             $this->renderSettingsSection('Event Tracking', 'Track user interactions like clicks, search, and form submissions.', [
+                ['key' => 'd1_analytics_worker_url', 'option' => $O_A, 'label' => 'D1 Analytics Worker URL', 'desc' => 'Optional edge endpoint for event ingestion, replacing the local WP REST API.', 'type' => 'url'],
                 ['key' => 'enable_enhanced_event_tracking', 'option' => $O_A, 'label' => 'Enhanced Event Tracking', 'desc' => 'Push custom events to the data layer (helmet views, CTA clicks, etc.).', 'type' => 'checkbox'],
                 ['key' => 'enable_internal_search_tracking', 'option' => $O_A, 'label' => 'Internal Search Tracking', 'desc' => 'Fire a view_search_results event on WP search.', 'type' => 'checkbox'],
                 ['key' => 'enable_scroll_depth_tracking', 'option' => $O_A, 'label' => 'Scroll Depth', 'desc' => 'Fire events at 25%, 50%, 75%, 90% scroll.', 'type' => 'checkbox'],
@@ -3821,6 +3836,11 @@ final class Admin
                 ['key' => 'enrichment_seo_other_cpts_limit', 'option' => $O_S, 'label' => 'SEO: other CPTs limit', 'desc' => 'Max posts per other CPT to SEO-seed per run (0 = no limit).', 'type' => 'number', 'prefix' => 'sch_'],
             ], $scheduler);
 
+            $this->renderSettingsSection('Automated R2 Backups', 'Schedule database, theme, and data catalogs backups to Cloudflare R2.', [
+                ['key' => 'r2_backups_enabled', 'option' => $O_S, 'label' => 'Enable R2 Backups', 'desc' => 'Periodically upload backups to R2. Ensure R2 is configured in the Media Engine tab.', 'type' => 'checkbox', 'prefix' => 'sch_'],
+                ['key' => 'r2_backups_interval_hours', 'option' => $O_S, 'label' => 'Interval (hours)', 'desc' => 'How often to backup (e.g. 24).', 'type' => 'number', 'prefix' => 'sch_'],
+            ], $scheduler);
+
             $status = $this->scheduler->status();
             $taskResult = get_transient('helmetsan_scheduler_task_result');
             if (isset($_GET['task_run']) && is_array($taskResult) && isset($taskResult['task']) && $taskResult['task'] === $_GET['task_run']) {
@@ -3913,6 +3933,10 @@ final class Admin
                 ['key' => 'logodev_token', 'option' => $O_ME, 'label' => 'Logo.dev Legacy Token', 'desc' => 'Backward-compatible single token. Use publishable/secret keys instead.', 'type' => 'password', 'prefix' => 'med_'],
             ], $media);
 
+            $this->renderSettingsSection('Cloudflare Edge Features', 'Offload heavy tasks and storage to Cloudflare Workers and Queues.', [
+                ['key' => 'enable_cloudflare_queues', 'option' => $O_ME, 'label' => 'Enable Queues', 'desc' => 'Dispatch ingestion to Cloudflare Queues for async processing.', 'type' => 'checkbox', 'prefix' => 'med_'],
+            ], $media);
+
             $this->renderSettingsSection('Cloudflare R2 Storage', 'Scaleable and low-cost image storage. Overrides local media library sideloading when enabled.', [
                 ['key' => 'r2_enabled', 'option' => $O_ME, 'label' => 'Enable R2 Storage', 'desc' => 'Upload image assets directly to R2.', 'type' => 'checkbox', 'prefix' => 'med_'],
                 ['key' => 'r2_account_id', 'option' => $O_ME, 'label' => 'Account ID', 'desc' => 'Cloudflare Account ID.', 'type' => 'text', 'prefix' => 'med_'],
@@ -3920,6 +3944,11 @@ final class Admin
                 ['key' => 'r2_secret_key', 'option' => $O_ME, 'label' => 'Secret Key', 'desc' => 'R2 S3 API Secret Key.', 'type' => 'password', 'prefix' => 'med_'],
                 ['key' => 'r2_bucket', 'option' => $O_ME, 'label' => 'R2 Bucket Name', 'desc' => 'Name of the R2 bucket.', 'type' => 'text', 'prefix' => 'med_'],
                 ['key' => 'r2_public_url', 'option' => $O_ME, 'label' => 'Public Domain URL', 'desc' => 'Custom domain or R2.dev URL (e.g. https://cdn.example.com).', 'type' => 'url', 'prefix' => 'med_'],
+            ], $media);
+
+            $this->renderSettingsSection('Cloudflare Image Resizing', 'Edge-based dynamic image resizing via Cloudflare Worker. Saves massive local storage and improves delivery speed.', [
+                ['key' => 'r2_image_resizing_enabled', 'option' => $O_ME, 'label' => 'Enable Image Resizing Worker', 'desc' => 'When enabled, R2 URLs will be rewritten to route through your deployed resizing worker.', 'type' => 'checkbox', 'prefix' => 'med_'],
+                ['key' => 'r2_image_resizer_url', 'option' => $O_ME, 'label' => 'Resizer Worker URL', 'desc' => 'The public URL of your Cloudflare Image Resizing Worker (e.g. https://helmetsan-image-resizer.yourname.workers.dev).', 'type' => 'url', 'prefix' => 'med_'],
             ], $media);
 
             $this->renderSettingsSection('Product image by EAN / GTIN', 'Look up product or brand images by barcode in Media Engine. Env: HELMETSAN_EAN_DB_TOKEN, HELMETSAN_EANDATA_KEYCODE.', [
@@ -3958,7 +3987,49 @@ final class Admin
             ], $features);
         }
 
+        // ── Security ─────────────────────────────────────────────
+        if ($activeTab === 'security') {
+            $this->renderSettingsSection('Security & Spam Protection', 'Configure Cloudflare Turnstile to protect public REST APIs (like reviews) from spam and bots. No CAPTCHAs required.', [
+                ['key' => 'enable_turnstile', 'option' => $O_SEC, 'label' => 'Enable Turnstile', 'desc' => 'Require a valid Turnstile token for public form submissions.', 'type' => 'checkbox'],
+                ['key' => 'turnstile_site_key', 'option' => $O_SEC, 'label' => 'Site Key', 'desc' => 'Visible on the frontend.', 'type' => 'text'],
+                ['key' => 'turnstile_secret_key', 'option' => $O_SEC, 'label' => 'Secret Key', 'desc' => 'Kept secret on the server for verification.', 'type' => 'text'],
+            ], $security);
+        }
+
         submit_button('Save Settings');
         echo '</form></div>';
+    }
+
+    private function renderActiveTasks(): void
+    {
+        if ($this->taskTracker === null) {
+            return;
+        }
+        $tasks = $this->taskTracker->getActiveTasks();
+        if (empty($tasks)) {
+            return;
+        }
+
+        echo '<div class="hs-panel hs-active-tasks" style="margin-bottom:20px; border-left: 4px solid #007bff;">';
+        echo '<div class="hs-panel-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 15px;">';
+        echo '<h3 style="margin:0;">Active Background Tasks</h3>';
+        echo '<div class="hs-spinner hs-spinner-small"></div>';
+        echo '</div>';
+        echo '<div class="hs-task-list">';
+        foreach ($tasks as $id => $data) {
+            $elapsed = time() - $data['start'];
+            $pct = (int) ($data['progress'] ?? 0);
+            echo '<div class="hs-task-item" style="margin-bottom:12px; padding:10px; background:rgba(255,255,255,0.03); border-radius:6px;">';
+            echo '<div style="display:flex; justify-content:space-between; margin-bottom:5px;">';
+            echo '<strong>' . esc_html($data['label']) . '</strong>';
+            echo '<span style="font-size:0.8em; opacity:0.6;">' . (int) ($elapsed / 60) . 'm ' . ($elapsed % 60) . 's</span>';
+            echo '</div>';
+            echo '<div style="height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden;">';
+            echo '<div style="width:' . $pct . '%; height:100%; background:#007bff; transition:width 0.5s ease;"></div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        echo '</div>';
+        echo '</div>';
     }
 }

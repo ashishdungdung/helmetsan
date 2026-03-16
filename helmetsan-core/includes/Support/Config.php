@@ -20,6 +20,7 @@ final class Config
     public const OPTION_DEFAULT_IMAGES = 'helmetsan_default_images';
     public const OPTION_ADSENSE = 'helmetsan_adsense';
     public const OPTION_AI = 'helmetsan_ai';
+    public const OPTION_SECURITY = 'helmetsan_security';
 
     public function aiDefaults(): array
     {
@@ -33,6 +34,7 @@ final class Config
                 'together' => ['enabled' => false, 'api_key' => '', 'model' => 'meta-llama/Llama-3.2-3B-Instruct-Turbo', 'tier' => 'free'],
                 'fireworks' => ['enabled' => false, 'api_key' => '', 'model' => 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'tier' => 'free'],
                 'cohere' => ['enabled' => false, 'api_key' => '', 'model' => 'command-r-plus', 'tier' => 'free'],
+                'cloudflare' => ['enabled' => false, 'api_key' => '', 'model' => '@cf/meta/llama-3-8b-instruct', 'base_url' => '', 'tier' => 'free'],
                 'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => 'http://localhost:1234/v1', 'model' => 'local', 'tier' => 'free'],
                 'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
                 'anthropic' => ['enabled' => false, 'api_key' => '', 'model' => 'claude-sonnet-4-20250514', 'tier' => 'premium'],
@@ -69,6 +71,7 @@ final class Config
         return [
             'enable_analytics'                         => false,
             'analytics_respect_monsterinsights'       => true,
+            'cf_analytics_token'                      => '',
             'ga4_measurement_id'                      => '',
             'gtm_container_id'                        => '',
             'enable_enhanced_event_tracking'          => false,
@@ -84,6 +87,7 @@ final class Config
             'enable_heatmap_hotjar'                   => false,
             'hotjar_site_id'                          => '',
             'hotjar_version'                          => '6',
+            'd1_analytics_worker_url'                 => '',
         ];
     }
 
@@ -138,14 +142,14 @@ final class Config
                 'cj'      => ['enabled' => false, 'website_id' => '', 'advertiser_id' => ''],
                 'allegro' => ['enabled' => false, 'aff_id' => ''],
                 'jumia'   => ['enabled' => false, 'aff_id' => ''],
-                'flipkart'=> ['enabled' => false, 'aff_id' => ''],
+                'flipkart' => ['enabled' => false, 'aff_id' => ''],
             ],
             'network_cpc' => [
                 'amazon'  => 0.06,
                 'cj'      => 0.04,
                 'allegro' => 0.03,
                 'jumia'   => 0.02,
-                'flipkart'=> 0.04,
+                'flipkart' => 0.04,
             ],
         ];
     }
@@ -188,6 +192,8 @@ final class Config
             'cleanup_logs_days'          => 30,
             'health_snapshot_enabled'    => true,
             'ingestion_interval_hours'   => 6,
+            'r2_backups_enabled'         => false,
+            'r2_backups_interval_hours'  => 24,
             // AI enrichment (scheduler)
             'enrichment_enabled'         => false, // master switch
             'enrichment_interval_hours'  => 24,
@@ -252,6 +258,15 @@ final class Config
             'ean_db_token'          => '',
             'eandata_enabled'       => false,
             'eandata_keycode'       => '',
+            'enable_cloudflare_queues' => false,
+            'r2_enabled'      => false,
+            'r2_account_id'   => '',
+            'r2_access_key'   => '',
+            'r2_secret_key'   => '',
+            'r2_bucket'       => '',
+            'r2_public_url'   => '',
+            'r2_image_resizing_enabled' => false,
+            'r2_image_resizer_url'      => '',
         ];
     }
 
@@ -263,6 +278,15 @@ final class Config
             'publish_products' => false,
             'default_currency' => 'USD',
             'sync_limit_default' => 100,
+        ];
+    }
+
+    public function securityDefaults(): array
+    {
+        return [
+            'enable_turnstile' => false,
+            'turnstile_site_key' => '',
+            'turnstile_secret_key' => '',
         ];
     }
 
@@ -315,6 +339,24 @@ final class Config
         }
         if (defined('HELMETSAN_GITHUB_REMOTE_PATH') && \HELMETSAN_GITHUB_REMOTE_PATH !== '') {
             $cfg['remote_path'] = (string) \HELMETSAN_GITHUB_REMOTE_PATH;
+        }
+
+        return $cfg;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function securityConfig(): array
+    {
+        $saved = get_option(self::OPTION_SECURITY, []);
+        $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->securityDefaults());
+
+        if (defined('HELMETSAN_TURNSTILE_SITE_KEY') && \HELMETSAN_TURNSTILE_SITE_KEY !== '') {
+            $cfg['turnstile_site_key'] = (string) \HELMETSAN_TURNSTILE_SITE_KEY;
+        }
+        if (defined('HELMETSAN_TURNSTILE_SECRET_KEY') && \HELMETSAN_TURNSTILE_SECRET_KEY !== '') {
+            $cfg['turnstile_secret_key'] = (string) \HELMETSAN_TURNSTILE_SECRET_KEY;
         }
 
         return $cfg;

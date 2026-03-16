@@ -159,7 +159,8 @@ final class Tracker
             return;
         }
 
-        $endpoint = esc_js((string) rest_url('helmetsan/v1/event'));
+        $workerUrl = !empty($settings['d1_analytics_worker_url']) ? rtrim((string)$settings['d1_analytics_worker_url'], '/') : '';
+        $endpoint = $workerUrl !== '' ? esc_js((string)$workerUrl) : esc_js((string) rest_url('helmetsan/v1/event'));
         $nonce    = esc_js(wp_create_nonce('helmetsan_event'));
         $o = $trackOutbound ? '1' : '0';
         $s = $trackSearch ? '1' : '0';

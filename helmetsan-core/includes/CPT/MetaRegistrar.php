@@ -25,6 +25,7 @@ final class MetaRegistrar
         add_action('init', [$this, 'registerDistributorMeta']);
         add_action('init', [$this, 'registerComparisonMeta']);
         add_action('init', [$this, 'registerRecommendationMeta']);
+        add_action('init', [$this, 'registerReviewMeta']);
         add_action('init', [$this, 'registerAssetMeta']);
     }
 
@@ -419,6 +420,30 @@ final class MetaRegistrar
             ],
             'auth_callback' => static fn() => current_user_can('edit_posts'),
         ]);
+    }
+
+    public function registerReviewMeta(): void
+    {
+        $fields = [
+            'review_author_name'      => ['type' => 'string', 'label' => 'Author Name'],
+            'review_author_email'     => ['type' => 'string', 'label' => 'Author Email'],
+            'review_rating'           => ['type' => 'integer', 'label' => 'Rating (1-5)'],
+            'review_verified_purchase'=> ['type' => 'integer', 'label' => 'Verified Purchase (0/1)'],
+            'review_pros_json'        => ['type' => 'string', 'label' => 'Pros (JSON array)'],
+            'review_cons_json'        => ['type' => 'string', 'label' => 'Cons (JSON array)'],
+            'rel_product_id'          => ['type' => 'integer', 'label' => 'Related Product ID (Helmet/Accessory)'],
+        ];
+
+        foreach ($fields as $key => $config) {
+            register_post_meta('review', $key, [
+                'type'              => $config['type'],
+                'description'       => $config['label'],
+                'single'            => true,
+                'show_in_rest'      => true,
+                'sanitize_callback' => $config['type'] === 'integer' ? 'absint' : ($config['type'] === 'string' && str_contains($key, 'json') ? static fn($v) => wp_kses_post($v) : 'sanitize_text_field'),
+                'auth_callback'     => static fn() => current_user_can('edit_posts'),
+            ]);
+        }
     }
 
     public function registerAssetMeta(): void

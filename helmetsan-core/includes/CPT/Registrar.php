@@ -117,6 +117,15 @@ final class Registrar
                 'supports'     => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'],
                 'has_archive'  => true,
             ],
+            'review' => [
+                'label'        => 'Reviews',
+                'singular'     => 'Review',
+                'slug'         => 'reviews',
+                'icon'         => 'dashicons-format-chat',
+                'menu_pos'     => 15,
+                'supports'     => ['title', 'editor', 'excerpt', 'revisions', 'custom-fields'],
+                'has_archive'  => true,
+            ],
             'asset' => [
                 'label'        => 'Assets',
                 'singular'     => 'Asset',

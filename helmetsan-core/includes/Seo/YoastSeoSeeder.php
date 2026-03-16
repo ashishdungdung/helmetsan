@@ -29,6 +29,40 @@ final class YoastSeoSeeder
     ) {
     }
 
+    public function seedSinglePost(int $postId): bool
+    {
+        $post = get_post($postId);
+        if (! $post instanceof WP_Post) {
+            return false;
+        }
+
+        $type = $post->post_type;
+        $triple = null;
+
+        if ($type === 'helmet') {
+            $triple = $this->buildHelmetSeo($postId, $post);
+        } elseif ($type === 'brand') {
+            $triple = $this->buildBrandSeo($postId, $post);
+        } elseif ($type === 'accessory') {
+            $triple = $this->buildAccessorySeo($postId, $post);
+        }
+
+        if ($triple === null) {
+            return false;
+        }
+
+        update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
+        update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+        
+        $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
+        if ($focuskw === '') {
+            $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title, 60));
+        }
+        update_post_meta($postId, self::YOAST_FOCUSKW, $focuskw);
+
+        return true;
+    }
+
     public function seedHelmets(int $limit = 0, int $offset = 0, bool $dryRun = false): array
     {
         $query = new \WP_Query([

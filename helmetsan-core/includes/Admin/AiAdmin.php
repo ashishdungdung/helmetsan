@@ -125,6 +125,9 @@ final class AiAdmin
             if ($id === 'lm_studio' && isset($_POST[$key . '_base_url'])) {
                 $providers[$id]['base_url'] = sanitize_text_field(wp_unslash($_POST[$key . '_base_url']));
             }
+            if ($id === 'cloudflare' && isset($_POST[$key . '_base_url'])) {
+                $providers[$id]['base_url'] = sanitize_text_field(wp_unslash($_POST[$key . '_base_url']));
+            }
         }
         $settings = get_option(Config::OPTION_AI, $defaults);
         $settings['providers'] = $providers;
@@ -185,6 +188,12 @@ final class AiAdmin
             if ($id === 'lm_studio') {
                 $baseUrl = (string) ($p['base_url'] ?? $def['base_url'] ?? 'http://localhost:1234/v1');
                 echo '<td><input type="url" name="helmetsan_ai_' . esc_attr($id) . '_base_url" value="' . esc_attr($baseUrl) . '" class="regular-text" placeholder="http://localhost:1234/v1" /></td>';
+            } elseif ($id === 'cloudflare') {
+                $accountId = (string) ($p['base_url'] ?? $def['base_url'] ?? '');
+                echo '<td>';
+                echo '<input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" placeholder="' . esc_attr__('API key', 'helmetsan-core') . '" style="margin-bottom: 4px; display: block;" />';
+                echo '<input type="text" name="helmetsan_ai_' . esc_attr($id) . '_base_url" value="' . esc_attr($accountId) . '" class="regular-text" placeholder="' . esc_attr__('Account ID', 'helmetsan-core') . '" />';
+                echo '</td>';
             } else {
                 echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" placeholder="' . esc_attr__('API key', 'helmetsan-core') . '" /></td>';
             }
@@ -796,6 +805,7 @@ final class AiAdmin
             'openai' => 'OpenAI (ChatGPT)',
             'anthropic' => 'Anthropic (Claude)',
             'perplexity' => 'Perplexity',
+            'cloudflare' => 'Cloudflare Workers AI',
             default => $id,
         };
     }
@@ -812,6 +822,7 @@ final class AiAdmin
             'together' => 'Fast inference, fill-missing (free/low-cost)',
             'fireworks' => 'Fast inference, many OSS models (free tier)',
             'cohere' => 'Classification, short text (free tier)',
+            'cloudflare' => 'Fast edge inference (Llama, etc., free tier)',
             'lm_studio' => 'Local LLM (Zed, LM Studio); no API key',
             'openai' => 'Highest quality when cost justified',
             'anthropic' => 'Nuanced copy, long context',

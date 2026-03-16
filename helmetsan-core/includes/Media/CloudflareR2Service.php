@@ -18,6 +18,8 @@ class CloudflareR2Service
     private bool $enabled = false;
     private string $bucket = '';
     private string $publicUrlPrefix = '';
+    private bool $resizingEnabled = false;
+    private string $resizerUrl = '';
 
     public function __construct(Config $config)
     {
@@ -26,6 +28,8 @@ class CloudflareR2Service
         $this->enabled = !empty($settings['r2_enabled']);
         $this->bucket = $settings['r2_bucket'] ?? '';
         $this->publicUrlPrefix = rtrim($settings['r2_public_url'] ?? '', '/');
+        $this->resizingEnabled = !empty($settings['r2_image_resizing_enabled']);
+        $this->resizerUrl = rtrim($settings['r2_image_resizer_url'] ?? '', '/');
 
         if ($this->enabled && !empty($settings['r2_account_id']) && !empty($settings['r2_access_key']) && !empty($settings['r2_secret_key'])) {
             $this->client = new S3Client([
@@ -87,5 +91,38 @@ class CloudflareR2Service
             return '';
         }
         return sprintf('%s/%s', $this->publicUrlPrefix, ltrim($r2Key, '/'));
+    }
+
+    /**
+     * Generate a resized public URL using the Cloudflare Worker.
+     * Falls back to the original URL if resizing is not enabled or parameters are missing.
+     */
+    public function getResizedFileUrl(string $r2Key, int $width = 0, int $quality = 75, string $format = 'webp'): string
+    {
+        if (!$this->resizingEnabled || empty($this->resizerUrl)) {
+            return $this->getFileUrl($r2Key);
+        }
+
+        $originalUrl = $this->getFileUrl($r2Key);
+        if (empty($originalUrl)) {
+            return '';
+        }
+
+        $params = [];
+        if ($width > 0) {
+            $params['width'] = $width;
+        }
+        if ($quality > 0 && $quality <= 100) {
+            $params['quality'] = $quality;
+        }
+        if (!empty($format)) {
+            $params['format'] = $format;
+        }
+
+        if (empty($params)) {
+             return $originalUrl;
+        }
+
+        return esc_url_raw(add_query_arg($params, $this->resizerUrl . '/' . ltrim($r2Key, '/')));
     }
 }

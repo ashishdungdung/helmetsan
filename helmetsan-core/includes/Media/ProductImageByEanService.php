@@ -140,4 +140,36 @@ final class ProductImageByEanService
         $key  = self::CACHE_GROUP . '_' . md5($ean);
         delete_transient($key);
     }
+
+    /**
+     * Test connectivity to EAN-DB API.
+     * Uses a dummy request to check if the token is valid and the API is reachable.
+     */
+    public function healthCheck(): bool
+    {
+        $cfg = $this->config->mediaConfig();
+        if (empty($cfg['ean_db_enabled']) || (string) ($cfg['ean_db_token'] ?? '') === '') {
+            return false;
+        }
+
+        // We check a dummy/non-existent EAN to see if the API responds with a proper 404 (valid token)
+        // or a 401/403 (invalid token).
+        $url  = self::EAN_DB_URL . '0000000000000';
+        $resp = wp_remote_get($url, [
+            'timeout' => 10,
+            'headers' => [
+                'Authorization' => 'Bearer ' . (string) $cfg['ean_db_token'],
+                'Accept'        => 'application/json',
+            ],
+        ]);
+
+        if (is_wp_error($resp)) {
+            return false;
+        }
+
+        $code = wp_remote_retrieve_response_code($resp);
+        // 200 means success (unlikely for 0000...), 404 means valid token but product not found.
+        // 401/403 means auth failure.
+        return $code === 200 || $code === 404;
+    }
 }

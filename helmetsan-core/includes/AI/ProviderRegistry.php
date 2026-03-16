@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Helmetsan\Core\AI;
 
 use Helmetsan\Core\AI\Providers\AnthropicProvider;
+use Helmetsan\Core\AI\Providers\CloudflareProvider;
 use Helmetsan\Core\AI\Providers\CohereProvider;
 use Helmetsan\Core\AI\Providers\FireworksProvider;
 use Helmetsan\Core\AI\Providers\GeminiProvider;
@@ -58,7 +59,7 @@ final class ProviderRegistry
         $defaults = $this->config->aiDefaults();
         $providersConfig = is_array($settings['providers'] ?? null) ? $settings['providers'] : $defaults['providers'];
 
-        $order = ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'lm_studio', 'openai', 'anthropic', 'perplexity'];
+        $order = ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'cloudflare', 'lm_studio', 'openai', 'anthropic', 'perplexity'];
         $list = [];
         foreach ($order as $id) {
             $p = $this->get($id, $providersConfig);
@@ -85,6 +86,18 @@ final class ProviderRegistry
             $model = trim((string) ($cfg['model'] ?? ''));
             if ($model === '') {
                 $model = $defaults[$id]['model'] ?? 'local';
+            }
+            $key = trim((string) ($cfg['api_key'] ?? ''));
+            return $this->create($id, $key, $model, $cfg);
+        }
+        if ($id === 'cloudflare') {
+            $accountId = trim((string) ($cfg['base_url'] ?? ''));
+            if ($accountId === '') {
+                return null;
+            }
+            $model = trim((string) ($cfg['model'] ?? ''));
+            if ($model === '') {
+                $model = $defaults[$id]['model'] ?? '@cf/meta/llama-3-8b-instruct';
             }
             $key = trim((string) ($cfg['api_key'] ?? ''));
             return $this->create($id, $key, $model, $cfg);
@@ -117,6 +130,7 @@ final class ProviderRegistry
             'together' => new TogetherProvider($apiKey, $model ?: 'meta-llama/Llama-3.2-3B-Instruct-Turbo'),
             'fireworks' => new FireworksProvider($apiKey, $model ?: 'accounts/fireworks/models/llama-v3p1-8b-instruct'),
             'cohere' => new CohereProvider($apiKey, $model ?: 'command-r-plus'),
+            'cloudflare' => new CloudflareProvider($apiKey, $model ?: '@cf/meta/llama-3-8b-instruct', (string) ($extraConfig['base_url'] ?? '')),
             'lm_studio' => new LMStudioProvider(
                 (string) ($extraConfig['base_url'] ?? ''),
                 $model ?: 'local',
@@ -146,7 +160,7 @@ final class ProviderRegistry
     /** Provider IDs that are free/low-cost. */
     public static function freeProviderIds(): array
     {
-        return ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'lm_studio'];
+        return ['groq', 'gemini', 'mistral', 'openrouter', 'huggingface', 'together', 'fireworks', 'cohere', 'cloudflare', 'lm_studio'];
     }
 
     /** Provider IDs that are premium (dedicated controls). */

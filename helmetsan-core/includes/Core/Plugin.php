@@ -42,6 +42,9 @@ use Helmetsan\Core\AI\ImageAnalysisService;
 use Helmetsan\Core\Media\CloudflareR2Service;
 use Helmetsan\Core\Ingestion\AssetIngestionService;
 use Helmetsan\Core\Admin\AssetManagerAdmin;
+use Helmetsan\Core\Cloudflare\QueueService;
+use Helmetsan\Core\Cloudflare\AnalyticsInjector;
+use Helmetsan\Core\API\IngestionCallbackController;
 use Helmetsan\Core\Media\RevZillaImageService;
 use Helmetsan\Core\Motorcycle\MotorcycleService;
 use Helmetsan\Core\Repository\JsonRepository;
@@ -51,6 +54,9 @@ use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\Seo\SchemaService;
+use Helmetsan\Core\Seo\AutoSeoObserver;
+use Helmetsan\Core\Seo\YoastSeoSeeder;
+use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
 use Helmetsan\Core\Support\AdSense;
 use Helmetsan\Core\Support\AdsTxt;
 use Helmetsan\Core\Support\Config;
@@ -60,6 +66,7 @@ use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
 use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\Analytics\Tracker;
+use Helmetsan\Core\Support\TaskTracker;
 use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\API\BrandController;
 use Helmetsan\Core\Price\PriceService;
@@ -76,6 +83,8 @@ use Helmetsan\Core\Marketplace\MarketplaceRouter;
 use Helmetsan\Core\Geo\GeoService;
 use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\API\PriceController;
+use Helmetsan\Core\API\ReviewController;
+use Helmetsan\Core\Cloudflare\TurnstileService;
 use Helmetsan\Core\Marketplace\FeedIngestionTask;
 use Helmetsan\Core\Admin\RevenueDashboard;
 use Helmetsan\Core\Core\DatabaseManager;
@@ -129,6 +138,7 @@ final class Plugin
     private MarketplaceRouter $router;
     private PriceHistory $priceHistory;
     private PriceController $priceApi;
+    private ReviewController $reviewApi;
     private FeedIngestionTask $feedTask;
     private RevenueDashboard $revenueDashboard;
     private DefaultImages $defaultImages;
@@ -148,12 +158,20 @@ final class Plugin
     private CloudflareR2Service $cloudflareR2Service;
     private AssetIngestionService $assetIngestionService;
     private AssetManagerAdmin $assetManagerAdmin;
+    private QueueService $queueService;
+    private AnalyticsInjector $analyticsInjector;
+    private IngestionCallbackController $ingestionCallbackController;
+    private AutoSeoObserver $autoSeoObserver;
+    private AiSeoDescriptionProvider $aiSeoProvider;
+    private TurnstileService $turnstileService;
+    private TaskTracker $taskTracker;
 
     public function __construct()
     {
         $this->config     = new Config();
         $this->logger     = new Logger();
         $this->databaseManager = new DatabaseManager();
+        $this->taskTracker = new TaskTracker();
         $this->repository = new JsonRepository($this->config);
         $this->validator  = new Validator();
         $this->seeder     = new Seeder($this->logger);
@@ -201,6 +219,8 @@ final class Plugin
         );
         $this->dataLayer = new DataLayerService($this->price);
         $this->priceApi = new PriceController($this->price, $this->priceHistory);
+        $this->turnstileService = new TurnstileService($this->config, $this->ingestionLogs);
+        $this->reviewApi = new ReviewController($this->turnstileService);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -249,9 +269,16 @@ final class Plugin
         $this->alerts     = new AlertService($this->config);
         $this->providerRegistry = new ProviderRegistry($this->config);
         $this->aiService = new AiService($this->providerRegistry);
+        $this->aiSeoProvider = new AiSeoDescriptionProvider($this->aiService);
         $this->seedGenerator = new SeedGeneratorService($this->aiService);
         $this->accessoryGenerator = new AccessoryGeneratorService($this->aiService, $this->validator);
-        $this->health = new HealthService($this->validator, $this->repository, $this->aiService, $this->marketplace);
+        $this->health = new HealthService(
+            $this->validator,
+            $this->repository,
+            $this->aiService,
+            $this->marketplace,
+            $this->mediaEngine->getProductImageByEanService()
+        );
         $this->scheduler = new SchedulerService(
             $this->config,
             $this->sync,
@@ -283,14 +310,21 @@ final class Plugin
         $this->scraperService = new ScraperService();
         $this->imageAnalysisService = new ImageAnalysisService($this->providerRegistry);
         $this->cloudflareR2Service = new CloudflareR2Service($this->config);
+        $this->queueService = new QueueService($this->config);
+        $this->analyticsInjector = new AnalyticsInjector($this->config);
+        $this->autoSeoObserver = new AutoSeoObserver(new YoastSeoSeeder($this->aiSeoProvider));
         $this->assetIngestionService = new AssetIngestionService(
             $this->scraperService,
             $this->imageAnalysisService,
             $this->assetManager,
             $this->mediaEngine,
-            $this->cloudflareR2Service
+            $this->cloudflareR2Service,
+            $this->queueService
         );
         $this->assetManagerAdmin = new AssetManagerAdmin($this->assetIngestionService);
+        $this->ingestionCallbackController = new IngestionCallbackController($this->assetManager);
+
+        $this->analyticsInjector->bootstrap();
     }
 
     public function boot(): void
@@ -313,6 +347,8 @@ final class Plugin
 
         $this->assetManagerAdmin->register();
 
+        $this->autoSeoObserver->init();
+
         $this->aiAdmin->register();
         $this->helmetImagesAdmin->register();
         (new Admin(
@@ -333,6 +369,7 @@ final class Plugin
             $this->alerts,
             $this->brands,
             $this->wooBridge,
+            $this->taskTracker,
             $this->aiAdmin
         ))->register();
         $this->databaseManager->register();
@@ -348,6 +385,7 @@ final class Plugin
         $this->adsTxt->register();
         $this->adSense->register();
         $this->priceApi->register();
+        $this->reviewApi->register();
         $this->feedTask->register();
         $this->revenueDashboard->register();
 
@@ -381,7 +419,8 @@ final class Plugin
                 $this->aiService,
                 $this->repository,
                 $this->seedGenerator,
-                $this->accessoryGenerator
+                $this->accessoryGenerator,
+                $this->taskTracker
             ))->register();
         }
     }

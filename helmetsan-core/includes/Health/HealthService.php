@@ -7,6 +7,7 @@ namespace Helmetsan\Core\Health;
 use Helmetsan\Core\AI\AiService;
 use Helmetsan\Core\Data\DuplicateCheckerService;
 use Helmetsan\Core\Marketplace\ConnectorRegistry;
+use Helmetsan\Core\Media\ProductImageByEanService;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Validation\Validator;
@@ -17,7 +18,8 @@ final class HealthService
         private readonly Validator $validator,
         private readonly JsonRepository $repository,
         private readonly ?AiService $aiService = null,
-        private readonly ?ConnectorRegistry $connectors = null
+        private readonly ?ConnectorRegistry $connectors = null,
+        private readonly ?ProductImageByEanService $eanService = null
     ) {
     }
 
@@ -186,6 +188,9 @@ final class HealthService
         if ($this->connectors !== null) {
             $report['marketplace'] = $this->connectors->healthCheckAll();
         }
+        $report['enrichment'] = [
+            'ean_db' => $this->eanService !== null && $this->eanService->healthCheck(),
+        ];
         return $report;
     }
 }

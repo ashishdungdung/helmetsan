@@ -57,7 +57,6 @@ final class SearchService
             'post_status'    => 'publish',
             'posts_per_page' => 18,
             'paged'          => $parsed['paged'],
-            'post_parent'    => 0, // Only show Parent Models
         ];
 
         // Text Search

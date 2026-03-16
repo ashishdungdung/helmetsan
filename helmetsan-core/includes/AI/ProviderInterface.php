@@ -24,4 +24,10 @@ interface ProviderInterface
      * @param array{max_tokens?: int, temperature?: float} $options
      */
     public function generate(string $prompt, array $options = []): ?string;
+
+    /**
+     * Prepare request data for parallel execution.
+     * @return array{url: string, headers: array<string, string>, body: string}|null
+     */
+    public function prepareRequest(string $prompt, array $options = []): ?array;
 }

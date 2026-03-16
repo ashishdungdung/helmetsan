@@ -88,10 +88,16 @@ final class ContextBuilder
         ?array $allowedValues = null
     ): string {
         $entityLabel = $entityType === 'helmet' ? 'helmet' : ($entityType === 'brand' ? 'brand' : 'accessory');
+        $productInfo = '';
+        if ($entityType === 'helmet') {
+            $brand = $existingData['brand'] ?? '';
+            $title = $existingData['title'] ?? '';
+            $productInfo = "Product: " . ($brand ? $brand . ' ' : '') . $title . ". ";
+        }
         $context = json_encode($existingData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $out = "You are a data assistant for a motorcycle gear catalog. Entity type: {$entityLabel}. "
-            . "Existing data (JSON): {$context}. "
-            . "The entity is missing the field: {$fieldLabel}. ";
+        $out = "You are a specialized motorcycle gear data expert. Entity: {$entityLabel}. {$productInfo}"
+            . "Full Context (JSON): {$context}. "
+            . "Task: Provide the value for the missing field: \"{$fieldLabel}\". ";
         if ($allowedValues !== null && $allowedValues !== []) {
             $out .= "You MUST reply with exactly one of these values (no other text): " . implode(', ', $allowedValues) . ". Output ONLY that value, nothing else.";
         } else {
@@ -165,6 +171,10 @@ final class ContextBuilder
      * Build prompt to resolve a RevZilla product page URL for a helmet (for image fetch or affiliate link).
      * Output: a single URL string to the RevZilla product page, or empty if not found.
      */
+    /**
+     * Build prompt to resolve a RevZilla product page URL for a helmet (for image fetch or affiliate link).
+     * Output: a single URL string to the RevZilla product page, or empty if not found.
+     */
     public static function forResolveRevZillaUrl(string $title, string $brand): string
     {
         $product = $brand !== '' ? $brand . ' ' . $title : $title;
@@ -172,5 +182,20 @@ final class ContextBuilder
             . "Find the RevZilla.com product page URL for this helmet: {$product}. "
             . "Reply with ONLY the full RevZilla product page URL (https://www.revzilla.com/...), or the word \"none\" if you cannot find a matching RevZilla listing. "
             . "Do not include any other text, markdown, or explanation.";
+    }
+
+    /**
+     * Build prompt to resolve official manufacturer image URLs for a helmet.
+     * Output must be valid JSON: {"images": ["https://...", "https://..."]}
+     */
+    public static function forResolveManufacturerImages(string $title, string $brand): string
+    {
+        $product = $brand !== '' ? $brand . ' ' . $title : $title;
+        return "You are a product data assistant for motorcycle helmets. "
+            . "Find official manufacturer product images for the following helmet: {$product}. "
+            . "Reply with a JSON object containing a list of direct URLs to high-quality images from the manufacturer's official website. "
+            . "Output format: {\"images\": [\"url1\", \"url2\"]}. "
+            . "If no official images can be found with high confidence, return an empty list. "
+            . "Output ONLY the JSON object, no explanation.";
     }
 }

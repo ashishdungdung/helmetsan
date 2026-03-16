@@ -48,6 +48,12 @@ abstract class BaseProvider implements ProviderInterface
         ]);
     }
 
+    /**
+     * Prepare request data for parallel execution (e.g. via curl_multi).
+     * @return array{url: string, headers: array<string, string>, body: string}|null
+     */
+    abstract public function prepareRequest(string $prompt, array $options = []): ?array;
+
     protected function normalizeText(?string $s): string
     {
         if ($s === null || $s === '') {

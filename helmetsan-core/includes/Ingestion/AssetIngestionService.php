@@ -20,7 +20,8 @@ class AssetIngestionService
         private readonly ImageAnalysisService $aiAnalysis,
         private readonly AssetManager $assetManager,
         private readonly MediaEngine $mediaEngine,
-        private readonly CloudflareR2Service $cloudflareR2Service
+        private readonly CloudflareR2Service $cloudflareR2Service,
+        private readonly \Helmetsan\Core\Cloudflare\QueueService $queueService
     ) {}
 
     /**
@@ -52,7 +53,26 @@ class AssetIngestionService
 
         $helmetTitle = get_the_title($helmetId);
 
-        // 2. Process each URL
+        // 2. If CF Queues are enabled, dispatch messages instead of synchronous processing
+        if ($this->queueService->isEnabled()) {
+            foreach ($urls as $imgUrl) {
+                $payload = [
+                    'helmet_id'   => $helmetId,
+                    'helmet_title' => $helmetTitle,
+                    'source_url'  => $imgUrl,
+                ];
+                $dispatch = $this->queueService->dispatchMessage($payload);
+                if (is_wp_error($dispatch)) {
+                    $result['failures']++;
+                    $result['errors'][] = "Failed to queue $imgUrl: " . $dispatch->get_error_message();
+                } else {
+                    $result['success']++;
+                }
+            }
+            return $result;
+        }
+
+        // 3. Fallback to Synchronous Processing (if Queues disabled)
         foreach ($urls as $index => $imgUrl) {
             // A. Analyze with AI (to get suggested filename and photo type)
             // Passing the helmet title as known context

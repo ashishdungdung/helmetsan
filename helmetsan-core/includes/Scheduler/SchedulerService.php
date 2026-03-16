@@ -24,6 +24,8 @@ final class SchedulerService
     public const HOOK_HEALTH_SNAPSHOT = 'helmetsan_cron_health_snapshot';
     public const HOOK_INGESTION = 'helmetsan_cron_ingestion';
     public const HOOK_ENRICHMENT = 'helmetsan_cron_enrichment';
+    public const HOOK_IMAGE_ENRICHMENT = 'helmetsan_cron_image_enrichment';
+    public const HOOK_R2_BACKUPS = 'helmetsan_cron_r2_backups';
 
     public function __construct(
         private readonly Config $config,
@@ -47,6 +49,8 @@ final class SchedulerService
         add_action(self::HOOK_HEALTH_SNAPSHOT, [$this, 'runHealthSnapshot']);
         add_action(self::HOOK_INGESTION, [$this, 'runIngestion']);
         add_action(self::HOOK_ENRICHMENT, [$this, 'runEnrichment']);
+        add_action(self::HOOK_IMAGE_ENRICHMENT, [$this, 'runImageEnrichment']);
+        add_action(self::HOOK_R2_BACKUPS, [$this, 'runR2Backups']);
 
         add_action('init', [$this, 'scheduleEvents']);
     }
@@ -64,6 +68,8 @@ final class SchedulerService
         $this->clearHook(self::HOOK_HEALTH_SNAPSHOT);
         $this->clearHook(self::HOOK_INGESTION);
         $this->clearHook(self::HOOK_ENRICHMENT);
+        $this->clearHook(self::HOOK_IMAGE_ENRICHMENT);
+        $this->clearHook(self::HOOK_R2_BACKUPS);
     }
 
     /**
@@ -125,6 +131,13 @@ final class SchedulerService
         } else {
             $this->clearHook(self::HOOK_ENRICHMENT);
         }
+
+        if (! empty($cfg['r2_backups_enabled'])) {
+            $r2BackupsRecurrence = $this->recurrenceFromHours((int) ($cfg['r2_backups_interval_hours'] ?? 24));
+            $this->ensureEvent(self::HOOK_R2_BACKUPS, $r2BackupsRecurrence);
+        } else {
+            $this->clearHook(self::HOOK_R2_BACKUPS);
+        }
     }
 
     /**
@@ -141,6 +154,7 @@ final class SchedulerService
                 'health_snapshot' => wp_next_scheduled(self::HOOK_HEALTH_SNAPSHOT),
                 'ingestion'       => wp_next_scheduled(self::HOOK_INGESTION),
                 'enrichment'      => wp_next_scheduled(self::HOOK_ENRICHMENT),
+                'r2_backups'      => wp_next_scheduled(self::HOOK_R2_BACKUPS),
             ],
             'settings' => $this->config->schedulerConfig(),
         ];
@@ -158,6 +172,8 @@ final class SchedulerService
             'health_snapshot' => $this->runHealthSnapshot(),
             'ingestion' => $this->runIngestion(),
             'enrichment' => $this->runEnrichment(),
+            'image_enrichment' => $this->runImageEnrichment(),
+            'r2_backups' => $this->runR2Backups(),
             default => ['ok' => false, 'message' => 'Unknown task: ' . $task],
         };
     }
@@ -435,6 +451,74 @@ final class SchedulerService
         }
     }
 
+    /**
+     * Run the heavy image enrichment pipeline in the background.
+     *
+     * @return array<string,mixed>
+     */
+    public function runImageEnrichment(): array
+    {
+        if (! $this->acquireLock('image_enrichment', 7200)) {
+            return ['ok' => false, 'message' => 'Image enrichment is already running.'];
+        }
+
+        try {
+            $cfg = $this->config->schedulerConfig();
+            $limit = max(1, (int) ($cfg['image_enrichment_limit'] ?? 50));
+            
+            $service = new \Helmetsan\Core\Media\HelmetImageEnrichmentService(
+                new \Helmetsan\Core\Media\MediaEngine($this->config),
+                $this->aiService,
+                new \Helmetsan\Core\Media\RevZillaImageService()
+            );
+
+            $result = $service->run(
+                $limit, // limit
+                true,   // onlyMissingThumb
+                false,  // useAiWhenNoEan
+                false,  // dryRun
+                null,   // onProgress
+                true,   // useEan
+                true,   // useRevZilla
+                ! empty($cfg['image_enrichment_search']), // useAi (or search)
+                ! empty($cfg['image_enrichment_gallery']), // gallery
+                ! empty($cfg['image_enrichment_search']), // search
+                empty($cfg['image_enrichment_no_high_res']) // highRes
+            );
+
+            $this->maybeAlert('image_enrichment', $result);
+            return $result;
+        } finally {
+            $this->releaseLock('image_enrichment');
+        }
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function runR2Backups(): array
+    {
+        if (! $this->acquireLock('r2_backups', 3600)) {
+            $msg = 'R2 Backups is already running. Mutex lock blocked execution.';
+            $this->maybeAlert('r2_backups', ['ok' => false, 'message' => $msg]);
+            return ['ok' => false, 'message' => $msg];
+        }
+
+        try {
+            $r2Service = new \Helmetsan\Core\Media\CloudflareR2Service($this->config);
+            $backupService = new \Helmetsan\Core\Backup\BackupService(
+                $this->config,
+                new \Helmetsan\Core\Support\Logger(),
+                $r2Service
+            );
+            $result = $backupService->runBackup();
+            $this->maybeAlert('r2_backups', $result);
+            return $result;
+        } finally {
+            $this->releaseLock('r2_backups');
+        }
+    }
+
     private function ensureEvent(string $hook, string $recurrence): void
     {
         if (! wp_next_scheduled($hook)) {
@@ -452,9 +536,22 @@ final class SchedulerService
     private function acquireLock(string $task, int $expiration = 3600): bool
     {
         $lockName = 'hs_cron_lock_' . $task;
+        
+        // Use wp_cache_add if an object cache is available for better atomicity
+        if (function_exists('wp_cache_add')) {
+            $lockAcquired = wp_cache_add($lockName, time(), 'transient', $expiration);
+            if ($lockAcquired) {
+                // Also set the transient as a persistent fallback
+                set_transient($lockName, time(), $expiration);
+                return true;
+            }
+        }
+
+        // Fallback for environments without object cache
         if (get_transient($lockName)) {
             return false;
         }
+        
         set_transient($lockName, time(), $expiration);
         return true;
     }
@@ -462,6 +559,9 @@ final class SchedulerService
     private function releaseLock(string $task): void
     {
         $lockName = 'hs_cron_lock_' . $task;
+        if (function_exists('wp_cache_delete')) {
+            wp_cache_delete($lockName, 'transient');
+        }
         delete_transient($lockName);
     }
 

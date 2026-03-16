@@ -61,6 +61,12 @@ interface AiServiceInterface
      */
     public function resolveRevZillaUrlForHelmet(int $helmetId): ?string;
 
+    /**
+     * Use AI to find official manufacturer product images for a helmet.
+     * @return array<string> List of image URLs
+     */
+    public function resolveManufacturerImageUrls(int $helmetId): array;
+
     /** Whether at least one provider is enabled and configured. */
     public function hasAnyConfiguredProvider(): bool;
 
@@ -72,6 +78,14 @@ interface AiServiceInterface
      * @return array{ok: bool, message?: string}
      */
     public function testProvider(string $providerId): array;
+
+    /**
+     * Generate completions for multiple prompts in parallel, distributing them across providers (field-level parallelism).
+     * @param array<string, string> $prompts Map of key -> prompt.
+     * @param list<string>|null $providerIds Optional list of provider IDs to use.
+     * @return array<string, string|null> Map of key -> result.
+     */
+    public function generateMultiplexed(array $prompts, ?array $providerIds = null, array $options = []): array;
 
     /**
      * Generate and return which provider responded. For --live API check.
