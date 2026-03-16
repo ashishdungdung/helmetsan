@@ -1894,15 +1894,11 @@ final class Commands
                 return;
             }
 
-            $phpBin = defined('PHP_BINARY') && is_executable(PHP_BINARY) ? PHP_BINARY : trim((string) @shell_exec('which php') ?: 'php');
-            $wpPath = realpath($_SERVER['argv'][0] ?? '');
-            if (! $wpPath || ! is_file($wpPath)) {
-                $wpPath = trim((string) @shell_exec('which wp') ?: 'wp');
-            }
-            $wpBin = $phpBin . ' ' . escapeshellarg($wpPath);
+            $phpBin = (defined('PHP_BINARY') && is_executable(PHP_BINARY)) ? PHP_BINARY : '/usr/bin/php';
+            $wpBin = trim((string) @shell_exec('which wp') ?: '/usr/local/bin/wp');
+            $fullWp = $phpBin . ' ' . escapeshellarg($wpBin);
 
-            $siteRoot = defined('ABSPATH') ? ABSPATH : get_home_path();
-            $cmdBase = $wpBin . ' helmetsan ai fill-missing --post-type=' . $singleType
+            $cmdBase = $fullWp . ' helmetsan ai fill-missing --post-type=' . $singleType
                 . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
                 . ($dryRun ? ' --dry-run' : '')
                 . ($onlyIncomplete ? ' --only-incomplete' : '')
@@ -1933,9 +1929,12 @@ final class Commands
 
                 $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
                 $fullWorkerCmd = sprintf($cmdBase, $off, escapeshellarg($workerId));
+                
+                // Simplified background execution: nohup COMMAND > LOG 2>&1 &
+                // We rely on shell_exec inheriting the current CWD.
                 $cmd = sprintf(
-                    "nohup sh -c %s > %s 2>&1 &",
-                    escapeshellarg("cd " . escapeshellarg($siteRoot) . " && " . $fullWorkerCmd),
+                    "nohup %s > %s 2>&1 &",
+                    $fullWorkerCmd,
                     escapeshellarg($logFile)
                 );
                 
