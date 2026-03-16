@@ -1594,9 +1594,17 @@ final class MediaEngine
 
         $running = null;
         do {
-            curl_multi_exec($mh, $running);
-            curl_multi_select($mh);
-        } while ($running > 0);
+            $mrc = curl_multi_exec($mh, $running);
+        } while ($mrc === CURLM_OK && $running > 0);
+
+        while ($running > 0 && $mrc === CURLM_OK) {
+            if (curl_multi_select($mh) === -1) {
+                usleep(100);
+            }
+            do {
+                $mrc = curl_multi_exec($mh, $running);
+            } while ($mrc === CURLM_OK && $running > 0);
+        }
 
         foreach ($handles as $url => $data) {
             $ch = $data['ch'];

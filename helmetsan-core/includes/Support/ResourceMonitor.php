@@ -18,15 +18,17 @@ final class ResourceMonitor
             return 1024; // Generic fallback for Windows
         }
 
-        $free = shell_exec('free -m');
-        if ($free) {
-            $lines = explode("\n", trim($free));
-            $mem = preg_split('/\s+/', $lines[1]);
-            return (int) ($mem[6] ?? $mem[3] ?? 512); // Use 'available' if present, else 'free'
+        if (function_exists('shell_exec')) {
+            $free = shell_exec('free -m');
+            if ($free) {
+                $lines = explode("\n", trim($free));
+                $mem = preg_split('/\s+/', $lines[1]);
+                return (int) ($mem[6] ?? $mem[3] ?? 512); // Use 'available' if present, else 'free'
+            }
         }
 
         // Mac fallback
-        if (strtoupper(PHP_OS) === 'DARWIN') {
+        if (strtoupper(PHP_OS) === 'DARWIN' && function_exists('shell_exec')) {
             $vmstat = shell_exec('vm_stat');
             if ($vmstat) {
                 preg_match('/Pages free:\s+(\d+)/', $vmstat, $m);
@@ -59,12 +61,14 @@ final class ResourceMonitor
             return 2;
         }
 
-        $numCores = shell_exec('nproc');
-        if ($numCores) {
-            return (int) trim($numCores);
+        if (function_exists('shell_exec')) {
+            $numCores = shell_exec('nproc');
+            if ($numCores) {
+                return (int) trim($numCores);
+            }
         }
 
-        if (strtoupper(PHP_OS) === 'DARWIN') {
+        if (strtoupper(PHP_OS) === 'DARWIN' && function_exists('shell_exec')) {
             $numCores = shell_exec('sysctl -n hw.ncpu');
             if ($numCores) {
                 return (int) trim($numCores);
