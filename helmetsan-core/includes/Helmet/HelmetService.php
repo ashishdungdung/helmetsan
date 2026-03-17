@@ -41,11 +41,37 @@ final class HelmetService
         $value = get_post_meta($post->ID, $key, true);
 
         // If explicitly requested to inherit and current value is empty, check parent
-        if ($inherit && ($value === '' || $value === null || $value === []) && $post->post_parent > 0) {
+        // Note: '[]' (empty JSON array) is treated as empty for inheritance.
+        $isEmpty = ($value === '' || $value === null || $value === [] || $value === '[]');
+        if ($inherit && $isEmpty && $post->post_parent > 0) {
             return get_post_meta($post->post_parent, $key, true);
         }
 
         return $value;
+    }
+
+    /**
+     * Get terms for a post, with inheritance from parent if none are set on child.
+     *
+     * @param int|WP_Post $post Post ID or object.
+     * @param string $taxonomy Taxonomy name.
+     * @param bool $inherit Whether to fallback to parent.
+     * @return array|\WP_Error|false Array of terms on success.
+     */
+    public function getInheritedTerms($post, string $taxonomy, bool $inherit = true): mixed
+    {
+        $post = get_post($post);
+        if (!$post instanceof WP_Post) {
+            return [];
+        }
+
+        $terms = get_the_terms($post->ID, $taxonomy);
+
+        if ($inherit && (is_wp_error($terms) || empty($terms)) && $post->post_parent > 0) {
+            return get_the_terms($post->post_parent, $taxonomy);
+        }
+
+        return $terms;
     }
 
     /**

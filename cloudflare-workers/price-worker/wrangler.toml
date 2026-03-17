@@ -1,0 +1,12 @@
+name = "helmetsan-price-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# Connect the KV Namespace
+# [[kv_namespaces]]
+# binding = "PRICE_CACHE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# Route intercepts
+# Configure these in the Cloudflare Dashboard:
+# *example.com/wp-json/hs/v1/prices/* -> helmetsan-price-worker

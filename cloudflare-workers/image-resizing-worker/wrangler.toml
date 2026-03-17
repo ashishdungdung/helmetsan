@@ -1,0 +1,13 @@
+name = "helmetsan-image-resizer"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# To enable image resizing in the Cloudflare Dashboard:
+# 1. Go to your Zone (domain)
+# 2. Go to Speed -> Optimization -> Image Resizing
+# 3. Enable Image Resizing
+
+# Set environment variables for the worker
+# [vars]
+# Optional: if the worker runs on a different domain than the actual R2 bucket's public domain
+# R2_PUBLIC_DOMAIN = "media.helmetsan.com"

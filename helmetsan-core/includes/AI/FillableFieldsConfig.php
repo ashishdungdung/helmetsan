@@ -44,6 +44,10 @@ final class FillableFieldsConfig
                 'label' => 'Short technical analysis paragraph: safety tech, comfort, ventilation (2-4 sentences)',
                 'max_length' => 1200,
             ],
+            'marketing_description' => [
+                'label' => 'Premium marketing description: sleek styling, advanced engineering, aerodynamics, ventilation, vision (150-200 words)',
+                'max_length' => 2500,
+            ],
             'warranty_years' => [
                 'label' => 'Manufacturer warranty duration in years (single number, e.g. 5)',
                 'max_length' => 10,
@@ -75,6 +79,39 @@ final class FillableFieldsConfig
             'yoast_focuskw' => [
                 'label' => 'Focus keyphrase: primary search phrase (lowercase, e.g. brand model helmet)',
                 'max_length' => 60,
+            ],
+            // Structured Layout Data
+            'features_json' => [
+                'label' => 'Feature Highlights: JSON array of strings (e.g. ["Ultra-lightweight shell", "Emergency release system", "Pinlock MaxVision included", "Multiple shell sizes"])',
+                'max_length' => 2000,
+            ],
+            'safety_intelligence_json' => [
+                'label' => 'Safety Intelligence: JSON object {homologation_standard, rotational_mitigation, sharp_rating, sharp_impact_zones: {frontal, rear, left, right}}',
+                'max_length' => 2000,
+            ],
+            'aero_acoustic_profile_json' => [
+                'label' => 'Aero/Acoustic: JSON object {noise_db_at_100kph, ventilation_efficiency_score, drag_coefficient}',
+                'max_length' => 1000,
+            ],
+            'tech_integration_json' => [
+                'label' => 'Tech Integration: JSON object {comms_cutout_type, speaker_pocket_depth_mm, hud_ready}',
+                'max_length' => 1000,
+            ],
+            'sizing_fit_json' => [
+                'label' => 'Sizing & Fit: JSON object {sizing_chart: {SIZE: CM_RANGE}, fit_notes: string}',
+                'max_length' => 2000,
+            ],
+            'geo_pricing_json' => [
+                'label' => 'Geo Pricing: JSON object {COUNTRY_CODE: {price, currency, availability, source, updated_at}}',
+                'max_length' => 2000,
+            ],
+            'geo_legality_json' => [
+                'label' => 'Regional Legality: JSON object {COUNTRY_CODE: {status, certification_required: [], notes}}',
+                'max_length' => 2000,
+            ],
+            'certification_documents_json' => [
+                'label' => 'Cert Documents: JSON array of objects [{code, country, issuer, url}]',
+                'max_length' => 2000,
             ],
             // Cross-linking (JSON array of internal URLs or post IDs)
             'outgoing_internal_links_json' => [

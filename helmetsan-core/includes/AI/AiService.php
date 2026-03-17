@@ -157,8 +157,7 @@ final class AiService implements AiServiceInterface
         if ($raw === null || trim($raw) === '') {
             return null;
         }
-        $raw = trim($raw);
-        $raw = preg_replace('/^```\w*\s*|\s*```$/m', '', $raw);
+        $raw = $this->normalizeText($raw);
         $decoded = json_decode($raw, true);
         if (! is_array($decoded)) {
             return null;
@@ -197,8 +196,7 @@ final class AiService implements AiServiceInterface
         if ($raw === null || trim($raw) === '') {
             return [];
         }
-        $raw = trim($raw);
-        $raw = preg_replace('/^```\w*\s*|\s*```$/m', '', $raw);
+        $raw = $this->normalizeText($raw);
         $decoded = json_decode($raw, true);
         if (! is_array($decoded) || empty($decoded['images']) || ! is_array($decoded['images'])) {
             return [];
@@ -238,8 +236,7 @@ final class AiService implements AiServiceInterface
         if ($raw === null || trim($raw) === '') {
             return null;
         }
-        $raw = trim($raw);
-        $raw = preg_replace('/^["\']|["\']$/u', '', $raw);
+        $raw = $this->normalizeText($raw);
         if (strtolower($raw) === 'none' || $raw === '') {
             return null;
         }
@@ -397,6 +394,10 @@ final class AiService implements AiServiceInterface
     private function normalizeText(string $s): string
     {
         $s = trim($s);
+        // Strip markdown code blocks: ```json ... ``` or ``` ... ```
+        if (str_contains($s, '```')) {
+            $s = (string) preg_replace('/^```(?:\w+)?\s*|\s*```$/m', '', $s);
+        }
         $s = preg_replace('/^["\']|["\']$/u', '', $s);
         return trim($s);
     }

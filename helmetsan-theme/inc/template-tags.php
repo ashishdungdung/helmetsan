@@ -137,13 +137,46 @@ function helmetsan_get_price($post, string $currency = 'USD'): string
 
 function helmetsan_get_certifications(int $helmetId): string
 {
-    $terms = get_the_terms($helmetId, 'certification');
+    $terms = [];
+    if (function_exists('helmetsan_core')) {
+        $terms = helmetsan_core()->helmets()->getInheritedTerms($helmetId, 'certification');
+    } else {
+        $terms = get_the_terms($helmetId, 'certification');
+    }
+
     if (! is_array($terms) || $terms === []) {
         return 'N/A';
     }
 
     $names = array_map(static fn ($term): string => (string) $term->name, $terms);
     return implode(', ', $names);
+}
+
+/**
+ * Get the helmet description (AI marketing description falling back to post content).
+ * Supports inheritance for variants.
+ */
+function helmetsan_get_description(int $helmetId): string
+{
+    $desc = '';
+    if (function_exists('helmetsan_core')) {
+        $desc = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'marketing_description');
+    } else {
+        $desc = (string) get_post_meta($helmetId, 'marketing_description', true);
+    }
+
+    if ($desc === '') {
+        $post = get_post($helmetId);
+        $desc = $post ? $post->post_content : '';
+        
+        // Fallback to parent content if child content is empty
+        if ($desc === '' && $post && $post->post_parent > 0) {
+            $parent = get_post($post->post_parent);
+            $desc = $parent ? $parent->post_content : '';
+        }
+    }
+
+    return $desc;
 }
 
 /**
@@ -331,6 +364,9 @@ function helmetsan_get_head_shape($helmetId): string
  */
 function helmetsan_get_warranty_years($helmetId): string
 {
+    if (function_exists('helmetsan_core')) {
+        return (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'warranty_years');
+    }
     return (string) get_post_meta($helmetId, 'warranty_years', true);
 }
 
@@ -339,6 +375,9 @@ function helmetsan_get_warranty_years($helmetId): string
  */
 function helmetsan_get_use_case($helmetId): string
 {
+    if (function_exists('helmetsan_core')) {
+        return (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'use_case');
+    }
     return (string) get_post_meta($helmetId, 'use_case', true);
 }
 
@@ -347,6 +386,9 @@ function helmetsan_get_use_case($helmetId): string
  */
 function helmetsan_get_price_range($helmetId): string
 {
+    if (function_exists('helmetsan_core')) {
+        return (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'price_range');
+    }
     return (string) get_post_meta($helmetId, 'price_range', true);
 }
 

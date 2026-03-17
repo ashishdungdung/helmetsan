@@ -25,9 +25,11 @@ final class FillMissingService
 
     public function __construct(
         private readonly AiService $aiService,
-        ?TaskTracker $tracker = null
+        ?TaskTracker $tracker = null,
+        private ?JsonValidator $jsonValidator = null
     ) {
         $this->tracker = $tracker;
+        $this->jsonValidator = $jsonValidator ?? new JsonValidator();
     }
 
     public function setTracker(TaskTracker $tracker): void
@@ -67,7 +69,8 @@ final class FillMissingService
         bool $refillAccessoryIfNoCategory = false,
         ?array $onlyTaxonomies = null,
         bool $refillHelmetSpecs = false,
-        bool $multiplex = false
+        bool $multiplex = false,
+        ?int $postId = null
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
         if ($onlyFields !== null && $onlyFields !== []) {
@@ -89,15 +92,19 @@ final class FillMissingService
         $effectiveLimit = ($refillAccessoryIfNoCategory && $postType === 'accessory')
             ? -1
             : ($limit > 0 ? $limit : -1);
-        $query = new \WP_Query([
+        $queryArgs = [
             'post_type' => $postType,
             'post_status' => 'publish',
-            'posts_per_page' => $effectiveLimit > 0 ? $effectiveLimit : -1,
+            'posts_per_page' => $effectiveLimit,
             'offset' => $offset,
             'orderby' => 'ID',
             'order' => 'ASC',
             'fields' => 'ids',
-        ]);
+        ];
+        if ($postId !== null && $postId > 0) {
+            $queryArgs['post__in'] = [$postId];
+        }
+        $query = new \WP_Query($queryArgs);
         $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
         if ($onlyIncomplete && ! $taxonomyOnly) {
             $ids = $this->filterIncompletePosts($ids, $fillable);
@@ -198,7 +205,7 @@ final class FillMissingService
                         $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty multiplexed response');
                         continue;
                     }
-                    $value = self::sanitizeAndValidate($metaKey, $rawValue, $config);
+                    $value = $this->sanitizeAndValidate($metaKey, $rawValue, $config);
                     if ($value === '') {
                         $errors++;
                         $onVerbose && $onVerbose('error', $postId, $metaKey, 'multiplexed validation failed');
@@ -209,6 +216,10 @@ final class FillMissingService
                         $yoastMap = FillableFieldsConfig::yoastMetaMapping();
                         if (isset($yoastMap[$metaKey])) {
                             update_post_meta($postId, $yoastMap[$metaKey], $value);
+                        }
+                        // Propagate to children if this is a parent helmet
+                        if ($postType === 'helmet' && ! str_starts_with($metaKey, 'yoast_')) {
+                            $this->propagateToChildren($postId, $metaKey, $value);
                         }
                     }
                     $filled++;
@@ -248,7 +259,7 @@ final class FillMissingService
                         $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty response');
                         continue;
                     }
-                    $value = self::sanitizeAndValidate($metaKey, $rawValue, $config);
+                    $value = $this->sanitizeAndValidate($metaKey, $rawValue, $config);
                     if ($value === '') {
                         $errors++;
                         $onVerbose && $onVerbose('error', $postId, $metaKey, 'validation failed');
@@ -259,6 +270,10 @@ final class FillMissingService
                         $yoastMap = FillableFieldsConfig::yoastMetaMapping();
                         if (isset($yoastMap[$metaKey])) {
                             update_post_meta($postId, $yoastMap[$metaKey], $value);
+                        }
+                        // Propagate to children if this is a parent helmet
+                        if ($postType === 'helmet' && ! str_starts_with($metaKey, 'yoast_')) {
+                            $this->propagateToChildren($postId, $metaKey, $value);
                         }
                     }
                     $filled++;
@@ -293,6 +308,23 @@ final class FillMissingService
 
         self::$rateLimitOverrideSeconds = null;
         return ['filled' => $filled, 'skipped' => $skipped, 'errors' => $errors, 'total_posts' => $totalPosts, 'api_calls' => $apiCalls];
+    }
+
+    /**
+     * Propagate a meta value to all child variants of a parent helmet.
+     */
+    private function propagateToChildren(int $parentId, string $metaKey, mixed $value): void
+    {
+        $children = get_children([
+            'post_parent' => $parentId,
+            'post_type'   => 'helmet',
+            'fields'      => 'ids',
+        ]);
+        if (is_array($children) && $children !== []) {
+            foreach ($children as $childId) {
+                update_post_meta((int) $childId, $metaKey, $value);
+            }
+        }
     }
 
     /**
@@ -374,12 +406,23 @@ final class FillMissingService
      * Public for unit tests. Sanitize and validate AI output (allowed_values, year range, max_length).
      * @param string|array{label: string, max_length?: int, allowed_values?: list<string>} $config
      */
-    public static function sanitizeAndValidate(string $metaKey, string $value, $config): string
+    public function sanitizeAndValidate(string $metaKey, string $value, $config): mixed
     {
         $value = preg_replace('/^["\']|["\']$/u', '', $value);
         $value = trim($value);
         if ($value === '') {
             return '';
+        }
+
+        // Structural validation for JSON fields
+        if (str_ends_with($metaKey, '_json')) {
+            $expected = $this->jsonValidator->getExpectedTypeFromField($metaKey);
+            $validated = $this->jsonValidator->validate($value, $expected);
+            if ($validated === null && $expected !== 'scalar') {
+                return '';
+            }
+            // Return string for DB storage
+            return is_string($validated) ? $validated : (string) json_encode($validated);
         }
 
         $allowed = is_array($config) ? ($config['allowed_values'] ?? null) : null;

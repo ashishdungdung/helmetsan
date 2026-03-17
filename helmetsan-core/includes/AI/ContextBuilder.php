@@ -109,10 +109,28 @@ final class ContextBuilder
                 $out .= "Reply with the weight in grams only (integer, e.g. 1450). No unit text.";
             } elseif ($entityType === 'helmet' && $fieldName === 'technical_analysis') {
                 $out .= "Write 2-4 sentences: safety tech, comfort, ventilation. Factual and product-specific.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'marketing_description') {
+                $out .= "Write a professional, compelling marketing description (150-200 words). Highlight sleek styling, advanced engineering, aerodynamics, ventilation, and vision. Avoid filler; focus on performance and protection.";
             } elseif ($entityType === 'helmet' && $fieldName === 'spec_shell_material') {
                 $out .= "Reply with the shell material only (e.g. Polycarbonate, Carbon fiber, AIM+, composite).";
             } elseif ($entityType === 'helmet' && in_array($fieldName, ['yoast_title', 'yoast_metadesc', 'yoast_focuskw'], true)) {
                 $out .= "SEO value: include product name and type where relevant; factual and search-friendly.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'features_json') {
+                $out .= "Reply with a JSON array of strings containing 4-8 distinct feature highlights (e.g. [\"Ultra-lightweight shell\", \"Emergency release system\"]). Factual and product-specific.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'safety_intelligence_json') {
+                $out .= "Reply with a JSON object: {\"homologation_standard\": \"...\", \"rotational_mitigation\": \"...\", \"sharp_rating\": 1-5 or null, \"sharp_impact_zones\": {\"frontal\": \"color\", \"rear\": \"color\", \"left\": \"color\", \"right\": \"color\"}}. Use standard safety terminology.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'aero_acoustic_profile_json') {
+                $out .= "Reply with a JSON object: {\"noise_db_at_100kph\": float, \"ventilation_efficiency_score\": 1-10, \"drag_coefficient\": float or null}.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'tech_integration_json') {
+                $out .= "Reply with a JSON object: {\"comms_cutout_type\": \"...\", \"speaker_pocket_depth_mm\": int, \"hud_ready\": bool}.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'sizing_fit_json') {
+                $out .= "Reply with a JSON object: {\"sizing_chart\": {\"S\": \"55-56\", \"M\": \"57-58\", \"L\": \"59-60\"}, \"fit_notes\": \"Intermediate oval...\"}. Use accurate sizing for this brand/model.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'geo_pricing_json') {
+                $out .= "Reply with a JSON object mapping country codes to pricing: {\"US\": {\"price\": \"599\", \"currency\": \"USD\", \"availability\": \"In Stock\", \"source\": \"Official\", \"updated_at\": \"2024-03-17\"}}. Use current market data.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'geo_legality_json') {
+                $out .= "Reply with a JSON object mapping country codes to legality status: {\"US\": {\"status\": \"Street Legal\", \"certification_required\": [\"DOT\"], \"notes\": \"...\"}}. Base this on the helmet's actual certifications.";
+            } elseif ($entityType === 'helmet' && $fieldName === 'certification_documents_json') {
+                $out .= "Reply with a JSON array of objects: [{\"code\": \"ECE 22.06\", \"country\": \"EU\", \"issuer\": \"Economic Commission for Europe\", \"url\": \"...\"}].";
             } elseif ($entityType === 'brand') {
                 $out .= "Brand context: be accurate and factual (origin, story, warranty); avoid marketing fluff.";
             } elseif ($entityType === 'accessory') {

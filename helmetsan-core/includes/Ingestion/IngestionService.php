@@ -778,6 +778,23 @@ final class IngestionService
                     $child['specs'] = $data['specs'];
                 }
 
+                // New Schema v1.1 Inheritance
+                if (!isset($child['safety_intelligence']) && isset($data['safety_intelligence'])) {
+                    $child['safety_intelligence'] = $data['safety_intelligence'];
+                }
+                if (!isset($child['aero_acoustic_profile']) && isset($data['aero_acoustic_profile'])) {
+                    $child['aero_acoustic_profile'] = $data['aero_acoustic_profile'];
+                }
+                if (!isset($child['tech_integration']) && isset($data['tech_integration'])) {
+                    $child['tech_integration'] = $data['tech_integration'];
+                }
+                if (!isset($child['fitment_coordinates']) && isset($data['fitment_coordinates'])) {
+                    $child['fitment_coordinates'] = $data['fitment_coordinates'];
+                }
+                if (!isset($child['sizing_fit']) && isset($data['sizing_fit'])) {
+                    $child['sizing_fit'] = $data['sizing_fit'];
+                }
+
                 // Fallback: forcefully set features array from parent if empty because variants usually omit this
                 if (empty($child['features']) && !empty($data['features'])) {
                     $child['features'] = $data['features'];

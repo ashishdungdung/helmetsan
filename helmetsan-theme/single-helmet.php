@@ -21,13 +21,13 @@ if (have_posts()) {
         $shell = helmetsan_get_shell_material($helmetId);
         $certs = helmetsan_get_certifications($helmetId);
         $geoPricingJson = (string) get_post_meta($helmetId, 'geo_pricing_json', true);
-        $geoLegalityJson = (string) get_post_meta($helmetId, 'geo_legality_json', true);
-        $certDocsJson = (string) get_post_meta($helmetId, 'certification_documents_json', true);
+        $geoLegalityJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'geo_legality_json');
+        $certDocsJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'certification_documents_json');
         $variantsJson = (string) get_post_meta($helmetId, 'variants_json', true);
         $productDetailsJson = (string) get_post_meta($helmetId, 'product_details_json', true);
         $partNumbersJson = (string) get_post_meta($helmetId, 'part_numbers_json', true);
-        $sizingFitJson = (string) get_post_meta($helmetId, 'sizing_fit_json', true);
-        $relatedVideosJson = (string) get_post_meta($helmetId, 'related_videos_json', true);
+        $sizingFitJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'sizing_fit_json');
+        $relatedVideosJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'related_videos_json');
         $geoPricing = json_decode($geoPricingJson, true);
         $geoLegality = json_decode($geoLegalityJson, true);
         $certDocs = json_decode($certDocsJson, true);
@@ -63,11 +63,18 @@ if (have_posts()) {
         $priceEur = helmetsan_get_price($helmetId, 'EUR');
         $priceGbp = helmetsan_get_price($helmetId, 'GBP');
         
-        // New Schema Fields (v1.1)
-        $safetyJson = (string) get_post_meta($helmetId, 'safety_intelligence_json', true);
-        $aeroJson = (string) get_post_meta($helmetId, 'aero_acoustic_profile_json', true);
-        $techJson = (string) get_post_meta($helmetId, 'tech_integration_json', true);
-        $fitJson = (string) get_post_meta($helmetId, 'fitment_coordinates_json', true);
+        // New Schema Fields (v1.1) with inheritance
+        if (function_exists('helmetsan_core')) {
+            $safetyJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'safety_intelligence_json');
+            $aeroJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'aero_acoustic_profile_json');
+            $techJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'tech_integration_json');
+            $fitJson = (string) helmetsan_core()->helmets()->getInheritedMeta($helmetId, 'fitment_coordinates_json');
+        } else {
+            $safetyJson = (string) get_post_meta($helmetId, 'safety_intelligence_json', true);
+            $aeroJson = (string) get_post_meta($helmetId, 'aero_acoustic_profile_json', true);
+            $techJson = (string) get_post_meta($helmetId, 'tech_integration_json', true);
+            $fitJson = (string) get_post_meta($helmetId, 'fitment_coordinates_json', true);
+        }
 
         $safety = json_decode($safetyJson, true);
         $aero = json_decode($aeroJson, true);
@@ -255,7 +262,7 @@ if (have_posts()) {
             </nav>
 
             <!-- About the Helmet (always shown for content depth & AdSense) -->
-            <?php $descContent = get_the_content(); ?>
+            <?php $descContent = helmetsan_get_description($helmetId); ?>
             <section class="hs-panel hs-about-section" id="helmet-product-description">
                 <div class="hs-about-card">
                     <div class="hs-about-card__icon" aria-hidden="true">🪖</div>

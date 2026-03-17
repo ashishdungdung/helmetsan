@@ -1786,6 +1786,10 @@ final class Commands
      * : Only print coverage report (per-field set/empty and % complete); no API calls or writes.
      * [--multiplex]
      * : Process multiple fields in parallel using AI multiplexing for each post.
+     * [--post-id=<id>]
+     * : Limit enrichment to a specific post ID.
+     * [--internal-id=<id>]
+     * : Internal task ID for background workers to track progress.
      *
      * ## EXAMPLES
      *     wp helmetsan ai fill-missing --report --post-type=helmet
@@ -1830,6 +1834,7 @@ final class Commands
         }
         $reportOnly = isset($assoc['report']);
         $internalId = isset($assoc['internal-id']) ? (string) $assoc['internal-id'] : null;
+        $specificPostId = isset($assoc['post-id']) ? (int) $assoc['post-id'] : null;
         $allowed = ['helmet', 'brand', 'accessory', 'safety_standard', 'dealer', 'distributor', 'technology', 'motorcycle', 'comparison', 'recommendation', 'all'];
         if (! in_array($postType, $allowed, true)) {
             \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, safety_standard, dealer, distributor, technology, motorcycle, comparison, recommendation, or all.');
@@ -1876,6 +1881,7 @@ final class Commands
             $totalQuery = new \WP_Query([
                 'post_type'      => $singleType,
                 'post_status'    => 'publish',
+                'p'              => $specificPostId,
                 'posts_per_page' => $limit > 0 ? $limit : -1,
                 'offset'         => $offset,
                 'fields'         => 'ids',
@@ -1907,9 +1913,16 @@ final class Commands
                 . ($rateLimitSeconds !== null ? ' --rate-limit=' . (int) $rateLimitSeconds : '')
                 . ($noCache ? ' --no-cache' : '')
                 . ($multiplex ? ' --multiplex' : '')
+                . ($specificPostId ? ' --post-id=' . $specificPostId : '')
                 . ($fillTaxonomies ? '' : ' --no-taxonomies')
                 . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
-                . (isset($assoc['allow-root']) ? ' --allow-root' : '')
+                . (in_array('--allow-root', $_SERVER['argv'], true) ? ' --allow-root' : '')
+                . (function () {
+                    foreach ($_SERVER['argv'] as $arg) {
+                        if (strpos($arg, '--path=') === 0) return ' ' . escapeshellarg($arg);
+                    }
+                    return '';
+                })()
                 . ' --internal-id=%s';
 
             $debugDir = WP_CONTENT_DIR . '/uploads/helmetsan-data/debug';
@@ -1974,7 +1987,7 @@ final class Commands
                     \WP_CLI::log(sprintf('[%s] Error post %d %s: %s', $type, $postId, $metaKey, $detail ?? ''));
                 }
             } : null;
-            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds, $refillAccessoryIfNoCategory, $onlyTaxonomies, false, $multiplex);
+            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds, $refillAccessoryIfNoCategory, $onlyTaxonomies, false, $multiplex, $specificPostId);
             $filled = (int) ($result['filled'] ?? 0);
             $skipped = (int) ($result['skipped'] ?? 0);
             $errors = (int) ($result['errors'] ?? 0);
