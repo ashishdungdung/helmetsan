@@ -1,0 +1,15 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 3
+    paths:
+        - helmetsan-core/includes/
+    excludePaths:
+        - helmetsan-core/includes/WooBridge/
+    bootstrapFiles:
+        - vendor/autoload.php
+    parallel:
+        maximumNumberOfProcesses: 4
+    treatPhpDocTypesAsCertain: false

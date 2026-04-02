@@ -113,10 +113,26 @@ final class FillableFieldsConfig
                 'label' => 'Cert Documents: JSON array of objects [{code, country, issuer, url}]',
                 'max_length' => 2000,
             ],
-            // Cross-linking (JSON array of internal URLs or post IDs)
             'outgoing_internal_links_json' => [
                 'label' => 'JSON array of related internal link URLs or post IDs (same brand, type, or cert)',
                 'max_length' => 2000,
+            ],
+            // Phase 2: Comparison Technical Specs
+            'spec_weight_lbs' => [
+                'label' => 'Weight in lbs (e.g. 3.2 lbs, 3.5 lbs)',
+                'max_length' => 20,
+            ],
+            'strap_type' => [
+                'label' => 'Chinstrap closure type (e.g. Double-D ring, Micrometric, Quick-release)',
+                'max_length' => 60,
+            ],
+            'visor_features_json' => [
+                'label' => 'JSON array of visor features (e.g. ["Pinlock ready", "Anti-scratch", "Tool-less change"])',
+                'max_length' => 500,
+            ],
+            'liner_features_json' => [
+                'label' => 'JSON array of liner features (e.g. ["Moisture-wicking", "Removable", "Washable", "EQRS"])',
+                'max_length' => 500,
             ],
         ];
     }

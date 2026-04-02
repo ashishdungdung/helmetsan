@@ -1,0 +1,59 @@
+# ============================================================
+# .geminiignore — Reduce Antigravity token usage
+# Excludes files/dirs from AI context indexing
+# ============================================================
+
+# === DEPENDENCIES (4,800+ files, 62 MB — biggest token sink) ===
+vendor/
+node_modules/
+
+# === BUILD OUTPUTS ===
+dist/
+
+# === DATA / JSON catalogs (300+ files — rarely need full context) ===
+data/
+data_backup_pre_enrichment/
+helmet_images/
+
+# === VCS internals ===
+.git/
+
+# === WordPress runtime artifacts ===
+wp-content/uploads/
+
+# === Compiled & cached ===
+.phpunit.cache/
+
+# === Logs & debug artifacts ===
+*.log
+debug_git.sh
+git_debug.log
+verify_inheritance_remote.php
+
+# === Archives ===
+*.zip
+*.tar.gz
+
+# === Env & secrets ===
+.env
+.env.*
+*.expect
+
+# === Lock files (huge, not useful for AI) ===
+composer.lock
+package-lock.json
+
+# === Generated seeds ===
+helmetsan-core/seed-data/helmets/
+helmets_seed.json
+
+# === Other IDE configs ===
+.cursor/
+.vscode/
+.idea/
+
+# === Cloudflare workers (separate concern) ===
+cloudflare-workers/
+
+# === Legal docs (static, rarely edited) ===
+legal/

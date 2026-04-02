@@ -1,10 +1,11 @@
 /**
- * AI admin: Test provider connection (AJAX).
+ * AI admin: Handles provider testing, healing reverts, and correction reviews.
  */
 (function ($) {
     'use strict';
 
     $(function () {
+        // --- 1. Test Provider ---
         $(document).on('click', '.helmetsan-ai-test-btn', function () {
             var $btn = $(this);
             var providerId = $btn.data('provider-id');
@@ -43,5 +44,86 @@
                     $btn.prop('disabled', false);
                 });
         });
+
+        // --- 2. Revert Heal ---
+        $(document).on('click', '.hs-revert-heal', function (e) {
+            e.preventDefault();
+            var $btn = $(this);
+            var id = $btn.data('id');
+
+            if (!confirm('Are you sure you want to undo this AI repair? This will surgically restore the original values to the JSON file.')) {
+                return;
+            }
+
+            $btn.prop('disabled', true).text('Undoing...');
+
+            $.post(window.helmetsanAi.ajaxUrl, {
+                action: 'helmetsan_ai_revert_heal',
+                nonce: window.helmetsanAi.nonce,
+                id: id
+            })
+            .done(function (r) {
+                if (r.success) {
+                    alert(r.data.message || 'Heal successfully reverted.');
+                    location.reload();
+                } else {
+                    alert(r.data.message || 'Failed to revert heal.');
+                    $btn.prop('disabled', false).text('Undo');
+                }
+            })
+            .fail(function () {
+                alert('Request failed.');
+                $btn.prop('disabled', false).text('Undo');
+            });
+        });
+
+        // --- 3. Review & Commit Correction ---
+        $(document).on('click', '.hs-review-correction', function (e) {
+            e.preventDefault();
+            var $btn = $(this);
+            var file = $btn.data('file');
+
+            // Quick review fetch
+            $.get(window.helmetsanAi.ajaxUrl, {
+                action: 'helmetsan_ai_get_correction_diff',
+                nonce: window.helmetsanAi.nonce,
+                file: file
+            })
+            .done(function (r) {
+                if (r.success) {
+                    // Modern simple confirm logic with content preview
+                    console.log('Target Correction Content:', r.data.content);
+                    if (confirm('Reviewing staged fix for: ' + file + '\n\nClick OK to commit this correction to the master database.')) {
+                        commitCorrection(file, $btn);
+                    }
+                } else {
+                    alert(r.data.message || 'Failed to fetch correction.');
+                }
+            });
+        });
+
+        function commitCorrection(file, $btn) {
+            $btn.prop('disabled', true).text('Committing...');
+
+            $.post(window.helmetsanAi.ajaxUrl, {
+                action: 'helmetsan_ai_commit_correction',
+                nonce: window.helmetsanAi.nonce,
+                file: file
+            })
+            .done(function (r) {
+                if (r.success) {
+                    alert(r.data.message || 'Correction committed.');
+                    location.reload();
+                } else {
+                    // We know commit logic in AiAdmin.php currently returns error (placeholder)
+                    alert(r.data.message || 'Failed to commit.');
+                    $btn.prop('disabled', false).text('Review & Commit');
+                }
+            })
+            .fail(function () {
+                alert('Request failed.');
+                $btn.prop('disabled', false).text('Review & Commit');
+            });
+        }
     });
 })(jQuery);

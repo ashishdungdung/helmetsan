@@ -80,6 +80,10 @@ final class ProviderRegistry
         }
         if ($id === 'lm_studio') {
             $baseUrl = trim((string) ($cfg['base_url'] ?? ''));
+            // Allow env-var / constant override (e.g. Cloudflare Tunnel URL on production).
+            if (defined('HELMETSAN_LMSTUDIO_BASE_URL') && \HELMETSAN_LMSTUDIO_BASE_URL !== '') {
+                $baseUrl = (string) \HELMETSAN_LMSTUDIO_BASE_URL;
+            }
             if ($baseUrl === '') {
                 return null;
             }
@@ -88,7 +92,7 @@ final class ProviderRegistry
                 $model = $defaults[$id]['model'] ?? 'local';
             }
             $key = trim((string) ($cfg['api_key'] ?? ''));
-            return $this->create($id, $key, $model, $cfg);
+            return $this->create($id, $key, $model, array_merge($cfg, ['base_url' => $baseUrl]));
         }
         if ($id === 'cloudflare') {
             $accountId = trim((string) ($cfg['base_url'] ?? ''));

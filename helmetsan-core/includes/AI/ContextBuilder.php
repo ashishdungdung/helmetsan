@@ -158,6 +158,51 @@ final class ContextBuilder
     }
 
     /**
+     * Phase 2: Build prompt for filling multiple missing fields at once (JSON mode).
+     * @param list<string> $fieldNames
+     * @param array<string, array{label: string, allowed_values?: list<string>}> $configs Keyed by metaKey
+     */
+    public static function forFillFieldsJSON(string $entityType, array $fieldNames, array $configs, array $existingData): string
+    {
+        $prompt = "Task: Provide metadata for a {$entityType} entity.\n";
+        $prompt .= "Entity Context:\n" . wp_json_encode($existingData, JSON_PRETTY_PRINT) . "\n\n";
+        $prompt .= "Required JSON Fields:\n";
+
+        foreach ($configs as $field => $cfg) {
+            $label = is_string($cfg) ? $cfg : ($cfg['label'] ?? $field);
+            $prompt .= "- {$field}: {$label}\n";
+            if (is_array($cfg)) {
+                if (!empty($cfg['allowed_values'])) {
+                    $prompt .= "  Allowed Options: " . implode(', ', $cfg['allowed_values']) . "\n";
+                }
+                if (!empty($cfg['description'])) {
+                    $prompt .= "  Guidance: {$cfg['description']}\n";
+                }
+            }
+        }
+
+        // Add taxonomy terms if relevant
+        $taxConfigs = FillableFieldsConfig::taxonomyFillableConfig()[$entityType] ?? [];
+        if ($taxConfigs !== []) {
+            $prompt .= "\nTaxonomy Categorization (Existing Options):\n";
+            foreach ($taxConfigs as $tax => $label) {
+                $terms = get_terms(['taxonomy' => $tax, 'hide_empty' => false, 'fields' => 'names']);
+                if (is_array($terms) && $terms !== []) {
+                    $prompt .= "- {$tax}: " . implode(', ', $terms) . " (Select the most accurate existing term)\n";
+                }
+            }
+        }
+
+        $prompt .= "\nInstructions:\n";
+        $prompt .= "1. Return ONLY a valid JSON object map: { \"field_name\": \"value\" }.\n";
+        $prompt .= "2. For numeric fields, return names or numbers as appropriate.\n";
+        $prompt .= "3. If unsure, provide your best expert estimate based on the title/context.\n";
+        $prompt .= "4. Do not include markdown or preamble.\n";
+
+        return $prompt;
+    }
+
+    /**
      * Phase 3: Build prompt for checking data integrity / quality of an entity.
      */
     public static function forIntegrityCheck(string $entityType, array $entityData): string
@@ -215,5 +260,25 @@ final class ContextBuilder
             . "Output format: {\"images\": [\"url1\", \"url2\"]}. "
             . "If no official images can be found with high confidence, return an empty list. "
             . "Output ONLY the JSON object, no explanation.";
+    }
+
+    /**
+     * Build a prompt for targeted JSON healing (Patch mode).
+     * Requests only the corrected fields based on identified issues.
+     */
+    public static function forHealPatch(string $entityType, array $data, array $issues): string
+    {
+        $context = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $issueList = implode('; ', $issues);
+
+        return "You are a data integrity expert for a motorcycle gear catalog.\n"
+            . "Entity: {$entityType}\n"
+            . "Current Data (JSON): {$context}\n"
+            . "Identified Issues: {$issueList}\n"
+            . "Task: Return ONLY a JSON object containing the corrected fields for these issues.\n"
+            . "Requirements:\n"
+            . "1. Do NOT return the full object, only the keys that need fixing.\n"
+            . "2. Maintain existing data structures for nested fields.\n"
+            . "3. Output ONLY valid JSON, no markdown, no prose.";
     }
 }

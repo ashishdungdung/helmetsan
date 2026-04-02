@@ -1,63 +1,93 @@
 # AI Module
 
-The Helmetsan AI module provides a single, configurable layer for all AI-powered features. It is designed for **lowest cost first** (free/low-cost providers) with **premium options** and dedicated controls when needed.
+The Helmetsan AI module provides a single, configurable layer for all AI-powered features. It is designed for **lowest cost first** (local/free providers) with **premium options** and dedicated controls when needed.
 
-**Data flow:** AI runs on **WordPress** data (fill-missing, SEO seed, cross-link). Ingestion reads JSON → WordPress only; it does not write to GitHub. To get AI-enriched content into the repo: **export** to JSON (Import/Export), then **sync push**. See [Data flow](data-flow.md).
+**Data flow:** AI runs on **WordPress** data. Ingestion reads JSON → WordPress; enrichment happens in WordPress; Export reads WordPress → JSON; Sync pushes JSON → GitHub. See [Data flow](data-flow.md).
 
 ## Phases
 
 | Phase | Purpose | Status |
 |-------|---------|--------|
-| **1. SEO** | Meta descriptions (title, description, focus keyword) for helmets, brands, accessories | ✅ Live |
-| **2. Fill data** | Context-aware filling of missing entity fields (shell material, brand story, category, etc.) | ✅ Live |
+| **1. SEO** | Meta descriptions (title, description, focus keyword) | ✅ Live |
+| **2. Fill data** | Context-aware filling of missing entity fields | ✅ Live |
 | **3. Integrity** | Data quality, accuracy, reliability checks | 🔜 Planned |
-| **4. More tools** | Additional AI tools (TBD) | 🔜 Planned |
+| **4. Cross-link** | Rule-based internal link suggestions | ✅ Live |
 
 ## Providers
 
-### Free / low-cost (use these first)
+### Local & Free (Recommended)
 
-- **Groq** – Fast inference, generous free tier (e.g. llama-3.1-8b-instant).
-- **Google Gemini** – Free tier (e.g. gemini-1.5-flash).
-- **Mistral AI** – Free tier available.
-- **OpenRouter** – Single API for many models; free tiers per model.
-- **Hugging Face** – Inference API with free tier.
+- **LM Studio** – Run models locally on your hardware (e.g. M4 Pro). Use for batch tasks to save all cloud tokens.
+- **Google Gemini** – Generous free tier (e.g. gemini-1.5-flash).
+- **Groq** – Fast inference, free tier for small models.
 
-### Premium (dedicated controls)
+### Premium
 
 - **OpenAI (ChatGPT)** – e.g. gpt-4o-mini.
-- **Perplexity** – e.g. sonar.
+- **Perplexity** – e.g. sonar (web-aware research).
 
-## Configuration
+---
 
-1. In WP Admin go to **Helmetsan → AI**.
-2. Enable at least one **free** provider and set its **API key** and **model** (defaults are pre-filled).
-3. Optionally enable **premium** providers and set default free/premium providers.
-4. Enable **Phase 1 (SEO)** to use AI for `wp helmetsan seo seed --use-ai`.
+## Local AI (LM Studio)
 
-API keys are stored in the `helmetsan_ai` option; they are not written to code or env by the UI. For CLI-only use you can still set `GROQ_API_KEY` / `GEMINI_API_KEY` (or constants in wp-config); the module uses plugin settings when available and falls back to env/constants.
+The plugin is optimized for **LM Studio** running on your local machine. This offloads the entire enrichment cost to your GPU.
 
-## Usage
+### Setup
+1. **LM Studio**: Load a model (e.g. Qwen 2.5 Coder 7B), enable "Local Server" on port `1234`.
+2. **WP Admin**: Go to **Helmetsan → AI**, enable **LM Studio**.
+3. **URL**: Set Base URL to `http://192.168.2.58:1234/v1` (or your local IP).
 
-- **Phase 1 – SEO seed with AI:** `wp helmetsan seo seed --use-ai` (uses enabled providers, load-balanced).
-- **Phase 2 – Fill missing fields:**  
-  `wp helmetsan ai fill-missing [--post-type=helmet|brand|accessory|all] [--limit=N] [--offset=N] [--dry-run] [--fields=key1,key2] [--only-incomplete] [--verbose] [--strict]`  
-  - Fills only **empty** meta; context-aware from existing data. Default limit 50 per type.  
-  - **--dry-run** – Do not save; only report counts.  
-  - **--fields** – Comma-separated meta keys to fill (e.g. `head_shape,technical_analysis`). If omitted, all fillable fields are used.  
-  - **--only-incomplete** – Only process posts that have at least one empty fillable field (skips fully filled posts).  
-  - **--verbose** – Log each filled field (post ID, meta key) and each failure (post ID, field, reason).  
-  - **--strict** – On invalid or empty AI output, leave field empty and do not retry (saves API calls).  
-  - **Constraints:** Per-field `max_length` truncation and `allowed_values` validation (e.g. `head_shape`: long-oval, intermediate-oval, round-oval). `brand_founded_year` must be 1900–current year.  
-  - **Retry:** One retry on empty response; if the value fails validation (e.g. not in allowed list), one retry with feedback (“Your previous reply was invalid; you must reply with exactly one of: …”).  
-  - **Cache:** Identical context (post type, field, existing data hash) is cached for 24 hours to avoid duplicate API calls on re-runs.
+### Networking (Cloudflare Tunnel)
+To reach your local LM Studio from a production server without port forwarding:
+1. Run a `cloudflared` tunnel on your Mac targeting port `1234`.
+2. Assign a subdomain (e.g. `ai.helmetsan.com`).
+3. Set `define('HELMETSAN_LMSTUDIO_BASE_URL', 'https://ai.helmetsan.com/v1');` in `wp-config.php`.
+4. See [LM Studio Tunnel Guide](walkthroughs/lm-studio-cloudflare-tunnel.md) for details.
+
+---
+
+## Usage (Enrichment)
+
+### 1. Fill-missing (Blank fields only)
+Fills **only** empty meta/taxonomies. Never overwrites existing data.
+
+```bash
+# All types, default limit 50
+wp helmetsan ai fill-missing
+
+# Helmets only, limit 200
+wp helmetsan ai fill-missing --post-type=helmet --limit=200
+
+# Specific fields only
+wp helmetsan ai fill-missing --fields=use_case,helmet_family
+```
+
+### 2. SEO seed (Overwrites Yoast)
+Updates Yoast titles, meta descriptions, and keywords. **Overwrites existing values.**
+
+```bash
+# With AI-generated meta descriptions
+wp helmetsan seo seed --use-ai
+
+# Preview without saving
+wp helmetsan seo seed --dry-run
+```
+
+### 3. Cross-link
+Overwrites `outgoing_internal_links_json` with suggested links based on taxonomies.
+
+```bash
+wp helmetsan ai cross-link --post-type=all
+```
+
+---
 
 ## Architecture
 
-- **ProviderInterface** – Contract for any provider (Groq, Gemini, etc.).
-- **ProviderRegistry** – Reads `helmetsan_ai` option, builds provider instances.
-- **AiService** – High-level API: `generate()`, `generateSeoDescription()`, `generateFillField()`, `checkIntegrity()`.
-- **ContextBuilder** – Builds prompts for SEO, fill-field, and integrity (context-aware from entity data).
-- **Admin** – **Helmetsan → AI** page: API keys, enable/disable, model, free vs premium, phase toggles.
+- **ProviderInterface**: Contract for any provider (LM Studio, Gemini, etc.).
+- **ProviderRegistry**: Instantiates providers from plugin settings or constants.
+- **AiService**: High-level API used by CLI and Admin.
+- **FillMissingService**: Logic for determining what to fill and validating AI responses.
+- **ContextBuilder**: Builds entity-specific prompts (HJC + RPHA 11 + ECE 22.06 → "Track focus").
 
-All AI features (current and future) go through this module so cost and provider choice stay in one place.
+All AI features go through this module so cost and provider choice stay in one place.

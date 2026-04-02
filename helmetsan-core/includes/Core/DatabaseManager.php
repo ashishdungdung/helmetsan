@@ -9,6 +9,35 @@ final class DatabaseManager
     public function ensureTables(): void
     {
         $this->ensureHelmetIndexTable();
+        $this->ensureHealsTable();
+    }
+
+    private function ensureHealsTable(): void
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'helmetsan_heals';
+        $charset = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE {$table} (
+            id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+            entity_type varchar(100) NOT NULL,
+            item_id varchar(255) NOT NULL,
+            file_path text NOT NULL,
+            issues text NOT NULL,
+            fix_patch longtext NOT NULL,
+            original_values longtext NULL,
+            ai_mode varchar(50) NOT NULL DEFAULT 'local',
+            applied tinyint(1) NOT NULL DEFAULT 0,
+            reverted tinyint(1) NOT NULL DEFAULT 0,
+            created_at datetime NOT NULL,
+            PRIMARY KEY (id),
+            KEY entity_type (entity_type),
+            KEY item_id (item_id),
+            KEY created_at (created_at)
+        ) {$charset};";
+
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        dbDelta($sql);
     }
 
     private function ensureHelmetIndexTable(): void

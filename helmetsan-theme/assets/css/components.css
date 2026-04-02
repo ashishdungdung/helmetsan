@@ -3,7 +3,8 @@
   border: 1px solid var(--hs-border);
   border-radius: var(--hs-radius);
   padding: 1rem;
-  box-shadow: 0 10px 24px rgba(11, 18, 32, 0.06);
+  box-shadow: var(--hs-shadow);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -16,7 +17,8 @@
 .entity-card.hs-panel:hover,
 .helmet-card.hs-panel:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(11, 18, 32, 0.1);
+  box-shadow: var(--hs-shadow-lg);
+  border-color: var(--hs-accent);
 }
 
 .helmet-card .helmet-card__image-wrapper {
@@ -49,8 +51,8 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--hs-hero-gradient, linear-gradient(90deg, #0c4a6e, #0d9488));
-  opacity: 0.9;
+  background: var(--hs-accent);
+  opacity: 1;
 }
 
 .hs-stat-card span {
@@ -85,23 +87,36 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  padding: 0.62rem 1rem;
+  border-radius: var(--hs-radius-sm);
+  padding: 0.75rem 1.4rem;
   text-decoration: none;
   border: 1px solid transparent;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
 }
 
 .hs-btn--primary {
   color: #fff;
-  background: var(--hs-hero-gradient, linear-gradient(135deg, #0c4a6e, #0d9488));
-  border-color: transparent;
+  background: var(--hs-accent);
+  border-color: var(--hs-accent);
+}
+
+.hs-btn--primary:hover {
+  background: var(--hs-accent-hover);
+  border-color: var(--hs-accent-hover);
 }
 
 .hs-btn--ghost {
   color: var(--hs-text);
-  background: rgba(255, 255, 255, 0.65);
-  border-color: var(--hs-border);
+  background: transparent;
+  border-color: var(--hs-border-strong);
+}
+
+.hs-btn--ghost:hover {
+  border-color: var(--hs-accent);
+  color: var(--hs-accent);
 }
 
 .hs-link {
@@ -361,6 +376,7 @@
 
 .hs-mega-menu-panel {
   border-bottom: 1px solid var(--hs-border);
+  -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(10px);
 }
@@ -525,9 +541,9 @@
   text-decoration: none;
   color: inherit;
   display: block;
-  background: #fff;
+  background: var(--hs-bg-elevated);
   border: 1px solid var(--hs-border);
-  border-radius: 16px;
+  border-radius: var(--hs-radius);
   transition:
     transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.2s ease;
@@ -584,8 +600,10 @@
 .hs-discovery-card__title {
   margin: 0 0 0.5rem;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--hs-text);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
 
 .hs-discovery-card__description {
@@ -1065,6 +1083,11 @@
 .hs-feature-pill:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(16, 185, 129, 0.12);
+}
+
+/* Alias [data-theme="dark"] to :root for backward compatibility with toggle scripts */
+[data-theme="dark"] {
+    --hs-default-marker: 1;
 }
 
 /* Quick Facts — override stat card for PDP context */

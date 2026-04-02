@@ -3,6 +3,24 @@
 This file tracks **day-to-day development changes** and internal notes between tagged releases.  
 High-level, user-facing release notes live in `CHANGELOG.md`.
 
+## 2026-03-28
+
+- **Token Discipline & Context Optimization:**
+  - Created `.geminiignore` to skip `vendor/` and `data/` (~70% context reduction).
+  - Slimmed `AGENTS.md` and streamlined governance workflows.
+  - Disabled `StitchMCP` in `mcp_config.json` to reduce tool definition overhead.
+  - Added **Memory MCP** for persistent agent knowledge across sessions.
+- **Local AI (LM Studio):**
+  - Configured `LMStudioProvider` as the primary "Local & Free" provider.
+  - Added `HELMETSAN_LMSTUDIO_BASE_URL` constant override in `ProviderRegistry` for secure tunneling.
+  - Created Cloudflare Tunnel walkthrough for exposing local models to production.
+- **Local Analysis:**
+  - Installed **PHPStan** (level 3) with WordPress stubs and baseline.
+  - Established `phpstan.neon` and `phpstan-baseline.neon` to suppress existing 309 errors and only flag new issues.
+- **Cleanup:**
+  - Removed redundant scripts: `update_dev_changelog.php`, `generate_ai_helmets.py`.
+  - Merged `enrichment-process.md` into `ai-module.md` to simplify documentation.
+
 ## 2026-03-07
 
 - **Agent / token optimizations:** Extended `.agent/workflows/ai-optimizations.md` with §8 (dry run before exploration, interface-first context, architecture map first, stubbed TDD, CLI dry-run for new data-mutation scripts). Added `docs/architecture-map.md` and referenced it from AGENTS.md. Introduced `AiServiceInterface`; `AiService` implements it so callers can type-hint the interface.

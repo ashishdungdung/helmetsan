@@ -92,4 +92,10 @@ interface AiServiceInterface
      * @return array{text: string, provider_id: string}|null
      */
     public function generateWithProviderId(string $prompt, int $seed = 0, array $options = []): ?array;
+
+    /**
+     * Heal a data anomaly by generating a JSON patch.
+     * @param array<int, string> $issues
+     */
+    public function healAnomaly(string $entityType, array $data, array $issues): ?array;
 }

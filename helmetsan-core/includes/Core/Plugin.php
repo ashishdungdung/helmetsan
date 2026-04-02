@@ -10,6 +10,7 @@ use Helmetsan\Core\Admin\AiAdmin;
 use Helmetsan\Core\Admin\HelmetImagesAdmin;
 use Helmetsan\Core\AI\AccessoryGeneratorService;
 use Helmetsan\Core\AI\AiService;
+use Helmetsan\Core\AI\HealRepository;
 use Helmetsan\Core\AI\ProviderRegistry;
 use Helmetsan\Core\AI\SeedGeneratorService;
 use Helmetsan\Core\Alerts\AlertService;
@@ -137,6 +138,7 @@ final class Plugin
     private GeoService $geo;
     private MarketplaceRouter $router;
     private PriceHistory $priceHistory;
+    private HealRepository $heals;
     private PriceController $priceApi;
     private ReviewController $reviewApi;
     private FeedIngestionTask $feedTask;
@@ -268,7 +270,8 @@ final class Plugin
         $this->analyticsEventService = new EventService($this->analyticsEvents);
         $this->alerts     = new AlertService($this->config);
         $this->providerRegistry = new ProviderRegistry($this->config);
-        $this->aiService = new AiService($this->providerRegistry);
+        $this->heals      = new HealRepository();
+        $this->aiService = new AiService($this->providerRegistry, $this->heals);
         $this->aiSeoProvider = new AiSeoDescriptionProvider($this->aiService);
         $this->seedGenerator = new SeedGeneratorService($this->aiService);
         $this->accessoryGenerator = new AccessoryGeneratorService($this->aiService, $this->validator);
@@ -296,7 +299,7 @@ final class Plugin
         $this->defaultImages = new DefaultImages($this->config);
         $this->adsTxt = new AdsTxt();
         $this->adSense = new AdSense($this->config);
-        $this->aiAdmin = new AiAdmin($this->config, $this->aiService, $this->accessoryGenerator, $this->repository);
+        $this->aiAdmin = new AiAdmin($this->config, $this->aiService, $this->accessoryGenerator, $this->repository, $this->heals);
         $this->revZillaImageService = new RevZillaImageService();
         $this->helmetImageEnrichment = new HelmetImageEnrichmentService(
             $this->mediaEngine,
@@ -416,11 +419,13 @@ final class Plugin
                 $this->wooBridge,
                 $this->price,
                 $this->priceHistory,
+                $this->taskTracker,
+                $this->config,
+                $this->heals,
                 $this->aiService,
                 $this->repository,
                 $this->seedGenerator,
-                $this->accessoryGenerator,
-                $this->taskTracker
+                $this->accessoryGenerator
             ))->register();
         }
     }

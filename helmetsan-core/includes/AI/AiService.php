@@ -19,6 +19,7 @@ final class AiService implements AiServiceInterface
 
     public function __construct(
         private readonly ProviderRegistry $registry,
+        private readonly HealRepository $heals,
         ?RateLimiter $rateLimiter = null
     ) {
         $this->rateLimiter = $rateLimiter ?? new RateLimiter();
@@ -116,6 +117,51 @@ final class AiService implements AiServiceInterface
     ): ?string {
         $prompt = ContextBuilder::forFillFieldRetry($entityType, $fieldName, $fieldLabel, $existingData, $allowedValues, $previousInvalidValue);
         return $this->generate($prompt, crc32($fieldName . json_encode($existingData) . $previousInvalidValue), null, ['max_tokens' => 20]);
+    }
+
+    /**
+     * Phase 2: Generate values for multiple missing fields at once.
+     * @param array<string, array{label: string, allowed_values?: list<string>}> $fieldConfigs MetaKey => Config
+     */
+    public function generateFillFieldsJSON(
+        string $entityType,
+        array $fieldNames,
+        array $fieldConfigs,
+        array $existingData
+    ): array {
+        $prompt = ContextBuilder::forFillFieldsJSON($entityType, $fieldNames, $fieldConfigs, $existingData);
+        $res = $this->generate($prompt, crc32(json_encode($fieldNames) . json_encode($existingData)), null, ['max_tokens' => 1200]);
+        if ($res === null || $res === '') {
+            return [];
+        }
+
+        // Clean up markdown block if present
+        $res = preg_replace('/^```json\s*|\s*```$/i', '', trim($res));
+        $data = json_decode($res, true);
+        return is_array($data) ? $data : [];
+    }
+
+    /**
+     * Heal a data anomaly by generating a JSON patch.
+     * Use providers to generate a minimal JSON object with corrections.
+     */
+    public function healAnomaly(string $entityType, array $data, array $issues): ?array
+    {
+        $prompt = ContextBuilder::forHealPatch($entityType, $data, $issues);
+        $res = $this->generate($prompt, crc32(json_encode($data)), null, [
+            'max_tokens' => 500,
+            'temperature' => 0.1
+        ]);
+
+        if ($res === null || $res === '') {
+            return null;
+        }
+
+        // Clean up markdown block if present
+        $res = preg_replace('/^```json\s*|\s*```$/i', '', trim($res));
+        $patch = json_decode($res, true);
+
+        return is_array($patch) ? $patch : null;
     }
 
     /**
@@ -400,6 +446,14 @@ final class AiService implements AiServiceInterface
         }
         $s = preg_replace('/^["\']|["\']$/u', '', $s);
         return trim($s);
+    }
+
+    /**
+     * Records a heal event to the database.
+     */
+    public function logHeal(array $params): void
+    {
+        $this->heals->logHeal($params);
     }
 
     private function rateLimit(): void

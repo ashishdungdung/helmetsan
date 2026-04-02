@@ -92,6 +92,7 @@ final class Admin
         add_submenu_page('helmetsan-dashboard', 'Import/Export', 'Import/Export', 'manage_options', 'helmetsan-import-export', [$this, 'importExportPage']);
         add_submenu_page('helmetsan-dashboard', 'Go Live', 'Go Live', 'manage_options', 'helmetsan-go-live', [$this, 'goLivePage']);
         add_submenu_page('helmetsan-dashboard', 'Docs', 'Docs', 'manage_options', 'helmetsan-docs', [$this, 'docsPage']);
+        add_submenu_page('helmetsan-dashboard', 'AI Tasks', 'AI Tasks', 'manage_options', 'helmetsan-ai-tasks', [$this, 'aiTasksPage']);
         add_submenu_page('helmetsan-dashboard', 'Settings', 'Settings', 'manage_options', 'helmetsan-settings', [$this, 'settingsPage']);
     }
 
@@ -4031,5 +4032,211 @@ final class Admin
         }
         echo '</div>';
         echo '</div>';
+    }
+    public function aiTasksPage(): void
+    {
+        if (! current_user_can('manage_options')) {
+            wp_die('Unauthorized');
+        }
+
+        $this->renderAppHeader('AI Tasks', 'Live monitor for background AI processing');
+
+        echo '<div class="wrap helmetsan-wrap" id="helmetsan-ai-tasks-app" style="margin-top: 20px;">';
+        echo '<div class="hs-panel" style="max-width: 900px; margin-bottom: 20px;">';
+        echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">';
+        echo '<h2 class="title" style="margin:0;">Control Module</h2>';
+        echo '</div>';
+        echo '<div style="display:flex; gap: 10px; flex-wrap: wrap;">';
+        echo '<button type="button" class="button button-primary hs-ai-launch-btn" data-action="enrich_helmets">Enrich Helmets</button>';
+        echo '<button type="button" class="button button-secondary hs-ai-launch-btn" data-action="enrich_brands">Enrich Brands</button>';
+        echo '<button type="button" class="button button-secondary hs-ai-launch-btn" data-action="enrich_accessories">Enrich Accessories</button>';
+        echo '<button type="button" class="button button-secondary hs-ai-launch-btn" data-action="seo_seed_all">SEO Seed All</button>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel" style="max-width: 900px; margin-bottom: 20px;">';
+        echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">';
+        echo '<h2 class="title" style="margin:0;">Active AI Workers</h2>';
+        echo '<span id="hs-ai-polling-status" style="font-size: 13px; font-weight: bold; color: #00a32a;">Live <span class="dashicons dashicons-update" style="font-size: 16px; line-height: 1;"></span></span>';
+        echo '</div>';
+        echo '<div id="hs-ai-tasks-container">';
+        echo '<p>Loading active tasks...</p>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-panel" style="max-width: 900px; background: #1e1e1e; color: #a4fc82; border-radius: 6px;">';
+        echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 10px;">';
+        echo '<h2 class="title" style="margin:0; color: #fff;">CLI Execution Log</h2>';
+        echo '<span id="hs-ai-log-status" style="font-size: 12px; color: #888;">Waiting...</span>';
+        echo '</div>';
+        echo '<pre id="hs-ai-log-container" style="margin: 0; padding: 10px; height: 300px; overflow-y: scroll; font-size: 11px; font-family: monospace; white-space: pre-wrap; word-wrap: break-word;"></pre>';
+        echo '</div>';
+        
+        echo '</div>';
+
+        ?>
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('hs-ai-tasks-container');
+            const statusDot = document.getElementById('hs-ai-polling-status');
+            let isPolling = false;
+
+            function fetchTasks() {
+                if (isPolling) return;
+                isPolling = true;
+                statusDot.style.opacity = '0.5';
+
+                fetch(ajaxurl + '?action=helmetsan_ai_get_tasks', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        nonce: '<?php echo esc_js(wp_create_nonce('helmetsan_ai_tasks_nonce')); ?>'
+                    })
+                })
+                .then(r => r.json())
+                .then(data => {
+                    isPolling = false;
+                    statusDot.style.opacity = '1';
+                    if (!data.success) {
+                        container.innerHTML = '<p style="color:#d63638;">Error loading tasks: ' + (data.data?.message || 'Unknown error') + '</p>';
+                        return;
+                    }
+
+                    const tasks = data.data.tasks || [];
+                    if (tasks.length === 0) {
+                        container.innerHTML = '<div class="notice notice-info inline"><p>No active background tasks running.</p></div>';
+                        return;
+                    }
+
+                    let html = '<table class="widefat striped"><thead><tr>';
+                    html += '<th>Worker ID</th><th>Task</th><th>Type</th><th>Uptime</th><th>Last Ping</th><th>Actions</th>';
+                    html += '</tr></thead><tbody>';
+
+                    tasks.forEach(t => {
+                        html += '<tr>';
+                        html += '<td><code style="cursor:pointer;" class="hs-ai-view-log" data-id="'+t.id+'" title="View Logs">' + t.id + '</code></td>';
+                        html += '<td><strong>' + t.label + '</strong></td>';
+                        html += '<td>' + t.type + '</td>';
+                        html += '<td>' + t.elapsed + 's</td>';
+                        html += '<td>' + t.last_ping + 's ago</td>';
+                        html += '<td>';
+                        if (t.cancelled) {
+                             html += '<span style="color:#d63638;font-size:12px;">Cancelling...</span>';
+                        } else {
+                             html += '<button type="button" class="button button-small hs-ai-cancel-btn" data-id="'+t.id+'" style="color:#d63638; border-color:#d63638;">Stop</button>';
+                        }
+                        html += '</td>';
+                        html += '</tr>';
+                    });
+                    
+                    html += '</tbody></table>';
+                    container.innerHTML = html;
+                })
+                .catch(err => {
+                    isPolling = false;
+                    statusDot.style.opacity = '1';
+                    console.error(err);
+                });
+            }
+
+            fetchTasks();
+            setInterval(fetchTasks, 2500);
+
+            // Log Viewer
+            const logContainer = document.getElementById('hs-ai-log-container');
+            const logStatus = document.getElementById('hs-ai-log-status');
+            let currentLogId = '';
+
+            function fetchLog() {
+                fetch(ajaxurl + '?action=helmetsan_ai_get_log', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        nonce: '<?php echo esc_js(wp_create_nonce('helmetsan_ai_tasks_nonce')); ?>',
+                        log_id: currentLogId
+                    })
+                })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        logStatus.innerText = 'Log: ' + (data.data.file || 'unknown');
+                        // auto-scroll logic
+                        const isScrolledToBottom = logContainer.scrollHeight - logContainer.clientHeight <= logContainer.scrollTop + 50;
+                        logContainer.innerText = data.data.log || '';
+                        if (isScrolledToBottom) {
+                            logContainer.scrollTop = logContainer.scrollHeight;
+                        }
+                    }
+                })
+                .catch(console.error);
+            }
+            fetchLog();
+            setInterval(fetchLog, 3000);
+
+            // Delegation for dynamic buttons
+            document.body.addEventListener('click', function(e) {
+                if (e.target.classList.contains('hs-ai-cancel-btn')) {
+                    const btn = e.target;
+                    const id = btn.getAttribute('data-id');
+                    if (!confirm('Are you sure you want to stop worker ' + id + '?')) return;
+                    btn.innerText = 'Stopping...';
+                    btn.disabled = true;
+                    
+                    fetch(ajaxurl + '?action=helmetsan_ai_cancel_task', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({
+                            nonce: '<?php echo esc_js(wp_create_nonce('helmetsan_ai_tasks_nonce')); ?>',
+                            taskId: id
+                        })
+                    })
+                    .then(() => fetchTasks());
+                }
+
+                if (e.target.classList.contains('hs-ai-view-log')) {
+                     currentLogId = e.target.getAttribute('data-id');
+                     logStatus.innerText = 'Fetching...';
+                     fetchLog();
+                }
+
+                if (e.target.classList.contains('hs-ai-launch-btn')) {
+                    const btn = e.target;
+                    const action = btn.getAttribute('data-action');
+                    if (!confirm('Start new background process: ' + action + '?')) return;
+                    
+                    const oldText = btn.innerText;
+                    btn.innerText = 'Launching...';
+                    btn.disabled = true;
+
+                    fetch(ajaxurl + '?action=helmetsan_ai_launch_task', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams({
+                            nonce: '<?php echo esc_js(wp_create_nonce('helmetsan_ai_tasks_nonce')); ?>',
+                            task_action: action
+                        })
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        btn.innerText = oldText;
+                        btn.disabled = false;
+                        if (data.success) {
+                            fetchTasks();
+                            currentLogId = data.data.log_id || '';
+                            fetchLog();
+                        } else {
+                            alert('Launch failed: ' + (data.data?.message || 'Unknown error'));
+                        }
+                    })
+                    .catch(err => {
+                         btn.innerText = oldText;
+                         btn.disabled = false;
+                         alert('Request failed');
+                    });
+                }
+            });
+        });
+        </script>
+        <?php
     }
 }

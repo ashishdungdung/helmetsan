@@ -1,52 +1,41 @@
 This repository uses structured AI workflows for development.
 
-Agents must follow the guidelines defined in:
+## Token Discipline (MANDATORY)
 
-- `.agent/workflows/ai-optimizations.md`
+**Local First & Memory Enabled**:
 
-Those rules define:
+- **Local AI**: Use LM Studio (`http://192.168.2.58:1234`) for routine WP-CLI tasks to save cloud tokens.
+- **Memory MCP**: Use the `memory` server to store/recall project context across sessions (avoid re-reading).
+- **Minimal Context**: For small tasks (single file, typo), do NOT load full workflows.
 
-- Agent Task Execution Protocol (ATEP)
-- Autonomous Change Guardrails (ACG)
-- Tool Usage Discipline (TUD)
-- WordPress development rules
-- Ingestion and Git sync safety
-- Infrastructure modification safety
-- Token and context optimization
+**For complex, exploratory, or multi-subsystem tasks**:
+- Read `.agent/workflows/ai-optimizations.md` for full governance.
+- Use `docs/architecture-map.md` to locate subsystems before broad searches.
 
-Before performing modifications:
+## Quick Reference
 
-1. Confirm project root and runtime context.
-2. **Token discipline:** For **small, scoped tasks** (single file, obvious fix, one parameter, typo), do **not** load the full governance doc or architecture map—proceed with minimal context. For **complex, exploratory, or multi-subsystem tasks**, read `.agent/workflows/ai-optimizations.md` and use **`docs/architecture-map.md`** to locate subsystems before broad searches. Prefer the **minimum** file reads and tool calls that suffice.
-3. Follow the execution protocol in ai-optimizations.md when you have loaded it; otherwise apply minimal-change and safety principles (no core dirs, no hardcoded secrets, prefer existing services).
+**Project root (production):** `/var/www/helmetsan.com/public/`
 
-Project root (production server):
+**Key paths:**
 
-`/var/www/helmetsan.com/public/`
+| Area | Path |
+|------|------|
+| Plugin (business logic) | `helmetsan-core/includes/` |
+| AI modules | `helmetsan-core/includes/AI/` |
+| CLI commands | `helmetsan-core/includes/CLI/Commands.php` |
+| Ingestion | `helmetsan-core/includes/Ingestion/` |
+| Sync | `helmetsan-core/includes/Sync/` |
+| Theme | `helmetsan-theme/` |
+| JSON data | `data/` |
+| Scripts | `scripts/` |
 
-Primary code and data areas:
+**Never modify:** `wp-admin/`, `wp-includes/`
 
-```text
-wp-content/plugins/helmetsan-core/      # Main business logic, CPTs, AI, ingestion, sync, CLI
-wp-content/themes/helmetsan-theme/      # Frontend templates, assets, WooCommerce overrides
-wp-content/uploads/helmetsan-data/      # Git‑backed JSON data root (brands, helmets, accessories, etc.)
-data/                                   # Source JSON catalogs in the Git repo
-scripts/                                # Deployment, ingestion, enrichment, and maintenance scripts
-```
+**Terminology:** Seed = JSON array from `create_helmets_seed.php`. Ingest = `wp helmetsan ingest-seed`. SEO seed = `wp helmetsan seo seed`. Sync = GitHub pull/push of JSON. Full data-flow: `docs/data-flow.md`.
 
-Agents must **never** modify WordPress core directories:
-
-```text
-wp-admin/
-wp-includes/
-```
-
-**Terminology:** **Seed** = generated JSON array of helmet variants (create_helmets_seed.php output). **ingest-seed** = CLI that ingests that array (wp helmetsan ingest-seed). **SEO seed** = Yoast title/meta/focus keyword (wp helmetsan seo seed). **Reseed** = full pipeline: generate → deploy → ingest-seed. **Sync** = GitHub pull/push of JSON under data/; **ingestion** = applying JSON to posts/meta. Full data-flow concept (JSON ↔ WordPress ↔ GitHub): **docs/data-flow.md**.
-
-When in doubt, prefer:
-
-- Minimal, localized changes over broad refactors.
-- Editing existing services/modules instead of creating new subsystems.
-- Using Helmetsan’s existing ingestion, sync, AI, and scheduler primitives rather than rolling custom infrastructure.
-- Running the enrichment pipeline (fill-missing → SEO seed → cross-link) via CLI or admin rather than custom scripts; see `docs/ai-seeder-enrichment-roadmap.md` and README.
-
+**Rules:**
+- Minimal, localized changes over broad refactors (≤3 files, ≤200 lines).
+- Edit existing services instead of creating new subsystems.
+- No hardcoded API keys — use `getenv()` or `get_option()`.
+- Use existing primitives (ingestion, sync, AI, scheduler) rather than custom infra.
+- Full governance: `.agent/workflows/ai-optimizations.md`

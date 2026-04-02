@@ -69,36 +69,87 @@ final class TaskTracker
         }
     }
 
+    public function requestCancellation(string $id): void
+    {
+        $path = $this->getTaskFilePath($id);
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $data = $content ? json_decode($content, true) : null;
+            if (is_array($data)) {
+                $data['cancelled'] = true;
+                $this->saveTaskFile($id, $data);
+            }
+        }
+    }
+
+    public function isCancelled(string $id): bool
+    {
+        $path = $this->getTaskFilePath($id);
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $data = $content ? json_decode($content, true) : null;
+            return !empty($data['cancelled']);
+        }
+        return false;
+    }
+
     /**
-     * @return array<string, array{label: string, type: string, start: int, last_ping: int, progress: int}>
+     * @return array<string, array{label: string, type: string, start: int, last_ping: int, progress: int, cancelled: bool}>
      */
     public function getActiveTasks(): array
     {
-        $dir = $this->getTasksDir();
-        $files = glob($dir . '/task_*.json');
-        if (! $files) {
+        $dir = $this->getTasksDir(); // Kept getTasksDir()
+        $files = glob($dir . '/*.json'); // Changed glob pattern
+        if (! is_array($files)) { // Changed condition
             return [];
         }
 
         $now = time();
-        $active = [];
+        $tasks = []; // Renamed from $active
         foreach ($files as $file) {
             $content = file_get_contents($file);
-            $data = $content ? json_decode($content, true) : null;
-            if (! is_array($data) || ! isset($data['id'])) {
+            if ($content === false) { // Added check for false
+                continue;
+            }
+
+            $data = json_decode($content, true);
+            if (! is_array($data) || empty($data['id'])) { // Changed condition
+                continue;
+            }
+
+            $lastPing = (int) ($data['last_ping'] ?? 0); // Changed key back
+            if ($now - $lastPing > self::EXPIRY_SECONDS) { // Changed constant name
                 @unlink($file);
                 continue;
             }
 
-            if ($now - ($data['last_ping'] ?? 0) > self::EXPIRY_SECONDS) {
-                @unlink($file);
-                continue;
-            }
-
-            $active[$data['id']] = $data;
+            $id = $data['id'];
+            $tasks[$id] = [
+                'id' => $id,
+                'label' => $data['label'] ?? 'Unknown Task',
+                'type' => $data['type'] ?? 'unknown',
+                'start' => $data['start'] ?? time(), // Changed key back
+                'last_ping' => $lastPing,
+                'progress' => $data['progress'] ?? 0,
+                'cancelled' => !empty($data['cancelled']),
+            ];
         }
 
-        return $active;
+        return $tasks;
+    }
+
+    public function queueLaunch(string $actionType, string $id): void
+    {
+        $dir = $this->getTasksDir() . '/queue';
+        if (! is_dir($dir)) {
+            wp_mkdir_p($dir);
+        }
+        $file = $dir . '/' . sanitize_file_name($id) . '.json';
+        file_put_contents($file, wp_json_encode([
+            'id' => $id,
+            'action' => $actionType,
+            'queued_at' => time()
+        ]));
     }
 
     private function getTaskFilePath(string $id): string
@@ -108,6 +159,6 @@ final class TaskTracker
 
     private function saveTaskFile(string $id, array $data): void
     {
-        file_put_contents($this->getTaskFilePath($id), wp_json_encode($data));
+        file_put_contents($this->getTaskFilePath($id), wp_json_encode($data), LOCK_EX);
     }
 }

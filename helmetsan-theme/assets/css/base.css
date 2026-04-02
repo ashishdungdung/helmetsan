@@ -134,10 +134,11 @@ body.hs-layout-wide .site-content .site-main {
 }
 
 .site-topbar__tagline {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--hs-accent);
-    font-weight: 600;
-    letter-spacing: .02em;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
 }
 
 .site-topbar__actions {
@@ -202,8 +203,9 @@ body.hs-layout-wide .site-content .site-main {
 .site-header__brand {
     color: var(--hs-text);
     text-decoration: none;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
 }
 
 .menu {
@@ -217,7 +219,10 @@ body.hs-layout-wide .site-content .site-main {
 .menu a {
     text-decoration: none;
     color: var(--hs-muted);
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .menu--primary a {
@@ -416,19 +421,24 @@ body.hs-layout-wide .site-content .site-main {
 .hs-section__head h1,
 .hs-section__head h2 {
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .hs-section__head p,
 .hs-section__sub {
     margin: 0.25rem 0 0;
     color: var(--hs-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
 .hs-section__sub {
     flex-basis: 100%;
     order: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .hs-section__intro {

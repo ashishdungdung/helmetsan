@@ -35,7 +35,7 @@ final class Config
                 'fireworks' => ['enabled' => false, 'api_key' => '', 'model' => 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'tier' => 'free'],
                 'cohere' => ['enabled' => false, 'api_key' => '', 'model' => 'command-r-plus', 'tier' => 'free'],
                 'cloudflare' => ['enabled' => false, 'api_key' => '', 'model' => '@cf/meta/llama-3-8b-instruct', 'base_url' => '', 'tier' => 'free'],
-                'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => 'http://localhost:1234/v1', 'model' => 'local', 'tier' => 'free'],
+                'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => 'http://192.168.2.58:1234/v1', 'model' => 'local', 'tier' => 'free'],
                 'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
                 'anthropic' => ['enabled' => false, 'api_key' => '', 'model' => 'claude-sonnet-4-20250514', 'tier' => 'premium'],
                 'perplexity' => ['enabled' => false, 'api_key' => '', 'model' => 'sonar', 'tier' => 'premium'],
@@ -45,6 +45,7 @@ final class Config
             'phase1_seo_enabled' => true,
             'phase2_fill_enabled' => false,
             'phase3_integrity_enabled' => false,
+            'healing_mode' => 'local', // Options: local, server, ide
         ];
     }
 

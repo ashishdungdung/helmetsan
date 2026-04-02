@@ -1,0 +1,241 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Offset ''description'' does not exist on array\{label\: string, allowed_values\?\: list\<string\>\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: helmetsan-core/includes/AI/ContextBuilder.php
+
+		-
+			message: '#^Call to method available\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Call to method syncBatch\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Call to method syncHelmet\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_URL not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_VERSION not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Parameter \$wooBridge of method Helmetsan\\Core\\Admin\\Admin\:\:__construct\(\) has invalid type Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Property Helmetsan\\Core\\Admin\\Admin\:\:\$wooBridge has unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/Admin.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_VERSION not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Admin/HelmetImagesAdmin.php
+
+		-
+			message: '#^Constant DB_HOST not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Backup/BackupService.php
+
+		-
+			message: '#^Constant DB_NAME not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Backup/BackupService.php
+
+		-
+			message: '#^Constant DB_PASSWORD not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Backup/BackupService.php
+
+		-
+			message: '#^Constant DB_USER not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Backup/BackupService.php
+
+		-
+			message: '#^Call to method syncBatch\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to method syncHelmet\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method add_command\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 45
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method error\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 51
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method line\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 47
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method log\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 52
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method success\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 36
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to static method warning\(\) on an unknown class WP_CLI\.$#'
+			identifier: class.notFound
+			count: 17
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Function WP_CLI\\Utils\\format_items not found\.$#'
+			identifier: function.notFound
+			count: 11
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Function helmetsan_core not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Parameter \$wooBridge of method Helmetsan\\Core\\CLI\\Commands\:\:__construct\(\) has invalid type Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Property Helmetsan\\Core\\CLI\\Commands\:\:\$wooBridge has unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/CLI/Commands.php
+
+		-
+			message: '#^Call to an undefined method Helmetsan\\Core\\Ingestion\\LogRepository\:\:error\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: helmetsan-core/includes/Cloudflare/TurnstileService.php
+
+		-
+			message: '#^Call to an undefined method Helmetsan\\Core\\Ingestion\\LogRepository\:\:warning\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: helmetsan-core/includes/Cloudflare/TurnstileService.php
+
+		-
+			message: '#^Call to method register\(\) on an unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Core/Plugin.php
+
+		-
+			message: '#^Instantiated class Helmetsan\\Core\\WooBridge\\WooBridgeService not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Core/Plugin.php
+
+		-
+			message: '#^Property Helmetsan\\Core\\Core\\Plugin\:\:\$wooBridge has unknown class Helmetsan\\Core\\WooBridge\\WooBridgeService as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: helmetsan-core/includes/Core/Plugin.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Data/SyncManager.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/Docs/DocsService.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_VERSION not found\.$#'
+			identifier: constant.notFound
+			count: 1
+			path: helmetsan-core/includes/GoLive/ChecklistService.php
+
+		-
+			message: '#^Variable \$header in empty\(\) always exists and is not falsy\.$#'
+			identifier: empty.variable
+			count: 1
+			path: helmetsan-core/includes/Marketplace/Connectors/AffiliateFeedConnector.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_FILE not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Media/MediaEngine.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_VERSION not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Media/MediaEngine.php
+
+		-
+			message: '#^Action callback returns array\<string, mixed\> but should not return anything\.$#'
+			identifier: return.void
+			count: 8
+			path: helmetsan-core/includes/Scheduler/SchedulerService.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_DIR not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Support/DefaultImages.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_URL not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Support/DefaultImages.php
+
+		-
+			message: '#^Constant HELMETSAN_CORE_VERSION not found\.$#'
+			identifier: constant.notFound
+			count: 2
+			path: helmetsan-core/includes/Sync/SyncService.php

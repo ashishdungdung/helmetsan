@@ -7,10 +7,10 @@ Short map of where key subsystems live. **Read this first** before exploratory f
 | Area | Path | Notes |
 |------|------|--------|
 | **Bootstrap** | `includes/Core/Plugin.php` | DI container, service wiring, boot. |
-| **AI** | `includes/AI/` | AiService, ProviderRegistry, BaseProvider, ContextBuilder, FillMissingService, FillableFieldsConfig, SeedGeneratorService, AccessoryGeneratorService. **Interface:** `AiServiceInterface.php` (read this for calling AI; skip full AiService unless modifying it). |
-| **CLI** | `includes/CLI/Commands.php` | All `wp helmetsan` commands. Large file; use grep or line-range reads. |
-| **Admin** | `includes/Admin/` | Admin.php (menus, dashboard), AiAdmin.php (AI page), others. |
-| **Ingestion** | `includes/Ingestion/IngestionService.php`, `includes/Ingestion/LogRepository.php` | JSON → WordPress; ingestion logs. Dispatches by `entity` (brand, motorcycle, safety_standard, dealer, distributor, comparison, recommendation) when present; else helmet/accessory. |
+| **AI** | `includes/AI/` | AiService, ProviderRegistry, LMStudioProvider, ContextBuilder, FillMissingService. **Local First:** LM Studio on port `1234`. **Memory:** `@modelcontextprotocol/server-memory` stores project context across sessions. |
+| **CLI** | `includes/CLI/Commands.php` | All `wp helmetsan` commands. Large file; use grep or range reads. |
+| **Admin** | `includes/Admin/` | Admin.php (menus), AiAdmin.php (AI settings). |
+| **Ingestion** | `includes/Ingestion/` | JSON → WP; dispatches by `entity` (brand, motorcycle, etc.). |
 | **Validation** | `includes/Validation/Validator.php` | Helmet + accessory schema/logic/integrity. |
 | **Sync** | `includes/Sync/SyncService.php`, `includes/Data/SyncManager.php` | GitHub pull/push, apply. |
 | **Repository** | `includes/Repository/JsonRepository.php` | Data root, listJsonFiles, listSubdirs, read. |

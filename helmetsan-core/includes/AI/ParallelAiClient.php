@@ -16,66 +16,75 @@ final class ParallelAiClient
      */
     public function execute(array $requests, int $timeout = 30): array
     {
-        if ($requests === []) {
-            return [];
-        }
+        $finalResults = array_fill_keys(array_keys($requests), null);
+        $currentRequests = $requests;
+        $attempt = 0;
+        $maxRetries = 3;
 
-        $mh = curl_multi_init();
-        if ($mh === false) {
-            return array_fill_keys(array_keys($requests), null);
-        }
-
-        $handles = [];
-        foreach ($requests as $id => $req) {
-            $ch = curl_init($req['url']);
-            if ($ch === false) {
-                continue;
+        while ($currentRequests !== [] && $attempt <= $maxRetries) {
+            if ($attempt > 0) {
+                sleep((int) pow(2, $attempt)); // Backoff: 2s, 4s, 8s
             }
 
-            $headers = [];
-            foreach ($req['headers'] as $k => $v) {
-                $headers[] = "$k: $v";
+            $mh = curl_multi_init();
+            if ($mh === false) {
+                break;
             }
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $req['body']);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+            $handles = [];
+            foreach ($currentRequests as $id => $req) {
+                $ch = curl_init($req['url']);
+                if ($ch === false) {
+                    continue;
+                }
 
-            curl_multi_add_handle($mh, $ch);
-            $handles[$id] = $ch;
-        }
+                $headers = [];
+                foreach ($req['headers'] as $k => $v) {
+                    $headers[] = "$k: $v";
+                }
 
-        $active = null;
-        do {
-            $mrc = curl_multi_exec($mh, $active);
-        } while ($mrc === CURLM_OK && $active > 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $req['body']);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 
-        while ($active && $mrc === CURLM_OK) {
-            if (curl_multi_select($mh) === -1) {
-                usleep(100);
+                curl_multi_add_handle($mh, $ch);
+                $handles[$id] = $ch;
             }
+
+            $active = null;
             do {
                 $mrc = curl_multi_exec($mh, $active);
             } while ($mrc === CURLM_OK && $active > 0);
-        }
 
-        $results = [];
-        foreach ($handles as $id => $ch) {
-            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            if ($code === 200) {
-                $results[$id] = curl_multi_getcontent($ch);
-            } else {
-                $results[$id] = null;
+            while ($active && $mrc === CURLM_OK) {
+                if (curl_multi_select($mh) === -1) {
+                    usleep(100);
+                }
+                do {
+                    $mrc = curl_multi_exec($mh, $active);
+                } while ($mrc === CURLM_OK && $active > 0);
             }
-            curl_multi_remove_handle($mh, $ch);
-            curl_close($ch);
+
+            $nextRequests = [];
+            foreach ($handles as $id => $ch) {
+                $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                if ($code === 200) {
+                    $finalResults[$id] = curl_multi_getcontent($ch);
+                } elseif ($code === 429 && $attempt < $maxRetries) {
+                    $nextRequests[$id] = $currentRequests[$id];
+                }
+                curl_multi_remove_handle($mh, $ch);
+                curl_close($ch);
+            }
+
+            curl_multi_close($mh);
+            $currentRequests = $nextRequests;
+            $attempt++;
         }
 
-        curl_multi_close($mh);
-
-        return $results;
+        return $finalResults;
     }
 }

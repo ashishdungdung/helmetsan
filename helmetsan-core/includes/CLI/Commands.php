@@ -37,6 +37,7 @@ use Helmetsan\Core\Validation\Validator;
 use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\Price\PriceService;
 use Helmetsan\Core\Price\PriceHistory;
+use Helmetsan\Core\Support\Config;
 
 
 final class Commands
@@ -63,12 +64,14 @@ final class Commands
         private readonly MediaEngine $media,
         private readonly WooBridgeService $wooBridge,
         private readonly PriceService $price,
-        private readonly PriceHistory $priceHistory,
+        private readonly \Helmetsan\Core\Price\PriceHistory $priceHistory,
+        private readonly \Helmetsan\Core\Support\TaskTracker $taskTracker,
+        private readonly Config $config,
+        private readonly \Helmetsan\Core\AI\HealRepository $heals,
         private readonly ?AiService $aiService = null,
         private readonly ?JsonRepository $repository = null,
         private readonly ?SeedGeneratorService $seedGenerator = null,
-        private readonly ?AccessoryGeneratorService $accessoryGenerator = null,
-        private readonly ?\Helmetsan\Core\Support\TaskTracker $taskTracker = null
+        private readonly ?AccessoryGeneratorService $accessoryGenerator = null
     ) {
     }
 
@@ -100,6 +103,9 @@ final class Commands
         \WP_CLI::add_command('helmetsan ai generate-accessories', [$this, 'aiGenerateAccessories']);
         \WP_CLI::add_command('helmetsan ai generate-all', [$this, 'aiGenerateAll']);
         \WP_CLI::add_command('helmetsan ai cross-link', [$this, 'aiCrossLink']);
+        \WP_CLI::add_command('helmetsan ai heal', [$this, 'aiHeal']);
+        \WP_CLI::add_command('helmetsan ai config', [$this, 'aiConfig']);
+        \WP_CLI::add_command('helmetsan ai process-queue', [$this, 'aiProcessQueue']);
         \WP_CLI::add_command('helmetsan revenue report', [$this, 'revenueReport']);
         \WP_CLI::add_command('helmetsan analytics report', [$this, 'analyticsReport']);
         \WP_CLI::add_command('helmetsan scheduler status', [$this, 'schedulerStatus']);
@@ -1774,7 +1780,7 @@ final class Commands
      * : On empty or invalid AI output, leave field empty and do not retry (saves API calls).
      * [--no-taxonomies]
      * : Skip filling missing taxonomy terms (helmet_type, certification, feature_tag, etc.); only fill meta.
-     * [--no-cache]
+     * [--skip-cache]
      * : Disable 24h cache for identical context (more API calls).
      * [--concurrency=<n>]
      * : Run N parallel processes (split by offset/limit). Faster for large runs. Only for single --post-type. Default: 1.
@@ -1818,8 +1824,8 @@ final class Commands
         $verbose = isset($assoc['verbose']);
         $strictMode = isset($assoc['strict']);
         $fillTaxonomies = ! isset($assoc['no-taxonomies']);
-        $noCache = isset($assoc['no-cache']);
-        $cacheTtl = $noCache ? 0 : 86400;
+        $skipCache = isset($assoc['skip-cache']);
+        $cacheTtl = $skipCache ? 0 : 86400;
         $monitor = new \Helmetsan\Core\Support\ResourceMonitor();
         $defaultConcurrency = $monitor->getRecommendedConcurrency();
         $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : $defaultConcurrency;
@@ -1868,7 +1874,12 @@ final class Commands
                 }
                 $rows = [];
                 foreach ($report['fields'] as $field => $counts) {
-                    $rows[] = [$field, (string) $counts['set'], (string) $counts['empty'], $counts['pct'] . '%'];
+                    $rows[] = [
+                        'field' => $field,
+                        'set' => (string) $counts['set'],
+                        'empty' => (string) $counts['empty'],
+                        'complete' => $counts['pct'] . '%'
+                    ];
                 }
                 \WP_CLI\Utils\format_items('table', $rows, ['field', 'set', 'empty', 'complete']);
             }
@@ -1876,90 +1887,92 @@ final class Commands
             return;
         }
 
-        if ($concurrency > 1 && count($types) === 1) {
-            $singleType = $types[0];
-            $totalQuery = new \WP_Query([
-                'post_type'      => $singleType,
-                'post_status'    => 'publish',
-                'p'              => $specificPostId,
-                'posts_per_page' => $limit > 0 ? $limit : -1,
-                'offset'         => $offset,
-                'fields'         => 'ids',
-            ]);
-            $totalIds = is_array($totalQuery->posts) ? array_map('intval', $totalQuery->posts) : [];
-            $totalCount = count($totalIds);
-            if ($totalCount === 0) {
-                \WP_CLI::success('No posts to process.');
-                return;
-            }
+        if ($concurrency > 1) {
+            $concurrencyPerType = max(1, (int) floor($concurrency / count($types)));
+            // If we have few types and high concurrency, we can afford more per type
+            // but let's cap total workers at $concurrency to be safe for server resources.
+            $totalSpawned = 0;
+            
+            foreach ($types as $singleType) {
+                if ($totalSpawned >= $concurrency && count($types) > 1) {
+                    \WP_CLI::log(sprintf('Cap reached for %s. Will process subsequent types sequentially or in later workers.', $singleType));
+                    continue; 
+                }
 
-            $chunkSize = (int) ceil($totalCount / $concurrency);
+                $totalQuery = new \WP_Query([
+                    'post_type'      => $singleType,
+                    'post_status'    => 'publish',
+                    'p'              => $specificPostId,
+                    'posts_per_page' => $limit > 0 ? $limit : -1,
+                    'offset'         => $offset,
+                    'fields'         => 'ids',
+                ]);
+                $totalCount = count(is_array($totalQuery->posts) ? $totalQuery->posts : []);
+                if ($totalCount === 0) continue;
 
-            if ($this->taskTracker && ! $this->taskTracker->verify()) {
-                \WP_CLI::error('Tasks directory is not writable. Check permissions for wp-content/uploads/helmetsan-data/tasks/');
-                return;
-            }
+                $typeConcurrency = (count($types) === 1) ? $concurrency : $concurrencyPerType;
+                $chunkSize = (int) ceil($totalCount / $typeConcurrency);
 
-            $phpBin = (defined('PHP_BINARY') && is_executable(PHP_BINARY)) ? PHP_BINARY : '/usr/bin/php';
-            $wpBin = trim((string) @shell_exec('which wp') ?: '/usr/local/bin/wp');
-            $fullWp = $phpBin . ' ' . escapeshellarg($wpBin);
+                if ($this->taskTracker && ! $this->taskTracker->verify()) {
+                    \WP_CLI::error('Tasks directory is not writable. Check permissions for wp-content/uploads/helmetsan-data/tasks/');
+                    return;
+                }
 
-            $cmdBase = $fullWp . ' helmetsan ai fill-missing --post-type=' . $singleType
-                . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
-                . ($dryRun ? ' --dry-run' : '')
-                . ($onlyIncomplete ? ' --only-incomplete' : '')
-                . ($refillAccessoryIfNoCategory ? ' --refill-unmapped' : '')
-                . ($strictMode ? ' --strict' : '')
-                . ($rateLimitSeconds !== null ? ' --rate-limit=' . (int) $rateLimitSeconds : '')
-                . ($noCache ? ' --no-cache' : '')
-                . ($multiplex ? ' --multiplex' : '')
-                . ($specificPostId ? ' --post-id=' . $specificPostId : '')
-                . ($fillTaxonomies ? '' : ' --no-taxonomies')
-                . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
-                . (in_array('--allow-root', $_SERVER['argv'], true) ? ' --allow-root' : '')
-                . (function () {
-                    foreach ($_SERVER['argv'] as $arg) {
-                        if (strpos($arg, '--path=') === 0) return ' ' . escapeshellarg($arg);
+                $phpBin = (defined('PHP_BINARY') && is_executable(PHP_BINARY)) ? PHP_BINARY : '/usr/bin/php';
+                $wpBin = trim((string) @shell_exec('which wp') ?: '/usr/local/bin/wp');
+                $fullWp = $phpBin . ' ' . escapeshellarg($wpBin);
+
+                $cmdBase = $fullWp . ' helmetsan ai fill-missing --post-type=' . $singleType
+                    . ' --offset=%d --limit=' . $chunkSize . ' --concurrency=1'
+                    . ($dryRun ? ' --dry-run' : '')
+                    . ($onlyIncomplete ? ' --only-incomplete' : '')
+                    . ($refillAccessoryIfNoCategory ? ' --refill-unmapped' : '')
+                    . ($strictMode ? ' --strict' : '')
+                    . ($rateLimitSeconds !== null ? ' --rate-limit=' . (int) $rateLimitSeconds : '')
+                    . ($skipCache ? ' --skip-cache' : '')
+                    . ($multiplex ? ' --multiplex' : '')
+                    . ($specificPostId ? ' --post-id=' . $specificPostId : '')
+                    . ($fillTaxonomies ? '' : ' --no-taxonomies')
+                    . ($fieldsOpt !== '' ? ' --fields=' . escapeshellarg($fieldsOpt) : '')
+                    . (in_array('--allow-root', $_SERVER['argv'], true) ? ' --allow-root' : '')
+                    . (function () {
+                        foreach ($_SERVER['argv'] as $arg) {
+                            if (strpos($arg, '--path=') === 0) return ' ' . escapeshellarg($arg);
+                        }
+                        return '';
+                    })()
+                    . ' --internal-id=%s';
+
+                $debugDir = WP_CONTENT_DIR . '/uploads/helmetsan-data/debug';
+                if (! is_dir($debugDir)) {
+                    wp_mkdir_p($debugDir);
+                }
+
+                for ($i = 0; $i < $typeConcurrency; $i++) {
+                    $off = $offset + ($i * $chunkSize);
+                    if ($off >= $offset + $totalCount) break;
+                    
+                    $workerId = "fm-{$singleType}-{$off}";
+                    if ($this->taskTracker) {
+                        $this->taskTracker->start($workerId, "Fill Missing ($singleType) @$off", 'ai-enrichment');
                     }
-                    return '';
-                })()
-                . ' --internal-id=%s';
 
-            $debugDir = WP_CONTENT_DIR . '/uploads/helmetsan-data/debug';
-            if (! is_dir($debugDir)) {
-                wp_mkdir_p($debugDir);
+                    $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
+                    $fullWorkerCmd = sprintf($cmdBase, $off, escapeshellarg($workerId));
+                    $cmd = sprintf("nohup %s > %s 2>&1 &", $fullWorkerCmd, escapeshellarg($logFile));
+                    
+                    if ($i === 0 && $totalSpawned === 0) {
+                        \WP_CLI::log('Executing first worker: ' . $cmd);
+                    }
+                    shell_exec($cmd);
+                    $totalSpawned++;
+                }
             }
 
-            for ($i = 0; $i < $concurrency; $i++) {
-                $off = $offset + ($i * $chunkSize);
-                if ($off >= $offset + $totalCount) {
-                    break;
-                }
-                $workerId = "fm-{$singleType}-{$off}";
-                if ($this->taskTracker) {
-                    $this->taskTracker->start($workerId, "Fill Missing ($singleType) @$off", 'ai-enrichment');
-                }
-
-                $logFile = $debugDir . '/parallel_' . $singleType . '_' . $off . '.log';
-                $fullWorkerCmd = sprintf($cmdBase, $off, escapeshellarg($workerId));
-                
-                // Simplified background execution: nohup COMMAND > LOG 2>&1 &
-                // We rely on shell_exec inheriting the current CWD.
-                $cmd = sprintf(
-                    "nohup %s > %s 2>&1 &",
-                    $fullWorkerCmd,
-                    escapeshellarg($logFile)
-                );
-                
-                if ($i === 0) {
-                    \WP_CLI::log('Executing first worker: ' . $cmd);
-                }
-                
-                shell_exec($cmd);
+            if ($totalSpawned > 0) {
+                \WP_CLI::success(sprintf('Spawned %d background processes across %d types. Monitoring active via: wp helmetsan ai status', $totalSpawned, count($types)));
+                return;
             }
-
-            \WP_CLI::success(sprintf('Spawned %d background processes for %s. Monitoring active via: wp helmetsan ai status', $concurrency, $singleType));
-            return;
         }
 
         if ($this->taskTracker) {
@@ -1974,6 +1987,9 @@ final class Commands
         $totalErrors = 0;
         $totalApiCalls = 0;
         $startTime = microtime(true);
+        $postIdOpt = isset($assoc['post-id']) ? (int) $assoc['post-id'] : null;
+        $multiplex = ! isset($assoc['no-multiplex']);
+
         foreach ($types as $type) {
             $onProgress = static function (int $processed, int $total, int $postId) use ($type): void {
                 if ($total > 5 && $processed % max(1, (int) ($total / 10)) === 0) {
@@ -1985,9 +2001,30 @@ final class Commands
                     \WP_CLI::log(sprintf('[%s] Filled post %d %s = %s', $type, $postId, $metaKey, $detail !== null ? substr($detail, 0, 60) . (strlen($detail) > 60 ? '…' : '') : ''));
                 } elseif ($verbType === 'error') {
                     \WP_CLI::log(sprintf('[%s] Error post %d %s: %s', $type, $postId, $metaKey, $detail ?? ''));
+                } elseif ($verbType === 'processing') {
+                    \WP_CLI::log(sprintf('[%s] Processing post %d fields: %s', $type, $postId, $metaKey));
                 }
             } : null;
-            $result = $fillService->run($type, $limit, $offset, $dryRun, $onlyFields, $onlyIncomplete, $strictMode, $fillTaxonomies, $onProgress, $onVerbose, $cacheTtl, $rateLimitSeconds, $refillAccessoryIfNoCategory, $onlyTaxonomies, false, $multiplex, $specificPostId);
+
+            $result = $fillService->run(
+                $type, 
+                $limit, 
+                $offset, 
+                $dryRun, 
+                $onlyFields, 
+                $onlyIncomplete, 
+                $strictMode, 
+                $fillTaxonomies, 
+                $onProgress, 
+                $onVerbose, 
+                $cacheTtl, 
+                null, 
+                false, 
+                null, 
+                false, 
+                $multiplex, 
+                $postIdOpt
+            );
             $filled = (int) ($result['filled'] ?? 0);
             $skipped = (int) ($result['skipped'] ?? 0);
             $errors = (int) ($result['errors'] ?? 0);
@@ -2002,7 +2039,7 @@ final class Commands
         }
         $elapsed = round(microtime(true) - $startTime, 1);
         if ($this->taskTracker) {
-            $this->taskTracker->stop('fm-' . getmypid());
+            $this->taskTracker->stop($internalId ?? 'fm-' . getmypid());
         }
         \WP_CLI::success(sprintf('Fill missing complete. Filled: %d, skipped: %d, errors: %d, API calls: %d in %s s', $totalFilled, $totalSkipped, $totalErrors, $totalApiCalls, $elapsed));
     }
@@ -2878,6 +2915,77 @@ final class Commands
         \WP_CLI::success("Seeded history for $count helmets.");
     }
 
+    /**
+     * Process the background worker queue (spawned from dashboard).
+     * Needs to run as a cron, e.g. * * * * * wp helmetsan ai-process-queue
+     * 
+     * ## EXAMPLES
+     *     wp helmetsan ai-process-queue
+     */
+    public function aiProcessQueue(array $args, array $assoc): void
+    {
+        $base = defined('WP_CONTENT_DIR') ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
+        $queueDir = $base . '/uploads/helmetsan-data/tasks/queue';
+        if (!is_dir($queueDir)) {
+            return;
+        }
+        $tracker = new \Helmetsan\Core\Support\TaskTracker();
+        $activeTasks = $tracker->getActiveTasks();
+        if (!empty($activeTasks)) {
+            // Already have running tasks, wait for next minute to check queue again
+            // This prevents overwhelming the server with parallel workers
+            return;
+        }
+
+        $files = glob($queueDir . '/*.json');
+        if (!is_array($files) || empty($files)) {
+            return; // Nothing in queue
+        }
+        
+        $wpPath = ABSPATH;
+        $logDir = $base . '/uploads/helmetsan-data/debug';
+        $wpExe = defined('WP_CLI_BIN_PATH') ? (string)constant('WP_CLI_BIN_PATH') : 'wp'; 
+        
+        foreach ($files as $file) {
+            $content = file_get_contents($file);
+            if ($content === false) {
+                @unlink($file);
+                continue;
+            }
+            
+            $data = json_decode($content, true);
+            if (!is_array($data) || empty($data['action']) || empty($data['id'])) continue;
+            
+            $actionType = $data['action'];
+            $id = $data['id'];
+            $logFile = $logDir . '/' . $id . '.log';
+            $cmd = '';
+            
+            if ($actionType === 'enrich_helmets') {
+                $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan ai fill-missing --post-type=helmet --limit=0 --multiplex --concurrency=4 --allow-root --path=" . escapeshellarg($wpPath);
+            } elseif ($actionType === 'enrich_brands') {
+                $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan ai fill-missing --post-type=brand --limit=0 --multiplex --concurrency=2 --allow-root --path=" . escapeshellarg($wpPath);
+            } elseif ($actionType === 'enrich_accessories') {
+                 $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan ai fill-missing --post-type=accessory --limit=0 --multiplex --concurrency=2 --allow-root --path=" . escapeshellarg($wpPath);
+            } elseif ($actionType === 'seo_seed_all') {
+                $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan seo seed --post-type=all --scope=all --use-ai --allow-root --path=" . escapeshellarg($wpPath);
+            } else {
+                 continue;
+            }
+            
+            $cmd .= ' > ' . escapeshellarg($logFile) . ' 2>&1 &';
+            $env = array_merge(getenv() ?: [], []);
+            $proc = proc_open($cmd, [['pipe', 'r'],['pipe', 'w'],['pipe', 'w']], $pipes, $wpPath, $env);
+            if (is_resource($proc)) {
+                proc_close($proc);
+                @unlink($file); // Remove ONLY after successful launch
+                \WP_CLI::log("Launched queued task: {$actionType} ({$id})");
+            } else {
+                \WP_CLI::warning("Failed to launch task: {$actionType}");
+            }
+        }
+    }
+
     private function renderAssoc(array $assoc, string $format): void
     {
         if ($format === 'table') {
@@ -2893,5 +3001,143 @@ final class Commands
         }
 
         \WP_CLI::line(wp_json_encode($assoc, JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Heal a data anomaly via server-side AI.
+     * Takes raw JSON and a list of issues, returns a JSON patch.
+     *
+     * ## OPTIONS
+     * --json=<payload>
+     * : Raw JSON string of the entity to heal.
+     * --entity=<type>
+     * : Entity type (helmet, brand, accessory, distributor).
+     * --issues=<list>
+     * : Semi-colon separated list of issues to fix.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai heal --json='{"id":"test"}' --entity=helmet --issues="Missing title; Missing brand"
+     */
+    public function aiHeal(array $args, array $assoc): void
+    {
+        if ($this->aiService === null) {
+            \WP_CLI::error('AI service not available.');
+            return;
+        }
+
+        $json   = (string) ($assoc['json'] ?? '');
+        $entity = (string) ($assoc['entity'] ?? 'helmet');
+        $issues = array_map('trim', explode(';', (string) ($assoc['issues'] ?? '')));
+
+        $data = json_decode($json, true);
+        if (! is_array($data)) {
+            \WP_CLI::error('Invalid JSON payload.');
+            return;
+        }
+
+        $patch = $this->aiService->healAnomaly($entity, $data, $issues);
+
+        if ($patch === null) {
+            \WP_CLI::error('AI failed to generate a valid patch.');
+            return;
+        }
+
+        \WP_CLI::line(wp_json_encode($patch, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
+
+    /**
+     * Get or set AI configuration (e.g. healing mode).
+     *
+     * ## OPTIONS
+     * [--mode=<mode>]
+     * : Set the healing mode (local, server, ide).
+     * [--get-mode]
+     * : Output the current healing mode.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai config --mode=ide
+     *     wp helmetsan ai config --get-mode
+     */
+    public function aiConfig(array $args, array $assoc): void
+    {
+        $settings = get_option(Config::OPTION_AI, $this->config->aiDefaults());
+
+        if (isset($assoc['get-mode'])) {
+            \WP_CLI::line($settings['healing_mode'] ?? 'local');
+            return;
+        }
+
+        if (isset($assoc['mode'])) {
+            $mode = sanitize_key((string) $assoc['mode']);
+            if (! in_array($mode, ['local', 'server', 'ide'], true)) {
+                \WP_CLI::error('Invalid mode. Choose: local, server, ide.');
+                return;
+            }
+            $settings['healing_mode'] = $mode;
+            update_option(Config::OPTION_AI, $settings, false);
+            \WP_CLI::success("Healing mode set to: $mode");
+            return;
+        }
+
+        \WP_CLI::error('Specify --mode or --get-mode.');
+    }
+
+    /**
+     * Log a heal event to the database.
+     *
+     * ## OPTIONS
+     * --entity=<entity>
+     * : Entity type (helmet, brand, etc.).
+     * --item_id=<id>
+     * : Item ID/Slug.
+     * --file=<file>
+     * : Full path to the file.
+     * --issues=<issues>
+     * : Semicolon-separated list of issues.
+     * --patch=<patch>
+     * : The JSON patch applied or staged.
+     * --original=<original>
+     * : The original JSON data (as patch) before the heal.
+     * --mode=<mode>
+     * : AI mode used (local, server, ide).
+     * [--applied]
+     * : If set, marks the heal as auto-committed.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai log-heal --entity=helmet --item_id=agv-k6 --file=/path/to/file.json --issues="Missing weight" --patch='{"specs":{"weight_g":1350}}' --original='{"specs":{"weight_g":0}}' --mode=local --applied
+     */
+    public function logHeal(array $args, array $assoc): void
+    {
+        $this->aiService->logHeal([
+            'entity_type'     => sanitize_text_field($assoc['entity']),
+            'item_id'         => sanitize_text_field($assoc['item_id']),
+            'file_path'       => sanitize_text_field($assoc['file']),
+            'issues'          => sanitize_text_field($assoc['issues']),
+            'fix_patch'       => $assoc['patch'], // Raw JSON
+            'original_values' => $assoc['original'] ?? '',
+            'ai_mode'         => sanitize_key($assoc['mode']),
+            'applied'         => isset($assoc['applied']),
+        ]);
+        \WP_CLI::success('Heal logged to database.');
+    }
+
+    /**
+     * Undo a previous AI heal event.
+     *
+     * ## OPTIONS
+     * --id=<id>
+     * : The ID of the heal record in wp_helmetsan_heals.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan ai undo-heal --id=123
+     */
+    public function undoHeal(array $args, array $assoc): void
+    {
+        $id = (int) $assoc['id'];
+        if ($this->heals->revertHeal($id)) {
+            \WP_CLI::success("Heal #$id successfully reverted.");
+        } else {
+            \WP_CLI::error("Failed to revert heal #$id. Check if it was already reverted or original values are missing.");
+        }
     }
 }

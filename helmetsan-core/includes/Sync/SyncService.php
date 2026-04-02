@@ -589,7 +589,7 @@ final class SyncService
         $segments = explode('/', strtolower($path));
 
         foreach ($segments as $segment) {
-            if ($segment === '_imports' || $segment === '_exports' || $segment === '_bootstrap' || $segment === 'helmetsan-runtime') {
+            if ($segment === '_imports' || $segment === '_bootstrap' || $segment === 'helmetsan-runtime') {
                 return true;
             }
         }

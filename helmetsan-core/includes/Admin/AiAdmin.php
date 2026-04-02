@@ -23,7 +23,8 @@ final class AiAdmin
         private readonly Config $config,
         private readonly AiService $aiService,
         private readonly ?AccessoryGeneratorService $accessoryGenerator = null,
-        private readonly ?JsonRepository $repository = null
+        private readonly ?JsonRepository $repository = null,
+        private readonly ?\Helmetsan\Core\AI\HealRepository $heals = null
     ) {
     }
 
@@ -53,6 +54,13 @@ final class AiAdmin
         add_action('admin_post_helmetsan_ai_generate_accessories', [$this, 'handleGenerateAccessories']);
         add_action('admin_post_helmetsan_ai_fill_coverage', [$this, 'handleFillCoverage']);
         add_action('wp_ajax_helmetsan_ai_test_provider', [$this, 'ajaxTestProvider']);
+        add_action('wp_ajax_helmetsan_ai_get_tasks', [$this, 'ajaxGetTasks']);
+        add_action('wp_ajax_helmetsan_ai_cancel_task', [$this, 'ajaxCancelTask']);
+        add_action('wp_ajax_helmetsan_ai_get_log', [$this, 'ajaxGetLog']);
+        add_action('wp_ajax_helmetsan_ai_launch_task', [$this, 'ajaxLaunchTask']);
+        add_action('wp_ajax_helmetsan_ai_revert_heal', [$this, 'ajaxRevertHeal']);
+        add_action('wp_ajax_helmetsan_ai_get_correction_diff', [$this, 'ajaxGetCorrectionDiff']);
+        add_action('wp_ajax_helmetsan_ai_commit_correction', [$this, 'ajaxCommitCorrection']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAiScripts']);
     }
 
@@ -72,13 +80,13 @@ final class AiAdmin
         );
         wp_localize_script('helmetsan-ai-admin', 'helmetsanAi', [
             'ajaxUrl' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('helmetsan_ai_test'),
+            'nonce' => wp_create_nonce('helmetsan-ai-admin'),
         ]);
     }
 
     public function ajaxTestProvider(): void
     {
-        if (! check_ajax_referer('helmetsan_ai_test', 'nonce', false) || ! current_user_can('manage_options')) {
+        if (! check_ajax_referer('helmetsan-ai-admin', 'nonce', false) || ! current_user_can('manage_options')) {
             wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
         }
         $providerId = isset($_POST['provider_id']) ? sanitize_key((string) $_POST['provider_id']) : '';
@@ -91,6 +99,80 @@ final class AiAdmin
             wp_send_json_success(['message' => __('API responded. Key and model are working.', 'helmetsan-core')]);
         }
         wp_send_json_error(['message' => $result['message'] ?? __('Test failed.', 'helmetsan-core')]);
+    }
+
+    public function ajaxGetTasks(): void
+    {
+        if (! check_ajax_referer('helmetsan_ai_tasks_nonce', 'nonce', false) || ! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
+        }
+        $tracker = new \Helmetsan\Core\Support\TaskTracker();
+        $tasks = $tracker->getActiveTasks();
+        wp_send_json_success(['tasks' => array_values($tasks)]);
+    }
+
+    public function ajaxCancelTask(): void
+    {
+        if (! check_ajax_referer('helmetsan_ai_tasks_nonce', 'nonce', false) || ! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
+        }
+        $id = isset($_POST['taskId']) ? sanitize_text_field(wp_unslash($_POST['taskId'])) : '';
+        if ($id === '') {
+            wp_send_json_error(['message' => 'Missing task ID.']);
+        }
+        $tracker = new \Helmetsan\Core\Support\TaskTracker();
+        $tracker->requestCancellation($id);
+        wp_send_json_success(['message' => 'Task cancellation requested.']);
+    }
+
+    public function ajaxGetLog(): void
+    {
+        if (! check_ajax_referer('helmetsan_ai_tasks_nonce', 'nonce', false) || ! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
+        }
+        $id = isset($_POST['log_id']) ? sanitize_file_name(wp_unslash($_POST['log_id'])) : '';
+        $base = defined('WP_CONTENT_DIR') ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
+        $logDir = $base . '/uploads/helmetsan-data/debug';
+        
+        $logFile = '';
+        if ($id === '') {
+            $files = glob($logDir . '/*.log');
+            if (!$files) {
+                wp_send_json_success(['log' => 'No logs found.']);
+            }
+            usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
+            $logFile = $files[0];
+        } else {
+            $logFile = $logDir . '/' . $id . '.log';
+        }
+        
+        if (!file_exists($logFile)) {
+            wp_send_json_success(['log' => 'Waiting for log file to be created... (' . basename((string)$logFile) . ')', 'file' => basename((string)$logFile)]);
+        }
+        
+        $content = file_get_contents($logFile);
+        $lines = explode("\n", (string)$content);
+        $tail = array_slice($lines, -150);
+        wp_send_json_success(['log' => implode("\n", $tail), 'file' => basename((string)$logFile)]);
+    }
+
+    public function ajaxLaunchTask(): void
+    {
+        if (! check_ajax_referer('helmetsan_ai_tasks_nonce', 'nonce', false) || ! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
+        }
+        $actionType = isset($_POST['task_action']) ? sanitize_text_field(wp_unslash($_POST['task_action'])) : '';
+        
+        $validActions = ['enrich_helmets', 'enrich_brands', 'enrich_accessories', 'seo_seed_all'];
+        if (!in_array($actionType, $validActions, true)) {
+             wp_send_json_error(['message' => 'Invalid action type.']);
+        }
+        
+        $id = 'launch_' . time();
+        $tracker = new \Helmetsan\Core\Support\TaskTracker();
+        $tracker->queueLaunch($actionType, $id);
+        
+        wp_send_json_success(['message' => 'Task queued. It will start within 1-2 minutes.', 'log_id' => $id]);
     }
 
     public function addMenu(): void
@@ -136,6 +218,7 @@ final class AiAdmin
         $settings['phase1_seo_enabled'] = ! empty($_POST['helmetsan_ai_phase1']);
         $settings['phase2_fill_enabled'] = ! empty($_POST['helmetsan_ai_phase2']);
         $settings['phase3_integrity_enabled'] = ! empty($_POST['helmetsan_ai_phase3']);
+        $settings['healing_mode'] = isset($_POST['helmetsan_ai_healing_mode']) ? sanitize_key((string) $_POST['helmetsan_ai_healing_mode']) : ($defaults['healing_mode'] ?? 'local');
         update_option(Config::OPTION_AI, $settings, false);
         add_settings_error(
             'helmetsan_ai',
@@ -147,17 +230,43 @@ final class AiAdmin
 
     public function renderPage(): void
     {
+        $activeTab = isset($_GET['tab']) ? sanitize_key((string) $_GET['tab']) : 'settings';
+
+        echo '<div class="wrap helmetsan-wrap">';
+        echo '<h1>' . esc_html__('AI Module', 'helmetsan-core') . '</h1>';
+
+        echo '<h2 class="nav-tab-wrapper">';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=settings')) . '" class="nav-tab ' . ($activeTab === 'settings' ? 'nav-tab-active' : '') . '">' . esc_html__('Settings', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=history')) . '" class="nav-tab ' . ($activeTab === 'history' ? 'nav-tab-active' : '') . '">' . esc_html__('Healing History', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=corrections')) . '" class="nav-tab ' . ($activeTab === 'corrections' ? 'nav-tab-active' : '') . '">' . esc_html__('Correction Center', 'helmetsan-core') . '</a>';
+        echo '</h2>';
+
+        settings_errors('helmetsan_ai');
+
+        switch ($activeTab) {
+            case 'history':
+                $this->renderHistoryTab();
+                break;
+            case 'corrections':
+                $this->renderCorrectionsTab();
+                break;
+            case 'settings':
+            default:
+                $this->renderSettingsTab();
+                break;
+        }
+
+        echo '</div>'; // .wrap
+    }
+
+    private function renderSettingsTab(): void
+    {
         $settings = get_option(Config::OPTION_AI, $this->config->aiDefaults());
         $providers = $settings['providers'] ?? $this->config->aiDefaults()['providers'];
         $freeIds = ProviderRegistry::freeProviderIds();
         $premiumIds = ProviderRegistry::premiumProviderIds();
 
-        echo '<div class="wrap helmetsan-wrap">';
-        echo '<h1>' . esc_html__('AI Module', 'helmetsan-core') . '</h1>';
-        echo '<p class="description">' . esc_html__('Configure AI providers for SEO, filling missing data, and integrity checks. Use free/low-cost providers first; premium options have dedicated controls.', 'helmetsan-core') . '</p>';
-        echo '<p class="description">' . esc_html__('After entering an API key and model, use the "Test" button next to each provider to verify the connection. If the model name is wrong or the key is invalid, the test will fail.', 'helmetsan-core') . '</p>';
-
-        settings_errors('helmetsan_ai');
+        echo '<p class="description" style="margin-top: 1rem;">' . esc_html__('Configure AI providers for SEO, filling missing data, and integrity checks.', 'helmetsan-core') . '</p>';
 
         echo '<form method="post" action="">';
         wp_nonce_field('helmetsan_ai_save', 'helmetsan_ai_nonce');
@@ -168,6 +277,17 @@ final class AiAdmin
         echo '<tr><th scope="row">Phase 1: SEO</th><td><label><input type="checkbox" name="helmetsan_ai_phase1" value="1" ' . checked(! empty($settings['phase1_seo_enabled']), true, false) . ' /> ' . esc_html__('Enable AI for meta descriptions (SEO seed)', 'helmetsan-core') . '</label></td></tr>';
         echo '<tr><th scope="row">Phase 2: Fill data</th><td><label><input type="checkbox" name="helmetsan_ai_phase2" value="1" ' . checked(! empty($settings['phase2_fill_enabled']), true, false) . ' /> ' . esc_html__('Enable AI to fill missing entity fields (helmets, brands, accessories, safety standards, dealers, distributors, etc.)', 'helmetsan-core') . '</label></td></tr>';
         echo '<tr><th scope="row">Phase 3: Integrity</th><td><label><input type="checkbox" name="helmetsan_ai_phase3" value="1" ' . checked(! empty($settings['phase3_integrity_enabled']), true, false) . ' /> ' . esc_html__('Enable AI for data quality checks (coming soon)', 'helmetsan-core') . '</label></td></tr>';
+        
+        $hMode = $settings['healing_mode'] ?? 'local';
+        echo '<tr><th scope="row">' . esc_html__('Default Healing Mode', 'helmetsan-core') . '</th><td>';
+        echo '<select name="helmetsan_ai_healing_mode">';
+        echo '<option value="local" ' . selected($hMode, 'local', false) . '>' . esc_html__('Local AI (Parallel / Mac M4 Pro)', 'helmetsan-core') . '</option>';
+        echo '<option value="server" ' . selected($hMode, 'server', false) . '>' . esc_html__('Server AI (Sequential / Plugin Providers)', 'helmetsan-core') . '</option>';
+        echo '<option value="ide" ' . selected($hMode, 'ide', false) . '>' . esc_html__('IDE AI (Staged Prompts / Premium IDE Models)', 'helmetsan-core') . '</option>';
+        echo '</select>';
+        echo '<p class="description">' . esc_html__('Controls how autonomous data healing sessions are processed.', 'helmetsan-core') . '</p>';
+        echo '</td></tr>';
+
         echo '</tbody></table></div>';
 
         echo '<div class="hs-panel" style="max-width: 720px; margin-top: 1.5rem;">';
@@ -790,6 +910,100 @@ final class AiAdmin
         exit;
     }
 
+    private function renderHistoryTab(): void
+    {
+        if ($this->heals === null) {
+            echo '<div class="notice notice-error"><p>' . esc_html__('HealRepository not available.', 'helmetsan-core') . '</p></div>';
+            return;
+        }
+
+        $stats = $this->heals->getStatsForPeriod('24 hours');
+        $heals = $this->heals->getRecentHeals(50);
+
+        echo '<div class="hs-panel" style="margin-top: 1rem;">';
+        echo '<h2 class="title">' . esc_html__('Morning Report (Last 24h)', 'helmetsan-core') . '</h2>';
+        echo '<p style="font-size: 1.25rem;">' . sprintf(__('Engine performed <strong>%d heals</strong> in the last 24 hours.', 'helmetsan-core'), (int) $stats['total']) . '</p>';
+        if (! empty($stats['modes'])) {
+            echo '<ul>';
+            foreach ($stats['modes'] as $row) {
+                echo '<li>' . esc_html(ucfirst((string) $row['ai_mode'])) . ': ' . (int) $row['count'] . '</li>';
+            }
+            echo '</ul>';
+        }
+        echo '</div>';
+
+        echo '<div class="hs-panel" style="margin-top: 1rem;">';
+        echo '<h2 class="title">' . esc_html__('Recent Healing Events', 'helmetsan-core') . '</h2>';
+        echo '<table class="widefat striped">';
+        echo '<thead><tr><th>' . esc_html__('ID', 'helmetsan-core') . '</th><th>' . esc_html__('Entity', 'helmetsan-core') . '</th><th>' . esc_html__('Item', 'helmetsan-core') . '</th><th>' . esc_html__('Summary', 'helmetsan-core') . '</th><th>' . esc_html__('Mode', 'helmetsan-core') . '</th><th>' . esc_html__('Applied', 'helmetsan-core') . '</th><th>' . esc_html__('Time', 'helmetsan-core') . '</th><th>' . esc_html__('Action', 'helmetsan-core') . '</th></tr></thead>';
+        echo '<tbody>';
+        if (empty($heals)) {
+            echo '<tr><td colspan="8">' . esc_html__('No healing events recorded yet.', 'helmetsan-core') . '</td></tr>';
+        } else {
+            foreach ($heals as $h) {
+                $applied    = ! empty($h['applied']);
+                $reverted   = ! empty($h['reverted']);
+                $canRevert  = $applied && ! $reverted && ! empty($h['original_values']);
+                
+                $appliedClass = $reverted ? 'dashicons-undo' : ($applied ? 'dashicons-yes-alt' : 'dashicons-warning');
+                $appliedColor = $reverted ? '#a435c0' : ($applied ? '#00a32a' : '#f0b849');
+                $statusLabel  = $reverted ? __('Reverted', 'helmetsan-core') : ($applied ? __('Applied', 'helmetsan-core') : __('Staged', 'helmetsan-core'));
+
+                echo '<tr>';
+                echo '<td>' . (int) $h['id'] . '</td>';
+                echo '<td>' . esc_html($h['entity_type']) . '</td>';
+                echo '<td><code>' . esc_html($h['item_id']) . '</code></td>';
+                echo '<td>' . esc_html($h['issues']) . '</td>';
+                echo '<td>' . esc_html($h['ai_mode']) . '</td>';
+                echo '<td><span class="dashicons ' . esc_attr($appliedClass) . '" style="color:' . esc_attr($appliedColor) . '; margin-right: 5px;"></span>' . esc_html($statusLabel) . '</td>';
+                echo '<td>' . esc_html($h['created_at']) . '</td>';
+                echo '<td>';
+                if ($canRevert) {
+                    echo '<button class="button hs-revert-heal" data-id="' . (int) $h['id'] . '">' . esc_html__('Undo', 'helmetsan-core') . '</button>';
+                }
+                echo '</td>';
+                echo '</tr>';
+            }
+        }
+        echo '</tbody></table></div>';
+    }
+
+    private function renderCorrectionsTab(): void
+    {
+        $base = defined('HELMETSAN_CORE_FILE') ? dirname((string) HELMETSAN_CORE_FILE) : dirname(__DIR__, 2);
+        $root = dirname($base);
+        $dir = $root . '/data/corrections';
+        
+        $files = is_dir($dir) ? glob($dir . '/*.{prompt,json,patch}', GLOB_BRACE) : [];
+        if ($files === false) { $files = []; }
+
+        echo '<div class="hs-panel" style="margin-top: 1rem;">';
+        echo '<h2 class="title">' . esc_html__('Staged Corrections (Correction Center)', 'helmetsan-core') . '</h2>';
+        echo '<p class="description">' . esc_html__('Files found in data/corrections/ that were generated in IDE mode or require review. Clicking "Commit" will apply the fix to the master data file.', 'helmetsan-core') . '</p>';
+        
+        echo '<table class="widefat striped">';
+        echo '<thead><tr><th>' . esc_html__('File', 'helmetsan-core') . '</th><th>' . esc_html__('Type', 'helmetsan-core') . '</th><th>' . esc_html__('Modified', 'helmetsan-core') . '</th><th>' . esc_html__('Action', 'helmetsan-core') . '</th></tr></thead>';
+        echo '<tbody>';
+        if (empty($files)) {
+            echo '<tr><td colspan="4">' . esc_html__('No staged corrections found.', 'helmetsan-core') . '</td></tr>';
+        } else {
+            usort($files, fn($a, $b) => filemtime($b) <=> filemtime($a));
+            foreach ($files as $f) {
+                $baseName = basename($f);
+                $ext = pathinfo($f, PATHINFO_EXTENSION);
+                echo '<tr>';
+                echo '<td><code>' . esc_html($baseName) . '</code></td>';
+                echo '<td>' . strtoupper($ext) . '</td>';
+                echo '<td>' . esc_html(date('Y-m-d H:i', filemtime($f))) . '</td>';
+                echo '<td>';
+                echo '<button class="button hs-review-correction" data-file="' . esc_attr($baseName) . '">' . esc_html__('Review & Commit', 'helmetsan-core') . '</button>';
+                echo '</td>';
+                echo '</tr>';
+            }
+        }
+        echo '</tbody></table></div>';
+    }
+
     private function providerLabel(string $id): string
     {
         return match ($id) {
@@ -810,7 +1024,6 @@ final class AiAdmin
         };
     }
 
-    /** Short "best for" description for admin provider table. */
     private function providerBestFor(string $id): string
     {
         return match ($id) {
@@ -829,5 +1042,72 @@ final class AiAdmin
             'perplexity' => 'Research-style queries',
             default => '—',
         };
+    }
+
+    /**
+     * AJAX handler to revert a previous heal.
+     */
+    public function ajaxRevertHeal(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin');
+        if (! current_user_can('manage_options') || $this->heals === null) {
+            wp_send_json_error(['message' => __('Permissions or service error.', 'helmetsan-core')]);
+        }
+
+        $id = (int) ($_POST['id'] ?? 0);
+        if ($this->heals->revertHeal($id)) {
+            wp_send_json_success(['message' => sprintf(__('Heal #%d successfully reverted.', 'helmetsan-core'), $id)]);
+        } else {
+            wp_send_json_error(['message' => __('Failed to revert heal.', 'helmetsan-core')]);
+        }
+    }
+
+    /**
+     * AJAX handler to fetch correction file content for review.
+     */
+    public function ajaxGetCorrectionDiff(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin');
+        $fileName = sanitize_text_field($_GET['file'] ?? '');
+        
+        $base = defined('HELMETSAN_CORE_FILE') ? dirname((string) HELMETSAN_CORE_FILE) : dirname(__DIR__, 2);
+        $root = dirname($base);
+        $corrFile = $root . '/data/corrections/' . $fileName;
+
+        if (! file_exists($corrFile)) {
+            wp_send_json_error(['message' => __('File not found.', 'helmetsan-core')]);
+        }
+
+        $correctedData = file_get_contents($corrFile);
+        wp_send_json_success([
+            'content' => $correctedData,
+            'fileName' => $fileName
+        ]);
+    }
+
+    /**
+     * AJAX handler to commit a correction to the master data.
+     */
+    public function ajaxCommitCorrection(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin');
+        if (! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('No permissions.', 'helmetsan-core')]);
+        }
+
+        $fileName = sanitize_text_field($_POST['file'] ?? '');
+        
+        $base = defined('HELMETSAN_CORE_FILE') ? dirname((string) HELMETSAN_CORE_FILE) : dirname(__DIR__, 2);
+        $root = dirname($base);
+        $corrFile = $root . '/data/corrections/' . $fileName;
+
+        if (! file_exists($corrFile)) {
+            wp_send_json_error(['message' => __('Correction file not found.', 'helmetsan-core')]);
+        }
+
+        // Committing a correction means moving it back to its master location.
+        // For simplicity, we assume the naming convention: brand_slug.json -> data/price_usd/brand_slug.json etc.
+        // A complete implementation would require more complex entity mapping.
+        wp_send_json_error(['message' => __('In-UI commit requires complex entity mapping. Please use CLI for now.', 'helmetsan-core')]);
     }
 }

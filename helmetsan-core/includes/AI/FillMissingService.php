@@ -9,16 +9,12 @@ use Helmetsan\Core\Support\TaskTracker;
 
 /**
  * Phase 2: Fills missing entity fields using the AI module (context-aware).
- * Supports per-field max_length, allowed_values validation, retry with feedback, cache, and strict mode.
+ * Supports bulk JSON filling, junk detection, cache, and field propagation.
  */
 final class FillMissingService
 {
-    private const RATE_LIMIT_SECONDS = 1;
-
-    /** When set (e.g. by CLI --no-rate-limit), skip sleep between API calls. */
-    private static ?int $rateLimitOverrideSeconds = null;
-    private const DEFAULT_MAX_LENGTH = 5000;
     private const CACHE_PREFIX = 'helmetsan_fill_';
+    private const DEFAULT_MAX_LENGTH = 5000;
 
     private ?TaskTracker $tracker = null;
     private ?string $taskId = null;
@@ -44,14 +40,6 @@ final class FillMissingService
 
     /**
      * Process one post type batch.
-     * @param list<string>|null $onlyFields If set, only fill these meta keys (e.g. from --fields=key1,key2).
-     * @param callable(int $processed, int $total, int $postId): void $onProgress Called after each post (optional).
-     * @param callable(string $type, int $postId, string $metaKey, string|null $detail): void $onVerbose Optional. $type: 'filled'|'error'|'skipped', $detail: value or reason.
-     * @param int|null $rateLimitSeconds Sleep between API calls (null = default 1s, 0 = no sleep).
-     * @param bool $refillAccessoryIfNoCategory When true and postType is accessory, also process accessories that have no accessory_category term and re-fill type/parent_category even if set (so backfill can map them).
-     * @param list<string>|null $onlyTaxonomies If set, only fill these taxonomy slugs (e.g. ['certification']). When non-empty, meta fill can be skipped (onlyFields=[]).
-     * @param bool $refillHelmetSpecs When true and postType is helmet, (re)fill spec_weight_g, spec_shell_material, price_retail_usd even if already set (overwrite with AI).
-     * @return array{filled: int, skipped: int, errors: int, total_posts: int, api_calls: int}
      */
     public function run(
         string $postType,
@@ -60,27 +48,24 @@ final class FillMissingService
         bool $dryRun = false,
         ?array $onlyFields = null,
         bool $onlyIncomplete = false,
-        bool $strictMode = false,
+        bool $strictMode = false, // Ignored in bulk mode
         bool $fillTaxonomies = true,
         ?callable $onProgress = null,
         ?callable $onVerbose = null,
         int $cacheTtl = 86400,
-        ?int $rateLimitSeconds = null,
+        ?int $rateLimitSeconds = null, // Ignored as AiService handles it
         bool $refillAccessoryIfNoCategory = false,
         ?array $onlyTaxonomies = null,
         bool $refillHelmetSpecs = false,
-        bool $multiplex = false,
+        bool $multiplex = true, // Default to true now for speed
         ?int $postId = null
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
         if ($onlyFields !== null && $onlyFields !== []) {
             $fillable = array_intersect_key($fillable, array_flip($onlyFields));
         }
-        $taxonomyOnly = $onlyTaxonomies !== null && $onlyTaxonomies !== [];
-        if ($fillable === [] && ! $taxonomyOnly) {
-            return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
-        }
-        if ($fillable === [] && $taxonomyOnly && ! $fillTaxonomies) {
+        
+        if ($fillable === [] && ($onlyTaxonomies === null || $onlyTaxonomies === [])) {
             return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
         }
 
@@ -88,14 +73,10 @@ final class FillMissingService
             return ['filled' => 0, 'skipped' => 0, 'errors' => 0, 'total_posts' => 0, 'api_calls' => 0];
         }
 
-        // When refill-unmapped for accessories, fetch all so unmapped ones (no category term) are in the set
-        $effectiveLimit = ($refillAccessoryIfNoCategory && $postType === 'accessory')
-            ? -1
-            : ($limit > 0 ? $limit : -1);
         $queryArgs = [
             'post_type' => $postType,
             'post_status' => 'publish',
-            'posts_per_page' => $effectiveLimit,
+            'posts_per_page' => $limit > 0 ? $limit : -1,
             'offset' => $offset,
             'orderby' => 'ID',
             'order' => 'ASC',
@@ -106,243 +87,167 @@ final class FillMissingService
         }
         $query = new \WP_Query($queryArgs);
         $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
-        if ($onlyIncomplete && ! $taxonomyOnly) {
+        if ($onlyIncomplete) {
             $ids = $this->filterIncompletePosts($ids, $fillable);
         }
-        if ($refillAccessoryIfNoCategory && $postType === 'accessory') {
-            $allIds = is_array($query->posts) ? array_map('intval', $query->posts) : [];
-            $noCatIds = array_filter($allIds, [$this, 'accessoryHasNoCategoryTerm']);
-            $ids = array_values(array_unique(array_merge($ids, $noCatIds)));
-        }
+        
         $totalPosts = count($ids);
-        $filled = 0;
-        $skipped = 0;
-        $errors = 0;
-        $apiCalls = 0;
-        $useCache = $cacheTtl > 0;
-        $processed = 0;
-        self::$rateLimitOverrideSeconds = $rateLimitSeconds;
+        $filled = 0; $skipped = 0; $errors = 0; $apiCalls = 0; $processed = 0;
 
-        $id = $this->taskId ?? 'fm-' . getmypid();
+        $tId = $this->taskId ?? 'fm-' . getmypid();
         if ($this->tracker !== null) {
-            $this->tracker->start($id, "Fill Missing ($postType)", 'ai-enrichment');
+            $this->tracker->start($tId, "Fill Missing ($postType)", 'ai-enrichment');
         }
+
+        $junkValues = ['n/a', 'not available', 'unknown', 'none', '-', 'null', 'not specified', 'undefined', 'not applicable'];
+        $helmetSpecKeys = ['spec_weight_g', 'spec_shell_material', 'price_retail_usd'];
 
         foreach ($ids as $postId) {
             $post = get_post($postId);
-            if (! $post instanceof WP_Post) {
-                continue;
-            }
-            $existingData = $this->gatherExistingData($postType, $postId, $post);
-            $helmetSpecKeys = ['spec_weight_g', 'spec_shell_material', 'price_retail_usd'];
-            $fieldsToFill = [];
-            $metaToProcess = [];
+            if (! $post instanceof WP_Post) continue;
 
-            // 1. Identify missing metadata fields
+            $existingData = $this->gatherExistingData($postType, $postId, $post);
+            
+            // 1. Identify fields to fill (Meta)
+            $toFill = [];
             foreach ($fillable as $metaKey => $config) {
-                $current = get_post_meta($postId, $metaKey, true);
+                $raw = get_post_meta($postId, $metaKey, true);
+                $val = is_string($raw) ? trim($raw) : $raw;
+                
                 $forceRefill = ($refillAccessoryIfNoCategory && $postType === 'accessory'
                     && ($metaKey === 'accessory_parent_category' || $metaKey === 'accessory_type')
                     && $this->accessoryHasNoCategoryTerm($postId))
                     || ($refillHelmetSpecs && $postType === 'helmet' && in_array($metaKey, $helmetSpecKeys, true));
-                if ($current !== '' && $current !== null && $current !== [] && ! $forceRefill) {
-                    $skipped++;
-                    $onVerbose && $onVerbose('skipped', $postId, $metaKey, null);
-                    continue;
-                }
-                $metaToProcess[$metaKey] = $config;
-            }
 
-            // 2. Identify missing taxonomies
-            $taxToProcess = [];
-            if ($fillTaxonomies) {
-                $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
-                if ($onlyTaxonomies !== null && $onlyTaxonomies !== []) {
-                    $taxonomyConfig = array_intersect_key($taxonomyConfig, array_flip($onlyTaxonomies));
+                $isMissing = ($val === '' || $val === null || $val === []);
+                if (!$isMissing && is_string($val)) {
+                    $lower = strtolower($val);
+                    foreach ($junkValues as $junk) {
+                        if ($lower === $junk) { $isMissing = true; break; }
+                    }
                 }
-                foreach ($taxonomyConfig as $taxonomy => $label) {
-                    $existingTerms = get_the_terms($postId, $taxonomy);
-                    if (is_array($existingTerms) && $existingTerms !== []) {
+
+                if ($isMissing || $forceRefill) {
+                    $cacheKey = self::CACHE_PREFIX . $postType . '_' . $postId . '_' . $metaKey;
+                    if (get_transient($cacheKey) === false || $forceRefill) {
+                        $toFill[$metaKey] = $config;
+                    } else {
                         $skipped++;
-                        $onVerbose && $onVerbose('skipped', $postId, 'taxonomy:' . $taxonomy, null);
-                        continue;
-                    }
-                    $terms = get_terms(['taxonomy' => $taxonomy, 'hide_empty' => false]);
-                    if (! is_wp_error($terms) && is_array($terms) && $terms !== []) {
-                        $allowedNames = array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', array_filter($terms, static fn($t) => $t instanceof \WP_Term));
-                        $allowedNames = array_values(array_filter($allowedNames));
-                        if ($allowedNames !== []) {
-                            $taxToProcess[$taxonomy] = [
-                                'label' => $label,
-                                'allowed' => $allowedNames
-                            ];
-                        }
                     }
                 }
             }
 
-            // 3. Prepare prompts for batch processing if multiplexing is enabled
-            if ($multiplex && ($metaToProcess !== [] || $taxToProcess !== [])) {
-                $batchPrompts = [];
-                foreach ($metaToProcess as $metaKey => $config) {
-                    $label = FillableFieldsConfig::getLabel($metaKey, $postType, $config);
-                    $maxLen = FillableFieldsConfig::getMaxLength($config);
-                    $allowed = FillableFieldsConfig::getAllowedValues($config);
-                    $batchPrompts['meta_' . $metaKey] = ContextBuilder::forFillField($postType, $metaKey, $label, $existingData, $maxLen, $allowed);
-                }
-                foreach ($taxToProcess as $taxonomy => $info) {
-                    $batchPrompts['tax_' . $taxonomy] = ContextBuilder::forFillField($postType, 'taxonomy_' . $taxonomy, $info['label'], $existingData, null, $info['allowed']);
-                }
+            // 2. Perform Bulk Fill (Meta)
+            if ($toFill !== []) {
+                $fieldNames = array_keys($toFill);
+                $onVerbose && $onVerbose('processing', $postId, implode(',', $fieldNames), 'bulk start');
+                
+                $results = $this->aiService->generateFillFieldsJSON($postType, $fieldNames, $toFill, $existingData);
+                $apiCalls++;
 
-                $batchResults = $this->aiService->generateMultiplexed($batchPrompts);
-                $apiCalls++; // Counted as one batch call
+                foreach ($toFill as $metaKey => $config) {
+                    $cacheKey = self::CACHE_PREFIX . $postType . '_' . $postId . '_' . $metaKey;
+                    $value = $results[$metaKey] ?? null;
+                    if (is_array($value)) {
+                        $value = implode(', ', array_filter($value, 'is_scalar'));
+                    }
 
-                // Apply metadata results
-                foreach ($metaToProcess as $metaKey => $config) {
-                    $rawValue = $batchResults['meta_' . $metaKey] ?? '';
-                    if (trim((string) $rawValue) === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty multiplexed response');
+                    if ($value === null || $value === '' || (is_string($value) && in_array(strtolower(trim((string)$value)), $junkValues))) {
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty/junk response');
                         continue;
                     }
-                    $value = $this->sanitizeAndValidate($metaKey, $rawValue, $config);
-                    if ($value === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'multiplexed validation failed');
+
+                    $sanitized = $this->sanitizeAndValidate($metaKey, (string) $value, $config);
+                    if ($sanitized === '') {
+                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'validation failed: ' . $value);
                         continue;
                     }
+
                     if (! $dryRun) {
-                        update_post_meta($postId, $metaKey, $value);
+                        update_post_meta($postId, $metaKey, $sanitized);
+                        // Yoast Sync
                         $yoastMap = FillableFieldsConfig::yoastMetaMapping();
                         if (isset($yoastMap[$metaKey])) {
-                            update_post_meta($postId, $yoastMap[$metaKey], $value);
+                            update_post_meta($postId, $yoastMap[$metaKey], $sanitized);
                         }
-                        // Propagate to children if this is a parent helmet
+                        // Propagation
                         if ($postType === 'helmet' && ! str_starts_with($metaKey, 'yoast_')) {
-                            $this->propagateToChildren($postId, $metaKey, $value);
+                            $this->propagateToChildren($postId, $metaKey, $sanitized);
                         }
+                        set_transient($cacheKey, '1', $cacheTtl);
                     }
                     $filled++;
-                    $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
-                    $existingData[$metaKey] = $value;
+                    $onVerbose && $onVerbose('filled', $postId, $metaKey, (string)$sanitized);
+                    $existingData[$metaKey] = $sanitized;
                 }
+            }
 
-                // Apply taxonomy results
-                foreach ($taxToProcess as $taxonomy => $info) {
-                    $rawValue = $batchResults['tax_' . $taxonomy] ?? '';
-                    if (trim((string) $rawValue) === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'empty multiplexed response');
-                        continue;
-                    }
-                    if (! $dryRun) {
-                        wp_set_object_terms($postId, $rawValue, $taxonomy, false);
-                    }
-                    $filled++;
-                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $rawValue);
+            // 3. Taxonomies (Sequential for now)
+            if ($fillTaxonomies) {
+                $taxConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
+                if ($onlyTaxonomies !== null && $onlyTaxonomies !== []) {
+                    $taxConfig = array_intersect_key($taxConfig, array_flip($onlyTaxonomies));
                 }
-            } else {
-                // FALLBACK: Sequential processing if multiplexing disabled
-                foreach ($metaToProcess as $metaKey => $config) {
-                    $label = FillableFieldsConfig::getLabel($metaKey, $postType, $config);
-                    $maxLen = FillableFieldsConfig::getMaxLength($config);
-                    $allowed = FillableFieldsConfig::getAllowedValues($config);
-                    $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
-                    $apiCalls++;
-                    if (($value === null || trim((string) $value) === '') && ! $strictMode) {
-                        $value = $this->aiService->generateFillField($postType, $metaKey, $existingData, $label, $maxLen, $allowed);
-                        $apiCalls++;
-                    }
-                    $rawValue = $value !== null ? trim((string) $value) : '';
-                    if ($rawValue === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'empty response');
-                        continue;
-                    }
-                    $value = $this->sanitizeAndValidate($metaKey, $rawValue, $config);
-                    if ($value === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, $metaKey, 'validation failed');
-                        continue;
-                    }
-                    if (! $dryRun) {
-                        update_post_meta($postId, $metaKey, $value);
-                        $yoastMap = FillableFieldsConfig::yoastMetaMapping();
-                        if (isset($yoastMap[$metaKey])) {
-                            update_post_meta($postId, $yoastMap[$metaKey], $value);
-                        }
-                        // Propagate to children if this is a parent helmet
-                        if ($postType === 'helmet' && ! str_starts_with($metaKey, 'yoast_')) {
-                            $this->propagateToChildren($postId, $metaKey, $value);
-                        }
-                    }
-                    $filled++;
-                    $onVerbose && $onVerbose('filled', $postId, $metaKey, $value);
-                    $existingData[$metaKey] = $value;
-                    $this->rateLimit();
-                }
+                foreach ($taxConfig as $taxonomy => $label) {
+                    $existing = get_the_terms($postId, $taxonomy);
+                    if (is_array($existing) && $existing !== []) continue;
 
-                foreach ($taxToProcess as $taxonomy => $info) {
-                    $value = $this->aiService->generateFillField($postType, 'taxonomy_' . $taxonomy, $existingData, $info['label'], null, $info['allowed']);
+                    $cacheKey = self::CACHE_PREFIX . $postType . '_' . $postId . '_tax_' . $taxonomy;
+                    if (get_transient($cacheKey) !== false) continue;
+
+                    $terms = get_terms(['taxonomy' => $taxonomy, 'hide_empty' => false]);
+                    if (is_wp_error($terms) || empty($terms)) continue;
+
+                    $allowed = array_values(array_filter(array_map(static fn($t) => $t instanceof \WP_Term ? $t->name : '', $terms)));
+                    if (empty($allowed)) continue;
+
+                    $val = $this->aiService->generateFillField($postType, 'taxonomy_' . $taxonomy, $existingData, $label, null, $allowed);
                     $apiCalls++;
-                    if ($value === null || trim((string) $value) === '') {
-                        $errors++;
-                        $onVerbose && $onVerbose('error', $postId, 'taxonomy:' . $taxonomy, 'empty response');
-                        continue;
+                    
+                    if ($val === null || trim((string) $val) === '') continue;
+
+                    $val = trim((string) $val);
+                    $term = get_term_by('name', $val, $taxonomy) ?: get_term_by('slug', sanitize_title($val), $taxonomy);
+
+                    if ($term instanceof \WP_Term) {
+                        if (! $dryRun) {
+                            wp_set_object_terms($postId, [(int) $term->term_id], $taxonomy, false);
+                            set_transient($cacheKey, '1', $cacheTtl);
+                        }
+                        $filled++;
+                        $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $term->name);
                     }
-                    if (! $dryRun) {
-                        wp_set_object_terms($postId, $value, $taxonomy, false);
-                    }
-                    $filled++;
-                    $onVerbose && $onVerbose('filled', $postId, 'taxonomy:' . $taxonomy, $value);
-                    $this->rateLimit();
                 }
             }
 
             $processed++;
             if ($this->tracker !== null) {
-                $this->tracker->heartbeat($this->taskId ?? 'fm-' . getmypid(), $processed);
+                if ($this->tracker->isCancelled($tId)) break;
+                $this->tracker->heartbeat($tId, $processed);
             }
             $onProgress && $onProgress($processed, $totalPosts, $postId);
         }
 
-        self::$rateLimitOverrideSeconds = null;
         return ['filled' => $filled, 'skipped' => $skipped, 'errors' => $errors, 'total_posts' => $totalPosts, 'api_calls' => $apiCalls];
     }
 
-    /**
-     * Propagate a meta value to all child variants of a parent helmet.
-     */
     private function propagateToChildren(int $parentId, string $metaKey, mixed $value): void
     {
-        $children = get_children([
-            'post_parent' => $parentId,
-            'post_type'   => 'helmet',
-            'fields'      => 'ids',
-        ]);
-        if (is_array($children) && $children !== []) {
+        $children = get_children(['post_parent' => $parentId, 'post_type' => 'helmet', 'fields' => 'ids']);
+        if (is_array($children)) {
             foreach ($children as $childId) {
                 update_post_meta((int) $childId, $metaKey, $value);
             }
         }
     }
 
-    /**
-     * True if the post is an accessory with no accessory_category term assigned.
-     */
     public function accessoryHasNoCategoryTerm(int $postId): bool
     {
-        if (get_post_type($postId) !== 'accessory') {
-            return false;
-        }
+        if (get_post_type($postId) !== 'accessory') return false;
         $terms = get_the_terms($postId, 'accessory_category');
         return is_wp_error($terms) || ! is_array($terms) || $terms === [];
     }
 
-    /**
-     * @param array<string, mixed> $fillable
-     * @return list<int>
-     */
     private function filterIncompletePosts(array $ids, array $fillable): array
     {
         $out = [];
@@ -353,23 +258,67 @@ final class FillMissingService
                     $out[] = $postId;
                     break;
                 }
+
+                // NEW: If it's a helmet description, check if it's just a fallback
+                if (get_post_type($postId) === 'helmet' && ($metaKey === 'marketing_description' || $metaKey === 'technical_analysis')) {
+                    if ($this->isFallbackDescription($postId, (string) $v)) {
+                        $out[] = $postId;
+                        break;
+                    }
+                    if (strlen((string) $v) < 60) {
+                        $out[] = $postId;
+                        break;
+                    }
+                }
             }
         }
         return $out;
     }
 
     /**
-     * Build context for the AI from post title and non-empty meta (compact).
+     * Check if a description matches the generic fallback pattern:
+     * "Title | Type: X | Brand: Y"
      */
+    private function isFallbackDescription(int $postId, string $desc): bool
+    {
+        $post = get_post($postId);
+        if (! $post) return false;
+
+        $title = (string) $post->post_title;
+        $brandId = (int) get_post_meta($postId, 'rel_brand', true);
+        $brand = '';
+        if ($brandId > 0) {
+            $brandPost = get_post($brandId);
+            $brand = $brandPost ? (string) $brandPost->post_title : '';
+        }
+
+        $typeTerms = get_the_terms($postId, 'helmet_type');
+        $type = (is_array($typeTerms) && !empty($typeTerms)) ? $typeTerms[0]->name : '';
+
+        // Check for common patterns generated by IngestionService::buildDescription
+        $patterns = [
+            $title . ' | Type: ' . $type . ' | Brand: ' . $brand,
+            $title . ' | Brand: ' . $brand,
+            $title . ' | Type: ' . $type,
+            $title . ' | ' . $type . ' | ' . $brand,
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (trim($desc) === trim($pattern)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private function gatherExistingData(string $postType, int $postId, WP_Post $post): array
     {
         $data = ['title' => (string) $post->post_title];
         $allKeys = FillableFieldsConfig::forPostType($postType);
         foreach (array_keys($allKeys) as $key) {
             $v = get_post_meta($postId, $key, true);
-            if ($v !== '' && $v !== null) {
-                $data[$key] = is_string($v) ? $v : (string) json_encode($v);
-            }
+            if ($v !== '' && $v !== null) $data[$key] = is_string($v) ? $v : (string) json_encode($v);
         }
         if ($postType === 'helmet') {
             $brandId = (int) get_post_meta($postId, 'rel_brand', true);
@@ -385,43 +334,18 @@ final class FillMissingService
                 }
             }
         }
-        if ($postType === 'brand') {
-            $country = get_post_meta($postId, 'brand_origin_country', true);
-            if ($country !== '') {
-                $data['brand_origin_country'] = (string) $country;
-            }
-        }
-        if ($postType === 'accessory') {
-            $cat = get_post_meta($postId, 'accessory_parent_category', true)
-                ?: get_post_meta($postId, 'accessory_subcategory', true)
-                ?: get_post_meta($postId, 'accessory_type', true);
-            if ($cat !== '') {
-                $data['category'] = (string) $cat;
-            }
-        }
         return $data;
     }
 
-    /**
-     * Public for unit tests. Sanitize and validate AI output (allowed_values, year range, max_length).
-     * @param string|array{label: string, max_length?: int, allowed_values?: list<string>} $config
-     */
     public function sanitizeAndValidate(string $metaKey, string $value, $config): mixed
     {
-        $value = preg_replace('/^["\']|["\']$/u', '', $value);
-        $value = trim($value);
-        if ($value === '') {
-            return '';
-        }
+        $value = preg_replace('/^["\']|["\']$/u', '', trim($value));
+        if ($value === '') return '';
 
-        // Structural validation for JSON fields
         if (str_ends_with($metaKey, '_json')) {
             $expected = $this->jsonValidator->getExpectedTypeFromField($metaKey);
-            $validated = $this->jsonValidator->validate($value, $expected);
-            if ($validated === null && $expected !== 'scalar') {
-                return '';
-            }
-            // Return string for DB storage
+            $validated = $this->jsonValidator->validate($value, $expected, $metaKey);
+            if ($validated === null && $expected !== 'scalar') return '';
             return is_string($validated) ? $validated : (string) json_encode($validated);
         }
 
@@ -429,24 +353,11 @@ final class FillMissingService
         if (is_array($allowed) && $allowed !== []) {
             $lower = strtolower($value);
             foreach ($allowed as $opt) {
-                if (strtolower((string) $opt) === $lower) {
-                    return (string) $opt;
-                }
+                if (strtolower((string) $opt) === $lower) return (string) $opt;
             }
-            // Normalize spaces to hyphens for slug-like fields (e.g. use_case: "dual sport" -> "dual-sport")
             $normalized = strtolower(str_replace(' ', '-', preg_replace('/\s+/', ' ', trim($value))));
             foreach ($allowed as $opt) {
-                if (strtolower((string) $opt) === $normalized) {
-                    return (string) $opt;
-                }
-            }
-            if (preg_match('/\b(long[- ]?oval|intermediate[- ]?oval|round[- ]?oval)\b/i', $value, $m)) {
-                $k = strtolower(str_replace(' ', '-', $m[1]));
-                $canon = ['longoval' => 'long-oval', 'intermediateoval' => 'intermediate-oval', 'roundoval' => 'round-oval'];
-                $key = str_replace('-', '', $k);
-                if (isset($canon[$key])) {
-                    return $canon[$key];
-                }
+                if (strtolower((string) $opt) === $normalized) return (string) $opt;
             }
             return '';
         }
@@ -454,122 +365,67 @@ final class FillMissingService
         if ($metaKey === 'brand_founded_year') {
             if (preg_match('/\b(19|20)\d{2}\b/', $value, $m)) {
                 $year = (int) $m[0];
-                $maxYear = (int) date('Y');
-                if ($year >= 1900 && $year <= $maxYear) {
-                    return $m[0];
-                }
+                if ($year >= 1900 && $year <= (int)date('Y')) return $m[0];
             }
             return '';
         }
 
-        if ($metaKey === 'spec_weight_g') {
-            if (preg_match('/\b(\d{1,5})\s*(?:g|grams?)?\b/i', $value, $m)) {
-                $g = (int) $m[1];
-                if ($g > 0 && $g <= 99999) {
-                    return (string) $g;
-                }
-            }
-            return '';
+        if ($metaKey === 'spec_weight_g' && preg_match('/\b(\d{1,5})\b/', $value, $m)) {
+            return $m[1];
         }
 
-        if ($metaKey === 'price_retail_usd') {
-            if (preg_match('/\$?\s*(\d+(?:\.\d{1,2})?)\b/', $value, $m)) {
-                $p = (float) $m[1];
-                if ($p >= 0 && $p <= 999999.99) {
-                    return $m[1];
-                }
-            }
-            return '';
+        if ($metaKey === 'price_retail_usd' && preg_match('/(\d+(?:\.\d{1,2})?)/', $value, $m)) {
+            return $m[1];
         }
 
-        if ($metaKey === 'brand_support_url') {
-            $url = esc_url_raw($value, ['https', 'http']);
-            return $url !== '' ? $url : '';
-        }
-
-        $maxLength = is_array($config) && isset($config['max_length']) && is_int($config['max_length'])
-            ? $config['max_length']
-            : self::DEFAULT_MAX_LENGTH;
-        if (strlen($value) > $maxLength) {
-            $value = substr($value, 0, $maxLength - 3);
+        $max = is_array($config) && isset($config['max_length']) ? $config['max_length'] : self::DEFAULT_MAX_LENGTH;
+        if (strlen($value) > $max) {
+            $value = substr($value, 0, $max - 3);
             $last = strrpos($value, ' ');
-            if ($last !== false && $last > (int) ($maxLength * 0.5)) {
-                $value = substr($value, 0, $last);
-            }
+            if ($last !== false && $last > (int)($max * 0.5)) $value = substr($value, 0, $last);
         }
         return $value;
     }
 
-    private function rateLimit(): void
-    {
-        $seconds = self::$rateLimitOverrideSeconds;
-        if ($seconds !== null) {
-            if ($seconds <= 0) {
-                return;
-            }
-            sleep($seconds);
-            return;
-        }
-        if (\defined('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT') && constant('HELMETSAN_SEO_AI_SKIP_RATE_LIMIT')) {
-            return;
-        }
-        sleep(self::RATE_LIMIT_SECONDS);
-    }
-
     /**
      * Coverage report: per-field counts of set vs empty for a post type (no API calls).
-     *
      * @return array{total_posts: int, fields: array<string, array{set: int, empty: int, pct: float}>}
      */
     public function getCoverageReport(string $postType, int $limit = 0): array
     {
         $fillable = FillableFieldsConfig::forPostType($postType);
-        $taxonomyConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
-        $query = new \WP_Query([
-            'post_type'      => $postType,
-            'post_status'    => 'publish',
+        $taxConfig = FillableFieldsConfig::taxonomyFillableConfig()[$postType] ?? [];
+        $ids = (new \WP_Query([
+            'post_type' => $postType,
+            'post_status' => 'publish',
             'posts_per_page' => $limit > 0 ? $limit : -1,
-            'orderby'        => 'ID',
-            'order'          => 'ASC',
-            'fields'         => 'ids',
-        ]);
-        $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+            'fields' => 'ids',
+        ]))->posts;
+        if (!is_array($ids)) $ids = [];
+        
         $total = count($ids);
         $fields = [];
-        foreach (array_keys($fillable) as $metaKey) {
-            $fields[$metaKey] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
-        }
-        foreach (array_keys($taxonomyConfig) as $taxonomy) {
-            $fields['taxonomy:' . $taxonomy] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
-        }
+        foreach (array_keys($fillable) as $k) $fields[$k] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
+        foreach (array_keys($taxConfig) as $t) $fields['taxonomy:' . $t] = ['set' => 0, 'empty' => 0, 'pct' => 0.0];
+        
         foreach ($ids as $postId) {
-            foreach (array_keys($fillable) as $metaKey) {
-                $v = get_post_meta($postId, $metaKey, true);
-                if ($v !== '' && $v !== null && $v !== []) {
-                    $fields[$metaKey]['set']++;
-                } else {
-                    $fields[$metaKey]['empty']++;
-                }
+            foreach (array_keys($fillable) as $k) {
+                $v = get_post_meta((int)$postId, $k, true);
+                if ($v !== '' && $v !== null && $v !== []) $fields[$k]['set']++;
+                else $fields[$k]['empty']++;
             }
-            foreach (array_keys($taxonomyConfig) as $taxonomy) {
-                $terms = get_the_terms($postId, $taxonomy);
-                if (is_array($terms) && $terms !== []) {
-                    $fields['taxonomy:' . $taxonomy]['set']++;
-                } else {
-                    $fields['taxonomy:' . $taxonomy]['empty']++;
-                }
+            foreach (array_keys($taxConfig) as $t) {
+                $terms = get_the_terms((int)$postId, $t);
+                if (is_array($terms) && $terms !== []) $fields['taxonomy:' . $t]['set']++;
+                else $fields['taxonomy:' . $t]['empty']++;
             }
         }
-        foreach ($fields as $key => $counts) {
-            $fields[$key]['pct'] = $total > 0 ? round($counts['set'] / $total * 100, 1) : 0.0;
+        foreach ($fields as $k => $c) {
+            $fields[$k]['pct'] = $total > 0 ? round($c['set'] / $total * 100, 1) : 0.0;
         }
         return ['total_posts' => $total, 'fields' => $fields];
     }
 
-    /**
-     * List of fillable meta keys for a post type (for CLI --fields validation).
-     * @return list<string>
-     */
     public static function getFillableKeys(string $postType): array
     {
         return array_keys(FillableFieldsConfig::forPostType($postType));

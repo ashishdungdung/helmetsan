@@ -23,15 +23,15 @@ $safetyUrl     = home_url('/safety/');
 ?>
 <section class="hs-hero">
     <div class="hs-hero__gradient"></div>
-    <div class="hs-hero__content">
+    <div class="hs-hero__content hs-hero__content--centered">
         <p class="hs-eyebrow"><?php esc_html_e('Global Helmet Intelligence Platform', 'helmetsan-theme'); ?></p>
-        <h1><?php esc_html_e('Find the Right Helmet. Compare Specs. Stay Compliant.', 'helmetsan-theme'); ?></h1>
-        <p><?php esc_html_e('Search helmets by brand, type, and certification. Explore accessories, compatibility, and safety standards in one place.', 'helmetsan-theme'); ?></p>
-        <div class="hs-hero__actions">
+        <h1 class="hs-hero__title"><?php esc_html_e('Find the Right Helmet. Compare Specs. Stay Compliant.', 'helmetsan-theme'); ?></h1>
+        <p class="hs-hero__desc"><?php esc_html_e('Search helmets by brand, type, and certification. Explore accessories, compatibility, and safety standards in one place.', 'helmetsan-theme'); ?></p>
+        <div class="hs-hero__actions hs-hero__actions--centered">
             <a class="hs-btn hs-btn--primary" href="<?php echo esc_url($helmetsUrl); ?>"><?php esc_html_e('Explore Helmets', 'helmetsan-theme'); ?></a>
             <a class="hs-btn hs-btn--ghost" href="<?php echo esc_url($accessoriesUrl); ?>"><?php esc_html_e('Browse Accessories', 'helmetsan-theme'); ?></a>
             <?php if (current_user_can('manage_options')) : ?>
-                <a class="hs-btn hs-btn--ghost" href="<?php echo esc_url(admin_url('admin.php?page=helmetsan-go-live')); ?>"><?php esc_html_e('Readiness Gate', 'helmetsan-theme'); ?></a>
+                <a class="hs-btn hs-btn--ghost hs-btn--readiness" href="<?php echo esc_url(admin_url('admin.php?page=helmetsan-go-live')); ?>"><?php esc_html_e('Readiness Gate', 'helmetsan-theme'); ?></a>
             <?php endif; ?>
         </div>
     </div>

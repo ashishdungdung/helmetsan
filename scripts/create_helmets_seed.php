@@ -14574,28 +14574,36 @@ foreach ($brands as $brandName => $models) {
 
             $variantEntry = [
                 'id' => $variantId,
+                'entity' => 'helmet',
                 'title' => $brandName . ' ' . $modelName . ' ' . $cw['name'],
-                'type' => 'variant',
+                'type' => $specs['type'],
                 'parent_id' => $modelId,
+                'helmet_family' => $specs['helmet_family'] ?? $modelName,
+                'head_shape' => $specs['shape'],
                 'color' => $cw['name'],
                 'color_family' => $cw['family'] ?? 'Multi',
                 'sku' => $cw['sku'],
                 'finish' => $cw['finish'] ?? 'gloss',
                 'is_graphic' => $cw['is_graphic'] ?? false,
                 'availability' => $cw['availability'] ?? 'instock',
-                'mpn' => $cw['sku'], // Use SKU as MPN
+                'description' => $specs['desc'],
+                'product_details' => [
+                    'description' => $specs['desc'],
+                ],
                 'price' => [
+                    'current' => $vPrice,
                     'usd' => $vPrice,
                     'eur' => $priceEur,
                     'gbp' => $priceGbp
                 ],
-                'specs' => [], // Inherited
-                'attributes' => [
-                    'sizes' => ['XS', 'S', 'M', 'L', 'XL', '2XL'],
-                    'color' => $cw['name']
+                'specs' => [
+                    'material' => $specs['mat'],
+                    'weight_g' => $specs['weight'],
+                    'weight_lbs' => round($specs['weight'] / 453.592, 2),
+                    'certifications' => $specs['cert'],
                 ],
                 'geo_media' => [],
-                'stock_status' => 'instock'
+                'helmet_types' => [$specs['type']],
             ];
             if (! empty($cw['marketplace_links']) && is_array($cw['marketplace_links'])) {
                 $variantEntry['marketplace_links'] = $cw['marketplace_links'];
@@ -14609,6 +14617,7 @@ foreach ($brands as $brandName => $models) {
             if (isset($cw['family']) && $cw['family'] === 'Carbon') {
                 $variants[count($variants)-1]['specs']['material'] = 'Carbon Fiber';
                 $variants[count($variants)-1]['specs']['weight_g'] = $specs['weight'] - 100;
+                $variants[count($variants)-1]['specs']['weight_lbs'] = round(($specs['weight'] - 100) / 453.592, 2);
             }
         }
 
@@ -14622,6 +14631,7 @@ foreach ($brands as $brandName => $models) {
         // Parent Item (required + optional detailed fields from master)
         $item = [
             'id' => $modelId,
+            'entity' => 'helmet',
             'title' => $brandName . ' ' . $modelName,
             'brand' => $brandName,
             'type' => $specs['type'],
@@ -14671,9 +14681,11 @@ foreach ($brands as $brandName => $models) {
         foreach ($item['variants'] as $v) {
             $variantItem = [
                 'id' => $v['id'],
+                'entity' => 'helmet',
                 'title' => $v['title'],
                 'brand' => $brandName,
-                'type' => 'variant',
+                'type' => $specs['type'],
+                'helmet_types' => [$specs['type']],
                 'parent_id' => $modelId,
                 'helmet_family' => $specs['helmet_family'] ?? $modelName,
                 'price' => [

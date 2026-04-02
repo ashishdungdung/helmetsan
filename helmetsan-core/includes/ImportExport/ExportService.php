@@ -134,6 +134,14 @@ final class ExportService
             }
         }
 
+        // Fallback: if rel_brand meta isn't set, use helmet_brand taxonomy term.
+        if ($brandName === '') {
+            $brandTerms = get_the_terms($postId, 'helmet_brand');
+            if (is_array($brandTerms) && isset($brandTerms[0]) && $brandTerms[0] instanceof \WP_Term) {
+                $brandName = (string) $brandTerms[0]->name;
+            }
+        }
+
         $helmetType = '';
         $types = get_the_terms($postId, 'helmet_type');
         if (is_array($types) && isset($types[0])) {
@@ -161,6 +169,20 @@ final class ExportService
         $geoLegality = $this->decodeJsonMeta($postId, 'geo_legality_json');
         $certDocs = $this->decodeJsonMeta($postId, 'certification_documents_json');
         $features = $this->decodeJsonMeta($postId, 'features_json');
+
+        // Prefer taxonomy tags for features when they exist (fill-missing enriches feature_tag terms,
+        // while features_json meta might be empty or stale).
+        $featureTagTerms = get_the_terms($postId, 'feature_tag');
+        if (is_array($featureTagTerms) && $featureTagTerms !== []) {
+            $featureNames = [];
+            foreach ($featureTagTerms as $term) {
+                if ($term instanceof \WP_Term && $term->name !== '') {
+                    $featureNames[] = (string) $term->name;
+                }
+            }
+            $features = array_values(array_unique(array_merge(is_array($features) ? $features : [], $featureNames)));
+        }
+
         $helmetTypes = $this->decodeJsonMeta($postId, 'helmet_types_json');
         $geoMedia = $this->decodeJsonMeta($postId, 'geo_media_json');
         $keySpecs = $this->decodeJsonMeta($postId, 'key_specs_json');
@@ -169,6 +191,36 @@ final class ExportService
         $aeroAcoustic = $this->decodeJsonMeta($postId, 'aero_acoustic_profile_json');
         $techIntegration = $this->decodeJsonMeta($postId, 'tech_integration_json');
         $fitmentCoordinates = $this->decodeJsonMeta($postId, 'fitment_coordinates_json');
+
+        $useCaseTerms = get_the_terms($postId, 'use_case');
+        $useCases = [];
+        if (is_array($useCaseTerms)) {
+            foreach ($useCaseTerms as $term) {
+                if ($term instanceof \WP_Term && $term->name !== '') {
+                    $useCases[] = (string) $term->name;
+                }
+            }
+        }
+
+        $regionTerms = get_the_terms($postId, 'region');
+        $regions = [];
+        if (is_array($regionTerms)) {
+            foreach ($regionTerms as $term) {
+                if ($term instanceof \WP_Term && $term->name !== '') {
+                    $regions[] = (string) $term->name;
+                }
+            }
+        }
+
+        $priceRangeTerms = get_the_terms($postId, 'price_range');
+        $priceRange = '';
+        if (is_array($priceRangeTerms) && isset($priceRangeTerms[0]) && $priceRangeTerms[0] instanceof \WP_Term) {
+            $priceRange = (string) $priceRangeTerms[0]->name;
+        }
+
+        $marketingDescription = (string) get_post_meta($postId, 'marketing_description', true);
+        $technicalAnalysis    = (string) get_post_meta($postId, 'technical_analysis', true);
+        $outgoingLinks        = $this->decodeJsonMeta($postId, 'outgoing_internal_links_json');
 
         $shellSizes = (string) get_post_meta($postId, 'spec_shell_sizes', true);
         $modelYear = (string) get_post_meta($postId, 'model_year', true);
@@ -228,6 +280,29 @@ final class ExportService
         if ($identifiers !== []) {
             $payload['identifiers'] = $identifiers;
         }
+
+        if ($useCases !== []) {
+            // Ingestion supports `use_cases` array.
+            $payload['use_cases'] = $useCases;
+        }
+        if ($regions !== []) {
+            // Ingestion supports `regions` array.
+            $payload['regions'] = $regions;
+        }
+        if ($priceRange !== '') {
+            // Ingestion expects price_range as a string.
+            $payload['price_range'] = $priceRange;
+        }
+        if ($marketingDescription !== '') {
+            $payload['marketing_description'] = $marketingDescription;
+        }
+        if ($technicalAnalysis !== '') {
+            $payload['technical_analysis'] = $technicalAnalysis;
+        }
+        if ($outgoingLinks !== []) {
+            $payload['outgoing_internal_links_json'] = $outgoingLinks;
+        }
+
         $affiliateLinks = $this->decodeJsonMeta($postId, 'affiliate_links_json');
         if (is_array($affiliateLinks) && $affiliateLinks !== []) {
             $marketplaceLinks = [];

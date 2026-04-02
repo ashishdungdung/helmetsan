@@ -237,9 +237,14 @@ final class IngestionService
                     }
 
                     $encoded = wp_json_encode($data);
-                    $isAccessory = isset($data['accessory_type'])
-                        || isset($data['compatible_helmet_types'])
-                        || (isset($data['type']) && !array_key_exists(strtolower((string)$data['type']), self::HELMET_TYPE_CANONICAL));
+                    // Helmet variants (colorways) carry parent_id; do not route them to accessory CPT.
+                    $isHelmetVariantRow = isset($data['parent_id']) && (string) $data['parent_id'] !== '';
+                    $isAccessory        = ! $isHelmetVariantRow
+                        && (
+                            isset($data['accessory_type'])
+                            || isset($data['compatible_helmet_types'])
+                            || (isset($data['type']) && ! array_key_exists(strtolower((string) $data['type']), self::HELMET_TYPE_CANONICAL))
+                        );
 
                     if ($isAccessory) {
                         $upsert = $this->accessories->upsertFromPayload($data, $file, $dryRun);
@@ -274,7 +279,20 @@ final class IngestionService
                     $postId      = $this->findHelmetPostId((string) $data['id']);
                     $existingHash = $postId > 0 ? (string) get_post_meta($postId, '_source_hash', true) : '';
 
-                    $hasType = $postId > 0 && has_term('', 'helmet_type', $postId);
+                    $hasType = $postId > 0 && (
+                        has_term('', 'helmet_type', $postId)
+                        || (
+                            isset($data['helmet_types'])
+                            && is_array($data['helmet_types'])
+                            && $data['helmet_types'] !== []
+                        )
+                        || (
+                            isset($data['type'])
+                            && is_string($data['type'])
+                            && $data['type'] !== ''
+                            && array_key_exists(strtolower((string) $data['type']), self::HELMET_TYPE_CANONICAL)
+                        )
+                    );
 
                     if ($existingHash !== '' && hash_equals($existingHash, $payloadHash) && $hasType) {
                         $skipped++;
@@ -599,6 +617,22 @@ final class IngestionService
         if (isset($data['technical_analysis']) && is_string($data['technical_analysis'])) {
             update_post_meta($resolvedPostId, 'technical_analysis', sanitize_textarea_field($data['technical_analysis']));
         }
+
+        if (isset($data['marketing_description']) && is_string($data['marketing_description'])) {
+            update_post_meta($resolvedPostId, 'marketing_description', sanitize_textarea_field($data['marketing_description']));
+        }
+
+        if (isset($data['outgoing_internal_links_json'])) {
+            $links = $data['outgoing_internal_links_json'];
+            if (is_array($links) || is_object($links)) {
+                $json = wp_json_encode($links, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+                if (is_string($json) && $json !== '') {
+                    update_post_meta($resolvedPostId, 'outgoing_internal_links_json', $json);
+                }
+            } elseif (is_string($links) && trim($links) !== '') {
+                update_post_meta($resolvedPostId, 'outgoing_internal_links_json', sanitize_textarea_field($links));
+            }
+        }
         if (isset($data['model_year']) && (string) $data['model_year'] !== '') {
             update_post_meta($resolvedPostId, 'model_year', sanitize_text_field((string) $data['model_year']));
         }
@@ -856,6 +890,14 @@ final class IngestionService
     {
         if (isset($data['product_details']['description']) && is_string($data['product_details']['description']) && $data['product_details']['description'] !== '') {
             return wp_kses_post($data['product_details']['description']);
+        }
+
+        if (isset($data['description']) && is_string($data['description']) && $data['description'] !== '') {
+            return wp_kses_post($data['description']);
+        }
+
+        if (isset($data['marketing_description']) && is_string($data['marketing_description']) && $data['marketing_description'] !== '') {
+            return wp_kses_post($data['marketing_description']);
         }
 
         $title = isset($data['title']) ? (string) $data['title'] : '';

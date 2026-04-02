@@ -5,7 +5,7 @@
  * @package HelmetsanTheme
  */
 ?><!doctype html>
-<html <?php language_attributes(); ?> data-theme="light">
+<html <?php language_attributes(); ?> data-theme="dark">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <?php wp_head(); ?>
     <script>
-    (function(){var k='helmetsan_theme';var t=['light','dark'];try{var s=localStorage.getItem(k);if(s&&t.indexOf(s)!==-1){document.documentElement.setAttribute('data-theme',s);}}catch(e){}})();
+    (function(){var k='helmetsan_theme';var t=['light','dark'];try{var s=localStorage.getItem(k);if(s&&t.indexOf(s)!==-1){document.documentElement.setAttribute('data-theme',s);}else{document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
     </script>
 </head>
 <body <?php body_class(); ?>>

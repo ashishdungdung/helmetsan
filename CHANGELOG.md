@@ -3,13 +3,14 @@
 This file tracks **released versions** of Helmetsan.  
 For an in‑progress development log between releases, see `DEV_CHANGELOG.md`.
 
-## Unreleased
+## Unreleased (0.4.0)
 
-- **Search (roadmap):** Helmet archive uses plugin `SearchService` for faceted search (single source of truth). `Plugin::getSearchService()` for theme; `docs/architecture-map.md` documents Search.
-- **Search:** Faceted filter by **price_range** taxonomy (budget, mid-range, premium, luxury) in SearchService and helmet archive; archive filter panel adds “Price range” checkboxes alongside min–max price.
-- **Search:** Faceted filters for **region** and **use_case** taxonomies in SearchService and helmet archive (filter panel + active chips).
-- **Ingestion:** Main ingest path (ingestPath / ingestFiles) now dispatches by **`entity`** when payload has entity field: brand, motorcycle, safety_standard, dealer, distributor, comparison, recommendation (one file = one entity). Technology and commerce still use Import JSON only.
-- **Fill-missing quality:** FillableFieldsConfig: helmet `use_case` has allowed_values (touring, racing, commuter, etc.); clearer Yoast field labels. FillMissingService: helmet context includes certification, use_case, region, feature_tag, price_range from taxonomies; allowed_values normalized (e.g. "dual sport" → "dual-sport"). ContextBuilder: brand and Yoast-specific hints in forFillField.
+- **AI Token Optimization:** Created `.geminiignore` to exclude `vendor/` and `data/` from indexing (~70% context reduction). Slimmed `AGENTS.md` and streamlined governance workflows. Reduced system prompt overhead.
+- **Local AI First:** Deep integration with **LM Studio** for local inference (M4 Pro). Added `HELMETSAN_LMSTUDIO_BASE_URL` constant override for secure remote access.
+- **Networking:** Added **Cloudflare Tunnel** guide for exposing local AI to production servers without port forwarding.
+- **Performance:** Disabled unused IDE plugins (StitchMCP, etc.) and optimized VS Code filters.
+- **Static Analysis:** Installed **PHPStan** (level 3) with WordPress stubs and baseline for local budget-friendly code quality checks.
+- **Governance:** Added **Memory MCP** for persistent project context across agent sessions.
 
 ## 0.3.0 - 2026-03-07
 
