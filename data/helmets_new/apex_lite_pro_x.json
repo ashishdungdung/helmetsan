@@ -1,0 +1,117 @@
+{
+    "id": "apex_lite_pro_x",
+    "entity": "helmet",
+    "title": "Apex Lite Pro X",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Lite Pro X",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 962,
+        "weight_lbs": 2.12,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face with optional shield.",
+    "product_details": {
+        "description": "Open face with optional shield."
+    },
+    "variants": [
+        {
+            "id": "apex_lite_pro_x_black",
+            "entity": "helmet",
+            "title": "Apex Lite Pro X Black",
+            "type": "Open Face",
+            "parent_id": "apex_lite_pro_x",
+            "helmet_family": "Lite Pro X",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-LPX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield.",
+            "product_details": {
+                "description": "Open face with optional shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 962,
+                "weight_lbs": 2.12,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_lite_pro_x_grey",
+            "entity": "helmet",
+            "title": "Apex Lite Pro X Grey",
+            "type": "Open Face",
+            "parent_id": "apex_lite_pro_x",
+            "helmet_family": "Lite Pro X",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-LPX-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield.",
+            "product_details": {
+                "description": "Open face with optional shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 962,
+                "weight_lbs": 2.12,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+Pro+X+3"
+    ]
+}

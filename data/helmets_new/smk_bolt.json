@@ -1,0 +1,117 @@
+{
+    "id": "smk_bolt",
+    "entity": "helmet",
+    "title": "SMK Bolt",
+    "brand": "SMK",
+    "type": "Open Face",
+    "helmet_family": "Bolt",
+    "price": {
+        "current": 74.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1005,
+        "weight_lbs": 2.22,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "SMK Bolt open face with inner visor.",
+    "product_details": {
+        "description": "SMK Bolt open face with inner visor."
+    },
+    "variants": [
+        {
+            "id": "smk_bolt_black",
+            "entity": "helmet",
+            "title": "SMK Bolt Black",
+            "type": "Open Face",
+            "parent_id": "smk_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "SMK-BOL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Bolt open face with inner visor.",
+            "product_details": {
+                "description": "SMK Bolt open face with inner visor."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1005,
+                "weight_lbs": 2.22,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "smk_bolt_grey",
+            "entity": "helmet",
+            "title": "SMK Bolt Grey",
+            "type": "Open Face",
+            "parent_id": "smk_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "SMK-BOL-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Bolt open face with inner visor.",
+            "product_details": {
+                "description": "SMK Bolt open face with inner visor."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1005,
+                "weight_lbs": 2.22,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Bolt+3"
+    ]
+}

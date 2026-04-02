@@ -1,0 +1,285 @@
+{
+    "id": "ls2_explorer",
+    "entity": "helmet",
+    "title": "LS2 Explorer",
+    "brand": "LS2",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Explorer",
+    "price": {
+        "current": 249.98,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "HPFC",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Value adventure helmet with peak visor and long oval fit.",
+    "product_details": {
+        "description": "Value adventure helmet with peak visor and long oval fit."
+    },
+    "variants": [
+        {
+            "id": "ls2_explorer_gloss-black",
+            "entity": "helmet",
+            "title": "LS2 Explorer Gloss Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "LS2-EXPL-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 249.98,
+                "usd": 249.98,
+                "eur": 229.98,
+                "gbp": 197.48
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "ls2_explorer_gloss-white",
+            "entity": "helmet",
+            "title": "LS2 Explorer Gloss White",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "LS2-EXPL-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 249.98,
+                "usd": 249.98,
+                "eur": 229.98,
+                "gbp": 197.48
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "ls2_explorer_urban-grey",
+            "entity": "helmet",
+            "title": "LS2 Explorer Urban Grey",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Urban Grey",
+            "color_family": "Grey",
+            "sku": "LS2-EXPL-URB",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 299.98,
+                "usd": 299.98,
+                "eur": 275.98,
+                "gbp": 236.98
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Urban+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Urban+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Urban+Grey+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "ls2_explorer_tech-red",
+            "entity": "helmet",
+            "title": "LS2 Explorer Tech Red",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Tech Red",
+            "color_family": "Red",
+            "sku": "LS2-EXPL-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 299.98,
+                "usd": 299.98,
+                "eur": 275.98,
+                "gbp": 236.98
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Tech+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Tech+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Tech+Red+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "ls2_explorer_course-tc-2",
+            "entity": "helmet",
+            "title": "LS2 Explorer Course TC-2",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Course TC-2",
+            "color_family": "Multi",
+            "sku": "LS2-EXPL-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 299.98,
+                "usd": 299.98,
+                "eur": 275.98,
+                "gbp": 236.98
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Course+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Course+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Course+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "ls2_explorer_raptor-tc-2",
+            "entity": "helmet",
+            "title": "LS2 Explorer Raptor TC-2",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "ls2_explorer",
+            "helmet_family": "Explorer",
+            "head_shape": "Long Oval",
+            "color": "Raptor TC-2",
+            "color_family": "Multi",
+            "sku": "LS2-EXPL-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Value adventure helmet with peak visor and long oval fit.",
+            "product_details": {
+                "description": "Value adventure helmet with peak visor and long oval fit."
+            },
+            "price": {
+                "current": 299.98,
+                "usd": 299.98,
+                "eur": 275.98,
+                "gbp": 236.98
+            },
+            "specs": {
+                "material": "HPFC",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Raptor+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Raptor+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Raptor+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+3"
+    ]
+}

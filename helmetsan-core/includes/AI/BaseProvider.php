@@ -54,6 +54,11 @@ abstract class BaseProvider implements ProviderInterface
      */
     abstract public function prepareRequest(string $prompt, array $options = []): ?array;
 
+    public function getConcurrency(): int
+    {
+        return 1;
+    }
+
     protected function normalizeText(?string $s): string
     {
         if ($s === null || $s === '') {

@@ -206,6 +206,9 @@ final class AiAdmin
             $providers[$id]['model'] = isset($_POST[$key . '_model']) ? sanitize_text_field(wp_unslash($_POST[$key . '_model'])) : ($defaults['providers'][$id]['model'] ?? '');
             if ($id === 'lm_studio' && isset($_POST[$key . '_base_url'])) {
                 $providers[$id]['base_url'] = sanitize_text_field(wp_unslash($_POST[$key . '_base_url']));
+                if (isset($_POST[$key . '_concurrency'])) {
+                    $providers[$id]['concurrency'] = max(1, min(32, (int) $_POST[$key . '_concurrency']));
+                }
             }
             if ($id === 'cloudflare' && isset($_POST[$key . '_base_url'])) {
                 $providers[$id]['base_url'] = sanitize_text_field(wp_unslash($_POST[$key . '_base_url']));
@@ -293,7 +296,7 @@ final class AiAdmin
         echo '<div class="hs-panel" style="max-width: 720px; margin-top: 1.5rem;">';
         echo '<h2 class="title">' . esc_html__('Free / low-cost providers', 'helmetsan-core') . '</h2>';
         echo '<p class="description">' . esc_html__('Use these first to minimize cost. At least one enabled with API key is required for AI features.', 'helmetsan-core') . '</p>';
-        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key / Base URL', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th><th>' . esc_html__('Status', 'helmetsan-core') . '</th></tr></thead><tbody>';
+        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key / Base URL', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th><th>' . esc_html__('Parallel', 'helmetsan-core') . '</th><th>' . esc_html__('Status', 'helmetsan-core') . '</th></tr></thead><tbody>';
         foreach ($freeIds as $id) {
             $p = $providers[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => '', 'base_url' => ''];
             $def = $this->config->aiDefaults()['providers'][$id];
@@ -318,6 +321,14 @@ final class AiAdmin
                 echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" placeholder="' . esc_attr__('API key', 'helmetsan-core') . '" /></td>';
             }
             echo '<td><input type="text" name="helmetsan_ai_' . esc_attr($id) . '_model" value="' . esc_attr($model) . '" class="regular-text" placeholder="' . esc_attr($def['model'] ?? '') . '" /></td>';
+            echo '<td>';
+            if ($id === 'lm_studio') {
+                $concurrency = (int) ($p['concurrency'] ?? $def['concurrency'] ?? 1);
+                echo '<input type="number" name="helmetsan_ai_' . esc_attr($id) . '_concurrency" value="' . esc_attr((string) $concurrency) . '" min="1" max="32" style="width:50px;" />';
+            } else {
+                echo '<span class="description">1</span>';
+            }
+            echo '</td>';
             echo '<td class="helmetsan-ai-test-cell">';
             echo '<button type="button" class="button helmetsan-ai-test-btn" data-provider-id="' . esc_attr($id) . '" aria-label="' . esc_attr__('Test API connection', 'helmetsan-core') . '">' . esc_html__('Test', 'helmetsan-core') . '</button>';
             echo ' <span class="helmetsan-ai-test-result">';
@@ -342,7 +353,7 @@ final class AiAdmin
         echo '<div class="hs-panel" style="max-width: 720px; margin-top: 1.5rem;">';
         echo '<h2 class="title">' . esc_html__('Premium providers', 'helmetsan-core') . '</h2>';
         echo '<p class="description">' . esc_html__('Dedicated controls for higher-quality or paid models. Optional.', 'helmetsan-core') . '</p>';
-        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th><th>' . esc_html__('Status', 'helmetsan-core') . '</th></tr></thead><tbody>';
+        echo '<table class="form-table widefat striped"><thead><tr><th>' . esc_html__('Provider', 'helmetsan-core') . '</th><th>' . esc_html__('Best for', 'helmetsan-core') . '</th><th>' . esc_html__('Enable', 'helmetsan-core') . '</th><th>' . esc_html__('API key', 'helmetsan-core') . '</th><th>' . esc_html__('Model', 'helmetsan-core') . '</th><th>' . esc_html__('Parallel', 'helmetsan-core') . '</th><th>' . esc_html__('Status', 'helmetsan-core') . '</th></tr></thead><tbody>';
         foreach ($premiumIds as $id) {
             $p = $providers[$id] ?? ['enabled' => false, 'api_key' => '', 'model' => ''];
             $def = $this->config->aiDefaults()['providers'][$id];
@@ -356,6 +367,7 @@ final class AiAdmin
             echo '<td><input type="checkbox" name="helmetsan_ai_' . esc_attr($id) . '_enabled" value="1" ' . checked(! empty($p['enabled']), true, false) . ' /></td>';
             echo '<td><input type="password" autocomplete="off" name="helmetsan_ai_' . esc_attr($id) . '_key" value="' . esc_attr((string) ($p['api_key'] ?? '')) . '" class="regular-text" /></td>';
             echo '<td><input type="text" name="helmetsan_ai_' . esc_attr($id) . '_model" value="' . esc_attr($model) . '" class="regular-text" placeholder="' . esc_attr($def['model']) . '" /></td>';
+            echo '<td><span class="description">1</span></td>';
             echo '<td class="helmetsan-ai-test-cell">';
             echo '<button type="button" class="button helmetsan-ai-test-btn" data-provider-id="' . esc_attr($id) . '" aria-label="' . esc_attr__('Test API connection', 'helmetsan-core') . '">' . esc_html__('Test', 'helmetsan-core') . '</button>';
             echo ' <span class="helmetsan-ai-test-result">';

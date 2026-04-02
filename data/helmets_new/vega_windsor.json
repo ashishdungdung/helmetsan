@@ -1,0 +1,117 @@
+{
+    "id": "vega_windsor",
+    "entity": "helmet",
+    "title": "Vega Windsor",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Windsor",
+    "price": {
+        "current": 32.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 840,
+        "weight_lbs": 1.85,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Windsor open face with flip-up visor.",
+    "product_details": {
+        "description": "Vega Windsor open face with flip-up visor."
+    },
+    "variants": [
+        {
+            "id": "vega_windsor_black",
+            "entity": "helmet",
+            "title": "Vega Windsor Black",
+            "type": "Open Face",
+            "parent_id": "vega_windsor",
+            "helmet_family": "Windsor",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-WIN-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Windsor open face with flip-up visor.",
+            "product_details": {
+                "description": "Vega Windsor open face with flip-up visor."
+            },
+            "price": {
+                "current": 32.99,
+                "usd": 32.99,
+                "eur": 30.35,
+                "gbp": 26.06
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 840,
+                "weight_lbs": 1.85,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_windsor_silver",
+            "entity": "helmet",
+            "title": "Vega Windsor Silver",
+            "type": "Open Face",
+            "parent_id": "vega_windsor",
+            "helmet_family": "Windsor",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "VEG-WIN-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Windsor open face with flip-up visor.",
+            "product_details": {
+                "description": "Vega Windsor open face with flip-up visor."
+            },
+            "price": {
+                "current": 32.99,
+                "usd": 32.99,
+                "eur": 30.35,
+                "gbp": 26.06
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 840,
+                "weight_lbs": 1.85,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Windsor+3"
+    ]
+}

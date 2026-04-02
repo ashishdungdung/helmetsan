@@ -36,9 +36,9 @@ The project uses a structured `AiService` layer to manage all interactions.
 
 Ensure all batch tasks follow the "Local AI First" rule strictly to save all cloud tokens.
 
-- **Local Endpoint**: `http://192.168.2.58:1234/v1`.
+- **Local Endpoint**: `http://192.168.2.240:1234/v1`.
 - **Pre-flight Check**: Always run `scripts/check-lm-studio.sh` before starting any large-scale `wp helmetsan ai fill-missing` or `seo seed` tasks.
-- **Model Bias**: Prefer models like **Qwen 2.5 Coder** for structured extraction and **Llama 3** for descriptive SEO content.
+- **Model Bias**: Prefer models like **Qwen 2.5 Coder** or **Qwen 3.5 9B** for structured extraction and **Llama 3** for descriptive SEO content.
 
 ## 5. Enrichment Loop
 

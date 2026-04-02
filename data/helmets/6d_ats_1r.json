@@ -1,0 +1,202 @@
+{
+    "id": "6d_ats_1r",
+    "entity": "helmet",
+    "title": "6D ATS-1R",
+    "brand": "6D",
+    "type": "Track / Race",
+    "helmet_family": "ATS-1R",
+    "price": {
+        "current": 749.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1560,
+        "weight_lbs": 3.44,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Carbon road race helmet with ODS technology for multi-directional impact.",
+    "product_details": {
+        "description": "Carbon road race helmet with ODS technology for multi-directional impact."
+    },
+    "variants": [
+        {
+            "id": "6d_ats_1r_matte-black",
+            "entity": "helmet",
+            "title": "6D ATS-1R Matte Black",
+            "type": "Track / Race",
+            "parent_id": "6d_ats_1r",
+            "helmet_family": "ATS-1R",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "6D-ATS1-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Carbon road race helmet with ODS technology for multi-directional impact.",
+            "product_details": {
+                "description": "Carbon road race helmet with ODS technology for multi-directional impact."
+            },
+            "price": {
+                "current": 749.95,
+                "usd": 749.95,
+                "eur": 689.95,
+                "gbp": 592.46
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Track / Race"
+            ]
+        },
+        {
+            "id": "6d_ats_1r_gloss-white",
+            "entity": "helmet",
+            "title": "6D ATS-1R Gloss White",
+            "type": "Track / Race",
+            "parent_id": "6d_ats_1r",
+            "helmet_family": "ATS-1R",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "6D-ATS1-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Carbon road race helmet with ODS technology for multi-directional impact.",
+            "product_details": {
+                "description": "Carbon road race helmet with ODS technology for multi-directional impact."
+            },
+            "price": {
+                "current": 749.95,
+                "usd": 749.95,
+                "eur": 689.95,
+                "gbp": 592.46
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Track / Race"
+            ]
+        },
+        {
+            "id": "6d_ats_1r_flow-red",
+            "entity": "helmet",
+            "title": "6D ATS-1R Flow Red",
+            "type": "Track / Race",
+            "parent_id": "6d_ats_1r",
+            "helmet_family": "ATS-1R",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow Red",
+            "color_family": "Red",
+            "sku": "6D-ATS1-FLO",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Carbon road race helmet with ODS technology for multi-directional impact.",
+            "product_details": {
+                "description": "Carbon road race helmet with ODS technology for multi-directional impact."
+            },
+            "price": {
+                "current": 799.95,
+                "usd": 799.95,
+                "eur": 735.95,
+                "gbp": 631.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Flow+Red",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Flow+Red+Side",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Flow+Red+Back"
+            ],
+            "helmet_types": [
+                "Track / Race"
+            ]
+        },
+        {
+            "id": "6d_ats_1r_apex-tc-2",
+            "entity": "helmet",
+            "title": "6D ATS-1R Apex TC-2",
+            "type": "Track / Race",
+            "parent_id": "6d_ats_1r",
+            "helmet_family": "ATS-1R",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-2",
+            "color_family": "Multi",
+            "sku": "6D-ATS1-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Carbon road race helmet with ODS technology for multi-directional impact.",
+            "product_details": {
+                "description": "Carbon road race helmet with ODS technology for multi-directional impact."
+            },
+            "price": {
+                "current": 799.95,
+                "usd": 799.95,
+                "eur": 735.95,
+                "gbp": 631.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Apex+TC-2",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Apex+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=6D+ATS-1R+Apex+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Track / Race"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=6D+ATS-1R+1",
+        "https://placehold.co/800x800/222/white?text=6D+ATS-1R+2",
+        "https://placehold.co/800x800/222/white?text=6D+ATS-1R+3"
+    ],
+    "yoast_metadesc": "Unlock top-tier protection with the 6D ATS-1R, boasting M2+ composite shells and MIPS for ultimate impact absorption. Experience unmatched safety on your ride today. Compare prices and specs now at Helmetsan!"
+}

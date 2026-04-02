@@ -1,0 +1,114 @@
+{
+    "id": "icon_overlord",
+    "entity": "helmet",
+    "title": "Icon Overlord",
+    "brand": "Icon",
+    "type": "Open Face",
+    "helmet_family": "Overlord",
+    "price": {
+        "current": 149.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1080,
+        "weight_lbs": 2.38,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Icon Overlord open face with shield.",
+    "product_details": {
+        "description": "Icon Overlord open face with shield."
+    },
+    "variants": [
+        {
+            "id": "icon_overlord_black",
+            "entity": "helmet",
+            "title": "Icon Overlord Black",
+            "type": "Open Face",
+            "parent_id": "icon_overlord",
+            "helmet_family": "Overlord",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "ICO-OVL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Overlord open face with shield.",
+            "product_details": {
+                "description": "Icon Overlord open face with shield."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1080,
+                "weight_lbs": 2.38,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "icon_overlord_silver",
+            "entity": "helmet",
+            "title": "Icon Overlord Silver",
+            "type": "Open Face",
+            "parent_id": "icon_overlord",
+            "helmet_family": "Overlord",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "ICO-OVL-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Overlord open face with shield.",
+            "product_details": {
+                "description": "Icon Overlord open face with shield."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1080,
+                "weight_lbs": 2.38,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Overlord+3"
+    ]
+}

@@ -1,0 +1,201 @@
+{
+    "id": "biltwell_bonanza",
+    "entity": "helmet",
+    "title": "Biltwell Bonanza",
+    "brand": "Biltwell",
+    "type": "Open Face",
+    "helmet_family": "Bonanza",
+    "price": {
+        "current": 149.95,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1000,
+        "weight_lbs": 2.2,
+        "certifications": [
+            "DOT",
+            "SNELL M2020"
+        ]
+    },
+    "description": "Ultra-minimalist open face helmet with hand-painted graphics options.",
+    "product_details": {
+        "description": "Ultra-minimalist open face helmet with hand-painted graphics options."
+    },
+    "variants": [
+        {
+            "id": "biltwell_bonanza_gloss-black",
+            "entity": "helmet",
+            "title": "Biltwell Bonanza Gloss Black",
+            "type": "Open Face",
+            "parent_id": "biltwell_bonanza",
+            "helmet_family": "Bonanza",
+            "head_shape": "Round Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "BIL-BONA-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ultra-minimalist open face helmet with hand-painted graphics options.",
+            "product_details": {
+                "description": "Ultra-minimalist open face helmet with hand-painted graphics options."
+            },
+            "price": {
+                "current": 149.95,
+                "usd": 149.95,
+                "eur": 137.95,
+                "gbp": 118.46
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "SNELL M2020"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "biltwell_bonanza_anthracite",
+            "entity": "helmet",
+            "title": "Biltwell Bonanza Anthracite",
+            "type": "Open Face",
+            "parent_id": "biltwell_bonanza",
+            "helmet_family": "Bonanza",
+            "head_shape": "Round Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "BIL-BONA-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ultra-minimalist open face helmet with hand-painted graphics options.",
+            "product_details": {
+                "description": "Ultra-minimalist open face helmet with hand-painted graphics options."
+            },
+            "price": {
+                "current": 149.95,
+                "usd": 149.95,
+                "eur": 137.95,
+                "gbp": 118.46
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "SNELL M2020"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "biltwell_bonanza_pearl-white",
+            "entity": "helmet",
+            "title": "Biltwell Bonanza Pearl White",
+            "type": "Open Face",
+            "parent_id": "biltwell_bonanza",
+            "helmet_family": "Bonanza",
+            "head_shape": "Round Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "BIL-BONA-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ultra-minimalist open face helmet with hand-painted graphics options.",
+            "product_details": {
+                "description": "Ultra-minimalist open face helmet with hand-painted graphics options."
+            },
+            "price": {
+                "current": 149.95,
+                "usd": 149.95,
+                "eur": 137.95,
+                "gbp": 118.46
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "SNELL M2020"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "biltwell_bonanza_street-grey",
+            "entity": "helmet",
+            "title": "Biltwell Bonanza Street Grey",
+            "type": "Open Face",
+            "parent_id": "biltwell_bonanza",
+            "helmet_family": "Bonanza",
+            "head_shape": "Round Oval",
+            "color": "Street Grey",
+            "color_family": "Grey",
+            "sku": "BIL-BONA-STR",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Ultra-minimalist open face helmet with hand-painted graphics options.",
+            "product_details": {
+                "description": "Ultra-minimalist open face helmet with hand-painted graphics options."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "SNELL M2020"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Street+Grey",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Street+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+Street+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+1",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+2",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Bonanza+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "axor_cruiser_pro",
+    "entity": "helmet",
+    "title": "Axor Cruiser Pro",
+    "brand": "Axor",
+    "type": "Open Face",
+    "helmet_family": "Cruiser Pro",
+    "price": {
+        "current": 49.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 918,
+        "weight_lbs": 2.02,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Axor Cruiser Pro open face with flip visor.",
+    "product_details": {
+        "description": "Axor Cruiser Pro open face with flip visor."
+    },
+    "variants": [
+        {
+            "id": "axor_cruiser_pro_black",
+            "entity": "helmet",
+            "title": "Axor Cruiser Pro Black",
+            "type": "Open Face",
+            "parent_id": "axor_cruiser_pro",
+            "helmet_family": "Cruiser Pro",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "AXR-CRP-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Cruiser Pro open face with flip visor.",
+            "product_details": {
+                "description": "Axor Cruiser Pro open face with flip visor."
+            },
+            "price": {
+                "current": 49.99,
+                "usd": 49.99,
+                "eur": 45.99,
+                "gbp": 39.49
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 918,
+                "weight_lbs": 2.02,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "axor_cruiser_pro_chrome",
+            "entity": "helmet",
+            "title": "Axor Cruiser Pro Chrome",
+            "type": "Open Face",
+            "parent_id": "axor_cruiser_pro",
+            "helmet_family": "Cruiser Pro",
+            "head_shape": "Round Oval",
+            "color": "Chrome",
+            "color_family": "Grey",
+            "sku": "AXR-CRP-CHR",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Cruiser Pro open face with flip visor.",
+            "product_details": {
+                "description": "Axor Cruiser Pro open face with flip visor."
+            },
+            "price": {
+                "current": 64.99000000000001,
+                "usd": 64.99000000000001,
+                "eur": 59.79,
+                "gbp": 51.34
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 918,
+                "weight_lbs": 2.02,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+3"
+    ]
+}

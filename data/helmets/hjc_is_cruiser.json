@@ -1,0 +1,285 @@
+{
+    "id": "hjc_is_cruiser",
+    "entity": "helmet",
+    "title": "HJC IS-Cruiser",
+    "brand": "HJC",
+    "type": "Half",
+    "helmet_family": "IS-Cruiser",
+    "price": {
+        "current": 109.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+    "product_details": {
+        "description": "Lightweight half-helmet with sun shield for cruiser riding."
+    },
+    "variants": [
+        {
+            "id": "hjc_is_cruiser_gloss-black",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Gloss Black",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "HJC-ISCR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "hjc_is_cruiser_anthracite",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Anthracite",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "HJC-ISCR-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Anthracite",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "hjc_is_cruiser_urban-tc-5",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Urban TC-5",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban TC-5",
+            "color_family": "Multi",
+            "sku": "HJC-ISCR-URB",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Urban+TC-5",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Urban+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Urban+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "hjc_is_cruiser_raptor-tc-5",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Raptor TC-5",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor TC-5",
+            "color_family": "Multi",
+            "sku": "HJC-ISCR-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Raptor+TC-5",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Raptor+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Raptor+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "hjc_is_cruiser_course-red",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Course Red",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Course Red",
+            "color_family": "Red",
+            "sku": "HJC-ISCR-COU",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Course+Red",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Course+Red+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Course+Red+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "hjc_is_cruiser_tech-tc-1",
+            "entity": "helmet",
+            "title": "HJC IS-Cruiser Tech TC-1",
+            "type": "Half",
+            "parent_id": "hjc_is_cruiser",
+            "helmet_family": "IS-Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-1",
+            "color_family": "Multi",
+            "sku": "HJC-ISCR-TEC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightweight half-helmet with sun shield for cruiser riding.",
+            "product_details": {
+                "description": "Lightweight half-helmet with sun shield for cruiser riding."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Tech+TC-1",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Tech+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+Tech+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+1",
+        "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+2",
+        "https://placehold.co/800x800/222/white?text=HJC+IS-Cruiser+3"
+    ]
+}

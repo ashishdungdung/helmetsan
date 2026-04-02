@@ -1,0 +1,117 @@
+{
+    "id": "apex_atlas",
+    "entity": "helmet",
+    "title": "Apex Atlas",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Atlas",
+    "price": {
+        "current": 329.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1610,
+        "weight_lbs": 3.55,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Premium touring helmet with integrated sun visor and quiet ride.",
+    "product_details": {
+        "description": "Premium touring helmet with integrated sun visor and quiet ride."
+    },
+    "variants": [
+        {
+            "id": "apex_atlas_matte-black",
+            "entity": "helmet",
+            "title": "Apex Atlas Matte Black",
+            "type": "Touring",
+            "parent_id": "apex_atlas",
+            "helmet_family": "Atlas",
+            "head_shape": "Round Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-ATL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium touring helmet with integrated sun visor and quiet ride.",
+            "product_details": {
+                "description": "Premium touring helmet with integrated sun visor and quiet ride."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_atlas_white",
+            "entity": "helmet",
+            "title": "Apex Atlas White",
+            "type": "Touring",
+            "parent_id": "apex_atlas",
+            "helmet_family": "Atlas",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-ATL-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium touring helmet with integrated sun visor and quiet ride.",
+            "product_details": {
+                "description": "Premium touring helmet with integrated sun visor and quiet ride."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+White+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Atlas+3"
+    ]
+}

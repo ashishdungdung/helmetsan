@@ -138,7 +138,8 @@ final class ProviderRegistry
             'lm_studio' => new LMStudioProvider(
                 (string) ($extraConfig['base_url'] ?? ''),
                 $model ?: 'local',
-                $apiKey
+                $apiKey,
+                (int) ($extraConfig['concurrency'] ?? 1)
             ),
             'openai' => new OpenAIProvider($apiKey, $model ?: 'gpt-4o-mini'),
             'anthropic' => new AnthropicProvider($apiKey, $model ?: 'claude-sonnet-4-20250514'),

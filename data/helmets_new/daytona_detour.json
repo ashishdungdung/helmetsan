@@ -1,0 +1,196 @@
+{
+    "id": "daytona_detour",
+    "entity": "helmet",
+    "title": "Daytona Detour",
+    "brand": "Daytona",
+    "type": "Full Face",
+    "helmet_family": "Detour",
+    "price": {
+        "current": 99.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Entry full face with quick-release shield and ventilation.",
+    "product_details": {
+        "description": "Entry full face with quick-release shield and ventilation."
+    },
+    "variants": [
+        {
+            "id": "daytona_detour_gloss-black",
+            "entity": "helmet",
+            "title": "Daytona Detour Gloss Black",
+            "type": "Full Face",
+            "parent_id": "daytona_detour",
+            "helmet_family": "Detour",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "DAY-DETO-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry full face with quick-release shield and ventilation.",
+            "product_details": {
+                "description": "Entry full face with quick-release shield and ventilation."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "daytona_detour_gloss-white",
+            "entity": "helmet",
+            "title": "Daytona Detour Gloss White",
+            "type": "Full Face",
+            "parent_id": "daytona_detour",
+            "helmet_family": "Detour",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "DAY-DETO-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry full face with quick-release shield and ventilation.",
+            "product_details": {
+                "description": "Entry full face with quick-release shield and ventilation."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "daytona_detour_pearl-white",
+            "entity": "helmet",
+            "title": "Daytona Detour Pearl White",
+            "type": "Full Face",
+            "parent_id": "daytona_detour",
+            "helmet_family": "Detour",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "DAY-DETO-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry full face with quick-release shield and ventilation.",
+            "product_details": {
+                "description": "Entry full face with quick-release shield and ventilation."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "daytona_detour_stripe-grey",
+            "entity": "helmet",
+            "title": "Daytona Detour Stripe Grey",
+            "type": "Full Face",
+            "parent_id": "daytona_detour",
+            "helmet_family": "Detour",
+            "head_shape": "Intermediate Oval",
+            "color": "Stripe Grey",
+            "color_family": "Grey",
+            "sku": "DAY-DETO-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Entry full face with quick-release shield and ventilation.",
+            "product_details": {
+                "description": "Entry full face with quick-release shield and ventilation."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Stripe+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Stripe+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+Stripe+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Daytona+Detour+3"
+    ]
+}

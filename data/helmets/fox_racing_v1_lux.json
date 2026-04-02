@@ -1,0 +1,201 @@
+{
+    "id": "fox_racing_v1_lux",
+    "entity": "helmet",
+    "title": "Fox Racing V1 Lux",
+    "brand": "Fox Racing",
+    "type": "Dirt \/ MX",
+    "helmet_family": "V1 Lux",
+    "price": {
+        "current": 179.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1350,
+        "weight_lbs": 2.98,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Entry MX with MIPS liner and magnetic visor release system.",
+    "product_details": {
+        "description": "Entry MX with MIPS liner and magnetic visor release system."
+    },
+    "variants": [
+        {
+            "id": "fox_racing_v1_lux_matte-black",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Lux Matte Black",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1_lux",
+            "helmet_family": "V1 Lux",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "FOX-V1LU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry MX with MIPS liner and magnetic visor release system.",
+            "product_details": {
+                "description": "Entry MX with MIPS liner and magnetic visor release system."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_lux_silver-metallic",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Lux Silver Metallic",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1_lux",
+            "helmet_family": "V1 Lux",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "FOX-V1LU-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry MX with MIPS liner and magnetic visor release system.",
+            "product_details": {
+                "description": "Entry MX with MIPS liner and magnetic visor release system."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_lux_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Lux Hi-Viz Yellow",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1_lux",
+            "helmet_family": "V1 Lux",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "FOX-V1LU-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry MX with MIPS liner and magnetic visor release system.",
+            "product_details": {
+                "description": "Entry MX with MIPS liner and magnetic visor release system."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_lux_street-red",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Lux Street Red",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1_lux",
+            "helmet_family": "V1 Lux",
+            "head_shape": "Intermediate Oval",
+            "color": "Street Red",
+            "color_family": "Red",
+            "sku": "FOX-V1LU-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Entry MX with MIPS liner and magnetic visor release system.",
+            "product_details": {
+                "description": "Entry MX with MIPS liner and magnetic visor release system."
+            },
+            "price": {
+                "current": 229.95,
+                "usd": 229.95,
+                "eur": 211.55,
+                "gbp": 181.66
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Street+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Street+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+Street+Red+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Lux+3"
+    ]
+}

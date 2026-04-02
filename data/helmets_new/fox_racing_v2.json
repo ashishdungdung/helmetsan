@@ -1,0 +1,201 @@
+{
+    "id": "fox_racing_v2",
+    "entity": "helmet",
+    "title": "Fox Racing V2",
+    "brand": "Fox Racing",
+    "type": "Dirt \/ MX",
+    "helmet_family": "V2",
+    "price": {
+        "current": 299.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1315,
+        "weight_lbs": 2.9,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Mid-range MX with MIPS brain protection system and fiberglass shell.",
+    "product_details": {
+        "description": "Mid-range MX with MIPS brain protection system and fiberglass shell."
+    },
+    "variants": [
+        {
+            "id": "fox_racing_v2_gloss-black",
+            "entity": "helmet",
+            "title": "Fox Racing V2 Gloss Black",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v2",
+            "helmet_family": "V2",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "FOX-V2-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range MX with MIPS brain protection system and fiberglass shell.",
+            "product_details": {
+                "description": "Mid-range MX with MIPS brain protection system and fiberglass shell."
+            },
+            "price": {
+                "current": 299.95,
+                "usd": 299.95,
+                "eur": 275.95,
+                "gbp": 236.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1315,
+                "weight_lbs": 2.9,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v2_gloss-white",
+            "entity": "helmet",
+            "title": "Fox Racing V2 Gloss White",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v2",
+            "helmet_family": "V2",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "FOX-V2-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range MX with MIPS brain protection system and fiberglass shell.",
+            "product_details": {
+                "description": "Mid-range MX with MIPS brain protection system and fiberglass shell."
+            },
+            "price": {
+                "current": 299.95,
+                "usd": 299.95,
+                "eur": 275.95,
+                "gbp": 236.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1315,
+                "weight_lbs": 2.9,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v2_flow-blue",
+            "entity": "helmet",
+            "title": "Fox Racing V2 Flow Blue",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v2",
+            "helmet_family": "V2",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow Blue",
+            "color_family": "Blue",
+            "sku": "FOX-V2-FLO",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Mid-range MX with MIPS brain protection system and fiberglass shell.",
+            "product_details": {
+                "description": "Mid-range MX with MIPS brain protection system and fiberglass shell."
+            },
+            "price": {
+                "current": 349.95,
+                "usd": 349.95,
+                "eur": 321.95,
+                "gbp": 276.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1315,
+                "weight_lbs": 2.9,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Flow+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Flow+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Flow+Blue+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v2_raptor-grey",
+            "entity": "helmet",
+            "title": "Fox Racing V2 Raptor Grey",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v2",
+            "helmet_family": "V2",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor Grey",
+            "color_family": "Grey",
+            "sku": "FOX-V2-RAP",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Mid-range MX with MIPS brain protection system and fiberglass shell.",
+            "product_details": {
+                "description": "Mid-range MX with MIPS brain protection system and fiberglass shell."
+            },
+            "price": {
+                "current": 349.95,
+                "usd": 349.95,
+                "eur": 321.95,
+                "gbp": 276.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1315,
+                "weight_lbs": 2.9,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Raptor+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Raptor+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+Raptor+Grey+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V2+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_circuit",
+    "entity": "helmet",
+    "title": "Apex Circuit",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Circuit",
+    "price": {
+        "current": 199.99,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Entry-level full face with good ventilation and removable liner.",
+    "product_details": {
+        "description": "Entry-level full face with good ventilation and removable liner."
+    },
+    "variants": [
+        {
+            "id": "apex_circuit_black",
+            "entity": "helmet",
+            "title": "Apex Circuit Black",
+            "type": "Full Face",
+            "parent_id": "apex_circuit",
+            "helmet_family": "Circuit",
+            "head_shape": "Long Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-CIR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_circuit_red",
+            "entity": "helmet",
+            "title": "Apex Circuit Red",
+            "type": "Full Face",
+            "parent_id": "apex_circuit",
+            "helmet_family": "Circuit",
+            "head_shape": "Long Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-CIR-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+3"
+    ]
+}

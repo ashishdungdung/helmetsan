@@ -1,0 +1,117 @@
+{
+    "id": "apex_scrambler",
+    "entity": "helmet",
+    "title": "Apex Scrambler",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Scrambler",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1670,
+        "weight_lbs": 3.68,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Scrambler-style adventure helmet with peak and goggles-ready.",
+    "product_details": {
+        "description": "Scrambler-style adventure helmet with peak and goggles-ready."
+    },
+    "variants": [
+        {
+            "id": "apex_scrambler_black",
+            "entity": "helmet",
+            "title": "Apex Scrambler Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_scrambler",
+            "helmet_family": "Scrambler",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-SCR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Scrambler-style adventure helmet with peak and goggles-ready.",
+            "product_details": {
+                "description": "Scrambler-style adventure helmet with peak and goggles-ready."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1670,
+                "weight_lbs": 3.68,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_scrambler_brown",
+            "entity": "helmet",
+            "title": "Apex Scrambler Brown",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_scrambler",
+            "helmet_family": "Scrambler",
+            "head_shape": "Intermediate Oval",
+            "color": "Brown",
+            "color_family": "Multi",
+            "sku": "APX-SCR-BRN",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Scrambler-style adventure helmet with peak and goggles-ready.",
+            "product_details": {
+                "description": "Scrambler-style adventure helmet with peak and goggles-ready."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1670,
+                "weight_lbs": 3.68,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Brown",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Brown+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Brown+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+3"
+    ]
+}

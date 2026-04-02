@@ -1,0 +1,196 @@
+{
+    "id": "airoh_helios",
+    "entity": "helmet",
+    "title": "Airoh Helios",
+    "brand": "Airoh",
+    "type": "Open Face",
+    "helmet_family": "Helios",
+    "price": {
+        "current": 229.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "HPC Composite",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
+    "product_details": {
+        "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
+    },
+    "variants": [
+        {
+            "id": "airoh_helios_gloss-black",
+            "entity": "helmet",
+            "title": "Airoh Helios Gloss Black",
+            "type": "Open Face",
+            "parent_id": "airoh_helios",
+            "helmet_family": "Helios",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "AIR-HELI-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
+            "product_details": {
+                "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "HPC Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "airoh_helios_anthracite",
+            "entity": "helmet",
+            "title": "Airoh Helios Anthracite",
+            "type": "Open Face",
+            "parent_id": "airoh_helios",
+            "helmet_family": "Helios",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "AIR-HELI-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
+            "product_details": {
+                "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "HPC Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "airoh_helios_gloss-white",
+            "entity": "helmet",
+            "title": "Airoh Helios Gloss White",
+            "type": "Open Face",
+            "parent_id": "airoh_helios",
+            "helmet_family": "Helios",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "AIR-HELI-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
+            "product_details": {
+                "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "HPC Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "airoh_helios_raptor-red",
+            "entity": "helmet",
+            "title": "Airoh Helios Raptor Red",
+            "type": "Open Face",
+            "parent_id": "airoh_helios",
+            "helmet_family": "Helios",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor Red",
+            "color_family": "Red",
+            "sku": "AIR-HELI-RAP",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
+            "product_details": {
+                "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "HPC Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+3"
+    ]
+}

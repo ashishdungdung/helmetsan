@@ -1,0 +1,159 @@
+{
+    "id": "axor_street",
+    "entity": "helmet",
+    "title": "Axor Street",
+    "brand": "Axor",
+    "type": "Full Face",
+    "helmet_family": "Street",
+    "price": {
+        "current": 74.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1360,
+        "weight_lbs": 3,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Axor Street with dual homologation and internal sun visor.",
+    "product_details": {
+        "description": "Axor Street with dual homologation and internal sun visor."
+    },
+    "variants": [
+        {
+            "id": "axor_street_black",
+            "entity": "helmet",
+            "title": "Axor Street Black",
+            "type": "Full Face",
+            "parent_id": "axor_street",
+            "helmet_family": "Street",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "AXR-STR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Street with dual homologation and internal sun visor.",
+            "product_details": {
+                "description": "Axor Street with dual homologation and internal sun visor."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1360,
+                "weight_lbs": 3,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "axor_street_white",
+            "entity": "helmet",
+            "title": "Axor Street White",
+            "type": "Full Face",
+            "parent_id": "axor_street",
+            "helmet_family": "Street",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "AXR-STR-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Street with dual homologation and internal sun visor.",
+            "product_details": {
+                "description": "Axor Street with dual homologation and internal sun visor."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1360,
+                "weight_lbs": 3,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "axor_street_red",
+            "entity": "helmet",
+            "title": "Axor Street Red",
+            "type": "Full Face",
+            "parent_id": "axor_street",
+            "helmet_family": "Street",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "AXR-STR-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Street with dual homologation and internal sun visor.",
+            "product_details": {
+                "description": "Axor Street with dual homologation and internal sun visor."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1360,
+                "weight_lbs": 3,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+3"
+    ]
+}

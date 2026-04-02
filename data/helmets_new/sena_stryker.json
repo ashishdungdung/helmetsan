@@ -1,0 +1,196 @@
+{
+    "id": "sena_stryker",
+    "entity": "helmet",
+    "title": "Sena Stryker",
+    "brand": "Sena",
+    "type": "Full Face",
+    "helmet_family": "Stryker",
+    "price": {
+        "current": 379,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone.",
+    "product_details": {
+        "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone."
+    },
+    "variants": [
+        {
+            "id": "sena_stryker_matte-black",
+            "entity": "helmet",
+            "title": "Sena Stryker Matte Black",
+            "type": "Full Face",
+            "parent_id": "sena_stryker",
+            "helmet_family": "Stryker",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SEN-STRY-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone.",
+            "product_details": {
+                "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone."
+            },
+            "price": {
+                "current": 379,
+                "usd": 379,
+                "eur": 348.68,
+                "gbp": 299.41
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "sena_stryker_gloss-white",
+            "entity": "helmet",
+            "title": "Sena Stryker Gloss White",
+            "type": "Full Face",
+            "parent_id": "sena_stryker",
+            "helmet_family": "Stryker",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "SEN-STRY-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone.",
+            "product_details": {
+                "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone."
+            },
+            "price": {
+                "current": 379,
+                "usd": 379,
+                "eur": 348.68,
+                "gbp": 299.41
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "sena_stryker_silver-metallic",
+            "entity": "helmet",
+            "title": "Sena Stryker Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "sena_stryker",
+            "helmet_family": "Stryker",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "SEN-STRY-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone.",
+            "product_details": {
+                "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone."
+            },
+            "price": {
+                "current": 379,
+                "usd": 379,
+                "eur": 348.68,
+                "gbp": 299.41
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "sena_stryker_operator-tc-2",
+            "entity": "helmet",
+            "title": "Sena Stryker Operator TC-2",
+            "type": "Full Face",
+            "parent_id": "sena_stryker",
+            "helmet_family": "Stryker",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator TC-2",
+            "color_family": "Multi",
+            "sku": "SEN-STRY-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone.",
+            "product_details": {
+                "description": "Full-face with integrated mesh Bluetooth and noise-canceling microphone."
+            },
+            "price": {
+                "current": 429,
+                "usd": 429,
+                "eur": 394.68,
+                "gbp": 338.91
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Operator+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Operator+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+Operator+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sena+Stryker+3"
+    ]
+}

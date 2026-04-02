@@ -1,0 +1,159 @@
+{
+    "id": "fly_racing_kinetic",
+    "entity": "helmet",
+    "title": "Fly Racing Kinetic",
+    "brand": "Fly Racing",
+    "type": "Dirt / MX",
+    "helmet_family": "Kinetic",
+    "price": {
+        "current": 129.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polymer",
+        "weight_g": 1450,
+        "weight_lbs": 3.2,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Budget-friendly entry MX helmet with multiple shell sizes.",
+    "product_details": {
+        "description": "Budget-friendly entry MX helmet with multiple shell sizes."
+    },
+    "variants": [
+        {
+            "id": "fly_racing_kinetic_matte-black",
+            "entity": "helmet",
+            "title": "Fly Racing Kinetic Matte Black",
+            "type": "Dirt / MX",
+            "parent_id": "fly_racing_kinetic",
+            "helmet_family": "Kinetic",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "FLY-KINE-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget-friendly entry MX helmet with multiple shell sizes.",
+            "product_details": {
+                "description": "Budget-friendly entry MX helmet with multiple shell sizes."
+            },
+            "price": {
+                "current": 129.95,
+                "usd": 129.95,
+                "eur": 119.55,
+                "gbp": 102.66
+            },
+            "specs": {
+                "material": "Polymer",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        },
+        {
+            "id": "fly_racing_kinetic_pearl-white",
+            "entity": "helmet",
+            "title": "Fly Racing Kinetic Pearl White",
+            "type": "Dirt / MX",
+            "parent_id": "fly_racing_kinetic",
+            "helmet_family": "Kinetic",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "FLY-KINE-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget-friendly entry MX helmet with multiple shell sizes.",
+            "product_details": {
+                "description": "Budget-friendly entry MX helmet with multiple shell sizes."
+            },
+            "price": {
+                "current": 129.95,
+                "usd": 129.95,
+                "eur": 119.55,
+                "gbp": 102.66
+            },
+            "specs": {
+                "material": "Polymer",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        },
+        {
+            "id": "fly_racing_kinetic_flow-grey",
+            "entity": "helmet",
+            "title": "Fly Racing Kinetic Flow Grey",
+            "type": "Dirt / MX",
+            "parent_id": "fly_racing_kinetic",
+            "helmet_family": "Kinetic",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow Grey",
+            "color_family": "Grey",
+            "sku": "FLY-KINE-FLO",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget-friendly entry MX helmet with multiple shell sizes.",
+            "product_details": {
+                "description": "Budget-friendly entry MX helmet with multiple shell sizes."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polymer",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Flow+Grey",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Flow+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+Flow+Grey+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+1",
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+2",
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Kinetic+3"
+    ]
+}

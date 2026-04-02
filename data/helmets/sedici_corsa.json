@@ -1,0 +1,117 @@
+{
+    "id": "sedici_corsa",
+    "entity": "helmet",
+    "title": "Sedici Corsa",
+    "brand": "Sedici",
+    "type": "Full Face",
+    "helmet_family": "Corsa",
+    "price": {
+        "current": 189.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1540,
+        "weight_lbs": 3.4,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sedici Corsa full face for sport.",
+    "product_details": {
+        "description": "Sedici Corsa full face for sport."
+    },
+    "variants": [
+        {
+            "id": "sedici_corsa_matte-black",
+            "entity": "helmet",
+            "title": "Sedici Corsa Matte Black",
+            "type": "Full Face",
+            "parent_id": "sedici_corsa",
+            "helmet_family": "Corsa",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SED-COR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sedici Corsa full face for sport.",
+            "product_details": {
+                "description": "Sedici Corsa full face for sport."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1540,
+                "weight_lbs": 3.4,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "sedici_corsa_red",
+            "entity": "helmet",
+            "title": "Sedici Corsa Red",
+            "type": "Full Face",
+            "parent_id": "sedici_corsa",
+            "helmet_family": "Corsa",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "SED-COR-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sedici Corsa full face for sport.",
+            "product_details": {
+                "description": "Sedici Corsa full face for sport."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1540,
+                "weight_lbs": 3.4,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Corsa+3"
+    ]
+}

@@ -1,0 +1,285 @@
+{
+    "id": "schuberth_s3",
+    "entity": "helmet",
+    "title": "Schuberth S3",
+    "brand": "Schuberth",
+    "type": "Full Face",
+    "helmet_family": "S3",
+    "price": {
+        "current": 649,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Direct Fiber",
+        "weight_g": 1590,
+        "weight_lbs": 3.51,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Sport touring with acoustic optimization.",
+    "product_details": {
+        "description": "Sport touring with acoustic optimization."
+    },
+    "variants": [
+        {
+            "id": "schuberth_s3_gloss-black",
+            "entity": "helmet",
+            "title": "Schuberth S3 Gloss Black",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SCH-S3-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 649,
+                "usd": 649,
+                "eur": 597.08,
+                "gbp": 512.71
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "schuberth_s3_gloss-white",
+            "entity": "helmet",
+            "title": "Schuberth S3 Gloss White",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "SCH-S3-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 649,
+                "usd": 649,
+                "eur": 597.08,
+                "gbp": 512.71
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "schuberth_s3_urban-blue",
+            "entity": "helmet",
+            "title": "Schuberth S3 Urban Blue",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban Blue",
+            "color_family": "Blue",
+            "sku": "SCH-S3-URB",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 699,
+                "usd": 699,
+                "eur": 643.08,
+                "gbp": 552.21
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "schuberth_s3_apex-tc-1",
+            "entity": "helmet",
+            "title": "Schuberth S3 Apex TC-1",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-1",
+            "color_family": "Multi",
+            "sku": "SCH-S3-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 699,
+                "usd": 699,
+                "eur": 643.08,
+                "gbp": 552.21
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "schuberth_s3_urban-tc-5",
+            "entity": "helmet",
+            "title": "Schuberth S3 Urban TC-5",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban TC-5",
+            "color_family": "Multi",
+            "sku": "SCH-S3-URB",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 699,
+                "usd": 699,
+                "eur": 643.08,
+                "gbp": 552.21
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "schuberth_s3_operator-tc-5",
+            "entity": "helmet",
+            "title": "Schuberth S3 Operator TC-5",
+            "type": "Full Face",
+            "parent_id": "schuberth_s3",
+            "helmet_family": "S3",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator TC-5",
+            "color_family": "Multi",
+            "sku": "SCH-S3-OPE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Sport touring with acoustic optimization.",
+            "product_details": {
+                "description": "Sport touring with acoustic optimization."
+            },
+            "price": {
+                "current": 699,
+                "usd": 699,
+                "eur": 643.08,
+                "gbp": 552.21
+            },
+            "specs": {
+                "material": "Direct Fiber",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+3"
+    ]
+}

@@ -1,0 +1,285 @@
+{
+    "id": "ls2_stream_2",
+    "entity": "helmet",
+    "title": "LS2 Stream 2",
+    "brand": "LS2",
+    "type": "Full Face",
+    "helmet_family": "Stream 2",
+    "price": {
+        "current": 129.98,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "KPA",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Best-selling budget full face with KPA shell technology.",
+    "product_details": {
+        "description": "Best-selling budget full face with KPA shell technology."
+    },
+    "variants": [
+        {
+            "id": "ls2_stream_2_matte-black",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Matte Black",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "LS2-STRE-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 129.98,
+                "usd": 129.98,
+                "eur": 119.58,
+                "gbp": 102.68
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_stream_2_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "LS2-STRE-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 129.98,
+                "usd": 129.98,
+                "eur": 119.58,
+                "gbp": 102.68
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_stream_2_vortex-red",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Vortex Red",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex Red",
+            "color_family": "Red",
+            "sku": "LS2-STRE-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 179.98,
+                "usd": 179.98,
+                "eur": 165.58,
+                "gbp": 142.18
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_stream_2_vortex-tc-2",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Vortex TC-2",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex TC-2",
+            "color_family": "Multi",
+            "sku": "LS2-STRE-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 179.98,
+                "usd": 179.98,
+                "eur": 165.58,
+                "gbp": 142.18
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Vortex+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_stream_2_tech-tc-1",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Tech TC-1",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-1",
+            "color_family": "Multi",
+            "sku": "LS2-STRE-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 179.98,
+                "usd": 179.98,
+                "eur": 165.58,
+                "gbp": 142.18
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Tech+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Tech+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Tech+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_stream_2_raptor-red",
+            "entity": "helmet",
+            "title": "LS2 Stream 2 Raptor Red",
+            "type": "Full Face",
+            "parent_id": "ls2_stream_2",
+            "helmet_family": "Stream 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor Red",
+            "color_family": "Red",
+            "sku": "LS2-STRE-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Best-selling budget full face with KPA shell technology.",
+            "product_details": {
+                "description": "Best-selling budget full face with KPA shell technology."
+            },
+            "price": {
+                "current": 179.98,
+                "usd": 179.98,
+                "eur": 165.58,
+                "gbp": 142.18
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Raptor+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Raptor+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+Raptor+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Stream+2+3"
+    ]
+}

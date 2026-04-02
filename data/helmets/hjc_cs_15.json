@@ -1,0 +1,117 @@
+{
+    "id": "hjc_cs_15",
+    "entity": "helmet",
+    "title": "HJC CS-15",
+    "brand": "HJC",
+    "type": "Full Face",
+    "helmet_family": "CS-15",
+    "price": {
+        "current": 149.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1560,
+        "weight_lbs": 3.44,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "HJC CS-15 full face with sun visor.",
+    "product_details": {
+        "description": "HJC CS-15 full face with sun visor."
+    },
+    "variants": [
+        {
+            "id": "hjc_cs_15_black",
+            "entity": "helmet",
+            "title": "HJC CS-15 Black",
+            "type": "Full Face",
+            "parent_id": "hjc_cs_15",
+            "helmet_family": "CS-15",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "HJC-CS15-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "HJC CS-15 full face with sun visor.",
+            "product_details": {
+                "description": "HJC CS-15 full face with sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cs_15_grey",
+            "entity": "helmet",
+            "title": "HJC CS-15 Grey",
+            "type": "Full Face",
+            "parent_id": "hjc_cs_15",
+            "helmet_family": "CS-15",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "HJC-CS15-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "HJC CS-15 full face with sun visor.",
+            "product_details": {
+                "description": "HJC CS-15 full face with sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CS-15+3"
+    ]
+}

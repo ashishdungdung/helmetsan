@@ -1,0 +1,452 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Global Helmet Intelligence Platform
+    - button "Switch to dark mode" [ref=e6] [cursor=pointer]:
+      - img [ref=e8]
+    - navigation [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "About Helmetsan" [ref=e14] [cursor=pointer]:
+            - /url: https://helmetsan.com/about/
+        - listitem [ref=e15]:
+          - link "Legal" [ref=e16] [cursor=pointer]:
+            - /url: https://helmetsan.com/legal/
+        - listitem [ref=e17]:
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: https://helmetsan.com/contact/
+  - banner [ref=e19]:
+    - generic [ref=e20]:
+      - link "Helmetsan" [ref=e21] [cursor=pointer]:
+        - /url: https://helmetsan.com/
+      - navigation [ref=e22]:
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - link "Helmets" [ref=e25] [cursor=pointer]:
+              - /url: /helmets/
+          - listitem [ref=e26]:
+            - link "Brands" [ref=e27] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/
+          - listitem [ref=e28]:
+            - link "Accessories" [ref=e29] [cursor=pointer]:
+              - /url: http://helmetsan.com/accessories/
+          - listitem [ref=e30]:
+            - link "Motorcycles" [ref=e31] [cursor=pointer]:
+              - /url: http://helmetsan.com/motorcycles/
+          - listitem [ref=e32]:
+            - link "Safety" [ref=e33] [cursor=pointer]:
+              - /url: http://helmetsan.com/safety-standards/
+          - listitem [ref=e34]:
+            - link "Reviews" [ref=e35] [cursor=pointer]:
+              - /url: /reviews/
+          - listitem [ref=e36]:
+            - link "Contact" [ref=e37] [cursor=pointer]:
+              - /url: https://helmetsan.com/contact/
+  - main [ref=e38]:
+    - generic [ref=e41]:
+      - paragraph [ref=e42]: Global Helmet Intelligence Platform
+      - heading "Find the Right Helmet. Compare Specs. Stay Compliant." [level=1] [ref=e43]
+      - paragraph [ref=e44]: Search helmets by brand, type, and certification. Explore accessories, compatibility, and safety standards in one place.
+      - generic [ref=e45]:
+        - link "Explore Helmets" [ref=e46] [cursor=pointer]:
+          - /url: https://helmetsan.com/helmets/
+        - link "Browse Accessories" [ref=e47] [cursor=pointer]:
+          - /url: https://helmetsan.com/accessories/
+    - region "Apex Trail Ultra Orange" [ref=e48]:
+      - generic [ref=e49]:
+        - link [ref=e51] [cursor=pointer]:
+          - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+        - generic [ref=e52]:
+          - paragraph [ref=e53]: Today's pick
+          - heading "Apex Trail Ultra Orange" [level=2] [ref=e54]:
+            - link "Apex Trail Ultra Orange" [ref=e55] [cursor=pointer]:
+              - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+          - paragraph [ref=e56]: Apex
+          - paragraph [ref=e57]: "Apex Trail Ultra Orange | Type: variant | Brand: Apex"
+          - generic [ref=e58]:
+            - generic [ref=e59]: $319.99
+            - generic [ref=e60]: ECE 22.06
+          - generic [ref=e61]:
+            - link "View helmet" [ref=e62] [cursor=pointer]:
+              - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+            - button "Add to comparison" [ref=e63] [cursor=pointer]: Add to compare
+    - generic [ref=e64]:
+      - link "Helmets 3037" [ref=e65] [cursor=pointer]:
+        - /url: https://helmetsan.com/helmets/
+        - generic [ref=e66]: Helmets
+        - strong [ref=e67]: "3037"
+      - link "Brands 102" [ref=e68] [cursor=pointer]:
+        - /url: https://helmetsan.com/brands/
+        - generic [ref=e69]: Brands
+        - strong [ref=e70]: "102"
+      - link "Accessories 1718" [ref=e71] [cursor=pointer]:
+        - /url: https://helmetsan.com/accessories/
+        - generic [ref=e72]: Accessories
+        - strong [ref=e73]: "1718"
+      - link "Motorcycles 5" [ref=e74] [cursor=pointer]:
+        - /url: https://helmetsan.com/motorcycles/
+        - generic [ref=e75]: Motorcycles
+        - strong [ref=e76]: "5"
+      - link "Dealers 110" [ref=e77] [cursor=pointer]:
+        - /url: https://helmetsan.com/dealers/
+        - generic [ref=e78]: Dealers
+        - strong [ref=e79]: "110"
+    - navigation "Quick explore" [ref=e80]:
+      - generic [ref=e81]: "Explore:"
+      - link "Helmets" [ref=e82] [cursor=pointer]:
+        - /url: https://helmetsan.com/helmets/
+      - link "Brands" [ref=e83] [cursor=pointer]:
+        - /url: https://helmetsan.com/brands/
+      - link "Accessories" [ref=e84] [cursor=pointer]:
+        - /url: https://helmetsan.com/accessories/
+      - link "Motorcycles" [ref=e85] [cursor=pointer]:
+        - /url: https://helmetsan.com/motorcycles/
+      - link "Safety Standards" [ref=e86] [cursor=pointer]:
+        - /url: https://helmetsan.com/safety/
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - heading "Featured Helmets" [level=2] [ref=e89]
+        - link "View all →" [ref=e90] [cursor=pointer]:
+          - /url: https://helmetsan.com/helmets/
+      - paragraph [ref=e91]: Hand-picked models to compare specs, certifications, and prices. Add any helmet to the comparison tool to see them side by side.
+      - generic [ref=e92]:
+        - article [ref=e93]:
+          - img "Apex Trail Ultra Orange" [ref=e95]
+          - button "Add to comparison" [ref=e96] [cursor=pointer]:
+            - img [ref=e97]
+          - link "Apex Trail Ultra Orange" [ref=e98] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+            - heading "Apex Trail Ultra Orange" [level=3] [ref=e100]:
+              - text: Apex Trail Ultra Orange
+              - img [ref=e101]
+          - generic [ref=e103]:
+            - generic [ref=e104]: $319.99
+            - generic [ref=e105]: Premium
+            - generic [ref=e106]: Adventure
+            - generic [ref=e107]: ECE 22.06
+        - article [ref=e108]:
+          - img "Apex Trail Ultra Matte Black" [ref=e110]
+          - button "Add to comparison" [ref=e111] [cursor=pointer]:
+            - img [ref=e112]
+          - link "Apex Trail Ultra Matte Black" [ref=e113] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra-matte-black/
+            - heading "Apex Trail Ultra Matte Black" [level=3] [ref=e115]:
+              - text: Apex Trail Ultra Matte Black
+              - img [ref=e116]
+          - generic [ref=e118]:
+            - generic [ref=e119]: $319.99
+            - generic [ref=e120]: Premium
+            - generic [ref=e121]: Adventure
+            - generic [ref=e122]: DOT
+        - article [ref=e123]:
+          - img "Apex Trail Ultra Orange" [ref=e125]
+          - button "Add to comparison" [ref=e126] [cursor=pointer]:
+            - img [ref=e127]
+          - link "Apex Trail Ultra Orange" [ref=e128] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+            - heading "Apex Trail Ultra Orange" [level=3] [ref=e130]:
+              - text: Apex Trail Ultra Orange
+              - img [ref=e131]
+          - generic [ref=e133]:
+            - generic [ref=e134]: $319.99
+            - generic [ref=e135]: Premium
+            - generic [ref=e136]: Dual Sport
+            - generic [ref=e137]: DOT, ECE 22.06
+        - article [ref=e138]:
+          - img "Apex Trail Ultra" [ref=e140]
+          - button "Add to comparison" [ref=e141] [cursor=pointer]:
+            - img [ref=e142]
+          - link "Apex Trail Ultra" [ref=e143] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra/
+            - heading "Apex Trail Ultra" [level=3] [ref=e145]:
+              - text: Apex Trail Ultra
+              - img [ref=e146]
+          - generic [ref=e148]:
+            - generic [ref=e149]: $319.99
+            - generic [ref=e150]: 2 Colors
+            - generic [ref=e151]: Premium
+            - generic [ref=e152]: DOT, ECE 22.06
+        - article [ref=e153]:
+          - img "Apex Trail Ultra Matte Black" [ref=e155]
+          - button "Add to comparison" [ref=e156] [cursor=pointer]:
+            - img [ref=e157]
+          - link "Apex Trail Ultra Matte Black" [ref=e158] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra-matte-black/
+            - heading "Apex Trail Ultra Matte Black" [level=3] [ref=e160]:
+              - text: Apex Trail Ultra Matte Black
+              - img [ref=e161]
+          - generic [ref=e163]:
+            - generic [ref=e164]: $319.99
+            - generic [ref=e165]: Premium
+            - generic [ref=e166]: Dual Sport
+            - generic [ref=e167]: DOT, ECE 22.06
+        - article [ref=e168]:
+          - img "Apex Venture Ultra Grey" [ref=e170]
+          - button "Add to comparison" [ref=e171] [cursor=pointer]:
+            - img [ref=e172]
+          - link "Apex Venture Ultra Grey" [ref=e173] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-venture-ultra-grey/
+            - heading "Apex Venture Ultra Grey" [level=3] [ref=e175]:
+              - text: Apex Venture Ultra Grey
+              - img [ref=e176]
+          - generic [ref=e178]:
+            - generic [ref=e179]: $339.99
+            - generic [ref=e180]: Premium
+            - generic [ref=e181]: DOT, ECE 22.06
+        - article [ref=e182]:
+          - img "Apex Trail Ultra" [ref=e184]
+          - button "Add to comparison" [ref=e185] [cursor=pointer]:
+            - img [ref=e186]
+          - link "Apex Trail Ultra" [ref=e187] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-trail-ultra/
+            - heading "Apex Trail Ultra" [level=3] [ref=e189]:
+              - text: Apex Trail Ultra
+              - img [ref=e190]
+          - generic [ref=e192]:
+            - generic [ref=e193]: $319.99
+            - generic [ref=e194]: 2 Colors
+            - generic [ref=e195]: Premium
+            - generic [ref=e196]: Dual Sport
+            - generic [ref=e197]: DOT, ECE 22.06
+        - article [ref=e198]:
+          - img "Apex Venture Ultra Matte Black" [ref=e200]
+          - button "Add to comparison" [ref=e201] [cursor=pointer]:
+            - img [ref=e202]
+          - link "Apex Venture Ultra Matte Black" [ref=e203] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-venture-ultra-matte-black/
+            - heading "Apex Venture Ultra Matte Black" [level=3] [ref=e205]:
+              - text: Apex Venture Ultra Matte Black
+              - img [ref=e206]
+          - generic [ref=e208]:
+            - generic [ref=e209]: $339.99
+            - generic [ref=e210]: Premium
+            - generic [ref=e211]: DOT, ECE 22.06
+        - article [ref=e212]:
+          - img "Apex Venture Ultra Grey" [ref=e214]
+          - button "Add to comparison" [ref=e215] [cursor=pointer]:
+            - img [ref=e216]
+          - link "Apex Venture Ultra Grey" [ref=e217] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-venture-ultra-grey/
+            - heading "Apex Venture Ultra Grey" [level=3] [ref=e219]:
+              - text: Apex Venture Ultra Grey
+              - img [ref=e220]
+          - generic [ref=e222]:
+            - generic [ref=e223]: $339.99
+            - generic [ref=e224]: Premium
+            - generic [ref=e225]: DOT, ECE 22.06
+        - article [ref=e226]:
+          - img "Apex Venture Ultra" [ref=e228]
+          - button "Add to comparison" [ref=e229] [cursor=pointer]:
+            - img [ref=e230]
+          - link "Apex Venture Ultra" [ref=e231] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-venture-ultra/
+            - heading "Apex Venture Ultra" [level=3] [ref=e233]:
+              - text: Apex Venture Ultra
+              - img [ref=e234]
+          - generic [ref=e236]:
+            - generic [ref=e237]: $339.99
+            - generic [ref=e238]: 2 Colors
+            - generic [ref=e239]: DOT, ECE 22.06
+        - article [ref=e240]:
+          - img "Apex Venture Ultra Matte Black" [ref=e242]
+          - button "Add to comparison" [ref=e243] [cursor=pointer]:
+            - img [ref=e244]
+          - link "Apex Venture Ultra Matte Black" [ref=e245] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-venture-ultra-matte-black/
+            - heading "Apex Venture Ultra Matte Black" [level=3] [ref=e247]:
+              - text: Apex Venture Ultra Matte Black
+              - img [ref=e248]
+          - generic [ref=e250]:
+            - generic [ref=e251]: $339.99
+            - generic [ref=e252]: Premium
+            - generic [ref=e253]: DOT, ECE 22.06
+        - article [ref=e254]:
+          - img "Apex Scope Ultra Blue" [ref=e256]
+          - button "Add to comparison" [ref=e257] [cursor=pointer]:
+            - img [ref=e258]
+          - link "Apex Scope Ultra Blue" [ref=e259] [cursor=pointer]:
+            - /url: https://helmetsan.com/helmets/apex-scope-ultra-blue/
+            - heading "Apex Scope Ultra Blue" [level=3] [ref=e261]:
+              - text: Apex Scope Ultra Blue
+              - img [ref=e262]
+          - generic [ref=e264]:
+            - generic [ref=e265]: $299.99
+            - generic [ref=e266]: Sport
+            - generic [ref=e267]: DOT, ECE 22.06
+    - region "Brands" [ref=e268]:
+      - generic [ref=e269]:
+        - heading "Brands" [level=2] [ref=e270]
+        - link "View all →" [ref=e271] [cursor=pointer]:
+          - /url: https://helmetsan.com/brands/
+      - paragraph [ref=e272]: Shop by manufacturer. From premium heritage brands to value leaders—explore origins, helmet types, and full catalogs.
+      - generic [ref=e273]:
+        - article [ref=e274]:
+          - img "100%" [ref=e276]
+          - heading "100%" [level=3] [ref=e277]:
+            - link "100%" [ref=e278] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/100/
+          - generic [ref=e279]:
+            - code [ref=e280]: International
+            - code [ref=e281]: Full Face, Modular, Dual Sport
+          - paragraph [ref=e282]:
+            - link "View" [ref=e283] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/100/
+        - article [ref=e284]:
+          - img "509" [ref=e286]
+          - heading "509" [level=3] [ref=e287]:
+            - link "509" [ref=e288] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/509/
+          - generic [ref=e289]:
+            - code [ref=e290]: International
+            - code [ref=e291]: Full Face, Modular, Dual Sport
+          - paragraph [ref=e292]:
+            - link "View" [ref=e293] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/509/
+        - article [ref=e294]:
+          - img "6D" [ref=e296]
+          - heading "6D" [level=3] [ref=e297]:
+            - link "6D" [ref=e298] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/6d/
+          - generic [ref=e299]:
+            - code [ref=e300]: International
+            - code [ref=e301]: Full Face, Modular, Open Face, Off-Road, Dual Sport
+          - paragraph [ref=e302]:
+            - link "View" [ref=e303] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/6d/
+        - article [ref=e304]:
+          - img "AFX" [ref=e306]
+          - heading "AFX" [level=3] [ref=e307]:
+            - link "AFX" [ref=e308] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/afx/
+          - generic [ref=e309]:
+            - code [ref=e310]: International
+            - code [ref=e311]: Full Face, Modular, Open Face, Dual Sport, Off-Road
+          - paragraph [ref=e312]:
+            - link "View" [ref=e313] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/afx/
+        - article [ref=e314]:
+          - img "AGV" [ref=e316]
+          - heading "AGV" [level=3] [ref=e317]:
+            - link "AGV" [ref=e318] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/agv/
+          - generic [ref=e319]:
+            - code [ref=e320]: Italy
+            - code [ref=e321]: Full Face, Modular, Open Face, Adventure
+          - paragraph [ref=e322]:
+            - link "View" [ref=e323] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/agv/
+        - article [ref=e324]:
+          - generic [ref=e325]:
+            - img "Airoh"
+          - heading "Airoh" [level=3] [ref=e326]:
+            - link "Airoh" [ref=e327] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/airoh/
+          - generic [ref=e328]:
+            - code [ref=e329]: Italy
+            - code [ref=e330]: Full Face, Motocross, Adventure, Modular, Carbon Fiber
+          - paragraph [ref=e331]:
+            - link "View" [ref=e332] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/airoh/
+        - article [ref=e333]:
+          - generic [ref=e334]:
+            - img "Alpinestars"
+          - heading "Alpinestars" [level=3] [ref=e335]:
+            - link "Alpinestars" [ref=e336] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/alpinestars/
+          - generic [ref=e337]:
+            - code [ref=e338]: Italy
+            - code [ref=e339]: Full Face, Off-Road, Adventure
+          - paragraph [ref=e340]:
+            - link "View" [ref=e341] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/alpinestars/
+        - article [ref=e342]:
+          - generic [ref=e343]:
+            - img "Answer Racing"
+          - heading "Answer Racing" [level=3] [ref=e344]:
+            - link "Answer Racing" [ref=e345] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/answer-racing/
+          - generic [ref=e346]:
+            - code [ref=e347]: International
+            - code [ref=e348]: Full Face, Open Face, Off-Road
+          - paragraph [ref=e349]:
+            - link "View" [ref=e350] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/answer-racing/
+    - region "Accessories & Compatibility" [ref=e351]:
+      - generic [ref=e353]:
+        - paragraph [ref=e354]: Gear & fit
+        - heading "Accessories & Compatibility" [level=2] [ref=e355]
+        - paragraph [ref=e356]: Visors, communication systems, Pinlock inserts, and more—with compatibility metadata so you can match gear to your helmet.
+        - link "Explore Accessories" [ref=e357] [cursor=pointer]:
+          - /url: https://helmetsan.com/accessories/
+    - region "Safety & Certifications" [ref=e358]:
+      - generic [ref=e359]:
+        - paragraph [ref=e360]: Peace of mind
+        - heading "Safety & Certifications" [level=2] [ref=e361]
+        - paragraph [ref=e362]: Understand ECE, DOT, SHARP, and other standards. See which helmets meet your region’s requirements.
+        - link "Safety Standards" [ref=e363] [cursor=pointer]:
+          - /url: https://helmetsan.com/safety/
+  - contentinfo [ref=e364]:
+    - generic [ref=e365]:
+      - generic [ref=e366]:
+        - generic [ref=e367]:
+          - strong [ref=e368]: Helmetsan
+          - paragraph [ref=e369]: Helmetsan is a trademark, owned and operated by Ash Digital Services.
+          - paragraph [ref=e370]:
+            - text: Made with
+            - generic [ref=e371]: <3
+            - text: in India
+            - img [ref=e373]
+        - navigation [ref=e376]:
+          - list [ref=e377]:
+            - listitem [ref=e378]:
+              - link "About Helmetsan" [ref=e379] [cursor=pointer]:
+                - /url: https://helmetsan.com/about/
+            - listitem [ref=e380]:
+              - link "Brands" [ref=e381] [cursor=pointer]:
+                - /url: http://helmetsan.com/brand/
+            - listitem [ref=e382]:
+              - link "Contact" [ref=e383] [cursor=pointer]:
+                - /url: https://helmetsan.com/contact/
+            - listitem [ref=e384]:
+              - link "Accessories" [ref=e385] [cursor=pointer]:
+                - /url: http://helmetsan.com/accessory/
+            - listitem [ref=e386]:
+              - link "Motorcycles" [ref=e387] [cursor=pointer]:
+                - /url: http://helmetsan.com/motorcycle/
+            - listitem [ref=e388]:
+              - link "Safety Standards" [ref=e389] [cursor=pointer]:
+                - /url: http://helmetsan.com/safety_standard/
+            - listitem [ref=e390]:
+              - link "Dealers" [ref=e391] [cursor=pointer]:
+                - /url: http://helmetsan.com/dealer/
+      - generic [ref=e393]:
+        - complementary [ref=e394]:
+          - generic [ref=e396]:
+            - heading "Archives" [level=2] [ref=e397]
+            - generic [ref=e398]: No archives to show.
+        - complementary [ref=e399]:
+          - generic [ref=e401]:
+            - heading "Categories" [level=2] [ref=e402]
+            - list [ref=e403]:
+              - listitem [ref=e404]: No categories
+    - generic [ref=e405]:
+      - paragraph [ref=e406]: © 2026 Helmetsan. All rights reserved.
+      - navigation "Required legal links" [ref=e407]:
+        - list [ref=e408]:
+          - listitem [ref=e409]:
+            - link "Privacy Policy" [ref=e410] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/privacy-policy/
+          - listitem [ref=e411]:
+            - link "Terms of Use" [ref=e412] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/terms-of-use/
+          - listitem [ref=e413]:
+            - link "Cookie Policy" [ref=e414] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/cookie-policy/
+          - listitem [ref=e415]:
+            - link "Disclaimer" [ref=e416] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/disclaimer/
+          - listitem [ref=e417]:
+            - link "Affiliate Disclosure" [ref=e418] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/affiliate-disclosure/
+          - listitem [ref=e419]:
+            - link "AI Policy" [ref=e420] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/ai-policy/

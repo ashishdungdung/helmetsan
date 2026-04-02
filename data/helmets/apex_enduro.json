@@ -1,0 +1,114 @@
+{
+    "id": "apex_enduro",
+    "entity": "helmet",
+    "title": "Apex Enduro",
+    "brand": "Apex",
+    "type": "Off-road",
+    "helmet_family": "Enduro",
+    "price": {
+        "current": 229.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Off-road helmet with MX-style peak and wide eye port.",
+    "product_details": {
+        "description": "Off-road helmet with MX-style peak and wide eye port."
+    },
+    "variants": [
+        {
+            "id": "apex_enduro_black",
+            "entity": "helmet",
+            "title": "Apex Enduro Black",
+            "type": "Off-road",
+            "parent_id": "apex_enduro",
+            "helmet_family": "Enduro",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-END-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Off-road helmet with MX-style peak and wide eye port.",
+            "product_details": {
+                "description": "Off-road helmet with MX-style peak and wide eye port."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        },
+        {
+            "id": "apex_enduro_blue",
+            "entity": "helmet",
+            "title": "Apex Enduro Blue",
+            "type": "Off-road",
+            "parent_id": "apex_enduro",
+            "helmet_family": "Enduro",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-END-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Off-road helmet with MX-style peak and wide eye port.",
+            "product_details": {
+                "description": "Off-road helmet with MX-style peak and wide eye port."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue",
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Enduro+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Enduro+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Enduro+3"
+    ]
+}

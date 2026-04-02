@@ -1,7 +1,7 @@
 #!/bin/bash
 # Check if LM Studio is reachable
 
-LM_URL="${1:-http://192.168.2.58:1234/v1/models}"
+LM_URL="${1:-http://192.168.2.240:1234/v1/models}"
 
 echo "Checking LM Studio health at ${LM_URL}..."
 

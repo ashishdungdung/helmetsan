@@ -1,0 +1,117 @@
+{
+    "id": "apex_rover",
+    "entity": "helmet",
+    "title": "Apex Rover",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Rover",
+    "price": {
+        "current": 269.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1640,
+        "weight_lbs": 3.62,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Touring helmet with sun visor and Bluetooth-ready design.",
+    "product_details": {
+        "description": "Touring helmet with sun visor and Bluetooth-ready design."
+    },
+    "variants": [
+        {
+            "id": "apex_rover_black",
+            "entity": "helmet",
+            "title": "Apex Rover Black",
+            "type": "Touring",
+            "parent_id": "apex_rover",
+            "helmet_family": "Rover",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-ROV-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with sun visor and Bluetooth-ready design.",
+            "product_details": {
+                "description": "Touring helmet with sun visor and Bluetooth-ready design."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1640,
+                "weight_lbs": 3.62,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_rover_blue",
+            "entity": "helmet",
+            "title": "Apex Rover Blue",
+            "type": "Touring",
+            "parent_id": "apex_rover",
+            "helmet_family": "Rover",
+            "head_shape": "Round Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-ROV-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with sun visor and Bluetooth-ready design.",
+            "product_details": {
+                "description": "Touring helmet with sun visor and Bluetooth-ready design."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1640,
+                "weight_lbs": 3.62,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+3"
+    ]
+}

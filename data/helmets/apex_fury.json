@@ -1,0 +1,117 @@
+{
+    "id": "apex_fury",
+    "entity": "helmet",
+    "title": "Apex Fury",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Fury",
+    "price": {
+        "current": 259.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sport-oriented full face with sharp design and ventilation.",
+    "product_details": {
+        "description": "Sport-oriented full face with sharp design and ventilation."
+    },
+    "variants": [
+        {
+            "id": "apex_fury_matte-black",
+            "entity": "helmet",
+            "title": "Apex Fury Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_fury",
+            "helmet_family": "Fury",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-FUR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport-oriented full face with sharp design and ventilation.",
+            "product_details": {
+                "description": "Sport-oriented full face with sharp design and ventilation."
+            },
+            "price": {
+                "current": 259.99,
+                "usd": 259.99,
+                "eur": 239.19,
+                "gbp": 205.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_fury_yellow",
+            "entity": "helmet",
+            "title": "Apex Fury Yellow",
+            "type": "Full Face",
+            "parent_id": "apex_fury",
+            "helmet_family": "Fury",
+            "head_shape": "Intermediate Oval",
+            "color": "Yellow",
+            "color_family": "Yellow",
+            "sku": "APX-FUR-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport-oriented full face with sharp design and ventilation.",
+            "product_details": {
+                "description": "Sport-oriented full face with sharp design and ventilation."
+            },
+            "price": {
+                "current": 259.99,
+                "usd": 259.99,
+                "eur": 239.19,
+                "gbp": 205.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+3"
+    ]
+}

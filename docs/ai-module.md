@@ -35,7 +35,7 @@ The plugin is optimized for **LM Studio** running on your local machine. This of
 ### Setup
 1. **LM Studio**: Load a model (e.g. Qwen 2.5 Coder 7B), enable "Local Server" on port `1234`.
 2. **WP Admin**: Go to **Helmetsan → AI**, enable **LM Studio**.
-3. **URL**: Set Base URL to `http://192.168.2.58:1234/v1` (or your local IP).
+3. **URL**: Set Base URL to `http://192.168.2.240:1234/v1` (or your local IP).
 
 ### Networking (Cloudflare Tunnel)
 To reach your local LM Studio from a production server without port forwarding:

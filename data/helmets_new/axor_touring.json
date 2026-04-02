@@ -1,0 +1,117 @@
+{
+    "id": "axor_touring",
+    "entity": "helmet",
+    "title": "Axor Touring",
+    "brand": "Axor",
+    "type": "Touring",
+    "helmet_family": "Touring",
+    "price": {
+        "current": 99.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1520,
+        "weight_lbs": 3.35,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets.",
+    "product_details": {
+        "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets."
+    },
+    "variants": [
+        {
+            "id": "axor_touring_matte-black",
+            "entity": "helmet",
+            "title": "Axor Touring Matte Black",
+            "type": "Touring",
+            "parent_id": "axor_touring",
+            "helmet_family": "Touring",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "AXR-TOU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets.",
+            "product_details": {
+                "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1520,
+                "weight_lbs": 3.35,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "axor_touring_silver",
+            "entity": "helmet",
+            "title": "Axor Touring Silver",
+            "type": "Touring",
+            "parent_id": "axor_touring",
+            "helmet_family": "Touring",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "AXR-TOU-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets.",
+            "product_details": {
+                "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1520,
+                "weight_lbs": 3.35,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+3"
+    ]
+}

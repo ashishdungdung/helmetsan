@@ -1,0 +1,196 @@
+{
+    "id": "torc_t_1_retro",
+    "entity": "helmet",
+    "title": "Torc T-1 Retro",
+    "brand": "Torc",
+    "type": "Full Face",
+    "helmet_family": "T-1 Retro",
+    "price": {
+        "current": 249.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1400,
+        "weight_lbs": 3.09,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Vintage-inspired full face with wide eye port and flat shield.",
+    "product_details": {
+        "description": "Vintage-inspired full face with wide eye port and flat shield."
+    },
+    "variants": [
+        {
+            "id": "torc_t_1_retro_gloss-black",
+            "entity": "helmet",
+            "title": "Torc T-1 Retro Gloss Black",
+            "type": "Full Face",
+            "parent_id": "torc_t_1_retro",
+            "helmet_family": "T-1 Retro",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "TOR-T1RE-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vintage-inspired full face with wide eye port and flat shield.",
+            "product_details": {
+                "description": "Vintage-inspired full face with wide eye port and flat shield."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "torc_t_1_retro_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Torc T-1 Retro Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "torc_t_1_retro",
+            "helmet_family": "T-1 Retro",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "TOR-T1RE-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vintage-inspired full face with wide eye port and flat shield.",
+            "product_details": {
+                "description": "Vintage-inspired full face with wide eye port and flat shield."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "torc_t_1_retro_course-tc-3",
+            "entity": "helmet",
+            "title": "Torc T-1 Retro Course TC-3",
+            "type": "Full Face",
+            "parent_id": "torc_t_1_retro",
+            "helmet_family": "T-1 Retro",
+            "head_shape": "Intermediate Oval",
+            "color": "Course TC-3",
+            "color_family": "Multi",
+            "sku": "TOR-T1RE-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Vintage-inspired full face with wide eye port and flat shield.",
+            "product_details": {
+                "description": "Vintage-inspired full face with wide eye port and flat shield."
+            },
+            "price": {
+                "current": 299.99,
+                "usd": 299.99,
+                "eur": 275.99,
+                "gbp": 236.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Course+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Course+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Course+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "torc_t_1_retro_solid-tc-1",
+            "entity": "helmet",
+            "title": "Torc T-1 Retro Solid TC-1",
+            "type": "Full Face",
+            "parent_id": "torc_t_1_retro",
+            "helmet_family": "T-1 Retro",
+            "head_shape": "Intermediate Oval",
+            "color": "Solid TC-1",
+            "color_family": "Multi",
+            "sku": "TOR-T1RE-SOL",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Vintage-inspired full face with wide eye port and flat shield.",
+            "product_details": {
+                "description": "Vintage-inspired full face with wide eye port and flat shield."
+            },
+            "price": {
+                "current": 299.99,
+                "usd": 299.99,
+                "eur": 275.99,
+                "gbp": 236.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Solid+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Solid+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+Solid+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Torc+T-1+Retro+3"
+    ]
+}

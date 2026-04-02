@@ -1,0 +1,155 @@
+{
+    "id": "daytona_cruiser",
+    "entity": "helmet",
+    "title": "Daytona Cruiser",
+    "brand": "Daytona",
+    "type": "Half",
+    "helmet_family": "Cruiser",
+    "price": {
+        "current": 79.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 850,
+        "weight_lbs": 1.87,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Classic cruiser half with inner sun shield and padded comfort liner.",
+    "product_details": {
+        "description": "Classic cruiser half with inner sun shield and padded comfort liner."
+    },
+    "variants": [
+        {
+            "id": "daytona_cruiser_gloss-black",
+            "entity": "helmet",
+            "title": "Daytona Cruiser Gloss Black",
+            "type": "Half",
+            "parent_id": "daytona_cruiser",
+            "helmet_family": "Cruiser",
+            "head_shape": "Round Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "DAY-CRUI-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic cruiser half with inner sun shield and padded comfort liner.",
+            "product_details": {
+                "description": "Classic cruiser half with inner sun shield and padded comfort liner."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "daytona_cruiser_gloss-white",
+            "entity": "helmet",
+            "title": "Daytona Cruiser Gloss White",
+            "type": "Half",
+            "parent_id": "daytona_cruiser",
+            "helmet_family": "Cruiser",
+            "head_shape": "Round Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "DAY-CRUI-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic cruiser half with inner sun shield and padded comfort liner.",
+            "product_details": {
+                "description": "Classic cruiser half with inner sun shield and padded comfort liner."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        },
+        {
+            "id": "daytona_cruiser_course-tc-5",
+            "entity": "helmet",
+            "title": "Daytona Cruiser Course TC-5",
+            "type": "Half",
+            "parent_id": "daytona_cruiser",
+            "helmet_family": "Cruiser",
+            "head_shape": "Round Oval",
+            "color": "Course TC-5",
+            "color_family": "Multi",
+            "sku": "DAY-CRUI-COU",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Classic cruiser half with inner sun shield and padded comfort liner.",
+            "product_details": {
+                "description": "Classic cruiser half with inner sun shield and padded comfort liner."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Course+TC-5",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Course+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+Course+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Half"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+1",
+        "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+2",
+        "https://placehold.co/800x800/222/white?text=Daytona+Cruiser+3"
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "id": "apex_pulse",
+    "entity": "helmet",
+    "title": "Apex Pulse",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Pulse",
+    "price": {
+        "current": 179.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1620,
+        "weight_lbs": 3.57,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Value full face with modern styling and good fit options.",
+    "product_details": {
+        "description": "Value full face with modern styling and good fit options."
+    },
+    "variants": [
+        {
+            "id": "apex_pulse_black",
+            "entity": "helmet",
+            "title": "Apex Pulse Black",
+            "type": "Full Face",
+            "parent_id": "apex_pulse",
+            "helmet_family": "Pulse",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-PUL-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Value full face with modern styling and good fit options.",
+            "product_details": {
+                "description": "Value full face with modern styling and good fit options."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1620,
+                "weight_lbs": 3.57,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_pulse_grey",
+            "entity": "helmet",
+            "title": "Apex Pulse Grey",
+            "type": "Full Face",
+            "parent_id": "apex_pulse",
+            "helmet_family": "Pulse",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-PUL-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Value full face with modern styling and good fit options.",
+            "product_details": {
+                "description": "Value full face with modern styling and good fit options."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1620,
+                "weight_lbs": 3.57,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Grey",
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Pulse+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+3"
+    ]
+}

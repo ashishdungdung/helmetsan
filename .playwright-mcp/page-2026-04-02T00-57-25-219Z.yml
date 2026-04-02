@@ -1,0 +1,752 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Global Helmet Intelligence Platform
+    - button "Switch to dark mode" [ref=e6] [cursor=pointer]:
+      - img [ref=e8]
+    - navigation [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "About Helmetsan" [ref=e14] [cursor=pointer]:
+            - /url: https://helmetsan.com/about/
+        - listitem [ref=e15]:
+          - link "Legal" [ref=e16] [cursor=pointer]:
+            - /url: https://helmetsan.com/legal/
+        - listitem [ref=e17]:
+          - link "Contact" [ref=e18] [cursor=pointer]:
+            - /url: https://helmetsan.com/contact/
+  - banner [ref=e19]:
+    - generic [ref=e20]:
+      - link "Helmetsan" [ref=e21] [cursor=pointer]:
+        - /url: https://helmetsan.com/
+      - navigation [ref=e22]:
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - link "Helmets" [ref=e25] [cursor=pointer]:
+              - /url: /helmets/
+          - listitem [ref=e26]:
+            - link "Brands" [ref=e27] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/
+          - listitem [ref=e28]:
+            - link "Accessories" [ref=e29] [cursor=pointer]:
+              - /url: http://helmetsan.com/accessories/
+          - listitem [ref=e30]:
+            - link "Motorcycles" [ref=e31] [cursor=pointer]:
+              - /url: http://helmetsan.com/motorcycles/
+          - listitem [ref=e32]:
+            - link "Safety" [ref=e33] [cursor=pointer]:
+              - /url: http://helmetsan.com/safety-standards/
+          - listitem [ref=e34]:
+            - link "Reviews" [ref=e35] [cursor=pointer]:
+              - /url: /reviews/
+          - listitem [ref=e36]:
+            - link "Contact" [ref=e37] [cursor=pointer]:
+              - /url: https://helmetsan.com/contact/
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - heading "Helmets" [level=1] [ref=e41]
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: "Browse our catalog of motorcycle helmets: compare specs, certifications, and prices. Use the filters to narrow by helmet type (full face, modular, adventure), brand, safety standard (DOT, ECE, Snell, SHARP), and price range. Each helmet page includes technical analysis and where to buy."
+          - paragraph [ref=e44]:
+            - text: Add helmets to the
+            - link "comparison tool" [ref=e45] [cursor=pointer]:
+              - /url: https://helmetsan.com/comparison/
+            - text: to see them side by side, or jump to
+            - link "brands" [ref=e46] [cursor=pointer]:
+              - /url: https://helmetsan.com/brands/
+            - text: and
+            - link "helmet types" [ref=e47] [cursor=pointer]:
+              - /url: https://helmetsan.com/helmet-types/
+            - text: for curated lists.
+      - generic [ref=e48]:
+        - complementary "Helmet filters" [ref=e49]:
+          - strong [ref=e51]: Filters
+          - generic [ref=e52]:
+            - group [ref=e53]:
+              - generic "Size" [ref=e54] [cursor=pointer]
+              - generic [ref=e55]:
+                - generic [ref=e57] [cursor=pointer]: XS
+                - generic [ref=e59] [cursor=pointer]: SM
+                - generic [ref=e61] [cursor=pointer]: MD
+                - generic [ref=e63] [cursor=pointer]: LG
+                - generic [ref=e65] [cursor=pointer]: XL
+                - generic [ref=e67] [cursor=pointer]: 2XL
+                - generic [ref=e69] [cursor=pointer]: 3XL
+                - generic [ref=e71] [cursor=pointer]: 4XL
+            - group [ref=e72]:
+              - generic "Helmet Type" [ref=e73] [cursor=pointer]
+              - generic [ref=e74]:
+                - generic [ref=e75] [cursor=pointer]:
+                  - checkbox "Adventure/Dual Sport" [ref=e76]
+                  - text: Adventure/Dual Sport
+                - generic [ref=e77] [cursor=pointer]:
+                  - checkbox "Carbon Fiber" [ref=e78]
+                  - text: Carbon Fiber
+                - generic [ref=e79] [cursor=pointer]:
+                  - checkbox "Dirt/MX" [ref=e80]
+                  - text: Dirt/MX
+                - generic [ref=e81] [cursor=pointer]:
+                  - checkbox "Full Face" [ref=e82]
+                  - text: Full Face
+                - generic [ref=e83] [cursor=pointer]:
+                  - checkbox "Graphics" [ref=e84]
+                  - text: Graphics
+                - generic [ref=e85] [cursor=pointer]:
+                  - checkbox "Half" [ref=e86]
+                  - text: Half
+                - generic [ref=e87] [cursor=pointer]:
+                  - checkbox "Modular" [ref=e88]
+                  - text: Modular
+                - generic [ref=e89] [cursor=pointer]:
+                  - checkbox "Open Face" [ref=e90]
+                  - text: Open Face
+                - generic [ref=e91] [cursor=pointer]:
+                  - checkbox "Touring" [ref=e92]
+                  - text: Touring
+                - generic [ref=e93] [cursor=pointer]:
+                  - checkbox "Track/Race" [ref=e94]
+                  - text: Track/Race
+            - group [ref=e95]:
+              - generic "Brand" [ref=e96] [cursor=pointer]
+            - group [ref=e97]:
+              - generic "Price range" [ref=e98] [cursor=pointer]
+            - group [ref=e99]:
+              - generic "Price (min–max)" [ref=e100] [cursor=pointer]
+            - group [ref=e101]:
+              - generic "Safety & Certification Marks" [ref=e102] [cursor=pointer]
+            - group [ref=e103]:
+              - generic "Features" [ref=e104] [cursor=pointer]
+            - group [ref=e105]:
+              - generic "Region" [ref=e106] [cursor=pointer]
+            - group [ref=e107]:
+              - generic "Use case" [ref=e108] [cursor=pointer]
+            - group [ref=e109]:
+              - generic "Helmet Model" [ref=e110] [cursor=pointer]
+            - generic [ref=e111]:
+              - link "Clear All" [ref=e112] [cursor=pointer]:
+                - /url: https://helmetsan.com/helmets/
+              - button "Show 3037 Helmets" [ref=e113] [cursor=pointer]
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - generic [ref=e116]: 3,037 Helmets
+            - generic [ref=e117]:
+              - generic [ref=e118]: Sort
+              - combobox "Sort" [ref=e119]:
+                - option "Newest" [selected]
+                - option "Price Low → High"
+                - option "Price High → Low"
+                - option "Top Rated"
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - article [ref=e122]:
+                - img "Apex Trail Ultra Orange" [ref=e124]
+                - button "Add to comparison" [ref=e125] [cursor=pointer]:
+                  - img [ref=e126]
+                - link "Apex Trail Ultra Orange" [ref=e127] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+                  - heading "Apex Trail Ultra Orange" [level=3] [ref=e129]:
+                    - text: Apex Trail Ultra Orange
+                    - img [ref=e130]
+                - generic [ref=e132]:
+                  - generic [ref=e133]: $319.99
+                  - generic [ref=e134]: Premium
+                  - generic [ref=e135]: Adventure
+                  - generic [ref=e136]: ECE 22.06
+              - article [ref=e137]:
+                - img "Apex Trail Ultra Matte Black" [ref=e139]
+                - button "Add to comparison" [ref=e140] [cursor=pointer]:
+                  - img [ref=e141]
+                - link "Apex Trail Ultra Matte Black" [ref=e142] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra-matte-black/
+                  - heading "Apex Trail Ultra Matte Black" [level=3] [ref=e144]:
+                    - text: Apex Trail Ultra Matte Black
+                    - img [ref=e145]
+                - generic [ref=e147]:
+                  - generic [ref=e148]: $319.99
+                  - generic [ref=e149]: Premium
+                  - generic [ref=e150]: Adventure
+                  - generic [ref=e151]: DOT
+              - article [ref=e152]:
+                - img "Apex Trail Ultra Orange" [ref=e154]
+                - button "Add to comparison" [ref=e155] [cursor=pointer]:
+                  - img [ref=e156]
+                - link "Apex Trail Ultra Orange" [ref=e157] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra-orange/
+                  - heading "Apex Trail Ultra Orange" [level=3] [ref=e159]:
+                    - text: Apex Trail Ultra Orange
+                    - img [ref=e160]
+                - generic [ref=e162]:
+                  - generic [ref=e163]: $319.99
+                  - generic [ref=e164]: Premium
+                  - generic [ref=e165]: Dual Sport
+                  - generic [ref=e166]: DOT, ECE 22.06
+              - article [ref=e167]:
+                - img "Apex Trail Ultra" [ref=e169]
+                - button "Add to comparison" [ref=e170] [cursor=pointer]:
+                  - img [ref=e171]
+                - link "Apex Trail Ultra" [ref=e172] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra/
+                  - heading "Apex Trail Ultra" [level=3] [ref=e174]:
+                    - text: Apex Trail Ultra
+                    - img [ref=e175]
+                - generic [ref=e177]:
+                  - generic [ref=e178]: $319.99
+                  - generic [ref=e179]: 2 Colors
+                  - generic [ref=e180]: Premium
+                  - generic [ref=e181]: DOT, ECE 22.06
+              - article [ref=e182]:
+                - img "Apex Trail Ultra Matte Black" [ref=e184]
+                - button "Add to comparison" [ref=e185] [cursor=pointer]:
+                  - img [ref=e186]
+                - link "Apex Trail Ultra Matte Black" [ref=e187] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra-matte-black/
+                  - heading "Apex Trail Ultra Matte Black" [level=3] [ref=e189]:
+                    - text: Apex Trail Ultra Matte Black
+                    - img [ref=e190]
+                - generic [ref=e192]:
+                  - generic [ref=e193]: $319.99
+                  - generic [ref=e194]: Premium
+                  - generic [ref=e195]: Dual Sport
+                  - generic [ref=e196]: DOT, ECE 22.06
+              - article [ref=e197]:
+                - img "Apex Venture Ultra Grey" [ref=e199]
+                - button "Add to comparison" [ref=e200] [cursor=pointer]:
+                  - img [ref=e201]
+                - link "Apex Venture Ultra Grey" [ref=e202] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra-grey/
+                  - heading "Apex Venture Ultra Grey" [level=3] [ref=e204]:
+                    - text: Apex Venture Ultra Grey
+                    - img [ref=e205]
+                - generic [ref=e207]:
+                  - generic [ref=e208]: $339.99
+                  - generic [ref=e209]: Premium
+                  - generic [ref=e210]: DOT, ECE 22.06
+              - article [ref=e211]:
+                - img "Apex Trail Ultra" [ref=e213]
+                - button "Add to comparison" [ref=e214] [cursor=pointer]:
+                  - img [ref=e215]
+                - link "Apex Trail Ultra" [ref=e216] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-trail-ultra/
+                  - heading "Apex Trail Ultra" [level=3] [ref=e218]:
+                    - text: Apex Trail Ultra
+                    - img [ref=e219]
+                - generic [ref=e221]:
+                  - generic [ref=e222]: $319.99
+                  - generic [ref=e223]: 2 Colors
+                  - generic [ref=e224]: Premium
+                  - generic [ref=e225]: Dual Sport
+                  - generic [ref=e226]: DOT, ECE 22.06
+              - article [ref=e227]:
+                - img "Apex Venture Ultra Matte Black" [ref=e229]
+                - button "Add to comparison" [ref=e230] [cursor=pointer]:
+                  - img [ref=e231]
+                - link "Apex Venture Ultra Matte Black" [ref=e232] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra-matte-black/
+                  - heading "Apex Venture Ultra Matte Black" [level=3] [ref=e234]:
+                    - text: Apex Venture Ultra Matte Black
+                    - img [ref=e235]
+                - generic [ref=e237]:
+                  - generic [ref=e238]: $339.99
+                  - generic [ref=e239]: Premium
+                  - generic [ref=e240]: DOT, ECE 22.06
+              - article [ref=e241]:
+                - img "Apex Venture Ultra Grey" [ref=e243]
+                - button "Add to comparison" [ref=e244] [cursor=pointer]:
+                  - img [ref=e245]
+                - link "Apex Venture Ultra Grey" [ref=e246] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra-grey/
+                  - heading "Apex Venture Ultra Grey" [level=3] [ref=e248]:
+                    - text: Apex Venture Ultra Grey
+                    - img [ref=e249]
+                - generic [ref=e251]:
+                  - generic [ref=e252]: $339.99
+                  - generic [ref=e253]: Premium
+                  - generic [ref=e254]: DOT, ECE 22.06
+              - article [ref=e255]:
+                - img "Apex Venture Ultra" [ref=e257]
+                - button "Add to comparison" [ref=e258] [cursor=pointer]:
+                  - img [ref=e259]
+                - link "Apex Venture Ultra" [ref=e260] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra/
+                  - heading "Apex Venture Ultra" [level=3] [ref=e262]:
+                    - text: Apex Venture Ultra
+                    - img [ref=e263]
+                - generic [ref=e265]:
+                  - generic [ref=e266]: $339.99
+                  - generic [ref=e267]: 2 Colors
+                  - generic [ref=e268]: DOT, ECE 22.06
+              - article [ref=e269]:
+                - img "Apex Venture Ultra Matte Black" [ref=e271]
+                - button "Add to comparison" [ref=e272] [cursor=pointer]:
+                  - img [ref=e273]
+                - link "Apex Venture Ultra Matte Black" [ref=e274] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra-matte-black/
+                  - heading "Apex Venture Ultra Matte Black" [level=3] [ref=e276]:
+                    - text: Apex Venture Ultra Matte Black
+                    - img [ref=e277]
+                - generic [ref=e279]:
+                  - generic [ref=e280]: $339.99
+                  - generic [ref=e281]: Premium
+                  - generic [ref=e282]: DOT, ECE 22.06
+              - article [ref=e283]:
+                - img "Apex Scope Ultra Blue" [ref=e285]
+                - button "Add to comparison" [ref=e286] [cursor=pointer]:
+                  - img [ref=e287]
+                - link "Apex Scope Ultra Blue" [ref=e288] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra-blue/
+                  - heading "Apex Scope Ultra Blue" [level=3] [ref=e290]:
+                    - text: Apex Scope Ultra Blue
+                    - img [ref=e291]
+                - generic [ref=e293]:
+                  - generic [ref=e294]: $299.99
+                  - generic [ref=e295]: Sport
+                  - generic [ref=e296]: DOT, ECE 22.06
+              - article [ref=e297]:
+                - img "Apex Venture Ultra" [ref=e299]
+                - button "Add to comparison" [ref=e300] [cursor=pointer]:
+                  - img [ref=e301]
+                - link "Apex Venture Ultra" [ref=e302] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-venture-ultra/
+                  - heading "Apex Venture Ultra" [level=3] [ref=e304]:
+                    - text: Apex Venture Ultra
+                    - img [ref=e305]
+                - generic [ref=e307]:
+                  - generic [ref=e308]: $339.99
+                  - generic [ref=e309]: 2 Colors
+                  - generic [ref=e310]: Premium
+                  - generic [ref=e311]: DOT, ECE 22.06
+              - article [ref=e312]:
+                - img "Apex Scope Ultra Matte Black" [ref=e314]
+                - button "Add to comparison" [ref=e315] [cursor=pointer]:
+                  - img [ref=e316]
+                - link "Apex Scope Ultra Matte Black" [ref=e317] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra-matte-black/
+                  - heading "Apex Scope Ultra Matte Black" [level=3] [ref=e319]:
+                    - text: Apex Scope Ultra Matte Black
+                    - img [ref=e320]
+                - generic [ref=e322]:
+                  - generic [ref=e323]: $299.99
+                  - generic [ref=e324]: DOT, ECE 22.06
+              - article [ref=e325]:
+                - img "Apex Scope Ultra Blue" [ref=e327]
+                - button "Add to comparison" [ref=e328] [cursor=pointer]:
+                  - img [ref=e329]
+                - link "Apex Scope Ultra Blue" [ref=e330] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra-blue/
+                  - heading "Apex Scope Ultra Blue" [level=3] [ref=e332]:
+                    - text: Apex Scope Ultra Blue
+                    - img [ref=e333]
+                - generic [ref=e335]:
+                  - generic [ref=e336]: $299.99
+                  - generic [ref=e337]: Mid Range
+                  - generic [ref=e338]: DOT, ECE 22.06
+              - article [ref=e339]:
+                - img "Apex Scope Ultra" [ref=e341]
+                - button "Add to comparison" [ref=e342] [cursor=pointer]:
+                  - img [ref=e343]
+                - link "Apex Scope Ultra" [ref=e344] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra/
+                  - heading "Apex Scope Ultra" [level=3] [ref=e346]:
+                    - text: Apex Scope Ultra
+                    - img [ref=e347]
+                - generic [ref=e349]:
+                  - generic [ref=e350]: $299.99
+                  - generic [ref=e351]: 2 Colors
+                  - generic [ref=e352]: DOT, ECE 22.06
+              - article [ref=e353]:
+                - img "Apex Scope Ultra Matte Black" [ref=e355]
+                - button "Add to comparison" [ref=e356] [cursor=pointer]:
+                  - img [ref=e357]
+                - link "Apex Scope Ultra Matte Black" [ref=e358] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra-matte-black/
+                  - heading "Apex Scope Ultra Matte Black" [level=3] [ref=e360]:
+                    - text: Apex Scope Ultra Matte Black
+                    - img [ref=e361]
+                - generic [ref=e363]:
+                  - generic [ref=e364]: $299.99
+                  - generic [ref=e365]: Racing
+                  - generic [ref=e366]: DOT, ECE 22.06
+              - article [ref=e367]:
+                - img "Apex Blaze Ultra White" [ref=e369]
+                - button "Add to comparison" [ref=e370] [cursor=pointer]:
+                  - img [ref=e371]
+                - link "Apex Blaze Ultra White" [ref=e372] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra-white/
+                  - heading "Apex Blaze Ultra White" [level=3] [ref=e374]:
+                    - text: Apex Blaze Ultra White
+                    - img [ref=e375]
+                - generic [ref=e377]:
+                  - generic [ref=e378]: $379.99
+                  - generic [ref=e379]: Daily
+                  - generic [ref=e380]: DOT, Snell M2020
+              - article [ref=e381]:
+                - img "Apex Scope Ultra" [ref=e383]
+                - button "Add to comparison" [ref=e384] [cursor=pointer]:
+                  - img [ref=e385]
+                - link "Apex Scope Ultra" [ref=e386] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-scope-ultra/
+                  - heading "Apex Scope Ultra" [level=3] [ref=e388]:
+                    - text: Apex Scope Ultra
+                    - img [ref=e389]
+                - generic [ref=e391]:
+                  - generic [ref=e392]: $299.99
+                  - generic [ref=e393]: 2 Colors
+                  - generic [ref=e394]: DOT, ECE 22.06
+              - article [ref=e395]:
+                - img "Apex Blaze Ultra Matte Black" [ref=e397]
+                - button "Add to comparison" [ref=e398] [cursor=pointer]:
+                  - img [ref=e399]
+                - link "Apex Blaze Ultra Matte Black" [ref=e400] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra-matte-black/
+                  - heading "Apex Blaze Ultra Matte Black" [level=3] [ref=e402]:
+                    - text: Apex Blaze Ultra Matte Black
+                    - img [ref=e403]
+                - generic [ref=e405]:
+                  - generic [ref=e406]: $379.99
+                  - generic [ref=e407]: Premium
+                  - generic [ref=e408]: Daily
+                  - generic [ref=e409]: DOT, Snell M2020
+              - article [ref=e410]:
+                - img "Apex Blaze Ultra White" [ref=e412]
+                - button "Add to comparison" [ref=e413] [cursor=pointer]:
+                  - img [ref=e414]
+                - link "Apex Blaze Ultra White" [ref=e415] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra-white/
+                  - heading "Apex Blaze Ultra White" [level=3] [ref=e417]:
+                    - text: Apex Blaze Ultra White
+                    - img [ref=e418]
+                - generic [ref=e420]:
+                  - generic [ref=e421]: $379.99
+                  - generic [ref=e422]: Premium
+                  - generic [ref=e423]: Daily
+                  - generic [ref=e424]: DOT, Snell M2020
+              - article [ref=e425]:
+                - img "Apex Blaze Ultra" [ref=e427]
+                - button "Add to comparison" [ref=e428] [cursor=pointer]:
+                  - img [ref=e429]
+                - link "Apex Blaze Ultra" [ref=e430] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra/
+                  - heading "Apex Blaze Ultra" [level=3] [ref=e432]:
+                    - text: Apex Blaze Ultra
+                    - img [ref=e433]
+                - generic [ref=e435]:
+                  - generic [ref=e436]: $379.99
+                  - generic [ref=e437]: 2 Colors
+                  - generic [ref=e438]: Daily
+                  - generic [ref=e439]: DOT, Snell M2020
+              - article [ref=e440]:
+                - img "Apex Blaze Ultra Matte Black" [ref=e442]
+                - button "Add to comparison" [ref=e443] [cursor=pointer]:
+                  - img [ref=e444]
+                - link "Apex Blaze Ultra Matte Black" [ref=e445] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra-matte-black/
+                  - heading "Apex Blaze Ultra Matte Black" [level=3] [ref=e447]:
+                    - text: Apex Blaze Ultra Matte Black
+                    - img [ref=e448]
+                - generic [ref=e450]:
+                  - generic [ref=e451]: $379.99
+                  - generic [ref=e452]: Premium
+                  - generic [ref=e453]: Daily
+                  - generic [ref=e454]: DOT, Snell M2020
+              - article [ref=e455]:
+                - img "Apex Cruise Ultra Chrome" [ref=e457]
+                - button "Add to comparison" [ref=e458] [cursor=pointer]:
+                  - img [ref=e459]
+                - link "Apex Cruise Ultra Chrome" [ref=e460] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra-chrome/
+                  - heading "Apex Cruise Ultra Chrome" [level=3] [ref=e462]:
+                    - text: Apex Cruise Ultra Chrome
+                    - img [ref=e463]
+                - generic [ref=e465]:
+                  - generic [ref=e466]: $187.99
+                  - generic [ref=e467]: Mid Range
+                  - generic [ref=e468]: DOT, ECE 22.05
+              - article [ref=e469]:
+                - img "Apex Blaze Ultra" [ref=e471]
+                - button "Add to comparison" [ref=e472] [cursor=pointer]:
+                  - img [ref=e473]
+                - link "Apex Blaze Ultra" [ref=e474] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-blaze-ultra/
+                  - heading "Apex Blaze Ultra" [level=3] [ref=e476]:
+                    - text: Apex Blaze Ultra
+                    - img [ref=e477]
+                - generic [ref=e479]:
+                  - generic [ref=e480]: $379.99
+                  - generic [ref=e481]: 2 Colors
+                  - generic [ref=e482]: Daily
+                  - generic [ref=e483]: DOT, Snell M2020
+              - article [ref=e484]:
+                - img "Apex Cruise Ultra Black" [ref=e486]
+                - button "Add to comparison" [ref=e487] [cursor=pointer]:
+                  - img [ref=e488]
+                - link "Apex Cruise Ultra Black" [ref=e489] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra-black/
+                  - heading "Apex Cruise Ultra Black" [level=3] [ref=e491]:
+                    - text: Apex Cruise Ultra Black
+                    - img [ref=e492]
+                - generic [ref=e494]:
+                  - generic [ref=e495]: $159.99
+                  - generic [ref=e496]: Cruising
+                  - generic [ref=e497]: DOT, ECE 22.05
+              - article [ref=e498]:
+                - img "Apex Cruise Ultra Chrome" [ref=e500]
+                - button "Add to comparison" [ref=e501] [cursor=pointer]:
+                  - img [ref=e502]
+                - link "Apex Cruise Ultra Chrome" [ref=e503] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra-chrome/
+                  - heading "Apex Cruise Ultra Chrome" [level=3] [ref=e505]:
+                    - text: Apex Cruise Ultra Chrome
+                    - img [ref=e506]
+                - generic [ref=e508]:
+                  - generic [ref=e509]: $187.99
+                  - generic [ref=e510]: Mid Range
+                  - generic [ref=e511]: Cruising
+                  - generic [ref=e512]: DOT, ECE 22.05
+              - article [ref=e513]:
+                - img "Apex Cruise Ultra" [ref=e515]
+                - button "Add to comparison" [ref=e516] [cursor=pointer]:
+                  - img [ref=e517]
+                - link "Apex Cruise Ultra" [ref=e518] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra/
+                  - heading "Apex Cruise Ultra" [level=3] [ref=e520]:
+                    - text: Apex Cruise Ultra
+                    - img [ref=e521]
+                - generic [ref=e523]:
+                  - generic [ref=e524]: $159.99
+                  - generic [ref=e525]: 2 Colors
+                  - generic [ref=e526]: DOT, ECE 22.05
+              - article [ref=e527]:
+                - img "Apex Cruise Ultra Black" [ref=e529]
+                - button "Add to comparison" [ref=e530] [cursor=pointer]:
+                  - img [ref=e531]
+                - link "Apex Cruise Ultra Black" [ref=e532] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra-black/
+                  - heading "Apex Cruise Ultra Black" [level=3] [ref=e534]:
+                    - text: Apex Cruise Ultra Black
+                    - img [ref=e535]
+                - generic [ref=e537]:
+                  - generic [ref=e538]: $159.99
+                  - generic [ref=e539]: Premium
+                  - generic [ref=e540]: Cruising
+                  - generic [ref=e541]: DOT, ECE 22.05
+              - article [ref=e542]:
+                - img "Apex Flip Ultra Grey" [ref=e544]
+                - button "Add to comparison" [ref=e545] [cursor=pointer]:
+                  - img [ref=e546]
+                - link "Apex Flip Ultra Grey" [ref=e547] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra-grey/
+                  - heading "Apex Flip Ultra Grey" [level=3] [ref=e549]:
+                    - text: Apex Flip Ultra Grey
+                    - img [ref=e550]
+                - generic [ref=e552]:
+                  - generic [ref=e553]: $309.99
+                  - generic [ref=e554]: Premium
+                  - generic [ref=e555]: DOT, ECE 22.06
+              - article [ref=e556]:
+                - img "Apex Cruise Ultra" [ref=e558]
+                - button "Add to comparison" [ref=e559] [cursor=pointer]:
+                  - img [ref=e560]
+                - link "Apex Cruise Ultra" [ref=e561] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-cruise-ultra/
+                  - heading "Apex Cruise Ultra" [level=3] [ref=e563]:
+                    - text: Apex Cruise Ultra
+                    - img [ref=e564]
+                - generic [ref=e566]:
+                  - generic [ref=e567]: $159.99
+                  - generic [ref=e568]: 2 Colors
+                  - generic [ref=e569]: DOT, ECE 22.05
+              - article [ref=e570]:
+                - img "Apex Flip Ultra Black" [ref=e572]
+                - button "Add to comparison" [ref=e573] [cursor=pointer]:
+                  - img [ref=e574]
+                - link "Apex Flip Ultra Black" [ref=e575] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra-black/
+                  - heading "Apex Flip Ultra Black" [level=3] [ref=e577]:
+                    - text: Apex Flip Ultra Black
+                    - img [ref=e578]
+                - generic [ref=e580]:
+                  - generic [ref=e581]: $309.99
+                  - generic [ref=e582]: Premium
+                  - generic [ref=e583]: DOT, ECE 22.06
+              - article [ref=e584]:
+                - img "Apex Flip Ultra Grey" [ref=e586]
+                - button "Add to comparison" [ref=e587] [cursor=pointer]:
+                  - img [ref=e588]
+                - link "Apex Flip Ultra Grey" [ref=e589] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra-grey/
+                  - heading "Apex Flip Ultra Grey" [level=3] [ref=e591]:
+                    - text: Apex Flip Ultra Grey
+                    - img [ref=e592]
+                - generic [ref=e594]:
+                  - generic [ref=e595]: $309.99
+                  - generic [ref=e596]: Sport
+                  - generic [ref=e597]: DOT, ECE 22.06
+              - article [ref=e598]:
+                - img "Apex Flip Ultra" [ref=e600]
+                - button "Add to comparison" [ref=e601] [cursor=pointer]:
+                  - img [ref=e602]
+                - link "Apex Flip Ultra" [ref=e603] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra/
+                  - heading "Apex Flip Ultra" [level=3] [ref=e605]:
+                    - text: Apex Flip Ultra
+                    - img [ref=e606]
+                - generic [ref=e608]:
+                  - generic [ref=e609]: $309.99
+                  - generic [ref=e610]: 2 Colors
+                  - generic [ref=e611]: Premium
+                  - generic [ref=e612]: DOT, ECE 22.06
+              - article [ref=e613]:
+                - img "Apex Flip Ultra Black" [ref=e615]
+                - button "Add to comparison" [ref=e616] [cursor=pointer]:
+                  - img [ref=e617]
+                - link "Apex Flip Ultra Black" [ref=e618] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra-black/
+                  - heading "Apex Flip Ultra Black" [level=3] [ref=e620]:
+                    - text: Apex Flip Ultra Black
+                    - img [ref=e621]
+                - generic [ref=e623]:
+                  - generic [ref=e624]: $309.99
+                  - generic [ref=e625]: Premium
+                  - generic [ref=e626]: DOT, ECE 22.06
+              - article [ref=e627]:
+                - img "Apex Ridge Max X Sand" [ref=e629]
+                - button "Add to comparison" [ref=e630] [cursor=pointer]:
+                  - img [ref=e631]
+                - link "Apex Ridge Max X Sand" [ref=e632] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-ridge-max-x-sand/
+                  - heading "Apex Ridge Max X Sand" [level=3] [ref=e634]:
+                    - text: Apex Ridge Max X Sand
+                    - img [ref=e635]
+                - generic [ref=e637]:
+                  - generic [ref=e638]: $349.99
+                  - generic [ref=e639]: Premium
+                  - generic [ref=e640]: DOT, ECE 22.06
+              - article [ref=e641]:
+                - img "Apex Flip Ultra" [ref=e643]
+                - button "Add to comparison" [ref=e644] [cursor=pointer]:
+                  - img [ref=e645]
+                - link "Apex Flip Ultra" [ref=e646] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-flip-ultra/
+                  - heading "Apex Flip Ultra" [level=3] [ref=e648]:
+                    - text: Apex Flip Ultra
+                    - img [ref=e649]
+                - generic [ref=e651]:
+                  - generic [ref=e652]: $309.99
+                  - generic [ref=e653]: 2 Colors
+                  - generic [ref=e654]: DOT, ECE 22.06
+              - article [ref=e655]:
+                - img "Apex Ridge Max X Matte Black" [ref=e657]
+                - button "Add to comparison" [ref=e658] [cursor=pointer]:
+                  - img [ref=e659]
+                - link "Apex Ridge Max X Matte Black" [ref=e660] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-ridge-max-x-matte-black/
+                  - heading "Apex Ridge Max X Matte Black" [level=3] [ref=e662]:
+                    - text: Apex Ridge Max X Matte Black
+                    - img [ref=e663]
+                - generic [ref=e665]:
+                  - generic [ref=e666]: $349.99
+                  - generic [ref=e667]: Premium
+                  - generic [ref=e668]: DOT, ECE 22.06
+              - article [ref=e669]:
+                - img "Apex Ridge Max X Sand" [ref=e671]
+                - button "Add to comparison" [ref=e672] [cursor=pointer]:
+                  - img [ref=e673]
+                - link "Apex Ridge Max X Sand" [ref=e674] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-ridge-max-x-sand/
+                  - heading "Apex Ridge Max X Sand" [level=3] [ref=e676]:
+                    - text: Apex Ridge Max X Sand
+                    - img [ref=e677]
+                - generic [ref=e679]:
+                  - generic [ref=e680]: $349.99
+                  - generic [ref=e681]: Premium
+                  - generic [ref=e682]: DOT, ECE 22.06
+              - article [ref=e683]:
+                - img "Apex Ridge Max X" [ref=e685]
+                - button "Add to comparison" [ref=e686] [cursor=pointer]:
+                  - img [ref=e687]
+                - link "Apex Ridge Max X" [ref=e688] [cursor=pointer]:
+                  - /url: https://helmetsan.com/helmets/apex-ridge-max-x/
+                  - heading "Apex Ridge Max X" [level=3] [ref=e690]:
+                    - text: Apex Ridge Max X
+                    - img [ref=e691]
+                - generic [ref=e693]:
+                  - generic [ref=e694]: $349.99
+                  - generic [ref=e695]: 2 Colors
+                  - generic [ref=e696]: DOT, ECE 22.06
+            - navigation "Helmet catalog pages" [ref=e697]:
+              - generic [ref=e698]: "1"
+              - link "2" [ref=e699] [cursor=pointer]:
+                - /url: https://helmetsan.com/helmets/?paged=2
+              - link "3" [ref=e700] [cursor=pointer]:
+                - /url: https://helmetsan.com/helmets/?paged=3
+              - generic [ref=e701]: …
+              - link "76" [ref=e702] [cursor=pointer]:
+                - /url: https://helmetsan.com/helmets/?paged=76
+              - link "Next →" [ref=e703] [cursor=pointer]:
+                - /url: https://helmetsan.com/helmets/?paged=2
+  - contentinfo [ref=e704]:
+    - generic [ref=e705]:
+      - generic [ref=e706]:
+        - generic [ref=e707]:
+          - strong [ref=e708]: Helmetsan
+          - paragraph [ref=e709]: Helmetsan is a trademark, owned and operated by Ash Digital Services.
+          - paragraph [ref=e710]:
+            - text: Made with
+            - generic [ref=e711]: <3
+            - text: in India
+            - img [ref=e713]
+        - navigation [ref=e716]:
+          - list [ref=e717]:
+            - listitem [ref=e718]:
+              - link "About Helmetsan" [ref=e719] [cursor=pointer]:
+                - /url: https://helmetsan.com/about/
+            - listitem [ref=e720]:
+              - link "Brands" [ref=e721] [cursor=pointer]:
+                - /url: http://helmetsan.com/brand/
+            - listitem [ref=e722]:
+              - link "Contact" [ref=e723] [cursor=pointer]:
+                - /url: https://helmetsan.com/contact/
+            - listitem [ref=e724]:
+              - link "Accessories" [ref=e725] [cursor=pointer]:
+                - /url: http://helmetsan.com/accessory/
+            - listitem [ref=e726]:
+              - link "Motorcycles" [ref=e727] [cursor=pointer]:
+                - /url: http://helmetsan.com/motorcycle/
+            - listitem [ref=e728]:
+              - link "Safety Standards" [ref=e729] [cursor=pointer]:
+                - /url: http://helmetsan.com/safety_standard/
+            - listitem [ref=e730]:
+              - link "Dealers" [ref=e731] [cursor=pointer]:
+                - /url: http://helmetsan.com/dealer/
+      - generic [ref=e733]:
+        - complementary [ref=e734]:
+          - generic [ref=e736]:
+            - heading "Archives" [level=2] [ref=e737]
+            - generic [ref=e738]: No archives to show.
+        - complementary [ref=e739]:
+          - generic [ref=e741]:
+            - heading "Categories" [level=2] [ref=e742]
+            - list [ref=e743]:
+              - listitem [ref=e744]: No categories
+    - generic [ref=e745]:
+      - paragraph [ref=e746]: © 2026 Helmetsan. All rights reserved.
+      - navigation "Required legal links" [ref=e747]:
+        - list [ref=e748]:
+          - listitem [ref=e749]:
+            - link "Privacy Policy" [ref=e750] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/privacy-policy/
+          - listitem [ref=e751]:
+            - link "Terms of Use" [ref=e752] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/terms-of-use/
+          - listitem [ref=e753]:
+            - link "Cookie Policy" [ref=e754] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/cookie-policy/
+          - listitem [ref=e755]:
+            - link "Disclaimer" [ref=e756] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/disclaimer/
+          - listitem [ref=e757]:
+            - link "Affiliate Disclosure" [ref=e758] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/affiliate-disclosure/
+          - listitem [ref=e759]:
+            - link "AI Policy" [ref=e760] [cursor=pointer]:
+              - /url: https://helmetsan.com/legal/ai-policy/

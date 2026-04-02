@@ -1,0 +1,117 @@
+{
+    "id": "axor_aero",
+    "entity": "helmet",
+    "title": "Axor Aero",
+    "brand": "Axor",
+    "type": "Open Face",
+    "helmet_family": "Aero",
+    "price": {
+        "current": 54.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 905,
+        "weight_lbs": 2,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Axor Aero open face with flip visor for city.",
+    "product_details": {
+        "description": "Axor Aero open face with flip visor for city."
+    },
+    "variants": [
+        {
+            "id": "axor_aero_black",
+            "entity": "helmet",
+            "title": "Axor Aero Black",
+            "type": "Open Face",
+            "parent_id": "axor_aero",
+            "helmet_family": "Aero",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "AXR-AER-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Aero open face with flip visor for city.",
+            "product_details": {
+                "description": "Axor Aero open face with flip visor for city."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 905,
+                "weight_lbs": 2,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "axor_aero_grey",
+            "entity": "helmet",
+            "title": "Axor Aero Grey",
+            "type": "Open Face",
+            "parent_id": "axor_aero",
+            "helmet_family": "Aero",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "AXR-AER-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Aero open face with flip visor for city.",
+            "product_details": {
+                "description": "Axor Aero open face with flip visor for city."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 905,
+                "weight_lbs": 2,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "hawk_h_40",
+    "entity": "helmet",
+    "title": "Hawk H-40",
+    "brand": "Hawk",
+    "type": "Open Face",
+    "helmet_family": "H-40",
+    "price": {
+        "current": 49.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 880,
+        "weight_lbs": 1.94,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Entry-level open face for short trips and scooters.",
+    "product_details": {
+        "description": "Entry-level open face for short trips and scooters."
+    },
+    "variants": [
+        {
+            "id": "hawk_h_40_black",
+            "entity": "helmet",
+            "title": "Hawk H-40 Black",
+            "type": "Open Face",
+            "parent_id": "hawk_h_40",
+            "helmet_family": "H-40",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "HAW-H40-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level open face for short trips and scooters.",
+            "product_details": {
+                "description": "Entry-level open face for short trips and scooters."
+            },
+            "price": {
+                "current": 49.99,
+                "usd": 49.99,
+                "eur": 45.99,
+                "gbp": 39.49
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 880,
+                "weight_lbs": 1.94,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+Black",
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hawk_h_40_white",
+            "entity": "helmet",
+            "title": "Hawk H-40 White",
+            "type": "Open Face",
+            "parent_id": "hawk_h_40",
+            "helmet_family": "H-40",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "HAW-H40-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level open face for short trips and scooters.",
+            "product_details": {
+                "description": "Entry-level open face for short trips and scooters."
+            },
+            "price": {
+                "current": 49.99,
+                "usd": 49.99,
+                "eur": 45.99,
+                "gbp": 39.49
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 880,
+                "weight_lbs": 1.94,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+White",
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+White+Side",
+                "https://placehold.co/800x800/222/white?text=Hawk+H-40+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Hawk+H-40+1",
+        "https://placehold.co/800x800/222/white?text=Hawk+H-40+2",
+        "https://placehold.co/800x800/222/white?text=Hawk+H-40+3"
+    ]
+}

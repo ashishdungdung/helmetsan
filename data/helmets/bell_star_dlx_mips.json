@@ -1,0 +1,292 @@
+{
+    "id": "bell_star_dlx_mips",
+    "entity": "helmet",
+    "title": "Bell Star DLX MIPS",
+    "brand": "Bell",
+    "type": "Full Face",
+    "helmet_family": "Star DLX MIPS",
+    "price": {
+        "current": 569.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Tri-Matrix",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT",
+            "Snell M2020",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Street optimized version of the Star with MIPS protection.",
+    "product_details": {
+        "description": "Street optimized version of the Star with MIPS protection."
+    },
+    "variants": [
+        {
+            "id": "bell_star_dlx_mips_matte-black",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Matte Black",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "BEL-STAR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 569.95,
+                "usd": 569.95,
+                "eur": 524.35,
+                "gbp": 450.26
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_dlx_mips_anthracite",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Anthracite",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "BEL-STAR-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 569.95,
+                "usd": 569.95,
+                "eur": 524.35,
+                "gbp": 450.26
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_dlx_mips_silver-metallic",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "BEL-STAR-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 569.95,
+                "usd": 569.95,
+                "eur": 524.35,
+                "gbp": 450.26
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_dlx_mips_apex-tc-1",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Apex TC-1",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-1",
+            "color_family": "Multi",
+            "sku": "BEL-STAR-APE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 619.95,
+                "usd": 619.95,
+                "eur": 570.35,
+                "gbp": 489.76
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Apex+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Apex+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Apex+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_dlx_mips_raptor-tc-1",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Raptor TC-1",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor TC-1",
+            "color_family": "Multi",
+            "sku": "BEL-STAR-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 619.95,
+                "usd": 619.95,
+                "eur": 570.35,
+                "gbp": 489.76
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Raptor+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Raptor+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Raptor+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_dlx_mips_solid-tc-1",
+            "entity": "helmet",
+            "title": "Bell Star DLX MIPS Solid TC-1",
+            "type": "Full Face",
+            "parent_id": "bell_star_dlx_mips",
+            "helmet_family": "Star DLX MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Solid TC-1",
+            "color_family": "Multi",
+            "sku": "BEL-STAR-SOL",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Street optimized version of the Star with MIPS protection.",
+            "product_details": {
+                "description": "Street optimized version of the Star with MIPS protection."
+            },
+            "price": {
+                "current": 619.95,
+                "usd": 619.95,
+                "eur": 570.35,
+                "gbp": 489.76
+            },
+            "specs": {
+                "material": "Tri-Matrix",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Solid+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Solid+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+Solid+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+DLX+MIPS+3"
+    ]
+}

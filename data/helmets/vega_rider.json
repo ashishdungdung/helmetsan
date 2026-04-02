@@ -1,0 +1,117 @@
+{
+    "id": "vega_rider",
+    "entity": "helmet",
+    "title": "Vega Rider",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Rider",
+    "price": {
+        "current": 26.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 825,
+        "weight_lbs": 1.82,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Rider open face for daily commute.",
+    "product_details": {
+        "description": "Vega Rider open face for daily commute."
+    },
+    "variants": [
+        {
+            "id": "vega_rider_black",
+            "entity": "helmet",
+            "title": "Vega Rider Black",
+            "type": "Open Face",
+            "parent_id": "vega_rider",
+            "helmet_family": "Rider",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-RID-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Rider open face for daily commute.",
+            "product_details": {
+                "description": "Vega Rider open face for daily commute."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 825,
+                "weight_lbs": 1.82,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_rider_grey",
+            "entity": "helmet",
+            "title": "Vega Rider Grey",
+            "type": "Open Face",
+            "parent_id": "vega_rider",
+            "helmet_family": "Rider",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "VEG-RID-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Rider open face for daily commute.",
+            "product_details": {
+                "description": "Vega Rider open face for daily commute."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 825,
+                "weight_lbs": 1.82,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+3"
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "id": "apex_canyon",
+    "entity": "helmet",
+    "title": "Apex Canyon",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Canyon",
+    "price": {
+        "current": 199.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Entry full face with solid build and removable liner.",
+    "product_details": {
+        "description": "Entry full face with solid build and removable liner."
+    },
+    "variants": [
+        {
+            "id": "apex_canyon_black",
+            "entity": "helmet",
+            "title": "Apex Canyon Black",
+            "type": "Full Face",
+            "parent_id": "apex_canyon",
+            "helmet_family": "Canyon",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-CAN-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry full face with solid build and removable liner.",
+            "product_details": {
+                "description": "Entry full face with solid build and removable liner."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_canyon_white",
+            "entity": "helmet",
+            "title": "Apex Canyon White",
+            "type": "Full Face",
+            "parent_id": "apex_canyon",
+            "helmet_family": "Canyon",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-CAN-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry full face with solid build and removable liner.",
+            "product_details": {
+                "description": "Entry full face with solid build and removable liner."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Canyon+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Canyon+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Canyon+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Canyon+3"
+    ]
+}

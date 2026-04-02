@@ -1,0 +1,117 @@
+{
+    "id": "apex_trail_max",
+    "entity": "helmet",
+    "title": "Apex Trail Max",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Trail Max",
+    "price": {
+        "current": 289.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Adventure helmet with peak and dual visor.",
+    "product_details": {
+        "description": "Adventure helmet with peak and dual visor."
+    },
+    "variants": [
+        {
+            "id": "apex_trail_max_matte-black",
+            "entity": "helmet",
+            "title": "Apex Trail Max Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_max",
+            "helmet_family": "Trail Max",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TLM-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and dual visor.",
+            "product_details": {
+                "description": "Adventure helmet with peak and dual visor."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_trail_max_sand",
+            "entity": "helmet",
+            "title": "Apex Trail Max Sand",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_max",
+            "helmet_family": "Trail Max",
+            "head_shape": "Intermediate Oval",
+            "color": "Sand",
+            "color_family": "Grey",
+            "sku": "APX-TLM-SND",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and dual visor.",
+            "product_details": {
+                "description": "Adventure helmet with peak and dual visor."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Sand",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Sand+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+Sand+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Max+3"
+    ]
+}

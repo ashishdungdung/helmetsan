@@ -1,0 +1,201 @@
+{
+    "id": "troy_lee_designs_se5_carbon",
+    "entity": "helmet",
+    "title": "Troy Lee Designs SE5 Carbon",
+    "brand": "Troy Lee Designs",
+    "type": "Dirt \/ MX",
+    "helmet_family": "SE5 Carbon",
+    "price": {
+        "current": 675,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1200,
+        "weight_lbs": 2.65,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
+    "product_details": {
+        "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
+    },
+    "variants": [
+        {
+            "id": "troy_lee_designs_se5_carbon_matte-black",
+            "entity": "helmet",
+            "title": "Troy Lee Designs SE5 Carbon Matte Black",
+            "type": "Dirt \/ MX",
+            "parent_id": "troy_lee_designs_se5_carbon",
+            "helmet_family": "SE5 Carbon",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "TRO-SE5C-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
+            "product_details": {
+                "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
+            },
+            "price": {
+                "current": 675,
+                "usd": 675,
+                "eur": 621,
+                "gbp": 533.25
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "troy_lee_designs_se5_carbon_silver-metallic",
+            "entity": "helmet",
+            "title": "Troy Lee Designs SE5 Carbon Silver Metallic",
+            "type": "Dirt \/ MX",
+            "parent_id": "troy_lee_designs_se5_carbon",
+            "helmet_family": "SE5 Carbon",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "TRO-SE5C-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
+            "product_details": {
+                "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
+            },
+            "price": {
+                "current": 675,
+                "usd": 675,
+                "eur": 621,
+                "gbp": 533.25
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "troy_lee_designs_se5_carbon_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Troy Lee Designs SE5 Carbon Hi-Viz Yellow",
+            "type": "Dirt \/ MX",
+            "parent_id": "troy_lee_designs_se5_carbon",
+            "helmet_family": "SE5 Carbon",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "TRO-SE5C-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
+            "product_details": {
+                "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
+            },
+            "price": {
+                "current": 675,
+                "usd": 675,
+                "eur": 621,
+                "gbp": 533.25
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "troy_lee_designs_se5_carbon_racer-tc-5",
+            "entity": "helmet",
+            "title": "Troy Lee Designs SE5 Carbon Racer TC-5",
+            "type": "Dirt \/ MX",
+            "parent_id": "troy_lee_designs_se5_carbon",
+            "helmet_family": "SE5 Carbon",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer TC-5",
+            "color_family": "Multi",
+            "sku": "TRO-SE5C-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
+            "product_details": {
+                "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
+            },
+            "price": {
+                "current": 725,
+                "usd": 725,
+                "eur": 667,
+                "gbp": 572.75
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Racer+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Racer+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Racer+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+3"
+    ]
+}

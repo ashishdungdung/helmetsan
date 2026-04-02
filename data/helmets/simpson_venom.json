@@ -1,0 +1,201 @@
+{
+    "id": "simpson_venom",
+    "entity": "helmet",
+    "title": "Simpson Venom",
+    "brand": "Simpson",
+    "type": "Full Face",
+    "helmet_family": "Venom",
+    "price": {
+        "current": 579.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Composite",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "DOT",
+            "Snell M2020"
+        ]
+    },
+    "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification.",
+    "product_details": {
+        "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification."
+    },
+    "variants": [
+        {
+            "id": "simpson_venom_gloss-black",
+            "entity": "helmet",
+            "title": "Simpson Venom Gloss Black",
+            "type": "Full Face",
+            "parent_id": "simpson_venom",
+            "helmet_family": "Venom",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SIM-VENO-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification.",
+            "product_details": {
+                "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification."
+            },
+            "price": {
+                "current": 579.95,
+                "usd": 579.95,
+                "eur": 533.55,
+                "gbp": 458.16
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_venom_anthracite",
+            "entity": "helmet",
+            "title": "Simpson Venom Anthracite",
+            "type": "Full Face",
+            "parent_id": "simpson_venom",
+            "helmet_family": "Venom",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "SIM-VENO-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification.",
+            "product_details": {
+                "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification."
+            },
+            "price": {
+                "current": 579.95,
+                "usd": 579.95,
+                "eur": 533.55,
+                "gbp": 458.16
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_venom_street-blue",
+            "entity": "helmet",
+            "title": "Simpson Venom Street Blue",
+            "type": "Full Face",
+            "parent_id": "simpson_venom",
+            "helmet_family": "Venom",
+            "head_shape": "Intermediate Oval",
+            "color": "Street Blue",
+            "color_family": "Blue",
+            "sku": "SIM-VENO-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification.",
+            "product_details": {
+                "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification."
+            },
+            "price": {
+                "current": 629.95,
+                "usd": 629.95,
+                "eur": 579.55,
+                "gbp": 497.66
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Street+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Street+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Street+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_venom_tech-tc-5",
+            "entity": "helmet",
+            "title": "Simpson Venom Tech TC-5",
+            "type": "Full Face",
+            "parent_id": "simpson_venom",
+            "helmet_family": "Venom",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-5",
+            "color_family": "Multi",
+            "sku": "SIM-VENO-TEC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification.",
+            "product_details": {
+                "description": "Pro-grade full face with dual Snell\/DOT and FMVSS 218 certification."
+            },
+            "price": {
+                "current": 629.95,
+                "usd": 629.95,
+                "eur": 579.55,
+                "gbp": 497.66
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Tech+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Tech+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+Tech+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Venom+3"
+    ]
+}

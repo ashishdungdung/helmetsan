@@ -1,0 +1,117 @@
+{
+    "id": "ls2_challenger",
+    "entity": "helmet",
+    "title": "LS2 Challenger",
+    "brand": "LS2",
+    "type": "Full Face",
+    "helmet_family": "Challenger",
+    "price": {
+        "current": 139.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "KPA",
+        "weight_g": 1510,
+        "weight_lbs": 3.33,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "LS2 Challenger full face with sun visor.",
+    "product_details": {
+        "description": "LS2 Challenger full face with sun visor."
+    },
+    "variants": [
+        {
+            "id": "ls2_challenger_matte-black",
+            "entity": "helmet",
+            "title": "LS2 Challenger Matte Black",
+            "type": "Full Face",
+            "parent_id": "ls2_challenger",
+            "helmet_family": "Challenger",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "LS2-CHL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Challenger full face with sun visor.",
+            "product_details": {
+                "description": "LS2 Challenger full face with sun visor."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1510,
+                "weight_lbs": 3.33,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_challenger_white",
+            "entity": "helmet",
+            "title": "LS2 Challenger White",
+            "type": "Full Face",
+            "parent_id": "ls2_challenger",
+            "helmet_family": "Challenger",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "LS2-CHL-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Challenger full face with sun visor.",
+            "product_details": {
+                "description": "LS2 Challenger full face with sun visor."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "KPA",
+                "weight_g": 1510,
+                "weight_lbs": 3.33,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+3"
+    ]
+}

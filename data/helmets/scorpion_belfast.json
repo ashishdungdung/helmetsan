@@ -1,0 +1,278 @@
+{
+    "id": "scorpion_belfast",
+    "entity": "helmet",
+    "title": "Scorpion Belfast",
+    "brand": "Scorpion",
+    "type": "Open Face",
+    "helmet_family": "Belfast",
+    "price": {
+        "current": 199.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Retro open face with internal sun visor and fiberglass shell.",
+    "product_details": {
+        "description": "Retro open face with internal sun visor and fiberglass shell."
+    },
+    "variants": [
+        {
+            "id": "scorpion_belfast_gloss-black",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Gloss Black",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SCO-BELF-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "scorpion_belfast_anthracite",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Anthracite",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "SCO-BELF-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "scorpion_belfast_silver-metallic",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "SCO-BELF-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "scorpion_belfast_flow-tc-1",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Flow TC-1",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow TC-1",
+            "color_family": "Multi",
+            "sku": "SCO-BELF-FLO",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 249.95,
+                "usd": 249.95,
+                "eur": 229.95,
+                "gbp": 197.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Flow+TC-1",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Flow+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Flow+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "scorpion_belfast_street-grey",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Street Grey",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Street Grey",
+            "color_family": "Grey",
+            "sku": "SCO-BELF-STR",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 249.95,
+                "usd": 249.95,
+                "eur": 229.95,
+                "gbp": 197.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Street+Grey",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Street+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Street+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "scorpion_belfast_operator-red",
+            "entity": "helmet",
+            "title": "Scorpion Belfast Operator Red",
+            "type": "Open Face",
+            "parent_id": "scorpion_belfast",
+            "helmet_family": "Belfast",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator Red",
+            "color_family": "Red",
+            "sku": "SCO-BELF-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Retro open face with internal sun visor and fiberglass shell.",
+            "product_details": {
+                "description": "Retro open face with internal sun visor and fiberglass shell."
+            },
+            "price": {
+                "current": 249.95,
+                "usd": 249.95,
+                "eur": 229.95,
+                "gbp": 197.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Operator+Red",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Operator+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+Operator+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+1",
+        "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+2",
+        "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "smk_scout",
+    "entity": "helmet",
+    "title": "SMK Scout",
+    "brand": "SMK",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Scout",
+    "price": {
+        "current": 139.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1570,
+        "weight_lbs": 3.46,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "SMK Scout adventure helmet with peak.",
+    "product_details": {
+        "description": "SMK Scout adventure helmet with peak."
+    },
+    "variants": [
+        {
+            "id": "smk_scout_matte-black",
+            "entity": "helmet",
+            "title": "SMK Scout Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "smk_scout",
+            "helmet_family": "Scout",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SMK-SCT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Scout adventure helmet with peak.",
+            "product_details": {
+                "description": "SMK Scout adventure helmet with peak."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "smk_scout_orange",
+            "entity": "helmet",
+            "title": "SMK Scout Orange",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "smk_scout",
+            "helmet_family": "Scout",
+            "head_shape": "Intermediate Oval",
+            "color": "Orange",
+            "color_family": "Orange",
+            "sku": "SMK-SCT-ORG",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Scout adventure helmet with peak.",
+            "product_details": {
+                "description": "SMK Scout adventure helmet with peak."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+3"
+    ]
+}

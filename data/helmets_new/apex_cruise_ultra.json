@@ -1,0 +1,117 @@
+{
+    "id": "apex_cruise_ultra",
+    "entity": "helmet",
+    "title": "Apex Cruise Ultra",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Cruise Ultra",
+    "price": {
+        "current": 159.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 992,
+        "weight_lbs": 2.19,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face for touring and cruiser.",
+    "product_details": {
+        "description": "Open face for touring and cruiser."
+    },
+    "variants": [
+        {
+            "id": "apex_cruise_ultra_black",
+            "entity": "helmet",
+            "title": "Apex Cruise Ultra Black",
+            "type": "Open Face",
+            "parent_id": "apex_cruise_ultra",
+            "helmet_family": "Cruise Ultra",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-CLU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face for touring and cruiser.",
+            "product_details": {
+                "description": "Open face for touring and cruiser."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 992,
+                "weight_lbs": 2.19,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_cruise_ultra_chrome",
+            "entity": "helmet",
+            "title": "Apex Cruise Ultra Chrome",
+            "type": "Open Face",
+            "parent_id": "apex_cruise_ultra",
+            "helmet_family": "Cruise Ultra",
+            "head_shape": "Round Oval",
+            "color": "Chrome",
+            "color_family": "Grey",
+            "sku": "APX-CLU-CHR",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face for touring and cruiser.",
+            "product_details": {
+                "description": "Open face for touring and cruiser."
+            },
+            "price": {
+                "current": 187.99,
+                "usd": 187.99,
+                "eur": 172.95,
+                "gbp": 148.51
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 992,
+                "weight_lbs": 2.19,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+3"
+    ]
+}

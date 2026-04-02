@@ -1,0 +1,117 @@
+{
+    "id": "vega_thunder",
+    "entity": "helmet",
+    "title": "Vega Thunder",
+    "brand": "Vega",
+    "type": "Full Face",
+    "helmet_family": "Thunder",
+    "price": {
+        "current": 47.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1320,
+        "weight_lbs": 2.91,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Thunder full face with double visor.",
+    "product_details": {
+        "description": "Vega Thunder full face with double visor."
+    },
+    "variants": [
+        {
+            "id": "vega_thunder_black",
+            "entity": "helmet",
+            "title": "Vega Thunder Black",
+            "type": "Full Face",
+            "parent_id": "vega_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-THN-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Thunder full face with double visor.",
+            "product_details": {
+                "description": "Vega Thunder full face with double visor."
+            },
+            "price": {
+                "current": 47.99,
+                "usd": 47.99,
+                "eur": 44.15,
+                "gbp": 37.91
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1320,
+                "weight_lbs": 2.91,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_thunder_white",
+            "entity": "helmet",
+            "title": "Vega Thunder White",
+            "type": "Full Face",
+            "parent_id": "vega_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-THN-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Thunder full face with double visor.",
+            "product_details": {
+                "description": "Vega Thunder full face with double visor."
+            },
+            "price": {
+                "current": 47.99,
+                "usd": 47.99,
+                "eur": 44.15,
+                "gbp": 37.91
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1320,
+                "weight_lbs": 2.91,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Thunder+3"
+    ]
+}

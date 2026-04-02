@@ -12,77 +12,86 @@ final class ParallelAiClient
     /**
      * @param array<string, array{url: string, headers: array<string, string>, body: string}> $requests Map of providerId -> request data
      * @param int $timeout Total timeout in seconds
+     * @param int $maxConcurrency Max simultaneous requests (for all providers combined)
      * @return array<string, string|null> Map of providerId -> raw response body or null on failure
      */
-    public function execute(array $requests, int $timeout = 30): array
+    public function execute(array $requests, int $timeout = 30, int $maxConcurrency = 8): array
     {
+        if ($requests === []) {
+            return [];
+        }
+
         $finalResults = array_fill_keys(array_keys($requests), null);
-        $currentRequests = $requests;
-        $attempt = 0;
-        $maxRetries = 3;
+        $chunks = array_chunk($requests, max(1, $maxConcurrency), true);
 
-        while ($currentRequests !== [] && $attempt <= $maxRetries) {
-            if ($attempt > 0) {
-                sleep((int) pow(2, $attempt)); // Backoff: 2s, 4s, 8s
-            }
+        foreach ($chunks as $chunk) {
+            $attempt = 0;
+            $maxRetries = 2;
+            $currentChunk = $chunk;
 
-            $mh = curl_multi_init();
-            if ($mh === false) {
-                break;
-            }
-
-            $handles = [];
-            foreach ($currentRequests as $id => $req) {
-                $ch = curl_init($req['url']);
-                if ($ch === false) {
-                    continue;
+            while ($currentChunk !== [] && $attempt <= $maxRetries) {
+                if ($attempt > 0) {
+                    sleep((int) pow(2, $attempt)); 
                 }
 
-                $headers = [];
-                foreach ($req['headers'] as $k => $v) {
-                    $headers[] = "$k: $v";
+                $mh = curl_multi_init();
+                if ($mh === false) {
+                    break;
                 }
 
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $req['body']);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+                $handles = [];
+                foreach ($currentChunk as $id => $req) {
+                    $ch = curl_init($req['url']);
+                    if ($ch === false) {
+                        continue;
+                    }
 
-                curl_multi_add_handle($mh, $ch);
-                $handles[$id] = $ch;
-            }
+                    $headers = [];
+                    foreach ($req['headers'] as $k => $v) {
+                        $headers[] = "$k: $v";
+                    }
 
-            $active = null;
-            do {
-                $mrc = curl_multi_exec($mh, $active);
-            } while ($mrc === CURLM_OK && $active > 0);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $req['body']);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+                    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
 
-            while ($active && $mrc === CURLM_OK) {
-                if (curl_multi_select($mh) === -1) {
-                    usleep(100);
+                    curl_multi_add_handle($mh, $ch);
+                    $handles[$id] = $ch;
                 }
+
+                $active = null;
                 do {
                     $mrc = curl_multi_exec($mh, $active);
                 } while ($mrc === CURLM_OK && $active > 0);
-            }
 
-            $nextRequests = [];
-            foreach ($handles as $id => $ch) {
-                $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-                if ($code === 200) {
-                    $finalResults[$id] = curl_multi_getcontent($ch);
-                } elseif ($code === 429 && $attempt < $maxRetries) {
-                    $nextRequests[$id] = $currentRequests[$id];
+                while ($active && $mrc === CURLM_OK) {
+                    if (curl_multi_select($mh) === -1) {
+                        usleep(100);
+                    }
+                    do {
+                        $mrc = curl_multi_exec($mh, $active);
+                    } while ($mrc === CURLM_OK && $active > 0);
                 }
-                curl_multi_remove_handle($mh, $ch);
-                curl_close($ch);
-            }
 
-            curl_multi_close($mh);
-            $currentRequests = $nextRequests;
-            $attempt++;
+                $nextChunk = [];
+                foreach ($handles as $id => $ch) {
+                    $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                    if ($code === 200) {
+                        $finalResults[$id] = curl_multi_getcontent($ch);
+                    } elseif ($code === 429 && $attempt < $maxRetries) {
+                        $nextChunk[$id] = $currentChunk[$id];
+                    }
+                    curl_multi_remove_handle($mh, $ch);
+                    curl_close($ch);
+                }
+
+                curl_multi_close($mh);
+                $currentChunk = $nextChunk;
+                $attempt++;
+            }
         }
 
         return $finalResults;

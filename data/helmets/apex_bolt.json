@@ -1,0 +1,114 @@
+{
+    "id": "apex_bolt",
+    "entity": "helmet",
+    "title": "Apex Bolt",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Bolt",
+    "price": {
+        "current": 169.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1610,
+        "weight_lbs": 3.55,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Budget full face with solid protection and ventilation.",
+    "product_details": {
+        "description": "Budget full face with solid protection and ventilation."
+    },
+    "variants": [
+        {
+            "id": "apex_bolt_black",
+            "entity": "helmet",
+            "title": "Apex Bolt Black",
+            "type": "Full Face",
+            "parent_id": "apex_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-BOL-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget full face with solid protection and ventilation.",
+            "product_details": {
+                "description": "Budget full face with solid protection and ventilation."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_bolt_silver",
+            "entity": "helmet",
+            "title": "Apex Bolt Silver",
+            "type": "Full Face",
+            "parent_id": "apex_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "APX-BOL-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget full face with solid protection and ventilation.",
+            "product_details": {
+                "description": "Budget full face with solid protection and ventilation."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Silver",
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Bolt+Silver+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Bolt+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Bolt+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Bolt+3"
+    ]
+}

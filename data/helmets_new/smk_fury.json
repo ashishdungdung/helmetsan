@@ -1,0 +1,117 @@
+{
+    "id": "smk_fury",
+    "entity": "helmet",
+    "title": "SMK Fury",
+    "brand": "SMK",
+    "type": "Full Face",
+    "helmet_family": "Fury",
+    "price": {
+        "current": 149.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1510,
+        "weight_lbs": 3.33,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "SMK Fury full face with sun visor.",
+    "product_details": {
+        "description": "SMK Fury full face with sun visor."
+    },
+    "variants": [
+        {
+            "id": "smk_fury_matte-black",
+            "entity": "helmet",
+            "title": "SMK Fury Matte Black",
+            "type": "Full Face",
+            "parent_id": "smk_fury",
+            "helmet_family": "Fury",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SMK-FUR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Fury full face with sun visor.",
+            "product_details": {
+                "description": "SMK Fury full face with sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1510,
+                "weight_lbs": 3.33,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_fury_white",
+            "entity": "helmet",
+            "title": "SMK Fury White",
+            "type": "Full Face",
+            "parent_id": "smk_fury",
+            "helmet_family": "Fury",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "SMK-FUR-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Fury full face with sun visor.",
+            "product_details": {
+                "description": "SMK Fury full face with sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1510,
+                "weight_lbs": 3.33,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Fury+3"
+    ]
+}

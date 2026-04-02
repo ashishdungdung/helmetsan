@@ -1,0 +1,117 @@
+{
+    "id": "apex_vista",
+    "entity": "helmet",
+    "title": "Apex Vista",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Vista",
+    "price": {
+        "current": 269.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1710,
+        "weight_lbs": 3.77,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Modular with flip-up chin and wide field of view.",
+    "product_details": {
+        "description": "Modular with flip-up chin and wide field of view."
+    },
+    "variants": [
+        {
+            "id": "apex_vista_black",
+            "entity": "helmet",
+            "title": "Apex Vista Black",
+            "type": "Modular",
+            "parent_id": "apex_vista",
+            "helmet_family": "Vista",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-VIS-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up chin and wide field of view.",
+            "product_details": {
+                "description": "Modular with flip-up chin and wide field of view."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1710,
+                "weight_lbs": 3.77,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_vista_grey",
+            "entity": "helmet",
+            "title": "Apex Vista Grey",
+            "type": "Modular",
+            "parent_id": "apex_vista",
+            "helmet_family": "Vista",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-VIS-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up chin and wide field of view.",
+            "product_details": {
+                "description": "Modular with flip-up chin and wide field of view."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1710,
+                "weight_lbs": 3.77,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+3"
+    ]
+}

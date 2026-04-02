@@ -4,7 +4,7 @@ This repository uses structured AI workflows for development.
 
 **Local First & Memory Enabled**:
 
-- **Local AI**: Use LM Studio (`http://192.168.2.58:1234`) for routine WP-CLI tasks to save cloud tokens.
+- **Local AI**: Use LM Studio (`http://192.168.2.240:1234`) for routine WP-CLI tasks to save cloud tokens.
 - **Memory MCP**: Use the `memory` server to store/recall project context across sessions (avoid re-reading).
 - **Minimal Context**: For small tasks (single file, typo), do NOT load full workflows.
 

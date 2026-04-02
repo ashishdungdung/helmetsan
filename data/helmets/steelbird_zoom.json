@@ -1,0 +1,117 @@
+{
+    "id": "steelbird_zoom",
+    "entity": "helmet",
+    "title": "Steelbird Zoom",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "helmet_family": "Zoom",
+    "price": {
+        "current": 27.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 860,
+        "weight_lbs": 1.9,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Light open face with flip visor for commuters.",
+    "product_details": {
+        "description": "Light open face with flip visor for commuters."
+    },
+    "variants": [
+        {
+            "id": "steelbird_zoom_black",
+            "entity": "helmet",
+            "title": "Steelbird Zoom Black",
+            "type": "Open Face",
+            "parent_id": "steelbird_zoom",
+            "helmet_family": "Zoom",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "STE-ZOM-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Light open face with flip visor for commuters.",
+            "product_details": {
+                "description": "Light open face with flip visor for commuters."
+            },
+            "price": {
+                "current": 27.99,
+                "usd": 27.99,
+                "eur": 25.75,
+                "gbp": 22.11
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 860,
+                "weight_lbs": 1.9,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_zoom_grey",
+            "entity": "helmet",
+            "title": "Steelbird Zoom Grey",
+            "type": "Open Face",
+            "parent_id": "steelbird_zoom",
+            "helmet_family": "Zoom",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "STE-ZOM-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Light open face with flip visor for commuters.",
+            "product_details": {
+                "description": "Light open face with flip visor for commuters."
+            },
+            "price": {
+                "current": 27.99,
+                "usd": 27.99,
+                "eur": 25.75,
+                "gbp": 22.11
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 860,
+                "weight_lbs": 1.9,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Zoom+3"
+    ]
+}

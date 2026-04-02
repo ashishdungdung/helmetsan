@@ -1,0 +1,196 @@
+{
+    "id": "vemar_sharki",
+    "entity": "helmet",
+    "title": "Vemar Sharki",
+    "brand": "Vemar",
+    "type": "Modular",
+    "helmet_family": "Sharki",
+    "price": {
+        "current": 329.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Composite",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Feature-packed modular with double sun visor and intercom cavity.",
+    "product_details": {
+        "description": "Feature-packed modular with double sun visor and intercom cavity."
+    },
+    "variants": [
+        {
+            "id": "vemar_sharki_gloss-black",
+            "entity": "helmet",
+            "title": "Vemar Sharki Gloss Black",
+            "type": "Modular",
+            "parent_id": "vemar_sharki",
+            "helmet_family": "Sharki",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "VEM-SHAR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed modular with double sun visor and intercom cavity.",
+            "product_details": {
+                "description": "Feature-packed modular with double sun visor and intercom cavity."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "vemar_sharki_silver-metallic",
+            "entity": "helmet",
+            "title": "Vemar Sharki Silver Metallic",
+            "type": "Modular",
+            "parent_id": "vemar_sharki",
+            "helmet_family": "Sharki",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "VEM-SHAR-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed modular with double sun visor and intercom cavity.",
+            "product_details": {
+                "description": "Feature-packed modular with double sun visor and intercom cavity."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "vemar_sharki_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Vemar Sharki Hi-Viz Yellow",
+            "type": "Modular",
+            "parent_id": "vemar_sharki",
+            "helmet_family": "Sharki",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "VEM-SHAR-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed modular with double sun visor and intercom cavity.",
+            "product_details": {
+                "description": "Feature-packed modular with double sun visor and intercom cavity."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "vemar_sharki_track-blue",
+            "entity": "helmet",
+            "title": "Vemar Sharki Track Blue",
+            "type": "Modular",
+            "parent_id": "vemar_sharki",
+            "helmet_family": "Sharki",
+            "head_shape": "Intermediate Oval",
+            "color": "Track Blue",
+            "color_family": "Blue",
+            "sku": "VEM-SHAR-TRA",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Feature-packed modular with double sun visor and intercom cavity.",
+            "product_details": {
+                "description": "Feature-packed modular with double sun visor and intercom cavity."
+            },
+            "price": {
+                "current": 379.99,
+                "usd": 379.99,
+                "eur": 349.59,
+                "gbp": 300.19
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+3"
+    ]
+}

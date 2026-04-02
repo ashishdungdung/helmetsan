@@ -1,0 +1,159 @@
+{
+    "id": "axor_nova",
+    "entity": "helmet",
+    "title": "Axor Nova",
+    "brand": "Axor",
+    "type": "Full Face",
+    "helmet_family": "Nova",
+    "price": {
+        "current": 114.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1310,
+        "weight_lbs": 2.89,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Axor Nova full face with dual cert and sun visor.",
+    "product_details": {
+        "description": "Axor Nova full face with dual cert and sun visor."
+    },
+    "variants": [
+        {
+            "id": "axor_nova_matte-black",
+            "entity": "helmet",
+            "title": "Axor Nova Matte Black",
+            "type": "Full Face",
+            "parent_id": "axor_nova",
+            "helmet_family": "Nova",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "AXR-NOV-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Nova full face with dual cert and sun visor.",
+            "product_details": {
+                "description": "Axor Nova full face with dual cert and sun visor."
+            },
+            "price": {
+                "current": 114.99,
+                "usd": 114.99,
+                "eur": 105.79,
+                "gbp": 90.84
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1310,
+                "weight_lbs": 2.89,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "axor_nova_white",
+            "entity": "helmet",
+            "title": "Axor Nova White",
+            "type": "Full Face",
+            "parent_id": "axor_nova",
+            "helmet_family": "Nova",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "AXR-NOV-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Nova full face with dual cert and sun visor.",
+            "product_details": {
+                "description": "Axor Nova full face with dual cert and sun visor."
+            },
+            "price": {
+                "current": 114.99,
+                "usd": 114.99,
+                "eur": 105.79,
+                "gbp": 90.84
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1310,
+                "weight_lbs": 2.89,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "axor_nova_red",
+            "entity": "helmet",
+            "title": "Axor Nova Red",
+            "type": "Full Face",
+            "parent_id": "axor_nova",
+            "helmet_family": "Nova",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "AXR-NOV-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Nova full face with dual cert and sun visor.",
+            "product_details": {
+                "description": "Axor Nova full face with dual cert and sun visor."
+            },
+            "price": {
+                "current": 114.99,
+                "usd": 114.99,
+                "eur": 105.79,
+                "gbp": 90.84
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1310,
+                "weight_lbs": 2.89,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Nova+3"
+    ]
+}

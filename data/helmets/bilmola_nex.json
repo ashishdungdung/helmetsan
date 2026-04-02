@@ -1,0 +1,196 @@
+{
+    "id": "bilmola_nex",
+    "entity": "helmet",
+    "title": "Bilmola Nex",
+    "brand": "Bilmola",
+    "type": "Open Face",
+    "helmet_family": "Nex",
+    "price": {
+        "current": 89.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1000,
+        "weight_lbs": 2.2,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Urban open face with inner visor and air-channel ventilation.",
+    "product_details": {
+        "description": "Urban open face with inner visor and air-channel ventilation."
+    },
+    "variants": [
+        {
+            "id": "bilmola_nex_gloss-black",
+            "entity": "helmet",
+            "title": "Bilmola Nex Gloss Black",
+            "type": "Open Face",
+            "parent_id": "bilmola_nex",
+            "helmet_family": "Nex",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "BIL-NEX-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Urban open face with inner visor and air-channel ventilation.",
+            "product_details": {
+                "description": "Urban open face with inner visor and air-channel ventilation."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bilmola_nex_anthracite",
+            "entity": "helmet",
+            "title": "Bilmola Nex Anthracite",
+            "type": "Open Face",
+            "parent_id": "bilmola_nex",
+            "helmet_family": "Nex",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "BIL-NEX-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Urban open face with inner visor and air-channel ventilation.",
+            "product_details": {
+                "description": "Urban open face with inner visor and air-channel ventilation."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bilmola_nex_silver-metallic",
+            "entity": "helmet",
+            "title": "Bilmola Nex Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "bilmola_nex",
+            "helmet_family": "Nex",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "BIL-NEX-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Urban open face with inner visor and air-channel ventilation.",
+            "product_details": {
+                "description": "Urban open face with inner visor and air-channel ventilation."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bilmola_nex_urban-red",
+            "entity": "helmet",
+            "title": "Bilmola Nex Urban Red",
+            "type": "Open Face",
+            "parent_id": "bilmola_nex",
+            "helmet_family": "Nex",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban Red",
+            "color_family": "Red",
+            "sku": "BIL-NEX-URB",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Urban open face with inner visor and air-channel ventilation.",
+            "product_details": {
+                "description": "Urban open face with inner visor and air-channel ventilation."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Urban+Red",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Urban+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Bilmola+Nex+Urban+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Bilmola+Nex+1",
+        "https://placehold.co/800x800/222/white?text=Bilmola+Nex+2",
+        "https://placehold.co/800x800/222/white?text=Bilmola+Nex+3"
+    ]
+}

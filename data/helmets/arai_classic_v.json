@@ -1,0 +1,243 @@
+{
+    "id": "arai_classic_v",
+    "entity": "helmet",
+    "title": "Arai Classic-V",
+    "brand": "Arai",
+    "type": "Open Face",
+    "helmet_family": "Classic-V",
+    "price": {
+        "current": 489.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "PB-cLc",
+        "weight_g": 1200,
+        "weight_lbs": 2.65,
+        "certifications": [
+            "DOT",
+            "Snell M2020"
+        ]
+    },
+    "description": "Heritage styling with modern Arai protection.",
+    "product_details": {
+        "description": "Heritage styling with modern Arai protection."
+    },
+    "variants": [
+        {
+            "id": "arai_classic_v_matte-black",
+            "entity": "helmet",
+            "title": "Arai Classic-V Matte Black",
+            "type": "Open Face",
+            "parent_id": "arai_classic_v",
+            "helmet_family": "Classic-V",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ARA-CLAS-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Heritage styling with modern Arai protection.",
+            "product_details": {
+                "description": "Heritage styling with modern Arai protection."
+            },
+            "price": {
+                "current": 489.95,
+                "usd": 489.95,
+                "eur": 450.75,
+                "gbp": 387.06
+            },
+            "specs": {
+                "material": "PB-cLc",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "arai_classic_v_silver-metallic",
+            "entity": "helmet",
+            "title": "Arai Classic-V Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "arai_classic_v",
+            "helmet_family": "Classic-V",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "ARA-CLAS-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Heritage styling with modern Arai protection.",
+            "product_details": {
+                "description": "Heritage styling with modern Arai protection."
+            },
+            "price": {
+                "current": 489.95,
+                "usd": 489.95,
+                "eur": 450.75,
+                "gbp": 387.06
+            },
+            "specs": {
+                "material": "PB-cLc",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "arai_classic_v_operator-blue",
+            "entity": "helmet",
+            "title": "Arai Classic-V Operator Blue",
+            "type": "Open Face",
+            "parent_id": "arai_classic_v",
+            "helmet_family": "Classic-V",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator Blue",
+            "color_family": "Blue",
+            "sku": "ARA-CLAS-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Heritage styling with modern Arai protection.",
+            "product_details": {
+                "description": "Heritage styling with modern Arai protection."
+            },
+            "price": {
+                "current": 539.95,
+                "usd": 539.95,
+                "eur": 496.75,
+                "gbp": 426.56
+            },
+            "specs": {
+                "material": "PB-cLc",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "arai_classic_v_flow-tc-3",
+            "entity": "helmet",
+            "title": "Arai Classic-V Flow TC-3",
+            "type": "Open Face",
+            "parent_id": "arai_classic_v",
+            "helmet_family": "Classic-V",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow TC-3",
+            "color_family": "Multi",
+            "sku": "ARA-CLAS-FLO",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Heritage styling with modern Arai protection.",
+            "product_details": {
+                "description": "Heritage styling with modern Arai protection."
+            },
+            "price": {
+                "current": 539.95,
+                "usd": 539.95,
+                "eur": 496.75,
+                "gbp": 426.56
+            },
+            "specs": {
+                "material": "PB-cLc",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "arai_classic_v_street-tc-3",
+            "entity": "helmet",
+            "title": "Arai Classic-V Street TC-3",
+            "type": "Open Face",
+            "parent_id": "arai_classic_v",
+            "helmet_family": "Classic-V",
+            "head_shape": "Intermediate Oval",
+            "color": "Street TC-3",
+            "color_family": "Multi",
+            "sku": "ARA-CLAS-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Heritage styling with modern Arai protection.",
+            "product_details": {
+                "description": "Heritage styling with modern Arai protection."
+            },
+            "price": {
+                "current": 539.95,
+                "usd": 539.95,
+                "eur": 496.75,
+                "gbp": 426.56
+            },
+            "specs": {
+                "material": "PB-cLc",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+3"
+    ]
+}

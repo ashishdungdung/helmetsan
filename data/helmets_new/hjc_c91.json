@@ -1,0 +1,117 @@
+{
+    "id": "hjc_c91",
+    "entity": "helmet",
+    "title": "HJC C91",
+    "brand": "HJC",
+    "type": "Open Face",
+    "helmet_family": "C91",
+    "price": {
+        "current": 119.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1050,
+        "weight_lbs": 2.31,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "HJC C91 open face with shield.",
+    "product_details": {
+        "description": "HJC C91 open face with shield."
+    },
+    "variants": [
+        {
+            "id": "hjc_c91_black",
+            "entity": "helmet",
+            "title": "HJC C91 Black",
+            "type": "Open Face",
+            "parent_id": "hjc_c91",
+            "helmet_family": "C91",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "HJC-C91-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "HJC C91 open face with shield.",
+            "product_details": {
+                "description": "HJC C91 open face with shield."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_c91_silver",
+            "entity": "helmet",
+            "title": "HJC C91 Silver",
+            "type": "Open Face",
+            "parent_id": "hjc_c91",
+            "helmet_family": "C91",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "HJC-C91-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "HJC C91 open face with shield.",
+            "product_details": {
+                "description": "HJC C91 open face with shield."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+C91+3"
+    ]
+}

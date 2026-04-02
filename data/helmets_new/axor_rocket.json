@@ -1,0 +1,117 @@
+{
+    "id": "axor_rocket",
+    "entity": "helmet",
+    "title": "Axor Rocket",
+    "brand": "Axor",
+    "type": "Open Face",
+    "helmet_family": "Rocket",
+    "price": {
+        "current": 39.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 895,
+        "weight_lbs": 1.97,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Axor Rocket open face with flip-up visor.",
+    "product_details": {
+        "description": "Axor Rocket open face with flip-up visor."
+    },
+    "variants": [
+        {
+            "id": "axor_rocket_black",
+            "entity": "helmet",
+            "title": "Axor Rocket Black",
+            "type": "Open Face",
+            "parent_id": "axor_rocket",
+            "helmet_family": "Rocket",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "AXR-ROC-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Rocket open face with flip-up visor.",
+            "product_details": {
+                "description": "Axor Rocket open face with flip-up visor."
+            },
+            "price": {
+                "current": 39.99,
+                "usd": 39.99,
+                "eur": 36.79,
+                "gbp": 31.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 895,
+                "weight_lbs": 1.97,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "axor_rocket_grey",
+            "entity": "helmet",
+            "title": "Axor Rocket Grey",
+            "type": "Open Face",
+            "parent_id": "axor_rocket",
+            "helmet_family": "Rocket",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "AXR-ROC-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Rocket open face with flip-up visor.",
+            "product_details": {
+                "description": "Axor Rocket open face with flip-up visor."
+            },
+            "price": {
+                "current": 39.99,
+                "usd": 39.99,
+                "eur": 36.79,
+                "gbp": 31.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 895,
+                "weight_lbs": 1.97,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Rocket+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "vega_zorro",
+    "entity": "helmet",
+    "title": "Vega Zorro",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Zorro",
+    "price": {
+        "current": 26.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 860,
+        "weight_lbs": 1.9,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Zorro open face with adjustable clear visor.",
+    "product_details": {
+        "description": "Vega Zorro open face with adjustable clear visor."
+    },
+    "variants": [
+        {
+            "id": "vega_zorro_black",
+            "entity": "helmet",
+            "title": "Vega Zorro Black",
+            "type": "Open Face",
+            "parent_id": "vega_zorro",
+            "helmet_family": "Zorro",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-ZOR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Zorro open face with adjustable clear visor.",
+            "product_details": {
+                "description": "Vega Zorro open face with adjustable clear visor."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 860,
+                "weight_lbs": 1.9,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_zorro_grey",
+            "entity": "helmet",
+            "title": "Vega Zorro Grey",
+            "type": "Open Face",
+            "parent_id": "vega_zorro",
+            "helmet_family": "Zorro",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "VEG-ZOR-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Zorro open face with adjustable clear visor.",
+            "product_details": {
+                "description": "Vega Zorro open face with adjustable clear visor."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 860,
+                "weight_lbs": 1.9,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_pulse_pro",
+    "entity": "helmet",
+    "title": "Apex Pulse Pro",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Pulse Pro",
+    "price": {
+        "current": 199.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1570,
+        "weight_lbs": 3.46,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Full face with modern styling and ventilation.",
+    "product_details": {
+        "description": "Full face with modern styling and ventilation."
+    },
+    "variants": [
+        {
+            "id": "apex_pulse_pro_matte-black",
+            "entity": "helmet",
+            "title": "Apex Pulse Pro Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_pulse_pro",
+            "helmet_family": "Pulse Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-PLP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with modern styling and ventilation.",
+            "product_details": {
+                "description": "Full face with modern styling and ventilation."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_pulse_pro_red",
+            "entity": "helmet",
+            "title": "Apex Pulse Pro Red",
+            "type": "Full Face",
+            "parent_id": "apex_pulse_pro",
+            "helmet_family": "Pulse Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-PLP-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with modern styling and ventilation.",
+            "product_details": {
+                "description": "Full face with modern styling and ventilation."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+3"
+    ]
+}

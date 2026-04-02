@@ -1,0 +1,278 @@
+{
+    "id": "ls2_copter",
+    "entity": "helmet",
+    "title": "LS2 Copter",
+    "brand": "LS2",
+    "type": "Open Face",
+    "helmet_family": "Copter",
+    "price": {
+        "current": 99.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1050,
+        "weight_lbs": 2.31,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Budget-friendly urban open face with retractable sun visor.",
+    "product_details": {
+        "description": "Budget-friendly urban open face with retractable sun visor."
+    },
+    "variants": [
+        {
+            "id": "ls2_copter_matte-black",
+            "entity": "helmet",
+            "title": "LS2 Copter Matte Black",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "LS2-COPT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_copter_gloss-white",
+            "entity": "helmet",
+            "title": "LS2 Copter Gloss White",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "LS2-COPT-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_copter_anthracite",
+            "entity": "helmet",
+            "title": "LS2 Copter Anthracite",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "LS2-COPT-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 99.99,
+                "usd": 99.99,
+                "eur": 91.99,
+                "gbp": 78.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_copter_course-tc-3",
+            "entity": "helmet",
+            "title": "LS2 Copter Course TC-3",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Course TC-3",
+            "color_family": "Multi",
+            "sku": "LS2-COPT-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Course+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Course+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Course+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_copter_racer-tc-3",
+            "entity": "helmet",
+            "title": "LS2 Copter Racer TC-3",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer TC-3",
+            "color_family": "Multi",
+            "sku": "LS2-COPT-RAC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Racer+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Racer+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Racer+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_copter_apex-tc-5",
+            "entity": "helmet",
+            "title": "LS2 Copter Apex TC-5",
+            "type": "Open Face",
+            "parent_id": "ls2_copter",
+            "helmet_family": "Copter",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-5",
+            "color_family": "Multi",
+            "sku": "LS2-COPT-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget-friendly urban open face with retractable sun visor.",
+            "product_details": {
+                "description": "Budget-friendly urban open face with retractable sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Apex+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Apex+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+Apex+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Copter+3"
+    ]
+}

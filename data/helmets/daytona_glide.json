@@ -1,0 +1,196 @@
+{
+    "id": "daytona_glide",
+    "entity": "helmet",
+    "title": "Daytona Glide",
+    "brand": "Daytona",
+    "type": "Modular",
+    "helmet_family": "Glide",
+    "price": {
+        "current": 149.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Budget modular with flip-up chin and inner sun visor.",
+    "product_details": {
+        "description": "Budget modular with flip-up chin and inner sun visor."
+    },
+    "variants": [
+        {
+            "id": "daytona_glide_matte-black",
+            "entity": "helmet",
+            "title": "Daytona Glide Matte Black",
+            "type": "Modular",
+            "parent_id": "daytona_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "DAY-GLID-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget modular with flip-up chin and inner sun visor.",
+            "product_details": {
+                "description": "Budget modular with flip-up chin and inner sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "daytona_glide_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Daytona Glide Hi-Viz Yellow",
+            "type": "Modular",
+            "parent_id": "daytona_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "DAY-GLID-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget modular with flip-up chin and inner sun visor.",
+            "product_details": {
+                "description": "Budget modular with flip-up chin and inner sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "daytona_glide_pearl-white",
+            "entity": "helmet",
+            "title": "Daytona Glide Pearl White",
+            "type": "Modular",
+            "parent_id": "daytona_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "DAY-GLID-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget modular with flip-up chin and inner sun visor.",
+            "product_details": {
+                "description": "Budget modular with flip-up chin and inner sun visor."
+            },
+            "price": {
+                "current": 149.99,
+                "usd": 149.99,
+                "eur": 137.99,
+                "gbp": 118.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "daytona_glide_raptor-tc-1",
+            "entity": "helmet",
+            "title": "Daytona Glide Raptor TC-1",
+            "type": "Modular",
+            "parent_id": "daytona_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor TC-1",
+            "color_family": "Multi",
+            "sku": "DAY-GLID-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget modular with flip-up chin and inner sun visor.",
+            "product_details": {
+                "description": "Budget modular with flip-up chin and inner sun visor."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Raptor+TC-1",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Raptor+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Daytona+Glide+Raptor+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Daytona+Glide+1",
+        "https://placehold.co/800x800/222/white?text=Daytona+Glide+2",
+        "https://placehold.co/800x800/222/white?text=Daytona+Glide+3"
+    ]
+}

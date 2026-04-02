@@ -16,7 +16,8 @@ final class LMStudioProvider extends BaseProvider
     public function __construct(
         private readonly string $baseUrl,
         private readonly string $model = 'local',
-        private readonly string $apiKey = ''
+        private readonly string $apiKey = '',
+        private readonly int $concurrency = 1
     ) {
     }
 
@@ -38,6 +39,11 @@ final class LMStudioProvider extends BaseProvider
     public function isConfigured(): bool
     {
         return $this->baseUrl !== '';
+    }
+
+    public function getConcurrency(): int
+    {
+        return $this->concurrency;
     }
 
     public function prepareRequest(string $prompt, array $options = []): ?array

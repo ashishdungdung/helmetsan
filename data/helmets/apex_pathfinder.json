@@ -1,0 +1,117 @@
+{
+    "id": "apex_pathfinder",
+    "entity": "helmet",
+    "title": "Apex Pathfinder",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Pathfinder",
+    "price": {
+        "current": 319.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1670,
+        "weight_lbs": 3.68,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Adventure touring helmet with peak and Pinlock-ready shield.",
+    "product_details": {
+        "description": "Adventure touring helmet with peak and Pinlock-ready shield."
+    },
+    "variants": [
+        {
+            "id": "apex_pathfinder_matte-black",
+            "entity": "helmet",
+            "title": "Apex Pathfinder Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_pathfinder",
+            "helmet_family": "Pathfinder",
+            "head_shape": "Round Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-PTH-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure touring helmet with peak and Pinlock-ready shield.",
+            "product_details": {
+                "description": "Adventure touring helmet with peak and Pinlock-ready shield."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1670,
+                "weight_lbs": 3.68,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_pathfinder_grey",
+            "entity": "helmet",
+            "title": "Apex Pathfinder Grey",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_pathfinder",
+            "helmet_family": "Pathfinder",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-PTH-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure touring helmet with peak and Pinlock-ready shield.",
+            "product_details": {
+                "description": "Adventure touring helmet with peak and Pinlock-ready shield."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1670,
+                "weight_lbs": 3.68,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+Grey+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pathfinder+3"
+    ]
+}

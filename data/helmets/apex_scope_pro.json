@@ -1,0 +1,117 @@
+{
+    "id": "apex_scope_pro",
+    "entity": "helmet",
+    "title": "Apex Scope Pro",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Scope Pro",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1530,
+        "weight_lbs": 3.37,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Full face with ECE 22.06 and wide view.",
+    "product_details": {
+        "description": "Full face with ECE 22.06 and wide view."
+    },
+    "variants": [
+        {
+            "id": "apex_scope_pro_matte-black",
+            "entity": "helmet",
+            "title": "Apex Scope Pro Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_scope_pro",
+            "helmet_family": "Scope Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-SPP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with ECE 22.06 and wide view.",
+            "product_details": {
+                "description": "Full face with ECE 22.06 and wide view."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_scope_pro_red",
+            "entity": "helmet",
+            "title": "Apex Scope Pro Red",
+            "type": "Full Face",
+            "parent_id": "apex_scope_pro",
+            "helmet_family": "Scope Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-SPP-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with ECE 22.06 and wide view.",
+            "product_details": {
+                "description": "Full face with ECE 22.06 and wide view."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Pro+3"
+    ]
+}

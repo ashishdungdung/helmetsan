@@ -1,0 +1,117 @@
+{
+    "id": "apex_echo",
+    "entity": "helmet",
+    "title": "Apex Echo",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Echo",
+    "price": {
+        "current": 229.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sport full face with balanced ventilation and comfort.",
+    "product_details": {
+        "description": "Sport full face with balanced ventilation and comfort."
+    },
+    "variants": [
+        {
+            "id": "apex_echo_matte-black",
+            "entity": "helmet",
+            "title": "Apex Echo Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_echo",
+            "helmet_family": "Echo",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-ECH-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with balanced ventilation and comfort.",
+            "product_details": {
+                "description": "Sport full face with balanced ventilation and comfort."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_echo_blue",
+            "entity": "helmet",
+            "title": "Apex Echo Blue",
+            "type": "Full Face",
+            "parent_id": "apex_echo",
+            "helmet_family": "Echo",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-ECH-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with balanced ventilation and comfort.",
+            "product_details": {
+                "description": "Sport full face with balanced ventilation and comfort."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_venture_pro",
+    "entity": "helmet",
+    "title": "Apex Venture Pro",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Venture Pro",
+    "price": {
+        "current": 309.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Touring helmet with sun visor and Bluetooth-ready.",
+    "product_details": {
+        "description": "Touring helmet with sun visor and Bluetooth-ready."
+    },
+    "variants": [
+        {
+            "id": "apex_venture_pro_matte-black",
+            "entity": "helmet",
+            "title": "Apex Venture Pro Matte Black",
+            "type": "Touring",
+            "parent_id": "apex_venture_pro",
+            "helmet_family": "Venture Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-VNP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with sun visor and Bluetooth-ready.",
+            "product_details": {
+                "description": "Touring helmet with sun visor and Bluetooth-ready."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_venture_pro_grey",
+            "entity": "helmet",
+            "title": "Apex Venture Pro Grey",
+            "type": "Touring",
+            "parent_id": "apex_venture_pro",
+            "helmet_family": "Venture Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-VNP-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with sun visor and Bluetooth-ready.",
+            "product_details": {
+                "description": "Touring helmet with sun visor and Bluetooth-ready."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+3"
+    ]
+}

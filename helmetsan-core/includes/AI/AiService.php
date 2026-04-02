@@ -405,8 +405,13 @@ final class AiService implements AiServiceInterface
             return array_fill_keys(array_keys($prompts), null);
         }
 
+        $maxConcurrency = 1;
+        foreach ($providers as $p) {
+            $maxConcurrency = max($maxConcurrency, $p->getConcurrency());
+        }
+
         $client = new ParallelAiClient();
-        $responses = $client->execute($requests);
+        $responses = $client->execute($requests, 30, $maxConcurrency);
 
         $results = array_fill_keys(array_keys($prompts), null);
         foreach ($responses as $requestId => $raw) {

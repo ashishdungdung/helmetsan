@@ -1,0 +1,120 @@
+{
+    "id": "apex_apex_2",
+    "entity": "helmet",
+    "title": "Apex Apex 2",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Apex 2",
+    "price": {
+        "current": 459.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon",
+        "weight_g": 1460,
+        "weight_lbs": 3.22,
+        "certifications": [
+            "DOT",
+            "Snell M2020",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Top-tier full face with carbon composite and premium liner.",
+    "product_details": {
+        "description": "Top-tier full face with carbon composite and premium liner."
+    },
+    "variants": [
+        {
+            "id": "apex_apex_2_matte-black",
+            "entity": "helmet",
+            "title": "Apex Apex 2 Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_apex_2",
+            "helmet_family": "Apex 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-AP2-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Top-tier full face with carbon composite and premium liner.",
+            "product_details": {
+                "description": "Top-tier full face with carbon composite and premium liner."
+            },
+            "price": {
+                "current": 459.99,
+                "usd": 459.99,
+                "eur": 423.19,
+                "gbp": 363.39
+            },
+            "specs": {
+                "material": "Carbon",
+                "weight_g": 1460,
+                "weight_lbs": 3.22,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_apex_2_carbon",
+            "entity": "helmet",
+            "title": "Apex Apex 2 Carbon",
+            "type": "Full Face",
+            "parent_id": "apex_apex_2",
+            "helmet_family": "Apex 2",
+            "head_shape": "Intermediate Oval",
+            "color": "Carbon",
+            "color_family": "Carbon",
+            "sku": "APX-AP2-CAR",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Top-tier full face with carbon composite and premium liner.",
+            "product_details": {
+                "description": "Top-tier full face with carbon composite and premium liner."
+            },
+            "price": {
+                "current": 519.99,
+                "usd": 519.99,
+                "eur": 478.39,
+                "gbp": 410.79
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1360,
+                "weight_lbs": 3,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+3"
+    ]
+}

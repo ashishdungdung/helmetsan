@@ -30,4 +30,9 @@ interface ProviderInterface
      * @return array{url: string, headers: array<string, string>, body: string}|null
      */
     public function prepareRequest(string $prompt, array $options = []): ?array;
+
+    /**
+     * Max parallel requests for this provider.
+     */
+    public function getConcurrency(): int;
 }

@@ -1,0 +1,159 @@
+{
+    "id": "dmd_classic",
+    "entity": "helmet",
+    "title": "DMD Classic",
+    "brand": "DMD",
+    "type": "Open Face",
+    "helmet_family": "Classic",
+    "price": {
+        "current": 179.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Classic open face with vintage styling and modern certifications.",
+    "product_details": {
+        "description": "Classic open face with vintage styling and modern certifications."
+    },
+    "variants": [
+        {
+            "id": "dmd_classic_black",
+            "entity": "helmet",
+            "title": "DMD Classic Black",
+            "type": "Open Face",
+            "parent_id": "dmd_classic",
+            "helmet_family": "Classic",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "DMD-CLS-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic open face with vintage styling and modern certifications.",
+            "product_details": {
+                "description": "Classic open face with vintage styling and modern certifications."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "dmd_classic_ivory",
+            "entity": "helmet",
+            "title": "DMD Classic Ivory",
+            "type": "Open Face",
+            "parent_id": "dmd_classic",
+            "helmet_family": "Classic",
+            "head_shape": "Round Oval",
+            "color": "Ivory",
+            "color_family": "White",
+            "sku": "DMD-CLS-IVY",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic open face with vintage styling and modern certifications.",
+            "product_details": {
+                "description": "Classic open face with vintage styling and modern certifications."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "dmd_classic_silver",
+            "entity": "helmet",
+            "title": "DMD Classic Silver",
+            "type": "Open Face",
+            "parent_id": "dmd_classic",
+            "helmet_family": "Classic",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "DMD-CLS-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic open face with vintage styling and modern certifications.",
+            "product_details": {
+                "description": "Classic open face with vintage styling and modern certifications."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+3"
+    ]
+}

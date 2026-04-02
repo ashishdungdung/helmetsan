@@ -1,0 +1,196 @@
+{
+    "id": "ogk_kabuto_exceed",
+    "entity": "helmet",
+    "title": "OGK Kabuto Exceed",
+    "brand": "OGK Kabuto",
+    "type": "Open Face",
+    "helmet_family": "Exceed",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Composite",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Premium jet helmet with IR-cut shield and large eye port.",
+    "product_details": {
+        "description": "Premium jet helmet with IR-cut shield and large eye port."
+    },
+    "variants": [
+        {
+            "id": "ogk_kabuto_exceed_gloss-black",
+            "entity": "helmet",
+            "title": "OGK Kabuto Exceed Gloss Black",
+            "type": "Open Face",
+            "parent_id": "ogk_kabuto_exceed",
+            "helmet_family": "Exceed",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "OGK-EXCE-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium jet helmet with IR-cut shield and large eye port.",
+            "product_details": {
+                "description": "Premium jet helmet with IR-cut shield and large eye port."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ogk_kabuto_exceed_gloss-white",
+            "entity": "helmet",
+            "title": "OGK Kabuto Exceed Gloss White",
+            "type": "Open Face",
+            "parent_id": "ogk_kabuto_exceed",
+            "helmet_family": "Exceed",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "OGK-EXCE-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium jet helmet with IR-cut shield and large eye port.",
+            "product_details": {
+                "description": "Premium jet helmet with IR-cut shield and large eye port."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ogk_kabuto_exceed_street-blue",
+            "entity": "helmet",
+            "title": "OGK Kabuto Exceed Street Blue",
+            "type": "Open Face",
+            "parent_id": "ogk_kabuto_exceed",
+            "helmet_family": "Exceed",
+            "head_shape": "Intermediate Oval",
+            "color": "Street Blue",
+            "color_family": "Blue",
+            "sku": "OGK-EXCE-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Premium jet helmet with IR-cut shield and large eye port.",
+            "product_details": {
+                "description": "Premium jet helmet with IR-cut shield and large eye port."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Street+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Street+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Street+Blue+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ogk_kabuto_exceed_apex-tc-2",
+            "entity": "helmet",
+            "title": "OGK Kabuto Exceed Apex TC-2",
+            "type": "Open Face",
+            "parent_id": "ogk_kabuto_exceed",
+            "helmet_family": "Exceed",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-2",
+            "color_family": "Multi",
+            "sku": "OGK-EXCE-APE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Premium jet helmet with IR-cut shield and large eye port.",
+            "product_details": {
+                "description": "Premium jet helmet with IR-cut shield and large eye port."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Apex+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Apex+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+Apex+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Exceed+3"
+    ]
+}

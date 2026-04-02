@@ -1,0 +1,285 @@
+{
+    "id": "agv_sportmodular",
+    "entity": "helmet",
+    "title": "AGV Sportmodular",
+    "brand": "AGV",
+    "type": "Modular",
+    "helmet_family": "Sportmodular",
+    "price": {
+        "current": 849.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1295,
+        "weight_lbs": 2.85,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Modular convenience with full carbon fiber construction.",
+    "product_details": {
+        "description": "Modular convenience with full carbon fiber construction."
+    },
+    "variants": [
+        {
+            "id": "agv_sportmodular_gloss-black",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Gloss Black",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "AGV-SPOR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 849.95,
+                "usd": 849.95,
+                "eur": 781.95,
+                "gbp": 671.46
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "agv_sportmodular_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Hi-Viz Yellow",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "AGV-SPOR-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 849.95,
+                "usd": 849.95,
+                "eur": 781.95,
+                "gbp": 671.46
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "agv_sportmodular_camo-red",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Camo Red",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Camo Red",
+            "color_family": "Red",
+            "sku": "AGV-SPOR-CAM",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 899.95,
+                "usd": 899.95,
+                "eur": 827.95,
+                "gbp": 710.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Camo+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Camo+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Camo+Red+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "agv_sportmodular_course-blue",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Course Blue",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Course Blue",
+            "color_family": "Blue",
+            "sku": "AGV-SPOR-COU",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 899.95,
+                "usd": 899.95,
+                "eur": 827.95,
+                "gbp": 710.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Blue+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "agv_sportmodular_stripe-grey",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Stripe Grey",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Stripe Grey",
+            "color_family": "Grey",
+            "sku": "AGV-SPOR-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 899.95,
+                "usd": 899.95,
+                "eur": 827.95,
+                "gbp": 710.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Stripe+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Stripe+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Stripe+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "agv_sportmodular_course-grey",
+            "entity": "helmet",
+            "title": "AGV Sportmodular Course Grey",
+            "type": "Modular",
+            "parent_id": "agv_sportmodular",
+            "helmet_family": "Sportmodular",
+            "head_shape": "Intermediate Oval",
+            "color": "Course Grey",
+            "color_family": "Grey",
+            "sku": "AGV-SPOR-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modular convenience with full carbon fiber construction.",
+            "product_details": {
+                "description": "Modular convenience with full carbon fiber construction."
+            },
+            "price": {
+                "current": 899.95,
+                "usd": 899.95,
+                "eur": 827.95,
+                "gbp": 710.96
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1295,
+                "weight_lbs": 2.85,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+Course+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Sportmodular+3"
+    ]
+}

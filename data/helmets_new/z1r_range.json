@@ -1,0 +1,196 @@
+{
+    "id": "z1r_range",
+    "entity": "helmet",
+    "title": "Z1R Range",
+    "brand": "Z1R",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Range",
+    "price": {
+        "current": 169.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner.",
+    "product_details": {
+        "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner."
+    },
+    "variants": [
+        {
+            "id": "z1r_range_matte-black",
+            "entity": "helmet",
+            "title": "Z1R Range Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "z1r_range",
+            "helmet_family": "Range",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "Z1R-RANG-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "z1r_range_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Z1R Range Hi-Viz Yellow",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "z1r_range",
+            "helmet_family": "Range",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "Z1R-RANG-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "z1r_range_street-tc-3",
+            "entity": "helmet",
+            "title": "Z1R Range Street TC-3",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "z1r_range",
+            "helmet_family": "Range",
+            "head_shape": "Intermediate Oval",
+            "color": "Street TC-3",
+            "color_family": "Multi",
+            "sku": "Z1R-RANG-STR",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Street+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Street+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Street+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "z1r_range_solid-tc-5",
+            "entity": "helmet",
+            "title": "Z1R Range Solid TC-5",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "z1r_range",
+            "helmet_family": "Range",
+            "head_shape": "Intermediate Oval",
+            "color": "Solid TC-5",
+            "color_family": "Multi",
+            "sku": "Z1R-RANG-SOL",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, sun visor, and moisture-wicking liner."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Solid+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Solid+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+Solid+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Z1R+Range+3"
+    ]
+}

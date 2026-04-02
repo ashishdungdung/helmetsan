@@ -1,0 +1,201 @@
+{
+    "id": "joe_rocket_rkt_prime",
+    "entity": "helmet",
+    "title": "Joe Rocket RKT-Prime",
+    "brand": "Joe Rocket",
+    "type": "Full Face",
+    "helmet_family": "RKT-Prime",
+    "price": {
+        "current": 119.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Affordable full face with anti-fog shield and removable liner.",
+    "product_details": {
+        "description": "Affordable full face with anti-fog shield and removable liner."
+    },
+    "variants": [
+        {
+            "id": "joe_rocket_rkt_prime_gloss-black",
+            "entity": "helmet",
+            "title": "Joe Rocket RKT-Prime Gloss Black",
+            "type": "Full Face",
+            "parent_id": "joe_rocket_rkt_prime",
+            "helmet_family": "RKT-Prime",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "JOE-RKTP-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Affordable full face with anti-fog shield and removable liner.",
+            "product_details": {
+                "description": "Affordable full face with anti-fog shield and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "joe_rocket_rkt_prime_gloss-white",
+            "entity": "helmet",
+            "title": "Joe Rocket RKT-Prime Gloss White",
+            "type": "Full Face",
+            "parent_id": "joe_rocket_rkt_prime",
+            "helmet_family": "RKT-Prime",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "JOE-RKTP-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Affordable full face with anti-fog shield and removable liner.",
+            "product_details": {
+                "description": "Affordable full face with anti-fog shield and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "joe_rocket_rkt_prime_raptor-blue",
+            "entity": "helmet",
+            "title": "Joe Rocket RKT-Prime Raptor Blue",
+            "type": "Full Face",
+            "parent_id": "joe_rocket_rkt_prime",
+            "helmet_family": "RKT-Prime",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor Blue",
+            "color_family": "Blue",
+            "sku": "JOE-RKTP-RAP",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Affordable full face with anti-fog shield and removable liner.",
+            "product_details": {
+                "description": "Affordable full face with anti-fog shield and removable liner."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Raptor+Blue",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Raptor+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Raptor+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "joe_rocket_rkt_prime_vortex-blue",
+            "entity": "helmet",
+            "title": "Joe Rocket RKT-Prime Vortex Blue",
+            "type": "Full Face",
+            "parent_id": "joe_rocket_rkt_prime",
+            "helmet_family": "RKT-Prime",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex Blue",
+            "color_family": "Blue",
+            "sku": "JOE-RKTP-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Affordable full face with anti-fog shield and removable liner.",
+            "product_details": {
+                "description": "Affordable full face with anti-fog shield and removable liner."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Vortex+Blue",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Vortex+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+Vortex+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+1",
+        "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+2",
+        "https://placehold.co/800x800/222/white?text=Joe+Rocket+RKT-Prime+3"
+    ]
+}

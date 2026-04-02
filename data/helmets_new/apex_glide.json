@@ -1,0 +1,117 @@
+{
+    "id": "apex_glide",
+    "entity": "helmet",
+    "title": "Apex Glide",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Glide",
+    "price": {
+        "current": 139.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 990,
+        "weight_lbs": 2.18,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face with optional shield and Bluetooth-ready pockets.",
+    "product_details": {
+        "description": "Open face with optional shield and Bluetooth-ready pockets."
+    },
+    "variants": [
+        {
+            "id": "apex_glide_black",
+            "entity": "helmet",
+            "title": "Apex Glide Black",
+            "type": "Open Face",
+            "parent_id": "apex_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-GLD-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield and Bluetooth-ready pockets.",
+            "product_details": {
+                "description": "Open face with optional shield and Bluetooth-ready pockets."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 990,
+                "weight_lbs": 2.18,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_glide_white",
+            "entity": "helmet",
+            "title": "Apex Glide White",
+            "type": "Open Face",
+            "parent_id": "apex_glide",
+            "helmet_family": "Glide",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-GLD-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield and Bluetooth-ready pockets.",
+            "product_details": {
+                "description": "Open face with optional shield and Bluetooth-ready pockets."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 990,
+                "weight_lbs": 2.18,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+3"
+    ]
+}

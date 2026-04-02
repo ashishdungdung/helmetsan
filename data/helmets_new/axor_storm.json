@@ -1,0 +1,117 @@
+{
+    "id": "axor_storm",
+    "entity": "helmet",
+    "title": "Axor Storm",
+    "brand": "Axor",
+    "type": "Full Face",
+    "helmet_family": "Storm",
+    "price": {
+        "current": 94.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1330,
+        "weight_lbs": 2.93,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Axor Storm full face with dual cert and internal sun visor.",
+    "product_details": {
+        "description": "Axor Storm full face with dual cert and internal sun visor."
+    },
+    "variants": [
+        {
+            "id": "axor_storm_matte-black",
+            "entity": "helmet",
+            "title": "Axor Storm Matte Black",
+            "type": "Full Face",
+            "parent_id": "axor_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "AXR-STO-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Storm full face with dual cert and internal sun visor.",
+            "product_details": {
+                "description": "Axor Storm full face with dual cert and internal sun visor."
+            },
+            "price": {
+                "current": 94.99,
+                "usd": 94.99,
+                "eur": 87.39,
+                "gbp": 75.04
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1330,
+                "weight_lbs": 2.93,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "axor_storm_white",
+            "entity": "helmet",
+            "title": "Axor Storm White",
+            "type": "Full Face",
+            "parent_id": "axor_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "AXR-STO-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Storm full face with dual cert and internal sun visor.",
+            "product_details": {
+                "description": "Axor Storm full face with dual cert and internal sun visor."
+            },
+            "price": {
+                "current": 94.99,
+                "usd": 94.99,
+                "eur": 87.39,
+                "gbp": 75.04
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1330,
+                "weight_lbs": 2.93,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+3"
+    ]
+}

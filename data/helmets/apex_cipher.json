@@ -1,0 +1,117 @@
+{
+    "id": "apex_cipher",
+    "entity": "helmet",
+    "title": "Apex Cipher",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Cipher",
+    "price": {
+        "current": 319.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1530,
+        "weight_lbs": 3.37,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Sport full face with ECE 22.06 and quiet interior.",
+    "product_details": {
+        "description": "Sport full face with ECE 22.06 and quiet interior."
+    },
+    "variants": [
+        {
+            "id": "apex_cipher_matte-black",
+            "entity": "helmet",
+            "title": "Apex Cipher Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_cipher",
+            "helmet_family": "Cipher",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-CIP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with ECE 22.06 and quiet interior.",
+            "product_details": {
+                "description": "Sport full face with ECE 22.06 and quiet interior."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_cipher_white",
+            "entity": "helmet",
+            "title": "Apex Cipher White",
+            "type": "Full Face",
+            "parent_id": "apex_cipher",
+            "helmet_family": "Cipher",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-CIP-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with ECE 22.06 and quiet interior.",
+            "product_details": {
+                "description": "Sport full face with ECE 22.06 and quiet interior."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cipher+3"
+    ]
+}

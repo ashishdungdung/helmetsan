@@ -1,0 +1,196 @@
+{
+    "id": "vega_lark",
+    "entity": "helmet",
+    "title": "Vega Lark",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Lark",
+    "price": {
+        "current": 24.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 850,
+        "weight_lbs": 1.87,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Lightest open face in its class \u2014 perfect for short city rides.",
+    "product_details": {
+        "description": "Lightest open face in its class \u2014 perfect for short city rides."
+    },
+    "variants": [
+        {
+            "id": "vega_lark_matte-black",
+            "entity": "helmet",
+            "title": "Vega Lark Matte Black",
+            "type": "Open Face",
+            "parent_id": "vega_lark",
+            "helmet_family": "Lark",
+            "head_shape": "Round Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-LARK-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightest open face in its class \u2014 perfect for short city rides.",
+            "product_details": {
+                "description": "Lightest open face in its class \u2014 perfect for short city rides."
+            },
+            "price": {
+                "current": 24.99,
+                "usd": 24.99,
+                "eur": 22.99,
+                "gbp": 19.74
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_lark_silver-metallic",
+            "entity": "helmet",
+            "title": "Vega Lark Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "vega_lark",
+            "helmet_family": "Lark",
+            "head_shape": "Round Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "VEG-LARK-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightest open face in its class \u2014 perfect for short city rides.",
+            "product_details": {
+                "description": "Lightest open face in its class \u2014 perfect for short city rides."
+            },
+            "price": {
+                "current": 24.99,
+                "usd": 24.99,
+                "eur": 22.99,
+                "gbp": 19.74
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_lark_camo-red",
+            "entity": "helmet",
+            "title": "Vega Lark Camo Red",
+            "type": "Open Face",
+            "parent_id": "vega_lark",
+            "helmet_family": "Lark",
+            "head_shape": "Round Oval",
+            "color": "Camo Red",
+            "color_family": "Red",
+            "sku": "VEG-LARK-CAM",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightest open face in its class \u2014 perfect for short city rides.",
+            "product_details": {
+                "description": "Lightest open face in its class \u2014 perfect for short city rides."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Camo+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Camo+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Camo+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_lark_tech-tc-3",
+            "entity": "helmet",
+            "title": "Vega Lark Tech TC-3",
+            "type": "Open Face",
+            "parent_id": "vega_lark",
+            "helmet_family": "Lark",
+            "head_shape": "Round Oval",
+            "color": "Tech TC-3",
+            "color_family": "Multi",
+            "sku": "VEG-LARK-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Lightest open face in its class \u2014 perfect for short city rides.",
+            "product_details": {
+                "description": "Lightest open face in its class \u2014 perfect for short city rides."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 850,
+                "weight_lbs": 1.87,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Tech+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Tech+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+Tech+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Lark+3"
+    ]
+}

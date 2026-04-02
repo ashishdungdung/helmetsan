@@ -1,0 +1,114 @@
+{
+    "id": "vega_hawk",
+    "entity": "helmet",
+    "title": "Vega Hawk",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Hawk",
+    "price": {
+        "current": 19.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 820,
+        "weight_lbs": 1.81,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Budget Vega open face for scooter and city use across India.",
+    "product_details": {
+        "description": "Budget Vega open face for scooter and city use across India."
+    },
+    "variants": [
+        {
+            "id": "vega_hawk_black",
+            "entity": "helmet",
+            "title": "Vega Hawk Black",
+            "type": "Open Face",
+            "parent_id": "vega_hawk",
+            "helmet_family": "Hawk",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-HAW-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget Vega open face for scooter and city use across India.",
+            "product_details": {
+                "description": "Budget Vega open face for scooter and city use across India."
+            },
+            "price": {
+                "current": 19.99,
+                "usd": 19.99,
+                "eur": 18.39,
+                "gbp": 15.79
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 820,
+                "weight_lbs": 1.81,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_hawk_white",
+            "entity": "helmet",
+            "title": "Vega Hawk White",
+            "type": "Open Face",
+            "parent_id": "vega_hawk",
+            "helmet_family": "Hawk",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-HAW-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget Vega open face for scooter and city use across India.",
+            "product_details": {
+                "description": "Budget Vega open face for scooter and city use across India."
+            },
+            "price": {
+                "current": 19.99,
+                "usd": 19.99,
+                "eur": 18.39,
+                "gbp": 15.79
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 820,
+                "weight_lbs": 1.81,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Hawk+3"
+    ]
+}

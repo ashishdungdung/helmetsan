@@ -1,0 +1,159 @@
+{
+    "id": "icon_airform",
+    "entity": "helmet",
+    "title": "Icon Airform",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Airform",
+    "price": {
+        "current": 225,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Combines features from Airframe and Airflite for versatile use.",
+    "product_details": {
+        "description": "Combines features from Airframe and Airflite for versatile use."
+    },
+    "variants": [
+        {
+            "id": "icon_airform_gloss-black",
+            "entity": "helmet",
+            "title": "Icon Airform Gloss Black",
+            "type": "Full Face",
+            "parent_id": "icon_airform",
+            "helmet_family": "Airform",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "ICO-AIRF-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Combines features from Airframe and Airflite for versatile use.",
+            "product_details": {
+                "description": "Combines features from Airframe and Airflite for versatile use."
+            },
+            "price": {
+                "current": 225,
+                "usd": 225,
+                "eur": 207,
+                "gbp": 177.75
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airform_gloss-white",
+            "entity": "helmet",
+            "title": "Icon Airform Gloss White",
+            "type": "Full Face",
+            "parent_id": "icon_airform",
+            "helmet_family": "Airform",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "ICO-AIRF-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Combines features from Airframe and Airflite for versatile use.",
+            "product_details": {
+                "description": "Combines features from Airframe and Airflite for versatile use."
+            },
+            "price": {
+                "current": 225,
+                "usd": 225,
+                "eur": 207,
+                "gbp": 177.75
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airform_operator-red",
+            "entity": "helmet",
+            "title": "Icon Airform Operator Red",
+            "type": "Full Face",
+            "parent_id": "icon_airform",
+            "helmet_family": "Airform",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator Red",
+            "color_family": "Red",
+            "sku": "ICO-AIRF-OPE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Combines features from Airframe and Airflite for versatile use.",
+            "product_details": {
+                "description": "Combines features from Airframe and Airflite for versatile use."
+            },
+            "price": {
+                "current": 275,
+                "usd": 275,
+                "eur": 253,
+                "gbp": 217.25
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Operator+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Operator+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+Operator+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+3"
+    ]
+}

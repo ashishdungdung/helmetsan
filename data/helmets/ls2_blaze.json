@@ -1,0 +1,117 @@
+{
+    "id": "ls2_blaze",
+    "entity": "helmet",
+    "title": "LS2 Blaze",
+    "brand": "LS2",
+    "type": "Open Face",
+    "helmet_family": "Blaze",
+    "price": {
+        "current": 79.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1010,
+        "weight_lbs": 2.23,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "LS2 Blaze open face with inner visor.",
+    "product_details": {
+        "description": "LS2 Blaze open face with inner visor."
+    },
+    "variants": [
+        {
+            "id": "ls2_blaze_black",
+            "entity": "helmet",
+            "title": "LS2 Blaze Black",
+            "type": "Open Face",
+            "parent_id": "ls2_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "LS2-BLZ-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Blaze open face with inner visor.",
+            "product_details": {
+                "description": "LS2 Blaze open face with inner visor."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1010,
+                "weight_lbs": 2.23,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_blaze_silver",
+            "entity": "helmet",
+            "title": "LS2 Blaze Silver",
+            "type": "Open Face",
+            "parent_id": "ls2_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "LS2-BLZ-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Blaze open face with inner visor.",
+            "product_details": {
+                "description": "LS2 Blaze open face with inner visor."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1010,
+                "weight_lbs": 2.23,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Blaze+3"
+    ]
+}

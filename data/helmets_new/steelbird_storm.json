@@ -1,0 +1,117 @@
+{
+    "id": "steelbird_storm",
+    "entity": "helmet",
+    "title": "Steelbird Storm",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "helmet_family": "Storm",
+    "price": {
+        "current": 33.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 885,
+        "weight_lbs": 1.95,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Steelbird Storm open face for city riders.",
+    "product_details": {
+        "description": "Steelbird Storm open face for city riders."
+    },
+    "variants": [
+        {
+            "id": "steelbird_storm_black",
+            "entity": "helmet",
+            "title": "Steelbird Storm Black",
+            "type": "Open Face",
+            "parent_id": "steelbird_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "STE-SRM-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Steelbird Storm open face for city riders.",
+            "product_details": {
+                "description": "Steelbird Storm open face for city riders."
+            },
+            "price": {
+                "current": 33.99,
+                "usd": 33.99,
+                "eur": 31.27,
+                "gbp": 26.85
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 885,
+                "weight_lbs": 1.95,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_storm_grey",
+            "entity": "helmet",
+            "title": "Steelbird Storm Grey",
+            "type": "Open Face",
+            "parent_id": "steelbird_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "STE-SRM-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Steelbird Storm open face for city riders.",
+            "product_details": {
+                "description": "Steelbird Storm open face for city riders."
+            },
+            "price": {
+                "current": 33.99,
+                "usd": 33.99,
+                "eur": 31.27,
+                "gbp": 26.85
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 885,
+                "weight_lbs": 1.95,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+3"
+    ]
+}

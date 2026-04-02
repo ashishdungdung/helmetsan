@@ -1,0 +1,117 @@
+{
+    "id": "apex_ranger_x",
+    "entity": "helmet",
+    "title": "Apex Ranger X",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Ranger X",
+    "price": {
+        "current": 359.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon",
+        "weight_g": 1630,
+        "weight_lbs": 3.59,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Premium adventure helmet with carbon shell and peak.",
+    "product_details": {
+        "description": "Premium adventure helmet with carbon shell and peak."
+    },
+    "variants": [
+        {
+            "id": "apex_ranger_x_matte-black",
+            "entity": "helmet",
+            "title": "Apex Ranger X Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_ranger_x",
+            "helmet_family": "Ranger X",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-RNX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium adventure helmet with carbon shell and peak.",
+            "product_details": {
+                "description": "Premium adventure helmet with carbon shell and peak."
+            },
+            "price": {
+                "current": 359.99,
+                "usd": 359.99,
+                "eur": 331.19,
+                "gbp": 284.39
+            },
+            "specs": {
+                "material": "Carbon",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_ranger_x_carbon",
+            "entity": "helmet",
+            "title": "Apex Ranger X Carbon",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_ranger_x",
+            "helmet_family": "Ranger X",
+            "head_shape": "Intermediate Oval",
+            "color": "Carbon",
+            "color_family": "Carbon",
+            "sku": "APX-RNX-CAR",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium adventure helmet with carbon shell and peak.",
+            "product_details": {
+                "description": "Premium adventure helmet with carbon shell and peak."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Carbon",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Carbon+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+Carbon+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ranger+X+3"
+    ]
+}

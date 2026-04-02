@@ -1,0 +1,117 @@
+{
+    "id": "ls2_vector",
+    "entity": "helmet",
+    "title": "LS2 Vector",
+    "brand": "LS2",
+    "type": "Full Face",
+    "helmet_family": "Vector",
+    "price": {
+        "current": 119.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1530,
+        "weight_lbs": 3.37,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "LS2 Vector full face with good ventilation.",
+    "product_details": {
+        "description": "LS2 Vector full face with good ventilation."
+    },
+    "variants": [
+        {
+            "id": "ls2_vector_black",
+            "entity": "helmet",
+            "title": "LS2 Vector Black",
+            "type": "Full Face",
+            "parent_id": "ls2_vector",
+            "helmet_family": "Vector",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "LS2-VEC-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Vector full face with good ventilation.",
+            "product_details": {
+                "description": "LS2 Vector full face with good ventilation."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_vector_grey",
+            "entity": "helmet",
+            "title": "LS2 Vector Grey",
+            "type": "Full Face",
+            "parent_id": "ls2_vector",
+            "helmet_family": "Vector",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "LS2-VEC-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 Vector full face with good ventilation.",
+            "product_details": {
+                "description": "LS2 Vector full face with good ventilation."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+3"
+    ]
+}
