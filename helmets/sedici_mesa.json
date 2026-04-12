@@ -1,0 +1,117 @@
+{
+    "id": "sedici_mesa",
+    "entity": "helmet",
+    "title": "Sedici Mesa",
+    "brand": "Sedici",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Mesa",
+    "price": {
+        "current": 229.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sedici Mesa adventure helmet with peak.",
+    "product_details": {
+        "description": "Sedici Mesa adventure helmet with peak."
+    },
+    "variants": [
+        {
+            "id": "sedici_mesa_matte-black",
+            "entity": "helmet",
+            "title": "Sedici Mesa Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "sedici_mesa",
+            "helmet_family": "Mesa",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SED-MES-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sedici Mesa adventure helmet with peak.",
+            "product_details": {
+                "description": "Sedici Mesa adventure helmet with peak."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "sedici_mesa_sand",
+            "entity": "helmet",
+            "title": "Sedici Mesa Sand",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "sedici_mesa",
+            "helmet_family": "Mesa",
+            "head_shape": "Intermediate Oval",
+            "color": "Sand",
+            "color_family": "Grey",
+            "sku": "SED-MES-SND",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sedici Mesa adventure helmet with peak.",
+            "product_details": {
+                "description": "Sedici Mesa adventure helmet with peak."
+            },
+            "price": {
+                "current": 229.99,
+                "usd": 229.99,
+                "eur": 211.59,
+                "gbp": 181.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-greece",
+  "name": "Moto Greece / MotoMarket GR",
+  "type": "retail",
+  "country_code": "GR",
+  "region_code": "eu",
+  "address": "Athens",
+  "city": "Athens",
+  "website": "https://www.motomarket.gr",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["motomarket-gr"],
+  "geo": {"lat": 37.9838, "lng": 23.7275}
+}

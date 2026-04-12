@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-romania",
+  "name": "Moto Romania",
+  "type": "retail",
+  "country_code": "RO",
+  "region_code": "eu",
+  "address": "Bucharest",
+  "city": "Bucharest",
+  "website": "https://www.motoromania.ro",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "romanian-support"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "LS2", "Caberg"],
+  "marketplaces": ["motoromania-ro"],
+  "geo": {"lat": 44.4268, "lng": 26.1025}
+}

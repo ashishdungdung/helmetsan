@@ -1,0 +1,117 @@
+{
+    "id": "apex_rampage",
+    "entity": "helmet",
+    "title": "Apex Rampage",
+    "brand": "Apex",
+    "type": "Off-road",
+    "helmet_family": "Rampage",
+    "price": {
+        "current": 189.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1590,
+        "weight_lbs": 3.51,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "MX-style off-road helmet with removable peak and goggles.",
+    "product_details": {
+        "description": "MX-style off-road helmet with removable peak and goggles."
+    },
+    "variants": [
+        {
+            "id": "apex_rampage_black",
+            "entity": "helmet",
+            "title": "Apex Rampage Black",
+            "type": "Off-road",
+            "parent_id": "apex_rampage",
+            "helmet_family": "Rampage",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-RMP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MX-style off-road helmet with removable peak and goggles.",
+            "product_details": {
+                "description": "MX-style off-road helmet with removable peak and goggles."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Black+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        },
+        {
+            "id": "apex_rampage_red",
+            "entity": "helmet",
+            "title": "Apex Rampage Red",
+            "type": "Off-road",
+            "parent_id": "apex_rampage",
+            "helmet_family": "Rampage",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-RMP-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MX-style off-road helmet with removable peak and goggles.",
+            "product_details": {
+                "description": "MX-style off-road helmet with removable peak and goggles."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Red",
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rampage+Red+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Rampage+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Rampage+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Rampage+3"
+    ]
+}

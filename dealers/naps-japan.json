@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "naps-japan",
+  "name": "NAP'S",
+  "type": "retail",
+  "country_code": "JP",
+  "region_code": "apac",
+  "address": "Multiple locations across Japan",
+  "city": "Tokyo",
+  "website": "https://www.naps-japan.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "japan-shipping", "racing-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "OGK", "Shark", "Nolan"],
+  "marketplaces": ["naps-jp"],
+  "geo": {"lat": 35.6762, "lng": 139.6503}
+}

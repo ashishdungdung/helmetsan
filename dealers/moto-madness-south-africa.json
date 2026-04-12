@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-madness-south-africa",
+  "name": "Moto Madness SA",
+  "type": "retail",
+  "country_code": "ZA",
+  "region_code": "africa",
+  "address": "Johannesburg",
+  "city": "Johannesburg",
+  "website": "https://www.motomadness.co.za",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "south-africa-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan", "Scorpion"],
+  "marketplaces": ["moto-madness-za"],
+  "geo": {"lat": -26.2041, "lng": 28.0473}
+}

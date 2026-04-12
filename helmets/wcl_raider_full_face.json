@@ -1,0 +1,196 @@
+{
+    "id": "wcl_raider_full_face",
+    "entity": "helmet",
+    "title": "WCL Raider Full Face",
+    "brand": "WCL",
+    "type": "Full Face",
+    "helmet_family": "Raider Full Face",
+    "price": {
+        "current": 79.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Starter full face with quick-release buckle and clear shield.",
+    "product_details": {
+        "description": "Starter full face with quick-release buckle and clear shield."
+    },
+    "variants": [
+        {
+            "id": "wcl_raider_full_face_matte-black",
+            "entity": "helmet",
+            "title": "WCL Raider Full Face Matte Black",
+            "type": "Full Face",
+            "parent_id": "wcl_raider_full_face",
+            "helmet_family": "Raider Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "WCL-RAID-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Starter full face with quick-release buckle and clear shield.",
+            "product_details": {
+                "description": "Starter full face with quick-release buckle and clear shield."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "wcl_raider_full_face_gloss-white",
+            "entity": "helmet",
+            "title": "WCL Raider Full Face Gloss White",
+            "type": "Full Face",
+            "parent_id": "wcl_raider_full_face",
+            "helmet_family": "Raider Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "WCL-RAID-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Starter full face with quick-release buckle and clear shield.",
+            "product_details": {
+                "description": "Starter full face with quick-release buckle and clear shield."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "wcl_raider_full_face_tech-tc-3",
+            "entity": "helmet",
+            "title": "WCL Raider Full Face Tech TC-3",
+            "type": "Full Face",
+            "parent_id": "wcl_raider_full_face",
+            "helmet_family": "Raider Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-3",
+            "color_family": "Multi",
+            "sku": "WCL-RAID-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Starter full face with quick-release buckle and clear shield.",
+            "product_details": {
+                "description": "Starter full face with quick-release buckle and clear shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Tech+TC-3",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Tech+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Tech+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "wcl_raider_full_face_camo-tc-2",
+            "entity": "helmet",
+            "title": "WCL Raider Full Face Camo TC-2",
+            "type": "Full Face",
+            "parent_id": "wcl_raider_full_face",
+            "helmet_family": "Raider Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Camo TC-2",
+            "color_family": "Multi",
+            "sku": "WCL-RAID-CAM",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Starter full face with quick-release buckle and clear shield.",
+            "product_details": {
+                "description": "Starter full face with quick-release buckle and clear shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Camo+TC-2",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Camo+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+Camo+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+1",
+        "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+2",
+        "https://placehold.co/800x800/222/white?text=WCL+Raider+Full+Face+3"
+    ]
+}

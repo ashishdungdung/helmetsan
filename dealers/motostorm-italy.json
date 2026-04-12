@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motostorm-italy",
+  "name": "Motostorm",
+  "type": "retail",
+  "country_code": "IT",
+  "region_code": "eu",
+  "address": "Via dell'Industria, Brembate (BG)",
+  "city": "Brembate",
+  "website": "https://www.motostorm.it",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Nolan", "Caberg", "LS2", "Suomy"],
+  "marketplaces": ["motostorm-it", "amazon-it"],
+  "geo": {"lat": 45.6047, "lng": 9.5619}
+}

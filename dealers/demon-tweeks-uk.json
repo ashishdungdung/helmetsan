@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "demon-tweeks-uk",
+  "name": "Demon Tweeks",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Wrexham, Wales",
+  "city": "Wrexham",
+  "website": "https://www.demon-tweeks.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "racing-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan", "Suomy"],
+  "marketplaces": ["demon-tweeks-uk", "amazon-uk"],
+  "geo": {"lat": 53.0430, "lng": -2.9925}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "smk_thunder",
+    "entity": "helmet",
+    "title": "SMK Thunder",
+    "brand": "SMK",
+    "type": "Full Face",
+    "helmet_family": "Thunder",
+    "price": {
+        "current": 169.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1490,
+        "weight_lbs": 3.28,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "SMK Thunder full face with ECE 22.06 and sun visor.",
+    "product_details": {
+        "description": "SMK Thunder full face with ECE 22.06 and sun visor."
+    },
+    "variants": [
+        {
+            "id": "smk_thunder_matte-black",
+            "entity": "helmet",
+            "title": "SMK Thunder Matte Black",
+            "type": "Full Face",
+            "parent_id": "smk_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SMK-THN-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Thunder full face with ECE 22.06 and sun visor.",
+            "product_details": {
+                "description": "SMK Thunder full face with ECE 22.06 and sun visor."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1490,
+                "weight_lbs": 3.28,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_thunder_white",
+            "entity": "helmet",
+            "title": "SMK Thunder White",
+            "type": "Full Face",
+            "parent_id": "smk_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "SMK-THN-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Thunder full face with ECE 22.06 and sun visor.",
+            "product_details": {
+                "description": "SMK Thunder full face with ECE 22.06 and sun visor."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1490,
+                "weight_lbs": 3.28,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Thunder+3"
+    ]
+}

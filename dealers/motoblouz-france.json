@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motoblouz-france",
+  "name": "Motoblouz",
+  "type": "retail",
+  "country_code": "FR",
+  "region_code": "eu",
+  "address": "Lille",
+  "city": "Lille",
+  "website": "https://www.motoblouz.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "eu-shipping", "fast-delivery", "expert-advice", "price-match"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Schuberth", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["motoblouz-fr", "amazon-fr"],
+  "geo": {"lat": 50.6292, "lng": 3.0573}
+}

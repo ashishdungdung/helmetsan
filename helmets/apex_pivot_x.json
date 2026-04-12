@@ -1,0 +1,117 @@
+{
+    "id": "apex_pivot_x",
+    "entity": "helmet",
+    "title": "Apex Pivot X",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Pivot X",
+    "price": {
+        "current": 319.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1680,
+        "weight_lbs": 3.7,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Modular with flip-up and sun visor.",
+    "product_details": {
+        "description": "Modular with flip-up and sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_pivot_x_matte-black",
+            "entity": "helmet",
+            "title": "Apex Pivot X Matte Black",
+            "type": "Modular",
+            "parent_id": "apex_pivot_x",
+            "helmet_family": "Pivot X",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-PVX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1680,
+                "weight_lbs": 3.7,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_pivot_x_white",
+            "entity": "helmet",
+            "title": "Apex Pivot X White",
+            "type": "Modular",
+            "parent_id": "apex_pivot_x",
+            "helmet_family": "Pivot X",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-PVX-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1680,
+                "weight_lbs": 3.7,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "mx-moto-indonesia",
+  "name": "MX Moto Indonesia",
+  "type": "retail",
+  "country_code": "ID",
+  "region_code": "apac",
+  "address": "Jakarta",
+  "city": "Jakarta",
+  "website": "https://www.mxmoto.co.id",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "indonesia-shipping", "asean"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "MT Helmets", "KYT", "INK"],
+  "marketplaces": ["mxmoto-id", "tokopedia", "shopee"],
+  "geo": {"lat": -6.2088, "lng": 106.8456}
+}

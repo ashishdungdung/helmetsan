@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Motorcycle",
+  "type": "object",
+  "required": ["entity", "id", "make", "model", "segment"],
+  "properties": {
+    "entity": { "const": "motorcycle" },
+    "id": { "type": "string" },
+    "make": { "type": "string" },
+    "model": { "type": "string" },
+    "segment": { "type": "string" },
+    "engine_cc": { "type": "number" },
+    "recommended_helmet_types": { "type": "array", "items": { "type": "string" } }
+  }
+}

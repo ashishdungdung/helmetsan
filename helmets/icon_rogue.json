@@ -1,0 +1,117 @@
+{
+    "id": "icon_rogue",
+    "entity": "helmet",
+    "title": "Icon Rogue",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Rogue",
+    "price": {
+        "current": 219.99,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1620,
+        "weight_lbs": 3.57,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Icon Rogue full face with ventilation.",
+    "product_details": {
+        "description": "Icon Rogue full face with ventilation."
+    },
+    "variants": [
+        {
+            "id": "icon_rogue_matte-black",
+            "entity": "helmet",
+            "title": "Icon Rogue Matte Black",
+            "type": "Full Face",
+            "parent_id": "icon_rogue",
+            "helmet_family": "Rogue",
+            "head_shape": "Long Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ICO-ROG-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Rogue full face with ventilation.",
+            "product_details": {
+                "description": "Icon Rogue full face with ventilation."
+            },
+            "price": {
+                "current": 219.99,
+                "usd": 219.99,
+                "eur": 202.39,
+                "gbp": 173.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1620,
+                "weight_lbs": 3.57,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_rogue_red",
+            "entity": "helmet",
+            "title": "Icon Rogue Red",
+            "type": "Full Face",
+            "parent_id": "icon_rogue",
+            "helmet_family": "Rogue",
+            "head_shape": "Long Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "ICO-ROG-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Rogue full face with ventilation.",
+            "product_details": {
+                "description": "Icon Rogue full face with ventilation."
+            },
+            "price": {
+                "current": 219.99,
+                "usd": 219.99,
+                "eur": 202.39,
+                "gbp": 173.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1620,
+                "weight_lbs": 3.57,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Rogue+3"
+    ]
+}

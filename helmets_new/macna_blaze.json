@@ -1,0 +1,117 @@
+{
+    "id": "macna_blaze",
+    "entity": "helmet",
+    "title": "Macna Blaze",
+    "brand": "Macna",
+    "type": "Open Face",
+    "helmet_family": "Blaze",
+    "price": {
+        "current": 79.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Lightweight open face for city and casual riding.",
+    "product_details": {
+        "description": "Lightweight open face for city and casual riding."
+    },
+    "variants": [
+        {
+            "id": "macna_blaze_black",
+            "entity": "helmet",
+            "title": "Macna Blaze Black",
+            "type": "Open Face",
+            "parent_id": "macna_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "MCN-BLZ-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight open face for city and casual riding.",
+            "product_details": {
+                "description": "Lightweight open face for city and casual riding."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "macna_blaze_grey",
+            "entity": "helmet",
+            "title": "Macna Blaze Grey",
+            "type": "Open Face",
+            "parent_id": "macna_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "MCN-BLZ-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Lightweight open face for city and casual riding.",
+            "product_details": {
+                "description": "Lightweight open face for city and casual riding."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+3"
+    ]
+}

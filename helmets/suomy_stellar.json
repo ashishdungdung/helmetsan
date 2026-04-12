@@ -1,0 +1,196 @@
+{
+    "id": "suomy_stellar",
+    "entity": "helmet",
+    "title": "Suomy Stellar",
+    "brand": "Suomy",
+    "type": "Full Face",
+    "helmet_family": "Stellar",
+    "price": {
+        "current": 349.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
+    "product_details": {
+        "description": "Feature-rich mid-range with double visor and anti-allergic liner."
+    },
+    "variants": [
+        {
+            "id": "suomy_stellar_matte-black",
+            "entity": "helmet",
+            "title": "Suomy Stellar Matte Black",
+            "type": "Full Face",
+            "parent_id": "suomy_stellar",
+            "helmet_family": "Stellar",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SUO-STEL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
+            "product_details": {
+                "description": "Feature-rich mid-range with double visor and anti-allergic liner."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "suomy_stellar_silver-metallic",
+            "entity": "helmet",
+            "title": "Suomy Stellar Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "suomy_stellar",
+            "helmet_family": "Stellar",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "SUO-STEL-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
+            "product_details": {
+                "description": "Feature-rich mid-range with double visor and anti-allergic liner."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "suomy_stellar_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Suomy Stellar Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "suomy_stellar",
+            "helmet_family": "Stellar",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "SUO-STEL-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
+            "product_details": {
+                "description": "Feature-rich mid-range with double visor and anti-allergic liner."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "suomy_stellar_vortex-blue",
+            "entity": "helmet",
+            "title": "Suomy Stellar Vortex Blue",
+            "type": "Full Face",
+            "parent_id": "suomy_stellar",
+            "helmet_family": "Stellar",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex Blue",
+            "color_family": "Blue",
+            "sku": "SUO-STEL-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
+            "product_details": {
+                "description": "Feature-rich mid-range with double visor and anti-allergic liner."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+3"
+    ]
+}

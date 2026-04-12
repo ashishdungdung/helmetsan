@@ -1,0 +1,117 @@
+{
+    "id": "apex_coast",
+    "entity": "helmet",
+    "title": "Apex Coast",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Coast",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1010,
+        "weight_lbs": 2.23,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face with optional shield for coastal and cruiser use.",
+    "product_details": {
+        "description": "Open face with optional shield for coastal and cruiser use."
+    },
+    "variants": [
+        {
+            "id": "apex_coast_black",
+            "entity": "helmet",
+            "title": "Apex Coast Black",
+            "type": "Open Face",
+            "parent_id": "apex_coast",
+            "helmet_family": "Coast",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-CST-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield for coastal and cruiser use.",
+            "product_details": {
+                "description": "Open face with optional shield for coastal and cruiser use."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1010,
+                "weight_lbs": 2.23,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_coast_white",
+            "entity": "helmet",
+            "title": "Apex Coast White",
+            "type": "Open Face",
+            "parent_id": "apex_coast",
+            "helmet_family": "Coast",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-CST-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield for coastal and cruiser use.",
+            "product_details": {
+                "description": "Open face with optional shield for coastal and cruiser use."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1010,
+                "weight_lbs": 2.23,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Coast+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "getgeared-uk",
+  "name": "GetGeared",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Unit 2, Millbrook Industrial Estate, Southampton",
+  "city": "Southampton",
+  "website": "https://www.getgeared.co.uk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "expert-advice", "click-and-collect"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan", "LS2"],
+  "marketplaces": ["getgeared-uk", "amazon-uk"],
+  "geo": {"lat": 50.9097, "lng": -1.4044}
+}

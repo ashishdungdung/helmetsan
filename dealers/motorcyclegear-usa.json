@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motorcyclegear-usa",
+  "name": "MotorcycleGear.com",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Indianapolis, IN",
+  "city": "Indianapolis",
+  "website": "https://www.motorcyclegear.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "us-shipping", "sizing-guide", "gear-advice", "closeout-deals"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "LS2"],
+  "marketplaces": ["motorcyclegear-us"],
+  "geo": {"lat": 39.7684, "lng": -86.1581}
+}

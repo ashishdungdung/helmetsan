@@ -1,0 +1,117 @@
+{
+    "id": "ls2_rapid",
+    "entity": "helmet",
+    "title": "LS2 Rapid",
+    "brand": "LS2",
+    "type": "Open Face",
+    "helmet_family": "Rapid",
+    "price": {
+        "current": 89.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1020,
+        "weight_lbs": 2.25,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "LS2 open face with inner sun visor for urban riding.",
+    "product_details": {
+        "description": "LS2 open face with inner sun visor for urban riding."
+    },
+    "variants": [
+        {
+            "id": "ls2_rapid_black",
+            "entity": "helmet",
+            "title": "LS2 Rapid Black",
+            "type": "Open Face",
+            "parent_id": "ls2_rapid",
+            "helmet_family": "Rapid",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "LS2-RAP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 open face with inner sun visor for urban riding.",
+            "product_details": {
+                "description": "LS2 open face with inner sun visor for urban riding."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "ls2_rapid_silver",
+            "entity": "helmet",
+            "title": "LS2 Rapid Silver",
+            "type": "Open Face",
+            "parent_id": "ls2_rapid",
+            "helmet_family": "Rapid",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "LS2-RAP-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "LS2 open face with inner sun visor for urban riding.",
+            "product_details": {
+                "description": "LS2 open face with inner sun visor for urban riding."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Rapid+3"
+    ]
+}

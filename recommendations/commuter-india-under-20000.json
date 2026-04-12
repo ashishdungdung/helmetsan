@@ -1,0 +1,18 @@
+{
+  "entity": "recommendation",
+  "id": "commuter-india-under-20000",
+  "title": "India Commuter Helmets Under ₹20,000",
+  "use_case": "daily commuting",
+  "region": "IN",
+  "helmet_ids": ["shoei-rf-1400"],
+  "filters": {
+    "country": "IN",
+    "max_price": 20000,
+    "must_have_certifications": ["ISI IS 4151"]
+  },
+  "items": [
+    {"helmet_id":"mt-thunder-4","reason":"strong value and good venting"},
+    {"helmet_id":"smk-typhoon","reason":"city comfort and affordability"},
+    {"helmet_id":"ls2-ff800","reason":"ECE profile at practical budget"}
+  ]
+}

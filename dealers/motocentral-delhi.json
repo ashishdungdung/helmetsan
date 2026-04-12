@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motocentral-delhi",
+  "name": "Moto Central Delhi",
+  "type": "retail",
+  "country_code": "IN",
+  "region_code": "apac",
+  "address": "Rajouri Garden, New Delhi",
+  "city": "Delhi",
+  "website": "https://motocentral.in",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "accessory-install", "pinlock-install"],
+  "brands_stocked": ["LS2", "SMK", "MT Helmets", "AGV"],
+  "marketplaces": ["flipkart-in", "amazon-in"],
+  "geo": {"lat": 28.6426, "lng": 77.1164}
+}

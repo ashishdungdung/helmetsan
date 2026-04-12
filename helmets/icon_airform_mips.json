@@ -1,0 +1,201 @@
+{
+    "id": "icon_airform_mips",
+    "entity": "helmet",
+    "title": "Icon Airform MIPS",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Airform MIPS",
+    "price": {
+        "current": 275,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Airform with MIPS rotational impact protection and Icon styling.",
+    "product_details": {
+        "description": "Airform with MIPS rotational impact protection and Icon styling."
+    },
+    "variants": [
+        {
+            "id": "icon_airform_mips_gloss-black",
+            "entity": "helmet",
+            "title": "Icon Airform MIPS Gloss Black",
+            "type": "Full Face",
+            "parent_id": "icon_airform_mips",
+            "helmet_family": "Airform MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "ICO-AIRF-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Airform with MIPS rotational impact protection and Icon styling.",
+            "product_details": {
+                "description": "Airform with MIPS rotational impact protection and Icon styling."
+            },
+            "price": {
+                "current": 275,
+                "usd": 275,
+                "eur": 253,
+                "gbp": 217.25
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airform_mips_gloss-white",
+            "entity": "helmet",
+            "title": "Icon Airform MIPS Gloss White",
+            "type": "Full Face",
+            "parent_id": "icon_airform_mips",
+            "helmet_family": "Airform MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "ICO-AIRF-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Airform with MIPS rotational impact protection and Icon styling.",
+            "product_details": {
+                "description": "Airform with MIPS rotational impact protection and Icon styling."
+            },
+            "price": {
+                "current": 275,
+                "usd": 275,
+                "eur": 253,
+                "gbp": 217.25
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airform_mips_flow-tc-2",
+            "entity": "helmet",
+            "title": "Icon Airform MIPS Flow TC-2",
+            "type": "Full Face",
+            "parent_id": "icon_airform_mips",
+            "helmet_family": "Airform MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow TC-2",
+            "color_family": "Multi",
+            "sku": "ICO-AIRF-FLO",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Airform with MIPS rotational impact protection and Icon styling.",
+            "product_details": {
+                "description": "Airform with MIPS rotational impact protection and Icon styling."
+            },
+            "price": {
+                "current": 325,
+                "usd": 325,
+                "eur": 299,
+                "gbp": 256.75
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airform_mips_track-blue",
+            "entity": "helmet",
+            "title": "Icon Airform MIPS Track Blue",
+            "type": "Full Face",
+            "parent_id": "icon_airform_mips",
+            "helmet_family": "Airform MIPS",
+            "head_shape": "Intermediate Oval",
+            "color": "Track Blue",
+            "color_family": "Blue",
+            "sku": "ICO-AIRF-TRA",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Airform with MIPS rotational impact protection and Icon styling.",
+            "product_details": {
+                "description": "Airform with MIPS rotational impact protection and Icon styling."
+            },
+            "price": {
+                "current": 325,
+                "usd": 325,
+                "eur": 299,
+                "gbp": 256.75
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+3"
+    ]
+}

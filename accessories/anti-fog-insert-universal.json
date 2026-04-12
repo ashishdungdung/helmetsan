@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "anti-fog-insert-universal",
+  "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+  "type": "Visor Insert",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+  "compatible_brands": ["Universal", "HJC", "LS2", "Scorpion", "Shark", "Nolan", "Caberg"],
+  "compatible_helmet_ids": ["hjc-rpha-71", "ls2-challenger-gt", "scorpion-exo-r1-air", "shark-spartan-rs", "nolan-n100-6", "caberg-duke-evo"],
+  "features": [
+    "Anti-fog moisture-absorbing film",
+    "MaxVision panoramic coverage",
+    "Silicone bead seal",
+    "Reusable and replaceable",
+    "UV protection",
+    "Optical class 1 clarity"
+  ],
+  "price": { "current": 29.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 29.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 24.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 2499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The Pinlock 70 MaxVision insert provides a permanent fog-free solution for cold and wet riding conditions. A moisture-absorbing film bonded between two lens layers creates a thermal barrier, preventing condensation from forming on the inside of your visor. MaxVision panoramic sizing ensures complete coverage with no blind spots.</p>"
+}

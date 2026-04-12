@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "bell-vista-outdoor-usa",
+  "name": "Vista Outdoor / Bell Powersports",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["Bell", "Giro"],
+  "warehouses": [
+    {"id": "us-illinois", "city": "Chicago", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "dealer", "url": "https://www.bellhelmets.com"},
+    {"type": "support", "url": "https://www.bellhelmets.com/support"}
+  ],
+  "website": "https://www.bellhelmets.com"
+}

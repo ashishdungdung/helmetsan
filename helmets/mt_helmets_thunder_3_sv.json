@@ -1,0 +1,114 @@
+{
+    "id": "mt_helmets_thunder_3_sv",
+    "entity": "helmet",
+    "title": "MT Helmets Thunder 3 SV",
+    "brand": "MT Helmets",
+    "type": "Full Face",
+    "helmet_family": "Thunder 3 SV",
+    "price": {
+        "current": 179.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "HPFC Composite",
+        "weight_g": 1480,
+        "weight_lbs": 3.26,
+        "certifications": [
+            "ECE 22.05"
+        ]
+    },
+    "description": "MT Thunder 3 full face with sun visor.",
+    "product_details": {
+        "description": "MT Thunder 3 full face with sun visor."
+    },
+    "variants": [
+        {
+            "id": "mt_helmets_thunder_3_sv_matte-black",
+            "entity": "helmet",
+            "title": "MT Helmets Thunder 3 SV Matte Black",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_thunder_3_sv",
+            "helmet_family": "Thunder 3 SV",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "MTH-TH3-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Thunder 3 full face with sun visor.",
+            "product_details": {
+                "description": "MT Thunder 3 full face with sun visor."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "HPFC Composite",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_thunder_3_sv_white",
+            "entity": "helmet",
+            "title": "MT Helmets Thunder 3 SV White",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_thunder_3_sv",
+            "helmet_family": "Thunder 3 SV",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "MTH-TH3-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Thunder 3 full face with sun visor.",
+            "product_details": {
+                "description": "MT Thunder 3 full face with sun visor."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "HPFC Composite",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Thunder+3+SV+3"
+    ]
+}

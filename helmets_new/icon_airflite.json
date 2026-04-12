@@ -1,0 +1,201 @@
+{
+    "id": "icon_airflite",
+    "entity": "helmet",
+    "title": "Icon Airflite",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Airflite",
+    "price": {
+        "current": 290,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1690,
+        "weight_lbs": 3.73,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Aggressive styling with massive ventilation.",
+    "product_details": {
+        "description": "Aggressive styling with massive ventilation."
+    },
+    "variants": [
+        {
+            "id": "icon_airflite_matte-black",
+            "entity": "helmet",
+            "title": "Icon Airflite Matte Black",
+            "type": "Full Face",
+            "parent_id": "icon_airflite",
+            "helmet_family": "Airflite",
+            "head_shape": "Long Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ICO-AIRF-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Aggressive styling with massive ventilation.",
+            "product_details": {
+                "description": "Aggressive styling with massive ventilation."
+            },
+            "price": {
+                "current": 290,
+                "usd": 290,
+                "eur": 266.8,
+                "gbp": 229.1
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airflite_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Icon Airflite Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "icon_airflite",
+            "helmet_family": "Airflite",
+            "head_shape": "Long Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "ICO-AIRF-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Aggressive styling with massive ventilation.",
+            "product_details": {
+                "description": "Aggressive styling with massive ventilation."
+            },
+            "price": {
+                "current": 290,
+                "usd": 290,
+                "eur": 266.8,
+                "gbp": 229.1
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airflite_racer-grey",
+            "entity": "helmet",
+            "title": "Icon Airflite Racer Grey",
+            "type": "Full Face",
+            "parent_id": "icon_airflite",
+            "helmet_family": "Airflite",
+            "head_shape": "Long Oval",
+            "color": "Racer Grey",
+            "color_family": "Grey",
+            "sku": "ICO-AIRF-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Aggressive styling with massive ventilation.",
+            "product_details": {
+                "description": "Aggressive styling with massive ventilation."
+            },
+            "price": {
+                "current": 340,
+                "usd": 340,
+                "eur": 312.8,
+                "gbp": 268.6
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_airflite_street-tc-3",
+            "entity": "helmet",
+            "title": "Icon Airflite Street TC-3",
+            "type": "Full Face",
+            "parent_id": "icon_airflite",
+            "helmet_family": "Airflite",
+            "head_shape": "Long Oval",
+            "color": "Street TC-3",
+            "color_family": "Multi",
+            "sku": "ICO-AIRF-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Aggressive styling with massive ventilation.",
+            "product_details": {
+                "description": "Aggressive styling with massive ventilation."
+            },
+            "price": {
+                "current": 340,
+                "usd": 340,
+                "eur": 312.8,
+                "gbp": 268.6
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+3"
+    ]
+}

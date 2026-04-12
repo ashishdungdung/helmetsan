@@ -1,0 +1,117 @@
+{
+    "id": "apex_trek_pro",
+    "entity": "helmet",
+    "title": "Apex Trek Pro",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Trek Pro",
+    "price": {
+        "current": 269.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1660,
+        "weight_lbs": 3.66,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Adventure helmet with peak and washable liner.",
+    "product_details": {
+        "description": "Adventure helmet with peak and washable liner."
+    },
+    "variants": [
+        {
+            "id": "apex_trek_pro_matte-black",
+            "entity": "helmet",
+            "title": "Apex Trek Pro Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trek_pro",
+            "helmet_family": "Trek Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TKP-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and washable liner.",
+            "product_details": {
+                "description": "Adventure helmet with peak and washable liner."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1660,
+                "weight_lbs": 3.66,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_trek_pro_orange",
+            "entity": "helmet",
+            "title": "Apex Trek Pro Orange",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trek_pro",
+            "helmet_family": "Trek Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Orange",
+            "color_family": "Orange",
+            "sku": "APX-TKP-ORG",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and washable liner.",
+            "product_details": {
+                "description": "Adventure helmet with peak and washable liner."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1660,
+                "weight_lbs": 3.66,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Orange",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Orange+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+Orange+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Pro+3"
+    ]
+}

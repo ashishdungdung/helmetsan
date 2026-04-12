@@ -1,0 +1,159 @@
+{
+    "id": "smk_ranger",
+    "entity": "helmet",
+    "title": "SMK Ranger",
+    "brand": "SMK",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Ranger",
+    "price": {
+        "current": 169.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1560,
+        "weight_lbs": 3.44,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "SMK adventure helmet with peak and dual visor.",
+    "product_details": {
+        "description": "SMK adventure helmet with peak and dual visor."
+    },
+    "variants": [
+        {
+            "id": "smk_ranger_matte-black",
+            "entity": "helmet",
+            "title": "SMK Ranger Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "smk_ranger",
+            "helmet_family": "Ranger",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SMK-RNG-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK adventure helmet with peak and dual visor.",
+            "product_details": {
+                "description": "SMK adventure helmet with peak and dual visor."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "smk_ranger_grey",
+            "entity": "helmet",
+            "title": "SMK Ranger Grey",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "smk_ranger",
+            "helmet_family": "Ranger",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "SMK-RNG-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK adventure helmet with peak and dual visor.",
+            "product_details": {
+                "description": "SMK adventure helmet with peak and dual visor."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Grey+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "smk_ranger_orange",
+            "entity": "helmet",
+            "title": "SMK Ranger Orange",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "smk_ranger",
+            "helmet_family": "Ranger",
+            "head_shape": "Intermediate Oval",
+            "color": "Orange",
+            "color_family": "Orange",
+            "sku": "SMK-RNG-ORG",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK adventure helmet with peak and dual visor.",
+            "product_details": {
+                "description": "SMK adventure helmet with peak and dual visor."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Orange",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Orange+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+Orange+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Ranger+3"
+    ]
+}

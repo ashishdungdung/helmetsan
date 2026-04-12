@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "helmet-lock-cable",
+  "title": "Helmetlok Carabiner Helmet Lock",
+  "type": "Security",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "arai-corsair-x", "schuberth-c5", "nolan-n100-6", "icon-airflite"],
+  "features": [
+    "4-digit resettable combination lock",
+    "Rubberized T-bar for chin strap loop",
+    "Aircraft-grade aluminum carabiner",
+    "Attaches to motorcycle frame, bars, or luggage rack",
+    "Lightweight and compact",
+    "Weather-resistant construction"
+  ],
+  "price": { "current": 24.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 24.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 22.50, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 1999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Never worry about leaving your helmet unattended again. The Helmetlok carabiner lock threads through your D-ring chin strap and clips securely to any fixed point on your bike. The 4-digit resettable combination eliminates the need for keys, and the rubberized T-bar protects your strap from abrasion.</p>"
+}

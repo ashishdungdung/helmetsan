@@ -1,0 +1,59 @@
+{
+  "_comment": "Reference for brand JSON shape. Ingest from data/brands/<slug>.json. Copy or split into per-file JSONs. Add more brands here or under data/brands/*.json for detailed info.",
+  "items": [
+    {
+      "entity": "brand",
+      "id": "shoei",
+      "title": "Shoei",
+      "profile": {
+        "origin_country": "Japan",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.shoei.com/",
+        "support_email": "support@shoei.com",
+        "manufacturing_ethos": "Performance-first safety engineering. Multiple shell sizes for optimal fit.",
+        "distributor_regions": "US\nEU\nJP\nIN",
+        "total_models": "55",
+        "helmet_types": "Full Face, Modular, Off-road, Open Face, Adventure, Touring",
+        "certification_coverage": "DOT, ECE 22.06, Snell, FIM",
+        "brand_story": "Shoei has been a leader in helmet technology since 1959, pioneering carbon and composite shells.",
+        "brand_motto": "Safety and innovation first.",
+        "original_logo": "https://logo.clearbit.com/shoei-helmets.com"
+      }
+    },
+    {
+      "entity": "brand",
+      "id": "arai",
+      "title": "Arai",
+      "profile": {
+        "origin_country": "Japan",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.araihelmet.eu/",
+        "support_email": "",
+        "manufacturing_ethos": "Handcrafted shell quality and conservative safety engineering.",
+        "distributor_regions": "US\nEU\nJP",
+        "total_models": "60",
+        "helmet_types": "Full Face, Open Face, Off-road",
+        "certification_coverage": "ECE 22.06, Snell, FIM",
+        "brand_story": "Arai focuses on multiple shell sizes and round-oval fit for superior protection.",
+        "original_logo": "https://logo.clearbit.com/arai.com"
+      }
+    },
+    {
+      "entity": "brand",
+      "id": "agv",
+      "title": "AGV",
+      "profile": {
+        "origin_country": "Italy",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.agv.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Race-bred design and aerodynamics.",
+        "distributor_regions": "US\nEU\nIN",
+        "total_models": "45",
+        "helmet_types": "Full Face, Modular, Off-road, Open Face",
+        "certification_coverage": "DOT, ECE 22.06, FIM",
+        "original_logo": "https://logo.clearbit.com/agv.com"
+      }
+    }
+  ]
+}

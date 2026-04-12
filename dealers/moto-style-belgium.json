@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-style-belgium",
+  "name": "Moto Style Belgium",
+  "type": "retail",
+  "country_code": "BE",
+  "region_code": "eu",
+  "address": "Antwerp area",
+  "city": "Antwerp",
+  "website": "https://www.motostyle.be",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Schuberth"],
+  "marketplaces": ["motostyle-be"],
+  "geo": {"lat": 51.2213, "lng": 4.4051}
+}

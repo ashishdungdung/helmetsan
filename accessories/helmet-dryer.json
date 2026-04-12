@@ -1,0 +1,25 @@
+{
+  "entity": "accessory",
+  "id": "helmet-dryer",
+  "title": "Capit Helmet Dryer Pro",
+  "type": "Maintenance",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Motocross"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Warm air circulation system (40°C max safe temp)",
+    "Timer: 30, 60, 90, 120 minute presets",
+    "Dual function — dries helmet + gloves simultaneously",
+    "Ozone antibacterial cycle kills 99% germs",
+    "Silent fan operation (<35 dB)",
+    "Auto shut-off safety feature",
+    "Universal helmet cradle"
+  ],
+  "price": { "current": 89.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 89.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 79.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 7499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The Capit Helmet Dryer Pro circulates warm air through your helmet liner to dry it completely between rides. The ozone antibacterial cycle kills odor-causing bacteria without chemicals. Dries gloves on the integrated hooks at the same time. Timer presets prevent over-drying and the auto shut-off ensures safety.</p>"
+}

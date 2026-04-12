@@ -1,0 +1,196 @@
+{
+    "id": "vemar_kona",
+    "entity": "helmet",
+    "title": "Vemar Kona",
+    "brand": "Vemar",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Kona",
+    "price": {
+        "current": 349.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system.",
+    "product_details": {
+        "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system."
+    },
+    "variants": [
+        {
+            "id": "vemar_kona_matte-black",
+            "entity": "helmet",
+            "title": "Vemar Kona Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "vemar_kona",
+            "helmet_family": "Kona",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEM-KONA-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "vemar_kona_silver-metallic",
+            "entity": "helmet",
+            "title": "Vemar Kona Silver Metallic",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "vemar_kona",
+            "helmet_family": "Kona",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "VEM-KONA-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "vemar_kona_pearl-white",
+            "entity": "helmet",
+            "title": "Vemar Kona Pearl White",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "vemar_kona",
+            "helmet_family": "Kona",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "VEM-KONA-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "vemar_kona_operator-blue",
+            "entity": "helmet",
+            "title": "Vemar Kona Operator Blue",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "vemar_kona",
+            "helmet_family": "Kona",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator Blue",
+            "color_family": "Blue",
+            "sku": "VEM-KONA-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system.",
+            "product_details": {
+                "description": "Dual-sport with removable peak, Pinlock visor, and anti-fog system."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Operator+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Operator+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+Operator+Blue+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Kona+3"
+    ]
+}

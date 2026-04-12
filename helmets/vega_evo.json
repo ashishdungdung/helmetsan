@@ -1,0 +1,117 @@
+{
+    "id": "vega_evo",
+    "entity": "helmet",
+    "title": "Vega Evo",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Evo",
+    "price": {
+        "current": 30.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 838,
+        "weight_lbs": 1.85,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Evo open face with flip visor.",
+    "product_details": {
+        "description": "Vega Evo open face with flip visor."
+    },
+    "variants": [
+        {
+            "id": "vega_evo_black",
+            "entity": "helmet",
+            "title": "Vega Evo Black",
+            "type": "Open Face",
+            "parent_id": "vega_evo",
+            "helmet_family": "Evo",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-EVO-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Evo open face with flip visor.",
+            "product_details": {
+                "description": "Vega Evo open face with flip visor."
+            },
+            "price": {
+                "current": 30.99,
+                "usd": 30.99,
+                "eur": 28.51,
+                "gbp": 24.48
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 838,
+                "weight_lbs": 1.85,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_evo_silver",
+            "entity": "helmet",
+            "title": "Vega Evo Silver",
+            "type": "Open Face",
+            "parent_id": "vega_evo",
+            "helmet_family": "Evo",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "VEG-EVO-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Evo open face with flip visor.",
+            "product_details": {
+                "description": "Vega Evo open face with flip visor."
+            },
+            "price": {
+                "current": 30.99,
+                "usd": 30.99,
+                "eur": 28.51,
+                "gbp": 24.48
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 838,
+                "weight_lbs": 1.85,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+3"
+    ]
+}

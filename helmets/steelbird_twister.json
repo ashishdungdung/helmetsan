@@ -1,0 +1,117 @@
+{
+    "id": "steelbird_twister",
+    "entity": "helmet",
+    "title": "Steelbird Twister",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "helmet_family": "Twister",
+    "price": {
+        "current": 26.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 870,
+        "weight_lbs": 1.92,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Light open face with flip visor for commuters.",
+    "product_details": {
+        "description": "Light open face with flip visor for commuters."
+    },
+    "variants": [
+        {
+            "id": "steelbird_twister_black",
+            "entity": "helmet",
+            "title": "Steelbird Twister Black",
+            "type": "Open Face",
+            "parent_id": "steelbird_twister",
+            "helmet_family": "Twister",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "STE-TWS-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Light open face with flip visor for commuters.",
+            "product_details": {
+                "description": "Light open face with flip visor for commuters."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 870,
+                "weight_lbs": 1.92,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_twister_grey",
+            "entity": "helmet",
+            "title": "Steelbird Twister Grey",
+            "type": "Open Face",
+            "parent_id": "steelbird_twister",
+            "helmet_family": "Twister",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "STE-TWS-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Light open face with flip visor for commuters.",
+            "product_details": {
+                "description": "Light open face with flip visor for commuters."
+            },
+            "price": {
+                "current": 26.99,
+                "usd": 26.99,
+                "eur": 24.83,
+                "gbp": 21.32
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 870,
+                "weight_lbs": 1.92,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+3"
+    ]
+}

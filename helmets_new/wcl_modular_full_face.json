@@ -1,0 +1,196 @@
+{
+    "id": "wcl_modular_full_face",
+    "entity": "helmet",
+    "title": "WCL Modular Full Face",
+    "brand": "WCL",
+    "type": "Modular",
+    "helmet_family": "Modular Full Face",
+    "price": {
+        "current": 109.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Amazon-popular modular with Bluetooth-ready speaker pockets.",
+    "product_details": {
+        "description": "Amazon-popular modular with Bluetooth-ready speaker pockets."
+    },
+    "variants": [
+        {
+            "id": "wcl_modular_full_face_gloss-black",
+            "entity": "helmet",
+            "title": "WCL Modular Full Face Gloss Black",
+            "type": "Modular",
+            "parent_id": "wcl_modular_full_face",
+            "helmet_family": "Modular Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "WCL-MODU-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Amazon-popular modular with Bluetooth-ready speaker pockets.",
+            "product_details": {
+                "description": "Amazon-popular modular with Bluetooth-ready speaker pockets."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "wcl_modular_full_face_gloss-white",
+            "entity": "helmet",
+            "title": "WCL Modular Full Face Gloss White",
+            "type": "Modular",
+            "parent_id": "wcl_modular_full_face",
+            "helmet_family": "Modular Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "WCL-MODU-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Amazon-popular modular with Bluetooth-ready speaker pockets.",
+            "product_details": {
+                "description": "Amazon-popular modular with Bluetooth-ready speaker pockets."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "wcl_modular_full_face_urban-tc-3",
+            "entity": "helmet",
+            "title": "WCL Modular Full Face Urban TC-3",
+            "type": "Modular",
+            "parent_id": "wcl_modular_full_face",
+            "helmet_family": "Modular Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban TC-3",
+            "color_family": "Multi",
+            "sku": "WCL-MODU-URB",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Amazon-popular modular with Bluetooth-ready speaker pockets.",
+            "product_details": {
+                "description": "Amazon-popular modular with Bluetooth-ready speaker pockets."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Urban+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Urban+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Urban+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "wcl_modular_full_face_racer-tc-3",
+            "entity": "helmet",
+            "title": "WCL Modular Full Face Racer TC-3",
+            "type": "Modular",
+            "parent_id": "wcl_modular_full_face",
+            "helmet_family": "Modular Full Face",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer TC-3",
+            "color_family": "Multi",
+            "sku": "WCL-MODU-RAC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Amazon-popular modular with Bluetooth-ready speaker pockets.",
+            "product_details": {
+                "description": "Amazon-popular modular with Bluetooth-ready speaker pockets."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Racer+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Racer+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+Racer+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=WCL+Modular+Full+Face+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_trail_x",
+    "entity": "helmet",
+    "title": "Apex Trail X",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Trail X",
+    "price": {
+        "current": 289.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Adventure helmet with peak and Pinlock-ready shield.",
+    "product_details": {
+        "description": "Adventure helmet with peak and Pinlock-ready shield."
+    },
+    "variants": [
+        {
+            "id": "apex_trail_x_matte-black",
+            "entity": "helmet",
+            "title": "Apex Trail X Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_x",
+            "helmet_family": "Trail X",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TLX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and Pinlock-ready shield.",
+            "product_details": {
+                "description": "Adventure helmet with peak and Pinlock-ready shield."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_trail_x_sand",
+            "entity": "helmet",
+            "title": "Apex Trail X Sand",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_x",
+            "helmet_family": "Trail X",
+            "head_shape": "Intermediate Oval",
+            "color": "Sand",
+            "color_family": "Grey",
+            "sku": "APX-TLX-SND",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and Pinlock-ready shield.",
+            "product_details": {
+                "description": "Adventure helmet with peak and Pinlock-ready shield."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Sand",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Sand+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+Sand+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+X+3"
+    ]
+}

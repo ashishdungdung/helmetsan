@@ -1,0 +1,201 @@
+{
+    "id": "klim_krios_pro",
+    "entity": "helmet",
+    "title": "Klim Krios Pro",
+    "brand": "Klim",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Krios Pro",
+    "price": {
+        "current": 749.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1300,
+        "weight_lbs": 2.87,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
+    "product_details": {
+        "description": "Premium carbon ADV helmet with Transitions photochromic shield."
+    },
+    "variants": [
+        {
+            "id": "klim_krios_pro_matte-black",
+            "entity": "helmet",
+            "title": "Klim Krios Pro Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "klim_krios_pro",
+            "helmet_family": "Krios Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "KLI-KRIO-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
+            "product_details": {
+                "description": "Premium carbon ADV helmet with Transitions photochromic shield."
+            },
+            "price": {
+                "current": 749.99,
+                "usd": 749.99,
+                "eur": 689.99,
+                "gbp": 592.49
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "klim_krios_pro_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Klim Krios Pro Hi-Viz Yellow",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "klim_krios_pro",
+            "helmet_family": "Krios Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "KLI-KRIO-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
+            "product_details": {
+                "description": "Premium carbon ADV helmet with Transitions photochromic shield."
+            },
+            "price": {
+                "current": 749.99,
+                "usd": 749.99,
+                "eur": 689.99,
+                "gbp": 592.49
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "klim_krios_pro_racer-blue",
+            "entity": "helmet",
+            "title": "Klim Krios Pro Racer Blue",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "klim_krios_pro",
+            "helmet_family": "Krios Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer Blue",
+            "color_family": "Blue",
+            "sku": "KLI-KRIO-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
+            "product_details": {
+                "description": "Premium carbon ADV helmet with Transitions photochromic shield."
+            },
+            "price": {
+                "current": 799.99,
+                "usd": 799.99,
+                "eur": 735.99,
+                "gbp": 631.99
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "klim_krios_pro_street-tc-1",
+            "entity": "helmet",
+            "title": "Klim Krios Pro Street TC-1",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "klim_krios_pro",
+            "helmet_family": "Krios Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Street TC-1",
+            "color_family": "Multi",
+            "sku": "KLI-KRIO-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
+            "product_details": {
+                "description": "Premium carbon ADV helmet with Transitions photochromic shield."
+            },
+            "price": {
+                "current": 799.99,
+                "usd": 799.99,
+                "eur": 735.99,
+                "gbp": 631.99
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Street+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Street+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Street+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+3"
+    ]
+}

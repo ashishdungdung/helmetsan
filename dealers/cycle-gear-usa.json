@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "cycle-gear-usa",
+  "name": "Cycle Gear",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Multiple locations nationwide",
+  "city": "Benicia",
+  "website": "https://www.cyclegear.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "in-store-pickup", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon"],
+  "marketplaces": ["cycle-gear-us", "amazon-us"],
+  "geo": {"lat": 38.0494, "lng": -122.1586}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "bell_star",
+    "entity": "helmet",
+    "title": "Bell Star",
+    "brand": "Bell",
+    "type": "Full Face",
+    "helmet_family": "Star",
+    "price": {
+        "current": 199.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1560,
+        "weight_lbs": 3.44,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Bell Star full face with good ventilation.",
+    "product_details": {
+        "description": "Bell Star full face with good ventilation."
+    },
+    "variants": [
+        {
+            "id": "bell_star_matte-black",
+            "entity": "helmet",
+            "title": "Bell Star Matte Black",
+            "type": "Full Face",
+            "parent_id": "bell_star",
+            "helmet_family": "Star",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "BEL-STR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Bell Star full face with good ventilation.",
+            "product_details": {
+                "description": "Bell Star full face with good ventilation."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_star_blue",
+            "entity": "helmet",
+            "title": "Bell Star Blue",
+            "type": "Full Face",
+            "parent_id": "bell_star",
+            "helmet_family": "Star",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "BEL-STR-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Bell Star full face with good ventilation.",
+            "product_details": {
+                "description": "Bell Star full face with good ventilation."
+            },
+            "price": {
+                "current": 199.95,
+                "usd": 199.95,
+                "eur": 183.95,
+                "gbp": 157.96
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+3"
+    ]
+}

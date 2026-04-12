@@ -1,0 +1,117 @@
+{
+    "id": "apex_scope_ultra",
+    "entity": "helmet",
+    "title": "Apex Scope Ultra",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Scope Ultra",
+    "price": {
+        "current": 299.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1520,
+        "weight_lbs": 3.35,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Full face with ECE 22.06.",
+    "product_details": {
+        "description": "Full face with ECE 22.06."
+    },
+    "variants": [
+        {
+            "id": "apex_scope_ultra_matte-black",
+            "entity": "helmet",
+            "title": "Apex Scope Ultra Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_scope_ultra",
+            "helmet_family": "Scope Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-SCU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with ECE 22.06.",
+            "product_details": {
+                "description": "Full face with ECE 22.06."
+            },
+            "price": {
+                "current": 299.99,
+                "usd": 299.99,
+                "eur": 275.99,
+                "gbp": 236.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1520,
+                "weight_lbs": 3.35,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_scope_ultra_blue",
+            "entity": "helmet",
+            "title": "Apex Scope Ultra Blue",
+            "type": "Full Face",
+            "parent_id": "apex_scope_ultra",
+            "helmet_family": "Scope Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-SCU-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Full face with ECE 22.06.",
+            "product_details": {
+                "description": "Full face with ECE 22.06."
+            },
+            "price": {
+                "current": 299.99,
+                "usd": 299.99,
+                "eur": 275.99,
+                "gbp": 236.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1520,
+                "weight_lbs": 3.35,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Ultra+3"
+    ]
+}

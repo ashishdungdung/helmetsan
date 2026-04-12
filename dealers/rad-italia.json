@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "rad-italia",
+  "name": "Rad Italia",
+  "type": "retail",
+  "country_code": "IT",
+  "region_code": "eu",
+  "address": "Brescia",
+  "city": "Brescia",
+  "website": "https://www.rad.eu",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "racing-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Nolan", "Caberg", "Suomy", "LS2"],
+  "marketplaces": ["rad-italia", "amazon-it"],
+  "geo": {"lat": 45.5416, "lng": 10.2118}
+}

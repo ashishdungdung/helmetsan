@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "helmet-world-india-chennai",
+  "name": "Helmet World Chennai",
+  "type": "retail",
+  "country_code": "IN",
+  "region_code": "apac",
+  "address": "T. Nagar, Chennai",
+  "city": "Chennai",
+  "website": "https://www.helmetworldindia.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "south-india-shipping", "isi-certified"],
+  "brands_stocked": ["Studds", "Steelbird", "Vega", "LS2", "MT Helmets", "SMK", "Axor"],
+  "marketplaces": ["helmetworld-in", "amazon-in"],
+  "geo": {"lat": 13.0418, "lng": 80.2341}
+}

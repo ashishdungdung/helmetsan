@@ -1,0 +1,117 @@
+{
+    "id": "vega_apex_pro",
+    "entity": "helmet",
+    "title": "Vega Apex Pro",
+    "brand": "Vega",
+    "type": "Full Face",
+    "helmet_family": "Apex Pro",
+    "price": {
+        "current": 74.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1290,
+        "weight_lbs": 2.84,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Vega Apex Pro full face with dual cert.",
+    "product_details": {
+        "description": "Vega Apex Pro full face with dual cert."
+    },
+    "variants": [
+        {
+            "id": "vega_apex_pro_matte-black",
+            "entity": "helmet",
+            "title": "Vega Apex Pro Matte Black",
+            "type": "Full Face",
+            "parent_id": "vega_apex_pro",
+            "helmet_family": "Apex Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-APR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Apex Pro full face with dual cert.",
+            "product_details": {
+                "description": "Vega Apex Pro full face with dual cert."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1290,
+                "weight_lbs": 2.84,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_apex_pro_white",
+            "entity": "helmet",
+            "title": "Vega Apex Pro White",
+            "type": "Full Face",
+            "parent_id": "vega_apex_pro",
+            "helmet_family": "Apex Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-APR-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Apex Pro full face with dual cert.",
+            "product_details": {
+                "description": "Vega Apex Pro full face with dual cert."
+            },
+            "price": {
+                "current": 74.99,
+                "usd": 74.99,
+                "eur": 68.99,
+                "gbp": 59.24
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1290,
+                "weight_lbs": 2.84,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Apex+Pro+3"
+    ]
+}

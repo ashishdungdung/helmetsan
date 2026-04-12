@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Safety Standard",
+  "type": "object",
+  "required": ["entity", "id", "name", "regions"],
+  "properties": {
+    "entity": { "const": "safety_standard" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "regions": { "type": "array", "items": { "type": "string" } },
+    "mandatory_markets": { "type": "array", "items": { "type": "string" } },
+    "test_focus": { "type": "array", "items": { "type": "string" } },
+    "official_reference_url": { "type": "string" }
+  }
+}

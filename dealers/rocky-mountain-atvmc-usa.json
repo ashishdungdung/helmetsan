@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "rocky-mountain-atvmc-usa",
+  "name": "Rocky Mountain ATV/MC",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Tillamook, OR and online",
+  "city": "Tillamook",
+  "website": "https://www.rockymountainatvmc.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["returns", "fast-shipping", "price-match", "gear-advice"],
+  "brands_stocked": ["Bell", "Fox", "Troy Lee Designs", "Leatt", "Fly Racing", "O'Neal"],
+  "marketplaces": ["rocky-mountain-us"],
+  "geo": {"lat": 45.4562, "lng": -123.8426}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_storm",
+    "entity": "helmet",
+    "title": "Apex Storm",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Storm",
+    "price": {
+        "current": 289.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "All-weather full face with anti-fog and rain channel.",
+    "product_details": {
+        "description": "All-weather full face with anti-fog and rain channel."
+    },
+    "variants": [
+        {
+            "id": "apex_storm_matte-black",
+            "entity": "helmet",
+            "title": "Apex Storm Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-STO-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "All-weather full face with anti-fog and rain channel.",
+            "product_details": {
+                "description": "All-weather full face with anti-fog and rain channel."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_storm_grey",
+            "entity": "helmet",
+            "title": "Apex Storm Grey",
+            "type": "Full Face",
+            "parent_id": "apex_storm",
+            "helmet_family": "Storm",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-STO-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "All-weather full face with anti-fog and rain channel.",
+            "product_details": {
+                "description": "All-weather full face with anti-fog and rain channel."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+3"
+    ]
+}

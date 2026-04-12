@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-ecuador",
+  "name": "Moto Ecuador / Motos Ecuador",
+  "type": "retail",
+  "country_code": "EC",
+  "region_code": "latam",
+  "address": "Quito",
+  "city": "Quito",
+  "website": "https://www.motosecuador.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ec-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motosecuador-ec"],
+  "geo": {"lat": -0.1807, "lng": -78.4678}
+}

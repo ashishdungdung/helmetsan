@@ -1,0 +1,117 @@
+{
+    "id": "bell_qualifier",
+    "entity": "helmet",
+    "title": "Bell Qualifier",
+    "brand": "Bell",
+    "type": "Full Face",
+    "helmet_family": "Qualifier",
+    "price": {
+        "current": 169.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Bell Qualifier full face with MIPS option.",
+    "product_details": {
+        "description": "Bell Qualifier full face with MIPS option."
+    },
+    "variants": [
+        {
+            "id": "bell_qualifier_matte-black",
+            "entity": "helmet",
+            "title": "Bell Qualifier Matte Black",
+            "type": "Full Face",
+            "parent_id": "bell_qualifier",
+            "helmet_family": "Qualifier",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "BEL-QUA-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Bell Qualifier full face with MIPS option.",
+            "product_details": {
+                "description": "Bell Qualifier full face with MIPS option."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_qualifier_white",
+            "entity": "helmet",
+            "title": "Bell Qualifier White",
+            "type": "Full Face",
+            "parent_id": "bell_qualifier",
+            "helmet_family": "Qualifier",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "BEL-QUA-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Bell Qualifier full face with MIPS option.",
+            "product_details": {
+                "description": "Bell Qualifier full face with MIPS option."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Qualifier+3"
+    ]
+}

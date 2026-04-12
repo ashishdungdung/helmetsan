@@ -1,0 +1,117 @@
+{
+    "id": "apex_horizon_x",
+    "entity": "helmet",
+    "title": "Apex Horizon X",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Horizon X",
+    "price": {
+        "current": 289.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1590,
+        "weight_lbs": 3.51,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Touring helmet with drop-down sun visor and quiet ride.",
+    "product_details": {
+        "description": "Touring helmet with drop-down sun visor and quiet ride."
+    },
+    "variants": [
+        {
+            "id": "apex_horizon_x_matte-black",
+            "entity": "helmet",
+            "title": "Apex Horizon X Matte Black",
+            "type": "Touring",
+            "parent_id": "apex_horizon_x",
+            "helmet_family": "Horizon X",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-HZX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with drop-down sun visor and quiet ride.",
+            "product_details": {
+                "description": "Touring helmet with drop-down sun visor and quiet ride."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_horizon_x_silver",
+            "entity": "helmet",
+            "title": "Apex Horizon X Silver",
+            "type": "Touring",
+            "parent_id": "apex_horizon_x",
+            "helmet_family": "Horizon X",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "APX-HZX-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with drop-down sun visor and quiet ride.",
+            "product_details": {
+                "description": "Touring helmet with drop-down sun visor and quiet ride."
+            },
+            "price": {
+                "current": 289.99,
+                "usd": 289.99,
+                "eur": 266.79,
+                "gbp": 229.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1590,
+                "weight_lbs": 3.51,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+3"
+    ]
+}

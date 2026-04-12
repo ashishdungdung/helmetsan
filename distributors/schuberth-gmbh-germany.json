@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "schuberth-gmbh-germany",
+  "name": "Schuberth GmbH",
+  "type": "regional-distributor",
+  "country_code": "DE",
+  "regions": ["eu"],
+  "countries": ["DE", "AT", "CH", "FR", "IT", "ES", "GB", "NL"],
+  "brands": ["Schuberth"],
+  "warehouses": [
+    {"id": "de-magdeburg", "city": "Magdeburg", "country": "DE"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.schuberth.com"},
+    {"type": "dealer", "url": "https://www.schuberth.com/en/dealer-locator"}
+  ],
+  "website": "https://www.schuberth.com"
+}

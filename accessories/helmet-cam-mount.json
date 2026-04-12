@@ -1,0 +1,25 @@
+{
+  "entity": "accessory",
+  "id": "helmet-cam-mount",
+  "title": "GoPro Chin Mount Kit",
+  "type": "Camera Mount",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "agv-k6", "bell-qualifier-dlx-mips", "icon-airflite", "shark-spartan-rs"],
+  "features": [
+    "3M VHB adhesive pads (2x included)",
+    "Adjustable J-hook buckle for angle control",
+    "Compatible with GoPro Hero 5/6/7/8/9/10/11/12",
+    "Compatible with DJI Action cameras",
+    "Curved and flat base included",
+    "Lightweight ABS construction",
+    "Chin-level POV perspective"
+  ],
+  "price": { "current": 19.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 19.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 17.99, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 1499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Mount your GoPro or DJI Action camera securely to your helmet chin for the most immersive rider POV footage. The 3M VHB adhesive creates a permanent bond, while the adjustable J-hook lets you fine-tune the camera angle. Two adhesive pads included so you can mount on a second helmet.</p>"
+}

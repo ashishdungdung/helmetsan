@@ -1,0 +1,46 @@
+{
+  "entity": "enrichment_plan",
+  "id": "brand-global-phase-plan-v1",
+  "objective": "Expand global brand coverage with quality-gated batches, not one-shot ingestion.",
+  "quality_gates": [
+    "schema_valid",
+    "required_fields_present",
+    "official_support_url_verified",
+    "origin_country_verified",
+    "certification_coverage_reviewed"
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Tier-1 Global Premium",
+      "target_count": 20,
+      "focus": "Premium road and racing brands",
+      "status": "in_progress",
+      "examples": ["Shoei", "Arai", "AGV", "Schuberth", "Bell", "Shark"]
+    },
+    {
+      "phase": 2,
+      "name": "Tier-2 Mass Market",
+      "target_count": 30,
+      "focus": "High-volume commuter and touring brands",
+      "status": "planned",
+      "examples": ["HJC", "LS2", "MT Helmets", "SMK", "Studds", "Scorpion EXO"]
+    },
+    {
+      "phase": 3,
+      "name": "Regional Specialists",
+      "target_count": 40,
+      "focus": "Country/region-specific brands and distributors",
+      "status": "planned",
+      "examples": ["Bilmola", "KYT", "NHK", "Vega", "Axor"]
+    },
+    {
+      "phase": 4,
+      "name": "Long Tail + Legacy",
+      "target_count": 60,
+      "focus": "Historic/legacy/small-batch brands",
+      "status": "planned",
+      "examples": ["Bieffe", "Marushin", "WINS", "Astone"]
+    }
+  ]
+}

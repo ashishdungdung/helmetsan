@@ -1,0 +1,201 @@
+{
+    "id": "simpson_ghost_bandit",
+    "entity": "helmet",
+    "title": "Simpson Ghost Bandit",
+    "brand": "Simpson",
+    "type": "Full Face",
+    "helmet_family": "Ghost Bandit",
+    "price": {
+        "current": 449.95,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Composite",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Ghost-style visor with integrated internal sun shield.",
+    "product_details": {
+        "description": "Ghost-style visor with integrated internal sun shield."
+    },
+    "variants": [
+        {
+            "id": "simpson_ghost_bandit_gloss-black",
+            "entity": "helmet",
+            "title": "Simpson Ghost Bandit Gloss Black",
+            "type": "Full Face",
+            "parent_id": "simpson_ghost_bandit",
+            "helmet_family": "Ghost Bandit",
+            "head_shape": "Round Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SIM-GHOS-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ghost-style visor with integrated internal sun shield.",
+            "product_details": {
+                "description": "Ghost-style visor with integrated internal sun shield."
+            },
+            "price": {
+                "current": 449.95,
+                "usd": 449.95,
+                "eur": 413.95,
+                "gbp": 355.46
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_ghost_bandit_silver-metallic",
+            "entity": "helmet",
+            "title": "Simpson Ghost Bandit Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "simpson_ghost_bandit",
+            "helmet_family": "Ghost Bandit",
+            "head_shape": "Round Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "SIM-GHOS-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ghost-style visor with integrated internal sun shield.",
+            "product_details": {
+                "description": "Ghost-style visor with integrated internal sun shield."
+            },
+            "price": {
+                "current": 449.95,
+                "usd": 449.95,
+                "eur": 413.95,
+                "gbp": 355.46
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_ghost_bandit_racer-blue",
+            "entity": "helmet",
+            "title": "Simpson Ghost Bandit Racer Blue",
+            "type": "Full Face",
+            "parent_id": "simpson_ghost_bandit",
+            "helmet_family": "Ghost Bandit",
+            "head_shape": "Round Oval",
+            "color": "Racer Blue",
+            "color_family": "Blue",
+            "sku": "SIM-GHOS-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Ghost-style visor with integrated internal sun shield.",
+            "product_details": {
+                "description": "Ghost-style visor with integrated internal sun shield."
+            },
+            "price": {
+                "current": 499.95,
+                "usd": 499.95,
+                "eur": 459.95,
+                "gbp": 394.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_ghost_bandit_tech-tc-1",
+            "entity": "helmet",
+            "title": "Simpson Ghost Bandit Tech TC-1",
+            "type": "Full Face",
+            "parent_id": "simpson_ghost_bandit",
+            "helmet_family": "Ghost Bandit",
+            "head_shape": "Round Oval",
+            "color": "Tech TC-1",
+            "color_family": "Multi",
+            "sku": "SIM-GHOS-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Ghost-style visor with integrated internal sun shield.",
+            "product_details": {
+                "description": "Ghost-style visor with integrated internal sun shield."
+            },
+            "price": {
+                "current": 499.95,
+                "usd": 499.95,
+                "eur": 459.95,
+                "gbp": 394.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+3"
+    ]
+}

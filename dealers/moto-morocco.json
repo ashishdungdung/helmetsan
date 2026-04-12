@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-morocco",
+  "name": "Moto Morocco / Moto Maroc",
+  "type": "retail",
+  "country_code": "MA",
+  "region_code": "mena",
+  "address": "Casablanca",
+  "city": "Casablanca",
+  "website": "https://www.motomaroc.ma",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ma-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "Caberg", "Shark", "MT Helmets"],
+  "marketplaces": ["motomaroc-ma"],
+  "geo": {"lat": 33.5731, "lng": -7.5898}
+}

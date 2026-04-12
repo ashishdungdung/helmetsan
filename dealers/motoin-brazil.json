@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motoin-brazil",
+  "name": "Motoin",
+  "type": "retail",
+  "country_code": "BR",
+  "region_code": "latam",
+  "address": "São Paulo",
+  "city": "São Paulo",
+  "website": "https://www.motoin.com.br",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "brazil-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motoin-br"],
+  "geo": {"lat": -23.5505, "lng": -46.6333}
+}

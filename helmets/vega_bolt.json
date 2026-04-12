@@ -1,0 +1,159 @@
+{
+    "id": "vega_bolt",
+    "entity": "helmet",
+    "title": "Vega Bolt",
+    "brand": "Vega",
+    "type": "Full Face",
+    "helmet_family": "Bolt",
+    "price": {
+        "current": 44.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1320,
+        "weight_lbs": 2.91,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Popular Vega full face with double visor and breath deflector for Indian commuters.",
+    "product_details": {
+        "description": "Popular Vega full face with double visor and breath deflector for Indian commuters."
+    },
+    "variants": [
+        {
+            "id": "vega_bolt_matte-black",
+            "entity": "helmet",
+            "title": "Vega Bolt Matte Black",
+            "type": "Full Face",
+            "parent_id": "vega_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-BOLT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Popular Vega full face with double visor and breath deflector for Indian commuters.",
+            "product_details": {
+                "description": "Popular Vega full face with double visor and breath deflector for Indian commuters."
+            },
+            "price": {
+                "current": 44.99,
+                "usd": 44.99,
+                "eur": 41.39,
+                "gbp": 35.54
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1320,
+                "weight_lbs": 2.91,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_bolt_white",
+            "entity": "helmet",
+            "title": "Vega Bolt White",
+            "type": "Full Face",
+            "parent_id": "vega_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-BOLT-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Popular Vega full face with double visor and breath deflector for Indian commuters.",
+            "product_details": {
+                "description": "Popular Vega full face with double visor and breath deflector for Indian commuters."
+            },
+            "price": {
+                "current": 44.99,
+                "usd": 44.99,
+                "eur": 41.39,
+                "gbp": 35.54
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1320,
+                "weight_lbs": 2.91,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_bolt_blue",
+            "entity": "helmet",
+            "title": "Vega Bolt Blue",
+            "type": "Full Face",
+            "parent_id": "vega_bolt",
+            "helmet_family": "Bolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "VEG-BOLT-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Popular Vega full face with double visor and breath deflector for Indian commuters.",
+            "product_details": {
+                "description": "Popular Vega full face with double visor and breath deflector for Indian commuters."
+            },
+            "price": {
+                "current": 44.99,
+                "usd": 44.99,
+                "eur": 41.39,
+                "gbp": 35.54
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1320,
+                "weight_lbs": 2.91,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+3"
+    ]
+}

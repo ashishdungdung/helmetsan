@@ -1,0 +1,117 @@
+{
+    "id": "apex_echo_x",
+    "entity": "helmet",
+    "title": "Apex Echo X",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Echo X",
+    "price": {
+        "current": 249.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1530,
+        "weight_lbs": 3.37,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Sport full face with ECE 22.06.",
+    "product_details": {
+        "description": "Sport full face with ECE 22.06."
+    },
+    "variants": [
+        {
+            "id": "apex_echo_x_matte-black",
+            "entity": "helmet",
+            "title": "Apex Echo X Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_echo_x",
+            "helmet_family": "Echo X",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-ECX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with ECE 22.06.",
+            "product_details": {
+                "description": "Sport full face with ECE 22.06."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_echo_x_blue",
+            "entity": "helmet",
+            "title": "Apex Echo X Blue",
+            "type": "Full Face",
+            "parent_id": "apex_echo_x",
+            "helmet_family": "Echo X",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-ECX-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with ECE 22.06.",
+            "product_details": {
+                "description": "Sport full face with ECE 22.06."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1530,
+                "weight_lbs": 3.37,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Echo+X+3"
+    ]
+}

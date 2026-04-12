@@ -1,0 +1,117 @@
+{
+    "id": "apex_lite_x",
+    "entity": "helmet",
+    "title": "Apex Lite X",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Lite X",
+    "price": {
+        "current": 109.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 965,
+        "weight_lbs": 2.13,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face for city and cruiser.",
+    "product_details": {
+        "description": "Open face for city and cruiser."
+    },
+    "variants": [
+        {
+            "id": "apex_lite_x_black",
+            "entity": "helmet",
+            "title": "Apex Lite X Black",
+            "type": "Open Face",
+            "parent_id": "apex_lite_x",
+            "helmet_family": "Lite X",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-LTX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face for city and cruiser.",
+            "product_details": {
+                "description": "Open face for city and cruiser."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 965,
+                "weight_lbs": 2.13,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_lite_x_grey",
+            "entity": "helmet",
+            "title": "Apex Lite X Grey",
+            "type": "Open Face",
+            "parent_id": "apex_lite_x",
+            "helmet_family": "Lite X",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-LTX-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face for city and cruiser.",
+            "product_details": {
+                "description": "Open face for city and cruiser."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 965,
+                "weight_lbs": 2.13,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+3"
+    ]
+}

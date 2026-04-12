@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "amazon-motorcycle-usa",
+  "name": "Amazon Motorcycle Gear (US)",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Nationwide",
+  "city": "Seattle",
+  "website": "https://www.amazon.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "fast-shipping", "prime", "multi-brand"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "LS2"],
+  "marketplaces": ["amazon-us"],
+  "geo": {"lat": 47.6062, "lng": -122.3321}
+}

@@ -1,0 +1,196 @@
+{
+    "id": "sedici_primo",
+    "entity": "helmet",
+    "title": "Sedici Primo",
+    "brand": "Sedici",
+    "type": "Open Face",
+    "helmet_family": "Primo",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1050,
+        "weight_lbs": 2.31,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Retro-styled open face with snap-on visor for cafe racer style.",
+    "product_details": {
+        "description": "Retro-styled open face with snap-on visor for cafe racer style."
+    },
+    "variants": [
+        {
+            "id": "sedici_primo_matte-black",
+            "entity": "helmet",
+            "title": "Sedici Primo Matte Black",
+            "type": "Open Face",
+            "parent_id": "sedici_primo",
+            "helmet_family": "Primo",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SED-PRIM-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro-styled open face with snap-on visor for cafe racer style.",
+            "product_details": {
+                "description": "Retro-styled open face with snap-on visor for cafe racer style."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "sedici_primo_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Sedici Primo Hi-Viz Yellow",
+            "type": "Open Face",
+            "parent_id": "sedici_primo",
+            "helmet_family": "Primo",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "SED-PRIM-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro-styled open face with snap-on visor for cafe racer style.",
+            "product_details": {
+                "description": "Retro-styled open face with snap-on visor for cafe racer style."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "sedici_primo_gloss-white",
+            "entity": "helmet",
+            "title": "Sedici Primo Gloss White",
+            "type": "Open Face",
+            "parent_id": "sedici_primo",
+            "helmet_family": "Primo",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "SED-PRIM-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Retro-styled open face with snap-on visor for cafe racer style.",
+            "product_details": {
+                "description": "Retro-styled open face with snap-on visor for cafe racer style."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "sedici_primo_operator-tc-1",
+            "entity": "helmet",
+            "title": "Sedici Primo Operator TC-1",
+            "type": "Open Face",
+            "parent_id": "sedici_primo",
+            "helmet_family": "Primo",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator TC-1",
+            "color_family": "Multi",
+            "sku": "SED-PRIM-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Retro-styled open face with snap-on visor for cafe racer style.",
+            "product_details": {
+                "description": "Retro-styled open face with snap-on visor for cafe racer style."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1050,
+                "weight_lbs": 2.31,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Operator+TC-1",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Operator+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Primo+Operator+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Sedici+Primo+1",
+        "https://placehold.co/800x800/222/white?text=Sedici+Primo+2",
+        "https://placehold.co/800x800/222/white?text=Sedici+Primo+3"
+    ]
+}

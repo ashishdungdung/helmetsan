@@ -1,0 +1,114 @@
+{
+    "id": "apex_horizon",
+    "entity": "helmet",
+    "title": "Apex Horizon",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Horizon",
+    "price": {
+        "current": 249.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Comfortable touring helmet with drop-down sun visor.",
+    "product_details": {
+        "description": "Comfortable touring helmet with drop-down sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_horizon_black",
+            "entity": "helmet",
+            "title": "Apex Horizon Black",
+            "type": "Touring",
+            "parent_id": "apex_horizon",
+            "helmet_family": "Horizon",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-HOR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Comfortable touring helmet with drop-down sun visor.",
+            "product_details": {
+                "description": "Comfortable touring helmet with drop-down sun visor."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_horizon_grey",
+            "entity": "helmet",
+            "title": "Apex Horizon Grey",
+            "type": "Touring",
+            "parent_id": "apex_horizon",
+            "helmet_family": "Horizon",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-HOR-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Comfortable touring helmet with drop-down sun visor.",
+            "product_details": {
+                "description": "Comfortable touring helmet with drop-down sun visor."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Grey+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+3"
+    ]
+}

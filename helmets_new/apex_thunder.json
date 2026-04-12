@@ -1,0 +1,117 @@
+{
+    "id": "apex_thunder",
+    "entity": "helmet",
+    "title": "Apex Thunder",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Thunder",
+    "price": {
+        "current": 269.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1610,
+        "weight_lbs": 3.55,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Quiet full face with good wind management for touring.",
+    "product_details": {
+        "description": "Quiet full face with good wind management for touring."
+    },
+    "variants": [
+        {
+            "id": "apex_thunder_black",
+            "entity": "helmet",
+            "title": "Apex Thunder Black",
+            "type": "Full Face",
+            "parent_id": "apex_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-THN-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Quiet full face with good wind management for touring.",
+            "product_details": {
+                "description": "Quiet full face with good wind management for touring."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_thunder_red",
+            "entity": "helmet",
+            "title": "Apex Thunder Red",
+            "type": "Full Face",
+            "parent_id": "apex_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-THN-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Quiet full face with good wind management for touring.",
+            "product_details": {
+                "description": "Quiet full face with good wind management for touring."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1610,
+                "weight_lbs": 3.55,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+3"
+    ]
+}

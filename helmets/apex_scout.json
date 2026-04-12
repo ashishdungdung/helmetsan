@@ -1,0 +1,114 @@
+{
+    "id": "apex_scout",
+    "entity": "helmet",
+    "title": "Apex Scout",
+    "brand": "Apex",
+    "type": "Off-road",
+    "helmet_family": "Scout",
+    "price": {
+        "current": 199.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Affordable off-road helmet with removable peak.",
+    "product_details": {
+        "description": "Affordable off-road helmet with removable peak."
+    },
+    "variants": [
+        {
+            "id": "apex_scout_black",
+            "entity": "helmet",
+            "title": "Apex Scout Black",
+            "type": "Off-road",
+            "parent_id": "apex_scout",
+            "helmet_family": "Scout",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-SCT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Affordable off-road helmet with removable peak.",
+            "product_details": {
+                "description": "Affordable off-road helmet with removable peak."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Black+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        },
+        {
+            "id": "apex_scout_orange",
+            "entity": "helmet",
+            "title": "Apex Scout Orange",
+            "type": "Off-road",
+            "parent_id": "apex_scout",
+            "helmet_family": "Scout",
+            "head_shape": "Intermediate Oval",
+            "color": "Orange",
+            "color_family": "Orange",
+            "sku": "APX-SCT-ORG",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Affordable off-road helmet with removable peak.",
+            "product_details": {
+                "description": "Affordable off-road helmet with removable peak."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Orange",
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Orange+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Scout+Orange+Back"
+            ],
+            "helmet_types": [
+                "Off-road"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Scout+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Scout+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Scout+3"
+    ]
+}

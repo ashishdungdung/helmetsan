@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-costa-rica",
+  "name": "Moto Costa Rica / Motos CR",
+  "type": "retail",
+  "country_code": "CR",
+  "region_code": "latam",
+  "address": "San José",
+  "city": "San José",
+  "website": "https://www.motoscr.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "cr-shipping", "central-america"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motoscr-cr"],
+  "geo": {"lat": 9.9281, "lng": -84.0907}
+}

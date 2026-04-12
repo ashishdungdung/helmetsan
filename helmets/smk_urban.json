@@ -1,0 +1,117 @@
+{
+    "id": "smk_urban",
+    "entity": "helmet",
+    "title": "SMK Urban",
+    "brand": "SMK",
+    "type": "Open Face",
+    "helmet_family": "Urban",
+    "price": {
+        "current": 79.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1020,
+        "weight_lbs": 2.25,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "SMK open face with inner sun visor for Indian urban riders.",
+    "product_details": {
+        "description": "SMK open face with inner sun visor for Indian urban riders."
+    },
+    "variants": [
+        {
+            "id": "smk_urban_black",
+            "entity": "helmet",
+            "title": "SMK Urban Black",
+            "type": "Open Face",
+            "parent_id": "smk_urban",
+            "helmet_family": "Urban",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "SMK-URB-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK open face with inner sun visor for Indian urban riders.",
+            "product_details": {
+                "description": "SMK open face with inner sun visor for Indian urban riders."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "smk_urban_silver",
+            "entity": "helmet",
+            "title": "SMK Urban Silver",
+            "type": "Open Face",
+            "parent_id": "smk_urban",
+            "helmet_family": "Urban",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "SMK-URB-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK open face with inner sun visor for Indian urban riders.",
+            "product_details": {
+                "description": "SMK open face with inner sun visor for Indian urban riders."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+3"
+    ]
+}

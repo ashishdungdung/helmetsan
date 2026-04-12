@@ -1,0 +1,201 @@
+{
+    "id": "fox_racing_v1",
+    "entity": "helmet",
+    "title": "Fox Racing V1",
+    "brand": "Fox Racing",
+    "type": "Dirt \/ MX",
+    "helmet_family": "V1",
+    "price": {
+        "current": 219.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1350,
+        "weight_lbs": 2.98,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Entry-level MX helmet from Fox with magnetic visor release.",
+    "product_details": {
+        "description": "Entry-level MX helmet from Fox with magnetic visor release."
+    },
+    "variants": [
+        {
+            "id": "fox_racing_v1_matte-black",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Matte Black",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1",
+            "helmet_family": "V1",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "FOX-V1-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level MX helmet from Fox with magnetic visor release.",
+            "product_details": {
+                "description": "Entry-level MX helmet from Fox with magnetic visor release."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_gloss-white",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Gloss White",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1",
+            "helmet_family": "V1",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "FOX-V1-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level MX helmet from Fox with magnetic visor release.",
+            "product_details": {
+                "description": "Entry-level MX helmet from Fox with magnetic visor release."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_pearl-white",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Pearl White",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1",
+            "helmet_family": "V1",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "FOX-V1-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level MX helmet from Fox with magnetic visor release.",
+            "product_details": {
+                "description": "Entry-level MX helmet from Fox with magnetic visor release."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        },
+        {
+            "id": "fox_racing_v1_track-grey",
+            "entity": "helmet",
+            "title": "Fox Racing V1 Track Grey",
+            "type": "Dirt \/ MX",
+            "parent_id": "fox_racing_v1",
+            "helmet_family": "V1",
+            "head_shape": "Intermediate Oval",
+            "color": "Track Grey",
+            "color_family": "Grey",
+            "sku": "FOX-V1-TRA",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Entry-level MX helmet from Fox with magnetic visor release.",
+            "product_details": {
+                "description": "Entry-level MX helmet from Fox with magnetic visor release."
+            },
+            "price": {
+                "current": 269.95,
+                "usd": 269.95,
+                "eur": 248.35,
+                "gbp": 213.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Track+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Track+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+Track+Grey+Back"
+            ],
+            "helmet_types": [
+                "Dirt \/ MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V1+3"
+    ]
+}

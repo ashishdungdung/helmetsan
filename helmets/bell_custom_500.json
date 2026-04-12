@@ -1,0 +1,285 @@
+{
+    "id": "bell_custom_500",
+    "entity": "helmet",
+    "title": "Bell Custom 500",
+    "brand": "Bell",
+    "type": "Open Face",
+    "helmet_family": "Custom 500",
+    "price": {
+        "current": 139.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "The original helmet design, updated with modern technology.",
+    "product_details": {
+        "description": "The original helmet design, updated with modern technology."
+    },
+    "variants": [
+        {
+            "id": "bell_custom_500_gloss-black",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Gloss Black",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "BEL-CUST-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 139.95,
+                "usd": 139.95,
+                "eur": 128.75,
+                "gbp": 110.56
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_custom_500_anthracite",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Anthracite",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "BEL-CUST-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 139.95,
+                "usd": 139.95,
+                "eur": 128.75,
+                "gbp": 110.56
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_custom_500_track-tc-2",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Track TC-2",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Track TC-2",
+            "color_family": "Multi",
+            "sku": "BEL-CUST-TRA",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 189.95,
+                "usd": 189.95,
+                "eur": 174.75,
+                "gbp": 150.06
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_custom_500_solid-red",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Solid Red",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Solid Red",
+            "color_family": "Red",
+            "sku": "BEL-CUST-SOL",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 189.95,
+                "usd": 189.95,
+                "eur": 174.75,
+                "gbp": 150.06
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_custom_500_apex-red",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Apex Red",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex Red",
+            "color_family": "Red",
+            "sku": "BEL-CUST-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 189.95,
+                "usd": 189.95,
+                "eur": 174.75,
+                "gbp": 150.06
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_custom_500_stripe-blue",
+            "entity": "helmet",
+            "title": "Bell Custom 500 Stripe Blue",
+            "type": "Open Face",
+            "parent_id": "bell_custom_500",
+            "helmet_family": "Custom 500",
+            "head_shape": "Intermediate Oval",
+            "color": "Stripe Blue",
+            "color_family": "Blue",
+            "sku": "BEL-CUST-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The original helmet design, updated with modern technology.",
+            "product_details": {
+                "description": "The original helmet design, updated with modern technology."
+            },
+            "price": {
+                "current": 189.95,
+                "usd": 189.95,
+                "eur": 174.75,
+                "gbp": 150.06
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+3"
+    ]
+}

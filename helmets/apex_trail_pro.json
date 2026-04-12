@@ -1,0 +1,117 @@
+{
+    "id": "apex_trail_pro",
+    "entity": "helmet",
+    "title": "Apex Trail Pro",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Trail Pro",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1680,
+        "weight_lbs": 3.7,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Adventure helmet with peak and excellent airflow for long days.",
+    "product_details": {
+        "description": "Adventure helmet with peak and excellent airflow for long days."
+    },
+    "variants": [
+        {
+            "id": "apex_trail_pro_matte-black",
+            "entity": "helmet",
+            "title": "Apex Trail Pro Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_pro",
+            "helmet_family": "Trail Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TRL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and excellent airflow for long days.",
+            "product_details": {
+                "description": "Adventure helmet with peak and excellent airflow for long days."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1680,
+                "weight_lbs": 3.7,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_trail_pro_grey",
+            "entity": "helmet",
+            "title": "Apex Trail Pro Grey",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_pro",
+            "helmet_family": "Trail Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-TRL-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure helmet with peak and excellent airflow for long days.",
+            "product_details": {
+                "description": "Adventure helmet with peak and excellent airflow for long days."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1680,
+                "weight_lbs": 3.7,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+Grey+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+3"
+    ]
+}

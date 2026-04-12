@@ -1,0 +1,117 @@
+{
+    "id": "icon_alliance",
+    "entity": "helmet",
+    "title": "Icon Alliance",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Alliance",
+    "price": {
+        "current": 199.99,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1660,
+        "weight_lbs": 3.66,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Icon Alliance full face with aggressive styling.",
+    "product_details": {
+        "description": "Icon Alliance full face with aggressive styling."
+    },
+    "variants": [
+        {
+            "id": "icon_alliance_matte-black",
+            "entity": "helmet",
+            "title": "Icon Alliance Matte Black",
+            "type": "Full Face",
+            "parent_id": "icon_alliance",
+            "helmet_family": "Alliance",
+            "head_shape": "Long Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ICO-ALL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Alliance full face with aggressive styling.",
+            "product_details": {
+                "description": "Icon Alliance full face with aggressive styling."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1660,
+                "weight_lbs": 3.66,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_alliance_white",
+            "entity": "helmet",
+            "title": "Icon Alliance White",
+            "type": "Full Face",
+            "parent_id": "icon_alliance",
+            "helmet_family": "Alliance",
+            "head_shape": "Long Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "ICO-ALL-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Alliance full face with aggressive styling.",
+            "product_details": {
+                "description": "Icon Alliance full face with aggressive styling."
+            },
+            "price": {
+                "current": 199.99,
+                "usd": 199.99,
+                "eur": 183.99,
+                "gbp": 157.99
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1660,
+                "weight_lbs": 3.66,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Alliance+3"
+    ]
+}

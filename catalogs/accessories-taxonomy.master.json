@@ -1,0 +1,85 @@
+{
+  "entity": "catalog",
+  "id": "helmet-accessories-taxonomy-v1",
+  "title": "Helmet Accessories Taxonomy",
+  "parent_category": "Helmet Accessories",
+  "segments": [
+    {
+      "name": "Face Shields & Optics",
+      "subcategories": [
+        "Replacement Face Shields",
+        "Tinted Shields",
+        "Mirrored Shields",
+        "Photochromic Shields",
+        "Pinlock Inserts",
+        "Dual Lens Shields",
+        "Tear-Offs",
+        "Electric Shields",
+        "Shield Hardware"
+      ],
+      "filters": ["Brand", "Helmet Model Compatibility", "Shield Color", "Anti-Fog", "Pinlock Ready", "Electric / Non-Electric"]
+    },
+    {
+      "name": "Interior & Fit Parts",
+      "subcategories": [
+        "Replacement Liners",
+        "Cheek Pads",
+        "Crown Pads",
+        "Fit Kits / Size Kits",
+        "Chin Curtains",
+        "Breath Guards",
+        "Wind Deflectors"
+      ],
+      "filters": ["Brand", "Helmet Family", "Size", "Youth / Adult"]
+    },
+    {
+      "name": "Communication Systems",
+      "subcategories": [
+        "Bluetooth Systems",
+        "Mesh Communication Systems",
+        "Speakers",
+        "Microphones",
+        "Mounting Kits",
+        "Replacement Parts"
+      ],
+      "filters": ["Brand", "Bluetooth / Mesh", "Rider-to-Rider Range", "Battery Life", "Voice Command"]
+    },
+    {
+      "name": "Action Camera & Mounts",
+      "subcategories": ["Chin Mounts", "Top Mounts", "Side Mounts", "Adhesive Mount Kits"],
+      "filters": ["Helmet Type Compatibility", "Mount Position", "GoPro Compatible"]
+    },
+    {
+      "name": "Cleaning & Maintenance",
+      "subcategories": ["Helmet Cleaning Kits", "Interior Cleaner", "Visor Cleaner", "Anti-Fog Treatments", "Deodorizer"],
+      "filters": ["Anti-Fog", "Spray / Wipes", "Safe for Pinlock"]
+    },
+    {
+      "name": "Off-Road Accessories",
+      "subcategories": ["Replacement Peaks / Visors", "Roost Guards", "Nose Guards"],
+      "filters": ["Brand", "Helmet Model Compatibility"]
+    },
+    {
+      "name": "Cold Weather & Snow",
+      "subcategories": ["Electric Shield Kits", "Breath Boxes", "Snow Helmet Accessories", "Cold Weather Liners"],
+      "filters": ["Electric Compatible", "Snowmobile Specific"]
+    },
+    {
+      "name": "Storage & Protection",
+      "subcategories": ["Helmet Bags", "Helmet Backpacks", "Helmet Covers", "Helmet Stands"],
+      "filters": []
+    }
+  ],
+  "global_filters": [
+    "Brand",
+    "Price",
+    "Helmet Brand Compatibility",
+    "Helmet Family Compatibility",
+    "Helmet Type",
+    "Color",
+    "Electric Compatible",
+    "Pinlock Ready",
+    "Snow Compatible",
+    "Youth / Adult"
+  ]
+}

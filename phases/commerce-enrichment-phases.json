@@ -1,0 +1,43 @@
+{
+  "entity": "enrichment_plan",
+  "id": "commerce-enrichment-phases-v1",
+  "title": "Phased Commerce and Market Intelligence Enrichment",
+  "principles": [
+    "High-confidence data over bulk noisy ingestion",
+    "Country-first rollout for legal and pricing accuracy",
+    "Batch updates with schema validation before sync"
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "name": "Core Markets",
+      "countries": ["US", "IN", "DE"],
+      "deliverables": [
+        "marketplaces",
+        "currencies",
+        "pricing records for top 100 helmets",
+        "authorized distributors"
+      ]
+    },
+    {
+      "phase": 2,
+      "name": "Offer + Dealer Depth",
+      "countries": ["UK", "FR", "IT", "AE", "JP"],
+      "deliverables": [
+        "best-offer dataset",
+        "dealer stores with geo coordinates",
+        "offline and online channel flags"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Recommendation and Comparison Expansion",
+      "countries": ["BR", "ES", "AU"],
+      "deliverables": [
+        "multi-helmet comparison packs",
+        "use-case recommendation packs",
+        "localized parameter weighting"
+      ]
+    }
+  ]
+}

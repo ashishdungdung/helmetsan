@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Recommendation",
+  "type": "object",
+  "required": ["entity", "id", "title", "use_case", "items"],
+  "properties": {
+    "entity": { "const": "recommendation" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "use_case": { "type": "string" },
+    "region": { "type": "string" },
+    "helmet_ids": { "type": "array", "items": { "type": "string" } },
+    "filters": { "type": "object" },
+    "items": { "type": "array", "items": { "type": "object" } }
+  }
+}

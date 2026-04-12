@@ -1,0 +1,285 @@
+{
+    "id": "hjc_i30",
+    "entity": "helmet",
+    "title": "HJC i30",
+    "brand": "HJC",
+    "type": "Open Face",
+    "helmet_family": "i30",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1200,
+        "weight_lbs": 2.65,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Modern open face with wide-eye port and internal sun visor.",
+    "product_details": {
+        "description": "Modern open face with wide-eye port and internal sun visor."
+    },
+    "variants": [
+        {
+            "id": "hjc_i30_gloss-black",
+            "entity": "helmet",
+            "title": "HJC i30 Gloss Black",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "HJC-I30-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_i30_pearl-white",
+            "entity": "helmet",
+            "title": "HJC i30 Pearl White",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "HJC-I30-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_i30_silver-metallic",
+            "entity": "helmet",
+            "title": "HJC i30 Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "HJC-I30-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_i30_racer-grey",
+            "entity": "helmet",
+            "title": "HJC i30 Racer Grey",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer Grey",
+            "color_family": "Grey",
+            "sku": "HJC-I30-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Racer+Grey",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Racer+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Racer+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_i30_vortex-blue",
+            "entity": "helmet",
+            "title": "HJC i30 Vortex Blue",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex Blue",
+            "color_family": "Blue",
+            "sku": "HJC-I30-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Vortex+Blue",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Vortex+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Vortex+Blue+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "hjc_i30_raptor-tc-1",
+            "entity": "helmet",
+            "title": "HJC i30 Raptor TC-1",
+            "type": "Open Face",
+            "parent_id": "hjc_i30",
+            "helmet_family": "i30",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor TC-1",
+            "color_family": "Multi",
+            "sku": "HJC-I30-RAP",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modern open face with wide-eye port and internal sun visor.",
+            "product_details": {
+                "description": "Modern open face with wide-eye port and internal sun visor."
+            },
+            "price": {
+                "current": 179.99,
+                "usd": 179.99,
+                "eur": 165.59,
+                "gbp": 142.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Raptor+TC-1",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Raptor+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+i30+Raptor+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=HJC+i30+1",
+        "https://placehold.co/800x800/222/white?text=HJC+i30+2",
+        "https://placehold.co/800x800/222/white?text=HJC+i30+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "icon_variant",
+    "entity": "helmet",
+    "title": "Icon Variant",
+    "brand": "Icon",
+    "type": "Full Face",
+    "helmet_family": "Variant",
+    "price": {
+        "current": 169.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1630,
+        "weight_lbs": 3.59,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Icon Variant full face for street.",
+    "product_details": {
+        "description": "Icon Variant full face for street."
+    },
+    "variants": [
+        {
+            "id": "icon_variant_matte-black",
+            "entity": "helmet",
+            "title": "Icon Variant Matte Black",
+            "type": "Full Face",
+            "parent_id": "icon_variant",
+            "helmet_family": "Variant",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ICO-VAR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Variant full face for street.",
+            "product_details": {
+                "description": "Icon Variant full face for street."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "icon_variant_yellow",
+            "entity": "helmet",
+            "title": "Icon Variant Yellow",
+            "type": "Full Face",
+            "parent_id": "icon_variant",
+            "helmet_family": "Variant",
+            "head_shape": "Intermediate Oval",
+            "color": "Yellow",
+            "color_family": "Yellow",
+            "sku": "ICO-VAR-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Icon Variant full face for street.",
+            "product_details": {
+                "description": "Icon Variant full face for street."
+            },
+            "price": {
+                "current": 169.99,
+                "usd": 169.99,
+                "eur": 156.39,
+                "gbp": 134.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+3"
+    ]
+}

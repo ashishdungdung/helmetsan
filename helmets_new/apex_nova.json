@@ -1,0 +1,117 @@
+{
+    "id": "apex_nova",
+    "entity": "helmet",
+    "title": "Apex Nova",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Nova",
+    "price": {
+        "current": 209.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1560,
+        "weight_lbs": 3.44,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sport full face with good ventilation and modern fit.",
+    "product_details": {
+        "description": "Sport full face with good ventilation and modern fit."
+    },
+    "variants": [
+        {
+            "id": "apex_nova_matte-black",
+            "entity": "helmet",
+            "title": "Apex Nova Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_nova",
+            "helmet_family": "Nova",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-NOV-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with good ventilation and modern fit.",
+            "product_details": {
+                "description": "Sport full face with good ventilation and modern fit."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_nova_red",
+            "entity": "helmet",
+            "title": "Apex Nova Red",
+            "type": "Full Face",
+            "parent_id": "apex_nova",
+            "helmet_family": "Nova",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-NOV-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with good ventilation and modern fit.",
+            "product_details": {
+                "description": "Sport full face with good ventilation and modern fit."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1560,
+                "weight_lbs": 3.44,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Nova+3"
+    ]
+}

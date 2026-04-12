@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motosport-com-usa",
+  "name": "MotoSport",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Portland, OR",
+  "city": "Portland",
+  "website": "https://www.motosport.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "us-shipping", "sizing-guide", "gear-advice", "mx-and-street"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "Fly Racing"],
+  "marketplaces": ["motosport-us"],
+  "geo": {"lat": 45.5152, "lng": -122.6784}
+}

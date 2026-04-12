@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "box-replik-czech",
+  "name": "Box Republik Czech",
+  "type": "retail",
+  "country_code": "CZ",
+  "region_code": "eu",
+  "address": "Prague",
+  "city": "Prague",
+  "website": "https://www.boxreplik.cz",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "central-europe"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Schuberth"],
+  "marketplaces": ["boxreplik-cz"],
+  "geo": {"lat": 50.0755, "lng": 14.4378}
+}

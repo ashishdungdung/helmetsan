@@ -1,0 +1,117 @@
+{
+    "id": "apex_shift_x",
+    "entity": "helmet",
+    "title": "Apex Shift X",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Shift X",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1720,
+        "weight_lbs": 3.79,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Modular with flip-up and sun visor.",
+    "product_details": {
+        "description": "Modular with flip-up and sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_shift_x_black",
+            "entity": "helmet",
+            "title": "Apex Shift X Black",
+            "type": "Modular",
+            "parent_id": "apex_shift_x",
+            "helmet_family": "Shift X",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-SHX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1720,
+                "weight_lbs": 3.79,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_shift_x_grey",
+            "entity": "helmet",
+            "title": "Apex Shift X Grey",
+            "type": "Modular",
+            "parent_id": "apex_shift_x",
+            "helmet_family": "Shift X",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-SHX-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1720,
+                "weight_lbs": 3.79,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Shift+X+3"
+    ]
+}

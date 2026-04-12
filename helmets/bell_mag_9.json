@@ -1,0 +1,285 @@
+{
+    "id": "bell_mag_9",
+    "entity": "helmet",
+    "title": "Bell Mag-9",
+    "brand": "Bell",
+    "type": "Open Face",
+    "helmet_family": "Mag-9",
+    "price": {
+        "current": 169.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1300,
+        "weight_lbs": 2.87,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Versatile sena-ready open face with internal sun shield.",
+    "product_details": {
+        "description": "Versatile sena-ready open face with internal sun shield."
+    },
+    "variants": [
+        {
+            "id": "bell_mag_9_matte-black",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Matte Black",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "BEL-MAG9-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_mag_9_gloss-white",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Gloss White",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "BEL-MAG9-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 169.95,
+                "usd": 169.95,
+                "eur": 156.35,
+                "gbp": 134.26
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_mag_9_tech-tc-5",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Tech TC-5",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-5",
+            "color_family": "Multi",
+            "sku": "BEL-MAG9-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Tech+TC-5",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Tech+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Tech+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_mag_9_stripe-red",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Stripe Red",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Stripe Red",
+            "color_family": "Red",
+            "sku": "BEL-MAG9-STR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Stripe+Red",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Stripe+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Stripe+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_mag_9_flow-blue",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Flow Blue",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Flow Blue",
+            "color_family": "Blue",
+            "sku": "BEL-MAG9-FLO",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Flow+Blue",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Flow+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Flow+Blue+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "bell_mag_9_raptor-red",
+            "entity": "helmet",
+            "title": "Bell Mag-9 Raptor Red",
+            "type": "Open Face",
+            "parent_id": "bell_mag_9",
+            "helmet_family": "Mag-9",
+            "head_shape": "Intermediate Oval",
+            "color": "Raptor Red",
+            "color_family": "Red",
+            "sku": "BEL-MAG9-RAP",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Versatile sena-ready open face with internal sun shield.",
+            "product_details": {
+                "description": "Versatile sena-ready open face with internal sun shield."
+            },
+            "price": {
+                "current": 219.95,
+                "usd": 219.95,
+                "eur": 202.35,
+                "gbp": 173.76
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1300,
+                "weight_lbs": 2.87,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Raptor+Red",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Raptor+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Mag-9+Raptor+Red+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Bell+Mag-9+1",
+        "https://placehold.co/800x800/222/white?text=Bell+Mag-9+2",
+        "https://placehold.co/800x800/222/white?text=Bell+Mag-9+3"
+    ]
+}

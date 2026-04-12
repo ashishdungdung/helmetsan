@@ -1,0 +1,120 @@
+{
+    "id": "apex_titan",
+    "entity": "helmet",
+    "title": "Apex Titan",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Titan",
+    "price": {
+        "current": 399.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "DOT",
+            "Snell M2020",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Premium full face with multi-density EPS and premium finish.",
+    "product_details": {
+        "description": "Premium full face with multi-density EPS and premium finish."
+    },
+    "variants": [
+        {
+            "id": "apex_titan_matte-black",
+            "entity": "helmet",
+            "title": "Apex Titan Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_titan",
+            "helmet_family": "Titan",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TIT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium full face with multi-density EPS and premium finish.",
+            "product_details": {
+                "description": "Premium full face with multi-density EPS and premium finish."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_titan_white",
+            "entity": "helmet",
+            "title": "Apex Titan White",
+            "type": "Full Face",
+            "parent_id": "apex_titan",
+            "helmet_family": "Titan",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-TIT-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Premium full face with multi-density EPS and premium finish.",
+            "product_details": {
+                "description": "Premium full face with multi-density EPS and premium finish."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Titan+3"
+    ]
+}

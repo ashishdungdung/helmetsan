@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Accessory",
+  "type": "object",
+  "required": ["entity", "id", "title", "type"],
+  "properties": {
+    "entity": { "const": "accessory" },
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "type": { "type": "string" },
+    "identifiers": {
+      "type": "object",
+      "description": "Product identifiers for search and marketplace matching",
+      "properties": {
+        "asin": { "type": "string" },
+        "ean": { "type": "string" },
+        "upc": { "type": "string" },
+        "gtin": { "type": "string" },
+        "sku": { "type": "string" },
+        "mpn": { "type": "string" },
+        "fsn": { "type": "string" }
+      }
+    },
+    "marketplace_links": {
+      "type": "object",
+      "description": "Direct product URLs on retailers (revzilla_us, amazon_us, etc.). Used for affiliate /go/ and as source for AI data and images.",
+      "additionalProperties": { "type": "string", "format": "uri" }
+    },
+    "parent_category": { "type": "string" },
+    "subcategory": { "type": "string" },
+    "compatible_helmet_types": { "type": "array", "items": { "type": "string" } },
+    "compatible_brands": { "type": "array", "items": { "type": "string" } },
+    "compatible_helmet_families": { "type": "array", "items": { "type": "string" } },
+    "compatibility": { "type": "object" },
+    "features": { "type": "array", "items": { "type": "string" } },
+    "global_filters": { "type": "array", "items": { "type": "string" } },
+    "youth_adult": { "type": "string" },
+    "electric_compatible": { "type": "boolean" },
+    "pinlock_ready": { "type": "boolean" },
+    "snow_compatible": { "type": "boolean" },
+    "color": { "type": "string" },
+    "price": { "type": "object" }
+  }
+}

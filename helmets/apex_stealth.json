@@ -1,0 +1,117 @@
+{
+    "id": "apex_stealth",
+    "entity": "helmet",
+    "title": "Apex Stealth",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Stealth",
+    "price": {
+        "current": 349.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1540,
+        "weight_lbs": 3.4,
+        "certifications": [
+            "DOT",
+            "Snell M2020"
+        ]
+    },
+    "description": "Quiet sport full face with advanced aerodynamics.",
+    "product_details": {
+        "description": "Quiet sport full face with advanced aerodynamics."
+    },
+    "variants": [
+        {
+            "id": "apex_stealth_matte-black",
+            "entity": "helmet",
+            "title": "Apex Stealth Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_stealth",
+            "helmet_family": "Stealth",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-STL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Quiet sport full face with advanced aerodynamics.",
+            "product_details": {
+                "description": "Quiet sport full face with advanced aerodynamics."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1540,
+                "weight_lbs": 3.4,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_stealth_white",
+            "entity": "helmet",
+            "title": "Apex Stealth White",
+            "type": "Full Face",
+            "parent_id": "apex_stealth",
+            "helmet_family": "Stealth",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-STL-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Quiet sport full face with advanced aerodynamics.",
+            "product_details": {
+                "description": "Quiet sport full face with advanced aerodynamics."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1540,
+                "weight_lbs": 3.4,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+3"
+    ]
+}

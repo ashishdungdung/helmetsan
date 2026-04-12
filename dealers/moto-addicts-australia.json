@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-addicts-australia",
+  "name": "Moto Addicts",
+  "type": "retail",
+  "country_code": "AU",
+  "region_code": "apac",
+  "address": "Melbourne, VIC",
+  "city": "Melbourne",
+  "website": "https://www.motoaddicts.com.au",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "australia-shipping", "sizing-guide", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "LS2", "Icon"],
+  "marketplaces": ["moto-addicts-au"],
+  "geo": {"lat": -37.8136, "lng": 144.9631}
+}

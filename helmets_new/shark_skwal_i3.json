@@ -1,0 +1,237 @@
+{
+    "id": "shark_skwal_i3",
+    "entity": "helmet",
+    "title": "Shark Skwal i3",
+    "brand": "Shark",
+    "type": "Full Face",
+    "helmet_family": "Skwal i3",
+    "price": {
+        "current": 349.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Thermoplastic",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Integrated LED lighting system for enhanced visibility on the road.",
+    "product_details": {
+        "description": "Integrated LED lighting system for enhanced visibility on the road."
+    },
+    "variants": [
+        {
+            "id": "shark_skwal_i3_gloss-black",
+            "entity": "helmet",
+            "title": "Shark Skwal i3 Gloss Black",
+            "type": "Full Face",
+            "parent_id": "shark_skwal_i3",
+            "helmet_family": "Skwal i3",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SHA-SKWA-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Integrated LED lighting system for enhanced visibility on the road.",
+            "product_details": {
+                "description": "Integrated LED lighting system for enhanced visibility on the road."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Thermoplastic",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "shark_skwal_i3_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Shark Skwal i3 Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "shark_skwal_i3",
+            "helmet_family": "Skwal i3",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "SHA-SKWA-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Integrated LED lighting system for enhanced visibility on the road.",
+            "product_details": {
+                "description": "Integrated LED lighting system for enhanced visibility on the road."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Thermoplastic",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "shark_skwal_i3_racer-red",
+            "entity": "helmet",
+            "title": "Shark Skwal i3 Racer Red",
+            "type": "Full Face",
+            "parent_id": "shark_skwal_i3",
+            "helmet_family": "Skwal i3",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer Red",
+            "color_family": "Red",
+            "sku": "SHA-SKWA-RAC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Integrated LED lighting system for enhanced visibility on the road.",
+            "product_details": {
+                "description": "Integrated LED lighting system for enhanced visibility on the road."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Thermoplastic",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Racer+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Racer+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Racer+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "shark_skwal_i3_operator-tc-2",
+            "entity": "helmet",
+            "title": "Shark Skwal i3 Operator TC-2",
+            "type": "Full Face",
+            "parent_id": "shark_skwal_i3",
+            "helmet_family": "Skwal i3",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator TC-2",
+            "color_family": "Multi",
+            "sku": "SHA-SKWA-OPE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Integrated LED lighting system for enhanced visibility on the road.",
+            "product_details": {
+                "description": "Integrated LED lighting system for enhanced visibility on the road."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Thermoplastic",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Operator+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Operator+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Operator+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "shark_skwal_i3_vortex-grey",
+            "entity": "helmet",
+            "title": "Shark Skwal i3 Vortex Grey",
+            "type": "Full Face",
+            "parent_id": "shark_skwal_i3",
+            "helmet_family": "Skwal i3",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex Grey",
+            "color_family": "Grey",
+            "sku": "SHA-SKWA-VOR",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Integrated LED lighting system for enhanced visibility on the road.",
+            "product_details": {
+                "description": "Integrated LED lighting system for enhanced visibility on the road."
+            },
+            "price": {
+                "current": 399.99,
+                "usd": 399.99,
+                "eur": 367.99,
+                "gbp": 315.99
+            },
+            "specs": {
+                "material": "Thermoplastic",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Vortex+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Vortex+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+Vortex+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Skwal+i3+3"
+    ]
+}

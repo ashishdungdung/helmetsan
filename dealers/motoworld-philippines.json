@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motoworld-philippines",
+  "name": "Motoworld Philippines",
+  "type": "retail",
+  "country_code": "PH",
+  "region_code": "apac",
+  "address": "Quezon City, Metro Manila",
+  "city": "Quezon City",
+  "website": "https://www.motoworld.com.ph",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ph-shipping", "icc-certified"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "MT Helmets", "KYT", "Nolan", "Caberg"],
+  "marketplaces": ["motoworld-ph", "shopee", "lazada"],
+  "geo": {"lat": 14.6500, "lng": 121.0300}
+}

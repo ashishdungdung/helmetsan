@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "webike-japan",
+  "name": "Webike Japan",
+  "type": "retail",
+  "country_code": "JP",
+  "region_code": "apac",
+  "address": "Tokyo",
+  "city": "Tokyo",
+  "website": "https://www.webike.net",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "international-shipping", "japan-domestic", "returns"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Shark", "HJC", "Nolan", "Caberg"],
+  "marketplaces": ["webike-jp", "rakuten-jp"],
+  "geo": {"lat": 35.6762, "lng": 139.6503}
+}

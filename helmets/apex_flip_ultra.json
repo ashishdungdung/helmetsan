@@ -1,0 +1,117 @@
+{
+    "id": "apex_flip_ultra",
+    "entity": "helmet",
+    "title": "Apex Flip Ultra",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Flip Ultra",
+    "price": {
+        "current": 309.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1690,
+        "weight_lbs": 3.73,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Modular with flip-up and sun visor.",
+    "product_details": {
+        "description": "Modular with flip-up and sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_flip_ultra_black",
+            "entity": "helmet",
+            "title": "Apex Flip Ultra Black",
+            "type": "Modular",
+            "parent_id": "apex_flip_ultra",
+            "helmet_family": "Flip Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-FLU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_flip_ultra_grey",
+            "entity": "helmet",
+            "title": "Apex Flip Ultra Grey",
+            "type": "Modular",
+            "parent_id": "apex_flip_ultra",
+            "helmet_family": "Flip Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-FLU-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up and sun visor.",
+            "product_details": {
+                "description": "Modular with flip-up and sun visor."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1690,
+                "weight_lbs": 3.73,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Flip+Ultra+3"
+    ]
+}

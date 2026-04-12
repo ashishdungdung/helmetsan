@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-colombia",
+  "name": "Moto Colombia / Motos y Partes",
+  "type": "retail",
+  "country_code": "CO",
+  "region_code": "latam",
+  "address": "Bogotá",
+  "city": "Bogotá",
+  "website": "https://www.motosypartes.com.co",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "colombia-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motosypartes-co"],
+  "geo": {"lat": 4.7110, "lng": -74.0721}
+}

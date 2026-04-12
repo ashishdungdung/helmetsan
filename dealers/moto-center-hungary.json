@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-center-hungary",
+  "name": "Moto Center Hungary",
+  "type": "retail",
+  "country_code": "HU",
+  "region_code": "eu",
+  "address": "Budapest",
+  "city": "Budapest",
+  "website": "https://www.motocenter.hu",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "central-europe"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Schuberth"],
+  "marketplaces": ["motocenter-hu"],
+  "geo": {"lat": 47.4979, "lng": 19.0402}
+}

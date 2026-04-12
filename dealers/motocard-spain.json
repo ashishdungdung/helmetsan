@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motocard-spain",
+  "name": "Motocard",
+  "type": "retail",
+  "country_code": "ES",
+  "region_code": "eu",
+  "address": "Multiple locations in Spain",
+  "city": "Barcelona",
+  "website": "https://www.motocard.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "LS2", "Nolan", "MT"],
+  "marketplaces": ["motocard-es", "amazon-es"],
+  "geo": {"lat": 41.3851, "lng": 2.1734}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_maverick",
+    "entity": "helmet",
+    "title": "Apex Maverick",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Maverick",
+    "price": {
+        "current": 239.99,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1570,
+        "weight_lbs": 3.46,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sporty full face with sharp lines and dual-density liner.",
+    "product_details": {
+        "description": "Sporty full face with sharp lines and dual-density liner."
+    },
+    "variants": [
+        {
+            "id": "apex_maverick_matte-black",
+            "entity": "helmet",
+            "title": "Apex Maverick Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_maverick",
+            "helmet_family": "Maverick",
+            "head_shape": "Long Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-MAV-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sporty full face with sharp lines and dual-density liner.",
+            "product_details": {
+                "description": "Sporty full face with sharp lines and dual-density liner."
+            },
+            "price": {
+                "current": 239.99,
+                "usd": 239.99,
+                "eur": 220.79,
+                "gbp": 189.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_maverick_blue",
+            "entity": "helmet",
+            "title": "Apex Maverick Blue",
+            "type": "Full Face",
+            "parent_id": "apex_maverick",
+            "helmet_family": "Maverick",
+            "head_shape": "Long Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-MAV-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sporty full face with sharp lines and dual-density liner.",
+            "product_details": {
+                "description": "Sporty full face with sharp lines and dual-density liner."
+            },
+            "price": {
+                "current": 239.99,
+                "usd": 239.99,
+                "eur": 220.79,
+                "gbp": 189.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+3"
+    ]
+}

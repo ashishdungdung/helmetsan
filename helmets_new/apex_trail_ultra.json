@@ -1,0 +1,117 @@
+{
+    "id": "apex_trail_ultra",
+    "entity": "helmet",
+    "title": "Apex Trail Ultra",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Trail Ultra",
+    "price": {
+        "current": 319.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1630,
+        "weight_lbs": 3.59,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Adventure with peak.",
+    "product_details": {
+        "description": "Adventure with peak."
+    },
+    "variants": [
+        {
+            "id": "apex_trail_ultra_matte-black",
+            "entity": "helmet",
+            "title": "Apex Trail Ultra Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_ultra",
+            "helmet_family": "Trail Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-TLU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure with peak.",
+            "product_details": {
+                "description": "Adventure with peak."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_trail_ultra_orange",
+            "entity": "helmet",
+            "title": "Apex Trail Ultra Orange",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_trail_ultra",
+            "helmet_family": "Trail Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Orange",
+            "color_family": "Orange",
+            "sku": "APX-TLU-ORG",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Adventure with peak.",
+            "product_details": {
+                "description": "Adventure with peak."
+            },
+            "price": {
+                "current": 319.99,
+                "usd": 319.99,
+                "eur": 294.39,
+                "gbp": 252.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Orange",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Orange+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+Orange+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Ultra+3"
+    ]
+}

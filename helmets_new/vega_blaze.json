@@ -1,0 +1,114 @@
+{
+    "id": "vega_blaze",
+    "entity": "helmet",
+    "title": "Vega Blaze",
+    "brand": "Vega",
+    "type": "Open Face",
+    "helmet_family": "Blaze",
+    "price": {
+        "current": 22.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 810,
+        "weight_lbs": 1.79,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Vega Blaze open face for scooter and short trips.",
+    "product_details": {
+        "description": "Vega Blaze open face for scooter and short trips."
+    },
+    "variants": [
+        {
+            "id": "vega_blaze_black",
+            "entity": "helmet",
+            "title": "Vega Blaze Black",
+            "type": "Open Face",
+            "parent_id": "vega_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "VEG-BLZ-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Blaze open face for scooter and short trips.",
+            "product_details": {
+                "description": "Vega Blaze open face for scooter and short trips."
+            },
+            "price": {
+                "current": 22.99,
+                "usd": 22.99,
+                "eur": 21.15,
+                "gbp": 18.16
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 810,
+                "weight_lbs": 1.79,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "vega_blaze_white",
+            "entity": "helmet",
+            "title": "Vega Blaze White",
+            "type": "Open Face",
+            "parent_id": "vega_blaze",
+            "helmet_family": "Blaze",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-BLZ-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Blaze open face for scooter and short trips.",
+            "product_details": {
+                "description": "Vega Blaze open face for scooter and short trips."
+            },
+            "price": {
+                "current": 22.99,
+                "usd": 22.99,
+                "eur": 21.15,
+                "gbp": 18.16
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 810,
+                "weight_lbs": 1.79,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Blaze+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "jp-cycles-usa",
+  "name": "J&P Cycles",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Anamosa, IA; Orlando, FL",
+  "city": "Anamosa",
+  "website": "https://www.jpcycles.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "in-store-pickup", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "Biltwell"],
+  "marketplaces": ["jp-cycles-us", "amazon-us"],
+  "geo": {"lat": 42.1083, "lng": -91.2852}
+}

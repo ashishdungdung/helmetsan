@@ -1,0 +1,117 @@
+{
+    "id": "steelbird_spirit",
+    "entity": "helmet",
+    "title": "Steelbird Spirit",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "helmet_family": "Spirit",
+    "price": {
+        "current": 31.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 890,
+        "weight_lbs": 1.96,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Open face with flip visor for city riders.",
+    "product_details": {
+        "description": "Open face with flip visor for city riders."
+    },
+    "variants": [
+        {
+            "id": "steelbird_spirit_black",
+            "entity": "helmet",
+            "title": "Steelbird Spirit Black",
+            "type": "Open Face",
+            "parent_id": "steelbird_spirit",
+            "helmet_family": "Spirit",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "STE-SPR-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with flip visor for city riders.",
+            "product_details": {
+                "description": "Open face with flip visor for city riders."
+            },
+            "price": {
+                "current": 31.99,
+                "usd": 31.99,
+                "eur": 29.43,
+                "gbp": 25.27
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 890,
+                "weight_lbs": 1.96,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_spirit_silver",
+            "entity": "helmet",
+            "title": "Steelbird Spirit Silver",
+            "type": "Open Face",
+            "parent_id": "steelbird_spirit",
+            "helmet_family": "Spirit",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "STE-SPR-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with flip visor for city riders.",
+            "product_details": {
+                "description": "Open face with flip visor for city riders."
+            },
+            "price": {
+                "current": 31.99,
+                "usd": 31.99,
+                "eur": 29.43,
+                "gbp": 25.27
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 890,
+                "weight_lbs": 1.96,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Spirit+3"
+    ]
+}

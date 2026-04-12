@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "gp-bikes-canada",
+  "name": "GP Bikes",
+  "type": "retail",
+  "country_code": "CA",
+  "region_code": "na",
+  "address": "Whitby, ON",
+  "city": "Whitby",
+  "website": "https://www.gpbikes.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "canada-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon", "LS2"],
+  "marketplaces": ["gp-bikes-ca"],
+  "geo": {"lat": 43.8764, "lng": -78.9393}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_fusion",
+    "entity": "helmet",
+    "title": "Apex Fusion",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Fusion",
+    "price": {
+        "current": 259.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1740,
+        "weight_lbs": 3.84,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Modular with flip-up chin and internal sun shade.",
+    "product_details": {
+        "description": "Modular with flip-up chin and internal sun shade."
+    },
+    "variants": [
+        {
+            "id": "apex_fusion_black",
+            "entity": "helmet",
+            "title": "Apex Fusion Black",
+            "type": "Modular",
+            "parent_id": "apex_fusion",
+            "helmet_family": "Fusion",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-FUS-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up chin and internal sun shade.",
+            "product_details": {
+                "description": "Modular with flip-up chin and internal sun shade."
+            },
+            "price": {
+                "current": 259.99,
+                "usd": 259.99,
+                "eur": 239.19,
+                "gbp": 205.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1740,
+                "weight_lbs": 3.84,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_fusion_grey",
+            "entity": "helmet",
+            "title": "Apex Fusion Grey",
+            "type": "Modular",
+            "parent_id": "apex_fusion",
+            "helmet_family": "Fusion",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-FUS-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with flip-up chin and internal sun shade.",
+            "product_details": {
+                "description": "Modular with flip-up chin and internal sun shade."
+            },
+            "price": {
+                "current": 259.99,
+                "usd": 259.99,
+                "eur": 239.19,
+                "gbp": 205.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1740,
+                "weight_lbs": 3.84,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fusion+3"
+    ]
+}

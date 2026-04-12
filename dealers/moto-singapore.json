@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-singapore",
+  "name": "Moto Singapore / Regina Specialist",
+  "type": "retail",
+  "country_code": "SG",
+  "region_code": "apac",
+  "address": "Singapore",
+  "city": "Singapore",
+  "website": "https://www.reginaspecialist.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "sg-shipping", "asean"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "LS2", "Caberg"],
+  "marketplaces": ["regina-sg", "shopee-sg"],
+  "geo": {"lat": 1.3521, "lng": 103.8198}
+}

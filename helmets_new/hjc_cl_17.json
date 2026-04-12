@@ -1,0 +1,285 @@
+{
+    "id": "hjc_cl_17",
+    "entity": "helmet",
+    "title": "HJC CL-17",
+    "brand": "HJC",
+    "type": "Full Face",
+    "helmet_family": "CL-17",
+    "price": {
+        "current": 159.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1630,
+        "weight_lbs": 3.59,
+        "certifications": [
+            "DOT",
+            "Snell M2015"
+        ]
+    },
+    "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+    "product_details": {
+        "description": "Battle-proven full face with ACS ventilation and Snell certification."
+    },
+    "variants": [
+        {
+            "id": "hjc_cl_17_matte-black",
+            "entity": "helmet",
+            "title": "HJC CL-17 Matte Black",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "HJC-CL17-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cl_17_pearl-white",
+            "entity": "helmet",
+            "title": "HJC CL-17 Pearl White",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "HJC-CL17-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cl_17_track-tc-2",
+            "entity": "helmet",
+            "title": "HJC CL-17 Track TC-2",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Track TC-2",
+            "color_family": "Multi",
+            "sku": "HJC-CL17-TRA",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Track+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Track+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Track+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cl_17_camo-red",
+            "entity": "helmet",
+            "title": "HJC CL-17 Camo Red",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Camo Red",
+            "color_family": "Red",
+            "sku": "HJC-CL17-CAM",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Camo+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Camo+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Camo+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cl_17_racer-tc-1",
+            "entity": "helmet",
+            "title": "HJC CL-17 Racer TC-1",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer TC-1",
+            "color_family": "Multi",
+            "sku": "HJC-CL17-RAC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Racer+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Racer+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Racer+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "hjc_cl_17_solid-tc-1",
+            "entity": "helmet",
+            "title": "HJC CL-17 Solid TC-1",
+            "type": "Full Face",
+            "parent_id": "hjc_cl_17",
+            "helmet_family": "CL-17",
+            "head_shape": "Intermediate Oval",
+            "color": "Solid TC-1",
+            "color_family": "Multi",
+            "sku": "HJC-CL17-SOL",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Battle-proven full face with ACS ventilation and Snell certification.",
+            "product_details": {
+                "description": "Battle-proven full face with ACS ventilation and Snell certification."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1630,
+                "weight_lbs": 3.59,
+                "certifications": [
+                    "DOT",
+                    "Snell M2015"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Solid+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Solid+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Solid+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+3"
+    ]
+}

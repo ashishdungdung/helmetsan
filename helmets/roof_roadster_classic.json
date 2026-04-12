@@ -1,0 +1,196 @@
+{
+    "id": "roof_roadster_classic",
+    "entity": "helmet",
+    "title": "ROOF Roadster Classic",
+    "brand": "ROOF",
+    "type": "Open Face",
+    "helmet_family": "Roadster Classic",
+    "price": {
+        "current": 329.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Heritage open-face with goggles for cafe racer and scrambler riders.",
+    "product_details": {
+        "description": "Heritage open-face with goggles for cafe racer and scrambler riders."
+    },
+    "variants": [
+        {
+            "id": "roof_roadster_classic_matte-black",
+            "entity": "helmet",
+            "title": "ROOF Roadster Classic Matte Black",
+            "type": "Open Face",
+            "parent_id": "roof_roadster_classic",
+            "helmet_family": "Roadster Classic",
+            "head_shape": "Round Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "ROO-ROAD-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Heritage open-face with goggles for cafe racer and scrambler riders.",
+            "product_details": {
+                "description": "Heritage open-face with goggles for cafe racer and scrambler riders."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "roof_roadster_classic_silver-metallic",
+            "entity": "helmet",
+            "title": "ROOF Roadster Classic Silver Metallic",
+            "type": "Open Face",
+            "parent_id": "roof_roadster_classic",
+            "helmet_family": "Roadster Classic",
+            "head_shape": "Round Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "ROO-ROAD-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Heritage open-face with goggles for cafe racer and scrambler riders.",
+            "product_details": {
+                "description": "Heritage open-face with goggles for cafe racer and scrambler riders."
+            },
+            "price": {
+                "current": 329.99,
+                "usd": 329.99,
+                "eur": 303.59,
+                "gbp": 260.69
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "roof_roadster_classic_course-tc-5",
+            "entity": "helmet",
+            "title": "ROOF Roadster Classic Course TC-5",
+            "type": "Open Face",
+            "parent_id": "roof_roadster_classic",
+            "helmet_family": "Roadster Classic",
+            "head_shape": "Round Oval",
+            "color": "Course TC-5",
+            "color_family": "Multi",
+            "sku": "ROO-ROAD-COU",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Heritage open-face with goggles for cafe racer and scrambler riders.",
+            "product_details": {
+                "description": "Heritage open-face with goggles for cafe racer and scrambler riders."
+            },
+            "price": {
+                "current": 379.99,
+                "usd": 379.99,
+                "eur": 349.59,
+                "gbp": 300.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Course+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Course+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Course+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "roof_roadster_classic_flow-tc-3",
+            "entity": "helmet",
+            "title": "ROOF Roadster Classic Flow TC-3",
+            "type": "Open Face",
+            "parent_id": "roof_roadster_classic",
+            "helmet_family": "Roadster Classic",
+            "head_shape": "Round Oval",
+            "color": "Flow TC-3",
+            "color_family": "Multi",
+            "sku": "ROO-ROAD-FLO",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Heritage open-face with goggles for cafe racer and scrambler riders.",
+            "product_details": {
+                "description": "Heritage open-face with goggles for cafe racer and scrambler riders."
+            },
+            "price": {
+                "current": 379.99,
+                "usd": 379.99,
+                "eur": 349.59,
+                "gbp": 300.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1100,
+                "weight_lbs": 2.43,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Flow+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Flow+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+Flow+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+Roadster+Classic+3"
+    ]
+}

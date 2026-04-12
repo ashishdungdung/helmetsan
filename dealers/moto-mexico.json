@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-mexico",
+  "name": "Moto Mexico / Motocard México",
+  "type": "retail",
+  "country_code": "MX",
+  "region_code": "na",
+  "address": "Ciudad de México",
+  "city": "Mexico City",
+  "website": "https://www.motocard.com.mx",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "mexico-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan"],
+  "marketplaces": ["motocard-mx"],
+  "geo": {"lat": 19.4326, "lng": -99.1332}
+}

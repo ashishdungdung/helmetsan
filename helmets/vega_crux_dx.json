@@ -1,0 +1,196 @@
+{
+    "id": "vega_crux_dx",
+    "entity": "helmet",
+    "title": "Vega Crux DX",
+    "brand": "Vega",
+    "type": "Full Face",
+    "helmet_family": "Crux DX",
+    "price": {
+        "current": 39.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1350,
+        "weight_lbs": 2.98,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Feature-packed budget full face with double visor and breath guard.",
+    "product_details": {
+        "description": "Feature-packed budget full face with double visor and breath guard."
+    },
+    "variants": [
+        {
+            "id": "vega_crux_dx_matte-black",
+            "entity": "helmet",
+            "title": "Vega Crux DX Matte Black",
+            "type": "Full Face",
+            "parent_id": "vega_crux_dx",
+            "helmet_family": "Crux DX",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-CRUX-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed budget full face with double visor and breath guard.",
+            "product_details": {
+                "description": "Feature-packed budget full face with double visor and breath guard."
+            },
+            "price": {
+                "current": 39.99,
+                "usd": 39.99,
+                "eur": 36.79,
+                "gbp": 31.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_crux_dx_silver-metallic",
+            "entity": "helmet",
+            "title": "Vega Crux DX Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "vega_crux_dx",
+            "helmet_family": "Crux DX",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "VEG-CRUX-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed budget full face with double visor and breath guard.",
+            "product_details": {
+                "description": "Feature-packed budget full face with double visor and breath guard."
+            },
+            "price": {
+                "current": 39.99,
+                "usd": 39.99,
+                "eur": 36.79,
+                "gbp": 31.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_crux_dx_gloss-white",
+            "entity": "helmet",
+            "title": "Vega Crux DX Gloss White",
+            "type": "Full Face",
+            "parent_id": "vega_crux_dx",
+            "helmet_family": "Crux DX",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "VEG-CRUX-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Feature-packed budget full face with double visor and breath guard.",
+            "product_details": {
+                "description": "Feature-packed budget full face with double visor and breath guard."
+            },
+            "price": {
+                "current": 39.99,
+                "usd": 39.99,
+                "eur": 36.79,
+                "gbp": 31.59
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_crux_dx_apex-tc-1",
+            "entity": "helmet",
+            "title": "Vega Crux DX Apex TC-1",
+            "type": "Full Face",
+            "parent_id": "vega_crux_dx",
+            "helmet_family": "Crux DX",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex TC-1",
+            "color_family": "Multi",
+            "sku": "VEG-CRUX-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Feature-packed budget full face with double visor and breath guard.",
+            "product_details": {
+                "description": "Feature-packed budget full face with double visor and breath guard."
+            },
+            "price": {
+                "current": 89.99000000000001,
+                "usd": 89.99000000000001,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Apex+TC-1",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Apex+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+Apex+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Crux+DX+3"
+    ]
+}

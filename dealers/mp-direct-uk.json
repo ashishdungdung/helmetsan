@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "mp-direct-uk",
+  "name": "M&P Direct",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "Welshpool, Wales",
+  "city": "Welshpool",
+  "website": "https://www.mandp.co.uk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "click-and-collect", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan", "LS2"],
+  "marketplaces": ["mp-direct-uk", "amazon-uk"],
+  "geo": {"lat": 52.6597, "lng": -3.1473}
+}

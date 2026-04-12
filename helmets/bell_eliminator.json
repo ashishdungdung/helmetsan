@@ -1,0 +1,285 @@
+{
+    "id": "bell_eliminator",
+    "entity": "helmet",
+    "title": "Bell Eliminator",
+    "brand": "Bell",
+    "type": "Full Face",
+    "helmet_family": "Eliminator",
+    "price": {
+        "current": 349.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Composite",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+    "product_details": {
+        "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+    },
+    "variants": [
+        {
+            "id": "bell_eliminator_gloss-black",
+            "entity": "helmet",
+            "title": "Bell Eliminator Gloss Black",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "BEL-ELIM-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 349.95,
+                "usd": 349.95,
+                "eur": 321.95,
+                "gbp": 276.46
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_eliminator_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Bell Eliminator Hi-Viz Yellow",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "BEL-ELIM-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 349.95,
+                "usd": 349.95,
+                "eur": 321.95,
+                "gbp": 276.46
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_eliminator_tech-grey",
+            "entity": "helmet",
+            "title": "Bell Eliminator Tech Grey",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech Grey",
+            "color_family": "Grey",
+            "sku": "BEL-ELIM-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_eliminator_stripe-grey",
+            "entity": "helmet",
+            "title": "Bell Eliminator Stripe Grey",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Stripe Grey",
+            "color_family": "Grey",
+            "sku": "BEL-ELIM-STR",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_eliminator_tech-tc-3",
+            "entity": "helmet",
+            "title": "Bell Eliminator Tech TC-3",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-3",
+            "color_family": "Multi",
+            "sku": "BEL-ELIM-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "bell_eliminator_urban-tc-2",
+            "entity": "helmet",
+            "title": "Bell Eliminator Urban TC-2",
+            "type": "Full Face",
+            "parent_id": "bell_eliminator",
+            "helmet_family": "Eliminator",
+            "head_shape": "Intermediate Oval",
+            "color": "Urban TC-2",
+            "color_family": "Multi",
+            "sku": "BEL-ELIM-URB",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
+            "product_details": {
+                "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Composite",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+3"
+    ]
+}

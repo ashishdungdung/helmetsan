@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-magnet-poland",
+  "name": "Moto-Magnet Poland",
+  "type": "retail",
+  "country_code": "PL",
+  "region_code": "eu",
+  "address": "Warsaw",
+  "city": "Warsaw",
+  "website": "https://www.moto-magnet.pl",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "polish-support"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Schuberth"],
+  "marketplaces": ["moto-magnet-pl"],
+  "geo": {"lat": 52.2297, "lng": 21.0122}
+}

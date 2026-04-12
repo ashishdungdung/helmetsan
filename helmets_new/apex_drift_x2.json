@@ -1,0 +1,117 @@
+{
+    "id": "apex_drift_x2",
+    "entity": "helmet",
+    "title": "Apex Drift X2",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Drift X2",
+    "price": {
+        "current": 139.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 978,
+        "weight_lbs": 2.16,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Open face with optional shield.",
+    "product_details": {
+        "description": "Open face with optional shield."
+    },
+    "variants": [
+        {
+            "id": "apex_drift_x2_black",
+            "entity": "helmet",
+            "title": "Apex Drift X2 Black",
+            "type": "Open Face",
+            "parent_id": "apex_drift_x2",
+            "helmet_family": "Drift X2",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-DX2-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield.",
+            "product_details": {
+                "description": "Open face with optional shield."
+            },
+            "price": {
+                "current": 139.99,
+                "usd": 139.99,
+                "eur": 128.79,
+                "gbp": 110.59
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 978,
+                "weight_lbs": 2.16,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_drift_x2_chrome",
+            "entity": "helmet",
+            "title": "Apex Drift X2 Chrome",
+            "type": "Open Face",
+            "parent_id": "apex_drift_x2",
+            "helmet_family": "Drift X2",
+            "head_shape": "Round Oval",
+            "color": "Chrome",
+            "color_family": "Grey",
+            "sku": "APX-DX2-CHR",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Open face with optional shield.",
+            "product_details": {
+                "description": "Open face with optional shield."
+            },
+            "price": {
+                "current": 161.99,
+                "usd": 161.99,
+                "eur": 149.03,
+                "gbp": 127.97
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 978,
+                "weight_lbs": 2.16,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+3"
+    ]
+}

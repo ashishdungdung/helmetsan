@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "fortnine-canada",
+  "name": "FortNine",
+  "type": "retail",
+  "country_code": "CA",
+  "region_code": "na",
+  "address": "Montreal area",
+  "city": "Montreal",
+  "website": "https://fortnine.ca",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "canada-shipping", "reviews", "sizing-guide"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon"],
+  "marketplaces": ["fortnine-ca"],
+  "geo": {"lat": 45.5017, "lng": -73.5673}
+}

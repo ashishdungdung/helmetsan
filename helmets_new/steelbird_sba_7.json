@@ -1,0 +1,196 @@
+{
+    "id": "steelbird_sba_7",
+    "entity": "helmet",
+    "title": "Steelbird SBA-7",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "helmet_family": "SBA-7",
+    "price": {
+        "current": 54.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1400,
+        "weight_lbs": 3.09,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Multi-color graphic options with internal sun shield.",
+    "product_details": {
+        "description": "Multi-color graphic options with internal sun shield."
+    },
+    "variants": [
+        {
+            "id": "steelbird_sba_7_matte-black",
+            "entity": "helmet",
+            "title": "Steelbird SBA-7 Matte Black",
+            "type": "Full Face",
+            "parent_id": "steelbird_sba_7",
+            "helmet_family": "SBA-7",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "STE-SBA7-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Multi-color graphic options with internal sun shield.",
+            "product_details": {
+                "description": "Multi-color graphic options with internal sun shield."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "steelbird_sba_7_pearl-white",
+            "entity": "helmet",
+            "title": "Steelbird SBA-7 Pearl White",
+            "type": "Full Face",
+            "parent_id": "steelbird_sba_7",
+            "helmet_family": "SBA-7",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "STE-SBA7-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Multi-color graphic options with internal sun shield.",
+            "product_details": {
+                "description": "Multi-color graphic options with internal sun shield."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "steelbird_sba_7_gloss-white",
+            "entity": "helmet",
+            "title": "Steelbird SBA-7 Gloss White",
+            "type": "Full Face",
+            "parent_id": "steelbird_sba_7",
+            "helmet_family": "SBA-7",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "STE-SBA7-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Multi-color graphic options with internal sun shield.",
+            "product_details": {
+                "description": "Multi-color graphic options with internal sun shield."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "steelbird_sba_7_operator-grey",
+            "entity": "helmet",
+            "title": "Steelbird SBA-7 Operator Grey",
+            "type": "Full Face",
+            "parent_id": "steelbird_sba_7",
+            "helmet_family": "SBA-7",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator Grey",
+            "color_family": "Grey",
+            "sku": "STE-SBA7-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Multi-color graphic options with internal sun shield.",
+            "product_details": {
+                "description": "Multi-color graphic options with internal sun shield."
+            },
+            "price": {
+                "current": 104.99000000000001,
+                "usd": 104.99000000000001,
+                "eur": 96.59,
+                "gbp": 82.94
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1400,
+                "weight_lbs": 3.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Operator+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Operator+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+Operator+Grey+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBA-7+3"
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "id": "mt_helmets_rapide_pro",
+    "entity": "helmet",
+    "title": "MT Helmets Rapide Pro",
+    "brand": "MT Helmets",
+    "type": "Full Face",
+    "helmet_family": "Rapide Pro",
+    "price": {
+        "current": 159.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1350,
+        "weight_lbs": 2.98,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Aggressive street design with pinlock-ready shield at a great price.",
+    "product_details": {
+        "description": "Aggressive street design with pinlock-ready shield at a great price."
+    },
+    "variants": [
+        {
+            "id": "mt_helmets_rapide_pro_gloss-black",
+            "entity": "helmet",
+            "title": "MT Helmets Rapide Pro Gloss Black",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_rapide_pro",
+            "helmet_family": "Rapide Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "MTH-RAPI-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Aggressive street design with pinlock-ready shield at a great price.",
+            "product_details": {
+                "description": "Aggressive street design with pinlock-ready shield at a great price."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_rapide_pro_anthracite",
+            "entity": "helmet",
+            "title": "MT Helmets Rapide Pro Anthracite",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_rapide_pro",
+            "helmet_family": "Rapide Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "MTH-RAPI-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Aggressive street design with pinlock-ready shield at a great price.",
+            "product_details": {
+                "description": "Aggressive street design with pinlock-ready shield at a great price."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_rapide_pro_course-tc-1",
+            "entity": "helmet",
+            "title": "MT Helmets Rapide Pro Course TC-1",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_rapide_pro",
+            "helmet_family": "Rapide Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Course TC-1",
+            "color_family": "Multi",
+            "sku": "MTH-RAPI-COU",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Aggressive street design with pinlock-ready shield at a great price.",
+            "product_details": {
+                "description": "Aggressive street design with pinlock-ready shield at a great price."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Course+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Course+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Course+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_rapide_pro_apex-red",
+            "entity": "helmet",
+            "title": "MT Helmets Rapide Pro Apex Red",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_rapide_pro",
+            "helmet_family": "Rapide Pro",
+            "head_shape": "Intermediate Oval",
+            "color": "Apex Red",
+            "color_family": "Red",
+            "sku": "MTH-RAPI-APE",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Aggressive street design with pinlock-ready shield at a great price.",
+            "product_details": {
+                "description": "Aggressive street design with pinlock-ready shield at a great price."
+            },
+            "price": {
+                "current": 209.99,
+                "usd": 209.99,
+                "eur": 193.19,
+                "gbp": 165.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Apex+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Apex+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+Apex+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Rapide+Pro+3"
+    ]
+}

@@ -1,0 +1,196 @@
+{
+    "id": "premier_vintage",
+    "entity": "helmet",
+    "title": "Premier Vintage",
+    "brand": "Premier",
+    "type": "Open Face",
+    "helmet_family": "Vintage",
+    "price": {
+        "current": 249.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1000,
+        "weight_lbs": 2.2,
+        "certifications": [
+            "ECE 22.06"
+        ]
+    },
+    "description": "Authentic retro open face with chrome trim and custom paint options.",
+    "product_details": {
+        "description": "Authentic retro open face with chrome trim and custom paint options."
+    },
+    "variants": [
+        {
+            "id": "premier_vintage_matte-black",
+            "entity": "helmet",
+            "title": "Premier Vintage Matte Black",
+            "type": "Open Face",
+            "parent_id": "premier_vintage",
+            "helmet_family": "Vintage",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "PRE-VINT-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Authentic retro open face with chrome trim and custom paint options.",
+            "product_details": {
+                "description": "Authentic retro open face with chrome trim and custom paint options."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "premier_vintage_pearl-white",
+            "entity": "helmet",
+            "title": "Premier Vintage Pearl White",
+            "type": "Open Face",
+            "parent_id": "premier_vintage",
+            "helmet_family": "Vintage",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "PRE-VINT-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Authentic retro open face with chrome trim and custom paint options.",
+            "product_details": {
+                "description": "Authentic retro open face with chrome trim and custom paint options."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "premier_vintage_anthracite",
+            "entity": "helmet",
+            "title": "Premier Vintage Anthracite",
+            "type": "Open Face",
+            "parent_id": "premier_vintage",
+            "helmet_family": "Vintage",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "PRE-VINT-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Authentic retro open face with chrome trim and custom paint options.",
+            "product_details": {
+                "description": "Authentic retro open face with chrome trim and custom paint options."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "premier_vintage_tech-tc-5",
+            "entity": "helmet",
+            "title": "Premier Vintage Tech TC-5",
+            "type": "Open Face",
+            "parent_id": "premier_vintage",
+            "helmet_family": "Vintage",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-5",
+            "color_family": "Multi",
+            "sku": "PRE-VINT-TEC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Authentic retro open face with chrome trim and custom paint options.",
+            "product_details": {
+                "description": "Authentic retro open face with chrome trim and custom paint options."
+            },
+            "price": {
+                "current": 299.99,
+                "usd": 299.99,
+                "eur": 275.99,
+                "gbp": 236.99
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Tech+TC-5",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Tech+TC-5+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+Tech+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Vintage+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "sportbiketrackgear-usa",
+  "name": "SportbikeTrackGear",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Greenfield, IN",
+  "city": "Greenfield",
+  "website": "https://www.sportbiketrackgear.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "us-shipping", "track-gear-advice", "sizing-guide"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "Scorpion", "Icon", "Suomy"],
+  "marketplaces": ["sportbiketrackgear-us"],
+  "geo": {"lat": 39.7850, "lng": -85.7694}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_rogue",
+    "entity": "helmet",
+    "title": "Apex Rogue",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Rogue",
+    "price": {
+        "current": 249.99,
+        "currency": "USD"
+    },
+    "head_shape": "Long Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1570,
+        "weight_lbs": 3.46,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sport full face with aggressive lines and good ventilation.",
+    "product_details": {
+        "description": "Sport full face with aggressive lines and good ventilation."
+    },
+    "variants": [
+        {
+            "id": "apex_rogue_matte-black",
+            "entity": "helmet",
+            "title": "Apex Rogue Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_rogue",
+            "helmet_family": "Rogue",
+            "head_shape": "Long Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-ROG-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with aggressive lines and good ventilation.",
+            "product_details": {
+                "description": "Sport full face with aggressive lines and good ventilation."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_rogue_white",
+            "entity": "helmet",
+            "title": "Apex Rogue White",
+            "type": "Full Face",
+            "parent_id": "apex_rogue",
+            "helmet_family": "Rogue",
+            "head_shape": "Long Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-ROG-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with aggressive lines and good ventilation.",
+            "product_details": {
+                "description": "Sport full face with aggressive lines and good ventilation."
+            },
+            "price": {
+                "current": 249.99,
+                "usd": 249.99,
+                "eur": 229.99,
+                "gbp": 197.49
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1570,
+                "weight_lbs": 3.46,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rogue+3"
+    ]
+}

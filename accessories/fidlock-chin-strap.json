@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "fidlock-chin-strap",
+  "title": "FIDLOCK V-Buckle Magnetic Chin Strap Kit",
+  "type": "Hardware",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Magnetic FIDLOCK V-Buckle mechanism",
+    "One-hand open and close with gloves",
+    "50mm nylon webbing",
+    "Stainless steel anchor plates",
+    "DOT/ECE compliant release force",
+    "Retrofit kit for D-ring or snap helmets"
+  ],
+  "price": { "current": 44.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 44.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 39.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 3999, "currency": "INR", "availability": "limited", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Upgrade any helmet to magnetic chin strap convenience. The FIDLOCK V-Buckle uses powerful magnets that guide the buckle into place with one hand — even with thick winter gloves. Exceeds DOT and ECE release force requirements. InstallS on most helmets with standard D-ring or snap buckle webbing.</p>"
+}

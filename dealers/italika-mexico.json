@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "italika-mexico",
+  "name": "Italika México / Tienda Oficial",
+  "type": "retail",
+  "country_code": "MX",
+  "region_code": "na",
+  "address": "Nationwide stores",
+  "city": "Mexico City",
+  "website": "https://www.italika.com.mx",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "oem-helmets", "returns", "mexico-shipping"],
+  "brands_stocked": ["Italika", "LS2", "HJC", "AGV", "Bell", "Nolan", "Caberg"],
+  "marketplaces": ["italika-mx"],
+  "geo": {"lat": 19.4326, "lng": -99.1332}
+}

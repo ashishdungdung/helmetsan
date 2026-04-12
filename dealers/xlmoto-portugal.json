@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "xlmoto-portugal",
+  "name": "XLmoto Portugal",
+  "type": "retail",
+  "country_code": "PT",
+  "region_code": "eu",
+  "address": "Lisbon area",
+  "city": "Lisbon",
+  "website": "https://www.xlmoto.pt",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["xlmoto-pt", "amazon-es"],
+  "geo": {"lat": 38.7223, "lng": -9.1393}
+}

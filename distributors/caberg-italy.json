@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "caberg-italy",
+  "name": "Caberg / Nolan Group",
+  "type": "regional-distributor",
+  "country_code": "IT",
+  "regions": ["eu"],
+  "countries": ["IT", "DE", "FR", "ES", "GB"],
+  "brands": ["Caberg"],
+  "warehouses": [
+    {"id": "it-brescia", "city": "Brescia", "country": "IT"}
+  ],
+  "contacts": [
+    {"type": "sales", "email": "info@caberg.it"},
+    {"type": "support", "url": "https://www.caberg.it"}
+  ],
+  "website": "https://www.caberg.it"
+}

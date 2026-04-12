@@ -1,0 +1,117 @@
+{
+    "id": "apex_trek",
+    "entity": "helmet",
+    "title": "Apex Trek",
+    "brand": "Apex",
+    "type": "Touring",
+    "helmet_family": "Trek",
+    "price": {
+        "current": 269.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1640,
+        "weight_lbs": 3.62,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Touring helmet with integrated sun visor and comfortable liner.",
+    "product_details": {
+        "description": "Touring helmet with integrated sun visor and comfortable liner."
+    },
+    "variants": [
+        {
+            "id": "apex_trek_black",
+            "entity": "helmet",
+            "title": "Apex Trek Black",
+            "type": "Touring",
+            "parent_id": "apex_trek",
+            "helmet_family": "Trek",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-TRK-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with integrated sun visor and comfortable liner.",
+            "product_details": {
+                "description": "Touring helmet with integrated sun visor and comfortable liner."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1640,
+                "weight_lbs": 3.62,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        },
+        {
+            "id": "apex_trek_blue",
+            "entity": "helmet",
+            "title": "Apex Trek Blue",
+            "type": "Touring",
+            "parent_id": "apex_trek",
+            "helmet_family": "Trek",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "APX-TRK-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring helmet with integrated sun visor and comfortable liner.",
+            "product_details": {
+                "description": "Touring helmet with integrated sun visor and comfortable liner."
+            },
+            "price": {
+                "current": 269.99,
+                "usd": 269.99,
+                "eur": 248.39,
+                "gbp": 213.29
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1640,
+                "weight_lbs": 3.62,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Back"
+            ],
+            "helmet_types": [
+                "Touring"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+3"
+    ]
+}

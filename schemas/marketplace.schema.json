@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Marketplace",
+  "type": "object",
+  "required": ["entity", "id", "name"],
+  "properties": {
+    "entity": { "const": "marketplace" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "website": { "type": "string" },
+    "country_codes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "supports_online": { "type": "boolean" },
+    "supports_offline": { "type": "boolean" }
+  }
+}

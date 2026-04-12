@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "motorcycle-warehouse-nz",
+  "name": "Motorcycle Warehouse NZ",
+  "type": "retail",
+  "country_code": "NZ",
+  "region_code": "apac",
+  "address": "Auckland",
+  "city": "Auckland",
+  "website": "https://www.motorcyclewarehouse.co.nz",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "nz-shipping", "trade-accounts"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "LS2", "Nolan"],
+  "marketplaces": ["motorcycle-warehouse-nz"],
+  "geo": {"lat": -36.8485, "lng": 174.7633}
+}

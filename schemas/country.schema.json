@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Country",
+  "type": "object",
+  "required": ["entity", "id", "name", "region"],
+  "properties": {
+    "entity": { "const": "country" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "region": { "type": "string" },
+    "currency": { "type": "string" },
+    "helmet_certifications": { "type": "array", "items": { "type": "string" } }
+  }
+}

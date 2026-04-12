@@ -1,0 +1,114 @@
+{
+    "id": "mt_helmets_blade",
+    "entity": "helmet",
+    "title": "MT Helmets Blade",
+    "brand": "MT Helmets",
+    "type": "Full Face",
+    "helmet_family": "Blade",
+    "price": {
+        "current": 159.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1500,
+        "weight_lbs": 3.31,
+        "certifications": [
+            "ECE 22.05"
+        ]
+    },
+    "description": "MT Blade full face for street.",
+    "product_details": {
+        "description": "MT Blade full face for street."
+    },
+    "variants": [
+        {
+            "id": "mt_helmets_blade_matte-black",
+            "entity": "helmet",
+            "title": "MT Helmets Blade Matte Black",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_blade",
+            "helmet_family": "Blade",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "MTH-BLA-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Blade full face for street.",
+            "product_details": {
+                "description": "MT Blade full face for street."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_blade_blue",
+            "entity": "helmet",
+            "title": "MT Helmets Blade Blue",
+            "type": "Full Face",
+            "parent_id": "mt_helmets_blade",
+            "helmet_family": "Blade",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "MTH-BLA-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Blade full face for street.",
+            "product_details": {
+                "description": "MT Blade full face for street."
+            },
+            "price": {
+                "current": 159.99,
+                "usd": 159.99,
+                "eur": 147.19,
+                "gbp": 126.39
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1500,
+                "weight_lbs": 3.31,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Blade+3"
+    ]
+}

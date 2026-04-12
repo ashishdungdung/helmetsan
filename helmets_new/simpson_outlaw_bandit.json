@@ -1,0 +1,196 @@
+{
+    "id": "simpson_outlaw_bandit",
+    "entity": "helmet",
+    "title": "Simpson Outlaw Bandit",
+    "brand": "Simpson",
+    "type": "Full Face",
+    "helmet_family": "Outlaw Bandit",
+    "price": {
+        "current": 399.95,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Iconic retro race-inspired design with wide eyeport and flat shield.",
+    "product_details": {
+        "description": "Iconic retro race-inspired design with wide eyeport and flat shield."
+    },
+    "variants": [
+        {
+            "id": "simpson_outlaw_bandit_gloss-black",
+            "entity": "helmet",
+            "title": "Simpson Outlaw Bandit Gloss Black",
+            "type": "Full Face",
+            "parent_id": "simpson_outlaw_bandit",
+            "helmet_family": "Outlaw Bandit",
+            "head_shape": "Round Oval",
+            "color": "Gloss Black",
+            "color_family": "Black",
+            "sku": "SIM-OUTL-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Iconic retro race-inspired design with wide eyeport and flat shield.",
+            "product_details": {
+                "description": "Iconic retro race-inspired design with wide eyeport and flat shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Gloss+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Gloss+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Gloss+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_outlaw_bandit_silver-metallic",
+            "entity": "helmet",
+            "title": "Simpson Outlaw Bandit Silver Metallic",
+            "type": "Full Face",
+            "parent_id": "simpson_outlaw_bandit",
+            "helmet_family": "Outlaw Bandit",
+            "head_shape": "Round Oval",
+            "color": "Silver Metallic",
+            "color_family": "Grey",
+            "sku": "SIM-OUTL-GRE",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Iconic retro race-inspired design with wide eyeport and flat shield.",
+            "product_details": {
+                "description": "Iconic retro race-inspired design with wide eyeport and flat shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Silver+Metallic",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Silver+Metallic+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Silver+Metallic+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_outlaw_bandit_pearl-white",
+            "entity": "helmet",
+            "title": "Simpson Outlaw Bandit Pearl White",
+            "type": "Full Face",
+            "parent_id": "simpson_outlaw_bandit",
+            "helmet_family": "Outlaw Bandit",
+            "head_shape": "Round Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "SIM-OUTL-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Iconic retro race-inspired design with wide eyeport and flat shield.",
+            "product_details": {
+                "description": "Iconic retro race-inspired design with wide eyeport and flat shield."
+            },
+            "price": {
+                "current": 399.95,
+                "usd": 399.95,
+                "eur": 367.95,
+                "gbp": 315.96
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Pearl+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Pearl+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "simpson_outlaw_bandit_course-red",
+            "entity": "helmet",
+            "title": "Simpson Outlaw Bandit Course Red",
+            "type": "Full Face",
+            "parent_id": "simpson_outlaw_bandit",
+            "helmet_family": "Outlaw Bandit",
+            "head_shape": "Round Oval",
+            "color": "Course Red",
+            "color_family": "Red",
+            "sku": "SIM-OUTL-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Iconic retro race-inspired design with wide eyeport and flat shield.",
+            "product_details": {
+                "description": "Iconic retro race-inspired design with wide eyeport and flat shield."
+            },
+            "price": {
+                "current": 449.95,
+                "usd": 449.95,
+                "eur": 413.95,
+                "gbp": 355.46
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1600,
+                "weight_lbs": 3.53,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Course+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Course+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+Course+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Outlaw+Bandit+3"
+    ]
+}

@@ -1,0 +1,243 @@
+{
+    "id": "smk_phoenix",
+    "entity": "helmet",
+    "title": "SMK Phoenix",
+    "brand": "SMK",
+    "type": "Full Face",
+    "helmet_family": "Phoenix",
+    "price": {
+        "current": 189.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1480,
+        "weight_lbs": 3.26,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+    "product_details": {
+        "description": "Mid-range full face with dual homologation and drop-down sun visor."
+    },
+    "variants": [
+        {
+            "id": "smk_phoenix_matte-black",
+            "entity": "helmet",
+            "title": "SMK Phoenix Matte Black",
+            "type": "Full Face",
+            "parent_id": "smk_phoenix",
+            "helmet_family": "Phoenix",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SMK-PHN-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+            "product_details": {
+                "description": "Mid-range full face with dual homologation and drop-down sun visor."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_phoenix_gloss-white",
+            "entity": "helmet",
+            "title": "SMK Phoenix Gloss White",
+            "type": "Full Face",
+            "parent_id": "smk_phoenix",
+            "helmet_family": "Phoenix",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "SMK-PHN-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+            "product_details": {
+                "description": "Mid-range full face with dual homologation and drop-down sun visor."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_phoenix_anthracite",
+            "entity": "helmet",
+            "title": "SMK Phoenix Anthracite",
+            "type": "Full Face",
+            "parent_id": "smk_phoenix",
+            "helmet_family": "Phoenix",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "SMK-PHN-ANT",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+            "product_details": {
+                "description": "Mid-range full face with dual homologation and drop-down sun visor."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_phoenix_blue",
+            "entity": "helmet",
+            "title": "SMK Phoenix Blue",
+            "type": "Full Face",
+            "parent_id": "smk_phoenix",
+            "helmet_family": "Phoenix",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "SMK-PHN-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+            "product_details": {
+                "description": "Mid-range full face with dual homologation and drop-down sun visor."
+            },
+            "price": {
+                "current": 189.99,
+                "usd": 189.99,
+                "eur": 174.79,
+                "gbp": 150.09
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "smk_phoenix_graphic-storm",
+            "entity": "helmet",
+            "title": "SMK Phoenix Graphic Storm",
+            "type": "Full Face",
+            "parent_id": "smk_phoenix",
+            "helmet_family": "Phoenix",
+            "head_shape": "Intermediate Oval",
+            "color": "Graphic Storm",
+            "color_family": "Multi",
+            "sku": "SMK-PHN-GRA",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Mid-range full face with dual homologation and drop-down sun visor.",
+            "product_details": {
+                "description": "Mid-range full face with dual homologation and drop-down sun visor."
+            },
+            "price": {
+                "current": 219.99,
+                "usd": 219.99,
+                "eur": 202.39,
+                "gbp": 173.79
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1480,
+                "weight_lbs": 3.26,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+3"
+    ]
+}

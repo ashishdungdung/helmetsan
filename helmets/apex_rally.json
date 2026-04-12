@@ -1,0 +1,117 @@
+{
+    "id": "apex_rally",
+    "entity": "helmet",
+    "title": "Apex Rally",
+    "brand": "Apex",
+    "type": "Adventure \/ Dual Sport",
+    "helmet_family": "Rally",
+    "price": {
+        "current": 349.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1650,
+        "weight_lbs": 3.64,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Rally-style adventure helmet with removable peak and dual-position visor.",
+    "product_details": {
+        "description": "Rally-style adventure helmet with removable peak and dual-position visor."
+    },
+    "variants": [
+        {
+            "id": "apex_rally_matte-black",
+            "entity": "helmet",
+            "title": "Apex Rally Matte Black",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_rally",
+            "helmet_family": "Rally",
+            "head_shape": "Round Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-RAL-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Rally-style adventure helmet with removable peak and dual-position visor.",
+            "product_details": {
+                "description": "Rally-style adventure helmet with removable peak and dual-position visor."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        },
+        {
+            "id": "apex_rally_white",
+            "entity": "helmet",
+            "title": "Apex Rally White",
+            "type": "Adventure \/ Dual Sport",
+            "parent_id": "apex_rally",
+            "helmet_family": "Rally",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-RAL-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Rally-style adventure helmet with removable peak and dual-position visor.",
+            "product_details": {
+                "description": "Rally-style adventure helmet with removable peak and dual-position visor."
+            },
+            "price": {
+                "current": 349.99,
+                "usd": 349.99,
+                "eur": 321.99,
+                "gbp": 276.49
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1650,
+                "weight_lbs": 3.64,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White+Back"
+            ],
+            "helmet_types": [
+                "Adventure \/ Dual Sport"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+3"
+    ]
+}

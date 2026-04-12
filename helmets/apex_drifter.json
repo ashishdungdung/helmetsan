@@ -1,0 +1,114 @@
+{
+    "id": "apex_drifter",
+    "entity": "helmet",
+    "title": "Apex Drifter",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Drifter",
+    "price": {
+        "current": 109.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Simple open face for around-town and cruiser use.",
+    "product_details": {
+        "description": "Simple open face for around-town and cruiser use."
+    },
+    "variants": [
+        {
+            "id": "apex_drifter_black",
+            "entity": "helmet",
+            "title": "Apex Drifter Black",
+            "type": "Open Face",
+            "parent_id": "apex_drifter",
+            "helmet_family": "Drifter",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-DRI-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Simple open face for around-town and cruiser use.",
+            "product_details": {
+                "description": "Simple open face for around-town and cruiser use."
+            },
+            "price": {
+                "current": 109.99,
+                "usd": 109.99,
+                "eur": 101.19,
+                "gbp": 86.89
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_drifter_chrome",
+            "entity": "helmet",
+            "title": "Apex Drifter Chrome",
+            "type": "Open Face",
+            "parent_id": "apex_drifter",
+            "helmet_family": "Drifter",
+            "head_shape": "Round Oval",
+            "color": "Chrome",
+            "color_family": "Grey",
+            "sku": "APX-DRI-CHR",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Simple open face for around-town and cruiser use.",
+            "product_details": {
+                "description": "Simple open face for around-town and cruiser use."
+            },
+            "price": {
+                "current": 124.99,
+                "usd": 124.99,
+                "eur": 114.99,
+                "gbp": 98.74
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 950,
+                "weight_lbs": 2.09,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Chrome",
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Chrome+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drifter+Chrome+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Drifter+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Drifter+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Drifter+3"
+    ]
+}

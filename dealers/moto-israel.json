@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-israel",
+  "name": "Moto Israel / IMC Israel",
+  "type": "retail",
+  "country_code": "IL",
+  "region_code": "mena",
+  "address": "Tel Aviv area",
+  "city": "Tel Aviv",
+  "website": "https://www.imc.co.il",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "il-shipping", "ece-certified"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "Schuberth"],
+  "marketplaces": ["imc-il"],
+  "geo": {"lat": 32.0853, "lng": 34.7818}
+}

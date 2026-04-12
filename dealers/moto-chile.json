@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-chile",
+  "name": "Moto Chile / Motosport Chile",
+  "type": "retail",
+  "country_code": "CL",
+  "region_code": "latam",
+  "address": "Santiago",
+  "city": "Santiago",
+  "website": "https://www.motosport.cl",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "chile-shipping", "advice"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Bell", "Nolan", "Shark", "Caberg"],
+  "marketplaces": ["motosport-cl"],
+  "geo": {"lat": -33.4489, "lng": -70.6693}
+}

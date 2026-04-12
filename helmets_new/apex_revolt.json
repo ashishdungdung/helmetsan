@@ -1,0 +1,117 @@
+{
+    "id": "apex_revolt",
+    "entity": "helmet",
+    "title": "Apex Revolt",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Revolt",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Sport full face with sharp styling and dual-density liner.",
+    "product_details": {
+        "description": "Sport full face with sharp styling and dual-density liner."
+    },
+    "variants": [
+        {
+            "id": "apex_revolt_matte-black",
+            "entity": "helmet",
+            "title": "Apex Revolt Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_revolt",
+            "helmet_family": "Revolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-REV-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with sharp styling and dual-density liner.",
+            "product_details": {
+                "description": "Sport full face with sharp styling and dual-density liner."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_revolt_red",
+            "entity": "helmet",
+            "title": "Apex Revolt Red",
+            "type": "Full Face",
+            "parent_id": "apex_revolt",
+            "helmet_family": "Revolt",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "APX-REV-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with sharp styling and dual-density liner.",
+            "product_details": {
+                "description": "Sport full face with sharp styling and dual-density liner."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1550,
+                "weight_lbs": 3.42,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Revolt+3"
+    ]
+}

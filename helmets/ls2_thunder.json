@@ -1,0 +1,201 @@
+{
+    "id": "ls2_thunder",
+    "entity": "helmet",
+    "title": "LS2 Thunder",
+    "brand": "LS2",
+    "type": "Full Face",
+    "helmet_family": "Thunder",
+    "price": {
+        "current": 119.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1580,
+        "weight_lbs": 3.48,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Entry-level full face with good ventilation and removable liner.",
+    "product_details": {
+        "description": "Entry-level full face with good ventilation and removable liner."
+    },
+    "variants": [
+        {
+            "id": "ls2_thunder_matte-black",
+            "entity": "helmet",
+            "title": "LS2 Thunder Matte Black",
+            "type": "Full Face",
+            "parent_id": "ls2_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "LS2-THN-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_thunder_gloss-white",
+            "entity": "helmet",
+            "title": "LS2 Thunder Gloss White",
+            "type": "Full Face",
+            "parent_id": "ls2_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Gloss White",
+            "color_family": "White",
+            "sku": "LS2-THN-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_thunder_red",
+            "entity": "helmet",
+            "title": "LS2 Thunder Red",
+            "type": "Full Face",
+            "parent_id": "ls2_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Red",
+            "color_family": "Red",
+            "sku": "LS2-THN-RED",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "ls2_thunder_blue",
+            "entity": "helmet",
+            "title": "LS2 Thunder Blue",
+            "type": "Full Face",
+            "parent_id": "ls2_thunder",
+            "helmet_family": "Thunder",
+            "head_shape": "Intermediate Oval",
+            "color": "Blue",
+            "color_family": "Blue",
+            "sku": "LS2-THN-BLU",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Entry-level full face with good ventilation and removable liner.",
+            "product_details": {
+                "description": "Entry-level full face with good ventilation and removable liner."
+            },
+            "price": {
+                "current": 119.99,
+                "usd": 119.99,
+                "eur": 110.39,
+                "gbp": 94.79
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1580,
+                "weight_lbs": 3.48,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+3"
+    ]
+}

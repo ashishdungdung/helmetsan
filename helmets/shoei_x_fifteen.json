@@ -1,0 +1,206 @@
+{
+    "id": "shoei_x_fifteen",
+    "entity": "helmet",
+    "title": "Shoei X-Fifteen",
+    "brand": "Shoei",
+    "type": "Track \/ Race",
+    "helmet_family": "X-Fifteen",
+    "price": {
+        "current": 899.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "AIM+",
+        "weight_g": 1450,
+        "weight_lbs": 3.2,
+        "certifications": [
+            "DOT",
+            "Snell M2020",
+            "ECE 22.06"
+        ]
+    },
+    "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
+    "product_details": {
+        "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
+    },
+    "variants": [
+        {
+            "id": "shoei_x_fifteen_matte-black",
+            "entity": "helmet",
+            "title": "Shoei X-Fifteen Matte Black",
+            "type": "Track \/ Race",
+            "parent_id": "shoei_x_fifteen",
+            "helmet_family": "X-Fifteen",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "SHO-X15-MBK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
+            "product_details": {
+                "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
+            },
+            "price": {
+                "current": 899.99,
+                "usd": 899.99,
+                "eur": 827.99,
+                "gbp": 710.99
+            },
+            "specs": {
+                "material": "AIM+",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Track \/ Race"
+            ]
+        },
+        {
+            "id": "shoei_x_fifteen_white",
+            "entity": "helmet",
+            "title": "Shoei X-Fifteen White",
+            "type": "Track \/ Race",
+            "parent_id": "shoei_x_fifteen",
+            "helmet_family": "X-Fifteen",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "SHO-X15-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
+            "product_details": {
+                "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
+            },
+            "price": {
+                "current": 899.99,
+                "usd": 899.99,
+                "eur": 827.99,
+                "gbp": 710.99
+            },
+            "specs": {
+                "material": "AIM+",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White+Back"
+            ],
+            "helmet_types": [
+                "Track \/ Race"
+            ]
+        },
+        {
+            "id": "shoei_x_fifteen_marquez-7-tc-1",
+            "entity": "helmet",
+            "title": "Shoei X-Fifteen Marquez 7 TC-1",
+            "type": "Track \/ Race",
+            "parent_id": "shoei_x_fifteen",
+            "helmet_family": "X-Fifteen",
+            "head_shape": "Intermediate Oval",
+            "color": "Marquez 7 TC-1",
+            "color_family": "Red",
+            "sku": "SHO-X15-MAR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
+            "product_details": {
+                "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
+            },
+            "price": {
+                "current": 1029.99,
+                "usd": 1029.99,
+                "eur": 947.59,
+                "gbp": 813.69
+            },
+            "specs": {
+                "material": "AIM+",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Track \/ Race"
+            ]
+        },
+        {
+            "id": "shoei_x_fifteen_proxy-tc-11",
+            "entity": "helmet",
+            "title": "Shoei X-Fifteen Proxy TC-11",
+            "type": "Track \/ Race",
+            "parent_id": "shoei_x_fifteen",
+            "helmet_family": "X-Fifteen",
+            "head_shape": "Intermediate Oval",
+            "color": "Proxy TC-11",
+            "color_family": "Multi",
+            "sku": "SHO-X15-PRO",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
+            "product_details": {
+                "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
+            },
+            "price": {
+                "current": 1029.99,
+                "usd": 1029.99,
+                "eur": 947.59,
+                "gbp": 813.69
+            },
+            "specs": {
+                "material": "AIM+",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11+Back"
+            ],
+            "helmet_types": [
+                "Track \/ Race"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+3"
+    ]
+}

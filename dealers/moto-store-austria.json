@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-store-austria",
+  "name": "Moto Store Austria",
+  "type": "retail",
+  "country_code": "AT",
+  "region_code": "eu",
+  "address": "Vienna",
+  "city": "Vienna",
+  "website": "https://www.motostore.at",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["moto-store-at"],
+  "geo": {"lat": 48.2082, "lng": 16.3738}
+}

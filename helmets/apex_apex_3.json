@@ -1,0 +1,120 @@
+{
+    "id": "apex_apex_3",
+    "entity": "helmet",
+    "title": "Apex Apex 3",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Apex 3",
+    "price": {
+        "current": 479.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Carbon",
+        "weight_g": 1450,
+        "weight_lbs": 3.2,
+        "certifications": [
+            "DOT",
+            "Snell M2020",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Flagship carbon full face with multi-cert and premium fit.",
+    "product_details": {
+        "description": "Flagship carbon full face with multi-cert and premium fit."
+    },
+    "variants": [
+        {
+            "id": "apex_apex_3_matte-black",
+            "entity": "helmet",
+            "title": "Apex Apex 3 Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_apex_3",
+            "helmet_family": "Apex 3",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-AP3-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Flagship carbon full face with multi-cert and premium fit.",
+            "product_details": {
+                "description": "Flagship carbon full face with multi-cert and premium fit."
+            },
+            "price": {
+                "current": 479.99,
+                "usd": 479.99,
+                "eur": 441.59,
+                "gbp": 379.19
+            },
+            "specs": {
+                "material": "Carbon",
+                "weight_g": 1450,
+                "weight_lbs": 3.2,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_apex_3_carbon",
+            "entity": "helmet",
+            "title": "Apex Apex 3 Carbon",
+            "type": "Full Face",
+            "parent_id": "apex_apex_3",
+            "helmet_family": "Apex 3",
+            "head_shape": "Intermediate Oval",
+            "color": "Carbon",
+            "color_family": "Carbon",
+            "sku": "APX-AP3-CAR",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Flagship carbon full face with multi-cert and premium fit.",
+            "product_details": {
+                "description": "Flagship carbon full face with multi-cert and premium fit."
+            },
+            "price": {
+                "current": 549.99,
+                "usd": 549.99,
+                "eur": 505.99,
+                "gbp": 434.49
+            },
+            "specs": {
+                "material": "Carbon Fiber",
+                "weight_g": 1350,
+                "weight_lbs": 2.98,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Carbon",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Carbon+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+Carbon+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+3+3"
+    ]
+}

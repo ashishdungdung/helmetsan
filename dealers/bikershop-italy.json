@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "bikershop-italy",
+  "name": "Bikershop Italia",
+  "type": "retail",
+  "country_code": "IT",
+  "region_code": "eu",
+  "address": "Milan",
+  "city": "Milan",
+  "website": "https://www.bikershop.it",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice", "in-store-pickup"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Nolan", "Caberg", "Suomy", "LS2"],
+  "marketplaces": ["bikershop-it", "amazon-it"],
+  "geo": {"lat": 45.4642, "lng": 9.1900}
+}

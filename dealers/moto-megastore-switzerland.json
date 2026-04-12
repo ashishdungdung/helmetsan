@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-megastore-switzerland",
+  "name": "Moto Megastore Switzerland",
+  "type": "retail",
+  "country_code": "CH",
+  "region_code": "eu",
+  "address": "Zürich area",
+  "city": "Zürich",
+  "website": "https://www.motomegastore.ch",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ch-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg"],
+  "marketplaces": ["motomegastore-ch"],
+  "geo": {"lat": 47.3769, "lng": 8.5417}
+}

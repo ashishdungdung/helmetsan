@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "rain-visor-sealant",
+  "title": "Rain-X Visor Rain Repellent",
+  "type": "Maintenance",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Hydrophobic nano-coating for visors",
+    "Water beads and flies off at 40+ km/h",
+    "Improves visibility in heavy rain",
+    "Easy spray-on application",
+    "Lasts 4-6 weeks per application",
+    "Safe for all visor materials and coatings"
+  ],
+  "price": { "current": 9.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 9.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 8.99, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 799, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Rain-X Visor Rain Repellent creates an invisible hydrophobic barrier on your helmet visor. Water beads up and flies off at speed, dramatically improving visibility during wet rides. One application lasts 4-6 weeks. Safe on all visor materials including Pinlock inserts and photochromic shields.</p>"
+}

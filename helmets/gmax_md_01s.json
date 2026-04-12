@@ -1,0 +1,201 @@
+{
+    "id": "gmax_md_01s",
+    "entity": "helmet",
+    "title": "GMax MD-01S",
+    "brand": "GMax",
+    "type": "Modular",
+    "helmet_family": "MD-01S",
+    "price": {
+        "current": 179.95,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1700,
+        "weight_lbs": 3.75,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Modular dual-sport with electric shield for cold-weather riding.",
+    "product_details": {
+        "description": "Modular dual-sport with electric shield for cold-weather riding."
+    },
+    "variants": [
+        {
+            "id": "gmax_md_01s_matte-black",
+            "entity": "helmet",
+            "title": "GMax MD-01S Matte Black",
+            "type": "Modular",
+            "parent_id": "gmax_md_01s",
+            "helmet_family": "MD-01S",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "GMA-MD01-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular dual-sport with electric shield for cold-weather riding.",
+            "product_details": {
+                "description": "Modular dual-sport with electric shield for cold-weather riding."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1700,
+                "weight_lbs": 3.75,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "gmax_md_01s_anthracite",
+            "entity": "helmet",
+            "title": "GMax MD-01S Anthracite",
+            "type": "Modular",
+            "parent_id": "gmax_md_01s",
+            "helmet_family": "MD-01S",
+            "head_shape": "Intermediate Oval",
+            "color": "Anthracite",
+            "color_family": "Grey",
+            "sku": "GMA-MD01-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular dual-sport with electric shield for cold-weather riding.",
+            "product_details": {
+                "description": "Modular dual-sport with electric shield for cold-weather riding."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1700,
+                "weight_lbs": 3.75,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Anthracite",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Anthracite+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "gmax_md_01s_pearl-white",
+            "entity": "helmet",
+            "title": "GMax MD-01S Pearl White",
+            "type": "Modular",
+            "parent_id": "gmax_md_01s",
+            "helmet_family": "MD-01S",
+            "head_shape": "Intermediate Oval",
+            "color": "Pearl White",
+            "color_family": "White",
+            "sku": "GMA-MD01-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular dual-sport with electric shield for cold-weather riding.",
+            "product_details": {
+                "description": "Modular dual-sport with electric shield for cold-weather riding."
+            },
+            "price": {
+                "current": 179.95,
+                "usd": 179.95,
+                "eur": 165.55,
+                "gbp": 142.16
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1700,
+                "weight_lbs": 3.75,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Pearl+White+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "gmax_md_01s_tech-tc-5",
+            "entity": "helmet",
+            "title": "GMax MD-01S Tech TC-5",
+            "type": "Modular",
+            "parent_id": "gmax_md_01s",
+            "helmet_family": "MD-01S",
+            "head_shape": "Intermediate Oval",
+            "color": "Tech TC-5",
+            "color_family": "Multi",
+            "sku": "GMA-MD01-TEC",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Modular dual-sport with electric shield for cold-weather riding.",
+            "product_details": {
+                "description": "Modular dual-sport with electric shield for cold-weather riding."
+            },
+            "price": {
+                "current": 229.95,
+                "usd": 229.95,
+                "eur": 211.55,
+                "gbp": 181.66
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1700,
+                "weight_lbs": 3.75,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Tech+TC-5",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Tech+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=GMax+MD-01S+Tech+TC-5+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=GMax+MD-01S+1",
+        "https://placehold.co/800x800/222/white?text=GMax+MD-01S+2",
+        "https://placehold.co/800x800/222/white?text=GMax+MD-01S+3"
+    ]
+}

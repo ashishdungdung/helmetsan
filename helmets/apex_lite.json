@@ -1,0 +1,114 @@
+{
+    "id": "apex_lite",
+    "entity": "helmet",
+    "title": "Apex Lite",
+    "brand": "Apex",
+    "type": "Open Face",
+    "helmet_family": "Lite",
+    "price": {
+        "current": 89.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 920,
+        "weight_lbs": 2.03,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Minimal open face for short trips and warm weather.",
+    "product_details": {
+        "description": "Minimal open face for short trips and warm weather."
+    },
+    "variants": [
+        {
+            "id": "apex_lite_black",
+            "entity": "helmet",
+            "title": "Apex Lite Black",
+            "type": "Open Face",
+            "parent_id": "apex_lite",
+            "helmet_family": "Lite",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "APX-LIT-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Minimal open face for short trips and warm weather.",
+            "product_details": {
+                "description": "Minimal open face for short trips and warm weather."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 920,
+                "weight_lbs": 2.03,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "apex_lite_white",
+            "entity": "helmet",
+            "title": "Apex Lite White",
+            "type": "Open Face",
+            "parent_id": "apex_lite",
+            "helmet_family": "Lite",
+            "head_shape": "Round Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-LIT-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Minimal open face for short trips and warm weather.",
+            "product_details": {
+                "description": "Minimal open face for short trips and warm weather."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 920,
+                "weight_lbs": 2.03,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+White+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "apex_quest",
+    "entity": "helmet",
+    "title": "Apex Quest",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Quest",
+    "price": {
+        "current": 279.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1730,
+        "weight_lbs": 3.81,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Modular with quick-release shield and sun visor.",
+    "product_details": {
+        "description": "Modular with quick-release shield and sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_quest_matte-black",
+            "entity": "helmet",
+            "title": "Apex Quest Matte Black",
+            "type": "Modular",
+            "parent_id": "apex_quest",
+            "helmet_family": "Quest",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-QST-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with quick-release shield and sun visor.",
+            "product_details": {
+                "description": "Modular with quick-release shield and sun visor."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1730,
+                "weight_lbs": 3.81,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_quest_grey",
+            "entity": "helmet",
+            "title": "Apex Quest Grey",
+            "type": "Modular",
+            "parent_id": "apex_quest",
+            "helmet_family": "Quest",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "APX-QST-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Modular with quick-release shield and sun visor.",
+            "product_details": {
+                "description": "Modular with quick-release shield and sun visor."
+            },
+            "price": {
+                "current": 279.99,
+                "usd": 279.99,
+                "eur": 257.59,
+                "gbp": 221.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1730,
+                "weight_lbs": 3.81,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+Grey+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Quest+3"
+    ]
+}

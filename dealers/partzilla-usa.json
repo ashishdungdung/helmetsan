@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "partzilla-usa",
+  "name": "Partzilla",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "Marietta, GA",
+  "city": "Marietta",
+  "website": "https://www.partzilla.com",
+  "online_store": true,
+  "offline_store": false,
+  "services": ["returns", "us-shipping", "oem-parts", "gear-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Scorpion", "Icon"],
+  "marketplaces": ["partzilla-us"],
+  "geo": {"lat": 33.9526, "lng": -84.5499}
+}

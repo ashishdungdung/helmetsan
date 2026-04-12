@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "arai-europe",
+  "name": "Arai Europe",
+  "type": "regional-distributor",
+  "country_code": "DE",
+  "regions": ["eu"],
+  "countries": ["DE", "AT", "CH", "FR", "IT", "ES", "GB", "NL", "BE"],
+  "brands": ["Arai"],
+  "warehouses": [
+    {"id": "de-warehouse", "city": "Munich", "country": "DE"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.arai.eu"},
+    {"type": "dealer", "url": "https://www.arai.eu/dealer-locator"}
+  ],
+  "website": "https://www.arai.eu"
+}

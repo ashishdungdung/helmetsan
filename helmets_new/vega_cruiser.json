@@ -1,0 +1,117 @@
+{
+    "id": "vega_cruiser",
+    "entity": "helmet",
+    "title": "Vega Cruiser",
+    "brand": "Vega",
+    "type": "Full Face",
+    "helmet_family": "Cruiser",
+    "price": {
+        "current": 54.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1310,
+        "weight_lbs": 2.89,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Vega Cruiser full face with double visor for daily ride.",
+    "product_details": {
+        "description": "Vega Cruiser full face with double visor for daily ride."
+    },
+    "variants": [
+        {
+            "id": "vega_cruiser_matte-black",
+            "entity": "helmet",
+            "title": "Vega Cruiser Matte Black",
+            "type": "Full Face",
+            "parent_id": "vega_cruiser",
+            "helmet_family": "Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-CRS-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Cruiser full face with double visor for daily ride.",
+            "product_details": {
+                "description": "Vega Cruiser full face with double visor for daily ride."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1310,
+                "weight_lbs": 2.89,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "vega_cruiser_white",
+            "entity": "helmet",
+            "title": "Vega Cruiser White",
+            "type": "Full Face",
+            "parent_id": "vega_cruiser",
+            "helmet_family": "Cruiser",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "VEG-CRS-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Vega Cruiser full face with double visor for daily ride.",
+            "product_details": {
+                "description": "Vega Cruiser full face with double visor for daily ride."
+            },
+            "price": {
+                "current": 54.99,
+                "usd": 54.99,
+                "eur": 50.59,
+                "gbp": 43.44
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1310,
+                "weight_lbs": 2.89,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Cruiser+3"
+    ]
+}

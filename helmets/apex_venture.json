@@ -1,0 +1,117 @@
+{
+    "id": "apex_venture",
+    "entity": "helmet",
+    "title": "Apex Venture",
+    "brand": "Apex",
+    "type": "Modular",
+    "helmet_family": "Venture",
+    "price": {
+        "current": 309.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1710,
+        "weight_lbs": 3.77,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ]
+    },
+    "description": "Touring modular with flip-up and integrated sun visor.",
+    "product_details": {
+        "description": "Touring modular with flip-up and integrated sun visor."
+    },
+    "variants": [
+        {
+            "id": "apex_venture_matte-black",
+            "entity": "helmet",
+            "title": "Apex Venture Matte Black",
+            "type": "Modular",
+            "parent_id": "apex_venture",
+            "helmet_family": "Venture",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-VEN-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring modular with flip-up and integrated sun visor.",
+            "product_details": {
+                "description": "Touring modular with flip-up and integrated sun visor."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1710,
+                "weight_lbs": 3.77,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        },
+        {
+            "id": "apex_venture_white",
+            "entity": "helmet",
+            "title": "Apex Venture White",
+            "type": "Modular",
+            "parent_id": "apex_venture",
+            "helmet_family": "Venture",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-VEN-WHT",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Touring modular with flip-up and integrated sun visor.",
+            "product_details": {
+                "description": "Touring modular with flip-up and integrated sun visor."
+            },
+            "price": {
+                "current": 309.99,
+                "usd": 309.99,
+                "eur": 285.19,
+                "gbp": 244.89
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1710,
+                "weight_lbs": 3.77,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.06"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+White+Back"
+            ],
+            "helmet_types": [
+                "Modular"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+3"
+    ]
+}

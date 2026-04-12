@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "bell-europe",
+  "name": "Bell Helmets Europe",
+  "type": "regional-distributor",
+  "country_code": "NL",
+  "regions": ["eu"],
+  "countries": ["NL", "DE", "FR", "IT", "ES", "GB", "BE"],
+  "brands": ["Bell", "Giro"],
+  "warehouses": [
+    {"id": "nl-warehouse", "city": "Amsterdam", "country": "NL"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.bellhelmets.com/eu"},
+    {"type": "support", "url": "https://www.bellhelmets.com/support"}
+  ],
+  "website": "https://www.bellhelmets.com/eu"
+}

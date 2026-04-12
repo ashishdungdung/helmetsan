@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Helmet Type",
+  "type": "object",
+  "required": ["entity", "id", "name"],
+  "properties": {
+    "entity": { "const": "helmet_type" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "use_cases": { "type": "array", "items": { "type": "string" } },
+    "common_certifications": { "type": "array", "items": { "type": "string" } },
+    "key_features": { "type": "array", "items": { "type": "string" } }
+  }
+}

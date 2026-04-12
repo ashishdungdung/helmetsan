@@ -1,0 +1,196 @@
+{
+    "id": "steelbird_adonis",
+    "entity": "helmet",
+    "title": "Steelbird Adonis",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "helmet_family": "Adonis",
+    "price": {
+        "current": 29.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 900,
+        "weight_lbs": 1.98,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Ultra-budget open face for daily commuting in warm climates.",
+    "product_details": {
+        "description": "Ultra-budget open face for daily commuting in warm climates."
+    },
+    "variants": [
+        {
+            "id": "steelbird_adonis_matte-black",
+            "entity": "helmet",
+            "title": "Steelbird Adonis Matte Black",
+            "type": "Open Face",
+            "parent_id": "steelbird_adonis",
+            "helmet_family": "Adonis",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "STE-ADON-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ultra-budget open face for daily commuting in warm climates.",
+            "product_details": {
+                "description": "Ultra-budget open face for daily commuting in warm climates."
+            },
+            "price": {
+                "current": 29.99,
+                "usd": 29.99,
+                "eur": 27.59,
+                "gbp": 23.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 900,
+                "weight_lbs": 1.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_adonis_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Steelbird Adonis Hi-Viz Yellow",
+            "type": "Open Face",
+            "parent_id": "steelbird_adonis",
+            "helmet_family": "Adonis",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "STE-ADON-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Ultra-budget open face for daily commuting in warm climates.",
+            "product_details": {
+                "description": "Ultra-budget open face for daily commuting in warm climates."
+            },
+            "price": {
+                "current": 29.99,
+                "usd": 29.99,
+                "eur": 27.59,
+                "gbp": 23.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 900,
+                "weight_lbs": 1.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Hi-Viz+Yellow",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Hi-Viz+Yellow+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_adonis_operator-tc-1",
+            "entity": "helmet",
+            "title": "Steelbird Adonis Operator TC-1",
+            "type": "Open Face",
+            "parent_id": "steelbird_adonis",
+            "helmet_family": "Adonis",
+            "head_shape": "Intermediate Oval",
+            "color": "Operator TC-1",
+            "color_family": "Multi",
+            "sku": "STE-ADON-OPE",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Ultra-budget open face for daily commuting in warm climates.",
+            "product_details": {
+                "description": "Ultra-budget open face for daily commuting in warm climates."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 900,
+                "weight_lbs": 1.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Operator+TC-1",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Operator+TC-1+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Operator+TC-1+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "steelbird_adonis_vortex-tc-2",
+            "entity": "helmet",
+            "title": "Steelbird Adonis Vortex TC-2",
+            "type": "Open Face",
+            "parent_id": "steelbird_adonis",
+            "helmet_family": "Adonis",
+            "head_shape": "Intermediate Oval",
+            "color": "Vortex TC-2",
+            "color_family": "Multi",
+            "sku": "STE-ADON-VOR",
+            "finish": "gloss",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Ultra-budget open face for daily commuting in warm climates.",
+            "product_details": {
+                "description": "Ultra-budget open face for daily commuting in warm climates."
+            },
+            "price": {
+                "current": 79.99,
+                "usd": 79.99,
+                "eur": 73.59,
+                "gbp": 63.19
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 900,
+                "weight_lbs": 1.98,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Vortex+TC-2",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Vortex+TC-2+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+Vortex+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Adonis+3"
+    ]
+}

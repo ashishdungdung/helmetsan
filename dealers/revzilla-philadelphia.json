@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "revzilla-philadelphia",
+  "name": "RevZilla Philadelphia Showroom",
+  "type": "retail",
+  "country_code": "US",
+  "region_code": "na",
+  "address": "4020 S 26th St, Philadelphia, PA",
+  "city": "Philadelphia",
+  "website": "https://www.revzilla.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "trade-support"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell"],
+  "marketplaces": ["revzilla-us", "amazon-us"],
+  "geo": {"lat": 39.9062, "lng": -75.1913}
+}

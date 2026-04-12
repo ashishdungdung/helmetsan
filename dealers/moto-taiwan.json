@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-taiwan",
+  "name": "Moto Taiwan / Webike Taiwan",
+  "type": "retail",
+  "country_code": "TW",
+  "region_code": "apac",
+  "address": "Taipei",
+  "city": "Taipei",
+  "website": "https://www.webike.tw",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "tw-shipping", "japan-imports"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "LS2", "KYT"],
+  "marketplaces": ["webike-tw"],
+  "geo": {"lat": 25.0330, "lng": 121.5654}
+}

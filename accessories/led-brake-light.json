@@ -1,0 +1,26 @@
+{
+  "entity": "accessory",
+  "id": "led-brake-light",
+  "title": "Brake Free Smart LED Helmet Light",
+  "type": "Safety",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Accelerometer-based auto brake detection",
+    "No wires — no connection to motorcycle needed",
+    "Ultra-bright 40 LED array",
+    "Visible up to 1/2 mile in daylight",
+    "USB-C rechargeable — 10 hour battery",
+    "Waterproof IP67 rating",
+    "3M VHB adhesive mount",
+    "Turn signal mode (manual activation)"
+  ],
+  "price": { "current": 89.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 89.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 79.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 7499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The Brake Free smart helmet light uses a built-in accelerometer to detect deceleration and illuminate a bright red LED array on the back of your helmet — no wires, no connection to your motorcycle needed. Dramatically increases your visibility to drivers behind you during braking. USB-C rechargeable with a 10-hour battery life.</p>"
+}

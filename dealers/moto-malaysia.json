@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-malaysia",
+  "name": "Moto Malaysia / Moto2u",
+  "type": "retail",
+  "country_code": "MY",
+  "region_code": "apac",
+  "address": "Kuala Lumpur",
+  "city": "Kuala Lumpur",
+  "website": "https://www.moto2u.com.my",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "my-shipping", "asean"],
+  "brands_stocked": ["LS2", "HJC", "AGV", "Nolan", "KYT", "MT Helmets", "Shark"],
+  "marketplaces": ["moto2u-my", "shopee", "lazada"],
+  "geo": {"lat": 3.1390, "lng": 101.6869}
+}

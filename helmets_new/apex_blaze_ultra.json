@@ -1,0 +1,117 @@
+{
+    "id": "apex_blaze_ultra",
+    "entity": "helmet",
+    "title": "Apex Blaze Ultra",
+    "brand": "Apex",
+    "type": "Full Face",
+    "helmet_family": "Blaze Ultra",
+    "price": {
+        "current": 379.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1490,
+        "weight_lbs": 3.28,
+        "certifications": [
+            "DOT",
+            "Snell M2020"
+        ]
+    },
+    "description": "Sport full face with Snell.",
+    "product_details": {
+        "description": "Sport full face with Snell."
+    },
+    "variants": [
+        {
+            "id": "apex_blaze_ultra_matte-black",
+            "entity": "helmet",
+            "title": "Apex Blaze Ultra Matte Black",
+            "type": "Full Face",
+            "parent_id": "apex_blaze_ultra",
+            "helmet_family": "Blaze Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "APX-BLU-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with Snell.",
+            "product_details": {
+                "description": "Sport full face with Snell."
+            },
+            "price": {
+                "current": 379.99,
+                "usd": 379.99,
+                "eur": 349.59,
+                "gbp": 300.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1490,
+                "weight_lbs": 3.28,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        },
+        {
+            "id": "apex_blaze_ultra_white",
+            "entity": "helmet",
+            "title": "Apex Blaze Ultra White",
+            "type": "Full Face",
+            "parent_id": "apex_blaze_ultra",
+            "helmet_family": "Blaze Ultra",
+            "head_shape": "Intermediate Oval",
+            "color": "White",
+            "color_family": "White",
+            "sku": "APX-BLU-WHI",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Sport full face with Snell.",
+            "product_details": {
+                "description": "Sport full face with Snell."
+            },
+            "price": {
+                "current": 379.99,
+                "usd": 379.99,
+                "eur": 349.59,
+                "gbp": 300.19
+            },
+            "specs": {
+                "material": "Fiberglass",
+                "weight_g": 1490,
+                "weight_lbs": 3.28,
+                "certifications": [
+                    "DOT",
+                    "Snell M2020"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White+Back"
+            ],
+            "helmet_types": [
+                "Full Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+3"
+    ]
+}

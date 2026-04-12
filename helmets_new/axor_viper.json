@@ -1,0 +1,117 @@
+{
+    "id": "axor_viper",
+    "entity": "helmet",
+    "title": "Axor Viper",
+    "brand": "Axor",
+    "type": "Open Face",
+    "helmet_family": "Viper",
+    "price": {
+        "current": 46.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 908,
+        "weight_lbs": 2,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "Axor Viper open face for city riding.",
+    "product_details": {
+        "description": "Axor Viper open face for city riding."
+    },
+    "variants": [
+        {
+            "id": "axor_viper_black",
+            "entity": "helmet",
+            "title": "Axor Viper Black",
+            "type": "Open Face",
+            "parent_id": "axor_viper",
+            "helmet_family": "Viper",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "AXR-VIP-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Viper open face for city riding.",
+            "product_details": {
+                "description": "Axor Viper open face for city riding."
+            },
+            "price": {
+                "current": 46.99,
+                "usd": 46.99,
+                "eur": 43.23,
+                "gbp": 37.12
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 908,
+                "weight_lbs": 2,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "axor_viper_grey",
+            "entity": "helmet",
+            "title": "Axor Viper Grey",
+            "type": "Open Face",
+            "parent_id": "axor_viper",
+            "helmet_family": "Viper",
+            "head_shape": "Round Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "AXR-VIP-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Axor Viper open face for city riding.",
+            "product_details": {
+                "description": "Axor Viper open face for city riding."
+            },
+            "price": {
+                "current": 46.99,
+                "usd": 46.99,
+                "eur": 43.23,
+                "gbp": 37.12
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 908,
+                "weight_lbs": 2,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+3"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "nolan-americas",
+  "name": "Nolan Americas",
+  "type": "regional-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["Nolan", "X-Lite", "Grex"],
+  "warehouses": [
+    {"id": "us-warehouse", "city": "Chicago", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "sales", "url": "https://www.nolanusa.com"},
+    {"type": "dealer", "url": "https://www.nolanusa.com/dealers"}
+  ],
+  "website": "https://www.nolanusa.com"
+}

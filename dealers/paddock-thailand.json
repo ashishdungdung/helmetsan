@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "paddock-thailand",
+  "name": "Paddock Thailand",
+  "type": "retail",
+  "country_code": "TH",
+  "region_code": "apac",
+  "address": "Bangkok",
+  "city": "Bangkok",
+  "website": "https://www.paddock.co.th",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "thailand-shipping", "asean"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "LS2", "Nolan", "MT Helmets"],
+  "marketplaces": ["paddock-th", "lazada-th"],
+  "geo": {"lat": 13.7563, "lng": 100.5018}
+}

@@ -1,0 +1,114 @@
+{
+    "id": "mt_helmets_stinger",
+    "entity": "helmet",
+    "title": "MT Helmets Stinger",
+    "brand": "MT Helmets",
+    "type": "Open Face",
+    "helmet_family": "Stinger",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1020,
+        "weight_lbs": 2.25,
+        "certifications": [
+            "ECE 22.05"
+        ]
+    },
+    "description": "MT Stinger open face with shield.",
+    "product_details": {
+        "description": "MT Stinger open face with shield."
+    },
+    "variants": [
+        {
+            "id": "mt_helmets_stinger_black",
+            "entity": "helmet",
+            "title": "MT Helmets Stinger Black",
+            "type": "Open Face",
+            "parent_id": "mt_helmets_stinger",
+            "helmet_family": "Stinger",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "MTH-STI-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Stinger open face with shield.",
+            "product_details": {
+                "description": "MT Stinger open face with shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "mt_helmets_stinger_silver",
+            "entity": "helmet",
+            "title": "MT Helmets Stinger Silver",
+            "type": "Open Face",
+            "parent_id": "mt_helmets_stinger",
+            "helmet_family": "Stinger",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "MTH-STI-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "MT Stinger open face with shield.",
+            "product_details": {
+                "description": "MT Stinger open face with shield."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1020,
+                "weight_lbs": 2.25,
+                "certifications": [
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+3"
+    ]
+}

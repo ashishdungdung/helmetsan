@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "helmet-stand",
+  "title": "BikeMaster Deluxe Helmet Stand",
+  "type": "Storage",
+  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
+  "compatible_brands": ["Universal"],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Padded cradle prevents visor scratches",
+    "Non-slip rubber base",
+    "Built-in glove dryer hooks",
+    "Collapsible design for travel",
+    "Fits all helmet sizes XS-3XL",
+    "Ventilation channels for liner drying"
+  ],
+  "price": { "current": 34.95, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 34.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 29.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 2499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>The BikeMaster Deluxe Helmet Stand keeps your helmet safe and ventilated when not in use. The padded cradle protects the visor from scratches, while built-in glove dryer hooks keep all your gear organized. Collapses flat for easy storage or travel.</p>"
+}

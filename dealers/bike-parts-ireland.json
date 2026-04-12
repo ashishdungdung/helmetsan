@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "bike-parts-ireland",
+  "name": "Bike Parts Ireland",
+  "type": "retail",
+  "country_code": "IE",
+  "region_code": "eu",
+  "address": "Dublin area",
+  "city": "Dublin",
+  "website": "https://www.bikeparts.ie",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "ireland-uk-shipping", "advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["bikeparts-ie"],
+  "geo": {"lat": 53.3498, "lng": -6.2603}
+}

@@ -1,0 +1,117 @@
+{
+    "id": "marushin_speedster",
+    "entity": "helmet",
+    "title": "Marushin Speedster",
+    "brand": "Marushin",
+    "type": "Open Face",
+    "helmet_family": "Speedster",
+    "price": {
+        "current": 129.99,
+        "currency": "USD"
+    },
+    "head_shape": "Round Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 920,
+        "weight_lbs": 2.03,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "Classic open face with modern certifications for urban and cruiser use.",
+    "product_details": {
+        "description": "Classic open face with modern certifications for urban and cruiser use."
+    },
+    "variants": [
+        {
+            "id": "marushin_speedster_black",
+            "entity": "helmet",
+            "title": "Marushin Speedster Black",
+            "type": "Open Face",
+            "parent_id": "marushin_speedster",
+            "helmet_family": "Speedster",
+            "head_shape": "Round Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "MAR-SPD-BLK",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic open face with modern certifications for urban and cruiser use.",
+            "product_details": {
+                "description": "Classic open face with modern certifications for urban and cruiser use."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 920,
+                "weight_lbs": 2.03,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "marushin_speedster_silver",
+            "entity": "helmet",
+            "title": "Marushin Speedster Silver",
+            "type": "Open Face",
+            "parent_id": "marushin_speedster",
+            "helmet_family": "Speedster",
+            "head_shape": "Round Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "MAR-SPD-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Classic open face with modern certifications for urban and cruiser use.",
+            "product_details": {
+                "description": "Classic open face with modern certifications for urban and cruiser use."
+            },
+            "price": {
+                "current": 129.99,
+                "usd": 129.99,
+                "eur": 119.59,
+                "gbp": 102.69
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 920,
+                "weight_lbs": 2.03,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Speedster+3"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "urban-rider-uk",
+  "name": "Urban Rider",
+  "type": "retail",
+  "country_code": "GB",
+  "region_code": "eu",
+  "address": "London",
+  "city": "London",
+  "website": "https://www.urbanrider.co.uk",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "next-day-delivery", "adventure-touring-gear", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Bell", "HJC", "Caberg", "Schuberth", "Nolan", "LS2"],
+  "marketplaces": ["urban-rider-uk"],
+  "geo": {"lat": 51.5074, "lng": -0.1278}
+}

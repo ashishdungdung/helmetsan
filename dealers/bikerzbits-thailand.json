@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "bikerzbits-thailand",
+  "name": "BikerzBits Thailand",
+  "type": "retail",
+  "country_code": "TH",
+  "region_code": "apac",
+  "address": "Bangkok",
+  "city": "Bangkok",
+  "website": "https://www.bikerzbits.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "thailand-shipping", "asean"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "LS2", "Nolan", "MT Helmets"],
+  "marketplaces": ["bikerzbits-th"],
+  "geo": {"lat": 13.7563, "lng": 100.5018}
+}

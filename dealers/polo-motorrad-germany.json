@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "polo-motorrad-germany",
+  "name": "Polo Motorrad",
+  "type": "retail",
+  "country_code": "DE",
+  "region_code": "eu",
+  "address": "Multiple locations across Germany",
+  "city": "Hannover",
+  "website": "https://www.polo-motorrad.de",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "in-store-pickup", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2", "Scorpion"],
+  "marketplaces": ["polo-motorrad-de", "amazon-de"],
+  "geo": {"lat": 52.3759, "lng": 9.7320}
+}

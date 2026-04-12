@@ -1,0 +1,196 @@
+{
+    "id": "vega_off_road_d_v",
+    "entity": "helmet",
+    "title": "Vega Off-Road D/V",
+    "brand": "Vega",
+    "type": "Dirt / MX",
+    "helmet_family": "Off-Road D/V",
+    "price": {
+        "current": 34.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "ABS",
+        "weight_g": 1200,
+        "weight_lbs": 2.65,
+        "certifications": [
+            "DOT"
+        ]
+    },
+    "description": "Budget off-road with adjustable visor and removable liner.",
+    "product_details": {
+        "description": "Budget off-road with adjustable visor and removable liner."
+    },
+    "variants": [
+        {
+            "id": "vega_off_road_d_v_matte-black",
+            "entity": "helmet",
+            "title": "Vega Off-Road D/V Matte Black",
+            "type": "Dirt / MX",
+            "parent_id": "vega_off_road_d_v",
+            "helmet_family": "Off-Road D/V",
+            "head_shape": "Intermediate Oval",
+            "color": "Matte Black",
+            "color_family": "Black",
+            "sku": "VEG-OFFR-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget off-road with adjustable visor and removable liner.",
+            "product_details": {
+                "description": "Budget off-road with adjustable visor and removable liner."
+            },
+            "price": {
+                "current": 34.99,
+                "usd": 34.99,
+                "eur": 32.19,
+                "gbp": 27.64
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Matte+Black+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        },
+        {
+            "id": "vega_off_road_d_v_hi-viz-yellow",
+            "entity": "helmet",
+            "title": "Vega Off-Road D/V Hi-Viz Yellow",
+            "type": "Dirt / MX",
+            "parent_id": "vega_off_road_d_v",
+            "helmet_family": "Off-Road D/V",
+            "head_shape": "Intermediate Oval",
+            "color": "Hi-Viz Yellow",
+            "color_family": "Yellow",
+            "sku": "VEG-OFFR-YEL",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "Budget off-road with adjustable visor and removable liner.",
+            "product_details": {
+                "description": "Budget off-road with adjustable visor and removable liner."
+            },
+            "price": {
+                "current": 34.99,
+                "usd": 34.99,
+                "eur": 32.19,
+                "gbp": 27.64
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Hi-Viz+Yellow+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        },
+        {
+            "id": "vega_off_road_d_v_racer-tc-2",
+            "entity": "helmet",
+            "title": "Vega Off-Road D/V Racer TC-2",
+            "type": "Dirt / MX",
+            "parent_id": "vega_off_road_d_v",
+            "helmet_family": "Off-Road D/V",
+            "head_shape": "Intermediate Oval",
+            "color": "Racer TC-2",
+            "color_family": "Multi",
+            "sku": "VEG-OFFR-RAC",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget off-road with adjustable visor and removable liner.",
+            "product_details": {
+                "description": "Budget off-road with adjustable visor and removable liner."
+            },
+            "price": {
+                "current": 84.99000000000001,
+                "usd": 84.99000000000001,
+                "eur": 78.19,
+                "gbp": 67.14
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Racer+TC-2",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Racer+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Racer+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        },
+        {
+            "id": "vega_off_road_d_v_course-tc-2",
+            "entity": "helmet",
+            "title": "Vega Off-Road D/V Course TC-2",
+            "type": "Dirt / MX",
+            "parent_id": "vega_off_road_d_v",
+            "helmet_family": "Off-Road D/V",
+            "head_shape": "Intermediate Oval",
+            "color": "Course TC-2",
+            "color_family": "Multi",
+            "sku": "VEG-OFFR-COU",
+            "finish": "matte",
+            "is_graphic": true,
+            "availability": "instock",
+            "description": "Budget off-road with adjustable visor and removable liner.",
+            "product_details": {
+                "description": "Budget off-road with adjustable visor and removable liner."
+            },
+            "price": {
+                "current": 84.99000000000001,
+                "usd": 84.99000000000001,
+                "eur": 78.19,
+                "gbp": 67.14
+            },
+            "specs": {
+                "material": "ABS",
+                "weight_g": 1200,
+                "weight_lbs": 2.65,
+                "certifications": [
+                    "DOT"
+                ]
+            },
+            "geo_media": [
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Course+TC-2",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Course+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+Course+TC-2+Back"
+            ],
+            "helmet_types": [
+                "Dirt / MX"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Off-Road+D%2FV+3"
+    ]
+}

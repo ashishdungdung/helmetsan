@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-slovenia",
+  "name": "Moto Slovenia / Moto Štromar",
+  "type": "retail",
+  "country_code": "SI",
+  "region_code": "eu",
+  "address": "Ljubljana",
+  "city": "Ljubljana",
+  "website": "https://www.motostromar.si",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "balkan"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["motostromar-si"],
+  "geo": {"lat": 46.0569, "lng": 14.5058}
+}

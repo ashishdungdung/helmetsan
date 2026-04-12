@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "moto-sport-dutch",
+  "name": "Moto-Sport Dutch",
+  "type": "retail",
+  "country_code": "NL",
+  "region_code": "eu",
+  "address": "Oude Pekela",
+  "city": "Oude Pekela",
+  "website": "https://www.moto-sport.nl",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "expert-advice"],
+  "brands_stocked": ["Shoei", "Arai", "AGV", "Schuberth", "HJC", "Nolan", "Caberg", "LS2"],
+  "marketplaces": ["moto-sport-nl"],
+  "geo": {"lat": 53.1042, "lng": 7.0083}
+}

@@ -1,0 +1,18 @@
+{
+  "entity": "distributor",
+  "id": "arai-americas",
+  "name": "Arai Americas",
+  "type": "national-distributor",
+  "country_code": "US",
+  "regions": ["na"],
+  "countries": ["US", "CA"],
+  "brands": ["Arai"],
+  "warehouses": [
+    {"id": "us-ohio", "city": "Columbus", "country": "US"}
+  ],
+  "contacts": [
+    {"type": "sales", "email": "info@araiamericas.com"},
+    {"type": "support", "url": "https://www.araiamericas.com"}
+  ],
+  "website": "https://www.araiamericas.com"
+}

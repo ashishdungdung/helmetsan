@@ -1,0 +1,17 @@
+{
+  "entity": "dealer",
+  "id": "dainese-italy",
+  "name": "Dainese Store Italy",
+  "type": "retail",
+  "country_code": "IT",
+  "region_code": "eu",
+  "address": "Vicenza & Milan",
+  "city": "Vicenza",
+  "website": "https://www.dainese.com",
+  "online_store": true,
+  "offline_store": true,
+  "services": ["helmet-fitting", "returns", "eu-shipping", "premium-racing"],
+  "brands_stocked": ["Dainese", "AGV", "Shoei", "Arai", "Bell", "Nolan", "Shark"],
+  "marketplaces": ["dainese-it", "amazon-it"],
+  "geo": {"lat": 45.5455, "lng": 11.5354}
+}

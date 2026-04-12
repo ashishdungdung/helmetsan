@@ -1,0 +1,24 @@
+{
+  "entity": "accessory",
+  "id": "transition-visor",
+  "title": "Shoei CWR-F2 Transitions Photochromic Shield",
+  "type": "Face Shield",
+  "compatible_helmet_types": ["Full Face"],
+  "compatible_brands": ["Shoei"],
+  "compatible_helmet_ids": ["shoei-rf-1400"],
+  "features": [
+    "Transitions photochromic technology — auto-darkens in sunlight",
+    "Clears in low-light and tunnel conditions",
+    "UV 400 full protection",
+    "Anti-scratch hard coat",
+    "Pinlock EVO ready",
+    "CWR-F2 base curve for RF-1400 / NXR2"
+  ],
+  "price": { "current": 149.99, "currency": "USD" },
+  "geo_pricing": {
+    "US": { "price": 149.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "EU": { "price": 139.00, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
+    "IN": { "price": 13999, "currency": "INR", "availability": "limited", "updated_at": "2026-02-20" }
+  },
+  "description": "<p>Never swap visors again. The Shoei CWR-F2 Transitions shield uses photochromic molecules that darken automatically in bright sunlight and clear within seconds in tunnels or shade. Eliminates the need to carry a separate tinted visor. Fits the Shoei RF-1400 and NXR2.</p>"
+}

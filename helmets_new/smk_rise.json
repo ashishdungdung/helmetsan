@@ -1,0 +1,117 @@
+{
+    "id": "smk_rise",
+    "entity": "helmet",
+    "title": "SMK Rise",
+    "brand": "SMK",
+    "type": "Open Face",
+    "helmet_family": "Rise",
+    "price": {
+        "current": 84.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 995,
+        "weight_lbs": 2.19,
+        "certifications": [
+            "DOT",
+            "ISI"
+        ]
+    },
+    "description": "SMK Rise open face for urban riders.",
+    "product_details": {
+        "description": "SMK Rise open face for urban riders."
+    },
+    "variants": [
+        {
+            "id": "smk_rise_black",
+            "entity": "helmet",
+            "title": "SMK Rise Black",
+            "type": "Open Face",
+            "parent_id": "smk_rise",
+            "helmet_family": "Rise",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "SMK-RIS-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Rise open face for urban riders.",
+            "product_details": {
+                "description": "SMK Rise open face for urban riders."
+            },
+            "price": {
+                "current": 84.99,
+                "usd": 84.99,
+                "eur": 78.19,
+                "gbp": 67.14
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 995,
+                "weight_lbs": 2.19,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "smk_rise_silver",
+            "entity": "helmet",
+            "title": "SMK Rise Silver",
+            "type": "Open Face",
+            "parent_id": "smk_rise",
+            "helmet_family": "Rise",
+            "head_shape": "Intermediate Oval",
+            "color": "Silver",
+            "color_family": "Grey",
+            "sku": "SMK-RIS-SLV",
+            "finish": "gloss",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Rise open face for urban riders.",
+            "product_details": {
+                "description": "SMK Rise open face for urban riders."
+            },
+            "price": {
+                "current": 84.99,
+                "usd": 84.99,
+                "eur": 78.19,
+                "gbp": 67.14
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 995,
+                "weight_lbs": 2.19,
+                "certifications": [
+                    "DOT",
+                    "ISI"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Silver",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Silver+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+Silver+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Rise+3"
+    ]
+}

@@ -1,0 +1,117 @@
+{
+    "id": "smk_dash",
+    "entity": "helmet",
+    "title": "SMK Dash",
+    "brand": "SMK",
+    "type": "Open Face",
+    "helmet_family": "Dash",
+    "price": {
+        "current": 89.99,
+        "currency": "USD"
+    },
+    "head_shape": "Intermediate Oval",
+    "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1000,
+        "weight_lbs": 2.2,
+        "certifications": [
+            "DOT",
+            "ECE 22.05"
+        ]
+    },
+    "description": "SMK Dash open face with inner sun visor.",
+    "product_details": {
+        "description": "SMK Dash open face with inner sun visor."
+    },
+    "variants": [
+        {
+            "id": "smk_dash_black",
+            "entity": "helmet",
+            "title": "SMK Dash Black",
+            "type": "Open Face",
+            "parent_id": "smk_dash",
+            "helmet_family": "Dash",
+            "head_shape": "Intermediate Oval",
+            "color": "Black",
+            "color_family": "Black",
+            "sku": "SMK-DSH-BLK",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Dash open face with inner sun visor.",
+            "product_details": {
+                "description": "SMK Dash open face with inner sun visor."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Black",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Black+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Black+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        },
+        {
+            "id": "smk_dash_grey",
+            "entity": "helmet",
+            "title": "SMK Dash Grey",
+            "type": "Open Face",
+            "parent_id": "smk_dash",
+            "helmet_family": "Dash",
+            "head_shape": "Intermediate Oval",
+            "color": "Grey",
+            "color_family": "Grey",
+            "sku": "SMK-DSH-GRE",
+            "finish": "matte",
+            "is_graphic": false,
+            "availability": "instock",
+            "description": "SMK Dash open face with inner sun visor.",
+            "product_details": {
+                "description": "SMK Dash open face with inner sun visor."
+            },
+            "price": {
+                "current": 89.99,
+                "usd": 89.99,
+                "eur": 82.79,
+                "gbp": 71.09
+            },
+            "specs": {
+                "material": "Polycarbonate",
+                "weight_g": 1000,
+                "weight_lbs": 2.2,
+                "certifications": [
+                    "DOT",
+                    "ECE 22.05"
+                ]
+            },
+            "geo_media": [
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Grey",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Grey+Side",
+                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+Grey+Back"
+            ],
+            "helmet_types": [
+                "Open Face"
+            ]
+        }
+    ],
+    "geo_media": [
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+1",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+2",
+        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Dash+3"
+    ]
+}
