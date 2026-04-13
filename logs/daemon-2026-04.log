@@ -52298,3 +52298,109 @@ WordPress database error Table 'wp_helmetsan_com.wp_helmetsan_heals' doesn't exi
 ============================================
 
 Sun Apr 12 21:40:26 UTC 2026: Synchronizing changes to GitHub...
+From github.com:ashishdungdung/helmetsan
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+error: Your local changes to the following files would be overwritten by merge:
+	logs/daemon-2026-04.log
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   logs/daemon-2026-04.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.playwright-mcp/page-2026-04-02T00-57-07-775Z.png.avif
+	helmet_images/helmet_1.jpg.avif
+	helmet_images/helmet_10.jpg.avif
+	helmet_images/helmet_11.jpg.avif
+	helmet_images/helmet_12.jpg.avif
+	helmet_images/helmet_13.jpg.avif
+	helmet_images/helmet_14.jpg.avif
+	helmet_images/helmet_15.jpg.avif
+	helmet_images/helmet_16.jpg.avif
+	helmet_images/helmet_17.jpg.avif
+	helmet_images/helmet_18.jpg.avif
+	helmet_images/helmet_19.jpg.avif
+	helmet_images/helmet_2.jpg.avif
+	helmet_images/helmet_20.jpg.avif
+	helmet_images/helmet_21.jpg.avif
+	helmet_images/helmet_22.jpg.avif
+	helmet_images/helmet_23.jpg.avif
+	helmet_images/helmet_24.jpg.avif
+	helmet_images/helmet_25.jpg.avif
+	helmet_images/helmet_26.jpg.avif
+	helmet_images/helmet_27.jpg.avif
+	helmet_images/helmet_28.jpg.avif
+	helmet_images/helmet_29.jpg.avif
+	helmet_images/helmet_3.jpg.avif
+	helmet_images/helmet_30.jpg.avif
+	helmet_images/helmet_31.jpg.avif
+	helmet_images/helmet_32.jpg.avif
+	helmet_images/helmet_33.jpg.avif
+	helmet_images/helmet_34.jpg.avif
+	helmet_images/helmet_35.jpg.avif
+	helmet_images/helmet_4.jpg.avif
+	helmet_images/helmet_5.jpg.avif
+	helmet_images/helmet_6.jpg.avif
+	helmet_images/helmet_7.jpg.avif
+	helmet_images/helmet_8.jpg.avif
+	helmet_images/helmet_9.jpg.avif
+	helmetsan-core/assets/defaults/helmet-default.png.avif
+	helmetsan-theme/assets/images/brands/arai.png.avif
+	helmetsan-theme/assets/images/brands/shoei.png.avif
+	helmetsan-theme/assets/images/categories/dirt-mx.png.avif
+	helmetsan-theme/assets/images/categories/full-face.png.avif
+	helmetsan-theme/assets/images/categories/graphics.png.avif
+	helmetsan-theme/assets/images/categories/half.png.avif
+	helmetsan-theme/assets/images/categories/modular.png.avif
+	helmetsan-theme/assets/images/categories/open-face.png.avif
+	helmetsan-theme/assets/images/categories/sale.png.avif
+	helmetsan-theme/assets/images/categories/touring.png.avif
+	helmetsan-theme/assets/images/categories/track-race.png.avif
+	helmetsan-theme/assets/images/categories/youth.png.avif
+	helmetsan-theme/assets/images/helmets/shoei-rf-1400.png.avif
+	helmetsan-theme/assets/images/hubs/accessories_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/brands_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/certification_marks_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/dealers_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/distributors_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/feature_tags_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/motorcycles_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/regions_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/safety_standard/sharp-uk-rating.png.avif
+	helmetsan-theme/assets/images/hubs/safety_standard/snell-m2020r.png.avif
+	helmetsan-theme/assets/images/hubs/safety_standards_hub_hero.png.avif
+	helmetsan-theme/assets/images/hubs/technologies_hub_hero.png.avif
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+--- Helmetsan Autonomous Hybrid Sweep (HP Mode) Started ---
+AI MODE:      SERVER
+PILOT LIMIT:  20
+CONCURRENCY:  Sequential (Plugin)
+
+🔍 Scanning catalog (Integrity+ 2.0 Engine)...
+PHP Fatal error:  Uncaught Error: Undefined constant "HS_STATE_FILE" in /var/www/helmetsan.com/public/scripts/continuous-sweep.php:193
+Stack trace:
+#0 /var/www/helmetsan.com/public/scripts/continuous-sweep.php(122): load_state()
+#1 /var/www/helmetsan.com/public/scripts/continuous-sweep.php(68): find_anomalies()
+#2 {main}
+  thrown in /var/www/helmetsan.com/public/scripts/continuous-sweep.php on line 193
+WordPress database error Table 'wp_helmetsan_com.wp_helmetsan_heals' doesn't exist for query SELECT COUNT(*) FROM wp_helmetsan_heals WHERE created_at >= '2026-04-12 05:54:26' made by Helmetsan\Core\AI\HealRepository->getStatsForPeriod
+WordPress database error Table 'wp_helmetsan_com.wp_helmetsan_heals' doesn't exist for query SELECT ai_mode, COUNT(*) as count FROM wp_helmetsan_heals WHERE created_at >= '2026-04-12 05:54:26' GROUP BY ai_mode made by Helmetsan\Core\AI\HealRepository->getStatsForPeriod
+
+============================================
+   🛡️  HELMETSAN ENRICHMENT MORNING REPORT
+   Period: Last 24 Hours
+============================================
+  Status: Quiet. No anomalies healed.
+--------------------------------------------
+   Daemon Heartbeat: OK
+   Sync Status:      CONNECTED
+============================================
+
+Mon Apr 13 05:54:26 UTC 2026: Synchronizing changes to GitHub...
