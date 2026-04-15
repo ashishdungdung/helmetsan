@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport full face with aggressive styling and good airflow.",
     "product_details": {
         "description": "Sport full face with aggressive styling and good airflow."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rush+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rush+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rush+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Rush+Red",
+        "https://placehold.co/800x800/222/white?text=Apex+Rush+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Rush+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "APX-RUS-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Schuberth R2 Carbon Urban TC-2",
     "brand": "Schuberth",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "schuberth_r2_carbon",
     "helmet_family": "R2 Carbon",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Schuberth's first pure race helmet with carbon shell and MIPS.",
     "product_details": {
         "description": "Schuberth's first pure race helmet with carbon shell and MIPS."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+R2+Carbon+Urban+TC-2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+R2+Carbon+Urban+TC-2+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+R2+Carbon+Urban+TC-2+Back"
+        "https://placehold.co/800x800/222/white?text=Schuberth+R2+Carbon+Urban+TC-2",
+        "https://placehold.co/800x800/222/white?text=Schuberth+R2+Carbon+Urban+TC-2+Side",
+        "https://placehold.co/800x800/222/white?text=Schuberth+R2+Carbon+Urban+TC-2+Back"
     ],
     "color": "Urban TC-2",
     "color_family": "Multi",
     "sku": "SCH-R2CA-URB",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

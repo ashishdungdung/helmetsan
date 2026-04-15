@@ -25,21 +25,32 @@
         "weight_lbs": 3.17,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "MT Revenge full face with ECE 22.06.",
     "product_details": {
         "description": "MT Revenge full face with ECE 22.06."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Revenge+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Revenge+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Revenge+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Revenge+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Revenge+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Revenge+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "MTH-REV-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

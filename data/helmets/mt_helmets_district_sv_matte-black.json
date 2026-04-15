@@ -25,21 +25,32 @@
         "weight_lbs": 2.43,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Urban jet helmet with retractable sun visor for city commuters.",
     "product_details": {
         "description": "Urban jet helmet with retractable sun visor for city commuters."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+District+SV+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+District+SV+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+District+SV+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+District+SV+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+District+SV+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+District+SV+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "MTH-DIST-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

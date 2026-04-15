@@ -16,7 +16,9 @@
         "weight_lbs": 3.09,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport touring with integrated sun visor and Pinlock included.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Street+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Street+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+Street+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -148,8 +150,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Spark+2+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+1",
+        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+2",
+        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

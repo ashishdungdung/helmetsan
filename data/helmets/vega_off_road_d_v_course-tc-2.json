@@ -25,7 +25,9 @@
         "weight_lbs": 2.65,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Budget off-road with adjustable visor and removable liner.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "VEG-OFFR-COU",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

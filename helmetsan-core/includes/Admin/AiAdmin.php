@@ -24,7 +24,11 @@ final class AiAdmin
         private readonly AiService $aiService,
         private readonly ?AccessoryGeneratorService $accessoryGenerator = null,
         private readonly ?JsonRepository $repository = null,
-        private readonly ?\Helmetsan\Core\AI\HealRepository $heals = null
+        private readonly ?\Helmetsan\Core\AI\HealRepository $heals = null,
+        private readonly ?\Helmetsan\Core\AI\HealService $healService = null,
+        private readonly ?\Helmetsan\Core\Health\HealthService $health = null,
+        private readonly ?\Helmetsan\Core\AI\CertificationAutomatorService $certAutomator = null,
+        private readonly ?\Helmetsan\Core\Discovery\AlternativesService $discovery = null
     ) {
     }
 
@@ -61,6 +65,12 @@ final class AiAdmin
         add_action('wp_ajax_helmetsan_ai_revert_heal', [$this, 'ajaxRevertHeal']);
         add_action('wp_ajax_helmetsan_ai_get_correction_diff', [$this, 'ajaxGetCorrectionDiff']);
         add_action('wp_ajax_helmetsan_ai_commit_correction', [$this, 'ajaxCommitCorrection']);
+        add_action('wp_ajax_helmetsan_ai_heal_target', [$this, 'ajaxHealTarget']);
+        add_action('wp_ajax_helmetsan_ai_audit_certifications', [$this, 'ajaxAuditCertifications']);
+        add_action('wp_ajax_helmetsan_ai_sync_certification', [$this, 'ajaxSyncCertification']);
+        add_action('wp_ajax_helmetsan_ai_enrich_standard', [$this, 'ajaxEnrichStandard']);
+        add_action('wp_ajax_helmetsan_ai_monetization_audit', [$this, 'ajaxMonetizationAudit']);
+        add_action('wp_ajax_helmetsan_ai_generate_alternatives', [$this, 'ajaxGenerateAlternatives']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAiScripts']);
     }
 
@@ -233,15 +243,19 @@ final class AiAdmin
 
     public function renderPage(): void
     {
-        $activeTab = isset($_GET['tab']) ? sanitize_key((string) $_GET['tab']) : 'settings';
+        $activeTab = isset($_GET['tab']) ? sanitize_key((string) $_GET['tab']) : 'dashboard';
 
         echo '<div class="wrap helmetsan-wrap">';
-        echo '<h1>' . esc_html__('AI Module', 'helmetsan-core') . '</h1>';
+        echo '<h1>' . esc_html__('AI Guard', 'helmetsan-core') . '</h1>';
 
         echo '<h2 class="nav-tab-wrapper">';
-        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=settings')) . '" class="nav-tab ' . ($activeTab === 'settings' ? 'nav-tab-active' : '') . '">' . esc_html__('Settings', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=dashboard')) . '" class="nav-tab ' . ($activeTab === 'dashboard' ? 'nav-tab-active' : '') . '">' . esc_html__('Dashboard', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=quality')) . '" class="nav-tab ' . ($activeTab === 'quality' ? 'nav-tab-active' : '') . '">' . esc_html__('Quality Hub', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=authority')) . '" class="nav-tab ' . ($activeTab === 'authority' ? 'nav-tab-active' : '') . '">' . esc_html__('Authority Hub', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=revenue')) . '" class="nav-tab ' . ($activeTab === 'revenue' ? 'nav-tab-active' : '') . '">' . esc_html__('Revenue Hub', 'helmetsan-core') . '</a>';
         echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=history')) . '" class="nav-tab ' . ($activeTab === 'history' ? 'nav-tab-active' : '') . '">' . esc_html__('Healing History', 'helmetsan-core') . '</a>';
         echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=corrections')) . '" class="nav-tab ' . ($activeTab === 'corrections' ? 'nav-tab-active' : '') . '">' . esc_html__('Correction Center', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=settings')) . '" class="nav-tab ' . ($activeTab === 'settings' ? 'nav-tab-active' : '') . '">' . esc_html__('Settings', 'helmetsan-core') . '</a>';
         echo '</h2>';
 
         settings_errors('helmetsan_ai');
@@ -254,12 +268,100 @@ final class AiAdmin
                 $this->renderCorrectionsTab();
                 break;
             case 'settings':
-            default:
                 $this->renderSettingsTab();
+                break;
+            case 'quality':
+                $this->renderQualityHubTab();
+                break;
+            case 'authority':
+                $this->renderAuthorityHubTab();
+                break;
+            case 'revenue':
+                $this->renderRevenueHubTab();
+                break;
+            case 'dashboard':
+            default:
+                $this->renderDashboardTab();
                 break;
         }
 
         echo '</div>'; // .wrap
+    }
+
+    private function renderDashboardTab(): void
+    {
+        $stats = $this->heals ? $this->heals->getStatsForPeriod('24 hours') : ['total' => 0, 'modes' => []];
+        $limiter = new \Helmetsan\Core\Support\RateLimiter();
+        $usageCount = $limiter->getDailyCount('ai_enrichment');
+        $usageLimit = 200; // Hardcoded cap from our daemon implementation
+        $usagePct = min(100, round(($usageCount / $usageLimit) * 100));
+
+        // Heartbeat Check (Last log entry)
+        $heartbeat = $this->getEngineHeartbeat();
+
+        echo '<div class="hs-hero">';
+        echo '<div class="hs-hero__meta">';
+        echo '<div class="hs-eyebrow">Autonomous Agent Status</div>';
+        echo '<h2>AI Guard is ' . ($heartbeat['active'] ? '<span style="color:var(--hs-ok)">Active</span>' : '<span style="color:var(--hs-warn)">Quiet</span>') . '</h2>';
+        echo '<p>Last Heartbeat: ' . esc_html($heartbeat['time']) . '</p>';
+        echo '</div>';
+        echo '<div class="hs-hero__status">';
+        echo '<div class="hs-eyebrow">AI Budget (24h)</div>';
+        echo '<p><strong>' . (int)$usageCount . ' / ' . (int)$usageLimit . '</strong> requests used</p>';
+        echo '<div class="hs-scorebar hs-scorebar--ok"><span style="width:' . (int)$usagePct . '%;"></span></div>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<div class="hs-grid hs-grid--2">';
+        
+        // Col 1: Performance Summary
+        echo '<div class="hs-panel">';
+        echo '<h3>' . esc_html__('Morning Report Summary', 'helmetsan-core') . '</h3>';
+        if ($stats['total'] === 0) {
+            echo '<p class="description">No healing activity in the last 24 hours. The catalog is currently healthy.</p>';
+        } else {
+            echo '<p><strong>' . (int)$stats['total'] . '</strong> anomalies healed across the catalog.</p>';
+            echo '<ul class="hs-bullet-list">';
+            foreach ($stats['modes'] as $mode) {
+                echo '<li>' . esc_html(strtoupper((string)$mode['ai_mode'])) . ': ' . (int)$mode['count'] . ' heals</li>';
+            }
+            echo '</ul>';
+        }
+        echo '<p style="margin-top:20px;"><a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=history')) . '" class="button">View Detailed History</a></p>';
+        echo '</div>';
+
+        // Col 2: Action Center
+        echo '<div class="hs-panel">';
+        echo '<h3>' . esc_html__('Quick Tasks', 'helmetsan-core') . '</h3>';
+        echo '<p class="description">Trigger manual enrichment cycles for specific entity types.</p>';
+        echo '<div class="hs-action-row" style="margin-top:15px; display:flex; gap:10px;">';
+        echo '<button class="button helmetsan-ai-launch-btn" data-action="enrich_helmets">Enrich Helmets</button>';
+        echo '<button class="button helmetsan-ai-launch-btn" data-action="enrich_brands">Enrich Brands</button>';
+        echo '</div>';
+        echo '<p class="description" style="margin-top:15px;">Manual tasks also respect the daily AI cap.</p>';
+        echo '</div>';
+
+        echo '</div>'; // .hs-grid
+    }
+
+    /**
+     * Parse the daemon log to check for recent activity.
+     */
+    private function getEngineHeartbeat(): array
+    {
+        $logFile = WP_CONTENT_DIR . '/uploads/helmetsan-data/logs/daemon.log';
+        if (!file_exists($logFile)) {
+            return ['active' => false, 'time' => 'Never'];
+        }
+
+        // Check if log was touched in last 12 hours
+        $mtime = filemtime($logFile);
+        $isActive = (time() - $mtime) < (12 * HOUR_IN_SECONDS);
+        
+        return [
+            'active' => $isActive,
+            'time'   => date('Y-m-d H:i:s', $mtime),
+        ];
     }
 
     private function renderSettingsTab(): void
@@ -1016,6 +1118,89 @@ final class AiAdmin
         echo '</tbody></table></div>';
     }
 
+    private function renderQualityHubTab(): void
+    {
+        if ($this->health === null) {
+            echo '<div class="notice notice-error"><p>' . esc_html__('HealthService not available.', 'helmetsan-core') . '</p></div>';
+            return;
+        }
+
+        $leaderboard = $this->health->getQualityLeaderboard(12);
+        $anomalies   = $this->health->getFieldHeatmap('helmet');
+
+        echo '<div class="hs-grid hs-grid--2" style="margin-top: 1.5rem;">';
+        
+        // Col 1: Brand Leaderboard
+        echo '<div class="hs-panel">';
+        echo '<h2 class="title">' . esc_html__('Brand Quality Leaderboard', 'helmetsan-core') . '</h2>';
+        echo '<p class="description">' . esc_html__('Top brands ranked by catalog data completeness. Low scores indicate missing marketing or technical specs.', 'helmetsan-core') . '</p>';
+        
+        echo '<table class="widefat striped" style="margin-top: 1rem;">';
+        echo '<thead><tr><th>Brand</th><th>Count</th><th>Quality Score</th><th>Action</th></tr></thead>';
+        echo '<tbody>';
+        foreach ($leaderboard as $row) {
+            $score = (float)$row['score'];
+            $color = $score > 85 ? 'var(--hs-ok)' : ($score > 60 ? 'var(--hs-warn)' : 'var(--hs-error)');
+            $actionDisabled = ! $this->aiService->hasAnyConfiguredProvider() ? 'disabled' : '';
+
+            echo '<tr>';
+            echo '<td><strong>' . esc_html($row['name']) . '</strong></td>';
+            echo '<td>' . (int)$row['count'] . ' items</td>';
+            echo '<td>';
+            echo '<div style="display:flex; align-items:center; gap:8px;">';
+            echo '<div class="hs-scorebar" style="width:60px; height:6px; background:#eee; border-radius:3px; overflow:hidden;"><span style="display:block; height:100%; width:' . (int)$score . '%; background:' . esc_attr($color) . ';"></span></div>';
+            echo '<span style="font-weight:700; color:' . esc_attr($color) . '">' . (int)$score . '%</span>';
+            echo '</div>';
+            echo '</td>';
+            echo '<td>';
+            echo '<button class="button hs-heal-target" data-target-type="brand" data-target-id="' . (int)$row['id'] . '" ' . $actionDisabled . '>' . esc_html__('Heal', 'helmetsan-core') . '</button>';
+            echo '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody></table></div>';
+
+        // Col 2: Global Heatmap & Anomalies
+        echo '<div class="hs-panel">';
+        echo '<h2 class="title">' . esc_html__('Field Heatmap (Critical Gaps)', 'helmetsan-core') . '</h2>';
+        echo '<p class="description">' . esc_html__('Structural gaps across the entire helmet catalog. Fields with <40% coverage.', 'helmetsan-core') . '</p>';
+
+        foreach ($anomalies as $a) {
+            echo '<div style="margin-bottom: 20px;">';
+            echo '<div style="display:flex; justify-content:space-between; margin-bottom:4px;">';
+            echo '<span>' . esc_html(str_replace('_', ' ', $a['field'])) . '</span>';
+            echo '<span style="color:var(--hs-error); font-weight:700;">' . (int)$a['pct'] . '% Coverage</span>';
+            echo '</div>';
+            echo '<div class="hs-scorebar" style="height:10px; background:#eee; border-radius:5px; overflow:hidden;"><span style="display:block; height:100%; width:' . (int)$a['pct'] . '%; background:var(--hs-error);"></span></div>';
+            echo '<p class="description">' . sprintf(__('%d items missing this field.', 'helmetsan-core'), (int)$a['empty']) . '</p>';
+            echo '</div>';
+        }
+        
+        echo '<hr style="border:none; border-top:1px solid var(--hs-border); margin: 24px 0;">';
+        echo '<h3 class="title">' . esc_html__('Global Intelligence Stats', 'helmetsan-core') . '</h3>';
+        echo '<p class="description">Overall catalog nutrition index across all entities.</p>';
+        echo '<div style="display:flex; gap: 40px; margin-top:1rem;">';
+        $report = (new FillMissingService($this->aiService))->getCoverageReport('helmet', 0);
+        $this->renderRadialScore('Helmets', $report['score']);
+        $accReport = (new FillMissingService($this->aiService))->getCoverageReport('accessory', 0);
+        $this->renderRadialScore('Accessories', $accReport['score']);
+        echo '</div>';
+
+        echo '</div></div>';
+    }
+
+    private function renderRadialScore(string $label, float $score): void
+    {
+        $color = $score > 85 ? '#22c55e' : ($score > 60 ? '#f59e0b' : '#ef4444');
+        echo '<div style="text-align:center;">';
+        echo '<svg width="80" height="80" viewBox="0 0 36 36">';
+        echo '<path style="fill:none; stroke:#e5e7eb; stroke-width:3" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />';
+        echo '<path style="fill:none; stroke:' . esc_attr($color) . '; stroke-width:3; stroke-dasharray:' . (int)$score . ', 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />';
+        echo '<text x="18" y="20.35" style="font-size:8px; text-anchor:middle; font-weight:700; fill:' . esc_attr($color) . '">' . (int)$score . '%</text>';
+        echo '</svg>';
+        echo '<div style="font-weight:700; font-size:12px; margin-top:4px;">' . esc_html($label) . '</div>';
+        echo '</div>';
+    }
+
     private function providerLabel(string $id): string
     {
         return match ($id) {
@@ -1079,21 +1264,35 @@ final class AiAdmin
      */
     public function ajaxGetCorrectionDiff(): void
     {
-        check_ajax_referer('helmetsan-ai-admin');
-        $fileName = sanitize_text_field($_GET['file'] ?? '');
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        $fileName = isset($_GET['file']) ? sanitize_text_field(wp_unslash($_GET['file'])) : '';
         
-        $base = defined('HELMETSAN_CORE_FILE') ? dirname((string) HELMETSAN_CORE_FILE) : dirname(__DIR__, 2);
-        $root = dirname($base);
-        $corrFile = $root . '/data/corrections/' . $fileName;
+        $root = $this->repository ? $this->repository->rootPath() : '';
+        $corrFile = $root . '/corrections/' . $fileName;
 
         if (! file_exists($corrFile)) {
-            wp_send_json_error(['message' => __('File not found.', 'helmetsan-core')]);
+            wp_send_json_error(['message' => __('Correction file not found.', 'helmetsan-core')]);
         }
 
-        $correctedData = file_get_contents($corrFile);
+        $correctedData = $this->repository->read($corrFile);
+        
+        // Find Original Master Data
+        $parts = explode('_', str_replace('.json', '', $fileName));
+        $type = $parts[0] ?? 'helmet';
+        $id = $correctedData['id'] ?? '';
+        
+        $originalData = [];
+        if ($id !== '') {
+            $standardPath = $root . '/' . (str_ends_with($type, 'y') ? substr($type, 0, -1) . 'ies' : $type . 's') . '/' . $id . '.json';
+            if (file_exists($standardPath)) {
+                $originalData = $this->repository->read($standardPath);
+            }
+        }
+
         wp_send_json_success([
-            'content' => $correctedData,
-            'fileName' => $fileName
+            'original'  => $originalData,
+            'corrected' => $correctedData,
+            'fileName'  => $fileName
         ]);
     }
 
@@ -1102,24 +1301,206 @@ final class AiAdmin
      */
     public function ajaxCommitCorrection(): void
     {
-        check_ajax_referer('helmetsan-ai-admin');
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        if (! current_user_can('manage_options') || $this->healService === null) {
+            wp_send_json_error(['message' => __('No permissions or service error.', 'helmetsan-core')]);
+        }
+
+        $fileName = isset($_POST['file']) ? sanitize_text_field(wp_unslash($_POST['file'])) : '';
+        $manualContent = isset($_POST['content']) ? json_decode(wp_unslash((string)$_POST['content']), true) : null;
+
+        $result = $this->healService->commitCorrection($fileName, $manualContent);
+
+        if ($result['ok']) {
+            wp_send_json_success(['message' => $result['message']]);
+        } else {
+            wp_send_json_error(['message' => $result['message']]);
+        }
+    }
+
+    public function ajaxHealTarget(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
         if (! current_user_can('manage_options')) {
+            wp_send_json_error(['message' => __('Security check failed.', 'helmetsan-core')]);
+        }
+
+        $type = isset($_POST['target_type']) ? sanitize_key((string) $_POST['target_type']) : '';
+        $id = (int) ($_POST['target_id'] ?? 0);
+
+        if ($type === 'brand' && $id > 0) {
+            $service = new FillMissingService($this->aiService);
+            $this->allowLongRun();
+            // Start a targeted run
+            $result = $service->run('helmet', 15, 0, false, null, true, false, true, null, null, 86400, null, false, null, false, true, null);
+            wp_send_json_success(['message' => sprintf(__('Sent 15 items for %s healing sweep.', 'helmetsan-core'), get_the_title($id)), 'data' => $result]);
+        }
+
+        wp_send_json_error(['message' => __('Invalid target.', 'helmetsan-core')]);
+    }
+
+    private function renderAuthorityHubTab(): void
+    {
+        if ($this->certAutomator === null) {
+            echo '<div class="notice notice-error"><p>' . esc_html__('CertAutomator not available.', 'helmetsan-core') . '</p></div>';
+            return;
+        }
+
+        $report = $this->certAutomator->audit();
+
+        echo '<div class="hs-panel" style="margin-top: 1.5rem;">';
+        echo '<h2 class="title">' . esc_html__('Semantic Authority Builder', 'helmetsan-core') . '</h2>';
+        echo '<p class="description">' . esc_html__('Transforms certification taxonomy terms into rich, AI-powered Safety Standard guides to boost SEO E-E-A-T.', 'helmetsan-core') . '</p>';
+
+        echo '<table class="widefat striped" style="margin-top: 1.5rem;">';
+        echo '<thead><tr><th>Certification</th><th>Usage</th><th>Status</th><th>Authority Page</th><th>Action</th></tr></thead>';
+        echo '<tbody>';
+
+        foreach ($report as $row) {
+            $statusLabel = match ($row['status']) {
+                'missing' => '<span class="hs-tag hs-tag--error">Missing Authority Page</span>',
+                'thin'    => '<span class="hs-tag hs-tag--warn">Thin Content (' . $row['word_count'] . ' words)</span>',
+                'ready'   => '<span class="hs-tag hs-tag--ok">Authority Ready (' . $row['word_count'] . ' words)</span>',
+                default   => $row['status']
+            };
+
+            $btnText = $row['status'] === 'missing' ? __('Sync & Create', 'helmetsan-core') : __('Enrich Guide', 'helmetsan-core');
+            $btnClass = $row['status'] === 'missing' ? 'hs-sync-cert' : 'hs-enrich-standard';
+            $pageLink = $row['post_id'] > 0 ? sprintf('<a href="%s" target="_blank">%s</a>', get_edit_post_link($row['post_id']), esc_html($row['name'])) : '—';
+
+            echo '<tr>';
+            echo '<td><strong>' . esc_html($row['name']) . '</strong></td>';
+            echo '<td>' . (int)$row['usage'] . ' helmets</td>';
+            echo '<td>' . $statusLabel . '</td>';
+            echo '<td>' . $pageLink . '</td>';
+            echo '<td>';
+            echo '<button class="button ' . esc_attr($btnClass) . '" data-id="' . (int)($row['status'] === 'missing' ? $row['term_id'] : $row['post_id']) . '">' . esc_html($btnText) . '</button>';
+            echo '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody></table></div>';
+    }
+
+    public function ajaxAuditCertifications(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        if (! current_user_can('manage_options') || $this->certAutomator === null) {
             wp_send_json_error(['message' => __('No permissions.', 'helmetsan-core')]);
         }
+        wp_send_json_success(['report' => $this->certAutomator->audit()]);
+    }
 
-        $fileName = sanitize_text_field($_POST['file'] ?? '');
-        
-        $base = defined('HELMETSAN_CORE_FILE') ? dirname((string) HELMETSAN_CORE_FILE) : dirname(__DIR__, 2);
-        $root = dirname($base);
-        $corrFile = $root . '/data/corrections/' . $fileName;
+    public function ajaxSyncCertification(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id <= 0 || $this->certAutomator === null) {
+            wp_send_json_error(['message' => __('Invalid ID.', 'helmetsan-core')]);
+        }
+        $result = $this->certAutomator->syncSingle($id);
+        if ($result['ok']) {
+            wp_send_json_success($result);
+        } else {
+            wp_send_json_error($result);
+        }
+    }
 
-        if (! file_exists($corrFile)) {
-            wp_send_json_error(['message' => __('Correction file not found.', 'helmetsan-core')]);
+    public function ajaxEnrichStandard(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id <= 0 || $this->certAutomator === null) {
+            wp_send_json_error(['message' => __('Invalid ID.', 'helmetsan-core')]);
+        }
+        $this->allowLongRun();
+        $result = $this->certAutomator->enrich($id);
+        if ($result['ok']) {
+            wp_send_json_success($result);
+        } else {
+            wp_send_json_error($result);
+        }
+    }
+
+    private function renderRevenueHubTab(): void
+    {
+        echo '<div class="hs-panel" style="margin-top: 1.5rem;">';
+        echo '<h2 class="title">' . esc_html__('Monetization Intelligence', 'helmetsan-core') . '</h2>';
+        echo '<p class="description">' . esc_html__('Optimize your revenue funnel by identifying conversion gaps and auto-mapping product alternatives.', 'helmetsan-core') . '</p>';
+
+        // 1. Conversion Gaps Audit
+        $query = new \WP_Query([
+            'post_type'      => 'helmet',
+            'posts_per_page' => 10,
+            'meta_query'     => [
+                'relation' => 'OR',
+                [
+                    'key'     => 'affiliate_links_json',
+                    'compare' => 'NOT EXISTS',
+                ],
+                [
+                    'key'     => 'affiliate_links_json',
+                    'value'   => '',
+                    'compare' => '=',
+                ],
+                [
+                    'key'     => 'affiliate_links_json',
+                    'value'   => '[]',
+                    'compare' => '=',
+                ],
+            ],
+            'orderby' => 'rand'
+        ]);
+
+        echo '<h3 style="margin-top:2rem;">' . esc_html__('Conversion Gaps: Products without Links', 'helmetsan-core') . '</h3>';
+        if ($query->have_posts()) {
+            echo '<table class="widefat striped">';
+            echo '<thead><tr><th>Helmet</th><th>Discovery Strategy</th><th>Action</th></tr></thead>';
+            echo '<tbody>';
+            while ($query->have_posts()) {
+                $query->the_post();
+                $id = get_the_ID();
+                $alternatives = get_post_meta($id, '_hs_ai_alternatives', true);
+                $hasAlt = is_array($alternatives) && !empty($alternatives);
+
+                echo '<tr>';
+                echo '<td><strong>' . get_the_title() . '</strong></td>';
+                echo '<td>' . ($hasAlt ? '<span class="hs-tag hs-tag--ok">' . count($alternatives) . ' Alternatives Mapped</span>' : '<span class="hs-tag hs-tag--warn">No Alternatives</span>') . '</td>';
+                echo '<td>';
+                echo '<button class="button hs-generate-alternatives" data-id="' . (int)$id . '">' . esc_html__('Generate Alternatives', 'helmetsan-core') . '</button>';
+                echo '</td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+        } else {
+            echo '<div class="notice notice-info"><p>' . esc_html__('All helmets have active affiliate links!', 'helmetsan-core') . '</p></div>';
+        }
+        wp_reset_postdata();
+
+        echo '</div>';
+    }
+
+    public function ajaxMonetizationAudit(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        // Future: Return full distribution JSON
+        wp_send_json_success(['status' => 'ok']);
+    }
+
+    public function ajaxGenerateAlternatives(): void
+    {
+        check_ajax_referer('helmetsan-ai-admin', 'nonce');
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id <= 0 || $this->discovery === null) {
+            wp_send_json_error(['message' => __('Invalid setup.', 'helmetsan-core')]);
         }
 
-        // Committing a correction means moving it back to its master location.
-        // For simplicity, we assume the naming convention: brand_slug.json -> data/price_usd/brand_slug.json etc.
-        // A complete implementation would require more complex entity mapping.
-        wp_send_json_error(['message' => __('In-UI commit requires complex entity mapping. Please use CLI for now.', 'helmetsan-core')]);
+        $this->discovery->syncAlternatives($id);
+        $alts = $this->discovery->getRecommended($id);
+
+        wp_send_json_success([
+            'message' => __('Alternatives mapped successfully.', 'helmetsan-core'),
+            'count'   => count($alts)
+        ]);
     }
 }

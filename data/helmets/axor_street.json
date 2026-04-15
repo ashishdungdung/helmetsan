@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Street with dual homologation and internal sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Street+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Red",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Street+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Transformer modular with optional chin-guard removal for open-face mode.",
     "product_details": {
         "description": "Transformer modular with optional chin-guard removal for open-face mode."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-GT930+Stripe+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-GT930+Stripe+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-GT930+Stripe+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-GT930+Stripe+Grey",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-GT930+Stripe+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-GT930+Stripe+Grey+Back"
     ],
     "color": "Stripe Grey",
     "color_family": "Grey",
     "sku": "SCO-EXOG-STR",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Designed for endless journeys with maximum safety.",
     "product_details": {
         "description": "Designed for endless journeys with maximum safety."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5+Back"
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5",
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5+Side",
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5+Back"
     ],
     "color": "Street TC-5",
     "color_family": "Multi",
     "sku": "AGV-TOUR-STR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

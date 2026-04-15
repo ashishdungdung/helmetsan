@@ -25,21 +25,32 @@
         "weight_lbs": 3.64,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Nexx X.G100 modular with flip-up.",
     "product_details": {
         "description": "Nexx X.G100 modular with flip-up."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G100+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G100+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G100+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G100+Grey",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G100+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G100+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "NEX-XG10-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

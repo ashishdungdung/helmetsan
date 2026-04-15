@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sporty full face with sharp lines and dual-density liner.",
     "product_details": {
         "description": "Sporty full face with sharp lines and dual-density liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Maverick+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Maverick+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Apex+Maverick+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Maverick+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "APX-MAV-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

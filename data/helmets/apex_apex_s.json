@@ -18,7 +18,9 @@
             "DOT",
             "Snell M2020",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Flagship full face with carbon shell and premium liner.",
     "product_details": {
@@ -60,9 +62,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -103,9 +105,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Carbon",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Carbon+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Carbon+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Carbon",
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Carbon+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Carbon+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -113,8 +115,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

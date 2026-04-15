@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "CKX Mission AMS",
     "brand": "CKX",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Mission AMS",
     "price": {
         "current": 349.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "All-season adventure with carbon fiber chin bar and heated shield.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "ckx_mission_ams_matte-black",
             "entity": "helmet",
             "title": "CKX Mission AMS Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ckx_mission_ams",
             "helmet_family": "Mission AMS",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "ckx_mission_ams_anthracite",
             "entity": "helmet",
             "title": "CKX Mission AMS Anthracite",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ckx_mission_ams",
             "helmet_family": "Mission AMS",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Anthracite",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Anthracite+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "ckx_mission_ams_pearl-white",
             "entity": "helmet",
             "title": "CKX Mission AMS Pearl White",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ckx_mission_ams",
             "helmet_family": "Mission AMS",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "ckx_mission_ams_vortex-tc-1",
             "entity": "helmet",
             "title": "CKX Mission AMS Vortex TC-1",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ckx_mission_ams",
             "helmet_family": "Mission AMS",
             "head_shape": "Intermediate Oval",
@@ -184,18 +186,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Vortex+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Vortex+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Vortex+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Vortex+TC-1",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Vortex+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Vortex+TC-1+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+1",
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+2",
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

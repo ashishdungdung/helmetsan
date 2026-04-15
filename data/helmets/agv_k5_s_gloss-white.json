@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range sport-touring with internal sun visor and wide field of view.",
     "product_details": {
         "description": "Mid-range sport-touring with internal sun visor and wide field of view."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K5+S+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K5+S+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K5+S+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=AGV+K5+S+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=AGV+K5+S+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=AGV+K5+S+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "AGV-K5S-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

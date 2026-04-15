@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport full face with Snell.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+White+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Ultra+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Ultra+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

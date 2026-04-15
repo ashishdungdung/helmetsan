@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Designed for endless journeys with maximum safety.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Urban+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Urban+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Urban+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Urban+TC-3",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Urban+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Urban+TC-3+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Camo+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Camo+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Camo+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Camo+TC-2",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Camo+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Camo+TC-2+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+Street+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+Street+TC-5+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+Tourmodular+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+1",
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+2",
+        "https://placehold.co/800x800/222/white?text=AGV+Tourmodular+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

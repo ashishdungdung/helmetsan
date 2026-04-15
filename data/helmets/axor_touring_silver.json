@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets.",
     "product_details": {
         "description": "Axor touring helmet with drop-down sun visor and Bluetooth-ready pockets."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Touring+Silver+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Touring+Silver",
+        "https://placehold.co/800x800/222/white?text=Axor+Touring+Silver+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Touring+Silver+Back"
     ],
     "color": "Silver",
     "color_family": "Grey",
     "sku": "AXR-TOU-SLV",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

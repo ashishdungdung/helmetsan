@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Heritage styling with modern Arai protection.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Operator+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Operator+Blue",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Operator+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Operator+Blue+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Street+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Street+TC-3",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Street+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Street+TC-3+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -236,8 +238,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+1",
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+2",
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

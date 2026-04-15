@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Suomy SR-GP Evo Anthracite",
     "brand": "Suomy",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "suomy_sr_gp_evo",
     "helmet_family": "SR-GP Evo",
@@ -27,21 +27,32 @@
         "certifications": [
             "ECE 22.06",
             "FIM"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "FIM-homologated race helmet worn in World Superbike Championship.",
     "product_details": {
         "description": "FIM-homologated race helmet worn in World Superbike Championship."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+SR-GP+Evo+Anthracite",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+SR-GP+Evo+Anthracite+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+SR-GP+Evo+Anthracite+Back"
+        "https://placehold.co/800x800/222/white?text=Suomy+SR-GP+Evo+Anthracite",
+        "https://placehold.co/800x800/222/white?text=Suomy+SR-GP+Evo+Anthracite+Side",
+        "https://placehold.co/800x800/222/white?text=Suomy+SR-GP+Evo+Anthracite+Back"
     ],
     "color": "Anthracite",
     "color_family": "Grey",
     "sku": "SUO-SRGP-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

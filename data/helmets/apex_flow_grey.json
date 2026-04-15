@@ -25,7 +25,9 @@
         "weight_lbs": 2.07,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Light open face for city and warm-weather riding.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "APX-FLO-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

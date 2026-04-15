@@ -75,25 +75,40 @@ final class Admin
 
     public function registerMenu(): void
     {
+        // 1. Dashboard (Discover)
         add_menu_page('Helmetsan', 'Helmetsan', 'manage_options', 'helmetsan-dashboard', [$this, 'dashboardPage'], 'dashicons-admin-site', 2);
+        add_submenu_page('helmetsan-dashboard', 'Dashboard', 'Dashboard', 'manage_options', 'helmetsan-dashboard', [$this, 'dashboardPage']);
 
+        // 2. Catalog
         add_submenu_page('helmetsan-dashboard', 'Catalog', 'Catalog', 'manage_options', 'helmetsan-catalog', [$this, 'catalogPage']);
-        add_submenu_page('helmetsan-dashboard', 'Commerce Engines', 'Commerce Engines', 'manage_options', 'helmetsan-commerce-engines', [$this, 'commerceEnginesPage']);
-        add_submenu_page('helmetsan-dashboard', 'Woo Bridge', 'Woo Bridge', 'manage_options', 'helmetsan-woo-bridge', [$this, 'wooBridgePage']);
         add_submenu_page('helmetsan-dashboard', 'Brands', 'Brands', 'manage_options', 'helmetsan-brands', [$this, 'brandsPage']);
-        add_submenu_page('helmetsan-dashboard', 'Ingestion', 'Ingestion', 'manage_options', 'helmetsan-ingestion', [$this, 'ingestionPage']);
-        add_submenu_page('helmetsan-dashboard', 'Data / Reseed', 'Data / Reseed', 'manage_options', 'helmetsan-reseed', [$this, 'reseedPage']);
-        add_submenu_page('helmetsan-dashboard', 'Data / Duplicates', 'Data / Duplicates', 'manage_options', 'helmetsan-data-duplicates', [$this, 'dataDuplicatesPage']);
-        add_submenu_page('helmetsan-dashboard', 'Sync Logs', 'Sync Logs', 'manage_options', 'helmetsan-sync-logs', [$this, 'syncLogsPage']);
-        add_submenu_page('helmetsan-dashboard', 'Health', 'Health', 'manage_options', 'helmetsan-repo-health', [$this, 'repoHealthPage']);
-        add_submenu_page('helmetsan-dashboard', 'Analytics', 'Analytics', 'manage_options', 'helmetsan-analytics', [$this, 'analyticsPage']);
+
+        // 3. AI Guard (The Pulse)
+        // Note: AI Admin is registered by AiAdmin::addMenu, but we can ensure it's here for ordering logic
+        // We'll rename "AI Tasks" to "AI Enrichment" or group it
+        add_submenu_page('helmetsan-dashboard', 'AI Guard', 'AI Guard', 'manage_options', 'helmetsan-ai', [$this->aiAdmin, 'renderPage']);
+
+        // 4. Commerce
+        add_submenu_page('helmetsan-dashboard', 'Commerce', 'Commerce', 'manage_options', 'helmetsan-commerce-engines', [$this, 'commerceEnginesPage']);
+        add_submenu_page('helmetsan-dashboard', 'Woo Bridge', 'Woo Bridge', 'manage_options', 'helmetsan-woo-bridge', [$this, 'wooBridgePage']);
         add_submenu_page('helmetsan-dashboard', 'Revenue', 'Revenue', 'manage_options', 'helmetsan-revenue', [$this, 'revenuePage']);
-        add_submenu_page('helmetsan-dashboard', 'Contributions', 'Contributions', 'manage_options', 'helmetsan-contributions', [$this, 'contributionsPage']);
-        add_submenu_page('helmetsan-dashboard', 'Import/Export', 'Import/Export', 'manage_options', 'helmetsan-import-export', [$this, 'importExportPage']);
-        add_submenu_page('helmetsan-dashboard', 'Go Live', 'Go Live', 'manage_options', 'helmetsan-go-live', [$this, 'goLivePage']);
-        add_submenu_page('helmetsan-dashboard', 'Docs', 'Docs', 'manage_options', 'helmetsan-docs', [$this, 'docsPage']);
-        add_submenu_page('helmetsan-dashboard', 'AI Tasks', 'AI Tasks', 'manage_options', 'helmetsan-ai-tasks', [$this, 'aiTasksPage']);
+
+        // 5. Data & Ingestion
+        add_submenu_page('helmetsan-dashboard', 'Data Operations', 'Data Operations', 'manage_options', 'helmetsan-ingestion', [$this, 'ingestionPage']);
+        // Hidden sub-pages (will be accessible via tabs)
+        add_submenu_page(null, 'Reseed', 'Reseed', 'manage_options', 'helmetsan-reseed', [$this, 'reseedPage']);
+        add_submenu_page(null, 'Duplicates', 'Duplicates', 'manage_options', 'helmetsan-data-duplicates', [$this, 'dataDuplicatesPage']);
+        add_submenu_page(null, 'Import/Export', 'Import/Export', 'manage_options', 'helmetsan-import-export', [$this, 'importExportPage']);
+        add_submenu_page(null, 'Sync Logs', 'Sync Logs', 'manage_options', 'helmetsan-sync-logs', [$this, 'syncLogsPage']);
+
+        // 6. Settings & System
         add_submenu_page('helmetsan-dashboard', 'Settings', 'Settings', 'manage_options', 'helmetsan-settings', [$this, 'settingsPage']);
+        // Technical pages hidden from main sidebar, moved to "System" tab inside Settings
+        add_submenu_page(null, 'Health', 'Health', 'manage_options', 'helmetsan-repo-health', [$this, 'repoHealthPage']);
+        add_submenu_page(null, 'Analytics', 'Analytics', 'manage_options', 'helmetsan-analytics', [$this, 'analyticsPage']);
+        add_submenu_page(null, 'Go Live', 'Go Live', 'manage_options', 'helmetsan-go-live', [$this, 'goLivePage']);
+        add_submenu_page(null, 'Docs', 'Docs', 'manage_options', 'helmetsan-docs', [$this, 'docsPage']);
+        add_submenu_page(null, 'Contributions', 'Contributions', 'manage_options', 'helmetsan-contributions', [$this, 'contributionsPage']);
     }
 
     public function enqueueAssets(string $hook): void
@@ -114,6 +129,14 @@ final class Admin
             [],
             HELMETSAN_CORE_VERSION
         );
+
+        wp_enqueue_style(
+            'helmetsan-admin-modal',
+            HELMETSAN_CORE_URL . 'assets/admin/admin-modal.css',
+            ['helmetsan-admin-mac-ui'],
+            HELMETSAN_CORE_VERSION
+        );
+
         wp_enqueue_script(
             'helmetsan-admin-mac-ui',
             HELMETSAN_CORE_URL . 'assets/admin/mac-ui.js',
@@ -142,19 +165,29 @@ final class Admin
     {
         $links = [
             'helmetsan-dashboard' => 'Discover',
-            'helmetsan-catalog' => 'Catalog',
+            'helmetsan-catalog'   => 'Catalog',
+            'helmetsan-ai'        => 'AI Guard',
+            'helmetsan-ingestion' => 'Data',
             'helmetsan-commerce-engines' => 'Commerce',
-            'helmetsan-woo-bridge' => 'Woo Bridge',
-            'helmetsan-brands' => 'Brands',
-            'helmetsan-media-engine' => 'Media',
-            'helmetsan-sync-logs' => 'Sync',
-            'helmetsan-analytics' => 'Analytics',
-            'helmetsan-go-live' => 'Go Live',
-            'helmetsan-settings' => 'Settings',
+            'helmetsan-settings'  => 'Settings',
+            'helmetsan-system'    => 'System',
         ];
+
         $active = isset($_GET['page']) ? sanitize_key((string) $_GET['page']) : '';
 
+        // Unified Routing
+        if (in_array($active, ['helmetsan-woo-bridge', 'helmetsan-revenue'], true)) {
+            $active = 'helmetsan-commerce-engines';
+        }
+        if (in_array($active, ['helmetsan-reseed', 'helmetsan-data-duplicates', 'helmetsan-sync-logs'], true)) {
+            $active = 'helmetsan-ingestion';
+        }
+        if (in_array($active, ['helmetsan-repo-health', 'helmetsan-analytics', 'helmetsan-go-live', 'helmetsan-docs', 'helmetsan-contributions'], true)) {
+            $active = 'helmetsan-system';
+        }
+
         echo '<div class="hs-shell-header">';
+        $this->renderBreadcrumbs($active);
         echo '<div class="hs-shell-title-wrap">';
         echo '<h1 class="hs-shell-title">' . esc_html($title) . '</h1>';
         if ($subtitle !== '') {
@@ -170,6 +203,32 @@ final class Admin
         echo '</div>';
         echo '</div>';
     }
+
+    private function renderBreadcrumbs(string $activePage): void
+    {
+        $page = isset($_GET['page']) ? sanitize_key((string) $_GET['page']) : '';
+        if ($page === 'helmetsan-dashboard') return;
+
+        echo '<nav class="hs-breadcrumbs">';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-dashboard')) . '">Helmetsan</a>';
+        
+        if ($page !== $activePage) {
+            // We are on a "Deep" page
+            $parentLabel = '';
+            switch ($activePage) {
+                case 'helmetsan-ingestion': $parentLabel = 'Data'; break;
+                case 'helmetsan-commerce-engines': $parentLabel = 'Commerce'; break;
+                case 'helmetsan-settings': $parentLabel = 'Settings'; break;
+            }
+            if ($parentLabel !== '') {
+                echo ' <span class="sep">/</span> <a href="' . esc_url(admin_url('admin.php?page=' . $activePage)) . '">' . esc_html($parentLabel) . '</a>';
+            }
+        }
+        
+        echo ' <span class="sep">/</span> <span class="current">' . esc_html(get_admin_page_title()) . '</span>';
+        echo '</nav>';
+    }
+
 
     /**
      * @param array<int,array{label:string,value:string,page:string}> $cards

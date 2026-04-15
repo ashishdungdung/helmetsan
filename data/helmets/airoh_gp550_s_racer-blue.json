@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Airoh GP550 S Racer Blue",
     "brand": "Airoh",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "airoh_gp550_s",
     "helmet_family": "GP550 S",
@@ -25,21 +25,32 @@
         "weight_lbs": 2.76,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Italian racetrack helmet with carbon-aramid shell and multi-density EPS.",
     "product_details": {
         "description": "Italian racetrack helmet with carbon-aramid shell and multi-density EPS."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue",
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue+Back"
     ],
     "color": "Racer Blue",
     "color_family": "Blue",
     "sku": "AIR-GP55-RAC",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

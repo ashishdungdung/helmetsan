@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Versatile road helmet with internal sun visor.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "matte",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Unveil the AGV K3 Camo TC-5, an Intermediate Oval masterpiece blending MIPS safety, aerodynamic design, and bold style. Experience unmatched protection today. Compare prices and shop now at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

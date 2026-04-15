@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Aero open face with flip visor for city.",
     "product_details": {
         "description": "Axor Aero open face with flip visor for city."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Aero+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Aero+Grey",
+        "https://placehold.co/800x800/222/white?text=Axor+Aero+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Aero+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "AXR-AER-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

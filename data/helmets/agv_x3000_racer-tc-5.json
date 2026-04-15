@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Inspired by the historic models worn by Agostini.",
     "product_details": {
         "description": "Inspired by the historic models worn by Agostini."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+X3000+Racer+TC-5",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+X3000+Racer+TC-5+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+X3000+Racer+TC-5+Back"
+        "https://placehold.co/800x800/222/white?text=AGV+X3000+Racer+TC-5",
+        "https://placehold.co/800x800/222/white?text=AGV+X3000+Racer+TC-5+Side",
+        "https://placehold.co/800x800/222/white?text=AGV+X3000+Racer+TC-5+Back"
     ],
     "color": "Racer TC-5",
     "color_family": "Multi",
     "sku": "AGV-X300-RAC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

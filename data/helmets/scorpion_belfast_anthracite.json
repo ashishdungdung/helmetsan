@@ -25,7 +25,9 @@
         "weight_lbs": 2.43,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Retro open face with internal sun visor and fiberglass shell.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "SCO-BELF-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

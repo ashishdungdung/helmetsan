@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Rally open face with adjustable visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey",
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

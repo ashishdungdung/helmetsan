@@ -51,6 +51,11 @@ deploy_component() {
     local name=$3
 
     echo "[${name}] Syncing..."
+    
+    # We use SSH Multiplexing to collapse all parallel SSH connections into a single underlying TCP connection.
+    # This prevents the server's fail2ban firewall from seeing multiple rapid parallel login attempts.
+    local SSH_OPTS="ssh -o ControlMaster=auto -o ControlPath=/tmp/hs-deploy-ssh-%r@%h:%p -o ControlPersist=10m"
+
     if [ "$USE_EXPECT" = true ]; then
         if "$EXPECT_RSYNC" "$PASSWORD" "$src" "${USER}@${HOST}:${dest}"; then
             echo "[${name}] ✅ Done!"
@@ -60,7 +65,7 @@ deploy_component() {
         fi
     else
         # Sync folder as folder (no trailing slash on src) so we get themes/helmetsan-theme/ and plugins/helmetsan-core/
-        if rsync -avz --delete -e ssh "$src" "${USER}@${HOST}:${dest}"; then
+        if rsync -avz --delete -e "$SSH_OPTS" "$src" "${USER}@${HOST}:${dest}"; then
             echo "[${name}] ✅ Done!"
         else
             echo "[${name}] ❌ Failed!"
@@ -69,6 +74,12 @@ deploy_component() {
     fi
 }
 
+# Ensure master SSH connection is established first to prevent race conditions during parallel startup
+if [ "$USE_EXPECT" = false ]; then
+    echo "⚡ Bootstrapping shared SSH connection..."
+    ssh -o ControlMaster=auto -o ControlPath=/tmp/hs-deploy-ssh-%r@%h:%p -o ControlPersist=10m -fN "${USER}@${HOST}" || true
+fi
+
 # Run in parallel
 deploy_component "$THEME_SRC" "$THEME_DEST" "Theme" &
 PID_THEME=$!
@@ -76,9 +87,17 @@ PID_THEME=$!
 deploy_component "$PLUGIN_SRC" "$PLUGIN_DEST" "Plugin" &
 PID_PLUGIN=$!
 
-# Wait for both processes
+deploy_component "$SCRIPT_DIR" "${REMOTE_WP_PATH}/" "Scripts" &
+PID_SCRIPTS=$!
+
+deploy_component "$PROJECT_DIR/data" "${REMOTE_WP_PATH}/" "Data" &
+PID_DATA=$!
+
+# Wait for all processes
 wait $PID_THEME
 wait $PID_PLUGIN
+wait $PID_SCRIPTS
+wait $PID_DATA
 
 # Deploy ads.txt to site root (required for AdSense; IAB ads.txt at domain root)
 if [ -f "$PROJECT_DIR/ads.txt" ]; then

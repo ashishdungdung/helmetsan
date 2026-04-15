@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird Swift open face with flip visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Yellow",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Yellow+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -281,4 +281,32 @@ final class ContextBuilder
             . "2. Maintain existing data structures for nested fields.\n"
             . "3. Output ONLY valid JSON, no markdown, no prose.";
     }
+
+    /**
+     * Build a prompt for generating a technical deep-dive guide for a Safety Standard (CPT).
+     * Focuses on SEO authority, testing protocols, and regional legal status.
+     */
+    public static function forSafetyStandard(string $name, array $context = []): string
+    {
+        $prompt = "You are a world-class safety engineer and technical writer specializing in motorcycle helmet certifications.\n"
+            . "Standard: {$name}\n";
+        
+        if (! empty($context)) {
+            $prompt .= "Known Context: " . json_encode($context) . "\n";
+        }
+
+        $prompt .= "\nTask: Write a comprehensive technical guide (600-800 words) for this safety standard.\n"
+            . "Requirements:\n"
+            . "1. Style: Technical, authoritative, and structured for web reading (use Markdown headers).\n"
+            . "2. Required Sections:\n"
+            . "   - Overview: What is this standard and who issues it?\n"
+            . "   - Testing Protocol: Details on drop tests, g-force limits, rotational acceleration, and shell penetration tests.\n"
+            . "   - Comparison: How it differs from other major standards (DOT, ECE, SNELL).\n"
+            . "   - Legal Status: Where is it mandatory? Does it allow for racing usage?\n"
+            . "   - Pros/Cons: A factual look at the level of protection it offers.\n"
+            . "3. Output: Clean Markdown. No preamble, no quotes, no 'Here is your guide'.\n"
+            . "4. Tone: High-trust, factual, geared towards motorcycle safety enthusiasts and racers.";
+
+        return $prompt;
+    }
 }

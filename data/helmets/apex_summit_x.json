@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium touring helmet with drop-down sun visor and quiet interior.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Silver",
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Summit+X+Silver+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+X+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+X+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

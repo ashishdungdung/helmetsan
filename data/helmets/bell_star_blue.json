@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Bell Star full face with good ventilation.",
     "product_details": {
         "description": "Bell Star full face with good ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Star+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Bell+Star+Blue",
+        "https://placehold.co/800x800/222/white?text=Bell+Star+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Bell+Star+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "BEL-STR-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

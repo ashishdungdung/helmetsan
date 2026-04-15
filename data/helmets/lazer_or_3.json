@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Lazer OR-3",
     "brand": "Lazer",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "OR-3",
     "price": {
         "current": 349.99,
@@ -16,7 +16,9 @@
         "weight_lbs": 3.42,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Dual-sport adventure with removable peak and Pinlock-ready visor.",
     "product_details": {
@@ -27,7 +29,7 @@
             "id": "lazer_or_3_matte-black",
             "entity": "helmet",
             "title": "Lazer OR-3 Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "lazer_or_3",
             "helmet_family": "OR-3",
             "head_shape": "Intermediate Oval",
@@ -56,19 +58,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "lazer_or_3_anthracite",
             "entity": "helmet",
             "title": "Lazer OR-3 Anthracite",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "lazer_or_3",
             "helmet_family": "OR-3",
             "head_shape": "Intermediate Oval",
@@ -97,19 +99,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Anthracite+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "lazer_or_3_pearl-white",
             "entity": "helmet",
             "title": "Lazer OR-3 Pearl White",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "lazer_or_3",
             "helmet_family": "OR-3",
             "head_shape": "Intermediate Oval",
@@ -138,19 +140,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Pearl+White+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "lazer_or_3_apex-tc-1",
             "entity": "helmet",
             "title": "Lazer OR-3 Apex TC-1",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "lazer_or_3",
             "helmet_family": "OR-3",
             "head_shape": "Intermediate Oval",
@@ -179,18 +181,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Apex+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Apex+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+Apex+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Apex+TC-1",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Apex+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+OR-3+Apex+TC-1+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+OR-3+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Lazer+OR-3+1",
+        "https://placehold.co/800x800/222/white?text=Lazer+OR-3+2",
+        "https://placehold.co/800x800/222/white?text=Lazer+OR-3+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

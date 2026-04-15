@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium carbon shell from Sedici's flagship line.",
     "product_details": {
         "description": "Premium carbon shell from Sedici's flagship line."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+Carbon+Street+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+Carbon+Street+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+Carbon+Street+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+Carbon+Street+TC-3",
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+Carbon+Street+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+Carbon+Street+TC-3+Back"
     ],
     "color": "Street TC-3",
     "color_family": "Multi",
     "sku": "SED-STRA-STR",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

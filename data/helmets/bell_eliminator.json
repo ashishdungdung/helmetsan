@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+Grey",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Stripe+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Stripe+Grey",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Stripe+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Stripe+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Tech+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+TC-3",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Tech+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+Urban+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Urban+TC-2",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Urban+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Eliminator+Urban+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Eliminator+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Bell+Eliminator+1",
+        "https://placehold.co/800x800/222/white?text=Bell+Eliminator+2",
+        "https://placehold.co/800x800/222/white?text=Bell+Eliminator+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

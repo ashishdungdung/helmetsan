@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Apex Scrambler Black",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "apex_scrambler",
     "helmet_family": "Scrambler",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Scrambler-style adventure helmet with peak and goggles-ready.",
     "product_details": {
         "description": "Scrambler-style adventure helmet with peak and goggles-ready."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scrambler+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Scrambler+Black",
+        "https://placehold.co/800x800/222/white?text=Apex+Scrambler+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Scrambler+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "APX-SCR-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

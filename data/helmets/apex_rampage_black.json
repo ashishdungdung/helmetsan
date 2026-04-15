@@ -25,7 +25,9 @@
         "weight_lbs": 3.51,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "MX-style off-road helmet with removable peak and goggles.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "APX-RMP-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

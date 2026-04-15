@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Apex Rally X Carbon",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "apex_rally_x",
     "helmet_family": "Rally X",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium adventure helmet with carbon shell and peak.",
     "product_details": {
         "description": "Premium adventure helmet with carbon shell and peak."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+X+Carbon",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+X+Carbon+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+X+Carbon+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+X+Carbon",
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+X+Carbon+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+X+Carbon+Back"
     ],
     "color": "Carbon",
     "color_family": "Carbon",
     "sku": "APX-RLX-CAR",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

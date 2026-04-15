@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Bell Moto-9S Flex Fasthouse DID",
     "brand": "Bell",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "bell_moto_9s_flex",
     "helmet_family": "Moto-9S Flex",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Pro-level protection for the dirt track.",
     "product_details": {
         "description": "Pro-level protection for the dirt track."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Moto-9S+Flex+Fasthouse+DID",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Moto-9S+Flex+Fasthouse+DID+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Moto-9S+Flex+Fasthouse+DID+Back"
+        "https://placehold.co/800x800/222/white?text=Bell+Moto-9S+Flex+Fasthouse+DID",
+        "https://placehold.co/800x800/222/white?text=Bell+Moto-9S+Flex+Fasthouse+DID+Side",
+        "https://placehold.co/800x800/222/white?text=Bell+Moto-9S+Flex+Fasthouse+DID+Back"
     ],
     "color": "Fasthouse DID",
     "color_family": "Black",
     "sku": "BEL-M9S-FAS",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

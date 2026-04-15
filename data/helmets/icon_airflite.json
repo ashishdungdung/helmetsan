@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Aggressive styling with massive ventilation.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Racer+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Racer+Grey",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Racer+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Racer+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+Street+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Street+TC-3",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Street+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airflite+Street+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airflite+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Icon+Airflite+1",
+        "https://placehold.co/800x800/222/white?text=Icon+Airflite+2",
+        "https://placehold.co/800x800/222/white?text=Icon+Airflite+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

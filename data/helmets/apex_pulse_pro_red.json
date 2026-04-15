@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Full face with modern styling and ventilation.",
     "product_details": {
         "description": "Full face with modern styling and ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pulse+Pro+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+Pro+Red",
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+Pro+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Pulse+Pro+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "APX-PLP-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

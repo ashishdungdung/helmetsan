@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium modular with double-D ring and sun visor.",
     "product_details": {
         "description": "Premium modular with double-D ring and sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Summit+White+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+White",
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+White+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Summit+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "APX-SUM-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

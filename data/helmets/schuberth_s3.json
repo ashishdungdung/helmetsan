@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport touring with acoustic optimization.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+Blue",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Apex+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Apex+TC-1",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Apex+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Apex+TC-1+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Urban+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+TC-5",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Urban+TC-5+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+Operator+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Operator+TC-5",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Operator+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+S3+Operator+TC-5+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+S3+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Schuberth+S3+1",
+        "https://placehold.co/800x800/222/white?text=Schuberth+S3+2",
+        "https://placehold.co/800x800/222/white?text=Schuberth+S3+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

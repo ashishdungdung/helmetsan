@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport-touring with integrated sun visor and autoseal system.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Vortex+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Vortex+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Vortex+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Vortex+TC-2",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Vortex+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Vortex+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Raptor+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Raptor+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Raptor+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Raptor+TC-5",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Raptor+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Raptor+TC-5+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Solid+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Solid+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Solid+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Solid+TC-2",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Solid+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Solid+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -236,8 +238,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+1",
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+2",
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

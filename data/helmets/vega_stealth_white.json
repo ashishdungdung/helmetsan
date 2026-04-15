@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Stealth full face with double visor and anti-scratch.",
     "product_details": {
         "description": "Vega Stealth full face with double visor and anti-scratch."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+White",
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+White+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "VEG-STL-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

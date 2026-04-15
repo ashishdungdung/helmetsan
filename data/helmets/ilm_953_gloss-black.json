@@ -25,7 +25,9 @@
         "weight_lbs": 3.53,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level full face for new riders seeking basic DOT protection.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "ILM-953-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

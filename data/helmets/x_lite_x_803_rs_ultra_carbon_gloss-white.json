@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium sport helmet with full carbon shell and race-bred aerodynamics.",
     "product_details": {
         "description": "Premium sport helmet with full carbon shell and race-bred aerodynamics."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=X-Lite+X-803+RS+Ultra+Carbon+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "XLT-803-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

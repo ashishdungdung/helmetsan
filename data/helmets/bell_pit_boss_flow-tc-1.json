@@ -16,8 +16,7 @@
         "gbp": 181.66
     },
     "certifications": [
-        "DOT",
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 950,
         "weight_lbs": 2.09,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium half-helmet with drop-down sun shield.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "BEL-PITB-FLO",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

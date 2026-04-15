@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with integrated sun visor and comfortable liner.",
     "product_details": {
         "description": "Touring helmet with integrated sun visor and comfortable liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue",
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "APX-TRK-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

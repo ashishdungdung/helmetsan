@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Street with dual homologation and internal sun visor.",
     "product_details": {
         "description": "Axor Street with dual homologation and internal sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Red",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "AXR-STR-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

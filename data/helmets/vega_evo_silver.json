@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Evo open face with flip visor.",
     "product_details": {
         "description": "Vega Evo open face with flip visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver",
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver+Back"
     ],
     "color": "Silver",
     "color_family": "Grey",
     "sku": "VEG-EVO-SLV",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

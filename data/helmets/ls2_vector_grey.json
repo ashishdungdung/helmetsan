@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "LS2 Vector full face with good ventilation.",
     "product_details": {
         "description": "LS2 Vector full face with good ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Vector+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=LS2+Vector+Grey",
+        "https://placehold.co/800x800/222/white?text=LS2+Vector+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=LS2+Vector+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "LS2-VEC-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

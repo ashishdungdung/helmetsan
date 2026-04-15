@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport full face with wide view and good ventilation.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Blue",
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Scope+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Scope+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Scope+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Scope+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Scope+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

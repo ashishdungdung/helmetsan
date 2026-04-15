@@ -25,21 +25,32 @@
         "weight_lbs": 2.65,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Carbon sport helmet with Airoh Progressive Compound shell tech.",
     "product_details": {
         "description": "Carbon sport helmet with Airoh Progressive Compound shell tech."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Matryx+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Matryx+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Matryx+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "AIR-MATR-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

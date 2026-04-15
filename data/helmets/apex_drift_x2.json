@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face with optional shield.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+Chrome+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Chrome",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Chrome+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+Chrome+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+X2+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+X2+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

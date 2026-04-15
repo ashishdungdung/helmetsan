@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Airoh Commander 2",
     "brand": "Airoh",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Commander 2",
     "price": {
         "current": 549.99,
@@ -16,7 +16,9 @@
         "weight_lbs": 3.42,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure modular with peak visor, sun shield, and GPS mount.",
     "product_details": {
@@ -27,7 +29,7 @@
             "id": "airoh_commander_2_matte-black",
             "entity": "helmet",
             "title": "Airoh Commander 2 Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "airoh_commander_2",
             "helmet_family": "Commander 2",
             "head_shape": "Intermediate Oval",
@@ -56,19 +58,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "airoh_commander_2_silver-metallic",
             "entity": "helmet",
             "title": "Airoh Commander 2 Silver Metallic",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "airoh_commander_2",
             "helmet_family": "Commander 2",
             "head_shape": "Intermediate Oval",
@@ -97,19 +99,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Silver+Metallic+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "airoh_commander_2_pearl-white",
             "entity": "helmet",
             "title": "Airoh Commander 2 Pearl White",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "airoh_commander_2",
             "helmet_family": "Commander 2",
             "head_shape": "Intermediate Oval",
@@ -138,19 +140,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Pearl+White+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "airoh_commander_2_flow-tc-2",
             "entity": "helmet",
             "title": "Airoh Commander 2 Flow TC-2",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "airoh_commander_2",
             "helmet_family": "Commander 2",
             "head_shape": "Intermediate Oval",
@@ -179,18 +181,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Flow+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Flow+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+Flow+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Flow+TC-2",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Flow+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+Flow+TC-2+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Commander+2+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+1",
+        "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+2",
+        "https://placehold.co/800x800/222/white?text=Airoh+Commander+2+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

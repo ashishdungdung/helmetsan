@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Studds Rider with double visor and breath guard.",
     "product_details": {
         "description": "Studds Rider with double visor and breath guard."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue",
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "STU-RID-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

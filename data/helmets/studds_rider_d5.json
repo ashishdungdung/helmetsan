@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Studds Rider with double visor and breath guard.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Black",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+White+Back"
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+White",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+White+Side",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Rider+D5+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+1",
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+2",
+        "https://placehold.co/800x800/222/white?text=Studds+Rider+D5+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

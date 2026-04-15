@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Vector full face with double visor for daily ride.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Nexx X.R3R Matte Black",
     "brand": "Nexx",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "nexx_x_r3r",
     "helmet_family": "X.R3R",
@@ -25,21 +25,32 @@
         "weight_lbs": 2.98,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Portuguese-made race helmet with multi-density EPS and titanium hardware.",
     "product_details": {
         "description": "Portuguese-made race helmet with multi-density EPS and titanium hardware."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.R3R+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.R3R+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.R3R+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Nexx+X.R3R+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.R3R+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.R3R+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "NEX-X.R3-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

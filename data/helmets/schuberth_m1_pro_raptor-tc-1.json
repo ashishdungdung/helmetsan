@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Perfect for naked bikes and cruisers with pre-installed comms.",
     "product_details": {
         "description": "Perfect for naked bikes and cruisers with pre-installed comms."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M1+Pro+Raptor+TC-1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M1+Pro+Raptor+TC-1+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M1+Pro+Raptor+TC-1+Back"
+        "https://placehold.co/800x800/222/white?text=Schuberth+M1+Pro+Raptor+TC-1",
+        "https://placehold.co/800x800/222/white?text=Schuberth+M1+Pro+Raptor+TC-1+Side",
+        "https://placehold.co/800x800/222/white?text=Schuberth+M1+Pro+Raptor+TC-1+Back"
     ],
     "color": "Raptor TC-1",
     "color_family": "Multi",
     "sku": "SCH-M1PR-RAP",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

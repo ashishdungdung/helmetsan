@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range sport-touring with internal sun visor and wide field of view.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "matte",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Experience top-tier protection with the AGV K5 S Camo TC-2, engineered for intermediate ovals with advanced impact absorption. Elevate your ride with unmatched safety and aerodynamic precision. Compare prices today at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

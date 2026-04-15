@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Indian market best-seller with double visor and anti-scratch coating.",
     "product_details": {
         "description": "Indian market best-seller with double visor and anti-scratch coating."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Dragon+D9+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Dragon+D9+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Dragon+D9+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Studds+Dragon+D9+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Studds+Dragon+D9+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Studds+Dragon+D9+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "STU-DRG-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

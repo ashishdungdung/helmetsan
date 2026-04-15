@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Quiet full face with good wind management for touring.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Red",
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Thunder+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Thunder+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Thunder+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Thunder+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Thunder+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

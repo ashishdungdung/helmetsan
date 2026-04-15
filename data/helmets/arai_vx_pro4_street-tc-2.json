@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Arai VX-Pro4 Street TC-2",
     "brand": "Arai",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "arai_vx_pro4",
     "helmet_family": "VX-Pro4",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Professional grade motocross protection.",
     "product_details": {
         "description": "Professional grade motocross protection."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Street+TC-2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Street+TC-2+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Street+TC-2+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Street+TC-2",
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Street+TC-2+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Street+TC-2+Back"
     ],
     "color": "Street TC-2",
     "color_family": "Multi",
     "sku": "ARA-VXPR-STR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -25,21 +25,32 @@
         "weight_lbs": 2.87,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Urban streetfighter helmet with removable front mask and goggle strap.",
     "product_details": {
         "description": "Urban streetfighter helmet with removable front mask and goggle strap."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-Combat+II+Camo+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-Combat+II+Camo+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-Combat+II+Camo+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-Combat+II+Camo+Blue",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-Combat+II+Camo+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-Combat+II+Camo+Blue+Back"
     ],
     "color": "Camo Blue",
     "color_family": "Blue",
     "sku": "SCO-EXOC-CAM",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Popular Vega full face with double visor and breath deflector for Indian commuters.",
     "product_details": {
         "description": "Popular Vega full face with double visor and breath deflector for Indian commuters."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Bolt+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Bolt+Blue",
+        "https://placehold.co/800x800/222/white?text=Vega+Bolt+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Bolt+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "VEG-BOLT-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

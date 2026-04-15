@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring modular with integrated sun visor and Sena-ready speaker pockets.",
     "product_details": {
         "description": "Touring modular with integrated sun visor and Sena-ready speaker pockets."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Sistema+II+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Sistema+II+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Sistema+II+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Sedici+Sistema+II+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Sedici+Sistema+II+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Sedici+Sistema+II+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "SED-SIST-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

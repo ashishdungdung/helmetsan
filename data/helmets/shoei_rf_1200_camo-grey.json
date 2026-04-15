@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2015"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Predecessor to the RF-1400, still popular for its proven performance.",
     "product_details": {
         "description": "Predecessor to the RF-1400, still popular for its proven performance."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Camo+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Camo+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Camo+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Camo+Grey",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Camo+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Camo+Grey+Back"
     ],
     "color": "Camo Grey",
     "color_family": "Grey",
     "sku": "SHO-RF12-CAM",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

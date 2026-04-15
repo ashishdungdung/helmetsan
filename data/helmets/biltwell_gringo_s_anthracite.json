@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
-    "description": "Classic retro styling with modern DOT\/ECE certification and flat shield.",
+    "description": "Classic retro styling with modern DOT/ECE certification and flat shield.",
     "product_details": {
-        "description": "Classic retro styling with modern DOT\/ECE certification and flat shield."
+        "description": "Classic retro styling with modern DOT/ECE certification and flat shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Gringo+S+Anthracite",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Gringo+S+Anthracite+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Gringo+S+Anthracite+Back"
+        "https://placehold.co/800x800/222/white?text=Biltwell+Gringo+S+Anthracite",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Gringo+S+Anthracite+Side",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Gringo+S+Anthracite+Back"
     ],
     "color": "Anthracite",
     "color_family": "Grey",
     "sku": "BIL-GRIN-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

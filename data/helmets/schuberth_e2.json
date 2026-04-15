@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Schuberth E2",
     "brand": "Schuberth",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "E2",
     "price": {
         "current": 799,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Evolution of the E1, bridging adventure and touring.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "schuberth_e2_matte-black",
             "entity": "helmet",
             "title": "Schuberth E2 Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "schuberth_e2_pearl-white",
             "entity": "helmet",
             "title": "Schuberth E2 Pearl White",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Pearl+White+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "schuberth_e2_urban-tc-3",
             "entity": "helmet",
             "title": "Schuberth E2 Urban TC-3",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Urban+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Urban+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Urban+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Urban+TC-3",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Urban+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Urban+TC-3+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "schuberth_e2_stripe-grey",
             "entity": "helmet",
             "title": "Schuberth E2 Stripe Grey",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -184,19 +186,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Stripe+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Stripe+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Stripe+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Stripe+Grey",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Stripe+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Stripe+Grey+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "schuberth_e2_operator-blue",
             "entity": "helmet",
             "title": "Schuberth E2 Operator Blue",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -226,19 +228,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Operator+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Operator+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Operator+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Operator+Blue",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Operator+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Operator+Blue+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "schuberth_e2_street-tc-1",
             "entity": "helmet",
             "title": "Schuberth E2 Street TC-1",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "schuberth_e2",
             "helmet_family": "E2",
             "head_shape": "Intermediate Oval",
@@ -268,18 +270,28 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Street+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Street+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+Street+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Street+TC-1",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Street+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Schuberth+E2+Street+TC-1+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+E2+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Schuberth+E2+1",
+        "https://placehold.co/800x800/222/white?text=Schuberth+E2+2",
+        "https://placehold.co/800x800/222/white?text=Schuberth+E2+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Integrated Sun Visor",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Street Pro full face with double visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Street+Pro+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Street+Pro+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

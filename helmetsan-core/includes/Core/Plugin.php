@@ -167,6 +167,8 @@ final class Plugin
     private AiSeoDescriptionProvider $aiSeoProvider;
     private TurnstileService $turnstileService;
     private TaskTracker $taskTracker;
+    private \Helmetsan\Core\Discovery\AlternativesService $discovery;
+    private \Helmetsan\Core\AI\HealService $healService;
 
     public function __construct()
     {
@@ -271,6 +273,7 @@ final class Plugin
         $this->alerts     = new AlertService($this->config);
         $this->providerRegistry = new ProviderRegistry($this->config);
         $this->heals      = new HealRepository();
+        $this->healService = new \Helmetsan\Core\AI\HealService($this->repository, $this->ingestion, $this->heals, $this->logger);
         $this->aiService = new AiService($this->providerRegistry, $this->heals);
         $this->aiSeoProvider = new AiSeoDescriptionProvider($this->aiService);
         $this->seedGenerator = new SeedGeneratorService($this->aiService);
@@ -299,7 +302,18 @@ final class Plugin
         $this->defaultImages = new DefaultImages($this->config);
         $this->adsTxt = new AdsTxt();
         $this->adSense = new AdSense($this->config);
-        $this->aiAdmin = new AiAdmin($this->config, $this->aiService, $this->accessoryGenerator, $this->repository, $this->heals);
+        $this->discovery = new \Helmetsan\Core\Discovery\AlternativesService();
+        $this->aiAdmin = new AiAdmin(
+            $this->config, 
+            $this->aiService, 
+            $this->accessoryGenerator, 
+            $this->repository, 
+            $this->heals,
+            $this->healService,
+            $this->health,
+            new \Helmetsan\Core\AI\CertificationAutomatorService($this->aiService),
+            $this->discovery
+        );
         $this->revZillaImageService = new RevZillaImageService();
         $this->helmetImageEnrichment = new HelmetImageEnrichmentService(
             $this->mediaEngine,
@@ -395,7 +409,7 @@ final class Plugin
         // Register custom cron interval
         add_filter('cron_schedules', [$this->feedTask, 'addInterval']);
 
-        if (defined('WP_CLI') && \WP_CLI) {
+        if (defined('WP_CLI') && WP_CLI) {
             (new Commands(
                 $this->health,
                 $this->seeder,

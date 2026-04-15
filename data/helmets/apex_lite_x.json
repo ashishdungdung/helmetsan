@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face for city and cruiser.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Grey",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Lite+X+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Lite+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+X+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+X+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Lite+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

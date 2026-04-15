@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird full face with dual cert and sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+White+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+White",
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+White+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-35+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-35+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

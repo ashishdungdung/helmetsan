@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "The original helmet design, updated with modern technology.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Anthracite+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Track+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Track+TC-2",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Track+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Track+TC-2+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Solid+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Solid+Red",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Solid+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Solid+Red+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Apex+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Apex+Red",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Apex+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Apex+Red+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+Stripe+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Stripe+Blue",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Stripe+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Custom+500+Stripe+Blue+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Custom+500+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Bell+Custom+500+1",
+        "https://placehold.co/800x800/222/white?text=Bell+Custom+500+2",
+        "https://placehold.co/800x800/222/white?text=Bell+Custom+500+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -164,7 +164,7 @@ body.hs-layout-wide .site-content .site-main {
 
 .hs-theme-toggle:hover {
     background: var(--hs-accent);
-    color: #fff;
+    color: var(--hs-text-on-accent);
     border-color: var(--hs-accent);
 }
 
@@ -241,7 +241,7 @@ body.hs-layout-wide .site-content .site-main {
 
 .menu--secondary a {
     font-size: 12px;
-    color: #334155;
+    color: var(--hs-muted);
 }
 
 .site-footer {
@@ -299,13 +299,13 @@ body.hs-layout-wide .site-content .site-main {
     border-radius: 999px;
     padding: .2rem .55rem;
     font-size: 12px;
-    color: #0f172a;
-    background: rgba(255, 255, 255, 0.7);
+    color: var(--hs-text);
+    background: var(--hs-panel);
 }
 
 .site-footer__india-mark {
     display: inline-flex;
-    color: #f97316;
+    color: var(--hs-brand-orange);
 }
 
 .site-footer__widget-areas {
@@ -353,8 +353,8 @@ body.hs-layout-wide .site-content .site-main {
     height: 34px;
     border-radius: 999px;
     border: 1px solid var(--hs-border);
-    background: rgba(255, 255, 255, 0.8);
-    color: #111827;
+    background: var(--hs-panel-strong);
+    color: var(--hs-text);
     display: inline-flex;
     align-items: center;
     justify-content: center;

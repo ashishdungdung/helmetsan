@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "All-around sport helmet with internal sun visor and UV-cut shield.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Anthracite",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Anthracite+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Track+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Track+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Track+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Track+Blue",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Track+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Track+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Flow+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Flow+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+Flow+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Flow+Blue",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Flow+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+Flow+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Kamui-3+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+1",
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+2",
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Kamui-3+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

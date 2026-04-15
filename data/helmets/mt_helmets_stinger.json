@@ -16,7 +16,9 @@
         "weight_lbs": 2.25,
         "certifications": [
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "MT Stinger open face with shield.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Black+Back"
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Black",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Black+Side",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Silver",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -107,8 +109,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Stinger+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+1",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+2",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Stinger+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

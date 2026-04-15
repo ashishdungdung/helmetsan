@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ghost-style visor with integrated internal sun shield.",
     "product_details": {
         "description": "Ghost-style visor with integrated internal sun shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue",
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue+Back"
     ],
     "color": "Racer Blue",
     "color_family": "Blue",
     "sku": "SIM-GHOS-RAC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

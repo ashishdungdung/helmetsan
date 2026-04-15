@@ -4,6 +4,10 @@ This file tracks **released versions** of Helmetsan.
 For an in‑progress development log between releases, see `DEV_CHANGELOG.md`.
 
 ## Unreleased (0.4.0)
+- **Bulk Data Ingestion**: Deployed and executed ingestion of 2,100+ enriched helmets with 11,500+ record updates (parents/variants).
+- **Core Improvements**: Implemented `--force` flag in `ingest` and `ingest-seed` commands to bypass hash-skipping.
+- **WP-CLI Concurrency**: Fixed a major regression in parallel ingestion by propagating `--path` and `--allow-root` to sub-processes.
+- **Enrichment**: Full catalog-wide enrichment of technical specifications (Warranty, Strap Type, Visor/Liner Features).
 
 - **AI Token Optimization:** Created `.geminiignore` to exclude `vendor/` and `data/` from indexing (~70% context reduction). Slimmed `AGENTS.md` and streamlined governance workflows. Reduced system prompt overhead.
 - **Local AI First:** Deep integration with **LM Studio** for local inference (M4 Pro). Added `HELMETSAN_LMSTUDIO_BASE_URL` constant override for secure remote access.

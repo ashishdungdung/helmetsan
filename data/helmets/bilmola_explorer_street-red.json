@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Bilmola Explorer Street Red",
     "brand": "Bilmola",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "bilmola_explorer",
     "helmet_family": "Explorer",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Budget adventure helmet with removable peak and chin curtain.",
     "product_details": {
         "description": "Budget adventure helmet with removable peak and chin curtain."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bilmola+Explorer+Street+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bilmola+Explorer+Street+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bilmola+Explorer+Street+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red",
+        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red+Back"
     ],
     "color": "Street Red",
     "color_family": "Red",
     "sku": "BIL-EXPL-STR",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

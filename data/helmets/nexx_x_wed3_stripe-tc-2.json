@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Nexx X.WED3 Stripe TC-2",
     "brand": "Nexx",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "nexx_x_wed3",
     "helmet_family": "X.WED3",
@@ -25,21 +25,32 @@
         "weight_lbs": 3.42,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure helmet engineered for the most demanding off-road conditions.",
     "product_details": {
         "description": "Adventure helmet engineered for the most demanding off-road conditions."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.WED3+Stripe+TC-2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.WED3+Stripe+TC-2+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.WED3+Stripe+TC-2+Back"
+        "https://placehold.co/800x800/222/white?text=Nexx+X.WED3+Stripe+TC-2",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.WED3+Stripe+TC-2+Side",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.WED3+Stripe+TC-2+Back"
     ],
     "color": "Stripe TC-2",
     "color_family": "Multi",
     "sku": "NEX-X.WE-STR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

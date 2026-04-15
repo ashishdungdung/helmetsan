@@ -18,7 +18,9 @@
             "DOT",
             "ECE 22.05",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Triple-certified with MIPS \u2014 Icon's most protective street helmet.",
     "product_details": {
@@ -60,9 +62,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -103,9 +105,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Anthracite+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -146,9 +148,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Camo+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Camo+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Camo+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Camo+TC-1",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Camo+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Camo+TC-1+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -189,9 +191,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Raptor+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Raptor+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+Raptor+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Raptor+TC-3",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Raptor+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+Raptor+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -199,8 +201,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+MIPS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+1",
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+2",
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+MIPS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

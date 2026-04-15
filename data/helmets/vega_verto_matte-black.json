@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega full face with internal sun visor and anti-fog coating.",
     "product_details": {
         "description": "Vega full face with internal sun visor and anti-fog coating."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "VEG-VRT-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

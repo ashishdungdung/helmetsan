@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Fly Racing Formula Carbon Silver Metallic",
     "brand": "Fly Racing",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "fly_racing_formula_carbon",
     "helmet_family": "Formula Carbon",
@@ -29,21 +29,32 @@
             "DOT",
             "ECE 22.05",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Triple-certified carbon MX helmet with Conehead EPS technology.",
     "product_details": {
         "description": "Triple-certified carbon MX helmet with Conehead EPS technology."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic+Back"
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic",
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic+Side",
+        "https://placehold.co/800x800/222/white?text=Fly+Racing+Formula+Carbon+Silver+Metallic+Back"
     ],
     "color": "Silver Metallic",
     "color_family": "Grey",
     "sku": "FLY-FORM-GRE",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

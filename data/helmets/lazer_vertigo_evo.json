@@ -16,7 +16,9 @@
         "weight_lbs": 2.31,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Urban open-face with drop-down visor and removable chin guard option.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Pearl+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Stripe+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Stripe+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+Stripe+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Stripe+TC-1",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Stripe+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+Stripe+TC-1+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Lazer+Vertigo+Evo+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+1",
+        "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+2",
+        "https://placehold.co/800x800/222/white?text=Lazer+Vertigo+Evo+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

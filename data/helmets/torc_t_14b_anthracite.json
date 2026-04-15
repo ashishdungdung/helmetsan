@@ -25,7 +25,9 @@
         "weight_lbs": 3.31,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mako-style full face with built-in Bluetooth and sun lens.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "TOR-T14B-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

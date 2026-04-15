@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Japanese-built full face with integrated sun visor and quiet ride focus.",
     "product_details": {
         "description": "Japanese-built full face with integrated sun visor and quiet ride focus."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Ninja+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Ninja+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Marushin+Ninja+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Marushin+Ninja+Red",
+        "https://placehold.co/800x800/222/white?text=Marushin+Ninja+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Marushin+Ninja+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "MAR-NIN-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

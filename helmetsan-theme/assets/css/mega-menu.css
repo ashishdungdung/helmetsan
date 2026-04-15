@@ -22,7 +22,7 @@
         top: 100%;
         width: 100%;
         z-index: 1000;
-        background: #fff;
+        background: var(--hs-panel);
         border-top: 3px solid var(--hs-accent, #0a84ff);
         border-bottom: 1px solid var(--hs-border, #e5e7eb);
         box-shadow:
@@ -192,7 +192,7 @@
         padding: 0.45rem 1.1rem;
         font-size: 13px;
         font-weight: 600;
-        color: #fff;
+        color: var(--hs-text-on-accent);
         background: linear-gradient(135deg, var(--hs-accent, #0a84ff), var(--hs-accent-2, #00c7be));
         border-radius: 999px;
         text-decoration: none;

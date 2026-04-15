@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Updated lane-splitter with improved ventilation and ECE certification.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Racer+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Biltwell+Lanesplitter+V2+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+1",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+2",
+        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

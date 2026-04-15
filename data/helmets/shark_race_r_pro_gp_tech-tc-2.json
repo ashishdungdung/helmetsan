@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Shark Race-R Pro GP Tech TC-2",
     "brand": "Shark",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "shark_race_r_pro_gp",
     "helmet_family": "Race-R Pro GP",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "MotoGP-grade race helmet with carbon-aramid shell and double-D ring.",
     "product_details": {
         "description": "MotoGP-grade race helmet with carbon-aramid shell and double-D ring."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Tech+TC-2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Tech+TC-2+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Tech+TC-2+Back"
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Tech+TC-2",
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Tech+TC-2+Side",
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Tech+TC-2+Back"
     ],
     "color": "Tech TC-2",
     "color_family": "Multi",
     "sku": "SHA-RACE-TEC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

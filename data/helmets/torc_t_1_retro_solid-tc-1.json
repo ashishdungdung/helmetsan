@@ -25,7 +25,9 @@
         "weight_lbs": 3.09,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vintage-inspired full face with wide eye port and flat shield.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "TOR-T1RE-SOL",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

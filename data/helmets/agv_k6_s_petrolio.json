@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The lightest road helmet in the world per AGV.",
     "product_details": {
         "description": "The lightest road helmet in the world per AGV."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio+Back"
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio+Side",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio+Back"
     ],
     "color": "Petrolio",
     "color_family": "Blue",
     "sku": "AGV-K6S-PET",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-light full face for enduro and downhill MTB.",
     "product_details": {
         "description": "Ultra-light full face for enduro and downhill MTB."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+MTB+4.0+V21+Carbon",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+MTB+4.0+V21+Carbon+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+MTB+4.0+V21+Carbon+Back"
+        "https://placehold.co/800x800/222/white?text=Leatt+MTB+4.0+V21+Carbon",
+        "https://placehold.co/800x800/222/white?text=Leatt+MTB+4.0+V21+Carbon+Side",
+        "https://placehold.co/800x800/222/white?text=Leatt+MTB+4.0+V21+Carbon+Back"
     ],
     "color": "Carbon",
     "color_family": "Carbon",
     "sku": "LEA-MTB4-CAR",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Integrated Sun Visor"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

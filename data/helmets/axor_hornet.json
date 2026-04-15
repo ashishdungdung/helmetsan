@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Hornet full face with double visor and aerodynamic shell.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Hornet+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Hornet+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Hornet+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Hornet+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Hornet+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

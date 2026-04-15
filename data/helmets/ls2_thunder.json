@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level full face with good ventilation and removable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Red+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Red",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Red+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Blue",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Thunder+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Thunder+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=LS2+Thunder+1",
+        "https://placehold.co/800x800/222/white?text=LS2+Thunder+2",
+        "https://placehold.co/800x800/222/white?text=LS2+Thunder+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

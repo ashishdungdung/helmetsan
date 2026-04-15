@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with drop-down sun shield and Bluetooth-ready pockets.",
     "product_details": {
         "description": "Touring helmet with drop-down sun shield and Bluetooth-ready pockets."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow",
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow+Back"
     ],
     "color": "Hi-Viz Yellow",
     "color_family": "Yellow",
     "sku": "APX-VOY-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

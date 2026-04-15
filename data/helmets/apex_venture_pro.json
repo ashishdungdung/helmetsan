@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with sun visor and Bluetooth-ready.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Grey",
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+Grey+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Venture+Pro+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Venture+Pro+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

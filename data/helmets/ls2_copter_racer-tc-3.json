@@ -16,8 +16,7 @@
         "gbp": 118.49
     },
     "certifications": [
-        "DOT",
-        "ECE 22.05"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 1050,
         "weight_lbs": 2.31,
         "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Budget-friendly urban open face with retractable sun visor.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "LS2-COPT-RAC",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

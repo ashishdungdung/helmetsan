@@ -25,21 +25,32 @@
         "weight_lbs": 2.98,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Italian retro-classic full face inspired by 1970s motorsport heritage.",
     "product_details": {
         "description": "Italian retro-classic full face inspired by 1970s motorsport heritage."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Trophy+Flow+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Trophy+Flow+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Trophy+Flow+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=Premier+Trophy+Flow+TC-3",
+        "https://placehold.co/800x800/222/white?text=Premier+Trophy+Flow+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=Premier+Trophy+Flow+TC-3+Back"
     ],
     "color": "Flow TC-3",
     "color_family": "Multi",
     "sku": "PRE-TROP-FLO",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

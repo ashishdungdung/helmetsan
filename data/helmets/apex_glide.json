@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face with optional shield and Bluetooth-ready pockets.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+White+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Glide+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Glide+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Glide+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Glide+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Glide+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

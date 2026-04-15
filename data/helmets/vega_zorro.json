@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Zorro open face with adjustable clear visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Grey",
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Zorro+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Zorro+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Zorro+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Zorro+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Zorro+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

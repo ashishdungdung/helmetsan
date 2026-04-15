@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport-oriented full face with sharp design and ventilation.",
     "product_details": {
         "description": "Sport-oriented full face with sharp design and ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Fury+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Fury+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Apex+Fury+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Fury+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "APX-FUR-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

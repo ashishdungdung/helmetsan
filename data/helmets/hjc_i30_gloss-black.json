@@ -16,8 +16,7 @@
         "gbp": 102.69
     },
     "certifications": [
-        "DOT",
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 1200,
         "weight_lbs": 2.65,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Modern open face with wide-eye port and internal sun visor.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "HJC-I30-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

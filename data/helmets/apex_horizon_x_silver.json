@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with drop-down sun visor and quiet ride.",
     "product_details": {
         "description": "Touring helmet with drop-down sun visor and quiet ride."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+X+Silver+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+X+Silver",
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+X+Silver+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+X+Silver+Back"
     ],
     "color": "Silver",
     "color_family": "Grey",
     "sku": "APX-HZX-SLV",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

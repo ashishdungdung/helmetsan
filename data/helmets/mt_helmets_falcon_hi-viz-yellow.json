@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "MT Helmets Falcon Hi-Viz Yellow",
     "brand": "MT Helmets",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "mt_helmets_falcon",
     "helmet_family": "Falcon",
@@ -25,21 +25,32 @@
         "weight_lbs": 2.76,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level MX with large eye port for goggle compatibility.",
     "product_details": {
         "description": "Entry-level MX with large eye port for goggle compatibility."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow+Back"
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow+Side",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Falcon+Hi-Viz+Yellow+Back"
     ],
     "color": "Hi-Viz Yellow",
     "color_family": "Yellow",
     "sku": "MTH-FALC-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

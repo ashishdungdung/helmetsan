@@ -193,4 +193,77 @@ final class HealthService
         ];
         return $report;
     }
+
+    /**
+     * Data Quality Hub Leaderboard: Ranks top brands by data completeness.
+     */
+    public function getQualityLeaderboard(int $limit = 10): array
+    {
+        global $wpdb;
+        $cacheKey = 'hs_quality_leaderboard';
+        $cached = get_transient($cacheKey);
+        if (is_array($cached)) {
+            return $cached;
+        }
+
+        $fillService = new \Helmetsan\Core\AI\FillMissingService($this->aiService);
+        
+        // Find top 10 brands by helmet count
+        $brands = $wpdb->get_results("
+            SELECT p.ID, p.post_title, CAST(m.meta_value AS UNSIGNED) as helmet_count
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->postmeta} m ON p.ID = m.post_id
+            WHERE p.post_type = 'brand' AND p.post_status = 'publish'
+            AND m.meta_key = '_helmet_count'
+            ORDER BY helmet_count DESC
+            LIMIT {$limit}
+        ", ARRAY_A);
+
+        $leaderboard = [];
+        foreach ($brands as $brand) {
+            $brandId = (int)$brand['ID'];
+            $report = $fillService->getCoverageReport('helmet', 0, [
+                [
+                    'key' => 'rel_brand',
+                    'value' => $brandId,
+                    'compare' => '='
+                ]
+            ]);
+
+            $leaderboard[] = [
+                'id'    => $brandId,
+                'name'  => $brand['post_title'],
+                'count' => (int)$brand['helmet_count'],
+                'score' => $report['score'],
+                'gaps'  => array_slice(array_keys(array_filter($report['fields'], fn($f) => $f['pct'] < 50)), 0, 3)
+            ];
+        }
+
+        set_transient($cacheKey, $leaderboard, HOUR_IN_SECONDS);
+        return $leaderboard;
+    }
+
+    /**
+     * Site-wide Field Heatmap: Identifies structural gaps across all items.
+     */
+    public function getFieldHeatmap(string $postType = 'helmet'): array
+    {
+        $fillService = new \Helmetsan\Core\AI\FillMissingService($this->aiService);
+        $report = $fillService->getCoverageReport($postType, 0);
+        
+        $anomalies = [];
+        foreach ($report['fields'] as $key => $stats) {
+            if ($stats['pct'] < 40) {
+                $anomalies[] = [
+                    'field' => $key,
+                    'pct'   => $stats['pct'],
+                    'set'   => $stats['set'],
+                    'empty' => $stats['empty']
+                ];
+            }
+        }
+
+        usort($anomalies, fn($a, $b) => $a['pct'] <=> $b['pct']);
+        return array_slice($anomalies, 0, 5);
+    }
 }

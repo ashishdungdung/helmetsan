@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "HJC RPHA 11 Pro Anti Venom",
     "brand": "HJC",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "hjc_rpha_11_pro",
     "helmet_family": "RPHA 11 Pro",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Known for excellent airflow and lightweight construction.",
     "product_details": {
         "description": "Known for excellent airflow and lightweight construction."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+11+Pro+Anti+Venom",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+11+Pro+Anti+Venom+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+11+Pro+Anti+Venom+Back"
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+11+Pro+Anti+Venom",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+11+Pro+Anti+Venom+Side",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+11+Pro+Anti+Venom+Back"
     ],
     "color": "Anti Venom",
     "color_family": "White",
     "sku": "HJC-R11-ANT",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

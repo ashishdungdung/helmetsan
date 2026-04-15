@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Excellent entry into the premium Arai lineup, focusing on comfort.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Pearl+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Camo+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Camo+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Camo+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Camo+Grey",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Camo+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Camo+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Apex+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Apex+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Apex+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Apex+Red",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Apex+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Apex+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Raptor+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Raptor+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Raptor+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Raptor+TC-1",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Raptor+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Raptor+TC-1+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Track+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Track+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+Track+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Track+Red",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Track+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Regent-X+Track+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Regent-X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Arai+Regent-X+1",
+        "https://placehold.co/800x800/222/white?text=Arai+Regent-X+2",
+        "https://placehold.co/800x800/222/white?text=Arai+Regent-X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

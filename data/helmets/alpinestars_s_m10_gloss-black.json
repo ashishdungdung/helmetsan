@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Alpinestars S-M10 Gloss Black",
     "brand": "Alpinestars",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "alpinestars_s_m10",
     "helmet_family": "S-M10",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Top MX with full carbon shell and A-Head fitting system.",
     "product_details": {
         "description": "Top MX with full carbon shell and A-Head fitting system."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+S-M10+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+S-M10+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+S-M10+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Alpinestars+S-M10+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+S-M10+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+S-M10+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "ALP-SM10-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

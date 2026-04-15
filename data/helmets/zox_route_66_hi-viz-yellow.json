@@ -25,7 +25,9 @@
         "weight_lbs": 1.76,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Classic cruiser half helmet with snap-on face shield option.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "ZOX-ROUT-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

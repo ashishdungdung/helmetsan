@@ -1,6 +1,15 @@
 # Work Log
 Tracking daily development work and IDE sources.
 
+## 2026-04-15
+**Source**: Agent (Antigravity)
+**Changes**:
+- **Bulk Data Ingestion**: Successfully completed the ingestion of 2,100+ enriched helmet records into production.
+- **Technical Specs**: Enriched catalog with `warranty_years`, `strap_type`, `visor_features`, `liner_features`, and `comms_ready`.
+- **Ingestion Stats**: 11,515 total records updated across parents and variants.
+- **Core Fixes**: Modified `IngestionService.php` and `Commands.php` to support `--force` flag. Fixed a critical WP-CLI concurrency bug by propagating `--path` and `--allow-root` to child processes.
+- **Workflow**: Automated data sync via `rsync` before triggering concurrent ingestion on the production server.
+
 ## 2026-02-23
 **Source**: Agent (Cursor)
 **Changes**:

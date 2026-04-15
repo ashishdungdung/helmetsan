@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Vector full face with double visor for daily ride.",
     "product_details": {
         "description": "Axor Vector full face with double visor for daily ride."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Vector+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue",
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Vector+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "AXR-VEC-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

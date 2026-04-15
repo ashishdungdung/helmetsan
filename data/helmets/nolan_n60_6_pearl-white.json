@@ -25,21 +25,32 @@
         "weight_lbs": 3.2,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range sport with VPS sun shield and Clima Comfort liner.",
     "product_details": {
         "description": "Mid-range sport with VPS sun shield and Clima Comfort liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N60-6+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N60-6+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N60-6+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Nolan+N60-6+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Nolan+N60-6+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Nolan+N60-6+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "NOL-N606-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

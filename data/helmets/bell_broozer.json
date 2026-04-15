@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Dual-certified modular with removable chin bar.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Pearl+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Tech+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Tech+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Tech+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Tech+Blue",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Tech+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Tech+Blue+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Camo+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Camo+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Camo+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Camo+TC-2",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Camo+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Camo+TC-2+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Stripe+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Stripe+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+Stripe+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Stripe+TC-2",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Stripe+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Bell+Broozer+Stripe+TC-2+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Broozer+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Bell+Broozer+1",
+        "https://placehold.co/800x800/222/white?text=Bell+Broozer+2",
+        "https://placehold.co/800x800/222/white?text=Bell+Broozer+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

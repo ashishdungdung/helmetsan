@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Classic look with new-age performance and safety.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Anthracite",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Anthracite+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Solid+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Solid+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Solid+Red+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Solid+Red",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Solid+Red+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Solid+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Urban+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Urban+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Urban+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Urban+TC-2",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Urban+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Urban+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Red+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Red",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Red+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -268,9 +270,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+Track+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Blue",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=HJC+V10+Track+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -278,8 +280,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+V10+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=HJC+V10+1",
+        "https://placehold.co/800x800/222/white?text=HJC+V10+2",
+        "https://placehold.co/800x800/222/white?text=HJC+V10+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

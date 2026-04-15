@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird Swift open face with flip visor.",
     "product_details": {
         "description": "Steelbird Swift open face with flip visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Swift+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Swift+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "STE-SWF-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

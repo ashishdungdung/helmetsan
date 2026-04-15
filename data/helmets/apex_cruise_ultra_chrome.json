@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face for touring and cruiser.",
     "product_details": {
         "description": "Open face for touring and cruiser."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+Ultra+Chrome+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+Ultra+Chrome",
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+Ultra+Chrome+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+Ultra+Chrome+Back"
     ],
     "color": "Chrome",
     "color_family": "Grey",
     "sku": "APX-CLU-CHR",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

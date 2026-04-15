@@ -16,7 +16,7 @@
         "gbp": 55.29
     },
     "certifications": [
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -24,8 +24,10 @@
         "weight_g": 1450,
         "weight_lbs": 3.2,
         "certifications": [
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Indian-made full face with chrome visor option and GT styling.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "STE-SBA2-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

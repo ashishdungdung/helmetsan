@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Stealth full face with double visor and anti-scratch.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+White+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+White",
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+White+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Stealth+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Stealth+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Stealth+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

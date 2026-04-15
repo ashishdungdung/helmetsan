@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Features the unique Pro Shade system for ultimate versatility.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Anthracite+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Vortex+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Vortex+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Vortex+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Vortex+Blue",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Vortex+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Vortex+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Tech+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Tech+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Tech+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Tech+TC-3",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Tech+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Tech+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Operator+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Operator+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+Operator+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Operator+TC-3",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Operator+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+Operator+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -236,8 +238,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Defiant-X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+1",
+        "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+2",
+        "https://placehold.co/800x800/222/white?text=Arai+Defiant-X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

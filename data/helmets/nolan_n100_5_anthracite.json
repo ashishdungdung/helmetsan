@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Italian modular with N-Com communication system preinstalled.",
     "product_details": {
         "description": "Italian modular with N-Com communication system preinstalled."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N100-5+Anthracite",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N100-5+Anthracite+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N100-5+Anthracite+Back"
+        "https://placehold.co/800x800/222/white?text=Nolan+N100-5+Anthracite",
+        "https://placehold.co/800x800/222/white?text=Nolan+N100-5+Anthracite+Side",
+        "https://placehold.co/800x800/222/white?text=Nolan+N100-5+Anthracite+Back"
     ],
     "color": "Anthracite",
     "color_family": "Grey",
     "sku": "NOL-N100-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

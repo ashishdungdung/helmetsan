@@ -25,7 +25,9 @@
         "weight_lbs": 2.98,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Feature-packed budget full face with double visor and breath guard.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "VEG-CRUX-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

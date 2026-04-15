@@ -17,7 +17,7 @@ if (have_posts()) {
             <header class="about-hero hs-section" style="text-align: center; padding: 6rem 1rem; background: linear-gradient(135deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%); color: white; border-radius: var(--hs-border-radius); overflow: hidden; position: relative;">
                 <div style="position: absolute; top:0; left:0; right:0; bottom:0; opacity: 0.1; background-image: radial-gradient(circle at center, #ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
                 <div style="position: relative; z-index: 1;">
-                    <p class="hs-eyebrow" style="color: var(--hs-brand-primary);">Our Mission</p>
+                    <p class="hs-eyebrow" style="color: var(--hs-accent);">Our Mission</p>
                     <h1 style="font-size: 4rem; font-weight: 800; max-width: 800px; margin: 0 auto 1.5rem auto; line-height: 1.1;">Protecting the Ride. <br/> Empowering the Rider.</h1>
                     <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; color: #ccc;">We believe that safety shouldn't be a guessing game. Helmetsan is dedicated to decoding complex helmet technical data so you can hit the road with confidence.</p>
                 </div>
@@ -32,7 +32,7 @@ if (have_posts()) {
                 <div class="about-story__content">
                     <p class="hs-eyebrow">The Origin</p>
                     <h2>Why We Build Helmetsan</h2>
-                    <div style="font-size: 1.1rem; line-height: 1.7; color: var(--hs-text-muted);">
+                    <div style="font-size: 1.1rem; line-height: 1.7; color: var(--hs-muted);">
                         <?php the_content(); ?>
                         <?php if (empty(get_the_content())): ?>
                             <p>It started with a simple frustration: trying to find reliable data on motorcycle helmets was nearly impossible. Marketing jargon clouded real safety performance.</p>
@@ -47,15 +47,15 @@ if (have_posts()) {
                 <h2 style="margin-bottom: 3rem;">By the Numbers</h2>
                 <div class="hs-grid hs-grid--3">
                     <div>
-                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-brand-primary); margin-bottom: 0.5rem;">5,000+</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-accent); margin-bottom: 0.5rem;">5,000+</div>
                         <p style="font-weight: 600;">Helmets Indexed</p>
                     </div>
                     <div>
-                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-brand-primary); margin-bottom: 0.5rem;">12+</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-accent); margin-bottom: 0.5rem;">12+</div>
                         <p style="font-weight: 600;">Global Markets Tracked</p>
                     </div>
                     <div>
-                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-brand-primary); margin-bottom: 0.5rem;">1M+</div>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--hs-accent); margin-bottom: 0.5rem;">1M+</div>
                         <p style="font-weight: 600;">Data Points Analyzed</p>
                     </div>
                 </div>
@@ -68,17 +68,17 @@ if (have_posts()) {
                 </div>
                 <div class="hs-grid hs-grid--3">
                     <article class="hs-panel" style="text-align: center;">
-                        <svg style="margin-bottom: 1rem; color: var(--hs-brand-primary);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                        <svg style="margin-bottom: 1rem; color: var(--hs-accent);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
                         <h3>Radical Transparency</h3>
                         <p class="hs-text-muted">We don't sell helmets, we present data. Our algorithms and testing data sources are transparent and untethered from brand influence.</p>
                     </article>
                     <article class="hs-panel" style="text-align: center;">
-                        <svg style="margin-bottom: 1rem; color: var(--hs-brand-primary);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <svg style="margin-bottom: 1rem; color: var(--hs-accent);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                         <h3>Safety Above All</h3>
                         <p class="hs-text-muted">Aesthetics are nice, but safety ratings save lives. We prioritize stringent certifications like ECE 22.06 and FIM in our ranking logic.</p>
                     </article>
                     <article class="hs-panel" style="text-align: center;">
-                        <svg style="margin-bottom: 1rem; color: var(--hs-brand-primary);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg style="margin-bottom: 1rem; color: var(--hs-accent);" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                         <h3>Constantly Evolving</h3>
                         <p class="hs-text-muted">Technology changes rapidly. From AI assistance to real-time dynamic pricing across the globe, our platform never stops improving.</p>
                     </article>
@@ -86,10 +86,10 @@ if (have_posts()) {
             </section>
 
             <!-- Call to Action -->
-            <section class="about-cta hs-section" style="margin-top: 4rem; padding: 4rem 2rem; background: var(--hs-brand-primary); color: white; border-radius: var(--hs-border-radius); text-align: center;">
+            <section class="about-cta hs-section" style="margin-top: 4rem; padding: 4rem 2rem; background: var(--hs-accent); color: white; border-radius: var(--hs-border-radius); text-align: center;">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Ready to find your perfect fit?</h2>
                 <p style="font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem auto; opacity: 0.9;">Explore thousands of thoroughly vetted helmets using our advanced filtering system or try our AI-powered assistant.</p>
-                <a href="<?php echo esc_url(home_url('/helmets/')); ?>" class="hs-btn" style="background: white; color: var(--hs-brand-primary); padding: 1rem 2rem; font-size: 1.1rem;">Explore the Hub</a>
+                <a href="<?php echo esc_url(home_url('/helmets/')); ?>" class="hs-btn" style="background: white; color: var(--hs-accent); padding: 1rem 2rem; font-size: 1.1rem;">Explore the Hub</a>
             </section>
 
         </article>

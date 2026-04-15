@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Apex Rally",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Rally",
     "price": {
         "current": 349.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Rally-style adventure helmet with removable peak and dual-position visor.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "apex_rally_matte-black",
             "entity": "helmet",
             "title": "Apex Rally Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_rally",
             "helmet_family": "Rally",
             "head_shape": "Round Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "apex_rally_white",
             "entity": "helmet",
             "title": "Apex Rally White",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_rally",
             "helmet_family": "Rally",
             "head_shape": "Round Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+White+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rally+White+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rally+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Rally+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

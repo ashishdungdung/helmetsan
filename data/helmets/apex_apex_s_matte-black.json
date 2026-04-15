@@ -29,21 +29,32 @@
             "DOT",
             "Snell M2020",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Flagship full face with carbon shell and premium liner.",
     "product_details": {
         "description": "Flagship full face with carbon shell and premium liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+S+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+S+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "APX-APX-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring with drop-down sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Silver",
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+Silver+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Horizon+Pro+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Horizon+Pro+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

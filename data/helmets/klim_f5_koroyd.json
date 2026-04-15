@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Klim F5 Koroyd",
     "brand": "Klim",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "F5 Koroyd",
     "price": {
         "current": 649.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Revolutionary Koroyd liner crumple zone for superior impact protection.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "klim_f5_koroyd_gloss-black",
             "entity": "helmet",
             "title": "Klim F5 Koroyd Gloss Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f5_koroyd",
             "helmet_family": "F5 Koroyd",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "klim_f5_koroyd_anthracite",
             "entity": "helmet",
             "title": "Klim F5 Koroyd Anthracite",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f5_koroyd",
             "helmet_family": "F5 Koroyd",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "klim_f5_koroyd_vortex-tc-2",
             "entity": "helmet",
             "title": "Klim F5 Koroyd Vortex TC-2",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f5_koroyd",
             "helmet_family": "F5 Koroyd",
             "head_shape": "Intermediate Oval",
@@ -142,18 +144,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Vortex+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Vortex+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+Vortex+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F5+Koroyd+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+1",
+        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+2",
+        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

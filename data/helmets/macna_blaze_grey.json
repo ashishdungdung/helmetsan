@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight open face for city and casual riding.",
     "product_details": {
         "description": "Lightweight open face for city and casual riding."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Blaze+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Macna+Blaze+Grey",
+        "https://placehold.co/800x800/222/white?text=Macna+Blaze+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Macna+Blaze+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "MCN-BLZ-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

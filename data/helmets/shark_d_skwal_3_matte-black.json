@@ -25,21 +25,32 @@
         "weight_lbs": 3.2,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sporty entry-level with aggressive design and anti-fog visor.",
     "product_details": {
         "description": "Sporty entry-level with aggressive design and anti-fog visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+D-Skwal+3+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+D-Skwal+3+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+D-Skwal+3+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Shark+D-Skwal+3+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Shark+D-Skwal+3+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Shark+D-Skwal+3+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "SHA-DSKW-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Rally open face with adjustable visor.",
     "product_details": {
         "description": "Vega Rally open face with adjustable visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rally+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey",
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Rally+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "VEG-RAL-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

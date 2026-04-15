@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Storm full face with dual cert and internal sun visor.",
     "product_details": {
         "description": "Axor Storm full face with dual cert and internal sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Storm+White+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Storm+White",
+        "https://placehold.co/800x800/222/white?text=Axor+Storm+White+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Storm+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "AXR-STO-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Carbon modular with Transitions photochromic face shield and Sena 10U.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Solid+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Solid+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Solid+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Solid+Blue",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Solid+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Solid+Blue+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Operator+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Operator+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+Operator+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Operator+TC-5",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Operator+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+Operator+TC-5+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+TK1200+Karbon+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+1",
+        "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+2",
+        "https://placehold.co/800x800/222/white?text=Klim+TK1200+Karbon+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

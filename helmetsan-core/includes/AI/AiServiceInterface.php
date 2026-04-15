@@ -98,4 +98,9 @@ interface AiServiceInterface
      * @param array<int, string> $issues
      */
     public function healAnomaly(string $entityType, array $data, array $issues): ?array;
+
+    /**
+     * Generate a high-authority technical deep-dive guide for a Safety Standard.
+     */
+    public function generateTechnicalGuide(string $standardName, array $context = []): ?string;
 }

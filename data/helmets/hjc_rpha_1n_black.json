@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "HJC RPHA 1N Black",
     "brand": "HJC",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "hjc_rpha_1n",
     "helmet_family": "RPHA 1N",
@@ -29,21 +29,32 @@
             "DOT",
             "ECE 22.06",
             "FIM"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "FIM homologated racing helmet available to the public.",
     "product_details": {
         "description": "FIM homologated racing helmet available to the public."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+1N+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+1N+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+1N+Black+Back"
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+1N+Black",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+1N+Black+Side",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+1N+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "HJC-R1-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

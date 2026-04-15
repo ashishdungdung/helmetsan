@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight open face for urban riding with classic styling.",
     "product_details": {
         "description": "Lightweight open face for urban riding with classic styling."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+Black",
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "SPA-VIE-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

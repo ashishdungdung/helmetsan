@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor open face with flip-up visor for city and cruiser use.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Silver",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Joker+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Joker+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Joker+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Joker+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Joker+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Heritage styling with modern Arai protection.",
     "product_details": {
         "description": "Heritage styling with modern Arai protection."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Classic-V+Flow+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3",
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+Classic-V+Flow+TC-3+Back"
     ],
     "color": "Flow TC-3",
     "color_family": "Multi",
     "sku": "ARA-CLAS-FLO",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

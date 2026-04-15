@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Quiet sport full face with advanced aerodynamics.",
     "product_details": {
         "description": "Quiet sport full face with advanced aerodynamics."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Stealth+White+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Stealth+White",
+        "https://placehold.co/800x800/222/white?text=Apex+Stealth+White+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Stealth+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "APX-STL-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

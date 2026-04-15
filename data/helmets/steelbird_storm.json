@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird Storm open face for city riders.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Grey",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Storm+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Storm+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+Storm+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Storm+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Storm+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

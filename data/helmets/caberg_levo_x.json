@@ -16,7 +16,9 @@
         "weight_lbs": 3.73,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Carbon shell modular with panoramic visor and antibacterial lining.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Pearl+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Racer+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Racer+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Racer+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Racer+Grey",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Racer+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Racer+Grey+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+1",
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+2",
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

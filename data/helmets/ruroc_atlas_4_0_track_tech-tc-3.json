@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Ruroc Atlas 4.0 Track Tech TC-3",
     "brand": "Ruroc",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "ruroc_atlas_4_0_track",
     "helmet_family": "Atlas 4.0 Track",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Track-focused carbon with aerodynamic spoiler and emergency release system.",
     "product_details": {
         "description": "Track-focused carbon with aerodynamic spoiler and emergency release system."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3",
+        "https://placehold.co/800x800/222/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=Ruroc+Atlas+4.0+Track+Tech+TC-3+Back"
     ],
     "color": "Tech TC-3",
     "color_family": "Multi",
     "sku": "RUR-ATLA-TEC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

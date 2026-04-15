@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Cruiser Pro open face with flip visor.",
     "product_details": {
         "description": "Axor Cruiser Pro open face with flip visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cruiser+Pro+Chrome+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Cruiser+Pro+Chrome",
+        "https://placehold.co/800x800/222/white?text=Axor+Cruiser+Pro+Chrome+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Cruiser+Pro+Chrome+Back"
     ],
     "color": "Chrome",
     "color_family": "Grey",
     "sku": "AXR-CRP-CHR",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

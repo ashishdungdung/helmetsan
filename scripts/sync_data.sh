@@ -6,60 +6,83 @@
 # actual WP data root (resolved dynamically via WP-CLI), and
 # then triggers WP-CLI ingestion for all entity types.
 
-ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-[ -f "$ROOT_DIR/scripts/config" ] || { echo "❌ scripts/config not found. Run from repo root."; exit 1; }
+# Resolve the repository root (parent of the scripts/ directory)
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+[ -f "$ROOT_DIR/scripts/config" ] || { echo "❌ scripts/config not found. Checked: $ROOT_DIR/scripts/config"; exit 1; }
 . "$ROOT_DIR/scripts/config"
 [ -n "${REMOTE_WP_PATH:-}" ] || { echo "❌ REMOTE_WP_PATH not set in scripts/config."; exit 1; }
 REMOTE_BASE="$REMOTE_WP_PATH"
 
 # Retrieve password from sftp.json using perl to handle regex parsing reliably
-SSHPASS=$(perl -n -e '/"password":\s*"([^"]+)"/ && print $1' .vscode/sftp.json)
+SSHPASS=$(perl -n -e '/"password":\s*"([^"]+)"/ && print $1' "$ROOT_DIR/.vscode/sftp.json")
 
 if [ -z "$SSHPASS" ]; then
-    echo "❌ Error: Could not extract password from .vscode/sftp.json."
+    echo "❌ Error: Could not extract password from $ROOT_DIR/.vscode/sftp.json."
     exit 1
+fi
+
+# ──────────────────────────────────────────────────
+# 0.5 SAFETY CHECK: Git Status
+# ──────────────────────────────────────────────────
+echo "🔍 Checking Git status..."
+git fetch origin main 2>/dev/null
+BEHIND=$(git rev-list HEAD..origin/main --count)
+if [ "$BEHIND" -gt 0 ]; then
+    echo "⚠️  WARNING: Your local branch is behind GitHub by $BEHIND commits."
+    echo "   The server may have AI heals that you don't have yet."
+    echo "   Recommended: Run 'git pull --rebase' before pushing your data."
+    echo ""
+    read -p "   Do you want to continue anyway? (y/N) " -n 1 -r
+    echo ""
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
 fi
 
 echo "🚀 Starting Data Sync to $HOST ($USER)..."
 export SSHPASS
 
 # ──────────────────────────────────────────────────
-# 0. PRE-FLIGHT: Dynamically resolve the data root
+# 0.6 LOCKING: Prevent AI daemon interference
 # ──────────────────────────────────────────────────
-echo "🔍 Pre-flight: Resolving remote data root via WP-CLI..."
+SYNC_LOCK="/tmp/helmetsan_sync.lock"
+echo "🔒 Creating sync lock on server..."
+sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" "echo \$\$ > $SYNC_LOCK"
+
+# ──────────────────────────────────────────────────
+# 1. PRE-FLIGHT: Dynamically resolve the data root
+# ──────────────────────────────────────────────────
+echo "📂 Resolving remote data root..."
 REMOTE_DATA_ROOT=$(sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" \
     "wp --path=$REMOTE_WP_PATH --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null")
 
 if [ -z "$REMOTE_DATA_ROOT" ]; then
-    echo "⚠️  Warning: Could not resolve data root from WP-CLI. Falling back to default."
     REMOTE_DATA_ROOT="$REMOTE_BASE/wp-content/uploads/helmetsan-data"
 fi
-
-echo "📂 Resolved data root: $REMOTE_DATA_ROOT"
-
-# Ensure the remote data root directory exists
 sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" "mkdir -p '$REMOTE_DATA_ROOT'"
 
 # ──────────────────────────────────────────────────
-# 1. Sync Data Directory via rsync
+# 2. Sync Data Directory via rsync (SAFE MODE)
 # ──────────────────────────────────────────────────
-echo "📦 Rsyncing local data directory to server..."
-sshpass -e rsync -avzi \
+echo "📦 Syncing local data to server (Safe Mode: --update)..."
+# -u (update) skips files that are newer on the receiver (server heals)
+sshpass -e rsync -avziu \
     --exclude='.DS_Store' \
     -e "ssh -o StrictHostKeyChecking=no" \
-    data/ "$USER@$HOST:$REMOTE_DATA_ROOT/"
+    "$ROOT_DIR/data/" "$USER@$HOST:$REMOTE_DATA_ROOT/"
 
 if [ $? -ne 0 ]; then 
-    echo "❌ Rsync failed"; 
+    echo "❌ Rsync failed. Removing lock..."
+    sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" "rm -f $SYNC_LOCK"
     exit 1; 
 fi
 
 # ──────────────────────────────────────────────────
 # 2. Validate: Confirm file counts match
 # ──────────────────────────────────────────────────
-LOCAL_HELMETS=$(find data/helmets -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
-LOCAL_BRANDS=$(find data/brands -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
-LOCAL_ACCESSORIES=$(find data/accessories -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+LOCAL_HELMETS=$(find "$ROOT_DIR/data/helmets" -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+LOCAL_BRANDS=$(find "$ROOT_DIR/data/brands" -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+LOCAL_ACCESSORIES=$(find "$ROOT_DIR/data/accessories" -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
 
 REMOTE_COUNTS=$(sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" \
     "echo \$(find '$REMOTE_DATA_ROOT/helmets' -name '*.json' 2>/dev/null | wc -l):\$(find '$REMOTE_DATA_ROOT/brands' -name '*.json' 2>/dev/null | wc -l):\$(find '$REMOTE_DATA_ROOT/accessories' -name '*.json' 2>/dev/null | wc -l)")
@@ -107,7 +130,9 @@ EOF
 
 if [ $? -eq 0 ]; then
     echo "✅ Data Sync and Server Ingestion Successful!"
+    echo "🔓 Removing sync lock..."
+    sshpass -e ssh -o StrictHostKeyChecking=no "$USER@$HOST" "rm -f $SYNC_LOCK"
 else
-    echo "❌ Server ingestion failed."
+    echo "❌ Server ingestion failed. Lock remains for safety."
     exit 1
 fi

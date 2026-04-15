@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sporty full face with drop-down sun visor and removable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+White+Back"
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+White",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+White+Side",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+1",
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+2",
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

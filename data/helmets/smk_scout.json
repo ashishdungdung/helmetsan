@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "SMK Scout",
     "brand": "SMK",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Scout",
     "price": {
         "current": 139.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "SMK Scout adventure helmet with peak.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "smk_scout_matte-black",
             "entity": "helmet",
             "title": "SMK Scout Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "smk_scout",
             "helmet_family": "Scout",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "smk_scout_orange",
             "entity": "helmet",
             "title": "SMK Scout Orange",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "smk_scout",
             "helmet_family": "Scout",
             "head_shape": "Intermediate Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+Orange+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Orange",
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Orange+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Scout+Orange+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Scout+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=SMK+Scout+1",
+        "https://placehold.co/800x800/222/white?text=SMK+Scout+2",
+        "https://placehold.co/800x800/222/white?text=SMK+Scout+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

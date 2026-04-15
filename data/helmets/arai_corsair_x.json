@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Arai Corsair-X",
     "brand": "Arai",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_family": "Corsair-X",
     "price": {
         "current": 979.95,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "The Corsair-X is Arai's flagship race helmet with adjustable airflow.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "arai_corsair_x_black-frost",
             "entity": "helmet",
             "title": "Arai Corsair-X Black Frost",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "arai_corsair_x",
             "helmet_family": "Corsair-X",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "arai_corsair_x_aluminum-silver",
             "entity": "helmet",
             "title": "Arai Corsair-X Aluminum Silver",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "arai_corsair_x",
             "helmet_family": "Corsair-X",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Aluminum+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Aluminum+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Aluminum+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Aluminum+Silver",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Aluminum+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Aluminum+Silver+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "arai_corsair_x_nakagami-3",
             "entity": "helmet",
             "title": "Arai Corsair-X Nakagami 3",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "arai_corsair_x",
             "helmet_family": "Corsair-X",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Nakagami+3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Nakagami+3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Nakagami+3+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Nakagami+3",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Nakagami+3+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Nakagami+3+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "arai_corsair_x_isle-of-man-tt-2024",
             "entity": "helmet",
             "title": "Arai Corsair-X Isle of Man TT 2024",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "arai_corsair_x",
             "helmet_family": "Corsair-X",
             "head_shape": "Intermediate Oval",
@@ -184,18 +186,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024+Back"
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024+Side",
+                "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Isle+of+Man+TT+2024+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+1",
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+2",
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

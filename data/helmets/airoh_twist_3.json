@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Airoh Twist 3",
     "brand": "Airoh",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "Twist 3",
     "price": {
         "current": 179.99,
@@ -16,7 +16,9 @@
         "weight_lbs": 2.98,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level MX with excellent ventilation and replaceable liner.",
     "product_details": {
@@ -27,7 +29,7 @@
             "id": "airoh_twist_3_matte-black",
             "entity": "helmet",
             "title": "Airoh Twist 3 Matte Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "airoh_twist_3",
             "helmet_family": "Twist 3",
             "head_shape": "Intermediate Oval",
@@ -56,19 +58,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "airoh_twist_3_silver-metallic",
             "entity": "helmet",
             "title": "Airoh Twist 3 Silver Metallic",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "airoh_twist_3",
             "helmet_family": "Twist 3",
             "head_shape": "Intermediate Oval",
@@ -97,19 +99,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Silver+Metallic+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "airoh_twist_3_urban-blue",
             "entity": "helmet",
             "title": "Airoh Twist 3 Urban Blue",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "airoh_twist_3",
             "helmet_family": "Twist 3",
             "head_shape": "Intermediate Oval",
@@ -138,18 +140,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Urban+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Urban+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+Urban+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Urban+Blue",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Urban+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+Urban+Blue+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Twist+3+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+1",
+        "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+2",
+        "https://placehold.co/800x800/222/white?text=Airoh+Twist+3+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

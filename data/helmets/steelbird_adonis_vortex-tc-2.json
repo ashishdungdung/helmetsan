@@ -16,7 +16,7 @@
         "gbp": 63.19
     },
     "certifications": [
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -24,8 +24,10 @@
         "weight_g": 900,
         "weight_lbs": 1.98,
         "certifications": [
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-budget open face for daily commuting in warm climates.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "STE-ADON-VOR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

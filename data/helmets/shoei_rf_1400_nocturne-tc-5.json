@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness.",
     "product_details": {
         "description": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Nocturne+TC-5",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Nocturne+TC-5+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Nocturne+TC-5+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Nocturne+TC-5",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Nocturne+TC-5+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Nocturne+TC-5+Back"
     ],
     "color": "Nocturne TC-5",
     "color_family": "Black",
     "sku": "SHO-RF14-NOC",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

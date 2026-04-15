@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Versatile road helmet with internal sun visor.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "matte",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Experience the AGV K3 Operator Blue, engineered for intermediate oval heads with top-tier impact protection and aerodynamic design. Secure your ride today at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

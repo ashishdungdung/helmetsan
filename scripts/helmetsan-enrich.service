@@ -1,0 +1,16 @@
+[Unit]
+Description=Helmetsan Autonomous Enrichment Daemon
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/helmetsan.com/public
+ExecStart=/bin/bash /var/www/helmetsan.com/public/scripts/autonomous-daemon.sh
+Restart=always
+RestartSec=60
+StandardOutput=append:/var/www/helmetsan.com/public/wp-content/uploads/helmetsan-data/logs/daemon.log
+StandardError=append:/var/www/helmetsan.com/public/wp-content/uploads/helmetsan-data/logs/daemon.log
+
+[Install]
+WantedBy=multi-user.target

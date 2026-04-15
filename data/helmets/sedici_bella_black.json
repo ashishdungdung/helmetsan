@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sedici Bella open face with shield.",
     "product_details": {
         "description": "Sedici Bella open face with shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Bella+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Bella+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Bella+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Sedici+Bella+Black",
+        "https://placehold.co/800x800/222/white?text=Sedici+Bella+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Sedici+Bella+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "SED-BEL-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

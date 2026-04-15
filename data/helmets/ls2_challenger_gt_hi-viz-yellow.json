@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport touring full face with Dynamic Flow-Through ventilation and Pinlock MaxVision.",
     "product_details": {
         "description": "Sport touring full face with Dynamic Flow-Through ventilation and Pinlock MaxVision."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Back"
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow",
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Side",
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Back"
     ],
     "color": "Hi-Viz Yellow",
     "color_family": "Yellow",
     "sku": "LS2-CHGT-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

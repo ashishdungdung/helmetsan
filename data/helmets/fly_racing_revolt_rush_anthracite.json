@@ -16,8 +16,7 @@
         "gbp": 197.46
     },
     "certifications": [
-        "DOT",
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 1500,
         "weight_lbs": 3.31,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Street full face with aggressive venting and anti-fog inner shield.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "FLY-REVO-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

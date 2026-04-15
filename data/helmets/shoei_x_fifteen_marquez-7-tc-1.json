@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Shoei X-Fifteen Marquez 7 TC-1",
     "brand": "Shoei",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "shoei_x_fifteen",
     "helmet_family": "X-Fifteen",
@@ -29,21 +29,32 @@
             "DOT",
             "Snell M2020",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
     "product_details": {
         "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1",
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Back"
     ],
     "color": "Marquez 7 TC-1",
     "color_family": "Red",
     "sku": "SHO-X15-MAR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

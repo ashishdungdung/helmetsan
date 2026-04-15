@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "SMK open face with inner sun visor for Indian urban riders.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Black+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Black",
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Black+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Silver",
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Urban+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Urban+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=SMK+Urban+1",
+        "https://placehold.co/800x800/222/white?text=SMK+Urban+2",
+        "https://placehold.co/800x800/222/white?text=SMK+Urban+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

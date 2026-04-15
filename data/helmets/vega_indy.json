@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Indy full face with internal sun visor and washable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+White+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+White",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+White+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Blue",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Indy+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Indy+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Indy+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Indy+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Indy+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

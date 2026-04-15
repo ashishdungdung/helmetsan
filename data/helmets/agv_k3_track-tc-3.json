@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Versatile road helmet with internal sun visor.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "gloss",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Experience ultimate race-track performance with the AGV K3 Track TC-3. Engineered for intermediate oval heads, this helmet delivers unmatched protection and cooling. Upgrade your gear today at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

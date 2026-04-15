@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor flip-up modular with internal sun visor for touring.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Grey",
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Cliq+Grey+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Cliq+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Cliq+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Cliq+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Cliq+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

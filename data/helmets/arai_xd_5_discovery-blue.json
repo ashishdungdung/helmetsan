@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Arai XD-5 Discovery Blue",
     "brand": "Arai",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "arai_xd_5",
     "helmet_family": "XD-5",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "The ultimate adventure helmet, successor to the legendary XD-4.",
     "product_details": {
         "description": "The ultimate adventure helmet, successor to the legendary XD-4."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+XD-5+Discovery+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+XD-5+Discovery+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+XD-5+Discovery+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+XD-5+Discovery+Blue",
+        "https://placehold.co/800x800/222/white?text=Arai+XD-5+Discovery+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+XD-5+Discovery+Blue+Back"
     ],
     "color": "Discovery Blue",
     "color_family": "Blue",
     "sku": "ARA-XD5-DIS",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

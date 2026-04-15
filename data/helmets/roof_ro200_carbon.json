@@ -16,7 +16,9 @@
         "weight_lbs": 2.65,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Full carbon race replica with panoramic visor and aerodynamic profile.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Grey",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+Course+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Blue",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+Course+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=ROOF+RO200+Carbon+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+1",
+        "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+2",
+        "https://placehold.co/800x800/222/white?text=ROOF+RO200+Carbon+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

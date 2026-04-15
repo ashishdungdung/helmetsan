@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Previous-gen modular with integrated SRL2 Sena comms ready.",
     "product_details": {
         "description": "Previous-gen modular with integrated SRL2 Sena comms ready."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Neotec+II+Stripe+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Neotec+II+Stripe+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Neotec+II+Stripe+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+Neotec+II+Stripe+Red",
+        "https://placehold.co/800x800/222/white?text=Shoei+Neotec+II+Stripe+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+Neotec+II+Stripe+Red+Back"
     ],
     "color": "Stripe Red",
     "color_family": "Red",
     "sku": "SHO-NEOT-STR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

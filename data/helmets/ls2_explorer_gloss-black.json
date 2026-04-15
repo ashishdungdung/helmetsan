@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "LS2 Explorer Gloss Black",
     "brand": "LS2",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "ls2_explorer",
     "helmet_family": "Explorer",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Value adventure helmet with peak visor and long oval fit.",
     "product_details": {
         "description": "Value adventure helmet with peak visor and long oval fit."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "LS2-EXPL-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium full face with TCT-U shell and KwikWick III liner.",
     "product_details": {
         "description": "Premium full face with TCT-U shell and KwikWick III liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-1400+Air+Course+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-1400+Air+Course+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-1400+Air+Course+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-1400+Air+Course+Red",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-1400+Air+Course+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-1400+Air+Course+Red+Back"
     ],
     "color": "Course Red",
     "color_family": "Red",
     "sku": "SCO-EXO1-COU",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

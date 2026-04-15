@@ -30,6 +30,12 @@ final class AiService implements AiServiceInterface
      */
     public function generate(string $prompt, int $seed = 0, ?string $useProviderId = null, array $options = []): ?string
     {
+        // Enforce daily request cap (default 200/day)
+        $dailyCap = (int) (get_option('hs_ai_daily_cap') ?: 200);
+        if (! $this->rateLimiter->checkDailyCap('ai_enrichment', $dailyCap)) {
+            return null;
+        }
+
         if ($useProviderId !== null && $useProviderId !== '') {
             $provider = $this->registry->get($useProviderId);
             if ($provider !== null) {
@@ -53,6 +59,7 @@ final class AiService implements AiServiceInterface
         foreach ($order as $provider) {
             $out = $provider->generate($prompt, $options);
             if ($out !== null && $out !== '') {
+                $this->rateLimiter->incrementDailyCount('ai_enrichment');
                 $this->rateLimit();
                 return $out;
             }
@@ -459,6 +466,16 @@ final class AiService implements AiServiceInterface
     public function logHeal(array $params): void
     {
         $this->heals->logHeal($params);
+    }
+
+    /**
+     * Generate a high-authority technical deep-dive guide for a Safety Standard.
+     */
+    public function generateTechnicalGuide(string $standardName, array $context = []): ?string
+    {
+        $prompt = ContextBuilder::forSafetyStandard($standardName, $context);
+        // Use a higher max_tokens for long-form content (approx 800 words)
+        return $this->generate($prompt, 0, null, ['max_tokens' => 2500]);
     }
 
     private function rateLimit(): void

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Designed for high-speed touring stability and comfort.",
     "product_details": {
         "description": "Designed for high-speed touring stability and comfort."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Contour-X+Fluorescent+Yellow",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Contour-X+Fluorescent+Yellow+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Contour-X+Fluorescent+Yellow+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+Contour-X+Fluorescent+Yellow",
+        "https://placehold.co/800x800/222/white?text=Arai+Contour-X+Fluorescent+Yellow+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+Contour-X+Fluorescent+Yellow+Back"
     ],
     "color": "Fluorescent Yellow",
     "color_family": "Yellow",
     "sku": "ARA-CONX-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

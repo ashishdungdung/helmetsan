@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Bell Race Star Flex DLX Rsd The Zone",
     "brand": "Bell",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "bell_race_star_flex_dlx",
     "helmet_family": "Race Star Flex DLX",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Dedicated racer with 3k carbon shell and Flex energy management.",
     "product_details": {
         "description": "Dedicated racer with 3k carbon shell and Flex energy management."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone+Back"
+        "https://placehold.co/800x800/222/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone",
+        "https://placehold.co/800x800/222/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone+Side",
+        "https://placehold.co/800x800/222/white?text=Bell+Race+Star+Flex+DLX+Rsd+The+Zone+Back"
     ],
     "color": "Rsd The Zone",
     "color_family": "Multi",
     "sku": "BEL-RS-RSD",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

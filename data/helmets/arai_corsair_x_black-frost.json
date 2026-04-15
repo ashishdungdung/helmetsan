@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Arai Corsair-X Black Frost",
     "brand": "Arai",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "arai_corsair_x",
     "helmet_family": "Corsair-X",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "The Corsair-X is Arai's flagship race helmet with adjustable airflow.",
     "product_details": {
         "description": "The Corsair-X is Arai's flagship race helmet with adjustable airflow."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+Corsair-X+Black+Frost+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost",
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+Corsair-X+Black+Frost+Back"
     ],
     "color": "Black Frost",
     "color_family": "Black",
     "sku": "ARA-CORX-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

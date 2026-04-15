@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Moose Racing M1 MIPS",
     "brand": "Moose Racing",
-    "type": "Dirt \/ Motocross",
+    "type": "Dirt / Motocross",
     "helmet_family": "M1 MIPS",
     "price": {
         "current": 189.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "MX helmet with MIPS for reduced rotational impact.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "moose_racing_m1_mips_black",
             "entity": "helmet",
             "title": "Moose Racing M1 MIPS Black",
-            "type": "Dirt \/ Motocross",
+            "type": "Dirt / Motocross",
             "parent_id": "moose_racing_m1_mips",
             "helmet_family": "M1 MIPS",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Black",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ Motocross"
+                "Dirt / Motocross"
             ]
         },
         {
             "id": "moose_racing_m1_mips_white",
             "entity": "helmet",
             "title": "Moose Racing M1 MIPS White",
-            "type": "Dirt \/ Motocross",
+            "type": "Dirt / Motocross",
             "parent_id": "moose_racing_m1_mips",
             "helmet_family": "M1 MIPS",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+White+Back"
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+White",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+White+Side",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+White+Back"
             ],
             "helmet_types": [
-                "Dirt \/ Motocross"
+                "Dirt / Motocross"
             ]
         },
         {
             "id": "moose_racing_m1_mips_red",
             "entity": "helmet",
             "title": "Moose Racing M1 MIPS Red",
-            "type": "Dirt \/ Motocross",
+            "type": "Dirt / Motocross",
             "parent_id": "moose_racing_m1_mips",
             "helmet_family": "M1 MIPS",
             "head_shape": "Intermediate Oval",
@@ -142,18 +144,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red+Back"
             ],
             "helmet_types": [
-                "Dirt \/ Motocross"
+                "Dirt / Motocross"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+1",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+2",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

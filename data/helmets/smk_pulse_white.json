@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "SMK Pulse full face with integrated sun visor.",
     "product_details": {
         "description": "SMK Pulse full face with integrated sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White+Back"
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+White",
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+White+Side",
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "SMK-PLS-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

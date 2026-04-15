@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-light off-road helmet designed in collaboration with MotoGP riders.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "gloss",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Experience the AGV AX-8 EVO Apex Red, an Intermediate Oval helmet engineered for maximum impact protection and aerodynamic precision. Secure your ride today. Compare prices at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

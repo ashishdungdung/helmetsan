@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "CKX Mission AMS Pearl White",
     "brand": "CKX",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "ckx_mission_ams",
     "helmet_family": "Mission AMS",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "All-season adventure with carbon fiber chin bar and heated shield.",
     "product_details": {
         "description": "All-season adventure with carbon fiber chin bar and heated shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Mission+AMS+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=CKX+Mission+AMS+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "CKX-MISS-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

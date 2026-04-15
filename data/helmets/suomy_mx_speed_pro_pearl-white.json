@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Suomy MX-Speed Pro Pearl White",
     "brand": "Suomy",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "suomy_mx_speed_pro",
     "helmet_family": "MX-Speed Pro",
@@ -25,21 +25,32 @@
         "weight_lbs": 2.54,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight carbon motocross helmet with ALCANTARA interior.",
     "product_details": {
         "description": "Lightweight carbon motocross helmet with ALCANTARA interior."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+MX-Speed+Pro+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+MX-Speed+Pro+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+MX-Speed+Pro+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Suomy+MX-Speed+Pro+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Suomy+MX-Speed+Pro+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Suomy+MX-Speed+Pro+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "SUO-MXSP-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

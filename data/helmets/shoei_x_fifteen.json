@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Shoei X-Fifteen",
     "brand": "Shoei",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_family": "X-Fifteen",
     "price": {
         "current": 899.99,
@@ -18,7 +18,9 @@
             "DOT",
             "Snell M2020",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The X-Fifteen is a true race-bred helmet, developed in MotoGP.",
     "product_details": {
@@ -29,7 +31,7 @@
             "id": "shoei_x_fifteen_matte-black",
             "entity": "helmet",
             "title": "Shoei X-Fifteen Matte Black",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "shoei_x_fifteen",
             "helmet_family": "X-Fifteen",
             "head_shape": "Intermediate Oval",
@@ -60,19 +62,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "shoei_x_fifteen_white",
             "entity": "helmet",
             "title": "Shoei X-Fifteen White",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "shoei_x_fifteen",
             "helmet_family": "X-Fifteen",
             "head_shape": "Intermediate Oval",
@@ -103,19 +105,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+White+Back"
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+White",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+White+Side",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+White+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "shoei_x_fifteen_marquez-7-tc-1",
             "entity": "helmet",
             "title": "Shoei X-Fifteen Marquez 7 TC-1",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "shoei_x_fifteen",
             "helmet_family": "X-Fifteen",
             "head_shape": "Intermediate Oval",
@@ -146,19 +148,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Marquez+7+TC-1+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "shoei_x_fifteen_proxy-tc-11",
             "entity": "helmet",
             "title": "Shoei X-Fifteen Proxy TC-11",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "shoei_x_fifteen",
             "helmet_family": "X-Fifteen",
             "head_shape": "Intermediate Oval",
@@ -189,18 +191,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+Proxy+TC-11+Back"
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Proxy+TC-11",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Proxy+TC-11+Side",
+                "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+Proxy+TC-11+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+X-Fifteen+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+1",
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+2",
+        "https://placehold.co/800x800/222/white?text=Shoei+X-Fifteen+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

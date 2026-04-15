@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega full face with internal sun visor and anti-fog coating.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Grey",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Verto+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Verto+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Verto+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Apex Ridge Max X",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Ridge Max X",
     "price": {
         "current": 349.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure with peak and Pinlock.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "apex_ridge_max_x_matte-black",
             "entity": "helmet",
             "title": "Apex Ridge Max X Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_ridge_max_x",
             "helmet_family": "Ridge Max X",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "apex_ridge_max_x_sand",
             "entity": "helmet",
             "title": "Apex Ridge Max X Sand",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_ridge_max_x",
             "helmet_family": "Ridge Max X",
             "head_shape": "Intermediate Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Sand",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Sand+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+Sand+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Sand",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Sand+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+Sand+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Max+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+Max+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

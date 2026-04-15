@@ -16,11 +16,13 @@
         "weight_lbs": 3.64,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
-    "description": "P\/J-rated modular with wide panoramic visor and speaker pockets.",
+    "description": "P/J-rated modular with wide panoramic visor and speaker pockets.",
     "product_details": {
-        "description": "P\/J-rated modular with wide panoramic visor and speaker pockets."
+        "description": "P/J-rated modular with wide panoramic visor and speaker pockets."
     },
     "variants": [
         {
@@ -37,9 +39,9 @@
             "finish": "gloss",
             "is_graphic": false,
             "availability": "instock",
-            "description": "P\/J-rated modular with wide panoramic visor and speaker pockets.",
+            "description": "P/J-rated modular with wide panoramic visor and speaker pockets.",
             "product_details": {
-                "description": "P\/J-rated modular with wide panoramic visor and speaker pockets."
+                "description": "P/J-rated modular with wide panoramic visor and speaker pockets."
             },
             "price": {
                 "current": 249.99,
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -78,9 +80,9 @@
             "finish": "gloss",
             "is_graphic": false,
             "availability": "instock",
-            "description": "P\/J-rated modular with wide panoramic visor and speaker pockets.",
+            "description": "P/J-rated modular with wide panoramic visor and speaker pockets.",
             "product_details": {
-                "description": "P\/J-rated modular with wide panoramic visor and speaker pockets."
+                "description": "P/J-rated modular with wide panoramic visor and speaker pockets."
             },
             "price": {
                 "current": 249.99,
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -119,9 +121,9 @@
             "finish": "matte",
             "is_graphic": true,
             "availability": "instock",
-            "description": "P\/J-rated modular with wide panoramic visor and speaker pockets.",
+            "description": "P/J-rated modular with wide panoramic visor and speaker pockets.",
             "product_details": {
-                "description": "P\/J-rated modular with wide panoramic visor and speaker pockets."
+                "description": "P/J-rated modular with wide panoramic visor and speaker pockets."
             },
             "price": {
                 "current": 299.99,
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+Vortex+TC-3+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -148,8 +150,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Atom+2+SV+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+1",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+2",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Atom+2+SV+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

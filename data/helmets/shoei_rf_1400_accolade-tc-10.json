@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness.",
     "product_details": {
         "description": "The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Accolade+TC-10",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Accolade+TC-10+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1400+Accolade+TC-10+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Accolade+TC-10",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Accolade+TC-10+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1400+Accolade+TC-10+Back"
     ],
     "color": "Accolade TC-10",
     "color_family": "Multi",
     "sku": "SHO-RF14-ACC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

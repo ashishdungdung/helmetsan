@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Versatile road helmet with internal sun visor.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "gloss",
     "is_graphic": false,
     "availability": "instock",
-    "yoast_metadesc": "Unlock ultimate protection with the AGV K3 Gloss Black, engineered for intermediate oval heads. Experience unmatched aerodynamics and crisp visibility. Upgrade your gear today at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

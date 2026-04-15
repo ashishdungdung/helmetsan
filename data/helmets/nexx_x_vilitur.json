@@ -16,7 +16,9 @@
         "weight_lbs": 3.57,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring modular featuring 360-degree panoramic vision.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Raptor+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Raptor+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Raptor+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Raptor+Red",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Raptor+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Raptor+Red+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+1",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+2",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

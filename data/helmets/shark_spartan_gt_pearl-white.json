@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport-touring with integrated sun visor and autoseal system.",
     "product_details": {
         "description": "Sport-touring with integrated sun visor and autoseal system."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Spartan+GT+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Shark+Spartan+GT+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "SHA-SPAR-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

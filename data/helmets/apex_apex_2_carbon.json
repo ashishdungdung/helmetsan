@@ -29,21 +29,32 @@
             "DOT",
             "Snell M2020",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Top-tier full face with carbon composite and premium liner.",
     "product_details": {
         "description": "Top-tier full face with carbon composite and premium liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Apex+2+Carbon+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+2+Carbon",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+2+Carbon+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Apex+2+Carbon+Back"
     ],
     "color": "Carbon",
     "color_family": "Carbon",
     "sku": "APX-AP2-CAR",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

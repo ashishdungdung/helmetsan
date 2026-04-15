@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Apex Ridge",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Ridge",
     "price": {
         "current": 259.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Dual-sport helmet with peak and versatile ventilation.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "apex_ridge_black",
             "entity": "helmet",
             "title": "Apex Ridge Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_ridge",
             "helmet_family": "Ridge",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "apex_ridge_green",
             "entity": "helmet",
             "title": "Apex Ridge Green",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_ridge",
             "helmet_family": "Ridge",
             "head_shape": "Intermediate Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Green",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Green+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+Green+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Green",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Green+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Ridge+Green+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

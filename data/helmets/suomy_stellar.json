@@ -16,7 +16,9 @@
         "weight_lbs": 3.31,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Feature-rich mid-range with double visor and anti-allergic liner.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+Vortex+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Vortex+Blue",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Vortex+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Suomy+Stellar+Vortex+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Stellar+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Suomy+Stellar+1",
+        "https://placehold.co/800x800/222/white?text=Suomy+Stellar+2",
+        "https://placehold.co/800x800/222/white?text=Suomy+Stellar+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

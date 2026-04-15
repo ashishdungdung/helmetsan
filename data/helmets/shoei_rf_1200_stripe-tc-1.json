@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2015"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Predecessor to the RF-1400, still popular for its proven performance.",
     "product_details": {
         "description": "Predecessor to the RF-1400, still popular for its proven performance."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Stripe+TC-1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Stripe+TC-1+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+RF-1200+Stripe+TC-1+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Stripe+TC-1",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Stripe+TC-1+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+RF-1200+Stripe+TC-1+Back"
     ],
     "color": "Stripe TC-1",
     "color_family": "Multi",
     "sku": "SHO-RF12-STR",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -76,13 +76,13 @@ final class IngestionService
         return $this->repository->listJsonFiles($path);
     }
 
-    public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, int $offset = 0): array
+    public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, int $offset = 0, bool $force = false): array
     {
         $files = $this->repository->listJsonFiles($path);
         if ($offset > 0 || $limit !== null) {
             $files = array_slice($files, $offset, $limit ?? count($files));
         }
-        return $this->ingestFiles($files, $batchSize, null, $dryRun, $path);
+        return $this->ingestFiles($files, $batchSize, null, $dryRun, $path, $force);
     }
 
     /**
@@ -91,7 +91,7 @@ final class IngestionService
      *
      * @return array{ok: bool, created?: int, updated?: int, skipped?: int, rejected?: int, accepted?: int, locked?: bool, message?: string}
      */
-    public function ingestSeedFile(string $seedFilePath = '', int $batchSize = 25, bool $dryRun = false): array
+    public function ingestSeedFile(string $seedFilePath = '', int $batchSize = 25, bool $dryRun = false, bool $force = false): array
     {
         if (function_exists('set_time_limit')) {
             @set_time_limit(0);
@@ -135,7 +135,7 @@ final class IngestionService
 
         $this->forceUnlock();
         $sourceLabel = 'seed:' . basename($seedFilePath);
-        $result      = $this->ingestFiles($files, $batchSize, null, $dryRun, $sourceLabel);
+        $result      = $this->ingestFiles($files, $batchSize, null, $dryRun, $sourceLabel, $force);
 
         array_map('unlink', array_filter(glob($tmpDir . '*.json') ?: []));
         @rmdir($tmpDir);
@@ -156,7 +156,7 @@ final class IngestionService
     /**
      * @param array<int, string> $files
      */
-    public function ingestFiles(array $files, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, string $sourcePath = 'selected-files'): array
+    public function ingestFiles(array $files, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, string $sourcePath = 'selected-files', bool $force = false): array
     {
         if (function_exists('set_time_limit')) {
             @set_time_limit(0);
@@ -188,7 +188,7 @@ final class IngestionService
             $created = 0;
 
             foreach ($batches as $index => $batch) {
-                $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files');
+                $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files. Force: ' . ($force ? 'YES' : 'NO'));
 
                 foreach ($batch as $file) {
                     $data = $this->repository->read($file);
@@ -294,7 +294,7 @@ final class IngestionService
                         )
                     );
 
-                    if ($existingHash !== '' && hash_equals($existingHash, $payloadHash) && $hasType) {
+                    if (! $force && $existingHash !== '' && hash_equals($existingHash, $payloadHash) && $hasType) {
                         $skipped++;
                         $this->logs->add($file, 'skipped', 'Hash unchanged and categorized; record skipped', (string) $data['id'], $postId);
                         continue;

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Affordable full face with integrated sun visor and good ventilation for commuting.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Grey",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Red+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Red",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Red+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Stellar+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+1",
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+2",
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

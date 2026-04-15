@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "LS2 Pioneer",
     "brand": "LS2",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Pioneer",
     "price": {
         "current": 179.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "LS2 adventure helmet with removable peak and dual visor.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "ls2_pioneer_matte-black",
             "entity": "helmet",
             "title": "LS2 Pioneer Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ls2_pioneer",
             "helmet_family": "Pioneer",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "ls2_pioneer_grey",
             "entity": "helmet",
             "title": "LS2 Pioneer Grey",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "ls2_pioneer",
             "helmet_family": "Pioneer",
             "head_shape": "Intermediate Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Grey",
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Pioneer+Grey+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Pioneer+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=LS2+Pioneer+1",
+        "https://placehold.co/800x800/222/white?text=LS2+Pioneer+2",
+        "https://placehold.co/800x800/222/white?text=LS2+Pioneer+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

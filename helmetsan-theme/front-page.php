@@ -27,6 +27,7 @@ $safetyUrl     = home_url('/safety/');
         <p class="hs-eyebrow"><?php esc_html_e('Global Helmet Intelligence Platform', 'helmetsan-theme'); ?></p>
         <h1 class="hs-hero__title"><?php esc_html_e('Find the Right Helmet. Compare Specs. Stay Compliant.', 'helmetsan-theme'); ?></h1>
         <p class="hs-hero__desc"><?php esc_html_e('Search helmets by brand, type, and certification. Explore accessories, compatibility, and safety standards in one place.', 'helmetsan-theme'); ?></p>
+
         <div class="hs-hero__actions hs-hero__actions--centered">
             <a class="hs-btn hs-btn--primary" href="<?php echo esc_url($helmetsUrl); ?>"><?php esc_html_e('Explore Helmets', 'helmetsan-theme'); ?></a>
             <a class="hs-btn hs-btn--ghost" href="<?php echo esc_url($accessoriesUrl); ?>"><?php esc_html_e('Browse Accessories', 'helmetsan-theme'); ?></a>

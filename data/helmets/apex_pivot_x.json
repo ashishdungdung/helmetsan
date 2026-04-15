@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Modular with flip-up and sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+White+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+White",
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+White+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Pivot+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Pivot+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

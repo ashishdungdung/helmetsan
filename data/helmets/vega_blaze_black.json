@@ -25,7 +25,9 @@
         "weight_lbs": 1.79,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Blaze open face for scooter and short trips.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "VEG-BLZ-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

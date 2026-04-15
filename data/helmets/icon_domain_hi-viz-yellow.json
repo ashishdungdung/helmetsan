@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Aggressive street helmet with integrated FRP chin bar and ICON styling.",
     "product_details": {
         "description": "Aggressive street helmet with integrated FRP chin bar and ICON styling."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+Hi-Viz+Yellow",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+Hi-Viz+Yellow+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Domain+Hi-Viz+Yellow+Back"
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+Hi-Viz+Yellow",
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+Hi-Viz+Yellow+Side",
+        "https://placehold.co/800x800/222/white?text=Icon+Domain+Hi-Viz+Yellow+Back"
     ],
     "color": "Hi-Viz Yellow",
     "color_family": "Yellow",
     "sku": "ICO-DOMA-YEL",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

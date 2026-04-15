@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Alpinestars SM5",
     "brand": "Alpinestars",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "SM5",
     "price": {
         "current": 289.95,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Affordable Alpinestars MX helmet with multi-density EPS.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "alpinestars_sm5_matte-black",
             "entity": "helmet",
             "title": "Alpinestars SM5 Matte Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "alpinestars_sm5",
             "helmet_family": "SM5",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "alpinestars_sm5_pearl-white",
             "entity": "helmet",
             "title": "Alpinestars SM5 Pearl White",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "alpinestars_sm5",
             "helmet_family": "SM5",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White+Back"
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White+Side",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "alpinestars_sm5_racer-tc-2",
             "entity": "helmet",
             "title": "Alpinestars SM5 Racer TC-2",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "alpinestars_sm5",
             "helmet_family": "SM5",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Racer+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Racer+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Racer+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Racer+TC-2",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Racer+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Racer+TC-2+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "alpinestars_sm5_course-blue",
             "entity": "helmet",
             "title": "Alpinestars SM5 Course Blue",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "alpinestars_sm5",
             "helmet_family": "SM5",
             "head_shape": "Intermediate Oval",
@@ -184,18 +186,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Course+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Course+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Course+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Course+Blue",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Course+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Course+Blue+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+1",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+2",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

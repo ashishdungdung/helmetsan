@@ -25,21 +25,32 @@
         "weight_lbs": 3.31,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Aggressive naked-bike helmet with dark visor and spoiler.",
     "product_details": {
         "description": "Aggressive naked-bike helmet with dark visor and spoiler."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=MT+Helmets+Streetfighter+SV+Operator+Blue+Back"
     ],
     "color": "Operator Blue",
     "color_family": "Blue",
     "sku": "MTH-STRE-OPE",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport full face with Snell and quiet interior.",
     "product_details": {
         "description": "Sport full face with Snell and quiet interior."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Pro+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Pro+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Blaze+Pro+White+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Pro+White",
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Pro+White+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Blaze+Pro+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "APX-BLP-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

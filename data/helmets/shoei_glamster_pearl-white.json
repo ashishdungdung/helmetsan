@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Neo-retro style meets modern safety and comfort.",
     "product_details": {
         "description": "Neo-retro style meets modern safety and comfort."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Glamster+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Glamster+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+Glamster+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+Glamster+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Shoei+Glamster+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+Glamster+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "SHO-GLAM-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

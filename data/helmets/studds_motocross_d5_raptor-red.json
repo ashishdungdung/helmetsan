@@ -25,7 +25,9 @@
         "weight_lbs": 2.76,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Affordable off-road helmet with large eye port and ABS shell.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "STU-MOTO-RAP",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

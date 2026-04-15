@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Bell MX-9 Adventure MIPS Course Grey",
     "brand": "Bell",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "bell_mx_9_adventure_mips",
     "helmet_family": "MX-9 Adventure MIPS",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Highly versatile helmet for exploring the unknown.",
     "product_details": {
         "description": "Highly versatile helmet for exploring the unknown."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey",
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+Adventure+MIPS+Course+Grey+Back"
     ],
     "color": "Course Grey",
     "color_family": "Grey",
     "sku": "BEL-MX9A-COU",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Integrated Sun Visor"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

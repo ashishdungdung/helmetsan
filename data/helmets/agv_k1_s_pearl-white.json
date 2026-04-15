@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Aerodynamic shape and racing ventilation for everyday riders.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "gloss",
     "is_graphic": false,
     "availability": "instock",
-    "yoast_metadesc": "Experience unmatched safety with the AGV K1 S Pearl White. Designed for intermediate oval fits, it delivers top-tier protection and premium comfort. Upgrade your ride today at Helmetsan!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

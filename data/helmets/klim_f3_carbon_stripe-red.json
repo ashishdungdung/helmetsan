@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Klim F3 Carbon Stripe Red",
     "brand": "Klim",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "klim_f3_carbon",
     "helmet_family": "F3 Carbon",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight carbon MX helmet with Klim channeled EPS ventilation.",
     "product_details": {
         "description": "Lightweight carbon MX helmet with Klim channeled EPS ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red",
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red+Back"
     ],
     "color": "Stripe Red",
     "color_family": "Red",
     "sku": "KLI-F3CA-STR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

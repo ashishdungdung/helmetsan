@@ -15,9 +15,10 @@
         "weight_g": 1650,
         "weight_lbs": 3.64,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Double sun visor modular at a competitive price point.",
     "product_details": {
@@ -53,8 +54,7 @@
                 "weight_g": 1650,
                 "weight_lbs": 3.64,
                 "certifications": [
-                    "DOT",
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -95,8 +95,7 @@
                 "weight_g": 1650,
                 "weight_lbs": 3.64,
                 "certifications": [
-                    "DOT",
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -137,8 +136,7 @@
                 "weight_g": 1650,
                 "weight_lbs": 3.64,
                 "certifications": [
-                    "DOT",
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -155,5 +153,14 @@
         "https://placehold.co/800x800/222/white?text=Zox+Condor+SVS+1",
         "https://placehold.co/800x800/222/white?text=Zox+Condor+SVS+2",
         "https://placehold.co/800x800/222/white?text=Zox+Condor+SVS+3"
-    ]
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

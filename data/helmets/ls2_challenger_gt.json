@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport touring full face with Dynamic Flow-Through ventilation and Pinlock MaxVision.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Grey",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Challenger+GT+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+1",
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+2",
+        "https://placehold.co/800x800/222/white?text=LS2+Challenger+GT+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Classic open face with vintage styling and modern certifications.",
     "product_details": {
         "description": "Classic open face with vintage styling and modern certifications."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=DMD+Classic+Ivory+Back"
+        "https://placehold.co/800x800/222/white?text=DMD+Classic+Ivory",
+        "https://placehold.co/800x800/222/white?text=DMD+Classic+Ivory+Side",
+        "https://placehold.co/800x800/222/white?text=DMD+Classic+Ivory+Back"
     ],
     "color": "Ivory",
     "color_family": "White",
     "sku": "DMD-CLS-IVY",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

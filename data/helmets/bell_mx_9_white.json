@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Bell MX-9 White",
     "brand": "Bell",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "bell_mx_9",
     "helmet_family": "MX-9",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Bell MX-9 off-road helmet with MIPS.",
     "product_details": {
         "description": "Bell MX-9 off-road helmet with MIPS."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bell+MX-9+White+Back"
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+White",
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+White+Side",
+        "https://placehold.co/800x800/222/white?text=Bell+MX-9+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "BEL-MX9-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

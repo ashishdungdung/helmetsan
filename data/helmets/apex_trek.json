@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with integrated sun visor and comfortable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue",
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Trek+Blue+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trek+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Trek+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

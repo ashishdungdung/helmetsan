@@ -25,21 +25,32 @@
         "weight_lbs": 3.73,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Carbon shell modular with panoramic visor and antibacterial lining.",
     "product_details": {
         "description": "Carbon shell modular with panoramic visor and antibacterial lining."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Caberg+Levo+X+Camo+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey",
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Caberg+Levo+X+Camo+Grey+Back"
     ],
     "color": "Camo Grey",
     "color_family": "Grey",
     "sku": "CAB-LEVO-CAM",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

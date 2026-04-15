@@ -27,7 +27,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-light off-road helmet designed in collaboration with MotoGP riders.",
     "product_details": {
@@ -44,5 +46,13 @@
     "finish": "gloss",
     "is_graphic": true,
     "availability": "instock",
-    "yoast_metadesc": "Ride safely in the AGV AX-8 EVO Urban TC-5, an Intermediate Oval shell engineered for urban precision and impact protection. Experience unmatched comfort and style today. Compare prices at Helmetsan now!"
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

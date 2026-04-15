@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Flip-up modular with sun visor and prepared for comms.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+White+Back"
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White+Side",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Avalon+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Bering+Avalon+1",
+        "https://placehold.co/800x800/222/white?text=Bering+Avalon+2",
+        "https://placehold.co/800x800/222/white?text=Bering+Avalon+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

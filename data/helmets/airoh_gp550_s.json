@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Airoh GP550 S",
     "brand": "Airoh",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_family": "GP550 S",
     "price": {
         "current": 499.99,
@@ -16,7 +16,9 @@
         "weight_lbs": 2.76,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Italian racetrack helmet with carbon-aramid shell and multi-density EPS.",
     "product_details": {
@@ -27,7 +29,7 @@
             "id": "airoh_gp550_s_matte-black",
             "entity": "helmet",
             "title": "Airoh GP550 S Matte Black",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "airoh_gp550_s",
             "helmet_family": "GP550 S",
             "head_shape": "Intermediate Oval",
@@ -56,19 +58,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "airoh_gp550_s_gloss-white",
             "entity": "helmet",
             "title": "Airoh GP550 S Gloss White",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "airoh_gp550_s",
             "helmet_family": "GP550 S",
             "head_shape": "Intermediate Oval",
@@ -97,19 +99,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Gloss+White+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         },
         {
             "id": "airoh_gp550_s_racer-blue",
             "entity": "helmet",
             "title": "Airoh GP550 S Racer Blue",
-            "type": "Track \/ Race",
+            "type": "Track / Race",
             "parent_id": "airoh_gp550_s",
             "helmet_family": "GP550 S",
             "head_shape": "Intermediate Oval",
@@ -138,18 +140,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+Racer+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+Racer+Blue+Back"
             ],
             "helmet_types": [
-                "Track \/ Race"
+                "Track / Race"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+GP550+S+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+1",
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+2",
+        "https://placehold.co/800x800/222/white?text=Airoh+GP550+S+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

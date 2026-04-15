@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Sedici Mesa Sand",
     "brand": "Sedici",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "sedici_mesa",
     "helmet_family": "Mesa",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sedici Mesa adventure helmet with peak.",
     "product_details": {
         "description": "Sedici Mesa adventure helmet with peak."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Mesa+Sand+Back"
+        "https://placehold.co/800x800/222/white?text=Sedici+Mesa+Sand",
+        "https://placehold.co/800x800/222/white?text=Sedici+Mesa+Sand+Side",
+        "https://placehold.co/800x800/222/white?text=Sedici+Mesa+Sand+Back"
     ],
     "color": "Sand",
     "color_family": "Grey",
     "sku": "SED-MES-SND",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

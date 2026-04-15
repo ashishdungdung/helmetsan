@@ -16,7 +16,9 @@
         "weight_lbs": 2.87,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Retro-styled full face with modern composite shell technology.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Operator+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Operator+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Operator+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Operator+TC-3",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Operator+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Operator+TC-3+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Flow+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Flow+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+Flow+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Flow+TC-2",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Flow+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Nexx+X.G200+Flow+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.G200+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G200+1",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G200+2",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.G200+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

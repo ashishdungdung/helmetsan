@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "European full face with integrated sun visor and good ventilation.",
     "product_details": {
         "description": "European full face with integrated sun visor and good ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Hero+2+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Hero+2+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Bering+Hero+2+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=Bering+Hero+2+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=Bering+Hero+2+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=Bering+Hero+2+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "BER-HR2-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

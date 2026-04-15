@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird Rocket open face for scooter.",
     "product_details": {
         "description": "Steelbird Rocket open face for scooter."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Rocket+Silver",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Rocket+Silver+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Rocket+Silver+Back"
+        "https://placehold.co/800x800/222/white?text=Steelbird+Rocket+Silver",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Rocket+Silver+Side",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Rocket+Silver+Back"
     ],
     "color": "Silver",
     "color_family": "Grey",
     "sku": "STE-ROC-SLV",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Apex full face with double visor and ISI mark for Indian roads.",
     "product_details": {
         "description": "Axor Apex full face with double visor and ISI mark for Indian roads."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Apex+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Apex+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Apex+White+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Apex+White",
+        "https://placehold.co/800x800/222/white?text=Axor+Apex+White+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Apex+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "AXR-APX-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

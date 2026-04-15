@@ -25,7 +25,9 @@
         "weight_lbs": 1.54,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
     "product_details": {
@@ -41,5 +43,8 @@
     "sku": "WCL-BEAN-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "tech_integration": {
+        "comms_cutout_type": "Not Ready"
+    }
 }

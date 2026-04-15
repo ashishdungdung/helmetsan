@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Italian-designed entry-level full face with sun shield and pinlock-ready visor.",
     "product_details": {
         "description": "Italian-designed entry-level full face with sun shield and pinlock-ready visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+3+Apex+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+3+Apex+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Strada+3+Apex+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+3+Apex+Grey",
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+3+Apex+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Sedici+Strada+3+Apex+Grey+Back"
     ],
     "color": "Apex Grey",
     "color_family": "Grey",
     "sku": "SED-STRA-APE",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

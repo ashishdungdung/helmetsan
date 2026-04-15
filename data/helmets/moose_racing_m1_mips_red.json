@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Moose Racing M1 MIPS Red",
     "brand": "Moose Racing",
-    "type": "Dirt \/ Motocross",
+    "type": "Dirt / Motocross",
     "helmet_types": [
-        "Dirt \/ Motocross"
+        "Dirt / Motocross"
     ],
     "parent_id": "moose_racing_m1_mips",
     "helmet_family": "M1 MIPS",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "MX helmet with MIPS for reduced rotational impact.",
     "product_details": {
         "description": "MX helmet with MIPS for reduced rotational impact."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+M1+MIPS+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+M1+MIPS+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "MOO-M1-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

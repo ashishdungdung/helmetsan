@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Icon Elsinore",
     "brand": "Icon",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "Elsinore",
     "price": {
         "current": 275,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vintage MX styling meets modern composite construction and safety.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "icon_elsinore_gloss-black",
             "entity": "helmet",
             "title": "Icon Elsinore Gloss Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "icon_elsinore",
             "helmet_family": "Elsinore",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "icon_elsinore_gloss-white",
             "entity": "helmet",
             "title": "Icon Elsinore Gloss White",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "icon_elsinore",
             "helmet_family": "Elsinore",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+White+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "icon_elsinore_camo-tc-3",
             "entity": "helmet",
             "title": "Icon Elsinore Camo TC-3",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "icon_elsinore",
             "helmet_family": "Elsinore",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Camo+TC-3",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Camo+TC-3+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Camo+TC-3+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Camo+TC-3",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Camo+TC-3+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Camo+TC-3+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "icon_elsinore_tech-tc-1",
             "entity": "helmet",
             "title": "Icon Elsinore Tech TC-1",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "icon_elsinore",
             "helmet_family": "Elsinore",
             "head_shape": "Intermediate Oval",
@@ -184,18 +186,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Tech+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Tech+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Tech+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Tech+TC-1",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Tech+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Tech+TC-1+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+1",
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+2",
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

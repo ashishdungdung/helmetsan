@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Alpinestars Supertech M10 Silver Metallic",
     "brand": "Alpinestars",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "alpinestars_supertech_m10",
     "helmet_family": "Supertech M10",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-lightweight carbon MX helmet with A-Head fitment system.",
     "product_details": {
         "description": "Ultra-lightweight carbon MX helmet with A-Head fitment system."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+Supertech+M10+Silver+Metallic",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+Supertech+M10+Silver+Metallic+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+Supertech+M10+Silver+Metallic+Back"
+        "https://placehold.co/800x800/222/white?text=Alpinestars+Supertech+M10+Silver+Metallic",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+Supertech+M10+Silver+Metallic+Side",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+Supertech+M10+Silver+Metallic+Back"
     ],
     "color": "Silver Metallic",
     "color_family": "Grey",
     "sku": "ALP-SUPE-GRE",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

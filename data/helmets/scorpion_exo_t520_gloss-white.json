@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport touring full face with EverClear anti-fog and Ellip-Tec II face shield.",
     "product_details": {
         "description": "Sport touring full face with EverClear anti-fog and Ellip-Tec II face shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-T520+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-T520+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-T520+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-T520+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-T520+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-T520+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "SCO-T520-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

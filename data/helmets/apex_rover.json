@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with sun visor and Bluetooth-ready design.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Blue",
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Rover+Blue+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Rover+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Rover+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Rover+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Rover+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

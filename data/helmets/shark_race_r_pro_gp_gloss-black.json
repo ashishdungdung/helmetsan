@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Shark Race-R Pro GP Gloss Black",
     "brand": "Shark",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "shark_race_r_pro_gp",
     "helmet_family": "Race-R Pro GP",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "MotoGP-grade race helmet with carbon-aramid shell and double-D ring.",
     "product_details": {
         "description": "MotoGP-grade race helmet with carbon-aramid shell and double-D ring."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shark+Race-R+Pro+GP+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Shark+Race-R+Pro+GP+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "SHA-RACE-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

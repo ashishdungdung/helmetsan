@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Fox Racing V3 RS",
     "brand": "Fox Racing",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "V3 RS",
     "price": {
         "current": 599.95,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Top-of-the-line MX helmet with MIPS and dual-density EPS.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "fox_racing_v3_rs_gloss-black",
             "entity": "helmet",
             "title": "Fox Racing V3 RS Gloss Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "fox_racing_v3_rs",
             "helmet_family": "V3 RS",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "fox_racing_v3_rs_gloss-white",
             "entity": "helmet",
             "title": "Fox Racing V3 RS Gloss White",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "fox_racing_v3_rs",
             "helmet_family": "V3 RS",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "fox_racing_v3_rs_tech-blue",
             "entity": "helmet",
             "title": "Fox Racing V3 RS Tech Blue",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "fox_racing_v3_rs",
             "helmet_family": "V3 RS",
             "head_shape": "Intermediate Oval",
@@ -142,19 +144,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Tech+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Tech+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Tech+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Tech+Blue",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Tech+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Tech+Blue+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "fox_racing_v3_rs_solid-tc-2",
             "entity": "helmet",
             "title": "Fox Racing V3 RS Solid TC-2",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "fox_racing_v3_rs",
             "helmet_family": "V3 RS",
             "head_shape": "Intermediate Oval",
@@ -184,18 +186,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Solid+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Solid+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Solid+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Solid+TC-2",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Solid+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Solid+TC-2+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+1",
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+2",
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Integrated Sun Visor"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

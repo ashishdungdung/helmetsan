@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2015"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Battle-proven full face with ACS ventilation and Snell certification.",
     "product_details": {
         "description": "Battle-proven full face with ACS ventilation and Snell certification."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+CL-17+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=HJC+CL-17+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=HJC+CL-17+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=HJC+CL-17+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "HJC-CL17-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

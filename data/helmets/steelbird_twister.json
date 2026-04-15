@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Light open face with flip visor for commuters.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Grey",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Twister+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Twister+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+Twister+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Twister+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Twister+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

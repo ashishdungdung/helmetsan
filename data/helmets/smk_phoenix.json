@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range full face with dual homologation and drop-down sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Blue",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -226,9 +228,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Graphic+Storm+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Graphic+Storm",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Graphic+Storm+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Graphic+Storm+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -236,8 +238,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+1",
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+2",
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

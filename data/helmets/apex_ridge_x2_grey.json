@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Apex Ridge X2 Grey",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "apex_ridge_x2",
     "helmet_family": "Ridge X2",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure with peak and dual visor.",
     "product_details": {
         "description": "Adventure with peak and dual visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+X2+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+X2+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Ridge+X2+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+X2+Grey",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+X2+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Ridge+X2+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "APX-RX2-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

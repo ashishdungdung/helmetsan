@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "LS2 Explorer C Operator TC-3",
     "brand": "LS2",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "ls2_explorer_c",
     "helmet_family": "Explorer C",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Carbon adventure with removable peak, Pinlock, and speaker pockets.",
     "product_details": {
         "description": "Carbon adventure with removable peak, Pinlock, and speaker pockets."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+C+Operator+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+C+Operator+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=LS2+Explorer+C+Operator+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+C+Operator+TC-3",
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+C+Operator+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=LS2+Explorer+C+Operator+TC-3+Back"
     ],
     "color": "Operator TC-3",
     "color_family": "Multi",
     "sku": "LS2-EXPL-OPE",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

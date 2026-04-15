@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring helmet with drop-down sun shield and Bluetooth-ready pockets.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Silver",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Silver+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Voyager+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Touring"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Voyager+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Voyager+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

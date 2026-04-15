@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "All-weather full face with anti-fog and rain channel.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey",
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

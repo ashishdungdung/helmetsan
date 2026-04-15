@@ -17,17 +17,25 @@ define('HS_DATA_DIR', dirname(__DIR__) . '/data');
 define('HS_CORRECTIONS_DIR', HS_DATA_DIR . '/corrections');
 define('VALIDATE_BRIDGE', __DIR__ . '/id-ai-validate.php');
 
-// CONFIGURATION: Fetch current mode from WP-CLI (with environment variable override)
-$envMode = getenv('HELMETSAN_AI_MODE');
-if ($envMode && in_array($envMode, ['local', 'server', 'ide'], true)) {
-    $aiMode = $envMode;
+// CONFIGURATION: Support CLI arguments
+$options = getopt("", ["mode::", "limit::", "git-sync"]);
+
+$aiModeArg = $options['mode'] ?? null;
+if ($aiModeArg && in_array($aiModeArg, ['local', 'server', 'ide'], true)) {
+    $aiMode = $aiModeArg;
 } else {
-    $cliMode = trim((string)shell_exec("wp helmetsan ai config --get-mode --allow-root 2>/dev/null"));
-    $aiMode = in_array($cliMode, ['local', 'server', 'ide'], true) ? $cliMode : 'local';
+    $envMode = getenv('HELMETSAN_AI_MODE');
+    if ($envMode && in_array($envMode, ['local', 'server', 'ide'], true)) {
+        $aiMode = $envMode;
+    } else {
+        $cliMode = trim((string)shell_exec("wp helmetsan ai config --get-mode --allow-root 2>/dev/null"));
+        $aiMode = in_array($cliMode, ['local', 'server', 'ide'], true) ? $cliMode : 'local';
+    }
 }
 
-define('PILOT_LIMIT', 10);       // Max total heals per run
-define('CONCURRENCY', 4);        // Batch size for local parallel healing
+$pilotLimit = isset($options['limit']) ? (int)$options['limit'] : 10;
+define('PILOT_LIMIT', $pilotLimit);
+define('CONCURRENCY', 4);
 define('HS_LM_STUDIO_URL', 'http://127.0.0.1:1234/v1/chat/completions');
 
 if (!is_dir(HS_CORRECTIONS_DIR)) {
@@ -44,7 +52,7 @@ if ($aiMode === 'local') {
     curl_close($ch);
     
     if ($httpCode === 0) {
-        echo "  ! LOCAL AI (LM Studio) unreachable. Falling back to SERVER mode...\n";
+        error_log("  ! LOCAL AI (LM Studio) unreachable. Falling back to SERVER mode...");
         $aiMode = 'server';
     }
 }
@@ -102,34 +110,92 @@ function process_batch_ide(array $batch): int {
     return 1; // Increment count as "handled" by IDE
 }
 
+define('HS_STATE_FILE', HS_DATA_DIR . '/.sweep_state.json');
+
 /**
- * Find all anomalies in the data directory using the validation bridge.
+ * Optimized anomaly detection with In-Memory validation and State Tracking.
  */
 function find_anomalies(string $dir): array {
+    echo "🔍 Scanning catalog (Integrity+ 2.0 Engine)...\n";
     $anomalies = [];
-    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+    $files = [];
+    $state = load_state();
+    $validator = new \Helmetsan\Core\Validation\Validator();
     
+    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
     foreach ($it as $file) {
         if (!$file->isFile() || $file->getExtension() !== 'json') continue;
         $path = $file->getRealPath();
+        if (str_contains($path, 'corrections/') || str_contains($path, 'schemas/') || str_contains($path, 'logs/')) continue;
         
-        if (str_contains($path, 'corrections/') || str_contains($path, 'schemas/')) continue;
+        $files[] = [
+            'path' => $path,
+            'mtime' => $file->getMTime(),
+            'hash' => md5_file($path)
+        ];
+    }
+    
+    // Sort by modification time (oldest first)
+    usort($files, fn($a, $b) => $a['mtime'] <=> $b['mtime']);
+    
+    $scanned = 0;
+    $skipped = 0;
+    
+    foreach ($files as $f) {
+        $path = $f['path'];
+        $hash = $f['hash'];
         
-        $output = shell_exec(PHP_BINARY . " " . escapeshellarg(VALIDATE_BRIDGE) . " " . escapeshellarg($path));
-        $res = json_decode((string)$output, true);
+        // Skip if hash matches a previous 'OK' state
+        if (isset($state[$path]) && $state[$path]['hash'] === $hash && $state[$path]['ok']) {
+            $skipped++;
+            continue;
+        }
         
-        if ($res && (!$res['ok'] || !empty($res['warnings']))) {
-            $issues = array_merge($res['errors'] ?? [], $res['warnings'] ?? []);
+        $scanned++;
+        $data = json_decode((string)file_get_contents($path), true);
+        if (!$data) continue;
+
+        $entity = determine_entity($path);
+        $data['entity'] = $entity; // Force entity for validation
+        
+        $schema = $validator->validateSchema($data);
+        $logic  = $validator->validateLogic($data);
+        
+        $ok = $schema['ok'] && $logic['ok'];
+        $issues = array_merge($schema['errors'], $logic['errors'], $logic['warnings'] ?? []);
+        
+        // Update state
+        $state[$path] = [
+            'hash' => $hash,
+            'ok' => $ok && empty($logic['warnings']),
+            'last_check' => time()
+        ];
+        
+        if (!$ok || !empty($logic['warnings'])) {
             echo "  [ANOMALY] " . basename($path) . ": " . implode('; ', $issues) . "\n";
             
             $anomalies[] = [
                 'file'   => $path,
-                'entity' => determine_entity($path),
+                'entity' => $entity,
                 'issues' => $issues
             ];
+            
+            if (count($anomalies) >= (PILOT_LIMIT * 3)) break;
         }
     }
+    
+    save_state($state);
+    echo "   ✓ Scan Complete. Files: " . count($files) . " (Scanned: $scanned, Skipped: $skipped)\n";
     return $anomalies;
+}
+
+function load_state(): array {
+    if (!file_exists(HS_STATE_FILE)) return [];
+    return json_decode((string)file_get_contents(HS_STATE_FILE), true) ?: [];
+}
+
+function save_state(array $state): void {
+    file_put_contents(HS_STATE_FILE, json_encode($state, JSON_UNESCAPED_SLASHES));
 }
 
 /**

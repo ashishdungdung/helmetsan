@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Evo open face with flip visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver",
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Evo+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Evo+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Evo+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

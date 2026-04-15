@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Icon Synergy modular with flip-up.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Black",
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Grey",
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Synergy+Grey+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Synergy+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Icon+Synergy+1",
+        "https://placehold.co/800x800/222/white?text=Icon+Synergy+2",
+        "https://placehold.co/800x800/222/white?text=Icon+Synergy+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "SMK Trek Grey",
     "brand": "SMK",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "smk_trek",
     "helmet_family": "Trek",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "SMK adventure helmet with removable peak and dual visor.",
     "product_details": {
         "description": "SMK adventure helmet with removable peak and dual visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Trek+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Trek+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Trek+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=SMK+Trek+Grey",
+        "https://placehold.co/800x800/222/white?text=SMK+Trek+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=SMK+Trek+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "SMK-TRK-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

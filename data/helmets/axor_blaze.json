@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Blaze full face with double visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+White+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+White",
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+White+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Blaze+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Blaze+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Blaze+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Blaze+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Blaze+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

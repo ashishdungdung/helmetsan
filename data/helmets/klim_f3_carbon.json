@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Klim F3 Carbon",
     "brand": "Klim",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_family": "F3 Carbon",
     "price": {
         "current": 399.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight carbon MX helmet with Klim channeled EPS ventilation.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "klim_f3_carbon_matte-black",
             "entity": "helmet",
             "title": "Klim F3 Carbon Matte Black",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f3_carbon",
             "helmet_family": "F3 Carbon",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "klim_f3_carbon_hi-viz-yellow",
             "entity": "helmet",
             "title": "Klim F3 Carbon Hi-Viz Yellow",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f3_carbon",
             "helmet_family": "F3 Carbon",
             "head_shape": "Intermediate Oval",
@@ -100,19 +102,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         },
         {
             "id": "klim_f3_carbon_stripe-red",
             "entity": "helmet",
             "title": "Klim F3 Carbon Stripe Red",
-            "type": "Dirt \/ MX",
+            "type": "Dirt / MX",
             "parent_id": "klim_f3_carbon",
             "helmet_family": "F3 Carbon",
             "head_shape": "Intermediate Oval",
@@ -142,18 +144,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+Stripe+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+Stripe+Red+Back"
             ],
             "helmet_types": [
-                "Dirt \/ MX"
+                "Dirt / MX"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+F3+Carbon+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+1",
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+2",
+        "https://placehold.co/800x800/222/white?text=Klim+F3+Carbon+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Affordable full face with integrated sun visor and good ventilation for commuting.",
     "product_details": {
         "description": "Affordable full face with integrated sun visor and good ventilation for commuting."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Stellar+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=SMK+Stellar+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "SMK-STL-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

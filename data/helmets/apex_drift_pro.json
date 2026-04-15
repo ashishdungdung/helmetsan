@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face with optional shield for cruiser style.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Chrome",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Chrome+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+Chrome+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Chrome",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Chrome+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+Chrome+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Drift+Pro+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Drift+Pro+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

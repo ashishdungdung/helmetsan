@@ -25,21 +25,32 @@
         "weight_lbs": 3.57,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Touring modular featuring 360-degree panoramic vision.",
     "product_details": {
         "description": "Touring modular featuring 360-degree panoramic vision."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nexx+X.Vilitur+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=Nexx+X.Vilitur+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "NEX-X.VI-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

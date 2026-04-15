@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Modular with flip-up chin and wide field of view.",
     "product_details": {
         "description": "Modular with flip-up chin and wide field of view."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Vista+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Vista+Black",
+        "https://placehold.co/800x800/222/white?text=Apex+Vista+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Vista+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "APX-VIS-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

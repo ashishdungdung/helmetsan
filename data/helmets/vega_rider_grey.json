@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Rider open face for daily commute.",
     "product_details": {
         "description": "Vega Rider open face for daily commute."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey",
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "VEG-RID-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Studds Shifter X with dual cert and sun visor.",
     "product_details": {
         "description": "Studds Shifter X with dual cert and sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Shifter+X+D8+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Shifter+X+D8+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Shifter+X+D8+White+Back"
+        "https://placehold.co/800x800/222/white?text=Studds+Shifter+X+D8+White",
+        "https://placehold.co/800x800/222/white?text=Studds+Shifter+X+D8+White+Side",
+        "https://placehold.co/800x800/222/white?text=Studds+Shifter+X+D8+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "STU-SHX-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

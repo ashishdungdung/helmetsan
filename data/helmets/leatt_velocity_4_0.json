@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight open face with 360\u00b0 Turbine technology.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+Black",
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+White+Back"
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+White",
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+White+Side",
+                "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Leatt+Velocity+4.0+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+1",
+        "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+2",
+        "https://placehold.co/800x800/222/white?text=Leatt+Velocity+4.0+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

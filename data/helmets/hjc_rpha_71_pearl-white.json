@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium sport-touring model with advanced shock resistance.",
     "product_details": {
         "description": "Premium sport-touring model with advanced shock resistance."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+71+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+71+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=HJC+RPHA+71+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+71+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+71+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=HJC+RPHA+71+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "HJC-RPHA-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

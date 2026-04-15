@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sporty full face with drop-down sun visor and removable liner.",
     "product_details": {
         "description": "Sporty full face with drop-down sun visor and removable liner."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Macna+Rage+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue",
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Macna+Rage+Blue+Back"
     ],
     "color": "Blue",
     "color_family": "Blue",
     "sku": "MCN-RAG-BLU",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

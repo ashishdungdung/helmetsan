@@ -16,8 +16,7 @@
         "gbp": 126.39
     },
     "certifications": [
-        "DOT",
-        "ECE 22.06"
+        "DOT"
     ],
     "head_shape": "Intermediate Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 1700,
         "weight_lbs": 3.75,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Best-selling budget modular with integrated Bluetooth and FM radio.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "ILM-902B-COU",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -25,21 +25,32 @@
         "weight_lbs": 2.43,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Urban open face with integrated visor and N-Com communication ready.",
     "product_details": {
         "description": "Urban open face with integrated visor and N-Com communication ready."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N21+Visor+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N21+Visor+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N21+Visor+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "NOL-N21V-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

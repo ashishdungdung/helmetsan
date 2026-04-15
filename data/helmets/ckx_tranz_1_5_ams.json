@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Canadian-designed modular with electric shield for cold-weather riding.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Track+TC-5",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Track+TC-5+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+Track+TC-5+Back"
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Track+TC-5",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Track+TC-5+Side",
+                "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+Track+TC-5+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=CKX+Tranz+1.5+AMS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+1",
+        "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+2",
+        "https://placehold.co/800x800/222/white?text=CKX+Tranz+1.5+AMS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Airoh TRR S Gloss Black",
     "brand": "Airoh",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "airoh_trr_s",
     "helmet_family": "TRR S",
@@ -25,21 +25,32 @@
         "weight_lbs": 3.31,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Dual-sport with removable chin guard for open-face conversion.",
     "product_details": {
         "description": "Dual-sport with removable chin guard for open-face conversion."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+TRR+S+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+TRR+S+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+TRR+S+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Airoh+TRR+S+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Airoh+TRR+S+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Airoh+TRR+S+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "AIR-TRRS-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

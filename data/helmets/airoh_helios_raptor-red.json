@@ -25,21 +25,32 @@
         "weight_lbs": 2.43,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready.",
     "product_details": {
         "description": "Lightweight jet helmet with retractable sun visor and Bluetooth ready."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Airoh+Helios+Raptor+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Airoh+Helios+Raptor+Red",
+        "https://placehold.co/800x800/222/white?text=Airoh+Helios+Raptor+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Airoh+Helios+Raptor+Red+Back"
     ],
     "color": "Raptor Red",
     "color_family": "Red",
     "sku": "AIR-HELI-RAP",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

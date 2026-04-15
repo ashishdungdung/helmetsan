@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Klim Krios Pro Racer Blue",
     "brand": "Klim",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "klim_krios_pro",
     "helmet_family": "Krios Pro",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium carbon ADV helmet with Transitions photochromic shield.",
     "product_details": {
         "description": "Premium carbon ADV helmet with Transitions photochromic shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Klim+Krios+Pro+Racer+Blue+Back"
+        "https://placehold.co/800x800/222/white?text=Klim+Krios+Pro+Racer+Blue",
+        "https://placehold.co/800x800/222/white?text=Klim+Krios+Pro+Racer+Blue+Side",
+        "https://placehold.co/800x800/222/white?text=Klim+Krios+Pro+Racer+Blue+Back"
     ],
     "color": "Racer Blue",
     "color_family": "Blue",
     "sku": "KLI-KRIO-RAC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

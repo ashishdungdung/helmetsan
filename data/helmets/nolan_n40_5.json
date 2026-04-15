@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Nolan N40-5 open face with flip visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Black",
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Grey",
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Nolan+N40-5+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+N40-5+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Nolan+N40-5+1",
+        "https://placehold.co/800x800/222/white?text=Nolan+N40-5+2",
+        "https://placehold.co/800x800/222/white?text=Nolan+N40-5+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

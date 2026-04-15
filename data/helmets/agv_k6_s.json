@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The lightest road helmet in the world per AGV.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Nardo+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Nardo+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Nardo+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Nardo+Grey",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Nardo+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Nardo+Grey+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Petrolio+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Petrolio+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -153,12 +155,12 @@
         {
             "id": "agv_k6_s_slashcut-black-red",
             "entity": "helmet",
-            "title": "AGV K6 S Slashcut Black\/Red",
+            "title": "AGV K6 S Slashcut Black/Red",
             "type": "Full Face",
             "parent_id": "agv_k6_s",
             "helmet_family": "K6 S",
             "head_shape": "Intermediate Oval",
-            "color": "Slashcut Black\/Red",
+            "color": "Slashcut Black/Red",
             "color_family": "Red",
             "sku": "AGV-K6S-SLA",
             "finish": "matte",
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed+Back"
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed+Side",
+                "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+1",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+2",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

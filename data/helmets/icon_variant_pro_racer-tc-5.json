@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Icon Variant Pro Racer TC-5",
     "brand": "Icon",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "icon_variant_pro",
     "helmet_family": "Variant Pro",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Wind-tunnel tested visor for stability at speed.",
     "product_details": {
         "description": "Wind-tunnel tested visor for stability at speed."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Pro+Racer+TC-5",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Pro+Racer+TC-5+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Variant+Pro+Racer+TC-5+Back"
+        "https://placehold.co/800x800/222/white?text=Icon+Variant+Pro+Racer+TC-5",
+        "https://placehold.co/800x800/222/white?text=Icon+Variant+Pro+Racer+TC-5+Side",
+        "https://placehold.co/800x800/222/white?text=Icon+Variant+Pro+Racer+TC-5+Back"
     ],
     "color": "Racer TC-5",
     "color_family": "Multi",
     "sku": "ICO-VARI-RAC",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

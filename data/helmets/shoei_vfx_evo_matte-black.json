@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Shoei VFX-EVO Matte Black",
     "brand": "Shoei",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "shoei_vfx_evo",
     "helmet_family": "VFX-EVO",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Top-tier motocross helmet with M.E.D.S. rotational impact system.",
     "product_details": {
         "description": "Top-tier motocross helmet with M.E.D.S. rotational impact system."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+VFX-EVO+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+VFX-EVO+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Shoei+VFX-EVO+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Shoei+VFX-EVO+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Shoei+VFX-EVO+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Shoei+VFX-EVO+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "SHO-VFXE-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

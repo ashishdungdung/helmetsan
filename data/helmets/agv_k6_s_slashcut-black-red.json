@@ -1,7 +1,7 @@
 {
     "id": "agv_k6_s_slashcut-black-red",
     "entity": "helmet",
-    "title": "AGV K6 S Slashcut Black\/Red",
+    "title": "AGV K6 S Slashcut Black/Red",
     "brand": "AGV",
     "type": "Full Face",
     "helmet_types": [
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "The lightest road helmet in the world per AGV.",
     "product_details": {
         "description": "The lightest road helmet in the world per AGV."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=AGV+K6+S+Slashcut+Black%2FRed+Back"
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed+Side",
+        "https://placehold.co/800x800/222/white?text=AGV+K6+S+Slashcut+Black%2FRed+Back"
     ],
-    "color": "Slashcut Black\/Red",
+    "color": "Slashcut Black/Red",
     "color_family": "Red",
     "sku": "AGV-K6S-SLA",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

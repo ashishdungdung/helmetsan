@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Turbo open face with flip visor for city.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Black",
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Silver",
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Axor+Turbo+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Turbo+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Axor+Turbo+1",
+        "https://placehold.co/800x800/222/white?text=Axor+Turbo+2",
+        "https://placehold.co/800x800/222/white?text=Axor+Turbo+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

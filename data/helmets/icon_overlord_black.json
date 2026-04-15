@@ -16,8 +16,7 @@
         "gbp": 118.49
     },
     "certifications": [
-        "DOT",
-        "SNELL M2020"
+        "DOT"
     ],
     "head_shape": "Round Oval",
     "specs": {
@@ -25,9 +24,10 @@
         "weight_g": 1080,
         "weight_lbs": 2.38,
         "certifications": [
-            "DOT",
-            "SNELL M2020"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Icon Overlord open face with shield.",
     "product_details": {
@@ -43,5 +43,14 @@
     "sku": "ICO-OVL-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

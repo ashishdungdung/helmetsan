@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Troy Lee Designs SE5 Carbon Silver Metallic",
     "brand": "Troy Lee Designs",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "troy_lee_designs_se5_carbon",
     "helmet_family": "SE5 Carbon",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection.",
     "product_details": {
         "description": "Premium carbon MX helmet with MIPS-C2 multi-impact protection."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Back"
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic",
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Side",
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+SE5+Carbon+Silver+Metallic+Back"
     ],
     "color": "Silver Metallic",
     "color_family": "Grey",
     "sku": "TRO-SE5C-GRE",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

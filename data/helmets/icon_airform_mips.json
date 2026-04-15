@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Airform with MIPS rotational impact protection and Icon styling.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Flow+TC-2+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Flow+TC-2",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Flow+TC-2+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Flow+TC-2+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+Track+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Track+Blue",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Track+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+Track+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Airform+MIPS+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+1",
+        "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+2",
+        "https://placehold.co/800x800/222/white?text=Icon+Airform+MIPS+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

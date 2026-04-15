@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Arai VX-Pro4 Flow Red",
     "brand": "Arai",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "arai_vx_pro4",
     "helmet_family": "VX-Pro4",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Professional grade motocross protection.",
     "product_details": {
         "description": "Professional grade motocross protection."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Flow+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Flow+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Arai+VX-Pro4+Flow+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red",
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red+Back"
     ],
     "color": "Flow Red",
     "color_family": "Red",
     "sku": "ARA-VXPR-FLO",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

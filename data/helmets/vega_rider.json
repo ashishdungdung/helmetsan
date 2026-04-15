@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vega Rider open face for daily commute.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Black",
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey",
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Vega+Rider+Grey+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vega+Rider+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+1",
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+2",
+        "https://placehold.co/800x800/222/white?text=Vega+Rider+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

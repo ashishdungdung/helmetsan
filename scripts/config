@@ -4,8 +4,8 @@
 # Do not put passwords or secrets here; use DEPLOY_PASSWORD (or similar) in the environment.
 
 REMOTE_WP_PATH="/var/www/helmetsan.com/public"
-REMOTE_HOST="root@helmetsan.com"
-HOST="helmetsan.com"
+REMOTE_HOST="root@66.179.243.155"
+HOST="66.179.243.155"
 USER="root"
 
 # Derived paths (for scripts that need them)

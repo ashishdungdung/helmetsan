@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "Snell M2020"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport-oriented full face with aerodynamic shell and Pinlock-ready shield.",
     "product_details": {
         "description": "Sport-oriented full face with aerodynamic shell and Pinlock-ready shield."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Velocity+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Velocity+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Velocity+Red+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Velocity+Red",
+        "https://placehold.co/800x800/222/white?text=Apex+Velocity+Red+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Velocity+Red+Back"
     ],
     "color": "Red",
     "color_family": "Red",
     "sku": "APX-VEL-RED",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

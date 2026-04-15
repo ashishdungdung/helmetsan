@@ -25,7 +25,9 @@
         "weight_lbs": 2.09,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Budget-friendly open face for commuters with adjustable visor.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "STU-MARS-GRE",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

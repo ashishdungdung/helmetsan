@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Schuberth M2 Solid TC-1",
     "brand": "Schuberth",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "schuberth_m2",
     "helmet_family": "M2",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Premium adventure modular with S-Com ready and electric sun visor.",
     "product_details": {
         "description": "Premium adventure modular with S-Com ready and electric sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M2+Solid+TC-1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M2+Solid+TC-1+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Schuberth+M2+Solid+TC-1+Back"
+        "https://placehold.co/800x800/222/white?text=Schuberth+M2+Solid+TC-1",
+        "https://placehold.co/800x800/222/white?text=Schuberth+M2+Solid+TC-1+Side",
+        "https://placehold.co/800x800/222/white?text=Schuberth+M2+Solid+TC-1+Back"
     ],
     "color": "Solid TC-1",
     "color_family": "Multi",
     "sku": "SCH-M2-SOL",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

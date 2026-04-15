@@ -52,6 +52,7 @@ final class RevenueService
             helmet_id bigint(20) unsigned NOT NULL,
             marketplace_id varchar(50) NOT NULL DEFAULT '',
             click_source varchar(50) NOT NULL,
+            click_intent varchar(50) NOT NULL DEFAULT 'purchase',
             affiliate_network varchar(50) NOT NULL,
             destination_url text NOT NULL,
             referer text,
@@ -61,6 +62,7 @@ final class RevenueService
             KEY helmet_id (helmet_id),
             KEY marketplace_id (marketplace_id),
             KEY click_source (click_source),
+            KEY click_intent (click_intent),
             KEY affiliate_network (affiliate_network),
             KEY created_at (created_at)
         ) {$charset};";
@@ -128,6 +130,7 @@ final class RevenueService
         $helmetId = (int) $post->ID;
         $marketplaceId = isset($_GET['marketplace']) ? sanitize_text_field((string) $_GET['marketplace']) : '';
         $source = isset($_GET['source']) ? sanitize_text_field((string) $_GET['source']) : 'direct';
+        $intent = isset($_GET['intent']) ? sanitize_text_field((string) $_GET['intent']) : 'purchase';
 
         // Try multi-network URL first (with normalized marketplace ID)
         $destination = '';
@@ -182,7 +185,7 @@ final class RevenueService
             exit;
         }
 
-        $this->logClick($helmetId, $source, $network, $destination, $marketplaceId);
+        $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent);
 
         $code = isset($settings['redirect_status_code']) ? (int) $settings['redirect_status_code'] : 302;
         if (! in_array($code, [301, 302, 307, 308], true)) {
@@ -517,7 +520,7 @@ final class RevenueService
      *
      * @param array<string,mixed> $settings
      */
-    private function buildLegacyUrl(int $helmetId, array $settings): string
+    public function buildLegacyUrl(int $helmetId, array $settings): string
     {
         $custom = (string) get_post_meta($helmetId, 'affiliate_url', true);
         if ($custom !== '') {
@@ -537,7 +540,7 @@ final class RevenueService
         return 'https://www.amazon.com/dp/' . rawurlencode($asin) . '?tag=' . rawurlencode($tag);
     }
 
-    private function logClick(int $helmetId, string $source, string $network, string $destination, string $marketplaceId = ''): void
+    private function logClick(int $helmetId, string $source, string $network, string $destination, string $marketplaceId = '', string $intent = 'purchase'): void
     {
         global $wpdb;
 
@@ -555,13 +558,14 @@ final class RevenueService
                 'helmet_id'         => $helmetId,
                 'marketplace_id'    => sanitize_text_field($marketplaceId),
                 'click_source'      => sanitize_text_field($source),
+                'click_intent'      => sanitize_text_field($intent),
                 'affiliate_network' => sanitize_text_field($network),
                 'destination_url'   => esc_url_raw($destination),
                 'referer'           => isset($_SERVER['HTTP_REFERER']) ? esc_url_raw((string) $_SERVER['HTTP_REFERER']) : '',
                 'user_agent'        => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field((string) $_SERVER['HTTP_USER_AGENT']) : '',
                 'ip_hash'           => $ipHash,
             ],
-            ['%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
+            ['%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
         );
     }
 

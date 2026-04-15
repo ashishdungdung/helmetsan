@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Steelbird full face with dual visor and improved ventilation.",
     "product_details": {
         "description": "Steelbird full face with dual visor and improved ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-30+Matte+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-30+Matte+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+SBH-30+Matte+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-30+Matte+Black",
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-30+Matte+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Steelbird+SBH-30+Matte+Black+Back"
     ],
     "color": "Matte Black",
     "color_family": "Black",
     "sku": "STE-SB30-BLK",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

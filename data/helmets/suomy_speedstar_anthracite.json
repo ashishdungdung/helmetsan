@@ -25,21 +25,32 @@
         "weight_lbs": 3.2,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sport road helmet with wide visor and advanced channeling ventilation.",
     "product_details": {
         "description": "Sport road helmet with wide visor and advanced channeling ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Speedstar+Anthracite",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Speedstar+Anthracite+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Suomy+Speedstar+Anthracite+Back"
+        "https://placehold.co/800x800/222/white?text=Suomy+Speedstar+Anthracite",
+        "https://placehold.co/800x800/222/white?text=Suomy+Speedstar+Anthracite+Side",
+        "https://placehold.co/800x800/222/white?text=Suomy+Speedstar+Anthracite+Back"
     ],
     "color": "Anthracite",
     "color_family": "Grey",
     "sku": "SUO-SPEE-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ultra-budget open face for Indian commuters and two-wheeler riders.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Silver",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Yap+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Yap+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+Yap+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Yap+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Yap+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

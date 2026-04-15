@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Scorpion EXO-R1 Air Vortex TC-3",
     "brand": "Scorpion",
-    "type": "Track \/ Race",
+    "type": "Track / Race",
     "helmet_types": [
-        "Track \/ Race"
+        "Track / Race"
     ],
     "parent_id": "scorpion_exo_r1_air",
     "helmet_family": "EXO-R1 Air",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Race-grade helmet with ultra-lightweight TCT composite shell.",
     "product_details": {
         "description": "Race-grade helmet with ultra-lightweight TCT composite shell."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3+Back"
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3+Side",
+        "https://placehold.co/800x800/222/white?text=Scorpion+EXO-R1+Air+Vortex+TC-3+Back"
     ],
     "color": "Vortex TC-3",
     "color_family": "Multi",
     "sku": "SCO-EXOR-VOR",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

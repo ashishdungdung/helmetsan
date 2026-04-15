@@ -3,7 +3,7 @@
     "entity": "helmet",
     "title": "Apex Trail Pro X",
     "brand": "Apex",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_family": "Trail Pro X",
     "price": {
         "current": 299.99,
@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure helmet with peak.",
     "product_details": {
@@ -28,7 +30,7 @@
             "id": "apex_trail_pro_x_matte-black",
             "entity": "helmet",
             "title": "Apex Trail Pro X Matte Black",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_trail_pro_x",
             "helmet_family": "Trail Pro X",
             "head_shape": "Intermediate Oval",
@@ -58,19 +60,19 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Matte+Black+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         },
         {
             "id": "apex_trail_pro_x_orange",
             "entity": "helmet",
             "title": "Apex Trail Pro X Orange",
-            "type": "Adventure \/ Dual Sport",
+            "type": "Adventure / Dual Sport",
             "parent_id": "apex_trail_pro_x",
             "helmet_family": "Trail Pro X",
             "head_shape": "Intermediate Oval",
@@ -100,18 +102,27 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Orange",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Orange+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+Orange+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Orange",
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Orange+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+Orange+Back"
             ],
             "helmet_types": [
-                "Adventure \/ Dual Sport"
+                "Adventure / Dual Sport"
             ]
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Trail+Pro+X+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Trail+Pro+X+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

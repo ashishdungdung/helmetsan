@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Icon Elsinore Gloss Black",
     "brand": "Icon",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "icon_elsinore",
     "helmet_family": "Elsinore",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Vintage MX styling meets modern composite construction and safety.",
     "product_details": {
         "description": "Vintage MX styling meets modern composite construction and safety."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Icon+Elsinore+Gloss+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black",
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Icon+Elsinore+Gloss+Black+Back"
     ],
     "color": "Gloss Black",
     "color_family": "Black",
     "sku": "ICO-ELSI-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

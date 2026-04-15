@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Open face with removable shield and classic styling.",
     "product_details": {
         "description": "Open face with removable shield and classic styling."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Cruise+White+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+White",
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+White+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Cruise+White+Back"
     ],
     "color": "White",
     "color_family": "White",
     "sku": "APX-CRU-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

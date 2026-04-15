@@ -25,7 +25,9 @@
         "weight_lbs": 3.09,
         "certifications": [
             "DOT"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Popular budget full face for emerging markets with anti-scratch visor.",
     "product_details": {
@@ -41,5 +43,14 @@
     "sku": "STU-THUN-COU",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

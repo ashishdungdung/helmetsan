@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range full face with dual homologation and drop-down sun visor.",
     "product_details": {
         "description": "Mid-range full face with dual homologation and drop-down sun visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Phoenix+Anthracite+Back"
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite",
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite+Side",
+        "https://placehold.co/800x800/222/white?text=SMK+Phoenix+Anthracite+Back"
     ],
     "color": "Anthracite",
     "color_family": "Grey",
     "sku": "SMK-PHN-ANT",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

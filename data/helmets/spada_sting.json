@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level full face with drop-down sun visor and removable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Red",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Sting+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Sting+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Spada+Sting+1",
+        "https://placehold.co/800x800/222/white?text=Spada+Sting+2",
+        "https://placehold.co/800x800/222/white?text=Spada+Sting+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Alpinestars SM5 Pearl White",
     "brand": "Alpinestars",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "alpinestars_sm5",
     "helmet_family": "SM5",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Affordable Alpinestars MX helmet with multi-density EPS.",
     "product_details": {
         "description": "Affordable Alpinestars MX helmet with multi-density EPS."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Alpinestars+SM5+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Alpinestars+SM5+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "ALP-SM5-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

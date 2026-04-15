@@ -48,6 +48,15 @@ $brands = array (
       'shape' => 'Intermediate Oval',
       'weight' => 1640,
       'mat' => 'Fiberglass',
+      'warranty_years' => 5,
+      'strap_type' => 'Double D-Ring',
+      'features_data' => [
+        'visor' => ['Pinlock EVO clear and dark smoke included', 'CWR-F2 face shield system'],
+        'liner' => ['3D Max-Dry System II', 'Emergency Quick Release System (E.Q.R.S.)']
+      ],
+      'tech_integration' => [
+        'comms_cutout_type' => 'Sena SRL2 compatible'
+      ],
       'desc' => 'The Shoei RF-1400 is the latest in the RF series, focused on lightweight performance and quietness.',
       'colorways' => 
       array (
@@ -1265,6 +1274,15 @@ $brands = array (
       'shape' => 'Intermediate Oval',
       'weight' => 1450,
       'mat' => 'Carbon Fiber',
+      'warranty_years' => 5,
+      'strap_type' => 'Double D-Ring',
+      'features_data' => [
+        'visor' => ['Pro Spider Visor', 'Tear-off kit included', 'Metal visor mechanism'],
+        'liner' => ['360° Adaptive fit', 'Shalimar fabric', '2Dry moisture wicking']
+      ],
+      'tech_integration' => [
+        'comms_cutout_type' => 'Hydration system included'
+      ],
       'desc' => 'Exact replica of the helmet worn by MotoGP professionals.',
       'colorways' => 
       array (
@@ -14596,12 +14614,14 @@ foreach ($brands as $brandName => $models) {
                     'eur' => $priceEur,
                     'gbp' => $priceGbp
                 ],
-                'specs' => [
+                'specs' => array_filter([
                     'material' => $specs['mat'],
                     'weight_g' => $specs['weight'],
                     'weight_lbs' => round($specs['weight'] / 453.592, 2),
                     'certifications' => $specs['cert'],
-                ],
+                    'warranty_years' => $specs['warranty_years'] ?? null,
+                    'strap_type' => $specs['strap_type'] ?? null,
+                ]),
                 'geo_media' => [],
                 'helmet_types' => [$specs['type']],
             ];
@@ -14641,12 +14661,14 @@ foreach ($brands as $brandName => $models) {
                 'currency' => 'USD'
             ],
             'head_shape' => $specs['shape'],
-            'specs' => [
+            'specs' => array_filter([
                 'material' => $specs['mat'],
                 'weight_g' => $specs['weight'],
                 'weight_lbs' => round($specs['weight'] / 453.592, 2),
                 'certifications' => $specs['cert'],
-            ],
+                'warranty_years' => $specs['warranty_years'] ?? null,
+                'strap_type' => $specs['strap_type'] ?? null,
+            ]),
             'description' => $specs['desc'],
             'product_details' => array_merge(
                 ['description' => $specs['desc']],
@@ -14663,7 +14685,7 @@ foreach ($brands as $brandName => $models) {
             }, $variants),
             'geo_media' => $baseImages
         ];
-        foreach (['model_year', 'features', 'sizing_fit', 'identifiers', 'part_numbers', 'marketplace_links', 'safety_intelligence', 'aero_acoustic_profile', 'tech_integration'] as $key) {
+        foreach (['model_year', 'features', 'features_data', 'sizing_fit', 'identifiers', 'part_numbers', 'marketplace_links', 'safety_intelligence', 'aero_acoustic_profile', 'tech_integration'] as $key) {
             if (isset($specs[$key]) && $specs[$key] !== null && $specs[$key] !== []) {
                 $item[$key] = $specs[$key];
             }

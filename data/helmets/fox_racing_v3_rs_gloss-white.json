@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Fox Racing V3 RS Gloss White",
     "brand": "Fox Racing",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "fox_racing_v3_rs",
     "helmet_family": "V3 RS",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Top-of-the-line MX helmet with MIPS and dual-density EPS.",
     "product_details": {
         "description": "Top-of-the-line MX helmet with MIPS and dual-density EPS."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Fox+Racing+V3+RS+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=Fox+Racing+V3+RS+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "FOX-V3RS-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Integrated Sun Visor"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

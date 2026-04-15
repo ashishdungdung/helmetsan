@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Ghost-style visor with integrated internal sun shield.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Racer+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Racer+Blue+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -184,9 +186,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Back"
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Tech+TC-1",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Side",
+                "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+Tech+TC-1+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -194,8 +196,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Simpson+Ghost+Bandit+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+1",
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+2",
+        "https://placehold.co/800x800/222/white?text=Simpson+Ghost+Bandit+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

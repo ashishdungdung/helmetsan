@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Entry-level full face with good ventilation and removable liner.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Black",
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Red",
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Apex+Circuit+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Circuit+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Apex+Circuit+1",
+        "https://placehold.co/800x800/222/white?text=Apex+Circuit+2",
+        "https://placehold.co/800x800/222/white?text=Apex+Circuit+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

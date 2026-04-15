@@ -60,6 +60,49 @@ final class RateLimiter
     }
 
     /**
+     * Check if a specific key has exceeded its daily request cap.
+     *
+     * @param string $key e.g., 'ai_enrichment'
+     * @param int $cap Max requests per 24 hours.
+     * @return bool True if within limits, false if capped.
+     */
+    public function checkDailyCap(string $key, int $cap): bool
+    {
+        $count = (int) get_transient(self::TRANSIENT_PREFIX . 'daily_' . $key);
+        return $count < $cap;
+    }
+
+    /**
+     * Log a successful request toward the daily cap.
+     */
+    public function incrementDailyCount(string $key): void
+    {
+        $countKey = self::TRANSIENT_PREFIX . 'daily_' . $key;
+        $count = (int) get_transient($countKey);
+        
+        // Rolling 24h window: if first hit of the day, set expiration to 24h
+        if ($count === 0) {
+            set_transient($countKey, 1, DAY_IN_SECONDS);
+        } else {
+            // We use wp_cache_incr if available for atomic increment, 
+            // but we must manually handle the transient persistence too.
+            if (function_exists('wp_cache_incr')) {
+                wp_cache_incr($countKey, 1, 'transient');
+            } else {
+                set_transient($countKey, $count + 1, DAY_IN_SECONDS);
+            }
+        }
+    }
+
+    /**
+     * Get the current 24-hour request count for a key.
+     */
+    public function getDailyCount(string $key): int
+    {
+        return (int) get_transient(self::TRANSIENT_PREFIX . 'daily_' . $key);
+    }
+
+    /**
      * Reset failure count and limit for a key.
      */
     public function reset(string $key): void

@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Axor Viper open face for city riding.",
     "product_details": {
         "description": "Axor Viper open face for city riding."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Axor+Viper+Black+Back"
+        "https://placehold.co/800x800/222/white?text=Axor+Viper+Black",
+        "https://placehold.co/800x800/222/white?text=Axor+Viper+Black+Side",
+        "https://placehold.co/800x800/222/white?text=Axor+Viper+Black+Back"
     ],
     "color": "Black",
     "color_family": "Black",
     "sku": "AXR-VIP-BLK",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

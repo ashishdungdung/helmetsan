@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "All-weather full face with anti-fog and rain channel.",
     "product_details": {
         "description": "All-weather full face with anti-fog and rain channel."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Apex+Storm+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey",
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Apex+Storm+Grey+Back"
     ],
     "color": "Grey",
     "color_family": "Grey",
     "sku": "APX-STO-GRE",
     "finish": "matte",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -25,21 +25,32 @@
         "weight_lbs": 3.2,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sporty road helmet with spoiler and double-D ring closure.",
     "product_details": {
         "description": "Sporty road helmet with spoiler and double-D ring closure."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=GIVI+50.8+Racer+Vortex+TC-5",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=GIVI+50.8+Racer+Vortex+TC-5+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=GIVI+50.8+Racer+Vortex+TC-5+Back"
+        "https://placehold.co/800x800/222/white?text=GIVI+50.8+Racer+Vortex+TC-5",
+        "https://placehold.co/800x800/222/white?text=GIVI+50.8+Racer+Vortex+TC-5+Side",
+        "https://placehold.co/800x800/222/white?text=GIVI+50.8+Racer+Vortex+TC-5+Back"
     ],
     "color": "Vortex TC-5",
     "color_family": "Multi",
     "sku": "GIV-50.8-VOR",
     "finish": "gloss",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

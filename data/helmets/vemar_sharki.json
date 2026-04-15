@@ -16,7 +16,9 @@
         "weight_lbs": 3.64,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Feature-packed modular with double sun visor and intercom cavity.",
     "product_details": {
@@ -56,9 +58,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Gloss+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Gloss+Black",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Gloss+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Gloss+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -97,9 +99,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Silver+Metallic+Back"
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Silver+Metallic",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Silver+Metallic+Side",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Silver+Metallic+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -138,9 +140,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Hi-Viz+Yellow+Back"
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Hi-Viz+Yellow",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Hi-Viz+Yellow+Side",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Hi-Viz+Yellow+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -179,9 +181,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+Track+Blue+Back"
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Track+Blue",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Track+Blue+Side",
+                "https://placehold.co/800x800/222/white?text=Vemar+Sharki+Track+Blue+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -189,8 +191,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Vemar+Sharki+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Vemar+Sharki+1",
+        "https://placehold.co/800x800/222/white?text=Vemar+Sharki+2",
+        "https://placehold.co/800x800/222/white?text=Vemar+Sharki+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

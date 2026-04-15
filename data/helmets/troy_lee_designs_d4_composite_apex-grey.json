@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Troy Lee Designs D4 Composite Apex Grey",
     "brand": "Troy Lee Designs",
-    "type": "Dirt \/ MX",
+    "type": "Dirt / MX",
     "helmet_types": [
-        "Dirt \/ MX"
+        "Dirt / MX"
     ],
     "parent_id": "troy_lee_designs_d4_composite",
     "helmet_family": "D4 Composite",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
-    "description": "Downhill\/enduro with MIPS Spherical and breakaway visor.",
+    "description": "Downhill/enduro with MIPS Spherical and breakaway visor.",
     "product_details": {
-        "description": "Downhill\/enduro with MIPS Spherical and breakaway visor."
+        "description": "Downhill/enduro with MIPS Spherical and breakaway visor."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey+Back"
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey",
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey+Side",
+        "https://placehold.co/800x800/222/white?text=Troy+Lee+Designs+D4+Composite+Apex+Grey+Back"
     ],
     "color": "Apex Grey",
     "color_family": "Grey",
     "sku": "TRO-D4CO-APE",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

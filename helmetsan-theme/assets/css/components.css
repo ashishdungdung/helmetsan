@@ -98,7 +98,7 @@
 }
 
 .hs-btn--primary {
-  color: #fff;
+  color: var(--hs-text-on-accent);
   background: var(--hs-accent);
   border-color: var(--hs-accent);
 }
@@ -170,7 +170,7 @@
 
 .helmet-single__meta-chip span {
   background: rgba(10, 132, 255, 0.1);
-  color: #084298;
+  color: var(--hs-text);
   border: 1px solid rgba(10, 132, 255, 0.2);
   border-radius: 999px;
   padding: 0.35rem 0.7rem;
@@ -197,9 +197,9 @@
 
 .helmet-legal-warning {
   margin: 0.9rem 0;
-  background: #fff4e5;
-  border: 1px solid #ffd8a8;
-  color: #7a3e00;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid var(--hs-warning);
+  color: var(--hs-text-inverse);
   padding: 0.75rem;
   border-radius: 10px;
 }
@@ -217,7 +217,7 @@
 
 .hs-filter-bar select,
 .hs-filter-bar input {
-  background: #fff;
+  background: var(--hs-panel);
   border: 1px solid var(--hs-border);
   border-radius: 10px;
   padding: 0.55rem 0.65rem;
@@ -262,7 +262,7 @@
   border-radius: 999px;
   padding: 0.2rem 0.6rem;
   font-size: 11px;
-  color: #084298;
+  color: var(--hs-text);
 }
 
 .entity-card__categories {
@@ -278,7 +278,7 @@
   padding: 0.2rem 0.5rem;
   border-radius: 999px;
   background: rgba(10, 132, 255, 0.1);
-  color: #084298;
+  color: var(--hs-text);
   text-decoration: none;
   border: 1px solid rgba(10, 132, 255, 0.2);
 }
@@ -330,7 +330,7 @@
 
 .hs-table th {
   font-weight: 700;
-  color: #1f2937;
+  color: var(--hs-text);
 }
 
 .hs-meta-grid {
@@ -565,7 +565,7 @@
 .hs-discovery-card__image-container {
   position: relative;
   height: 140px;
-  background: #f8fafc;
+  background: var(--hs-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -760,7 +760,7 @@
 /* Discovery CTA */
 .hs-discovery-cta {
   background: linear-gradient(135deg, var(--hs-accent), var(--hs-brand-pink));
-  color: #fff;
+  color: var(--hs-text-on-accent);
   padding: 2.5rem 2rem;
   border-radius: 24px;
   text-align: center;
@@ -769,7 +769,7 @@
 }
 
 .hs-discovery-cta h2 {
-  color: #fff;
+  color: var(--hs-text-on-accent);
   margin: 0 0 1rem;
   font-size: 2rem;
 }
@@ -780,7 +780,7 @@
 }
 
 .hs-btn--action {
-  background: #fff;
+  background: var(--hs-panel);
   color: var(--hs-accent);
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
@@ -811,7 +811,7 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: #fff;
+  background: var(--hs-panel);
   color: var(--hs-accent);
   border: 2px solid var(--hs-accent);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -820,7 +820,7 @@
 
 .hs-load-more:hover {
   background: var(--hs-accent);
-  color: #fff;
+  color: var(--hs-text-on-accent);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(10, 132, 255, 0.2);
 }
@@ -923,7 +923,7 @@
     var(--hs-accent),
     var(--hs-brand-pink, #ff5f9e)
   );
-  color: #fff;
+  color: var(--hs-text-on-accent);
   padding: 3px 12px;
   border-radius: 999px;
   font-size: 12px;
@@ -981,7 +981,7 @@
   height: 40px;
   border-radius: 50%;
   background: var(--hs-accent);
-  color: #fff;
+  color: var(--hs-text-on-accent);
   flex-shrink: 0;
 }
 
@@ -1047,7 +1047,7 @@
   gap: 4px;
   background: rgba(10, 132, 255, 0.06);
   border: 1px solid rgba(10, 132, 255, 0.12);
-  color: #1e3a5f;
+  color: var(--hs-text);
   border-radius: 999px;
   padding: 0.25rem 0.65rem;
   font-size: 12px;
@@ -1070,7 +1070,7 @@
 .hs-feature-pill {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.2);
-  color: #065f46;
+  color: var(--hs-text);
   border-radius: 999px;
   padding: 0.3rem 0.75rem;
   font-size: 12px;
@@ -1134,7 +1134,7 @@
   padding: 0.75rem 1.25rem;
   border-radius: var(--hs-radius, 8px);
   background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-  color: #fff;
+  color: var(--hs-text-on-accent);
   margin-bottom: 1.5rem;
   animation: hs-badge-pulse 2s ease-in-out infinite;
 }
@@ -1182,7 +1182,7 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
   background: #10b981;
-  color: #fff;
+  color: var(--hs-text-on-accent);
   border-radius: 4px;
   margin-right: 0.5rem;
   vertical-align: middle;
@@ -1194,7 +1194,7 @@
   padding: 0.4rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--hs-text-on-accent);
   background: linear-gradient(135deg, #3b82f6, #2563eb);
   border-radius: 6px;
   text-decoration: none;
@@ -1206,7 +1206,7 @@
 .hs-price-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-  color: #fff;
+  color: var(--hs-text-on-accent);
 }
 
 /* Price History Chart */
@@ -1239,7 +1239,7 @@
 }
 .hs-price-date-toggles .hs-btn--sm.is-active {
   background: var(--hs-accent, #3b82f6);
-  color: #fff;
+  color: var(--hs-text-on-accent);
   border-color: var(--hs-accent, #3b82f6);
 }
 
@@ -1273,7 +1273,7 @@
    ========================================= */
 
 .hs-filter-group {
-    background: #fff;
+    background: var(--hs-panel);
     border: 1px solid var(--hs-border);
     border-radius: 12px;
     margin-bottom: 1rem;
@@ -1281,7 +1281,7 @@
 }
 
 .hs-filter-group summary {
-    background: #f8fafc;
+    background: var(--hs-bg);
     padding: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -1293,7 +1293,7 @@
 }
 
 .hs-filter-group summary:hover {
-    background: #f1f5f9;
+    background: var(--hs-bg-elevated);
 }
 
 .hs-filter-group summary::after {
@@ -1358,7 +1358,7 @@
     padding: 0.4rem 0.8rem;
     border: 1px solid var(--hs-border);
     border-radius: 8px;
-    background: #fff;
+    background: var(--hs-panel);
     font-size: 13px;
     font-weight: 600;
     color: var(--hs-muted);
@@ -1367,7 +1367,7 @@
 
 .hs-pill-input input:checked + span {
     background: var(--hs-accent);
-    color: #fff;
+    color: var(--hs-text-on-accent);
     border-color: var(--hs-accent);
     box-shadow: 0 4px 12px rgba(10, 132, 255, 0.25);
 }
@@ -1421,7 +1421,7 @@
     height: 44px;
     padding: 0 0.5rem;
     border-radius: 12px;
-    background: #fff;
+    background: var(--hs-panel);
     border: 1px solid var(--hs-border);
     color: var(--hs-muted);
     text-decoration: none;
@@ -1432,7 +1432,7 @@
 
 .hs-pagination-wrap .page-numbers.current {
     background: var(--hs-accent);
-    color: #fff;
+    color: var(--hs-text-on-accent);
     border-color: var(--hs-accent);
     box-shadow: 0 4px 12px rgba(10, 132, 255, 0.25);
     transform: translateY(-2px);
@@ -1586,7 +1586,7 @@
     aspect-ratio: 1;
     border-radius: var(--hs-radius);
     overflow: hidden;
-    background: #fff;
+    background: var(--hs-panel);
     border: 1px solid var(--hs-border);
     box-shadow: 0 4px 24px rgba(11, 18, 32, 0.06);
 }
@@ -1819,7 +1819,7 @@
     top: 0.2rem;
     width: 0.35rem;
     height: 0.6rem;
-    border: solid #fff;
+    border: solid var(--hs-panel);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
@@ -1882,4 +1882,69 @@
 
 .accessory-single__helmets .accessory-single__section-title {
     margin-bottom: 1.5rem;
+}
+
+/* --- Search Component --- */
+.hs-header-search {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 1rem;
+}
+.hs-search-bar {
+    display: flex;
+    max-width: 600px;
+    margin: 1.5rem auto 1.5rem auto;
+    width: 100%;
+    align-items: stretch;
+    position: relative;
+    box-shadow: var(--hs-shadow);
+    border-radius: var(--hs-radius-lg);
+    background-color: var(--hs-bg-elevated);
+    border: 1px solid var(--hs-border);
+    overflow: hidden;
+}
+.hs-search-bar--header {
+    margin: 0;
+    max-width: 320px;
+    height: 34px;
+    border-radius: var(--hs-radius-sm);
+    box-shadow: none;
+    background-color: var(--hs-panel-strong);
+}
+.hs-search-bar--header input[type="search"] {
+    padding: 0 0.85rem;
+    font-size: 0.85rem;
+}
+.hs-search-bar--header .hs-btn {
+    padding: 0 1rem;
+    font-size: 0.8rem;
+}
+.hs-search-bar input[type="search"] {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1.1rem;
+    outline: none;
+    background-color: transparent;
+    color: var(--hs-text);
+}
+.hs-search-bar input[type="search"]::placeholder {
+    color: var(--hs-muted);
+}
+.hs-search-bar:focus-within {
+    border-color: var(--hs-accent);
+}
+.hs-search-bar .hs-btn {
+    border-radius: 0;
+    padding: 1rem 2rem;
+    white-space: nowrap;
+    border: none;
+    font-size: 1.1rem;
+    background-color: var(--hs-accent);
+    color: var(--hs-text-on-accent);
+    cursor: pointer;
+    font-weight: 600;
+}
+.hs-search-bar .hs-btn:hover {
+    background-color: var(--hs-accent-hover);
 }

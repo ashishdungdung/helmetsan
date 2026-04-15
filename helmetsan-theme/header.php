@@ -21,12 +21,6 @@
 <div class="site-topbar">
     <div class="site-topbar__inner">
         <span class="site-topbar__tagline">Global Helmet Intelligence Platform</span>
-        <div class="site-topbar__actions">
-            <button type="button" id="hs-theme-toggle" class="hs-theme-toggle" aria-label="<?php esc_attr_e( 'Switch to dark mode', 'helmetsan-theme' ); ?>">
-                <span data-theme-icon aria-hidden="true" class="hs-theme-toggle__icon hs-theme-toggle__icon--light"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
-                <span data-theme-icon aria-hidden="true" class="hs-theme-toggle__icon hs-theme-toggle__icon--dark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
-            </button>
-        </div>
         <?php
         wp_nav_menu([
             'theme_location' => 'secondary',
@@ -35,11 +29,26 @@
             'fallback_cb'    => false,
         ]);
         ?>
+        <div class="hs-header-search">
+            <form role="search" method="get" class="hs-search-bar hs-search-bar--header" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <label class="screen-reader-text" for="hs-header-search-input"><?php echo _x( 'Search for:', 'label', 'helmetsan-theme' ); ?></label>
+                <input type="search" id="hs-header-search-input" placeholder="<?php echo esc_attr_x( 'Search helmets, gear...', 'placeholder', 'helmetsan-theme' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                <button type="submit" class="hs-btn">Search</button>
+            </form>
+        </div>
+        <div class="site-topbar__actions">
+            <button type="button" id="hs-theme-toggle" class="hs-theme-toggle" aria-label="<?php esc_attr_e( 'Switch to dark mode', 'helmetsan-theme' ); ?>">
+                <span data-theme-icon aria-hidden="true" class="hs-theme-toggle__icon hs-theme-toggle__icon--light"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span>
+                <span data-theme-icon aria-hidden="true" class="hs-theme-toggle__icon hs-theme-toggle__icon--dark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+            </button>
+        </div>
     </div>
 </div>
 <header class="site-header">
     <div class="site-header__inner">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="site-header__brand"><?php bloginfo('name'); ?></a>
+        
+
         <button class="hs-nav-toggle" aria-label="Menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>

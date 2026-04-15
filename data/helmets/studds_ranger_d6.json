@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ISI"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Commuter open face with flip-up visor and wide view.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Silver",
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Studds+Ranger+D6+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+1",
+        "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+2",
+        "https://placehold.co/800x800/222/white?text=Studds+Ranger+D6+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

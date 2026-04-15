@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Lightweight open face for urban riding with classic styling.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Black",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Black+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+White+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+White",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+White+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+White+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Silver",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Silver+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+Silver+Back"
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Silver",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Silver+Side",
+                "https://placehold.co/800x800/222/white?text=Spada+Viento+Silver+Back"
             ],
             "helmet_types": [
                 "Open Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Spada+Viento+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+1",
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+2",
+        "https://placehold.co/800x800/222/white?text=Spada+Viento+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

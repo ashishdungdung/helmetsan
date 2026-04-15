@@ -105,6 +105,7 @@ final class Validator
     {
         $errors   = [];
         $warnings = [];
+        $entity   = isset($data['entity']) ? sanitize_key((string) $data['entity']) : '';
 
         if (isset($data['specs']['weight_g']) && is_int($data['specs']['weight_g'])) {
             $weight = $data['specs']['weight_g'];
@@ -129,7 +130,7 @@ final class Validator
         }
 
         // --- NEW: Safety Standard Semantic Logic (ECE 22.06 vs 22.05) ---
-        if ($data['entity'] === 'helmet' && isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {
+        if ($entity === 'helmet' && isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {
             $certs = array_map('strtolower', $data['specs']['certifications']);
             $is2206 = false;
             foreach ($certs as $c) {
@@ -155,7 +156,7 @@ final class Validator
         }
 
         // --- NEW: Marketing Description Presence & Quality ---
-        if ($data['entity'] === 'helmet') {
+        if ($entity === 'helmet') {
             $desc = $data['product_details']['description'] ?? $data['marketing_description'] ?? $data['description'] ?? '';
             if (empty($desc) || trim((string) $desc) === '') {
                 $warnings[] = 'Missing marketing description';

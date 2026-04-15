@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "SMK Pulse full face with integrated sun visor.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+Black+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+Black",
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+Black+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+White+Back"
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+White",
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+White+Side",
+                "https://placehold.co/800x800/222/white?text=SMK+Pulse+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=SMK+Pulse+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+1",
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+2",
+        "https://placehold.co/800x800/222/white?text=SMK+Pulse+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

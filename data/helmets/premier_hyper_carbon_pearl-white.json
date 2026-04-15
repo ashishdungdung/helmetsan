@@ -25,21 +25,32 @@
         "weight_lbs": 2.65,
         "certifications": [
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Modern sport design with full carbon shell and titanium hardware.",
     "product_details": {
         "description": "Modern sport design with full carbon shell and titanium hardware."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Hyper+Carbon+Pearl+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Hyper+Carbon+Pearl+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Premier+Hyper+Carbon+Pearl+White+Back"
+        "https://placehold.co/800x800/222/white?text=Premier+Hyper+Carbon+Pearl+White",
+        "https://placehold.co/800x800/222/white?text=Premier+Hyper+Carbon+Pearl+White+Side",
+        "https://placehold.co/800x800/222/white?text=Premier+Hyper+Carbon+Pearl+White+Back"
     ],
     "color": "Pearl White",
     "color_family": "White",
     "sku": "PRE-HYPE-WHI",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Mid-range Steelbird with dual visor and improved ventilation.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Gloss+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Gloss+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Gloss+White+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Gloss+White",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Gloss+White+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Gloss+White+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -142,9 +144,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Red",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Red+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+Red+Back"
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Red",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Red+Side",
+                "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+Red+Back"
             ],
             "helmet_types": [
                 "Full Face"
@@ -152,8 +154,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Steelbird+Thunder+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+1",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+2",
+        "https://placehold.co/800x800/222/white?text=Steelbird+Thunder+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

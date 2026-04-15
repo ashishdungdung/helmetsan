@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Sedici Viaggio modular with flip-up.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Black",
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Grey",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Grey+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+Grey+Back"
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Grey",
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Grey+Side",
+                "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+Grey+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Sedici+Viaggio+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+1",
+        "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+2",
+        "https://placehold.co/800x800/222/white?text=Sedici+Viaggio+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

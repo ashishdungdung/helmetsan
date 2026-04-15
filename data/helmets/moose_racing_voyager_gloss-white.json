@@ -3,9 +3,9 @@
     "entity": "helmet",
     "title": "Moose Racing Voyager Gloss White",
     "brand": "Moose Racing",
-    "type": "Adventure \/ Dual Sport",
+    "type": "Adventure / Dual Sport",
     "helmet_types": [
-        "Adventure \/ Dual Sport"
+        "Adventure / Dual Sport"
     ],
     "parent_id": "moose_racing_voyager",
     "helmet_family": "Voyager",
@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Adventure touring helmet with removable peak and good ventilation.",
     "product_details": {
         "description": "Adventure touring helmet with removable peak and good ventilation."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+Voyager+Gloss+White",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+Voyager+Gloss+White+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Moose+Racing+Voyager+Gloss+White+Back"
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White+Side",
+        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White+Back"
     ],
     "color": "Gloss White",
     "color_family": "White",
     "sku": "MOO-VOY-WHT",
     "finish": "gloss",
     "is_graphic": false,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

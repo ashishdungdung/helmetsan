@@ -27,21 +27,32 @@
         "certifications": [
             "DOT",
             "ECE 22.06"
-        ]
+        ],
+        "warranty_years": 1,
+        "strap_type": "Double D-Ring"
     },
     "description": "Japanese precision with ultra-aerodynamic shell and Wake Stabilizer.",
     "product_details": {
         "description": "Japanese precision with ultra-aerodynamic shell and Wake Stabilizer."
     },
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red+Side",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red+Back"
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red",
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red+Side",
+        "https://placehold.co/800x800/222/white?text=OGK+Kabuto+Aeroblade+6+Tech+Red+Back"
     ],
     "color": "Tech Red",
     "color_family": "Red",
     "sku": "OGK-AERO-TEC",
     "finish": "matte",
     "is_graphic": true,
-    "availability": "instock"
+    "availability": "instock",
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

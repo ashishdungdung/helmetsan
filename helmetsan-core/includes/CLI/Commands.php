@@ -205,7 +205,7 @@ final class Commands
 
     /**
      * ## OPTIONS
-     * [--path=<path>]
+     * [--data-path=<path>]
      * : Relative path under data root.
      * [--batch-size=<n>]
      * : Batch size. Default 100.
@@ -217,16 +217,19 @@ final class Commands
      * : Run N parallel ingest processes (chunk by file list). Ignores lock; use only for CLI chunking. Default: 1.
      * [--dry-run]
      * : Validate only, do not write.
+     * [--force]
+     * : Force update even if hash matches.
      */
     public function ingest(array $args, array $assoc): void
     {
-        $path         = (string) ($assoc['path'] ?? '');
+        $path         = (string) ($assoc['data-path'] ?? '');
         $batchSize    = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 100;
         $limit        = isset($assoc['limit']) ? max(0, (int) $assoc['limit']) : null;
         $limit        = $limit === 0 ? null : $limit;
         $offset       = isset($assoc['offset']) ? max(0, (int) $assoc['offset']) : 0;
         $concurrency  = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : 1;
         $dryRun       = isset($assoc['dry-run']);
+        $force        = isset($assoc['force']);
 
         if ($concurrency > 1 && $path !== '') {
             $files = $this->ingestion->listJsonFiles($path);
@@ -246,9 +249,13 @@ final class Commands
                 }
                 $chunkLimit = min($chunkSize, $effectiveTotal - $off);
                 $env        = array_merge(getenv() ?: [], ['HELMETSAN_INGEST_NO_LOCK' => '1']);
-                $cmd        = 'wp helmetsan ingest --path=' . escapeshellarg($path) . ' --batch-size=' . $batchSize
+                $pathArg    = \WP_CLI::get_config('path') ? ' --path=' . escapeshellarg(\WP_CLI::get_config('path')) : '';
+                $allowRoot  = \WP_CLI::get_config('allow-root') ? ' --allow-root' : '';
+                $cmd        = 'wp' . $pathArg . ' helmetsan ingest --data-path=' . escapeshellarg($path) . ' --batch-size=' . $batchSize
                     . ' --offset=' . $off . ' --limit=' . $chunkLimit
-                    . ($dryRun ? ' --dry-run' : '') . ' --allow-root';
+                    . ($dryRun ? ' --dry-run' : '')
+                    . ($force ? ' --force' : '')
+                    . $allowRoot;
                 $pipes = [];
                 $proc  = proc_open($cmd, [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']], $pipes, getcwd() ?: null, $env);
                 if (is_resource($proc)) {
@@ -284,7 +291,7 @@ final class Commands
             return;
         }
 
-        $out = $this->ingestion->ingestPath($path, $batchSize, $limit, $dryRun, $offset);
+        $out = $this->ingestion->ingestPath($path, $batchSize, $limit, $dryRun, $offset, $force);
         \WP_CLI::line(wp_json_encode($out, JSON_PRETTY_PRINT));
     }
 
@@ -301,12 +308,15 @@ final class Commands
      * : Run N parallel ingest-seed processes (chunk seed array). Uses lock bypass. Default: 1.
      * [--dry-run]
      * : Validate only, do not write.
+     * [--force]
+     * : Force update even if hash matches.
      *
      * ## EXAMPLES
      *     wp helmetsan ingest-seed
      *     wp helmetsan ingest-seed --file=/path/to/helmets_seed.json
      *     wp helmetsan ingest-seed --dry-run
      *     wp helmetsan ingest-seed --concurrency=4
+     *     wp helmetsan ingest-seed --force
      */
     public function ingestSeed(array $args, array $assoc): void
     {
@@ -324,10 +334,14 @@ final class Commands
         $batchSize   = isset($assoc['batch-size']) ? max(1, (int) $assoc['batch-size']) : 25;
         $concurrency = isset($assoc['concurrency']) ? max(1, min(16, (int) $assoc['concurrency'])) : 1;
         $dryRun      = isset($assoc['dry-run']);
+        $force       = isset($assoc['force']);
 
         \WP_CLI::log('Seed file: ' . ($file === '' ? '(default)' : $file));
         if ($dryRun) {
             \WP_CLI::log('Mode: DRY RUN (no writes)');
+        }
+        if ($force) {
+            \WP_CLI::log('Mode: FORCE update (bypass hash check)');
         }
         \WP_CLI::log('Starting ingestion...');
 
@@ -366,7 +380,9 @@ final class Commands
             $env  = array_merge(getenv() ?: [], ['HELMETSAN_INGEST_NO_LOCK' => '1']);
             $procs = [];
             foreach ($chunkFiles as $chunkPath) {
-                $cmd  = 'wp helmetsan ingest-seed --file=' . escapeshellarg($chunkPath) . ' --batch-size=' . $batchSize . ($dryRun ? ' --dry-run' : '') . ' --allow-root';
+                $pathArg    = \WP_CLI::get_config('path') ? ' --path=' . escapeshellarg(\WP_CLI::get_config('path')) : '';
+                $allowRoot  = \WP_CLI::get_config('allow-root') ? ' --allow-root' : '';
+                $cmd  = 'wp' . $pathArg . ' helmetsan ingest-seed --file=' . escapeshellarg($chunkPath) . ' --batch-size=' . $batchSize . ($dryRun ? ' --dry-run' : '') . ($force ? ' --force' : '') . $allowRoot;
                 $pipes = [];
                 $proc  = proc_open($cmd, [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']], $pipes, getcwd() ?: null, $env);
                 if (is_resource($proc)) {
@@ -411,7 +427,7 @@ final class Commands
             return;
         }
 
-        $result = $this->ingestion->ingestSeedFile($file, $batchSize, $dryRun);
+        $result = $this->ingestion->ingestSeedFile($file, $batchSize, $dryRun, $force);
 
         if (! empty($result['locked'])) {
             \WP_CLI::warning($result['message'] ?? 'Ingestion is already running.');

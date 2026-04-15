@@ -17,7 +17,9 @@
         "certifications": [
             "DOT",
             "ECE 22.05"
-        ]
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Nolan X-704 modular with N-Com ready.",
     "product_details": {
@@ -58,9 +60,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+Matte+Black",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+Matte+Black+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+Matte+Black+Back"
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+Matte+Black",
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+Matte+Black+Side",
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+Matte+Black+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -100,9 +102,9 @@
                 ]
             },
             "geo_media": [
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+White",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+White+Side",
-                "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+White+Back"
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+White",
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+White+Side",
+                "https://placehold.co/800x800/222/white?text=Nolan+X-704+White+Back"
             ],
             "helmet_types": [
                 "Modular"
@@ -110,8 +112,17 @@
         }
     ],
     "geo_media": [
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+1",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+2",
-        "https:\/\/placehold.co\/800x800\/222\/white?text=Nolan+X-704+3"
-    ]
+        "https://placehold.co/800x800/222/white?text=Nolan+X-704+1",
+        "https://placehold.co/800x800/222/white?text=Nolan+X-704+2",
+        "https://placehold.co/800x800/222/white?text=Nolan+X-704+3"
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }

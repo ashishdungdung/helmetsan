@@ -15,8 +15,10 @@
         "weight_g": 1100,
         "weight_lbs": 2.43,
         "certifications": [
-            "ECE 22.06"
-        ]
+            "DOT"
+        ],
+        "warranty_years": 2,
+        "strap_type": "Double D-Ring"
     },
     "description": "Retro open face with internal sun visor and fiberglass shell.",
     "product_details": {
@@ -52,7 +54,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -93,7 +95,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -134,7 +136,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -175,7 +177,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -216,7 +218,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -257,7 +259,7 @@
                 "weight_g": 1100,
                 "weight_lbs": 2.43,
                 "certifications": [
-                    "ECE 22.06"
+                    "DOT"
                 ]
             },
             "geo_media": [
@@ -274,5 +276,14 @@
         "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+1",
         "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+2",
         "https://placehold.co/800x800/222/white?text=Scorpion+Belfast+3"
-    ]
+    ],
+    "features_data": {
+        "visor": [
+            "Pinlock Ready",
+            "Optically Correct"
+        ]
+    },
+    "tech_integration": {
+        "comms_cutout_type": "Generic Speaker Cutouts"
+    }
 }
