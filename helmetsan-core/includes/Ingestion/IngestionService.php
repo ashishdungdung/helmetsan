@@ -525,6 +525,10 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'spec_shell_sizes', is_numeric($shellSizes) ? (string) (int) $shellSizes : sanitize_text_field((string) $shellSizes));
         }
 
+        if (isset($data['specs']['shell_sizes_count'])) {
+            update_post_meta($resolvedPostId, 'spec_shell_sizes', (string) (int) $data['specs']['shell_sizes_count']);
+        }
+
         if (isset($data['features_data']['visor']) && is_array($data['features_data']['visor'])) {
             $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
             update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values($clean)));
@@ -533,6 +537,14 @@ final class IngestionService
         if (isset($data['features_data']['liner']) && is_array($data['features_data']['liner'])) {
             $clean = array_map('sanitize_text_field', $data['features_data']['liner']);
             update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values($clean)));
+        }
+
+        if (isset($data['tech_integration']) && is_array($data['tech_integration'])) {
+            update_post_meta($resolvedPostId, 'tech_integration_json', wp_json_encode($data['tech_integration']));
+        }
+
+        if (isset($data['features_data']) && is_array($data['features_data'])) {
+            update_post_meta($resolvedPostId, 'features_data_json', wp_json_encode($data['features_data']));
         }
 
         if (isset($data['price']) && is_array($data['price']) && isset($data['price']['current'])) {

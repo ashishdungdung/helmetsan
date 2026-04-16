@@ -16,7 +16,7 @@ $model = 'qwen/qwen3.5-9b';
 // CLI Defaults
 $options = getopt("", ["limit:", "concurrency:"]);
 $limit = isset($options['limit']) ? (int)$options['limit'] : 50;
-$concurrency = isset($options['concurrency']) ? (int)$options['concurrency'] : 4;
+$concurrency = isset($options['concurrency']) ? (int)$options['concurrency'] : 2;
 
 $processedCount = 0;
 $errorCount = 0;
@@ -40,18 +40,21 @@ foreach ($files as $file) {
     $data = json_decode($json, true);
     if (!$data) continue;
     
-    // Check if missing any key technical specs
+    // Check if missing ANY critical technical specs or if the data is sparse
     $hasWarranty = !empty($data['specs']['warranty_years']);
     $hasStrap = !empty($data['specs']['strap_type']);
     $hasVisor = !empty($data['features_data']['visor']);
+    $hasComms = !empty($data['tech_integration']['comms_cutout_type']);
+    $hasShellSizes = !empty($data['specs']['shell_sizes_count']);
     
-    if (!$hasWarranty || !$hasStrap || !$hasVisor) {
+    // If any of these are missing, we enrich
+    if (!$hasWarranty || !$hasStrap || !$hasVisor || !$hasComms || !$hasShellSizes) {
         $pendingFiles[] = $file;
     }
 }
 
 if (empty($pendingFiles)) {
-    die("✅ All helmets already have technical specifications or limit reached." . PHP_EOL);
+    die("✅ All helmets already have comprehensive technical specifications or limit reached." . PHP_EOL);
 }
 
 $chunks = array_chunk($pendingFiles, $concurrency);
@@ -75,12 +78,14 @@ Requirements:
 2. Strap Type: E.g., 'Double D-Ring', 'Micrometric', 'Fidlock'.
 3. Visor Features: A list of features like 'Pinlock Ready', 'Pinlock Included', 'Integrated Sun Visor', 'Optically Correct'.
 4. Communication Readiness: E.g., 'Generic Speaker Cutouts', 'Sena Integrated', 'Cardo Ready'.
+5. Shell Sizes: Number of distinct outer shell sizes produced for this model (integer, e.g., 1, 2, 3, 4).
 
 Return ONLY a valid JSON object with these exact keys:
 - warranty_years (integer)
 - strap_type (string)
 - visor_features (array of strings)
 - comms_readiness (string)
+- shell_sizes_count (integer)
 
 No extra text, no markdown code blocks. If unknown, use reasonable estimates for top brands.";
 
@@ -100,7 +105,7 @@ No extra text, no markdown code blocks. If unknown, use reasonable estimates for
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 120);
         
         curl_multi_add_handle($mh, $ch);
         $handles[$file] = $ch;
@@ -124,7 +129,6 @@ No extra text, no markdown code blocks. If unknown, use reasonable estimates for
         $response = curl_multi_getcontent($ch);
         $error = curl_error($ch);
         curl_multi_remove_handle($mh, $ch);
-        // curl_close is omitted as it has no effect in PHP 8.0+
 
         if ($error) {
             echo "❌ API Error for $file: $error" . PHP_EOL;
@@ -135,7 +139,6 @@ No extra text, no markdown code blocks. If unknown, use reasonable estimates for
         $responseData = json_decode($response, true);
         $content = trim($responseData['choices'][0]['message']['content'] ?? '');
         
-        // Robust JSON extraction: Strip markdown code blocks if present
         if (preg_match('/```json\s*(.*?)\s*```/s', $content, $matches)) {
             $content = $matches[1];
         } elseif (preg_match('/\{.*\}/s', $content, $matches)) {
@@ -161,6 +164,9 @@ No extra text, no markdown code blocks. If unknown, use reasonable estimates for
         if (!empty($specs['strap_type'])) {
             $data['specs']['strap_type'] = $specs['strap_type'];
         }
+        if (isset($specs['shell_sizes_count'])) {
+            $data['specs']['shell_sizes_count'] = (int) $specs['shell_sizes_count'];
+        }
         if (!empty($specs['visor_features'])) {
             $data['features_data']['visor'] = $specs['visor_features'];
         }
@@ -178,4 +184,3 @@ No extra text, no markdown code blocks. If unknown, use reasonable estimates for
 
 echo PHP_EOL . "🏁 Enrichment complete!" . PHP_EOL;
 echo "📊 Processed: $processedCount | Errors: $errorCount" . PHP_EOL;
-
