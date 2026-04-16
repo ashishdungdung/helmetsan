@@ -292,6 +292,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": {
+        "asin": "B07Q5W8K3V",
+        "ean": "8016942000000",
+        "mpn": "AX9-000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Snug fit with removable cheek pads; designed for intermediate oval head shapes but accommodates round ovals with pad adjustment.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

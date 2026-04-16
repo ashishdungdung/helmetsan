@@ -9,7 +9,7 @@
         "current": 179.99,
         "currency": "USD"
     },
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Fiberglass",
         "weight_g": 950,
@@ -166,6 +166,23 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "mpn": "DMD-CLASSIC"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "DMD Classic is a retro-styled open-face helmet. It does not feature modern safety technologies such as rotational mitigation (MIPS), HUD compatibility, or integrated speaker pockets.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

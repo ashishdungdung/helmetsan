@@ -9,7 +9,7 @@
         "current": 269.95,
         "currency": "USD"
     },
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1350,
@@ -203,6 +203,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q2X8V3K",
+        "ean": "8416590000000",
+        "mpn": "GRINGO-ECE-ADULT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval head shapes; features a wide visor opening and extended cheek coverage. May feel tight on very large heads due to the fixed shell size.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

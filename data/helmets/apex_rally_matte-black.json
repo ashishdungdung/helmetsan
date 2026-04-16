@@ -19,7 +19,7 @@
         "DOT",
         "ECE 22.06"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Fiberglass",
         "weight_g": 1650,
@@ -54,6 +54,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for adventure riding with a slightly higher profile; fits well on intermediate oval heads but may feel tight around the temples for long ovals.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

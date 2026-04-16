@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKXZ8V3",
+        "ean": "4961520000000",
+        "mpn": "XD-5ADV-GREY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Arai XD-5 Adventure features a slightly more open fit compared to the standard XD-5, designed for comfort during long adventure rides. The shell is wider in the temples and rear to accommodate larger visors and communication systems.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

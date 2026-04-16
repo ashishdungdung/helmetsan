@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 38,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q2W3K8V",
+        "ean": "0194560000000",
+        "mpn": "TC-2"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Icon Airform MIPS Flow TC-2 is designed for a universal fit with an extended rear shell to accommodate larger head shapes. The Icon Airform system allows for a custom fit by adjusting the internal padding layers.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

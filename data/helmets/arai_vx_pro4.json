@@ -292,6 +292,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2019",
+    "identifiers": {
+        "asin": "B07Q5WZ8K3",
+        "ean": "4962100000000",
+        "mpn": "VX-PRO4-DIRT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Arai VX-Pro4 is a dedicated dirt/MX helmet designed for off-road motocross and enduro use. It features a lightweight carbon fiber construction, an extended rear coverage for neck protection, and a visor system optimized for track conditions. The fit is generally considered to be Arai's standard 'round' head shape with a slightly roomier interior compared to their street helmets.",
+        "head_shape": "Arai Standard (Round)"
+    },
+    "deep_enriched": true
 }

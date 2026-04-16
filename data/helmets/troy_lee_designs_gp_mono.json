@@ -208,6 +208,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07QKZV8XJ",
+        "ean": "842651003916",
+        "mpn": "TLD-GP-MONO-2020"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/AMA",
+        "sharp_rating": 4,
+        "rotational_mitigation": "MIPS"
+    },
+    "sizing_fit": {
+        "fit_notes": "Aggressive fit; requires cheek pads for smaller heads; best for oval to intermediate head shapes.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

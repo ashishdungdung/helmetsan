@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "8021357460000",
+        "mpn": "K1S-VORTEX-TC5"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Snug fit with extended cheek pads for a secure lock; slightly narrow in the chin bar compared to standard K1 models.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

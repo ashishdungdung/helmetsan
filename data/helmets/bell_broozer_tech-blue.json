@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 38,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZ8V5G",
+        "ean": "0193642002600",
+        "mpn": "B7MVT-100"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Fits most head shapes; slightly roomy for larger heads due to modular fit system.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

@@ -9,7 +9,7 @@
         "current": 149.95,
         "currency": "USD"
     },
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1000,
@@ -203,6 +203,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2010",
+    "identifiers": {
+        "asin": "B00138QZ4E",
+        "ean": "7629500000000",
+        "mpn": "BONANZA-001"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "DOT",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "The Biltwell Bonanza is an open-face helmet designed with a retro aesthetic. It features a removable chin bar and typically lacks integrated MIPS (rotational mitigation) or built-in speaker pockets found on modern modular helmets. Cable management ports are not standard on this specific model.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

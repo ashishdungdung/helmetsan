@@ -54,6 +54,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 5,
+        "cable_management": false,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Classic-V Street TC-3 is a retro-styled open-face helmet. It features a rounder shell profile suitable for oval to intermediate head shapes. The TC-3 designation indicates it is designed for track use (TC = Track Certified), which may affect comfort for long-distance street riding compared to the standard Classic-V.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

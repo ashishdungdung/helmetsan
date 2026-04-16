@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8K9L",
+        "ean": "8012435678901",
+        "mpn": "AGV-SM-CAM-RED-24"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard AGV fit; slightly narrow at the temples for wide heads, requires cheek pads adjustment for optimal comfort.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

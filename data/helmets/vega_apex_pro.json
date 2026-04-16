@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z8Y3W",
+        "ean": "8421567890123",
+        "mpn": "VGA-AP-24-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/CE EN17097:2021",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; adjustable fit system accommodates wide cheekbones.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QZVX8JG",
+        "ean": "4936251000000",
+        "mpn": "IS-CR-AN"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": "MIPS"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for cruiser-style helmets; fits most head shapes but may feel tight on very large heads due to fixed shell size.",
+        "head_shape": "Intermediate"
+    },
+    "deep_enriched": true
 }

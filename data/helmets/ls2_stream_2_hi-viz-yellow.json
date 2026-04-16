@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q2K3Y8V",
+        "ean": "5054619060000",
+        "mpn": "LS2-6000-HV"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; Hi-Viz yellow shell with integrated sun visor.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

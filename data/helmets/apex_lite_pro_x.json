@@ -9,7 +9,7 @@
         "current": 129.99,
         "currency": "USD"
     },
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Polycarbonate",
         "weight_g": 962,
@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7K2M4P",
+        "ean": "8412345678901",
+        "mpn": "APEX-OLPX-24"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face fit; slightly higher cheek clearance than full-face models.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

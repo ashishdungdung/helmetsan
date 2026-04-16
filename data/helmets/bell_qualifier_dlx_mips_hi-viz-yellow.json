@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QZVX8YJ",
+        "ean": "019563240000",
+        "mpn": "MIPS-QD-100-YL"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": "MIPS"
+    },
+    "sizing_fit": {
+        "fit_notes": "Hi-Viz yellow shell with black accents; DLX fit system allows for micro-adjustment of cheek pads and chin bar height; MIPS liner included.",
+        "head_shape": "Intermediate"
+    },
+    "deep_enriched": true
 }

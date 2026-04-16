@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07QKZ8V5G",
+        "ean": "8841692300000",
+        "mpn": "RACE-STAR-FLEX-DLX-MATTE-CARBON"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/AMA/WSBK",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for aggressive track tuck; features a lower profile and extended rear coverage for aerodynamics.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

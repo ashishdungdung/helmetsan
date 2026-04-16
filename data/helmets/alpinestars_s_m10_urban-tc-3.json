@@ -54,6 +54,23 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "mpn": "S-M10-TC3"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Alpinestars S-M10 Urban TC-3 is a motocross/dirt bike helmet designed for off-road use. It features an open-face design typical of MX helmets, which generally does not accommodate full-face specific technologies like MIPS (rotational mitigation), HUD mounts, or deep speaker pockets found on street/full-face models. The fit is typically aggressive and narrow to suit MX riding positions.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

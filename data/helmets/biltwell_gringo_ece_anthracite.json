@@ -18,7 +18,7 @@
     "certifications": [
         "ECE 22.06"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1350,
@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q5W3K8T",
+        "ean": "8416290100000",
+        "mpn": "GRG-EC-A"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a wide range of head shapes with an extended fit profile; may feel slightly loose on very small heads.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

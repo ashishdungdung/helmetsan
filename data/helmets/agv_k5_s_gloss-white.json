@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2019",
+    "identifiers": {
+        "asin": "B07Q2X3Y8Z",
+        "ean": "8016495000000",
+        "mpn": "K5S-GW-INT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06, DOT, ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Medium-to-high profile fit; slightly roomy in the crown compared to K3/K4, requires specific cheek pads for a tight seal on wide faces.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

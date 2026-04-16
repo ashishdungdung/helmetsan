@@ -18,7 +18,7 @@
     "certifications": [
         "DOT"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Polycarbonate",
         "weight_g": 950,
@@ -52,6 +52,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": false,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "DOT",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard open-face fit with minimal cheek padding; may feel loose for riders seeking a tight security fit typical of full-face helmets.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

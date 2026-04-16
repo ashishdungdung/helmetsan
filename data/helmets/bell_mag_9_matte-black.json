@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV8Y5",
+        "ean": "8841632900000",
+        "mpn": "MAG-9-MATTE-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design with extended cheek pads for a secure fit on most head shapes; may feel tight on larger heads due to limited expansion.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

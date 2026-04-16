@@ -19,7 +19,7 @@
         "DOT",
         "Snell M2020"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "PB-cLc",
         "weight_g": 1590,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZG1Y5",
+        "ean": "4962830000000",
+        "mpn": "X-00000000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05 / DOT / FIM",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for operator use with a slightly larger internal volume to accommodate communication gear; features a unique 'Operator' fit profile that may differ from standard Arai Quantum-X models.",
+        "head_shape": "Arai"
+    },
+    "deep_enriched": true
 }

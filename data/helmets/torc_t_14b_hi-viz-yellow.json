@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B07Q2K3Z8V",
+        "ean": "841965000000",
+        "mpn": "T-14B-HVY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for wide head shapes; Torc T-14B offers a roomy interior with adjustable cheek pads to accommodate larger profiles comfortably.",
+        "head_shape": "Wide"
+    },
+    "deep_enriched": true
 }

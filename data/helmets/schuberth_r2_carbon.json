@@ -293,6 +293,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "4052639123456",
+        "mpn": "R2-C-001"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM / FIA",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Requires precise sizing; Carbon shell offers minimal adjustment post-fitting.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

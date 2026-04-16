@@ -124,6 +124,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09TQZV8K3",
+        "ean": "5012647000000",
+        "mpn": "SB-ZOOM-OPEN"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face fit; offers a wide field of view with minimal peripheral obstruction. The chin bar is adjustable to accommodate different jawline sizes.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

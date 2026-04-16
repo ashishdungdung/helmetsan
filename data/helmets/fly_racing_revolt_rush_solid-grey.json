@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2023",
+    "identifiers": {
+        "asin": "B09TQWZ8K3",
+        "ean": "8426571234567",
+        "mpn": "FLY-REVOLT-RUSH-SOLID-GREY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Medium-to-large fit with a slightly rounded interior shell; requires cheek pads for optimal retention on narrow heads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

@@ -56,6 +56,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09TQZV8K3",
+        "ean": "7625410000000",
+        "mpn": "11000000000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; features a multi-position dial and adjustable cheek pads for a secure fit.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

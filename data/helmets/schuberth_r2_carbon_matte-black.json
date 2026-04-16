@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZ8V3G",
+        "ean": "4056912000000",
+        "mpn": "R2-CARB-MAT-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM FIA ECE 22.05",
+        "sharp_rating": 9,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Requires precise sizing; Carbon shell is rigid with minimal adjustment post-fit. Best for oval head shapes.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

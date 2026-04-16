@@ -56,6 +56,23 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2005",
+    "identifiers": {
+        "mpn": "AGV-PG-RR-WT-05"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a tight, aggressive track fit with minimal cheek volume; requires specific padding to accommodate winter liners. Runs slightly small compared to street versions due to aerodynamic shell shaping.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

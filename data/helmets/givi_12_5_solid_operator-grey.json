@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B07Q2X8V9K",
+        "ean": "8016345000000",
+        "mpn": "GIV-125-OPR-GY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face helmets; requires specific chin bar clearance check for GIVI 12.5 shell compatibility.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

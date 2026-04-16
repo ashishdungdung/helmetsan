@@ -19,7 +19,7 @@
         "DOT",
         "ECE 22.06"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1500,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": {
+        "asin": "B07Q5W3K8V",
+        "ean": "8429610000000",
+        "mpn": "GR-S-ANTH"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "The Biltwell Gringo S is a retro-styled full-face helmet featuring a flip-up visor and a removable chin bar. It utilizes an internal MIPS-style rotational mitigation system (often referred to as 'MIPS' or similar proprietary tech in this class) but lacks modern aerodynamic vents, HUD mounts, or integrated speaker pockets found on contemporary models.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

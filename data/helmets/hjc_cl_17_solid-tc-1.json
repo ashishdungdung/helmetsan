@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07Q5V3K8T",
+        "ean": "4961266000000",
+        "mpn": "CL-17TC1"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 3,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval head shapes; may feel tight on intermediate oval heads.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

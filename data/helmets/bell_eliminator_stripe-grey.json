@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2023",
+    "identifiers": {
+        "asin": "B09TQWZ8K3",
+        "ean": "8425160700010",
+        "mpn": "EL-STR-GRY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06, DOT",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Medium-to-high profile fit; slightly roomy in the crown for comfort over long distances; requires cheek pads to be fully expanded for a secure lock.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

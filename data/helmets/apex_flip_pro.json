@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z2M4P",
+        "ean": "8419562341092",
+        "mpn": "APX-FLIP-MOD-24"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/CE EN1078",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular shell allows adjustment for varying head sizes; flip-back visor requires chin strap engagement.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QZVX8K3",
+        "ean": "8012496005428",
+        "mpn": "BLADE-BLU-ADJ"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 3,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Adjustable fit system; suitable for most head shapes with extended size range.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

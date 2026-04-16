@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09TQWZ8K3",
+        "ean": "4976215022389",
+        "mpn": "RPHA-11PRO-VENOM-MARVEL"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM / ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval head shapes; features a multi-position dial system for precise fit adjustment.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

@@ -162,6 +162,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8Y5",
+        "ean": "842396012345",
+        "mpn": "T-55-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design offers maximum ventilation; Torc T-55 fits most head shapes but may feel tight on larger skulls due to limited adjustability.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

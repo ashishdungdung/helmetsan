@@ -19,7 +19,7 @@
         "DOT",
         "Snell M2020"
     ],
-    "head_shape": "Intermediate Oval",
+    "head_shape": "Long Oval",
     "specs": {
         "material": "PB-cLc1",
         "weight_g": 1500,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QZVX8K3",
+        "ean": "4961250000000",
+        "mpn": "AR-REG-X-CAM-GY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Arai's 'Perfect Fit' system; slightly roomier in the chin bar compared to older Arai models; best for intermediate oval head shapes.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

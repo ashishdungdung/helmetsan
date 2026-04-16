@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKXZ8V3",
+        "ean": "6925140000000",
+        "mpn": "SP-TC2-SHARK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Solid TC-2 features a fixed-fit shell with minimal adjustment; best suited for riders with standard head shapes. The solid construction offers maximum impact protection but may feel less forgiving on larger heads compared to the Airflow version.",
+        "head_shape": "Standard"
+    },
+    "deep_enriched": true
 }

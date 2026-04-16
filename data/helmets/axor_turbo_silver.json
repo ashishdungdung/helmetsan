@@ -19,7 +19,7 @@
         "DOT",
         "ISI"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 910,
@@ -54,6 +54,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": false,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard open-face fit with fixed cheek pads; runs true to size but may feel tight on high-oval heads due to limited expansion room in the rear.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

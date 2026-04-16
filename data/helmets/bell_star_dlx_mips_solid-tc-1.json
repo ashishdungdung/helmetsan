@@ -56,6 +56,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07V3QZ8Y5",
+        "ean": "885916240012",
+        "mpn": "110000000000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval head shapes; features a multi-directional impact protection system (MIPS) and a solid TC-1 shell for maximum durability.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

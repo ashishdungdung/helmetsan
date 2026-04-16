@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09X7K2M4P",
+        "ean": "8435621098765",
+        "mpn": "NEX-XG200-TC3-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Optimized for oval head shapes; may feel tight on intermediate oval heads due to TC-3 specific cheek pad geometry.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

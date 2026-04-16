@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QZVX8K3",
+        "ean": "8059146200010",
+        "mpn": "STV-BLU-001"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; features a wide visor opening for enhanced peripheral vision.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

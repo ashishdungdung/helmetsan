@@ -19,7 +19,7 @@
         "DOT",
         "ISI"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 908,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B07QKXZ8V2",
+        "ean": "8414563900000",
+        "mpn": "AXOR-VIPER-BLK-OF"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design offers maximum ventilation; suitable for warm climates and track days. Chin bar is removable for easy cleaning.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

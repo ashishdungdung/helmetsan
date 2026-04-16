@@ -124,6 +124,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z8Y3K",
+        "ean": "8421567890123",
+        "mpn": "SMK-DASH-OF-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face fit; may feel tight on larger head sizes due to aggressive cheek pad placement.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

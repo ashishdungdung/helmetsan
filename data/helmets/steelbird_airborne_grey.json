@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B07QKZV8Y3",
+        "ean": "5012345678901",
+        "mpn": "SB-100-G"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face fit; may feel tight on larger head sizes due to aggressive cheek pad placement.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

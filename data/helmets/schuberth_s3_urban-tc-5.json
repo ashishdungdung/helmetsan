@@ -55,6 +55,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q2X5V3K",
+        "ean": "4018690000000",
+        "mpn": "S3-URBAN-T5"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for urban commuting with a compact profile; fits most head shapes but may feel tight on very large heads due to the TC-5 shell size.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

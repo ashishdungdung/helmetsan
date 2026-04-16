@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 38,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q3K8V5G",
+        "ean": "4012965000000",
+        "mpn": "S3-GLOSS-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05 / DOT / ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Universal fit with adjustable cheek pads; requires specific head shape compatibility for optimal seal.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

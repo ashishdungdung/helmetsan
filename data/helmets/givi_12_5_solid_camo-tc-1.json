@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "8021356492545",
+        "mpn": "GIV-TC1-CAMO"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 8,
+        "rotational_mitigation": "Multi-density EPS liner with energy-absorbing foam core"
+    },
+    "sizing_fit": {
+        "fit_notes": "Solid camo pattern; TC-1 model features a solid shell without vents; fits standard head shapes with adjustable retention system.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

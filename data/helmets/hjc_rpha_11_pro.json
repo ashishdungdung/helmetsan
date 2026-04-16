@@ -166,6 +166,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV3YX",
+        "ean": "4958261000000",
+        "mpn": "RPHA11P-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM FIA ECE 22.05",
+        "sharp_rating": 9,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for track use with a tight, secure fit; may feel restrictive for long-distance street commuting.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

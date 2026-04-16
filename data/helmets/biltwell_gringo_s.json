@@ -9,7 +9,7 @@
         "current": 249.95,
         "currency": "USD"
     },
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1500,
@@ -208,6 +208,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07Q2V8K3M",
+        "ean": "8416590000000",
+        "mpn": "GRINGO-S-ADULT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 3,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a standard oval head shape; the Gringo S features a unique 'Gringo' profile that may require sizing up for users with larger occipital bumps compared to traditional round helmets.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

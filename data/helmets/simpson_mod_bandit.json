@@ -203,6 +203,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B07QKZV8J3",
+        "ean": "8421650090000",
+        "mpn": "MOD-BANDIT-2024"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular system allows for interchangeable visors and cheek pads; fits most head shapes but requires specific sizing for optimal comfort.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

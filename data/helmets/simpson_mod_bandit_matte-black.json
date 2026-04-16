@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZJ3V5",
+        "ean": "8419620010000",
+        "mpn": "MOD-BANDIT-MATTE-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a wide range of head shapes; the modular system allows for customization to fit specific needs. The Matte Black finish is non-reflective.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

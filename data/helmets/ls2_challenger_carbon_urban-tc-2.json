@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZJ8V3",
+        "ean": "5919642000000",
+        "mpn": "LS2-CHALLENGER-CARBON-URBAN-TC-2"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for urban commuting with a compact profile; fits most head shapes but may feel tight on very large heads due to carbon shell stiffness.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

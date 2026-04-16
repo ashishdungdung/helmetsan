@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Sena Integrated"
-    }
+        "comms_cutout_type": "Sena Integrated",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "8426390150000",
+        "mpn": "SNA-1000000000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular design allows for different shell shapes; Outrush R typically fits oval to intermediate oval head shapes.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

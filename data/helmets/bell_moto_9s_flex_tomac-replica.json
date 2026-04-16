@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV3YJ",
+        "ean": "885916240005",
+        "mpn": "M9S-FLX-TOMAC"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/AMA",
+        "sharp_rating": 3,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for aggressive riding posture; fits most head shapes but may feel tight on larger skulls due to internal padding density.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

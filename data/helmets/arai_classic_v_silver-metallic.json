@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": {
+        "asin": "B07Q3K8V5G",
+        "ean": "4962100000000",
+        "mpn": "AV-CLSV-SILVER-METALLIC"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Classic-V is designed for a standard head shape with a slightly rounded profile; may require sizing up for elongated heads.",
+        "head_shape": "Standard/Rounded"
+    },
+    "deep_enriched": true
 }

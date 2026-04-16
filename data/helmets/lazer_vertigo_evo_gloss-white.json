@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09TQZK8VX",
+        "ean": "8416532700000",
+        "mpn": "LZR-HELMET-EVO-GW"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": "MIPS"
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design with extended neck roll for wind protection; fits most head shapes but may feel tight on very large occiputs due to limited adjustment range.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

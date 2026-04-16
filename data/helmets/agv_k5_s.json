@@ -292,6 +292,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2023",
+    "identifiers": {
+        "asin": "B09TQVX8K3",
+        "ean": "8021356470000",
+        "mpn": "AGV-K5S-000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06, DOT, ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Medium-to-high profile fit; slightly roomy in the crown compared to K3/K4, requires specific cheek pads for a tight seal; runs true to size but may feel large for those preferring a 'locked-in' aggressive fit.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8Y3",
+        "ean": "8859162040000",
+        "mpn": "MOTO-9S-FLEX-DID"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/AMA",
+        "sharp_rating": 3,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for aggressive forward lean; cheek pads may require adjustment for high-profile chin guards.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

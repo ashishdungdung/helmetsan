@@ -9,7 +9,7 @@
         "current": 299.99,
         "currency": "USD"
     },
-    "head_shape": "Long Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Fiberglass",
         "weight_g": 1560,
@@ -124,6 +124,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "cable_management": true,
+        "hud_ready": false,
+        "speaker_pocket_depth_mm": 8
+    },
+    "model_year": null,
+    "identifiers": [],
+    "safety_intelligence": {
+        "sharp_rating": 0,
+        "homologation_standard": "ECE 22.06",
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard Apex fit; generally runs true to size with a semi-slim profile that accommodates intermediate oval head shapes well.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

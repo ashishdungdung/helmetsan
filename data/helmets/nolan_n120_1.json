@@ -285,6 +285,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07Q8K3V4X",
+        "ean": "5056129000123",
+        "mpn": "N120-1"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular chin bar; fits most head shapes but may feel tight on very large heads due to internal padding design.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

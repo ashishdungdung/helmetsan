@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "cable_management": true,
+        "hud_ready": true,
+        "speaker_pocket_depth_mm": 18
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z2M4K",
+        "ean": "8412345678901",
+        "mpn": "APEX-TV-2024-BLK"
+    },
+    "safety_intelligence": {
+        "sharp_rating": 5,
+        "homologation_standard": "ECE 22.06",
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Optimized for touring comfort with extended cheek pads and adjustable rear rotation; best fit for intermediate oval head shapes.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

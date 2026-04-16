@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07Q2V8K3L",
+        "ean": "5919646063618",
+        "mpn": "TC-1"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; features a multi-position dial and adjustable cheek pads for a secure fit.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

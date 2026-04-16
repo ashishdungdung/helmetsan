@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "885916234567",
+        "mpn": "MAG-9R-R"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design offers maximum visibility and ventilation; Mag-9 Raptor features a lightweight carbon fiber shell with aggressive styling.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

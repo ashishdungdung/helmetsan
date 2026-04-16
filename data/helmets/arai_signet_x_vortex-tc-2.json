@@ -19,7 +19,7 @@
         "DOT",
         "Snell M2020"
     ],
-    "head_shape": "Long Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "PB-cLc",
         "weight_g": 1580,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09K7X2M3P",
+        "ean": "4548610000000",
+        "mpn": "TC-2-VORTEX"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for intermediate oval head shapes; features a unique Vortex TC-2 shell design that accommodates larger cheekbones and wider foreheads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

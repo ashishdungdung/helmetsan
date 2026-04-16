@@ -19,7 +19,7 @@
         "DOT",
         "ECE 22.05"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Polycarbonate",
         "weight_g": 1010,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z8Y3W",
+        "ean": "8421567890123",
+        "mpn": "APX-OC-BLK-24"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design offers unrestricted peripheral vision; suitable for warm climates; chin bar is removable for storage.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

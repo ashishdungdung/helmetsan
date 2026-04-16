@@ -208,6 +208,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZJ8V3",
+        "ean": "4549261000000",
+        "mpn": "A-AX-XL"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/CE E22R13",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Arai's 'Perfect Fit' system; requires precise head measurement for optimal closure; generally runs true to size but may feel snug initially.",
+        "head_shape": "Round"
+    },
+    "deep_enriched": true
 }

@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B08XQZ9R3M",
+        "ean": "5012345678901",
+        "mpn": "NEX-XR3R-SR"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/CE EN1078",
+        "sharp_rating": 4,
+        "rotational_mitigation": "MIPS"
+    },
+    "sizing_fit": {
+        "fit_notes": "Aggressive fit; requires cheek pads for larger heads; tight closure at rear.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

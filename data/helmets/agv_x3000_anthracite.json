@@ -54,6 +54,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a universal fit with an intermediate oval head shape; features AGV's Multi-Position System (MPS) for adjustable cheek pads and rotation. Generally runs true to size but may feel slightly snug on the cheeks due to the aggressive aerodynamic shell design.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

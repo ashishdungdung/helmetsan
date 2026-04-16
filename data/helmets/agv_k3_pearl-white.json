@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "8021356470003",
+        "mpn": "K3-000-PW"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06, DOT",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard AGV oval fit; slightly roomy in the crown compared to K-1 or K-5, with a secure cheek pad closure. Requires the standard EPS liner for ECE compliance.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

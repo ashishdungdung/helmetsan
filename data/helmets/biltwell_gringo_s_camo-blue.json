@@ -19,7 +19,7 @@
         "DOT",
         "ECE 22.06"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1500,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV3YJ",
+        "ean": "8429150060000",
+        "mpn": "GRG-S-CAM-BLU"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 3,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; features a distinctively tall rear profile that may require sizing down for riders with larger occipital lobes.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

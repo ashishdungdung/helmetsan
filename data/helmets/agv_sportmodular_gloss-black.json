@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2023",
+    "identifiers": {
+        "asin": "B09TQWZ8K3",
+        "ean": "8016472500000",
+        "mpn": "AGV-SM-GLOSS-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06, DOT",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Standard AGV fit; slightly narrow in the cheek area for some users; requires precise sizing as it does not stretch significantly.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

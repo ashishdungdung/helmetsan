@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "cable_management": true,
+        "hud_ready": true,
+        "speaker_pocket_depth_mm": 35
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B09X7Z8Y3W",
+        "ean": "8421567890123",
+        "mpn": "APX-FBP-2024"
+    },
+    "safety_intelligence": {
+        "sharp_rating": 5,
+        "homologation_standard": "FIM/FIA/CE EN17097:2018",
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate oval head shapes; adjustable fit system accommodates up to 6mm variation.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

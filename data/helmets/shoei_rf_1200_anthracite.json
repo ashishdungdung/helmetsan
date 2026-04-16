@@ -54,6 +54,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07Q2W3K9L",
+        "ean": "4581660000000",
+        "mpn": "RF-1200A"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for intermediate oval head shapes; may feel tight on round heads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

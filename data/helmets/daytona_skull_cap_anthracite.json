@@ -52,6 +52,20 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 0,
+        "cable_management": false,
+        "hud_ready": false
+    },
+    "model_year": null,
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "None",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Open-face design; fits standard head shapes but lacks internal retention systems for safety certification."
+    },
+    "deep_enriched": true
 }

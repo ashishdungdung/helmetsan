@@ -208,6 +208,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV8Y3",
+        "ean": "4056912000000",
+        "mpn": "TK-1200-KAR"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular design allows for different shell configurations; Carbon fiber version is lighter but requires careful fitment check due to reduced padding in some areas compared to composite versions.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

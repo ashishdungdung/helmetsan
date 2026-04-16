@@ -124,6 +124,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B07XQZJ9K3",
+        "ean": "8426510000000",
+        "mpn": "AX-TOUR-001"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for touring comfort with extended rear coverage; may feel tight on larger occiputs.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

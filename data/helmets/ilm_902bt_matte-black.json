@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "8429361500200",
+        "mpn": "ILM-902BT-MB"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE R22.06",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Modular fit system allows for adjustment to accommodate various head shapes; requires specific cheek pad selection for optimal comfort.",
+        "head_shape": "Universal (Adjustable)"
+    },
+    "deep_enriched": true
 }

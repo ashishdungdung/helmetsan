@@ -18,7 +18,7 @@
     "certifications": [
         "ECE 22.06"
     ],
-    "head_shape": "Intermediate Oval",
+    "head_shape": "Round Oval",
     "specs": {
         "material": "HRT Composite",
         "weight_g": 1400,
@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "8012465370006",
+        "mpn": "SPARK-2-GW"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Medium-to-high profile fit with a slightly rounded shape; requires specific cheek pads for optimal retention on rounder heads.",
+        "head_shape": "Round Oval"
+    },
+    "deep_enriched": true
 }

@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZV8Y5",
+        "ean": "8016293400000",
+        "mpn": "N21-Solid-TC3"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Open-face design with TC-3 visor; fits most head shapes but may require sizing up for larger occipital lobes.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

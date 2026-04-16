@@ -56,6 +56,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "4965231000000",
+        "mpn": "RPHA-1N-RBA"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/SAFER",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval track use; requires specific sizing for optimal cheek pad clearance.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

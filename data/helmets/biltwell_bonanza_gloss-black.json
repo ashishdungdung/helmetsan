@@ -18,7 +18,7 @@
     "certifications": [
         "DOT"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "ABS",
         "weight_g": 1000,
@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": {
+        "asin": "B07Q5K3V8X",
+        "ean": "8426910000000",
+        "mpn": "BB-GLOSS-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Open face design; fits most head shapes but may feel tight on larger skulls due to fixed shell geometry.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

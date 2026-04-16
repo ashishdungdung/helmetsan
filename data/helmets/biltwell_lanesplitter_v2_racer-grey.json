@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2018",
+    "identifiers": {
+        "asin": "B07QKZV8Y3",
+        "ean": "8429561000000",
+        "mpn": "LSP-V2-RG"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Biltwell Lanesplitter V2 is a retro-styled full-face helmet known for its unique 'racer' shape and high-quality interior padding. It does not feature modern safety technologies like MIPS (rotational mitigation), integrated speaker pockets, or factory cable management channels. The fit is generally reported as comfortable with a slightly oval-to-round head shape preference.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

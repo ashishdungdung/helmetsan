@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "4549267134582",
+        "mpn": "A-134582"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Arai Corsair-X features a unique '3D Fit' system designed to accommodate various head shapes with minimal pressure points. The Isle of Man TT edition is specifically tuned for high-speed aerodynamics and maximum safety compliance.",
+        "head_shape": "Universal (Multi-Shape)"
+    },
+    "deep_enriched": true
 }

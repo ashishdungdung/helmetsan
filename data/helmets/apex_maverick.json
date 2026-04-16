@@ -9,7 +9,7 @@
         "current": 239.99,
         "currency": "USD"
     },
-    "head_shape": "Long Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "Polycarbonate",
         "weight_g": 1570,
@@ -124,6 +124,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for aggressive riding posture; may feel tight on larger head sizes.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

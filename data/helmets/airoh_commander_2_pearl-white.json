@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "8012345678901",
+        "mpn": "CMD-2-PW-INT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for an Intermediate Oval head shape; features a semi-integral fit with a removable cheek pad system allowing adjustment from snug to roomy; chin bar is rigid and non-adjustable.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

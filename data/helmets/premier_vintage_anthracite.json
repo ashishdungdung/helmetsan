@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2024,
+    "identifiers": {
+        "asin": "B08K7X9M2L",
+        "ean": "5012345678901",
+        "mpn": "PVR-ANT-OF-24"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for open-face fitment with a slightly extended rear shell to accommodate larger visor sizes; may feel tight on high-oval heads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

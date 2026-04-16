@@ -56,6 +56,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07Q2W8K3L",
+        "ean": "4961500000000",
+        "mpn": "RPHA-1N-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM FIA ECE 22.05",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for aggressive track tuck; may feel tight on larger heads due to narrow cheek pads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

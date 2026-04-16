@@ -52,6 +52,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true
+    },
+    "model_year": 2016,
+    "identifiers": {
+        "asin": "B07QKZ8V5M",
+        "ean": "842396016000",
+        "mpn": "SS1600-HVY-FLY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05 / DOT",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Hi-Viz yellow shell with black accents; fits most head shapes but may feel tight on very large occipital lobes due to fixed cheek pads.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

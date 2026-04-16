@@ -203,6 +203,21 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2019",
+    "identifiers": [],
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Classic open-face fit with a slightly rounded interior shell; generally fits standard head shapes well but may feel tight on very large heads due to the fixed cheek pads.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

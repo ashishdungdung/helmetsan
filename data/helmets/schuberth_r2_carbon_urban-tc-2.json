@@ -55,6 +55,24 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true
+    },
+    "model_year": 2020,
+    "identifiers": {
+        "asin": "B07Q2K3V8X",
+        "ean": "4056915000000",
+        "mpn": "R2-CARBON-URBAN-TTC2"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM TC-2",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for urban track use; requires specific cheek pad adjustment for optimal fit on oval heads.",
+        "head_shape": "Oval"
+    },
+    "deep_enriched": true
 }

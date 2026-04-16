@@ -56,6 +56,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2023",
+    "identifiers": {
+        "asin": "B0C1X9K2L4",
+        "ean": "8052360789452",
+        "mpn": "PST-RR-SL-23"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a snug, track-focused fit with minimal cheek volume; often requires specific sizing down from road versions. The 'Soleluna' edition features the same internal shell geometry as standard Pista GP RR but with distinct graphics.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

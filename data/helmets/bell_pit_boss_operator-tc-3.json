@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 15,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZ8V5G",
+        "ean": "0193642000000",
+        "mpn": "TC-3"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "DOT",
+        "sharp_rating": 4,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a wide range of head sizes; TC-3 features an adjustable fit system. May require sizing up for users with larger occipital lobes compared to the standard Bell Pit.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

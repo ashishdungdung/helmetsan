@@ -54,6 +54,23 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "mpn": "X3000-RACER-TC5"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a tight, race-oriented fit with minimal cheek volume; may feel snug on average oval heads. Requires specific sizing down from road versions.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

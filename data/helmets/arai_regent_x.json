@@ -9,7 +9,7 @@
         "current": 579.95,
         "currency": "USD"
     },
-    "head_shape": "Intermediate Oval",
+    "head_shape": "Long Oval",
     "specs": {
         "material": "PB-cLc1",
         "weight_g": 1500,
@@ -292,6 +292,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 45,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV8YJ",
+        "ean": "4961325000000",
+        "mpn": "AR-REG-X-BLK"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Ideal for riders with oval to intermediate head shapes; offers a slightly roomier fit compared to the Arai Chaser-X.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

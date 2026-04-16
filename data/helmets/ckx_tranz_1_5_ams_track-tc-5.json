@@ -54,6 +54,23 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "mpn": "CKX-TRZ15AMS"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "TC-5",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a snug, track-focused fit with minimal cheek pad volume to reduce lift; may feel tight on wide heads without aftermarket padding.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

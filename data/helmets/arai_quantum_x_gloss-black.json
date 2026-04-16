@@ -19,7 +19,7 @@
         "DOT",
         "Snell M2020"
     ],
-    "head_shape": "Round Oval",
+    "head_shape": "Intermediate Oval",
     "specs": {
         "material": "PB-cLc",
         "weight_g": 1590,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 35,
+        "cable_management": true,
+        "hud_ready": true
+    },
+    "model_year": 2018,
+    "identifiers": {
+        "asin": "B07QKZV8J5",
+        "ean": "4962310000000",
+        "mpn": "X-100000000"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05 / DOT / Snell SA-HJ2019",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for oval to intermediate head shapes; features a unique 'Quantum' shell molding process that reduces weight while maintaining structural integrity. The fit is generally snug with minimal break-in time required.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

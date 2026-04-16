@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2019,
+    "identifiers": {
+        "asin": "B07QKZ8V3L",
+        "ean": "8859162400000",
+        "mpn": "FVR-V1-LUX-HY"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "FIM/FIA/AMA",
+        "sharp_rating": 3,
+        "rotational_mitigation": "True"
+    },
+    "sizing_fit": {
+        "fit_notes": "Hi-Viz yellow shell with aggressive venting; fits most head shapes but may feel tight on larger occiputs due to V1 Lux retention system.",
+        "head_shape": "Universal"
+    },
+    "deep_enriched": true
 }

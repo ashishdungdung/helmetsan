@@ -52,6 +52,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2024",
+    "identifiers": {
+        "asin": "B0CQXJ8V9L",
+        "ean": "8013670254500",
+        "mpn": "GP550-S-GW-INT"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a snug, track-focused fit with minimal cheek pad volume to reduce drag; may feel tight on wider heads without aftermarket padding.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }

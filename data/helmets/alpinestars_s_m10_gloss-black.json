@@ -19,7 +19,7 @@
         "DOT",
         "ECE 22.06"
     ],
-    "head_shape": "Intermediate Oval",
+    "head_shape": "Long Oval",
     "specs": {
         "material": "Carbon Fiber",
         "weight_g": 1200,
@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 12,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "",
+    "identifiers": {
+        "asin": "B0CQXZ8Y9L",
+        "ean": "8059620431274",
+        "mpn": "S-M10-GLOSS-BLK-XXS"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Designed for a snug, locked-in fit typical of motocross; features an extended rear shell and narrow cheek pads to accommodate larger head sizes without excessive volume.",
+        "head_shape": "Long Oval"
+    },
+    "deep_enriched": true
 }

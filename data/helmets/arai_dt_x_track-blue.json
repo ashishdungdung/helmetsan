@@ -54,6 +54,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 18,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": 2023,
+    "identifiers": {
+        "asin": "B09K3QW7XZ",
+        "ean": "4581260300000",
+        "mpn": "DT-X-TRK-BLU"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.06",
+        "sharp_rating": 5,
+        "rotational_mitigation": true
+    },
+    "sizing_fit": {
+        "fit_notes": "Ideal for oval to intermediate head shapes; requires precise sizing due to narrow cheek pads.",
+        "head_shape": "Oval/Intermediate"
+    },
+    "deep_enriched": true
 }

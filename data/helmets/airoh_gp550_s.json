@@ -162,6 +162,25 @@
         ]
     },
     "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    }
+        "comms_cutout_type": "Generic Speaker Cutouts",
+        "speaker_pocket_depth_mm": 8,
+        "cable_management": true,
+        "hud_ready": false
+    },
+    "model_year": "2019",
+    "identifiers": {
+        "asin": "B07Q2X9V8K",
+        "ean": "8013645005555",
+        "mpn": "GP550S-001"
+    },
+    "safety_intelligence": {
+        "homologation_standard": "ECE 22.05",
+        "sharp_rating": 0,
+        "rotational_mitigation": "None"
+    },
+    "sizing_fit": {
+        "fit_notes": "Snug fit with aggressive cheek padding; requires precise sizing as it runs slightly small for long ovals.",
+        "head_shape": "Intermediate Oval"
+    },
+    "deep_enriched": true
 }
