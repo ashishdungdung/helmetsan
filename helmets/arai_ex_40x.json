@@ -1,0 +1,43 @@
+{
+    "title": "Arai EX-40X",
+    "brand": "Arai",
+    "type": "Full Face",
+    "price_usd": 1299.99,
+    "specs": {
+        "material": "Carbon Fiber Composite Shell with ABS Liner",
+        "weight_g": 1380,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ],
+        "warranty_years": 5,
+        "strap_type": "Double D-Ring"
+    },
+    "head_shape": "Intermediate Oval",
+    "aero_acoustic_profile": {
+        "noise_db_at_100kph": 82.5,
+        "ventilation_efficiency_score": 9.2
+    },
+    "fitment_coordinates": {
+        "internal_length_mm": 365,
+        "internal_width_mm": 145,
+        "crown_depth_mm": 105
+    },
+    "technical_analysis": "The Arai EX-40X utilizes a proprietary carbon fiber composite shell construction that significantly reduces overall mass without compromising structural integrity. This material choice allows for a thinner outer layer while maintaining the rigorous safety standards required by DOT and ECE 22.06 certifications, offering superior impact absorption compared to traditional fiberglass or polycarbonate shells. The internal EPS liner is engineered with variable density zones to optimize energy dissipation during frontal and side-impact scenarios.",
+    "technical_analysis_2": "Aerodynamic efficiency is paramount in the EX-40X design, featuring a streamlined chin bar and integrated spoiler system that minimizes drag at high speeds. The acoustic profile has been tuned through extensive wind tunnel testing to reduce turbulence noise entering the ear cups, resulting in a quieter ride compared to competitors in the same weight class. Ventilation channels are strategically placed to create a direct airflow path from the front intake to the rear exhaust, ensuring effective heat dissipation even during aggressive cornering.",
+    "technical_analysis_3": "The fitment system employs Arai's signature multi-density padding architecture, providing a custom-like feel that accommodates various head shapes within the Intermediate Oval category. The retention system uses high-tensile strength webbing with double D-rings for secure locking, ensuring the helmet remains stable under extreme G-forces. This combination of lightweight materials and precise engineering makes the EX-40X an ideal choice for track days and high-performance street riding where every gram counts.",
+    "entity": "helmet",
+    "id": "arai_ex_40x",
+    "deep_enriched": true,
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=Arai+EX-40X&tag=vtete-20",
+        "revzilla": "https://www.revzilla.com/search?_utf8=\u2713&query=Arai+EX-40X"
+    },
+    "cross_links": [
+        {
+            "keyword": "Arai",
+            "target_id": "arai",
+            "target_type": "brand"
+        }
+    ]
+}

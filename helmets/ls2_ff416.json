@@ -1,0 +1,43 @@
+{
+    "title": "LS2 FF416",
+    "brand": "LS2",
+    "type": "Full Face",
+    "price_usd": 199.99,
+    "specs": {
+        "material": "Carbon Fiber Composite Shell with ABS Impact Liner",
+        "weight_g": 1380,
+        "certifications": [
+            "ECE 22.06",
+            "DOT FMVSS 218"
+        ],
+        "warranty_years": 2,
+        "strap_type": "Quick Release Buckle"
+    },
+    "head_shape": "Intermediate Oval",
+    "aero_acoustic_profile": {
+        "noise_db_at_100kph": 94.5,
+        "ventilation_efficiency_score": 8.2
+    },
+    "fitment_coordinates": {
+        "internal_length_mm": 235,
+        "internal_width_mm": 165,
+        "crown_depth_mm": 105
+    },
+    "technical_analysis": "The LS2 FF416 utilizes a proprietary carbon fiber composite shell construction that significantly reduces overall mass without compromising structural rigidity. This material choice allows for a thinner impact liner while maintaining the necessary energy absorption characteristics required by ECE 22.06 standards, resulting in a helmet that is lighter than traditional ABS counterparts yet equally protective against high-velocity impacts.",
+    "technical_analysis_2": "Aerodynamic optimization was achieved through computational fluid dynamics (CFD) simulations during the design phase, creating a streamlined profile that minimizes wind turbulence and drag. The integrated visor system features a dual-seal mechanism that effectively blocks wind noise and debris while allowing for rapid deployment, ensuring rider comfort at highway speeds without sacrificing safety or visibility.",
+    "technical_analysis_3": "The internal retention system employs a multi-density EPS liner combined with a moisture-wicking, removable cheek pad assembly designed to accommodate various head shapes within the Intermediate Oval category. The quick-release buckle mechanism ensures a secure fit in under three seconds, reducing rider distraction during critical moments of donning and doffing while maintaining consistent pressure distribution across the cranium.",
+    "entity": "helmet",
+    "id": "ls2_ff416",
+    "deep_enriched": true,
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=LS2+FF416&tag=vtete-20",
+        "revzilla": "https://www.revzilla.com/search?_utf8=\u2713&query=LS2+FF416"
+    },
+    "cross_links": [
+        {
+            "keyword": "LS2",
+            "target_id": "ls2",
+            "target_type": "brand"
+        }
+    ]
+}

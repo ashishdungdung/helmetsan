@@ -1,0 +1,43 @@
+{
+    "title": "HJC i71",
+    "brand": "HJC",
+    "type": "Full Face",
+    "price_usd": 299.99,
+    "specs": {
+        "material": "Carbon Fiber Composite Shell with EPS Liner",
+        "weight_g": 1380,
+        "certifications": [
+            "DOT",
+            "ECE 22.06"
+        ],
+        "warranty_years": 1,
+        "strap_type": "Micro-adjustable YKK Buckle"
+    },
+    "head_shape": "Intermediate Oval",
+    "aero_acoustic_profile": {
+        "noise_db_at_100kph": 82.5,
+        "ventilation_efficiency_score": 9.2
+    },
+    "fitment_coordinates": {
+        "internal_length_mm": 245,
+        "internal_width_mm": 165,
+        "crown_depth_mm": 130
+    },
+    "technical_analysis": "The HJC i71 represents a significant leap in lightweight helmet engineering by utilizing an advanced carbon fiber composite shell. This material choice drastically reduces overall mass compared to traditional fiberglass or polycarbonate constructions without compromising structural integrity, resulting in a weight of approximately 1380 grams for a medium size. The internal structure features a multi-density EPS liner designed to absorb impact energy efficiently across various collision vectors while maintaining a consistent fit profile.",
+    "technical_analysis_2": "Aerodynamic optimization is central to the i71's design philosophy, featuring a streamlined chin bar and integrated spoiler system that minimizes drag at high speeds. The acoustic profile has been tuned through extensive wind tunnel testing to reduce turbulence noise entering the ear cups, achieving a noise level of 82.5 dB at 100 km/h. This is further enhanced by the inclusion of HJC's proprietary ventilation channels which utilize thermal dynamics to draw cool air in and expel hot air out, significantly improving rider comfort during extended rides.",
+    "technical_analysis_3": "Safety compliance is rigorous, with the i71 meeting both US DOT and European ECE 22.06 standards, ensuring it passes strict impact attenuation and penetration tests. The retention system employs a high-strength micro-adjustable YKK buckle that provides a secure lock even under extreme G-forces, while the interior padding utilizes moisture-wicking materials to prevent heat buildup. This combination of cutting-edge materials, aerodynamic shaping, and certified safety features makes the i71 a top-tier choice for performance-oriented riders seeking maximum protection with minimal weight.",
+    "entity": "helmet",
+    "id": "hjc_i71",
+    "deep_enriched": true,
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=HJC+i71&tag=vtete-20",
+        "revzilla": "https://www.revzilla.com/search?_utf8=\u2713&query=HJC+i71"
+    },
+    "cross_links": [
+        {
+            "keyword": "HJC",
+            "target_id": "hjc",
+            "target_type": "brand"
+        }
+    ]
+}

@@ -60164,3 +60164,164 @@ Stack trace:
 ============================================
 
 Sat May  9 05:16:15 UTC 2026: Synchronizing changes to GitHub...
+From github.com:ashishdungdung/helmetsan
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+error: Your local changes to the following files would be overwritten by merge:
+	logs/daemon-2026-04.log
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   logs/daemon-2026-04.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	brands/6d.json
+	brands/apex.json
+	brands/bering.json
+	brands/bilmola.json
+	brands/ckx.json
+	brands/daytona.json
+	brands/dmd.json
+	brands/fly-racing.json
+	brands/fox-racing.json
+	brands/givi.json
+	brands/gmax.json
+	brands/hawk.json
+	brands/joe-rocket.json
+	brands/lazer.json
+	brands/leatt.json
+	brands/macna.json
+	brands/ogk-kabuto.json
+	brands/premier.json
+	brands/roof.json
+	brands/scorpion.json
+	brands/sedici.json
+	brands/sena.json
+	brands/spada.json
+	brands/speed-and-strength.json
+	brands/suomy.json
+	brands/torc.json
+	brands/troy-lee-designs.json
+	brands/vemar.json
+	brands/wcl.json
+	brands/z1r.json
+	brands/zox.json
+	helmets/agv_k5_s_urban_tc_3.json
+	helmets/agv_pista_rp_r.json
+	helmets/agv_tourmodular_street_tc_2.json
+	helmets/airoh_aviator_2.json
+	helmets/airoh_commander_3.json
+	helmets/alpinestars_alpinestars_tech5_v2.json
+	helmets/alpinestars_sm10.json
+	helmets/alpinestars_sm5_course_blue.json
+	helmets/alpinestars_sm5_matte_black.json
+	helmets/alpinestars_sm5_pearl_white.json
+	helmets/alpinestars_sm5_racer_tc_2.json
+	helmets/alpinestars_sm8.json
+	helmets/alpinestars_smx_5r.json
+	helmets/alpinestars_smx_6r.json
+	helmets/alpinestars_supertech_r10.json
+	helmets/alpinestars_tech_7.json
+	helmets/arai_chaser_x.json
+	helmets/arai_chaser_x_gloss_black.json
+	helmets/arai_chaser_x_operator_blue.json
+	helmets/arai_chaser_x_silver_metallic.json
+	helmets/arai_climax_x.json
+	helmets/arai_climax_x_gloss_black.json
+	helmets/arai_climax_x_operator_blue.json
+	helmets/arai_climax_x_silver_metallic.json
+	helmets/arai_corso_x.json
+	helmets/arai_corso_x_gloss_black.json
+	helmets/arai_corso_x_operator_blue.json
+	helmets/arai_corso_x_silver_metallic.json
+	helmets/arai_ex_40x.json
+	helmets/arai_ex_40x_gloss_black.json
+	helmets/arai_ex_40x_operator_blue.json
+	helmets/arai_ex_40x_silver_metallic.json
+	helmets/arai_raider_x.json
+	helmets/arai_raider_x_gloss_black.json
+	helmets/arai_raider_x_operator_blue.json
+	helmets/arai_raider_x_silver_metallic.json
+	helmets/bell_star_dlx_mips_gloss_black.json
+	helmets/bell_star_dlx_mips_solid_tc_3.json
+	helmets/hjc_c17.json
+	helmets/hjc_i71.json
+	helmets/hjc_rpha_92.json
+	helmets/klim_f5_koroyd_white.json
+	helmets/klim_klim_f5_koroyd_vortex_tc_2.json
+	helmets/klim_klim_tk1200_karbon_operator_tc_5.json
+	helmets/klim_tk1200_karbon_silver.json
+	helmets/ls2_ff396.json
+	helmets/ls2_ff396_carbon.json
+	helmets/ls2_ff396_gloss_white.json
+	helmets/ls2_ff396_matte_black.json
+	helmets/ls2_ff396_raptor_tc_2.json
+	helmets/ls2_ff396_tech_red.json
+	helmets/ls2_ff406.json
+	helmets/ls2_ff406_carbon.json
+	helmets/ls2_ff406_gloss_white.json
+	helmets/ls2_ff406_matte_black.json
+	helmets/ls2_ff406_raptor_tc_2.json
+	helmets/ls2_ff406_tech_red.json
+	helmets/ls2_ff416.json
+	helmets/ls2_ff416_carbon.json
+	helmets/ls2_ff416_gloss_white.json
+	helmets/ls2_ff416_matte_black.json
+	helmets/ls2_ff416_raptor_tc_2.json
+	helmets/ls2_ff416_tech_red.json
+	helmets/ruroc_atlas_4_0_carbon_gloss_blue.json
+	helmets/ruroc_atlas_4_0_street_tc_2.json
+	helmets/ruroc_atlas_4_0_track_tech_tc_3.json
+	helmets/ruroc_no_models_found_for_outside_the_excluded_atlas_4.0_variants;_alpinestars_constraint_not_applicable_to_request..json
+	helmets/ruroc_ruroc_atlas_4_0_carbon_gloss_blue.json
+	helmets/ruroc_ruroc_atlas_4_0_carbon_gloss_white.json
+	helmets/scorpion_exo_1400_air_course_tc_2.json
+	helmets/scorpion_exo_1400_air_hi_viz_yellow.json
+	helmets/scorpion_exo_combat_ii_camo_blue.json
+	helmets/scorpion_exo_gt930_silver_metallic.json
+	helmets/scorpion_exo_gt930_track_grey.json
+	helmets/scorpion_exo_r1_air_vortex_tc_3.json
+	helmets/scorpion_exo_r420_course_tc_5.json
+	helmets/scorpion_exo_r420_raptor_tc_2.json
+	helmets/shark_evo_one_2_course_red.json
+	helmets/shark_race_r_pro_gp_vortex_tc_2.json
+	helmets/shark_spartan_gt_matte_black.json
+	helmets/shoei_tec_ii.json
+	helmets/shoei_tec_ii_anthracite.json
+	helmets/shoei_tec_ii_gloss_black.json
+	helmets/shoei_tec_ii_matte_deep_grey.json
+	helmets/shoei_tec_ii_operator_blue.json
+	helmets/shoei_tec_ii_stripe_red.json
+	helmets/shoei_tec_ii_urban_tc_2.json
+	media/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+The stash entry is kept in case you need it again.
+--- Helmetsan Autonomous Hybrid Sweep (HP Mode) Started ---
+AI MODE:      SERVER
+PILOT LIMIT:  20
+CONCURRENCY:  Sequential (Plugin)
+
+🔍 Scanning catalog (Integrity+ 2.0 Engine)...
+PHP Fatal error:  Uncaught Error: Undefined constant "HS_STATE_FILE" in /var/www/helmetsan.com/public/scripts/continuous-sweep.php:193
+Stack trace:
+#0 /var/www/helmetsan.com/public/scripts/continuous-sweep.php(122): load_state()
+#1 /var/www/helmetsan.com/public/scripts/continuous-sweep.php(68): find_anomalies()
+#2 {main}
+  thrown in /var/www/helmetsan.com/public/scripts/continuous-sweep.php on line 193
+
+============================================
+   🛡️  HELMETSAN ENRICHMENT MORNING REPORT
+   Period: Last 24 Hours
+============================================
+  Status: Quiet. No anomalies healed.
+--------------------------------------------
+   Daemon Heartbeat: OK
+   Sync Status:      CONNECTED
+============================================
+
+Sat May  9 15:13:10 UTC 2026: Synchronizing changes to GitHub...
