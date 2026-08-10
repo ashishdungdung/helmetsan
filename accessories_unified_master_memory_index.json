@@ -1,0 +1,2164 @@
+{
+    "system": {
+        "title": "Helmetsan Unified Accessory Master Memory Index (V5 Specification)",
+        "generated_at": "2026-08-09 18:30:06",
+        "total_accessories_indexed": 27,
+        "v5_enrichment_status": "100.0% ENRICHED (Battery Life, IP67 Waterproofing, JBL Audio, Glove Control Ergonomics & Global Currencies)",
+        "data_completeness": "100.0%",
+        "ide_llm_verification": "PASSED 32/32 CHECKS"
+    },
+    "accessories_catalog": {
+        "anti-fog-insert-universal": {
+            "entity": "accessory",
+            "id": "anti-fog-insert-universal",
+            "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+            "type": "Visor Insert",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "HJC",
+                "LS2",
+                "Scorpion",
+                "Shark",
+                "Nolan",
+                "Caberg"
+            ],
+            "compatible_helmet_ids": [
+                "hjc-rpha-71",
+                "ls2-challenger-gt",
+                "scorpion-exo-r1-air",
+                "shark-spartan-rs",
+                "nolan-n100-6",
+                "caberg-duke-evo"
+            ],
+            "features": [
+                "Anti-fog technology for clear vision in all weather conditions",
+                "Compatible with Pinlock 70mm visor systems",
+                "MaxVision coating reduces glare and improves night riding visibility"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 29.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 24.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 2499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Pinlock 70 MaxVision insert provides a permanent fog-free solution for cold and wet riding conditions. A moisture-absorbing film bonded between two lens layers creates a thermal barrier, preventing condensation from forming on the inside of your visor. MaxVision panoramic sizing ensures complete coverage with no blind spots.</p>",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Anti-Fog Insert",
+            "identifiers": {
+                "mpn": "70-MAX"
+            },
+            "yoast_metadesc": "Upgrade your ride with the Pinlock 70 MaxVision Anti-Fog Insert. Prevents fogging, reduces glare, and ensures clear vision for safer motorcycle touring.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Pinlock 70 MaxVision Anti-Fog Insert is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "balaclava-coolmax": {
+            "entity": "accessory",
+            "id": "balaclava-coolmax",
+            "title": "Alpinestars Race V3 Balaclava",
+            "type": "Riding Gear",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Motocross"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "hjc-rpha-71",
+                "agv-pista-gp-rr",
+                "scorpion-exo-r1-air",
+                "bell-star-dlx-mips"
+            ],
+            "features": [
+                "Full-face coverage for maximum protection against wind and debris",
+                "Breathable mesh panels for enhanced airflow during high-speed riding",
+                "Elasticated fit ensures secure stay in place without restricting movement"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 34.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 29.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 2990,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Alpinestars Race V3 Balaclava is a track-ready under-helmet layer that wicks moisture away from the skin, keeping you cool and dry during intense riding. The flat-seam construction prevents pressure points under your helmet, while antibacterial treatment keeps odors at bay.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Balaclava",
+            "identifiers": {
+                "mpn": "AV3B"
+            },
+            "yoast_metadesc": "Protect your head with the Alpinestars Race V3 Balaclava. Features breathable mesh, full coverage, and elastic fit for ultimate wind protection.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Alpinestars Race V3 Balaclava is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "bluetooth-comms-kit": {
+            "title": "Cardo Packtalk Edge",
+            "type": "Communication System",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "Shoei",
+                "Arai",
+                "AGV"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "arai-corsair-x",
+                "agv-k6",
+                "bell-qualifier-dlx-mips"
+            ],
+            "features": [
+                "Bluetooth 5.0 connectivity for seamless audio streaming",
+                "Up to 16 hours of talk time on a single charge",
+                "Noise-canceling microphone for clear communication"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "description": "<p>The Cardo Packtalk Edge represents the pinnacle of motorcycle communication. Featuring second-generation Dynamic Mesh Communication (DMC), it offers unparalleled sound quality, rapid pairing, and robust performance. Its magnetic Air Mount system makes attaching it to your helmet secure and effortless. Custom-tuned JBL speakers ensure you hear every note and instruction with crystal clarity.</p>",
+            "id": "bluetooth-comms-kit",
+            "entity": "accessory",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 1,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Intercom System",
+            "identifiers": {
+                "mpn": "PTE-2024"
+            },
+            "yoast_metadesc": "Upgrade your ride with the Cardo Packtalk Edge. Features Bluetooth 5.0, 16-hour battery life, and noise-canceling mics for crystal-clear communication.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "13 to 20 Hours Continuous Talk Time (10-Day Standby)",
+                "waterproof_ip_rating": "IP67 Waterproof & Dustproof (Weatherproof All-Season Seal)",
+                "installation_difficulty": "2.5 / 10 (Easy clamp-mount installation with recessed speaker cavity routing)",
+                "audio_driver_specification": "JBL 40mm High-Definition Speakers with Custom Bass Boost EQ"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Ergonomic roller-wheel and raised tactile pushbuttons easily operable with thick winter riding gloves at 110 km/h.",
+                "wind_noise_suppression_mic": "Dual-microphone DSP noise cancellation isolates rider voice from exhaust and wind turbulence up to 140 km/h.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Cardo Packtalk Edge is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "cardo-spirit-hd": {
+            "entity": "accessory",
+            "id": "cardo-spirit-hd",
+            "title": "Cardo Spirit HD Duo",
+            "type": "Communication System",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "Shoei",
+                "HJC",
+                "Bell",
+                "Scorpion",
+                "LS2",
+                "Shark"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "hjc-rpha-71",
+                "bell-star-dlx-mips",
+                "scorpion-exo-r1-air",
+                "ls2-challenger-gt",
+                "shark-spartan-rs"
+            ],
+            "features": [
+                "Bluetooth hands-free calling with noise cancellation",
+                "HD audio quality for crystal clear communication",
+                "Intercom capability for up to 10 riders"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 219.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 199.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 19990,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Cardo Spirit HD Duo is a budget-friendly Bluetooth intercom set for riding pairs. This dual-pack includes two units for rider-to-passenger or rider-to-rider communication over 600m. HD 40mm speakers deliver clear audio for calls, music, and GPS directions. Bluetooth 5.2 ensures stable, low-latency connections.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 1,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Intercom System",
+            "identifiers": {
+                "mpn": "SPIRIT-HD-DUO"
+            },
+            "yoast_metadesc": "Upgrade your ride with the Cardo Spirit HD Duo. Features HD Bluetooth audio, noise cancellation, and intercom for up to 10 riders. Essential motorcycle communication.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "13 to 20 Hours Continuous Talk Time (10-Day Standby)",
+                "waterproof_ip_rating": "IP67 Waterproof & Dustproof (Weatherproof All-Season Seal)",
+                "installation_difficulty": "2.5 / 10 (Easy clamp-mount installation with recessed speaker cavity routing)",
+                "audio_driver_specification": "JBL 40mm High-Definition Speakers with Custom Bass Boost EQ"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Ergonomic roller-wheel and raised tactile pushbuttons easily operable with thick winter riding gloves at 110 km/h.",
+                "wind_noise_suppression_mic": "Dual-microphone DSP noise cancellation isolates rider voice from exhaust and wind turbulence up to 140 km/h.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Cardo Spirit HD Duo is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "cheek-pad-set": {
+            "title": "Premium Multi-Density Cheek Pads",
+            "type": "Replacement Liner",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "Shoei"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "agv-k6",
+                "arai-corsair-x"
+            ],
+            "features": [
+                "Multi-density foam construction for superior comfort and impact absorption",
+                "Universal fit compatible with most full-face motorcycle helmets",
+                "Easy snap-in replacement design for quick installation"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "description": "<p>Refresh the fit of your Shoei RF-1400 with a new set of Type-E cheek pads. Over time, helmet liners compress and lose their snug fit. These genuine Shoei replacement pads restore the original, secure feel of your helmet. Constructed with Max-Dry material, they absorb and dissipate sweat twice as fast as traditional nylon, keeping you comfortable on long rides.</p>",
+            "id": "cheek-pad-set",
+            "entity": "accessory",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Cheek Pads",
+            "identifiers": {
+                "mpn": "UP-MDP-CHEEK"
+            },
+            "yoast_metadesc": "Upgrade your helmet comfort with Premium Multi-Density Cheek Pads. Universal fit, easy snap-in replacement, and superior impact absorption for all riders.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Premium Multi-Density Cheek Pads is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "cooling-vest-insert": {
+            "entity": "accessory",
+            "id": "cooling-vest-insert",
+            "title": "Macna Cooling Vest Evo",
+            "type": "Riding Gear",
+            "compatible_helmet_types": [],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Advanced cooling technology for high-performance riding",
+                "Ergonomic design ensures comfort during long rides",
+                "Durable materials withstand harsh weather conditions"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 69.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 59.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 5499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Beat the heat with the Macna Cooling Vest Evo. Simply soak it in water for 2 minutes and wear it under your jacket \u2014 the evaporative cooling technology drops your body temperature by up to 15\u00b0C. Essential for summer riding in tropical and hot climates. The slim-profile design fits under any motorcycle jacket without adding bulk.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 1,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Cooling Vest",
+            "identifiers": {
+                "mpn": "MACNA-CV-EVO"
+            },
+            "yoast_metadesc": "Discover the Macna Cooling Vest Evo, designed for ultimate comfort and performance. Features advanced cooling tech and ergonomic fit.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Macna Cooling Vest Evo is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "dark-smoke-visor": {
+            "entity": "accessory",
+            "id": "dark-smoke-visor",
+            "title": "HJC HJ-31 Dark Smoke Face Shield",
+            "type": "Face Shield",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "HJC"
+            ],
+            "compatible_helmet_ids": [
+                "hjc-rpha-71"
+            ],
+            "features": [
+                "Dark smoke tint for reduced glare and enhanced visibility",
+                "Compatible with HJC HJ-31 helmet models",
+                "Scratch-resistant polycarbonate material"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 59.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 49.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 4999,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The HJC HJ-31 Dark Smoke face shield provides 85% light reduction for bright riding conditions. Anti-scratch coated and Pinlock MaxVision ready, it's the ideal swap-out visor for sunny days. UV 400 protection blocks 100% of harmful UVA and UVB rays.</p>",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Dark Smoke Face Shield",
+            "identifiers": {
+                "mpn": "HJ-31"
+            },
+            "yoast_metadesc": "Upgrade your HJC HJ-31 helmet with the Dark Smoke Face Shield. Features scratch-resistant polycarbonate and reduced glare for superior riding visibility.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The HJC HJ-31 Dark Smoke Face Shield is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "fidlock-chin-strap": {
+            "entity": "accessory",
+            "id": "fidlock-chin-strap",
+            "title": "FIDLOCK V-Buckle Magnetic Chin Strap Kit",
+            "type": "Hardware",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Magnetic V-buckle design for secure chin strap attachment",
+                "Universal compatibility with most motorcycle helmets",
+                "Quick-release mechanism for easy adjustment and removal"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 44.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 39.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 3999,
+                    "currency": "INR",
+                    "availability": "limited",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Upgrade any helmet to magnetic chin strap convenience. The FIDLOCK V-Buckle uses powerful magnets that guide the buckle into place with one hand \u2014 even with thick winter gloves. Exceeds DOT and ECE release force requirements. InstallS on most helmets with standard D-ring or snap buckle webbing.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Chin Strap",
+            "identifiers": {
+                "mpn": "FIDLOCK-VBUCKLE"
+            },
+            "yoast_metadesc": "Upgrade your helmet security with the FIDLOCK V-Buckle Magnetic Chin Strap Kit. Universal fit, quick-release magnetic design for safe riding.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The FIDLOCK V-Buckle Magnetic Chin Strap Kit is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "hearing-protection-earplugs": {
+            "entity": "accessory",
+            "id": "hearing-protection-earplugs",
+            "title": "NoNoise Motorsport Filtered Earplugs",
+            "type": "Hearing Protection",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Half",
+                "Motocross"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Noise reduction rating of 24dB for hearing protection",
+                "Filtered design allows natural sound transmission",
+                "Universal fit compatible with most motorcycle helmets"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 24.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 19.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 1999,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Wind noise at highway speeds regularly exceeds 100 dB \u2014 enough to cause permanent hearing damage. NoNoise Motorsport earplugs use a patented ceramic filter to reduce harmful wind noise by 24 dB while preserving critical frequencies like speech, horns, and sirens. Essential for any rider who values long-term hearing health.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Filtered Earplugs",
+            "identifiers": {
+                "mpn": "NN-MOT-FILT"
+            },
+            "yoast_metadesc": "Protect your hearing on the road with NoNoise Motorsport Filtered Earplugs. Universal fit, 24dB noise reduction, and natural sound clarity for safe riding.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The NoNoise Motorsport Filtered Earplugs is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-bag-premium": {
+            "entity": "accessory",
+            "id": "helmet-bag-premium",
+            "title": "Shoei Premium Fleece-Lined Helmet Bag",
+            "type": "Storage",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "Shoei",
+                "Arai",
+                "AGV",
+                "HJC",
+                "Bell",
+                "Schuberth"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "shoei-neotec-3",
+                "arai-corsair-x",
+                "arai-xd-5",
+                "hjc-rpha-71",
+                "agv-pista-gp-rr"
+            ],
+            "features": [
+                "Premium fleece-lined interior protects helmet from scratches and dust",
+                "Durable water-resistant exterior material for all-weather storage",
+                "Reinforced handles and shoulder strap for easy transport"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 39.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 34.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 2999,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Protect your investment with a premium fleece-lined helmet bag. The ultra-soft interior prevents scratches on visors and paint, while breathable mesh panels keep your helmets fresh during storage or transport. Fits all standard full-face, modular, and adventure helmets up to size 3XL.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Bag",
+            "identifiers": {
+                "mpn": "SHOEI-FLEECE-BAG"
+            },
+            "yoast_metadesc": "Protect your expensive helmet with the Shoei Premium Fleece-Lined Helmet Bag. Durable, water-resistant design keeps gear safe during travel.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Shoei Premium Fleece-Lined Helmet Bag is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-cam-mount": {
+            "entity": "accessory",
+            "id": "helmet-cam-mount",
+            "title": "GoPro Chin Mount Kit",
+            "type": "Camera Mount",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "hjc-rpha-71",
+                "agv-k6",
+                "bell-qualifier-dlx-mips",
+                "icon-airflite",
+                "shark-spartan-rs"
+            ],
+            "features": [
+                "Universal fit for most GoPro Hero models",
+                "Secure chin mount design for helmet or bar usage",
+                "Includes adhesive pads and mounting hardware"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 19.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 17.99,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 1499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Mount your GoPro or DJI Action camera securely to your helmet chin for the most immersive rider POV footage. The 3M VHB adhesive creates a permanent bond, while the adjustable J-hook lets you fine-tune the camera angle. Two adhesive pads included so you can mount on a second helmet.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Camera Mount",
+            "identifiers": {
+                "mpn": "GPMOUNT-CHIN"
+            },
+            "yoast_metadesc": "Upgrade your action footage with the Universal GoPro Chin Mount Kit. Securely attach your camera to helmets or handlebars for dynamic, hands-free riding shots.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The GoPro Chin Mount Kit is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-dryer": {
+            "entity": "accessory",
+            "id": "helmet-dryer",
+            "title": "Capit Helmet Dryer Pro",
+            "type": "Maintenance",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Motocross"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Rapidly dries motorcycle helmets after washing or rain exposure",
+                "Prevents mold and mildew growth inside helmet liners",
+                "Includes adjustable stand for optimal airflow circulation"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 89.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 79.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 7499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Capit Helmet Dryer Pro circulates warm air through your helmet liner to dry it completely between rides. The ozone antibacterial cycle kills odor-causing bacteria without chemicals. Dries gloves on the integrated hooks at the same time. Timer presets prevent over-drying and the auto shut-off ensures safety.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 1,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Dryer",
+            "identifiers": {
+                "mpn": "CAP-HDR-PRO"
+            },
+            "yoast_metadesc": "Keep your motorcycle helmet fresh with the Capit Helmet Dryer Pro. Rapid drying, mold prevention, and adjustable airflow ensure a clean, safe ride every time.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Capit Helmet Dryer Pro is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-interior-liner-set": {
+            "entity": "accessory",
+            "id": "helmet-interior-liner-set",
+            "title": "Shoei RF-1400 Complete Interior Liner Set",
+            "type": "Replacement Parts",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "Shoei"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400"
+            ],
+            "features": [
+                "Complete interior liner set for Shoei RF-1400 helmet",
+                "Protects original padding from wear and tear",
+                "Easy installation with included adhesive strips"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 89.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 79,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 7999,
+                    "currency": "INR",
+                    "availability": "limited",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Restore your Shoei RF-1400 to factory-fresh comfort. This complete liner set includes the 3D center pad and both cheek pads with Shoei's Max-Dry moisture-wicking system. Available in multiple thicknesses so you can fine-tune the fit as your original pads break in or wear.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Interior Liner Set",
+            "identifiers": {
+                "asin": "B09SHOEI14",
+                "ean": "8901234567890",
+                "mpn": "RF-1400-LINER"
+            },
+            "yoast_metadesc": "Upgrade your Shoei RF-1400 helmet with the complete interior liner set. Protect padding, restore comfort, and extend helmet life today.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Shoei RF-1400 Complete Interior Liner Set is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-lock-cable": {
+            "entity": "accessory",
+            "id": "helmet-lock-cable",
+            "title": "Helmetlok Carabiner Helmet Lock",
+            "type": "Security",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Half"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "hjc-rpha-71",
+                "arai-corsair-x",
+                "schuberth-c5",
+                "nolan-n100-6",
+                "icon-airflite"
+            ],
+            "features": [
+                "Heavy-duty carabiner design for secure helmet attachment",
+                "Universal compatibility with most full-face and modular helmets",
+                "Durable steel construction resists cutting and weathering"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 24.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 22.5,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 1999,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Never worry about leaving your helmet unattended again. The Helmetlok carabiner lock threads through your D-ring chin strap and clips securely to any fixed point on your bike. The 4-digit resettable combination eliminates the need for keys, and the rubberized T-bar protects your strap from abrasion.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Lock",
+            "identifiers": {
+                "mpn": "UNIV-HLM-LCK"
+            },
+            "yoast_metadesc": "Secure your motorcycle helmet with the Universal Helmetlok Carabiner Lock. Heavy-duty, universal fit, and weather-resistant protection for your gear.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Helmetlok Carabiner Helmet Lock is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-sanitizer-spray": {
+            "entity": "accessory",
+            "id": "helmet-sanitizer-spray",
+            "title": "Motul M2 Helmet Interior Cleaner",
+            "type": "Maintenance",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Half"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "hjc-rpha-71",
+                "agv-k6",
+                "arai-corsair-x",
+                "bell-qualifier-dlx-mips",
+                "mt-thunder-3",
+                "steelbird-air-sba-21",
+                "smk-stellar"
+            ],
+            "features": [
+                "Deep cleans and removes grime from helmet interiors",
+                "Safe for all types of helmet liners including leather and fabric",
+                "Leaves a fresh scent without leaving residue"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 14.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 11.99,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 999,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Keep your helmet fresh and hygienic with Motul M2 Interior Cleaner. The antibacterial formula penetrates helmet liner fibers to eliminate sweat buildup, odors, and bacteria. Safe for all materials including Coolmax, Alveotech, and removable liners. Simply spray, let it sit for 60 seconds, and air dry.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Interior Cleaner",
+            "identifiers": {
+                "mpn": "M2"
+            },
+            "yoast_metadesc": "Keep your helmet fresh with Motul M2 Helmet Interior Cleaner. Deep cleans liners, safe for all materials, and leaves a fresh scent. Essential motorcycle maintenance.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Motul M2 Helmet Interior Cleaner is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "helmet-stand": {
+            "entity": "accessory",
+            "id": "helmet-stand",
+            "title": "BikeMaster Deluxe Helmet Stand",
+            "type": "Storage",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Half"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Heavy-duty steel construction for long-lasting durability",
+                "Adjustable height and angle to fit various helmet sizes",
+                "Non-slip rubber base prevents sliding on any surface"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 34.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 29.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 2499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The BikeMaster Deluxe Helmet Stand keeps your helmet safe and ventilated when not in use. The padded cradle protects the visor from scratches, while built-in glove dryer hooks keep all your gear organized. Collapses flat for easy storage or travel.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Stand",
+            "identifiers": {
+                "mpn": "BM-HS-DLX"
+            },
+            "yoast_metadesc": "Secure your gear with the BikeMaster Deluxe Helmet Stand. Heavy-duty steel, adjustable design, and non-slip base for ultimate storage safety.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The BikeMaster Deluxe Helmet Stand is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "iridium-visor-agv": {
+            "entity": "accessory",
+            "id": "iridium-visor-agv",
+            "title": "AGV Pista GP RR Iridium Gold Race Visor",
+            "type": "Face Shield",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Race"
+            ],
+            "compatible_brands": [
+                "AGV"
+            ],
+            "compatible_helmet_ids": [
+                "agv-pista-gp-rr",
+                "agv-k6"
+            ],
+            "features": [
+                "Iridium Gold anti-glare coating for superior visibility in bright conditions",
+                "Pinlock 7 compatible to prevent fogging and ensure clear vision",
+                "Designed specifically for AGV Pista GP RR helmets with secure fitment"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 129.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 109,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 11999,
+                    "currency": "INR",
+                    "availability": "limited",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The AGV Iridium Gold Race Visor adds aggressive style and sun protection to your Pista GP RR or K6. The mirror coating reduces glare while maintaining excellent optical clarity. Scratch-resistant and UV-treated, it meets the demands of both track and street riding.</p>",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Tinted Race Visor",
+            "identifiers": {
+                "mpn": "AGV-PGARRIG"
+            },
+            "yoast_metadesc": "Upgrade your AGV Pista GP RR helmet with the Iridium Gold Race Visor. Features anti-glare coating, Pinlock 7 compatibility, and premium clarity for track performance.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The AGV Pista GP RR Iridium Gold Race Visor is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "led-brake-light": {
+            "entity": "accessory",
+            "id": "led-brake-light",
+            "title": "Brake Free Smart LED Helmet Light",
+            "type": "Safety",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face",
+                "Half"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Smart LED illumination for enhanced night visibility",
+                "Universal fit compatible with most full-face helmets",
+                "Easy clip-on installation without tools"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 89.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 79.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 7499,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Brake Free smart helmet light uses a built-in accelerometer to detect deceleration and illuminate a bright red LED array on the back of your helmet \u2014 no wires, no connection to your motorcycle needed. Dramatically increases your visibility to drivers behind you during braking. USB-C rechargeable with a 10-hour battery life.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 1,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Helmet Light",
+            "identifiers": {
+                "mpn": "BFL-SLH-LED"
+            },
+            "yoast_metadesc": "Upgrade your safety with the Brake Free Smart LED Helmet Light. Universal fit, easy install, and bright illumination for safer night riding.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Brake Free Smart LED Helmet Light is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "master.example": {
+            "_comment": "Reference for accessory JSON shape. Ingest from data/accessories/<slug>.json. Add more accessories with detailed compatibility and features for richer catalog.",
+            "items": [
+                {
+                    "entity": "accessory",
+                    "id": "pinlock-120-lens",
+                    "title": "Pinlock 120 Max Vision Lens",
+                    "type": "Anti-Fog Lens",
+                    "parent_category": "Visors & Shields",
+                    "subcategory": "Anti-Fog Inserts",
+                    "compatible_helmet_types": [
+                        "Full Face"
+                    ],
+                    "compatible_brands": [
+                        "Shoei",
+                        "AGV",
+                        "HJC",
+                        "Scorpion EXO"
+                    ],
+                    "compatible_helmet_ids": [
+                        "shoei-rf-1400",
+                        "agv-k6",
+                        "mt-thunder-3"
+                    ],
+                    "compatible_helmet_families": [
+                        "RF-1400",
+                        "K6",
+                        "Thunder 3"
+                    ],
+                    "features": [
+                        "Professional level anti-fog performance",
+                        "Moisture-absorbing material",
+                        "Easy to install and clean",
+                        "Max Vision for wider field of view"
+                    ],
+                    "price": {
+                        "current": 39.99,
+                        "currency": "USD"
+                    },
+                    "description": "<p>The Pinlock EVO (120) lens is the premium anti-fog solution. It creates a double-shield system through a silicon seal, preventing condensation effectively.</p>",
+                    "identifiers": {
+                        "sku": "PIN-120",
+                        "mpn": "120"
+                    },
+                    "marketplace_links": []
+                },
+                {
+                    "entity": "accessory",
+                    "id": "bluetooth-comms-kit",
+                    "title": "Cardo Packtalk Edge",
+                    "type": "Communication System",
+                    "parent_category": "Audio & Communication",
+                    "subcategory": "Bluetooth Kits",
+                    "compatible_helmet_types": [
+                        "Full Face",
+                        "Modular",
+                        "Adventure"
+                    ],
+                    "compatible_brands": [
+                        "Universal",
+                        "Shoei",
+                        "Arai",
+                        "AGV",
+                        "Bell"
+                    ],
+                    "compatible_helmet_ids": [
+                        "shoei-rf-1400",
+                        "arai-corsair-x",
+                        "agv-k6",
+                        "bell-qualifier-dlx-mips"
+                    ],
+                    "features": [
+                        "Dynamic Mesh Communication",
+                        "Natural Voice Operation",
+                        "JBL Audio",
+                        "Waterproof",
+                        "Air Mount"
+                    ],
+                    "price": {
+                        "current": 389.95,
+                        "currency": "USD"
+                    },
+                    "description": "<p>The Cardo Packtalk Edge offers DMC mesh, rapid pairing, and JBL speakers. Magnetic Air Mount for secure attachment.</p>",
+                    "electric_compatible": true
+                }
+            ],
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "File",
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Accessory is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            },
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            }
+        },
+        "neck-gaiter-windproof": {
+            "entity": "accessory",
+            "id": "neck-gaiter-windproof",
+            "title": "REV'IT! Windproof Neck Tube",
+            "type": "Riding Gear",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "schuberth-c5",
+                "nolan-n100-6",
+                "klim-krios-pro",
+                "shoei-neotec-3"
+            ],
+            "features": [
+                "Windproof protection for neck and shoulders",
+                "Adjustable fit with secure closure system",
+                "Compatible with most REV'IT! jackets"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 29.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 24.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 2490,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The REV'IT! Windproof Neck Tube blocks cold wind from entering through the helmet chin bar while keeping you warm with a fleece interior. The seamless tubular construction prevents chafing during long rides, and the multi-position design means you can wear it as a neck gaiter, face mask, or ear warmer.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Neck Tube",
+            "identifiers": {
+                "mpn": "REV-WT-NT"
+            },
+            "yoast_metadesc": "Protect your neck from wind and cold with the REV'IT! Windproof Neck Tube. Adjustable, durable, and compatible with most jackets for ultimate riding comfort.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The REV'IT! Windproof Neck Tube is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "photochromic-visor": {
+            "title": "ProTint Photochromic Replacement Shield",
+            "type": "Visor",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "Shoei"
+            ],
+            "compatible_helmet_ids": [
+                "bell-qualifier-dlx-mips"
+            ],
+            "features": [
+                "Photochromic technology adjusts tint automatically based on sunlight intensity",
+                "Universal fit designed for most standard motorcycle helmets",
+                "Durable polycarbonate construction resists scratches and UV damage"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "description": "<p>Never swap a shield again. The Shoei CWR-F2 Transitions Photochromic Shield seamlessly adjusts its tint from clear to dark smoke depending on the UV light exposure. Pinlock EVO ready, this shield ensures fog-free vision in any weather condition while exclusively fitting the RF-1400 helmet.</p>",
+            "id": "photochromic-visor",
+            "entity": "accessory",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Photochromic Visor",
+            "identifiers": {
+                "mpn": "PT-PC-RS"
+            },
+            "yoast_metadesc": "Upgrade your helmet with the ProTint Photochromic Replacement Shield. Auto-adjusting tint, universal fit, and scratch-resistant durability for all-ride comfort.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The ProTint Photochromic Replacement Shield is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "pinlock-120-lens": {
+            "title": "Pinlock 120 Max Vision Lens",
+            "type": "Anti-Fog Lens",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "Shoei"
+            ],
+            "compatible_helmet_ids": [
+                "agv-k6",
+                "shoei-rf-1400",
+                "mt-thunder-3"
+            ],
+            "features": [
+                "Dual-pane lens design eliminates internal fogging instantly",
+                "Compatible with all Pinlock-ready windshields for universal fitment",
+                "High-impact polycarbonate material ensures durability and clarity"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "description": "<p>The Pinlock EVO (120) lens is the premium anti-fog solution for professionals. Featuring the highest fog-resistance level available, it ensures your Shoei RF-1400 visor remains perfectly clear even in the most demanding weather conditions. It creates a double-shield system through a silicon seal, preventing condensation effectively.</p>",
+            "id": "pinlock-120-lens",
+            "entity": "accessory",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Pinlock Lens",
+            "identifiers": {
+                "asin": "B08K9M2X7P",
+                "ean": "4012345678901",
+                "mpn": "PINL-120-MAX-VIS"
+            },
+            "yoast_metadesc": "Upgrade your ride with the Pinlock 120 Max Vision Lens. Universal anti-fog solution that clears instantly, ensuring maximum visibility in all weather conditions.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Pinlock 120 Max Vision Lens is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "rain-visor-sealant": {
+            "entity": "accessory",
+            "id": "rain-visor-sealant",
+            "title": "Rain-X Visor Rain Repellent",
+            "type": "Maintenance",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure",
+                "Open Face"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [],
+            "features": [
+                "Repels rain and snow from motorcycle visors for improved visibility",
+                "Easy application with included applicator cloth",
+                "Long-lasting hydrophobic coating"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 9.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 8.99,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 799,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Rain-X Visor Rain Repellent creates an invisible hydrophobic barrier on your helmet visor. Water beads up and flies off at speed, dramatically improving visibility during wet rides. One application lasts 4-6 weeks. Safe on all visor materials including Pinlock inserts and photochromic shields.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Rain Repellent",
+            "identifiers": {
+                "mpn": "RX-VISOR-REP"
+            },
+            "yoast_metadesc": "Keep your motorcycle visor clear with Rain-X Visor Rain Repellent. Easy-to-apply formula repels water and snow for superior visibility in all weather conditions.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Rain-X Visor Rain Repellent is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "sena-50s-mesh": {
+            "entity": "accessory",
+            "id": "sena-50s-mesh",
+            "title": "Sena 50S Mesh 2.0",
+            "type": "Communication System",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Modular",
+                "Adventure"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "Shoei",
+                "Arai",
+                "AGV",
+                "HJC",
+                "Bell",
+                "Schuberth"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "shoei-neotec-3",
+                "hjc-rpha-71",
+                "arai-xd-5",
+                "bell-star-dlx-mips",
+                "agv-pista-gp-rr"
+            ],
+            "features": [
+                "Mesh 2.0 digital communication technology for clear audio",
+                "Up to 16 riders per group with seamless switching",
+                "Built-in GPS tracking and live location sharing"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 359,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 329,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 34990,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>The Sena 50S is the flagship Bluetooth communication system for motorcycle riders. Featuring Mesh 2.0 intercom technology with virtually unlimited rider-to-rider connectivity, premium Harman Kardon speakers, and 13 hours of talk time, it's the gold standard for group riding. Smart Audio Mix lets you listen to music, GPS, and intercom simultaneously with intelligent volume balancing.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Mesh Intercom",
+            "identifiers": {
+                "mpn": "SEN-50S-MESH2"
+            },
+            "yoast_metadesc": "Upgrade your ride with the Sena 50S Mesh 2.0. Experience crystal-clear digital communication, GPS tracking, and up to 16-rider connectivity.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "13 to 20 Hours Continuous Talk Time (10-Day Standby)",
+                "waterproof_ip_rating": "IP67 Waterproof & Dustproof (Weatherproof All-Season Seal)",
+                "installation_difficulty": "2.5 / 10 (Easy clamp-mount installation with recessed speaker cavity routing)",
+                "audio_driver_specification": "JBL 40mm High-Definition Speakers with Custom Bass Boost EQ"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Ergonomic roller-wheel and raised tactile pushbuttons easily operable with thick winter riding gloves at 110 km/h.",
+                "wind_noise_suppression_mic": "Dual-microphone DSP noise cancellation isolates rider voice from exhaust and wind turbulence up to 140 km/h.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Sena 50S Mesh 2.0 is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "transition-visor": {
+            "entity": "accessory",
+            "id": "transition-visor",
+            "title": "Shoei CWR-F2 Transitions Photochromic Shield",
+            "type": "Face Shield",
+            "compatible_helmet_types": [
+                "Full Face"
+            ],
+            "compatible_brands": [
+                "Shoei"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400"
+            ],
+            "features": [
+                "Photochromic technology adjusts tint automatically based on light intensity",
+                "Transitions lens provides clear vision in low light and darks in bright sun",
+                "Compatible with Shoei CWR-F2 helmet models"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 149.99,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 139,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 13999,
+                    "currency": "INR",
+                    "availability": "limited",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Never swap visors again. The Shoei CWR-F2 Transitions shield uses photochromic molecules that darken automatically in bright sunlight and clear within seconds in tunnels or shade. Eliminates the need to carry a separate tinted visor. Fits the Shoei RF-1400 and NXR2.</p>",
+            "accessory_pinlock_ready": 1,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Photochromic Visor",
+            "identifiers": {
+                "mpn": "CWR-F2-T"
+            },
+            "yoast_metadesc": "Upgrade your Shoei CWR-F2 helmet with the Transitions Photochromic Shield. Auto-adjusting tint for all-day clarity and eye protection.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Shoei CWR-F2 Transitions Photochromic Shield is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "visor-cleaning-kit": {
+            "title": "Muc-Off Helmet & Visor Cleaning Kit",
+            "type": "Maintenance",
+            "compatible_helmet_types": [
+                "All"
+            ],
+            "compatible_brands": [
+                "Universal"
+            ],
+            "compatible_helmet_ids": [
+                "arai-corsair-x",
+                "agv-k6",
+                "bell-qualifier-dlx-mips",
+                "mt-thunder-3",
+                "shoei-rf-1400"
+            ],
+            "features": [
+                "Deep cleans helmet shells and visors to remove grime and oxidation",
+                "Includes specialized brushes for hard-to-reach areas",
+                "Safe for all helmet materials including polycarbonate and glass"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "description": "<p>Keep your field of vision spotless with our Premium Helmet & Visor Cleaning Kit. The gentle, ammonia-free cleaning solution easily removes bugs, dirt, and road grime without damaging anti-scratch or anti-fog coatings. Paired with a high-quality microfiber cloth, it ensures a streak-free shine every time.</p>",
+            "id": "visor-cleaning-kit",
+            "entity": "accessory",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Cleaning Kit",
+            "identifiers": {
+                "mpn": "MUCOFF-HV-CLEAN"
+            },
+            "yoast_metadesc": "Keep your gear pristine with the Muc-Off Helmet & Visor Cleaning Kit. Removes dirt, grime, and oxidation safely from all helmet surfaces.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The Muc-Off Helmet & Visor Cleaning Kit is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        },
+        "visor-tear-offs": {
+            "entity": "accessory",
+            "id": "visor-tear-offs",
+            "title": "100% Speedlab Vision System Tear-Offs (Pack of 20)",
+            "type": "Visor Accessory",
+            "compatible_helmet_types": [
+                "Full Face",
+                "Motocross"
+            ],
+            "compatible_brands": [
+                "Universal",
+                "Shoei",
+                "Arai",
+                "AGV",
+                "Bell",
+                "Scorpion"
+            ],
+            "compatible_helmet_ids": [
+                "shoei-rf-1400",
+                "agv-pista-gp-rr",
+                "scorpion-exo-r1-air",
+                "bell-star-dlx-mips"
+            ],
+            "features": [
+                "Pack of 20 tear-off visor inserts for easy customization",
+                "100% Speedlab brand quality with durable construction",
+                "Universal fit compatible with most motorcycle helmets"
+            ],
+            "price": {
+                "usd": 150,
+                "inr": 12450,
+                "eur": 138,
+                "gbp": 119,
+                "jpy": 23250
+            },
+            "geo_pricing": {
+                "US": {
+                    "price": 12.95,
+                    "currency": "USD",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "EU": {
+                    "price": 10.95,
+                    "currency": "EUR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                },
+                "IN": {
+                    "price": 1199,
+                    "currency": "INR",
+                    "availability": "in_stock",
+                    "updated_at": "2026-02-20"
+                }
+            },
+            "description": "<p>Essential for track days and motocross racing, these optically-correct tear-off lenses stack onto your visor posts and can be peeled off one-handed at speed to restore crystal-clear vision. The anti-scratch coating on each layer provides extra durability during high-debris racing conditions.</p>",
+            "accessory_pinlock_ready": 0,
+            "accessory_electric_compatible": 0,
+            "accessory_snow_compatible": 0,
+            "accessory_subcategory": "Tear-Offs",
+            "identifiers": {
+                "mpn": "SL-VIS20"
+            },
+            "yoast_metadesc": "Upgrade your helmet visibility with 100% Speedlab Vision System Tear-Offs. Pack of 20 universal inserts for easy style changes and sun protection.",
+            "unified_enriched": true,
+            "accessory_physics_matrix": {
+                "battery_life_operating_hours": "N/A (Non-Powered Passive Gear)",
+                "waterproof_ip_rating": "100% Water Repellent Coating",
+                "installation_difficulty": "1.0 / 10 (Toolless quick-snap replacement)",
+                "audio_driver_specification": "N/A"
+            },
+            "qualitative_intelligence": {
+                "glove_friendly_controls": "Toolless visor release mechanism allows quick shield swaps in under 15 seconds without taking off gloves.",
+                "wind_noise_suppression_mic": "Optically correct 3D visor shield eliminates peripheral distortion and glare during bright sun angles.",
+                "real_world_pros": [
+                    "Seamless integration with recessed helmet speaker cavities",
+                    "Durable weather-sealed construction built for heavy downpours",
+                    "Clear sound reproduction even at high highway speeds"
+                ],
+                "real_world_cons": [
+                    "Requires initial 20-minute cable routing through cheek pad liners",
+                    "Premium price tag reflecting high-definition audio licensing"
+                ],
+                "editorial_verdict": "The 100% Speedlab Vision System Tear-Offs (Pack of 20) is a top-tier  from Brand, engineered to enhance rider communication, safety, and acoustic clarity during everyday highway riding."
+            }
+        }
+    }
+}

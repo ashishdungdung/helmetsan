@@ -1,0 +1,32 @@
+{
+    "generated_at": "2026-08-09T17:11:41+00:00",
+    "total_helmets": 2235,
+    "aero_acoustic_matrix": {
+        "ultra_quiet_under_80db": 279,
+        "moderate_80_85db": 1100,
+        "high_airflow_over_85db": 856,
+        "low_drag_under_0_30cd": 187,
+        "standard_drag_0_30_0_34cd": 1655,
+        "peak_visor_drag_over_0_35cd": 393
+    },
+    "riding_intent_matrix": {
+        "track_racing": 71,
+        "highway_touring": 324,
+        "adventure_offroad": 426,
+        "urban_commuter": 1414
+    },
+    "anatomical_morphometry": {
+        "intermediate_oval": 2090,
+        "round_oval": 104,
+        "long_oval": 40,
+        "eqrs_equipped": 19
+    },
+    "safety_compliance_matrix": {
+        "ece_22_06": 1824,
+        "ece_22_05": 272,
+        "snell_m2020": 19,
+        "fim_racing": 126,
+        "sharp_5_star": 1029,
+        "sharp_4_star": 1003
+    }
+}

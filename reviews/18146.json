@@ -1,0 +1,61 @@
+[
+    {
+        "user_id": 0,
+        "author_name": "John Doe",
+        "author_email": "john@example.com",
+        "rating": 5,
+        "content": "This is an absolutely amazing helmet! Fits like a glove and has great ventilation.",
+        "pros": [
+            "Comfortable",
+            "Lightweight",
+            "Stunning Silver Finish"
+        ],
+        "cons": [
+            "A bit expensive"
+        ],
+        "helpful_votes": 12,
+        "unhelpful_votes": 1,
+        "status": "approved",
+        "country_code": "US",
+        "created_at": "2026-05-24 10:00:00",
+        "updated_at": "2026-05-24 10:00:00"
+    },
+    {
+        "user_id": 0,
+        "author_name": "Aarav Sharma",
+        "author_email": "aarav@example.in",
+        "rating": 4,
+        "content": "Very premium feel, the silver metallic looks great under the sun. High speed stability is top notch.",
+        "pros": [
+            "High speed stability",
+            "Great visuals"
+        ],
+        "cons": [
+            "Wind noise above 120kmph"
+        ],
+        "helpful_votes": 5,
+        "unhelpful_votes": 0,
+        "status": "approved",
+        "country_code": "IN",
+        "created_at": "2026-05-24 12:30:00",
+        "updated_at": "2026-05-24 12:30:00"
+    },
+    {
+        "user_id": 0,
+        "author_name": "Hans Schmidt",
+        "author_email": "hans@schmidt.de",
+        "rating": 5,
+        "content": "Ausgezeichnete Qualit\u00e4t! typical Arai safety, ECE 22.06 certified. Highly recommended.",
+        "pros": [
+            "ECE 22.06",
+            "Double-D ring strap"
+        ],
+        "cons": [],
+        "helpful_votes": 8,
+        "unhelpful_votes": 2,
+        "status": "approved",
+        "country_code": "DE",
+        "created_at": "2026-05-24 14:15:00",
+        "updated_at": "2026-05-24 14:15:00"
+    }
+]

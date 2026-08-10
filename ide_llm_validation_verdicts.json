@@ -1,0 +1,2084 @@
+{
+    "validated_at": "2026-08-09T17:06:25+00:00",
+    "total_evaluated": 2235,
+    "passed_consensus": 1941,
+    "failed_validation": 294,
+    "tier_breakdown": {
+        "tier1_schema": {
+            "pass": 2235,
+            "fail": 0
+        },
+        "tier2_physics": {
+            "pass": 2105,
+            "fail": 130
+        },
+        "tier3_checksum": {
+            "pass": 2063,
+            "fail": 172
+        },
+        "tier4_noun_guard": {
+            "pass": 2234,
+            "fail": 1
+        }
+    },
+    "failed_items": {
+        "6d_atr_2_hi-viz-yellow": {
+            "title": "6D ATR-2 Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "agv_ax_8_evo_apex-tc-5": {
+            "title": "AGV AX-8 EVO Apex TC-5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "airoh_twist_3_silver-metallic": {
+            "title": "Airoh Twist 3 Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_s_m10": {
+            "title": "Alpinestars S-M10",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_s_m10_pearl-white": {
+            "title": "Alpinestars S-M10 Pearl White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_s_m5_action_silver-metallic": {
+            "title": "Alpinestars S-M5 Action Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_sm5": {
+            "title": "Alpinestars SM5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_sm5_course-blue": {
+            "title": "Alpinestars SM5 Course Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "alpinestars_supertech_m10_apex-blue": {
+            "title": "Alpinestars Supertech M10 Apex Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "alpinestars_supertech_m10_matte-black": {
+            "title": "Alpinestars Supertech M10 Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_supertech_m10_pearl-white": {
+            "title": "Alpinestars Supertech M10 Pearl White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "alpinestars_supertech_m10_silver-metallic": {
+            "title": "Alpinestars Supertech M10 Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_blaze_s_blue": {
+            "title": "Apex Blaze S Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_cipher_x_white": {
+            "title": "Apex Cipher X White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_circuit_red": {
+            "title": "Apex Circuit Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_coast": {
+            "title": "Apex Coast",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_coast_white": {
+            "title": "Apex Coast White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_cruise_pro_chrome": {
+            "title": "Apex Cruise Pro Chrome",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_cruise_ultra_chrome": {
+            "title": "Apex Cruise Ultra Chrome",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_drift_pro": {
+            "title": "Apex Drift Pro",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_drift_pro_chrome": {
+            "title": "Apex Drift Pro Chrome",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_drift_red": {
+            "title": "Apex Drift Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_drift_x2": {
+            "title": "Apex Drift X2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_drift_x2_black": {
+            "title": "Apex Drift X2 Black",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "apex_drift_x_black": {
+            "title": "Apex Drift X Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_drifter_chrome": {
+            "title": "Apex Drifter Chrome",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_flow_black": {
+            "title": "Apex Flow Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_flow_grey": {
+            "title": "Apex Flow Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_horizon_pro_silver": {
+            "title": "Apex Horizon Pro Silver",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_meridian_x_black": {
+            "title": "Apex Meridian X Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_pioneer_black": {
+            "title": "Apex Pioneer Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_rampage": {
+            "title": "Apex Rampage",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_ranger_sand": {
+            "title": "Apex Ranger Sand",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_ranger_x": {
+            "title": "Apex Ranger X",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_ridge_2": {
+            "title": "Apex Ridge 2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_ridge_max_x_sand": {
+            "title": "Apex Ridge Max X Sand",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_ridge_x2": {
+            "title": "Apex Ridge X2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_urban_black": {
+            "title": "Apex Urban Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "apex_urban_chrome": {
+            "title": "Apex Urban Chrome",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "apex_venture_ultra_grey": {
+            "title": "Apex Venture Ultra Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "arai_classic_v_operator-blue": {
+            "title": "Arai Classic-V Operator Blue",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "arai_vx_pro4_street-tc-2": {
+            "title": "Arai VX-Pro4 Street TC-2",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "axor_joker": {
+            "title": "Axor Joker",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "axor_joker_silver": {
+            "title": "Axor Joker Silver",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "axor_rocket_grey": {
+            "title": "Axor Rocket Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "axor_viper": {
+            "title": "Axor Viper",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bell_broozer_camo-tc-2": {
+            "title": "Bell Broozer Camo TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_broozer_hi-viz-yellow": {
+            "title": "Bell Broozer Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_broozer_stripe-tc-2": {
+            "title": "Bell Broozer Stripe TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_bullitt": {
+            "title": "Bell Bullitt",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_bullitt_matte-black": {
+            "title": "Bell Bullitt Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_bullitt_white": {
+            "title": "Bell Bullitt White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_custom_500": {
+            "title": "Bell Custom 500",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bell_custom_500_anthracite": {
+            "title": "Bell Custom 500 Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "bell_custom_500_gloss-black": {
+            "title": "Bell Custom 500 Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_eliminator": {
+            "title": "Bell Eliminator",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_eliminator_hi-viz-yellow": {
+            "title": "Bell Eliminator Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_eliminator_tech-grey": {
+            "title": "Bell Eliminator Tech Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_eliminator_tech-tc-3": {
+            "title": "Bell Eliminator Tech TC-3",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_eliminator_urban-tc-2": {
+            "title": "Bell Eliminator Urban TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mag_9": {
+            "title": "Bell Mag-9",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mag_9_gloss-white": {
+            "title": "Bell Mag-9 Gloss White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mag_9_raptor-red": {
+            "title": "Bell Mag-9 Raptor Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mag_9_stripe-red": {
+            "title": "Bell Mag-9 Stripe Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_moto_9s_flex": {
+            "title": "Bell Moto-9S Flex",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_moto_9s_flex_fasthouse-did": {
+            "title": "Bell Moto-9S Flex Fasthouse DID",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bell_moto_9s_flex_matte-black": {
+            "title": "Bell Moto-9S Flex Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_moto_9s_flex_tomac-replica": {
+            "title": "Bell Moto-9S Flex Tomac Replica",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mx_9_adventure_mips_gloss-black": {
+            "title": "Bell MX-9 Adventure MIPS Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mx_9_adventure_mips_hi-viz-yellow": {
+            "title": "Bell MX-9 Adventure MIPS Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mx_9_adventure_mips_solid-tc-3": {
+            "title": "Bell MX-9 Adventure MIPS Solid TC-3",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_mx_9_adventure_mips_stripe-tc-5": {
+            "title": "Bell MX-9 Adventure MIPS Stripe TC-5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_pit_boss": {
+            "title": "Bell Pit Boss",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_pit_boss_flow-grey": {
+            "title": "Bell Pit Boss Flow Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_pit_boss_flow-tc-1": {
+            "title": "Bell Pit Boss Flow TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bell_pit_boss_raptor-tc-2": {
+            "title": "Bell Pit Boss Raptor TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_qualifier": {
+            "title": "Bell Qualifier",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_qualifier_dlx_mips_hi-viz-yellow": {
+            "title": "Bell Qualifier DLX MIPS Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_race_star_flex_dlx": {
+            "title": "Bell Race Star Flex DLX",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bell_race_star_flex_dlx_rsd-the-zone": {
+            "title": "Bell Race Star Flex DLX Rsd The Zone",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "bell_rogue": {
+            "title": "Bell Rogue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_rogue_matte-black": {
+            "title": "Bell Rogue Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_rogue_solid-red": {
+            "title": "Bell Rogue Solid Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_rogue_track-tc-5": {
+            "title": "Bell Rogue Track TC-5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_rogue_vortex-grey": {
+            "title": "Bell Rogue Vortex Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_srt_modular_black": {
+            "title": "Bell SRT Modular Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star": {
+            "title": "Bell Star",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star_dlx_mips": {
+            "title": "Bell Star DLX MIPS",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star_dlx_mips_matte-black": {
+            "title": "Bell Star DLX MIPS Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star_dlx_mips_silver-metallic": {
+            "title": "Bell Star DLX MIPS Silver Metallic",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star_dlx_mips_solid-tc-1": {
+            "title": "Bell Star DLX MIPS Solid TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bell_star_matte-black": {
+            "title": "Bell Star Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "bilmola_nex": {
+            "title": "Bilmola Nex",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bilmola_nex_anthracite": {
+            "title": "Bilmola Nex Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "bilmola_nex_silver-metallic": {
+            "title": "Bilmola Nex Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "biltwell_bonanza": {
+            "title": "Biltwell Bonanza",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "biltwell_bonanza_pearl-white": {
+            "title": "Biltwell Bonanza Pearl White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "biltwell_bonanza_street-grey": {
+            "title": "Biltwell Bonanza Street Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "biltwell_gringo_ece_matte-black": {
+            "title": "Biltwell Gringo ECE Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ckx_mission_ams_vortex-tc-1": {
+            "title": "CKX Mission AMS Vortex TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ckx_titan_original_course-tc-1": {
+            "title": "CKX Titan Original Course TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ckx_titan_original_racer-grey": {
+            "title": "CKX Titan Original Racer Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ckx_tranz_1_5_ams": {
+            "title": "CKX Tranz 1.5 AMS",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "daytona_cruiser_gloss-white": {
+            "title": "Daytona Cruiser Gloss White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_formula_carbon": {
+            "title": "Fly Racing Formula Carbon",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_formula_carbon_gloss-black": {
+            "title": "Fly Racing Formula Carbon Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_kinetic": {
+            "title": "Fly Racing Kinetic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_kinetic_flow-grey": {
+            "title": "Fly Racing Kinetic Flow Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_kinetic_matte-black": {
+            "title": "Fly Racing Kinetic Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fly_racing_kinetic_pearl-white": {
+            "title": "Fly Racing Kinetic Pearl White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_odyssey_summit": {
+            "title": "Fly Racing Odyssey Summit",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_odyssey_summit_anthracite": {
+            "title": "Fly Racing Odyssey Summit Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_odyssey_summit_hi-viz-yellow": {
+            "title": "Fly Racing Odyssey Summit Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_odyssey_summit_vortex-blue": {
+            "title": "Fly Racing Odyssey Summit Vortex Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_revolt_rush": {
+            "title": "Fly Racing Revolt Rush",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fly_racing_revolt_rush_anthracite": {
+            "title": "Fly Racing Revolt Rush Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_proframe_rs": {
+            "title": "Fox Racing Proframe RS",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_proframe_rs_gloss-white": {
+            "title": "Fox Racing Proframe RS Gloss White",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_proframe_rs_hi-viz-yellow": {
+            "title": "Fox Racing Proframe RS Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_proframe_rs_matte-black": {
+            "title": "Fox Racing Proframe RS Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v1": {
+            "title": "Fox Racing V1",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v1_gloss-white": {
+            "title": "Fox Racing V1 Gloss White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v1_lux_silver-metallic": {
+            "title": "Fox Racing V1 Lux Silver Metallic",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v1_lux_street-red": {
+            "title": "Fox Racing V1 Lux Street Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v2": {
+            "title": "Fox Racing V2",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fox_racing_v2_gloss-black": {
+            "title": "Fox Racing V2 Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fox_racing_v2_raptor-grey": {
+            "title": "Fox Racing V2 Raptor Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v3_rs": {
+            "title": "Fox Racing V3 RS",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "fox_racing_v3_rs_solid-tc-2": {
+            "title": "Fox Racing V3 RS Solid TC-2",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "fox_racing_v3_rs_tech-blue": {
+            "title": "Fox Racing V3 RS Tech Blue",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "givi_12_5_solid_camo-tc-1": {
+            "title": "GIVI 12.5 Solid Camo TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "gmax_gm_11_course-tc-2": {
+            "title": "GMax GM-11 Course TC-2",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "gmax_gm_11s_hi-viz-yellow": {
+            "title": "GMax GM-11S Hi-Viz Yellow",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "gmax_gm_11s_matte-black": {
+            "title": "GMax GM-11S Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "gmax_gm_11s_silver-metallic": {
+            "title": "GMax GM-11S Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "gmax_of_77_gloss-white": {
+            "title": "GMax OF-77 Gloss White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "gmax_of_77_track-blue": {
+            "title": "GMax OF-77 Track Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "hawk_h_40": {
+            "title": "Hawk H-40",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "hjc_is_cruiser": {
+            "title": "HJC IS-Cruiser",
+            "t1": true,
+            "t2": true,
+            "t3": true,
+            "t4": false
+        },
+        "icon_airform_mips": {
+            "title": "Icon Airform MIPS",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "icon_alliance_matte-black": {
+            "title": "Icon Alliance Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "icon_domain_track-blue": {
+            "title": "Icon Domain Track Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "icon_synergy_black": {
+            "title": "Icon Synergy Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "icon_variant": {
+            "title": "Icon Variant",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "icon_variant_pro_anthracite": {
+            "title": "Icon Variant Pro Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ilm_726x": {
+            "title": "ILM 726X",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "ilm_953": {
+            "title": "ILM 953",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "joe_rocket_rkt_prime_vortex-blue": {
+            "title": "Joe Rocket RKT-Prime Vortex Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "klim_f3_carbon_matte-black": {
+            "title": "Klim F3 Carbon Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "klim_f3_carbon_stripe-red": {
+            "title": "Klim F3 Carbon Stripe Red",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "ls2_trail_matte-black": {
+            "title": "LS2 Trail Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "marushin_speedster_black": {
+            "title": "Marushin Speedster Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "marushin_speedster_silver": {
+            "title": "Marushin Speedster Silver",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "moose_racing_m1_mips_black": {
+            "title": "Moose Racing M1 MIPS Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "moose_racing_m1_mips_red": {
+            "title": "Moose Racing M1 MIPS Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "mt_helmets_falcon_anthracite": {
+            "title": "MT Helmets Falcon Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "nexx_x_404_black": {
+            "title": "Nexx X.404 Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "nexx_x_vilitar": {
+            "title": "Nexx X.Vilitar",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "nexx_x_wed2": {
+            "title": "Nexx X.WED2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "nexx_x_wed3": {
+            "title": "Nexx X.WED3",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "nexx_x_wed3_course-tc-1": {
+            "title": "Nexx X.WED3 Course TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "nexx_x_wed3_pearl-white": {
+            "title": "Nexx X.WED3 Pearl White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "premier_hyper_carbon": {
+            "title": "Premier Hyper Carbon",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "premier_jt5": {
+            "title": "Premier JT5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "premier_jt5_street-tc-5": {
+            "title": "Premier JT5 Street TC-5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "premier_vintage_anthracite": {
+            "title": "Premier Vintage Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "premier_vintage_tech-tc-5": {
+            "title": "Premier Vintage Tech TC-5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "roof_roadster_classic_silver-metallic": {
+            "title": "ROOF Roadster Classic Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "ruroc_atlas_4_0_solid-grey": {
+            "title": "Ruroc Atlas 4.0 Solid Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "schuberth_c5_tech-red": {
+            "title": "Schuberth C5 Tech Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "schuberth_c5_tech-tc-5": {
+            "title": "Schuberth C5 Tech TC-5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "scorpion_exo_at950_grey": {
+            "title": "Scorpion EXO-AT950 Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_combat_ii_camo-blue": {
+            "title": "Scorpion EXO-Combat II Camo Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_combat_ii_flow-tc-2": {
+            "title": "Scorpion EXO-Combat II Flow TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_gt930_silver-metallic": {
+            "title": "Scorpion EXO-GT930 Silver Metallic",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_gt930_stripe-tc-3": {
+            "title": "Scorpion EXO-GT930 Stripe TC-3",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_r320_matte-black": {
+            "title": "Scorpion EXO-R320 Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_r420": {
+            "title": "Scorpion EXO-R420",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_r420_silver-metallic": {
+            "title": "Scorpion EXO-R420 Silver Metallic",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_r420_vortex-blue": {
+            "title": "Scorpion EXO-R420 Vortex Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_t520_matte-black": {
+            "title": "Scorpion EXO-T520 Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "scorpion_exo_t520_red": {
+            "title": "Scorpion EXO-T520 Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "sedici_bella": {
+            "title": "Sedici Bella",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "sedici_primo_hi-viz-yellow": {
+            "title": "Sedici Primo Hi-Viz Yellow",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "sedici_primo_operator-tc-1": {
+            "title": "Sedici Primo Operator TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "sena_momentum_inc_pro_urban-blue": {
+            "title": "Sena Momentum INC Pro Urban Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "sena_outrush_r": {
+            "title": "Sena Outrush R",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "sena_stryker": {
+            "title": "Sena Stryker",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "sena_stryker_matte-black": {
+            "title": "Sena Stryker Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "shark_d_skwal_3_tech-tc-2": {
+            "title": "Shark D-Skwal 3 Tech TC-2",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "shark_evo_one_2_tech-blue": {
+            "title": "Shark Evo-One 2 Tech Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "shoei_tec_ii": {
+            "title": "Shoei TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "simpson_ghost_bandit_tech-tc-1": {
+            "title": "Simpson Ghost Bandit Tech TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "simpson_outlaw_bandit_course-red": {
+            "title": "Simpson Outlaw Bandit Course Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "simpson_outlaw_bandit_gloss-black": {
+            "title": "Simpson Outlaw Bandit Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "simpson_outlaw_bandit_pearl-white": {
+            "title": "Simpson Outlaw Bandit Pearl White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "simpson_venom_tech-tc-5": {
+            "title": "Simpson Venom Tech TC-5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "smk_bolt_grey": {
+            "title": "SMK Bolt Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "smk_phoenix": {
+            "title": "SMK Phoenix",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "smk_ranger_grey": {
+            "title": "SMK Ranger Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "smk_scout": {
+            "title": "SMK Scout",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "smk_street_silver": {
+            "title": "SMK Street Silver",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "smk_urban": {
+            "title": "SMK Urban",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss1600": {
+            "title": "Speed and Strength SS1600",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss1600_hi-viz-yellow": {
+            "title": "Speed and Strength SS1600 Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss2400_gloss-white": {
+            "title": "Speed and Strength SS2400 Gloss White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss2400_hi-viz-yellow": {
+            "title": "Speed and Strength SS2400 Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss2400_matte-black": {
+            "title": "Speed and Strength SS2400 Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "speed_and_strength_ss700_anthracite": {
+            "title": "Speed and Strength SS700 Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "speed_and_strength_ss700_matte-black": {
+            "title": "Speed and Strength SS700 Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "speed_and_strength_ss700_urban-tc-3": {
+            "title": "Speed and Strength SS700 Urban TC-3",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_adonis_matte-black": {
+            "title": "Steelbird Adonis Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_adonis_operator-tc-1": {
+            "title": "Steelbird Adonis Operator TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": false,
+            "t4": true
+        },
+        "steelbird_airborne_grey": {
+            "title": "Steelbird Airborne Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_falcon_black": {
+            "title": "Steelbird Falcon Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_rocket": {
+            "title": "Steelbird Rocket",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_sba_21_gt_urban-red": {
+            "title": "Steelbird SBA-21 GT Urban Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "steelbird_sbh_17_white": {
+            "title": "Steelbird SBH-17 White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "steelbird_sbh_20_matte-black": {
+            "title": "Steelbird SBH-20 Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "steelbird_spirit": {
+            "title": "Steelbird Spirit",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_storm": {
+            "title": "Steelbird Storm",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_swift_black": {
+            "title": "Steelbird Swift Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_yap_silver": {
+            "title": "Steelbird Yap Silver",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "steelbird_zoom_black": {
+            "title": "Steelbird Zoom Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_cruiser_d4": {
+            "title": "Studds Cruiser D4",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_cruiser_d4_black": {
+            "title": "Studds Cruiser D4 Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_glider_d6_silver": {
+            "title": "Studds Glider D6 Silver",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_marshall": {
+            "title": "Studds Marshall",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_marshall_matte-black": {
+            "title": "Studds Marshall Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_marshall_pro_d4_black": {
+            "title": "Studds Marshall Pro D4 Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_motocross_d5": {
+            "title": "Studds Motocross D5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_motocross_d5_matte-black": {
+            "title": "Studds Motocross D5 Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_motocross_d5_pearl-white": {
+            "title": "Studds Motocross D5 Pearl White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_motocross_d5_raptor-red": {
+            "title": "Studds Motocross D5 Raptor Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_ninja_d4": {
+            "title": "Studds Ninja D4",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_ranger_d6_matte-black": {
+            "title": "Studds Ranger D6 Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_ranger_x_d5_black": {
+            "title": "Studds Ranger X D5 Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_scramble_d4_red": {
+            "title": "Studds Scramble D4 Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_shifter_d8_operator-blue": {
+            "title": "Studds Shifter D8 Operator Blue",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_sprint_d5_black": {
+            "title": "Studds Sprint D5 Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "studds_sprint_d5_grey": {
+            "title": "Studds Sprint D5 Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "suomy_mx_speed_pro_gloss-black": {
+            "title": "Suomy MX-Speed Pro Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "suomy_mx_speed_pro_vortex-tc-1": {
+            "title": "Suomy MX-Speed Pro Vortex TC-1",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "suomy_sr_gp_evo_matte-black": {
+            "title": "Suomy SR-GP Evo Matte Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "torc_t_14b_hi-viz-yellow": {
+            "title": "Torc T-14B Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_14b_urban-grey": {
+            "title": "Torc T-14B Urban Grey",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_15b_anthracite": {
+            "title": "Torc T-15B Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_15b_matte-black": {
+            "title": "Torc T-15B Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_15b_pearl-white": {
+            "title": "Torc T-15B Pearl White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_1_retro_solid-tc-1": {
+            "title": "Torc T-1 Retro Solid TC-1",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "torc_t_55": {
+            "title": "Torc T-55",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "troy_lee_designs_d4_composite_apex-grey": {
+            "title": "Troy Lee Designs D4 Composite Apex Grey",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_d4_composite_gloss-black": {
+            "title": "Troy Lee Designs D4 Composite Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_gp": {
+            "title": "Troy Lee Designs GP",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_gp_anthracite": {
+            "title": "Troy Lee Designs GP Anthracite",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_gp_flow-red": {
+            "title": "Troy Lee Designs GP Flow Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_gp_mono": {
+            "title": "Troy Lee Designs GP Mono",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "troy_lee_designs_gp_mono_anthracite": {
+            "title": "Troy Lee Designs GP Mono Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "troy_lee_designs_gp_mono_solid-red": {
+            "title": "Troy Lee Designs GP Mono Solid Red",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_gp_mono_street-tc-3": {
+            "title": "Troy Lee Designs GP Mono Street TC-3",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_carbon_hi-viz-yellow": {
+            "title": "Troy Lee Designs SE5 Carbon Hi-Viz Yellow",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_carbon_racer-tc-5": {
+            "title": "Troy Lee Designs SE5 Carbon Racer TC-5",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_carbon_silver-metallic": {
+            "title": "Troy Lee Designs SE5 Carbon Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_composite_apex-tc-2": {
+            "title": "Troy Lee Designs SE5 Composite Apex TC-2",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_composite_gloss-black": {
+            "title": "Troy Lee Designs SE5 Composite Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "troy_lee_designs_se5_composite_silver-metallic": {
+            "title": "Troy Lee Designs SE5 Composite Silver Metallic",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "vega_crux_pro_blue": {
+            "title": "Vega Crux Pro Blue",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "vega_indy": {
+            "title": "Vega Indy",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "vega_indy_white": {
+            "title": "Vega Indy White",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "vega_off_road_d_v": {
+            "title": "Vega Off-Road D\/V",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "vega_off_road_d_v_hi-viz-yellow": {
+            "title": "Vega Off-Road D\/V Hi-Viz Yellow",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "vega_rally_black": {
+            "title": "Vega Rally Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "wcl_beanie_half_gloss-black": {
+            "title": "WCL Beanie Half Gloss Black",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "wcl_beanie_half_pearl-white": {
+            "title": "WCL Beanie Half Pearl White",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "wcl_beanie_half_street-tc-2": {
+            "title": "WCL Beanie Half Street TC-2",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "x_lite_x_803_rs_ultra_carbon": {
+            "title": "X-Lite X-803 RS Ultra Carbon",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "x_lite_x_803_rs_ultra_carbon_carbon": {
+            "title": "X-Lite X-803 RS Ultra Carbon Carbon",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_range": {
+            "title": "Z1R Range",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_range_hi-viz-yellow": {
+            "title": "Z1R Range Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_range_matte-black": {
+            "title": "Z1R Range Matte Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_range_solid-tc-5": {
+            "title": "Z1R Range Solid TC-5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_rise": {
+            "title": "Z1R Rise",
+            "t1": true,
+            "t2": false,
+            "t3": true,
+            "t4": true
+        },
+        "z1r_rise_gloss-black": {
+            "title": "Z1R Rise Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_rise_hi-viz-yellow": {
+            "title": "Z1R Rise Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_solaris": {
+            "title": "Z1R Solaris",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_solaris_anthracite": {
+            "title": "Z1R Solaris Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_solaris_course-red": {
+            "title": "Z1R Solaris Course Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_solaris_gloss-black": {
+            "title": "Z1R Solaris Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_solaris_hi-viz-yellow": {
+            "title": "Z1R Solaris Hi-Viz Yellow",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_warrant_anthracite": {
+            "title": "Z1R Warrant Anthracite",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_warrant_gloss-black": {
+            "title": "Z1R Warrant Gloss Black",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "z1r_warrant_tech-red": {
+            "title": "Z1R Warrant Tech Red",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "zox_condor_svs": {
+            "title": "Zox Condor SVS",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        },
+        "zox_route_66_track-tc-5": {
+            "title": "Zox Route 66 Track TC-5",
+            "t1": true,
+            "t2": true,
+            "t3": false,
+            "t4": true
+        }
+    }
+}
