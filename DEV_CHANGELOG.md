@@ -3,7 +3,29 @@
 This file tracks **day-to-day development changes** and internal notes between tagged releases.  
 High-level, user-facing release notes live in `CHANGELOG.md`.
 
+## 2026-08-24
+
+- **Google AdSense "Low Value Content" Remediation & Strategy:**
+  - Diagnosed root cause of AdSense rejection: mass programmatic indexing of >5,000 thin child variant SKUs (`post_parent > 0`), thin CPTs (`dealer`, `distributor`, `comparison`), and empty taxonomy archives.
+  - Implemented automated Yoast and Core XML sitemap pruning and dynamic `X-Robots-Tag: noindex, follow` header injection in `helmetsan-core/includes/Seo/AutoSeoObserver.php`.
+  - Added dynamic canonical consolidation routing all child SKU URLs back to primary parent helmet models (`post_parent === 0`).
+  - Authored and seeded **15 authoritative, long-form editorial guides** (800–2,000 words each) into WordPress under `/blog/` (`post-sitemap.xml`).
+  - Created structured theme templates: `helmetsan-theme/single.php` (for guides with author/trust boxes) and `helmetsan-theme/home.php` (for the `/blog/` grid).
+- **Essential Trust & Legal Pages Polish:**
+  - Polished `page-about.php` with complete 4-pillar data methodology and Editorial Board credentials.
+  - Polished `page-contact.php` with direct departmental routing emails (`contact@`, `editorial@`, `corrections@`), operating entity (*Ash Digital Services*), and 24–48h response SLA.
+  - Seeded compliant content for Privacy Policy (GDPR/CCPA + AdSense DART cookies), FTC Affiliate Disclosure, Terms of Use, and Safety Notice.
+- **Google Search Console API Direct Integration:**
+  - Created automated GSC management tool `scripts/gsc_manager.py` using Google Cloud service accounts.
+  - Verified programmatic authentication (`sc-domain:helmetsan.com`), submitted fresh sitemaps with 0 errors, and performed real-time URL inspections via API.
+- **Deep Quality Audit & Critical Fixes:**
+  - Built `scripts/deep_audit.py` for automated multi-point crawling (HTTP status, robots headers, canonical tags, word counts, schema).
+  - Fixed critical bug: homepage returning 404 because `page_on_front` was pointing to a deleted stub; updated `show_on_front` to `posts` to restore `front-page.php` to HTTP 200 OK.
+- **Cross-Project Playbook Distribution:**
+  - Documented `WEBSITE_INDEXATION_AND_ADSENSE_PLAYBOOK.md` and distributed it along with `gsc_manager.py` across `Helmetsan`, `the-modern-theme`, `Dazestack`, and `AndroidEmulator`.
+
 ## 2026-03-28
+
 
 - **Token Discipline & Context Optimization:**
   - Created `.geminiignore` to skip `vendor/` and `data/` (~70% context reduction).
