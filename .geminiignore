@@ -7,53 +7,104 @@
 vendor/
 node_modules/
 
-# === BUILD OUTPUTS ===
+# === BUILD OUTPUTS & LOCAL EXPORTS ===
 dist/
+searchconsoleexport/
 
-# === DATA / JSON catalogs (300+ files — rarely need full context) ===
-data/
+# === BACKUPS & RESTORE ARCHIVES (15,000+ files, 54M+ tokens) ===
+backup/
 data_backup_pre_enrichment/
+scratch/
+tmp/
+debug/
+
+# === DATA & JSON CATALOGS (12,000+ files, 28M+ tokens) ===
+data/
+helmets/
+helmets_new/
 helmet_images/
+specs.json
+brands-index.json
+test_seed.json
+helmets_seed.json
+helmetsan-core/seed-data/helmets/
 
-# === VCS internals ===
+# === SCRAPED / STATIC ENTITY COLLECTIONS ===
+accessories/
+brands/
+catalogs/
+comparisons/
+currencies/
+dealers/
+distributors/
+geo/
+helmet-types/
+marketplaces/
+motorcycles/
+offers/
+phases/
+pricing/
+recommendations/
+safety-standards/
+
+# === VCS & TESTING RUNTIMES ===
 .git/
+.phpunit.cache/
+.playwright-mcp/
+tests/playwright/test-results/
 
-# === WordPress runtime artifacts ===
+# === WORDPRESS RUNTIME ARTIFACTS ===
 wp-content/uploads/
 
-# === Compiled & cached ===
-.phpunit.cache/
-
-# === Logs & debug artifacts ===
+# === LOGS & DEBUG ARTIFACTS ===
 *.log
+*.sql
+*.sql.gz
+*.dump
 debug_git.sh
 git_debug.log
 verify_inheritance_remote.php
 
-# === Archives ===
+# === ARCHIVES ===
 *.zip
 *.tar.gz
 
-# === Env & secrets ===
+# === ENV & SECRETS ===
 .env
 .env.*
 *.expect
+*.json.bak
+ash-site-*.json
 
-# === Lock files (huge, not useful for AI) ===
+# === LOCK FILES (huge, not useful for AI context) ===
 composer.lock
 package-lock.json
 
-# === Generated seeds ===
-helmetsan-core/seed-data/helmets/
-helmets_seed.json
-
-# === Other IDE configs ===
+# === OTHER IDE CONFIGS ===
 .cursor/
 .vscode/
 .idea/
 
-# === Cloudflare workers (separate concern) ===
+# === CLOUDFLARE WORKERS (separate concern) ===
 cloudflare-workers/
 
-# === Legal docs (static, rarely edited) ===
+# === LEGAL & SPECIFICATION DUMPS ===
 legal/
+Helmetsan_Helmet_Detail_Second_Pass_Redesign_Specification.txt
+Helmetsan_Complete_Redesign_Context.txt
+
+# === BINARY MEDIA ASSETS (Images / Fonts / Vectors) ===
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.ico
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# === LARGE SCRIPTS ===
+scripts/create_helmets_seed.php

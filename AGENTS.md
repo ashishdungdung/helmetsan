@@ -59,7 +59,7 @@ The script auto-handles: build zips → upload → extract → set permissions �
 
 **Cache clear (if you ever need it manually):**
 ```bash
-ssh root@66.179.243.155 "rm -rf /var/cache/nginx/microcache/* && nginx -s reload"
+ssh root@31.70.136.154 "rm -rf /var/cache/nginx/microcache/* && nginx -s reload"
 cd /var/www/helmetsan.com/public && wp cache flush --allow-root && wp transient delete --all --allow-root
 ```
 
