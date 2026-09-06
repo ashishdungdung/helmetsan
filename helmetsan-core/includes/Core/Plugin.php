@@ -57,6 +57,8 @@ use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\Seo\SchemaService;
 use Helmetsan\Core\Seo\AutoSeoObserver;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
+use Helmetsan\Core\Admin\MediaAdmin;
+use Helmetsan\Core\Admin\TranslationAdmin;
 use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
 use Helmetsan\Core\Support\AdSense;
 use Helmetsan\Core\Support\AdsTxt;
@@ -70,6 +72,7 @@ use Helmetsan\Core\Analytics\Tracker;
 use Helmetsan\Core\Support\TaskTracker;
 use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\API\BrandController;
+use Helmetsan\Core\API\CdnController;
 use Helmetsan\Core\Price\PriceService;
 use Helmetsan\Core\Price\CurrencyFormatter;
 use Helmetsan\Core\Search\SearchService;
@@ -80,15 +83,22 @@ use Helmetsan\Core\Marketplace\Connectors\AffiliateFeedConnector;
 use Helmetsan\Core\Marketplace\Connectors\AllegroConnector;
 use Helmetsan\Core\Marketplace\Connectors\FlipkartConnector;
 use Helmetsan\Core\Marketplace\Connectors\JumiaConnector;
+use Helmetsan\Core\Marketplace\Connectors\EbayConnector;
+use Helmetsan\Core\Marketplace\Connectors\AliExpressConnector;
 use Helmetsan\Core\Marketplace\MarketplaceRouter;
 use Helmetsan\Core\Geo\GeoService;
 use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\API\PriceController;
 use Helmetsan\Core\API\ReviewController;
+use Helmetsan\Core\API\ApiGateway;
+use Helmetsan\Core\API\DataApiController;
 use Helmetsan\Core\Cloudflare\TurnstileService;
 use Helmetsan\Core\Marketplace\FeedIngestionTask;
 use Helmetsan\Core\Admin\RevenueDashboard;
+use Helmetsan\Core\Support\BackgroundTaskService;
 use Helmetsan\Core\Core\DatabaseManager;
+use Helmetsan\Core\Price\ExchangeRateService;
+use Helmetsan\Core\Cache\CacheWarmingService;
 
 final class Plugin
 {
@@ -141,6 +151,9 @@ final class Plugin
     private HealRepository $heals;
     private PriceController $priceApi;
     private ReviewController $reviewApi;
+    private \Helmetsan\Core\API\HelmetController $helmetApi;
+    private \Helmetsan\Core\API\DeltaController $deltaApi;
+    private CdnController $cdnApi;
     private FeedIngestionTask $feedTask;
     private RevenueDashboard $revenueDashboard;
     private DefaultImages $defaultImages;
@@ -169,6 +182,15 @@ final class Plugin
     private TaskTracker $taskTracker;
     private \Helmetsan\Core\Discovery\AlternativesService $discovery;
     private \Helmetsan\Core\AI\HealService $healService;
+    private \Helmetsan\Core\Media\MediaHealthService $mediaHealthService;
+    private MediaAdmin $mediaAdmin;
+    private TranslationAdmin $translationAdmin;
+    private BackgroundTaskService $backgroundTasks;
+    private ExchangeRateService $exchangeRates;
+    private CacheWarmingService $cacheWarming;
+    private \Helmetsan\Core\Reviews\ReviewService $reviews;
+    private ApiGateway $apiGateway;
+    private DataApiController $dataApi;
 
     public function __construct()
     {
@@ -182,6 +204,7 @@ final class Plugin
         $this->ingestionLogs = new LogRepository();
         $this->accessories = new AccessoryService();
         $this->brands     = new BrandService();
+        $this->reviews    = new \Helmetsan\Core\Reviews\ReviewService();
         $this->motorcycles = new MotorcycleService();
         $this->safetyStandards = new SafetyStandardService();
         $this->dealers = new DealerService();
@@ -205,11 +228,12 @@ final class Plugin
         $this->syncLogs   = new SyncLogRepository();
         $this->commerce = new CommerceService();
         $this->mediaEngine = new MediaEngine($this->config);
+        $this->mediaHealthService = new \Helmetsan\Core\Media\MediaHealthService($this->config);
         $this->mediaService = new MediaService();
         $this->wooBridge = new WooBridgeService($this->config);
         $this->brandApi = new BrandController($this->brands);
         $this->search = new SearchService();
-        $this->helmets = new HelmetService();
+        $this->helmets = new HelmetService($this->config);
         $this->marketplace = $this->buildMarketplace();
         $this->geo = new GeoService();
         $this->router = new MarketplaceRouter($this->geo, $this->marketplace);
@@ -224,7 +248,12 @@ final class Plugin
         $this->dataLayer = new DataLayerService($this->price);
         $this->priceApi = new PriceController($this->price, $this->priceHistory);
         $this->turnstileService = new TurnstileService($this->config, $this->ingestionLogs);
-        $this->reviewApi = new ReviewController($this->turnstileService);
+        $this->reviewApi = new ReviewController($this->turnstileService, $this->reviews);
+        $this->helmetApi = new \Helmetsan\Core\API\HelmetController();
+        $this->deltaApi = new \Helmetsan\Core\API\DeltaController($this->repository);
+        $this->cdnApi = new CdnController();
+        $this->apiGateway = new ApiGateway();
+        $this->dataApi = new DataApiController($this->price, $this->reviews, $this->apiGateway);
         $this->sync       = new SyncService(
             $this->repository,
             $this->logger,
@@ -266,7 +295,7 @@ final class Plugin
             $this->commerce
         );
         $this->exportService = new ExportService($this->config, $this->brands);
-        $this->schema     = new SchemaService();
+        $this->schema    = new SchemaService($this->reviews);
         $this->smoke      = new SmokeTestService();
         $this->analyticsEvents = new EventRepository();
         $this->analyticsEventService = new EventService($this->analyticsEvents);
@@ -285,6 +314,9 @@ final class Plugin
             $this->marketplace,
             $this->mediaEngine->getProductImageByEanService()
         );
+        $this->backgroundTasks = new BackgroundTaskService();
+        $this->exchangeRates = new ExchangeRateService();
+        $this->cacheWarming = new CacheWarmingService($this->backgroundTasks);
         $this->scheduler = new SchedulerService(
             $this->config,
             $this->sync,
@@ -293,16 +325,34 @@ final class Plugin
             $this->syncLogs,
             $this->health,
             $this->alerts,
+            $this->backgroundTasks,
             $this->aiService
         );
         $this->checklist  = new ChecklistService($this->health, $this->smoke);
         $this->docs       = new DocsService();
         $this->helmetDataBlock = new HelmetDataBlock();
-        $this->tracker = new Tracker();
+        $this->tracker = new Tracker($this->geo);
         $this->defaultImages = new DefaultImages($this->config);
         $this->adsTxt = new AdsTxt();
         $this->adSense = new AdSense($this->config);
         $this->discovery = new \Helmetsan\Core\Discovery\AlternativesService();
+        $this->revZillaImageService = new RevZillaImageService();
+        $this->helmetImageEnrichment = new HelmetImageEnrichmentService(
+            $this->mediaEngine,
+            $this->aiService,
+            $this->revZillaImageService
+        );
+        $this->mediaAdmin = new MediaAdmin(
+            $this->config,
+            $this->mediaEngine,
+            $this->helmetImageEnrichment,
+            $this->mediaHealthService
+        );
+        $this->translationAdmin = new TranslationAdmin(
+            $this->config,
+            $this->taskTracker
+        );
+
         $this->aiAdmin = new AiAdmin(
             $this->config, 
             $this->aiService, 
@@ -312,13 +362,8 @@ final class Plugin
             $this->healService,
             $this->health,
             new \Helmetsan\Core\AI\CertificationAutomatorService($this->aiService),
-            $this->discovery
-        );
-        $this->revZillaImageService = new RevZillaImageService();
-        $this->helmetImageEnrichment = new HelmetImageEnrichmentService(
-            $this->mediaEngine,
-            $this->aiService,
-            $this->revZillaImageService
+            $this->discovery,
+            $this->mediaAdmin
         );
         $this->helmetImagesAdmin = new HelmetImagesAdmin($this->helmetImageEnrichment, $this->aiService);
 
@@ -328,7 +373,7 @@ final class Plugin
         $this->imageAnalysisService = new ImageAnalysisService($this->providerRegistry);
         $this->cloudflareR2Service = new CloudflareR2Service($this->config);
         $this->queueService = new QueueService($this->config);
-        $this->analyticsInjector = new AnalyticsInjector($this->config);
+        $this->analyticsInjector = new AnalyticsInjector($this->config, $this->geo);
         $this->autoSeoObserver = new AutoSeoObserver(new YoastSeoSeeder($this->aiSeoProvider));
         $this->assetIngestionService = new AssetIngestionService(
             $this->scraperService,
@@ -368,6 +413,8 @@ final class Plugin
 
         $this->aiAdmin->register();
         $this->helmetImagesAdmin->register();
+        $this->mediaAdmin->register();
+        $this->translationAdmin->register();
         (new Admin(
             $this->health,
             $this->smoke,
@@ -398,13 +445,20 @@ final class Plugin
         $this->schema->register();
         $this->revenue->register();
         $this->geo->register();
+        $this->cacheWarming->register();
         add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
+        add_action('template_redirect', [$this, 'redirectCorruptedHelmetSlugs'], 1);
         $this->adsTxt->register();
         $this->adSense->register();
         $this->priceApi->register();
         $this->reviewApi->register();
+        $this->helmetApi->register();
+        $this->deltaApi->register();
+        $this->cdnApi->register();
+        $this->dataApi->register();
         $this->feedTask->register();
         $this->revenueDashboard->register();
+        add_action('pre_get_posts', [$this->search, 'interceptMainQuery']);
 
         // Register custom cron interval
         add_filter('cron_schedules', [$this->feedTask, 'addInterval']);
@@ -434,8 +488,10 @@ final class Plugin
                 $this->price,
                 $this->priceHistory,
                 $this->taskTracker,
+                $this->mediaHealthService,
                 $this->config,
                 $this->heals,
+                $this->databaseManager,
                 $this->aiService,
                 $this->repository,
                 $this->seedGenerator,
@@ -448,6 +504,12 @@ final class Plugin
     public function getSearchService(): SearchService
     {
         return $this->search;
+    }
+
+    /** Get Config service. */
+    public function config(): Config
+    {
+        return $this->config;
     }
 
     /**
@@ -464,6 +526,42 @@ final class Plugin
         }
         wp_safe_redirect(home_url('/accessories/'), 302);
         exit;
+    }
+
+    /**
+     * Permanent 301 redirect for legacy URLs that contained percent-encoded or non-ASCII
+     * characters in their slugs to ensure historical backlinks and bookmarks seamlessly resolve.
+     */
+    public function redirectCorruptedHelmetSlugs(): void
+    {
+        $uri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
+        if (! str_contains($uri, '/helmets/')) {
+            return;
+        }
+        $path = trim((string) strtok($uri, '?'), '/');
+        $parts = explode('/', $path);
+        if (count($parts) < 2 || $parts[0] !== 'helmets') {
+            return;
+        }
+        $slug = $parts[1];
+        if (! str_contains($slug, '%') && preg_match('/^[a-z0-9\-]+$/', $slug)) {
+            return;
+        }
+
+        $decoded = urldecode($slug);
+        $latinParts = array_values(array_filter(explode('-', (string) preg_replace('/[^a-zA-Z0-9\-]/', '-', $decoded))));
+        if (! empty($latinParts)) {
+            $candidatePrefix = implode('-', array_slice($latinParts, 0, min(3, count($latinParts))));
+            global $wpdb;
+            $match = $wpdb->get_var($wpdb->prepare(
+                "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' AND post_name LIKE %s ORDER BY ID DESC LIMIT 1",
+                $candidatePrefix . '%'
+            ));
+            if ($match) {
+                wp_safe_redirect(home_url('/helmets/' . $match . '/'), 301);
+                exit;
+            }
+        }
     }
 
     public function activate(): void
@@ -529,6 +627,16 @@ final class Plugin
         return $this->price;
     }
 
+    public function exchangeRates(): ExchangeRateService
+    {
+        return $this->exchangeRates;
+    }
+
+    public function cacheWarming(): CacheWarmingService
+    {
+        return $this->cacheWarming;
+    }
+
     public function helmets(): HelmetService
     {
         return $this->helmets;
@@ -547,6 +655,11 @@ final class Plugin
     public function priceHistory(): PriceHistory
     {
         return $this->priceHistory;
+    }
+
+    public function apiGateway(): ApiGateway
+    {
+        return $this->apiGateway;
     }
 
     public function geo(): GeoService
@@ -579,6 +692,11 @@ final class Plugin
         return $this->brands;
     }
 
+    public function reviews(): \Helmetsan\Core\Reviews\ReviewService
+    {
+        return $this->reviews;
+    }
+
     public function accessories(): AccessoryService
     {
         return $this->accessories;
@@ -602,14 +720,26 @@ final class Plugin
         $registry = new ConnectorRegistry();
         $mktCfg   = $this->config->marketplaceConfig();
 
-        // Amazon SP-API
+        // Amazon SP-API (Legacy)
         if (!empty($mktCfg['amazon_enabled'])) {
             $registry->register(new AmazonConnector([
                 'client_id'         => $mktCfg['amazon_client_id'] ?? '',
                 'client_secret'     => $mktCfg['amazon_client_secret'] ?? '',
                 'refresh_token'     => $mktCfg['amazon_refresh_token'] ?? '',
-                'affiliate_tag'     => $mktCfg['amazon_affiliate_tag'] ?? 'helmetsan-20',
+                'affiliate_tag'     => $mktCfg['amazon_affiliate_tag'] ?? 'vtete-20',
                 'enabled_countries' => $mktCfg['amazon_countries'] ?? ['US', 'CA', 'FR', 'DE', 'IT', 'NL', 'PL', 'ES', 'SE', 'UK', 'IN'],
+            ]));
+        }
+
+        // Amazon Creator API (v3.1 OAuth2)
+        if (!empty($mktCfg['amazon_creator_enabled'])) {
+            $registry->register(new \Helmetsan\Core\Marketplace\Connectors\AmazonCreatorConnector([
+                'client_id'         => $mktCfg['amazon_creator_client_id'] ?? '',
+                'client_secret'     => $mktCfg['amazon_creator_client_secret'] ?? '',
+                'version'           => $mktCfg['amazon_creator_version'] ?? 'v3.1',
+                'partner_tag'       => $mktCfg['amazon_creator_partner_tag'] ?? 'vtete-20',
+                'india_tag'         => $mktCfg['amazon_creator_india_tag'] ?? 'virginiatete-21',
+                'enabled_countries' => $mktCfg['amazon_creator_countries'] ?? ['US', 'CA', 'UK', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'SE', 'IN'],
             ]));
         }
 
@@ -636,6 +766,25 @@ final class Plugin
         if (!empty($mktCfg['flipkart_enabled'])) {
             $registry->register(new FlipkartConnector([
                 'affiliate_id' => $mktCfg['flipkart_affiliate_id'] ?? '',
+            ]));
+        }
+
+        // eBay Partner Network
+        if (!empty($mktCfg['ebay_enabled'])) {
+            $registry->register(new EbayConnector([
+                'client_id'       => $mktCfg['ebay_client_id'] ?? '',
+                'client_secret'   => $mktCfg['ebay_client_secret'] ?? '',
+                'campaign_id'     => $mktCfg['ebay_campaign_id'] ?? '',
+                'ebay_countries'  => $mktCfg['ebay_countries'] ?? ['US', 'GB', 'DE', 'FR', 'IT', 'ES', 'CA', 'AU'],
+            ]));
+        }
+
+        // AliExpress Portals
+        if (!empty($mktCfg['aliexpress_enabled'])) {
+            $registry->register(new AliExpressConnector([
+                'app_key'     => $mktCfg['aliexpress_app_key'] ?? '',
+                'app_secret'  => $mktCfg['aliexpress_app_secret'] ?? '',
+                'tracking_id' => $mktCfg['aliexpress_tracking_id'] ?? '',
             ]));
         }
 

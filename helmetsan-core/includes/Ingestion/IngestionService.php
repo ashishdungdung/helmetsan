@@ -14,10 +14,14 @@ use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\SafetyStandard\SafetyStandardService;
 use Helmetsan\Core\Support\HelmetTypeNormalizer;
 use Helmetsan\Core\Support\Logger;
+use Helmetsan\Core\Support\TransactionTrait;
+use Helmetsan\Core\Ingestion\LogRepository;
 use Helmetsan\Core\Validation\Validator;
 
 final class IngestionService
 {
+    use TransactionTrait;
+
     /**
      * Allowed canonical helmet types.
      *
@@ -186,6 +190,12 @@ final class IngestionService
             $skipped = 0;
             $updated = 0;
             $created = 0;
+
+            wp_defer_term_counting(true);
+            wp_defer_comment_counting(true);
+            wp_suspend_cache_addition(true);
+            remove_all_actions('save_post_helmet');
+            remove_all_actions('save_post_accessory');
 
             foreach ($batches as $index => $batch) {
                 $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files. Force: ' . ($force ? 'YES' : 'NO'));
@@ -362,8 +372,13 @@ final class IngestionService
                 'source_path'  => $sourcePath,
             ];
         } finally {
+            wp_suspend_cache_addition(false);
+            wp_defer_term_counting(false);
+            wp_defer_comment_counting(false);
             $this->suppressYoastIndexablesDuringBulkIngest(false);
             $this->releaseLock();
+            global $wpdb;
+            $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_hs_search_ajax_%' OR option_name LIKE '_transient_timeout_hs_search_ajax_%'");
         }
     }
 
@@ -472,9 +487,22 @@ final class IngestionService
             ? $data['title']
             : (string) $data['id'];
 
+        // Guard: strip duplicate brand prefix (e.g. "Shark Shark Race R Pro" → "Shark Race R Pro").
+        // This happens when the model name itself already starts with the brand name.
+        $brandName = isset($data['brand']) && is_string($data['brand']) ? trim($data['brand']) : '';
+        if ($brandName !== '' && stripos($title, $brandName . ' ' . $brandName . ' ') === 0) {
+            $title = $brandName . ' ' . ltrim(substr($title, strlen($brandName . ' ' . $brandName . ' ')));
+        }
+
+        $slug = sanitize_title(str_replace('_', '-', (string) ($data['slug'] ?? $data['id'] ?? '')));
+        if ($slug === '') {
+            $slug = sanitize_title($title);
+        }
+
         $postArgs = [
             'post_type'    => 'helmet',
             'post_title'   => sanitize_text_field($title),
+            'post_name'    => $slug,
             'post_status'  => 'publish',
             'post_content' => $this->buildDescription($data),
         ];
@@ -494,6 +522,16 @@ final class IngestionService
         }
 
         $resolvedPostId = (int) $result;
+
+        // Assign Polylang language: respect explicit 'language' field in data, default to 'en'.
+        // This is the root fix for language-orphan posts which caused German/Chinese content
+        // to appear in the English catalog and Polylang queries to mismatch.
+        if (function_exists('pll_set_post_language')) {
+            $postLang = isset($data['language']) && is_string($data['language']) && $data['language'] !== ''
+                ? sanitize_key($data['language'])
+                : 'en';
+            pll_set_post_language($resolvedPostId, $postLang);
+        }
 
         update_post_meta($resolvedPostId, '_helmet_unique_id', (string) $data['id']);
         update_post_meta($resolvedPostId, '_source_hash', $hash);
@@ -529,15 +567,65 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'spec_shell_sizes', (string) (int) $data['specs']['shell_sizes_count']);
         }
 
-        if (isset($data['features_data']['visor']) && is_array($data['features_data']['visor'])) {
-            $clean = array_map('sanitize_text_field', $data['features_data']['visor']);
-            update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values($clean)));
+        // New Specifications (v1.2) mapping
+        if (isset($data['specs']['integrated_sun_visor'])) {
+            update_post_meta($resolvedPostId, 'integrated_sun_visor', !empty($data['specs']['integrated_sun_visor']) ? '1' : '0');
+        }
+        if (isset($data['specs']['pinlock_included'])) {
+            update_post_meta($resolvedPostId, 'pinlock_included', !empty($data['specs']['pinlock_included']) ? '1' : '0');
+        }
+        if (isset($data['specs']['pinlock_type'])) {
+            update_post_meta($resolvedPostId, 'pinlock_type', sanitize_text_field((string)$data['specs']['pinlock_type']));
+        }
+        if (isset($data['specs']['breath_deflector_curtain_included'])) {
+            update_post_meta($resolvedPostId, 'breath_deflector', !empty($data['specs']['breath_deflector_curtain_included']) ? '1' : '0');
+        }
+        if (isset($data['specs']['wind_tunnel_tested'])) {
+            update_post_meta($resolvedPostId, 'wind_tunnel_tested', !empty($data['specs']['wind_tunnel_tested']) ? '1' : '0');
         }
 
-        if (isset($data['features_data']['liner']) && is_array($data['features_data']['liner'])) {
-            $clean = array_map('sanitize_text_field', $data['features_data']['liner']);
-            update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values($clean)));
+        // Visor Features Mapping
+        $visorFeatures = isset($data['features_data']['visor']) && is_array($data['features_data']['visor']) 
+            ? array_map('sanitize_text_field', $data['features_data']['visor']) 
+            : [];
+        if (!isset($data['features_data']['visor'])) {
+            $existingVisor = json_decode((string)get_post_meta($resolvedPostId, 'visor_features_json', true), true);
+            if (is_array($existingVisor)) {
+                $visorFeatures = $existingVisor;
+            }
         }
+        if (!empty($data['specs']['integrated_sun_visor']) && !in_array('Drop-down Sun Visor', $visorFeatures, true)) {
+            $visorFeatures[] = 'Drop-down Sun Visor';
+        }
+        if (!empty($data['specs']['pinlock_included']) && !in_array('Pinlock Included', $visorFeatures, true)) {
+            $visorFeatures[] = 'Pinlock Included';
+        }
+        if (!empty($data['specs']['pinlock_ready']) && !in_array('Pinlock Ready', $visorFeatures, true)) {
+            $visorFeatures[] = 'Pinlock Ready';
+        }
+        update_post_meta($resolvedPostId, 'visor_features_json', wp_json_encode(array_values(array_unique($visorFeatures))));
+
+        // Liner Features Mapping
+        $linerFeatures = isset($data['features_data']['liner']) && is_array($data['features_data']['liner']) 
+            ? array_map('sanitize_text_field', $data['features_data']['liner']) 
+            : [];
+        if (!isset($data['features_data']['liner'])) {
+            $existingLiner = json_decode((string)get_post_meta($resolvedPostId, 'liner_features_json', true), true);
+            if (is_array($existingLiner)) {
+                $linerFeatures = $existingLiner;
+            }
+        }
+        if (!empty($data['safety_intelligence']['emergency_release_system']) && !in_array('Emergency Release System (EQRS)', $linerFeatures, true)) {
+            $linerFeatures[] = 'Emergency Release System (EQRS)';
+        }
+        if (!empty($data['sizing_fit']['glasses_grooves']) && !in_array('Glasses Groove', $linerFeatures, true)) {
+            $linerFeatures[] = 'Glasses Groove';
+        }
+        if (!empty($data['sizing_fit']['removable_washable_interior'])) {
+            if (!in_array('Removable', $linerFeatures, true)) $linerFeatures[] = 'Removable';
+            if (!in_array('Washable', $linerFeatures, true)) $linerFeatures[] = 'Washable';
+        }
+        update_post_meta($resolvedPostId, 'liner_features_json', wp_json_encode(array_values(array_unique($linerFeatures))));
 
         if (isset($data['tech_integration']) && is_array($data['tech_integration'])) {
             update_post_meta($resolvedPostId, 'tech_integration_json', wp_json_encode($data['tech_integration']));
@@ -547,8 +635,12 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'features_data_json', wp_json_encode($data['features_data']));
         }
 
-        if (isset($data['price']) && is_array($data['price']) && isset($data['price']['current'])) {
-            update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+        if (isset($data['price']) && is_array($data['price'])) {
+            if (isset($data['price']['current'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+            } elseif (isset($data['price']['usd'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['usd']);
+            }
         }
 
         if (isset($data['helmet_family']) && is_string($data['helmet_family']) && $data['helmet_family'] !== '') {
@@ -620,9 +712,59 @@ final class IngestionService
             if (! isset($data[$jsonKey])) {
                 continue;
             }
-            $json = wp_json_encode($data[$jsonKey], JSON_UNESCAPED_SLASHES);
+            $jsonValue = $data[$jsonKey];
+            $json = wp_json_encode($jsonValue, JSON_UNESCAPED_SLASHES);
             if (is_string($json) && $json !== '') {
                 update_post_meta($resolvedPostId, $metaKey, $json);
+
+                // Extraction of high-value fields into formal top-level meta
+                if ($jsonKey === 'safety_intelligence' && is_array($jsonValue)) {
+                    if (isset($jsonValue['homologation_standard'])) {
+                        update_post_meta($resolvedPostId, 'homologation_standard', sanitize_text_field((string)$jsonValue['homologation_standard']));
+                    }
+                    if (isset($jsonValue['sharp_rating'])) {
+                        update_post_meta($resolvedPostId, 'sharp_rating', (int)$jsonValue['sharp_rating']);
+                    }
+                    if (isset($jsonValue['rotational_mitigation'])) {
+                        update_post_meta($resolvedPostId, 'rotational_tech', sanitize_text_field((string)$jsonValue['rotational_mitigation']));
+                    }
+                    if (isset($jsonValue['emergency_release_system'])) {
+                        update_post_meta($resolvedPostId, 'emergency_release_system', !empty($jsonValue['emergency_release_system']) ? '1' : '0');
+                    }
+                    if (isset($jsonValue['strap_fastener_type'])) {
+                        update_post_meta($resolvedPostId, 'strap_type', sanitize_text_field((string)$jsonValue['strap_fastener_type']));
+                    }
+                    if (isset($jsonValue['multi_density_eps'])) {
+                        update_post_meta($resolvedPostId, 'multi_density_eps', !empty($jsonValue['multi_density_eps']) ? '1' : '0');
+                    }
+                }
+
+                if ($jsonKey === 'aero_acoustic_profile' && is_array($jsonValue)) {
+                    if (isset($jsonValue['noise_db_at_100kph'])) {
+                        update_post_meta($resolvedPostId, 'noise_db_at_100kph', sanitize_text_field((string)$jsonValue['noise_db_at_100kph']));
+                    }
+                    if (isset($jsonValue['ventilation_efficiency_score'])) {
+                        update_post_meta($resolvedPostId, 'ventilation_score', sanitize_text_field((string)$jsonValue['ventilation_efficiency_score']));
+                    }
+                }
+
+                if ($jsonKey === 'tech_integration' && is_array($jsonValue)) {
+                    if (isset($jsonValue['comms_cutout_type'])) {
+                        update_post_meta($resolvedPostId, 'comms_ready', sanitize_text_field((string)$jsonValue['comms_cutout_type']));
+                    }
+                    if (isset($jsonValue['dedicated_intercom_integration'])) {
+                        update_post_meta($resolvedPostId, 'comms_ready', sanitize_text_field((string)$jsonValue['dedicated_intercom_integration']));
+                    }
+                }
+
+                if ($jsonKey === 'sizing_fit' && is_array($jsonValue)) {
+                    if (isset($jsonValue['glasses_grooves'])) {
+                        update_post_meta($resolvedPostId, 'glasses_grooves', !empty($jsonValue['glasses_grooves']) ? '1' : '0');
+                    }
+                    if (isset($jsonValue['removable_washable_interior'])) {
+                        update_post_meta($resolvedPostId, 'removable_interior', !empty($jsonValue['removable_washable_interior']) ? '1' : '0');
+                    }
+                }
             }
         }
 
@@ -737,7 +879,7 @@ final class IngestionService
         if (isset($data['price_range']) && is_string($data['price_range']) && $data['price_range'] !== '') {
             wp_set_object_terms($resolvedPostId, sanitize_text_field($data['price_range']), 'price_range', false);
         } else {
-            $priceUsd = isset($data['price']['usd']) ? (float) $data['price']['usd'] : (isset($data['price']['current']) ? (float) $data['price']['current'] : null);
+            $priceUsd = isset($data['price']['usd']) ? (float) $data['price']['usd'] : (isset($data['price']['current']) ? (float) $data['price']['current'] : (isset($data['price_usd']) ? (float) $data['price_usd'] : null));
             if ($priceUsd !== null && $priceUsd >= 0) {
                 $bucket = $priceUsd < 100 ? 'budget' : ($priceUsd < 300 ? 'mid-range' : ($priceUsd < 600 ? 'premium' : 'luxury'));
                 wp_set_object_terms($resolvedPostId, $bucket, 'price_range', false);
@@ -754,7 +896,15 @@ final class IngestionService
             if (isset($data['price']['mrp_inr'])) update_post_meta($resolvedPostId, 'price_mrp_inr', (string) $data['price']['mrp_inr']);
 
             // Backwards compatibility for 'current'
-            if (isset($data['price']['current'])) update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+            if (isset($data['price']['current'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
+            } elseif (isset($data['price']['usd'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['usd']);
+            }
+        } elseif (isset($data['price_usd']) && $data['price_usd'] !== '') {
+            $val = (string) $data['price_usd'];
+            update_post_meta($resolvedPostId, 'price_usd', $val);
+            update_post_meta($resolvedPostId, 'price_retail_usd', $val);
         } elseif (isset($data['price']) && is_scalar($data['price'])) {
             // Check for raw scalar price with currency fallback (typical for variants without full geo pricing)
             $rawPrice = (float) $data['price'];
@@ -811,9 +961,12 @@ final class IngestionService
                 // Ensure child knows its parent's external ID
                 $child['parent_id'] = $data['id'];
 
-                // Inherit brand/types/features if missing
+                // Inherit brand/types/features/language if missing
                 if (!isset($child['brand'])) $child['brand'] = $data['brand'] ?? '';
                 if (!isset($child['type'])) $child['type'] = $data['type'] ?? '';
+                if (!isset($child['language']) && isset($data['language'])) {
+                    $child['language'] = $data['language'];
+                }
                 if (!isset($child['helmet_types']) && isset($data['helmet_types'])) {
                     $child['helmet_types'] = $data['helmet_types'];
                 }
@@ -931,6 +1084,7 @@ final class IngestionService
         $brandId = wp_insert_post([
             'post_type'   => 'brand',
             'post_title'  => sanitize_text_field($brandName),
+            'post_name'   => sanitize_title($brandName),
             'post_status' => 'publish',
         ], true);
 
@@ -939,29 +1093,6 @@ final class IngestionService
         }
 
         return (int) $brandId;
-    }
-
-    // normalizeHelmetType() removed — use HelmetTypeNormalizer::toLabel() instead.
-
-    private function startTransaction(): bool
-    {
-        global $wpdb;
-
-        $result = $wpdb->query('START TRANSACTION');
-
-        return $result !== false;
-    }
-
-    private function commitTransaction(): void
-    {
-        global $wpdb;
-        $wpdb->query('COMMIT');
-    }
-
-    private function rollbackTransaction(): void
-    {
-        global $wpdb;
-        $wpdb->query('ROLLBACK');
     }
 
     private function acquireLock(): bool
@@ -983,5 +1114,6 @@ final class IngestionService
             return;
         }
         delete_transient(self::LOCK_KEY);
+        delete_transient('helmetsan_catalog_metric_summary');
     }
 }

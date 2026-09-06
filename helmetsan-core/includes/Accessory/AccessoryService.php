@@ -49,9 +49,11 @@ final class AccessoryService
             return ['ok' => true, 'action' => 'dry-run', 'post_id' => $existingId];
         }
 
+        $slug = $externalId !== '' ? sanitize_title(str_replace('_', '-', $externalId)) : sanitize_title($title);
         $postArgs = [
-            'post_type' => 'accessory',
-            'post_title' => $title,
+            'post_type'   => 'accessory',
+            'post_title'  => $title,
+            'post_name'   => $slug,
             'post_status' => 'publish',
         ];
         if ($existingId > 0) {

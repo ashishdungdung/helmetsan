@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Helmetsan\Core\Brands;
 
 use Helmetsan\Core\Support\HelmetTypeNormalizer;
+use Helmetsan\Core\Support\TransactionTrait;
 use WP_Post;
 
 final class BrandService
 {
+    use TransactionTrait;
+
     public const META_ORIGIN_COUNTRY = 'brand_origin_country';
     public const META_WARRANTY_TERMS = 'brand_warranty_terms';
     public const META_SUPPORT_URL = 'brand_support_url';
@@ -84,9 +87,11 @@ final class BrandService
             return ['ok' => true, 'action' => 'dry-run', 'post_id' => $existingId, 'external_id' => $idRaw];
         }
 
+        $slug = $externalId !== '' ? sanitize_title(str_replace('_', '-', $externalId)) : sanitize_title($title);
         $postArgs = [
-            'post_type' => 'brand',
-            'post_title' => $title,
+            'post_type'   => 'brand',
+            'post_title'  => $title,
+            'post_name'   => $slug,
             'post_status' => 'publish',
         ];
         if ($existingId > 0) {
@@ -273,17 +278,32 @@ final class BrandService
         $updated = 0;
         $ids = is_array($q->posts) ? $q->posts : [];
 
-        foreach ($ids as $helmetId) {
-            $helmetId = (int) $helmetId;
-            foreach ($fields as $key => $value) {
-                update_post_meta($helmetId, $key, $value);
-            }
-            update_post_meta($helmetId, 'brand_cascade_at', current_time('mysql'));
-            update_post_meta($helmetId, 'brand_cascade_source', sanitize_text_field($source));
-            $updated++;
-        }
+        $transactionStarted = $this->startTransaction();
+        wp_suspend_cache_addition(true);
 
-        wp_reset_postdata();
+        try {
+            foreach ($ids as $helmetId) {
+                $helmetId = (int) $helmetId;
+                foreach ($fields as $key => $value) {
+                    update_post_meta($helmetId, $key, $value);
+                }
+                update_post_meta($helmetId, 'brand_cascade_at', current_time('mysql'));
+                update_post_meta($helmetId, 'brand_cascade_source', sanitize_text_field($source));
+                $updated++;
+            }
+
+            if ($transactionStarted) {
+                $this->commitTransaction();
+            }
+        } catch (\Throwable $e) {
+            if ($transactionStarted) {
+                $this->rollbackTransaction();
+            }
+            return ['ok' => false, 'message' => 'Cascade failed: ' . $e->getMessage()];
+        } finally {
+            wp_suspend_cache_addition(false);
+            wp_reset_postdata();
+        }
 
         return [
             'ok' => true,
