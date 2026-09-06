@@ -25,6 +25,13 @@ final class RevenueService
         'IN' => 'amazon-in',
         'JP' => 'amazon-jp',
         'AU' => 'amazon-au',
+        'BR' => 'amazon-br',
+        'MX' => 'amazon-mx',
+        'AE' => 'amazon-ae',
+        'SG' => 'amazon-sg',
+        'SA' => 'amazon-sa',
+        'BE' => 'amazon-be',
+        'IE' => 'amazon-ie',
     ];
 
     public function __construct(
@@ -37,6 +44,13 @@ final class RevenueService
         add_action('init', [$this, 'registerRewrite']);
         add_filter('query_vars', [$this, 'registerQueryVars']);
         add_action('template_redirect', [$this, 'handleRedirect']);
+        add_filter('robots_txt', [$this, 'filterRobotsTxt'], 99999, 2);
+    }
+
+    public function filterRobotsTxt(string $output, bool $public): string
+    {
+        $output .= "\nUser-agent: *\nDisallow: /go/\n";
+        return $output;
     }
 
     public function ensureTable(): void
@@ -97,28 +111,34 @@ final class RevenueService
     public function handleRedirect(): void
     {
         $settings = $this->config->revenueConfig();
-        if (empty($settings['enable_redirect_tracking'])) {
-            return;
-        }
+        $trackingEnabled = ! empty($settings['enable_redirect_tracking']);
 
         $slug = get_query_var('helmetsan_go');
         if (! is_string($slug) || $slug === '') {
             return;
         }
 
-        $helmets = get_posts([
-            'name'           => $slug,
-            'post_type'      => 'helmet',
-            'posts_per_page' => 1,
-            'post_status'    => 'any',
-        ]);
-        $post = !empty($helmets) ? $helmets[0] : null;
+        $post = null;
+        if (is_numeric($slug)) {
+            $post = get_post((int) $slug);
+        }
+        if (! $post instanceof \WP_Post) {
+            $helmets = get_posts([
+                'name'           => $slug,
+                'post_type'      => 'helmet',
+                'posts_per_page' => 1,
+                'post_status'    => 'any',
+                'lang'           => '',
+            ]);
+            $post = !empty($helmets) ? $helmets[0] : null;
+        }
         if (! $post instanceof \WP_Post) {
             $accessories = get_posts([
                 'name'           => $slug,
                 'post_type'      => 'accessory',
                 'posts_per_page' => 1,
                 'post_status'    => 'any',
+                'lang'           => '',
             ]);
             $post = !empty($accessories) ? $accessories[0] : null;
         }
@@ -160,6 +180,11 @@ final class RevenueService
         if ($destination === '' && $this->geo !== null) {
             $country = $this->geo->getCountry();
             $preferredMp = self::COUNTRY_TO_AMAZON_MARKETPLACE[strtoupper($country)] ?? 'amazon-us';
+            
+            if ($marketplaceId === '') {
+                $marketplaceId = $preferredMp;
+            }
+
             $result = $this->buildMultiNetworkUrl($helmetId, $preferredMp, $settings);
             if ($result['url'] !== '') {
                 $destination = $result['url'];
@@ -185,11 +210,20 @@ final class RevenueService
             exit;
         }
 
-        $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent);
+        if ($trackingEnabled) {
+            $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent);
+        }
 
         $code = isset($settings['redirect_status_code']) ? (int) $settings['redirect_status_code'] : 302;
         if (! in_array($code, [301, 302, 307, 308], true)) {
             $code = 302;
+        }
+
+        if (! headers_sent()) {
+            header('X-Robots-Tag: noindex, nofollow, nosnippet, noarchive');
+            header('Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0');
+            header('Pragma: no-cache');
+            header('Expires: 0');
         }
 
         wp_redirect($destination, $code);
@@ -216,6 +250,10 @@ final class RevenueService
         if (!isset($links[$key])) {
             $key = str_replace('_', '-', strtolower($marketplaceId));
         }
+        // Fallback for regional Amazon marketplaces: if amazon-xx requested but only generic amazon exists, use it!
+        if (!isset($links[$key]) && (str_starts_with($key, 'amazon-') || str_starts_with($key, 'amazon_')) && isset($links['amazon'])) {
+            $key = 'amazon';
+        }
         if (!isset($links[$key])) {
             return ['url' => '', 'network' => ''];
         }
@@ -228,10 +266,25 @@ final class RevenueService
             return ['url' => '', 'network' => $network];
         }
 
+        // Auto-detect network if direct or missing
+        if ($network === 'direct' || $network === '') {
+            if (str_starts_with($key, 'amazon-') || str_contains($url, 'amazon.')) {
+                $network = 'amazon';
+            } elseif (str_starts_with($key, 'flipkart-') || str_contains($url, 'flipkart.')) {
+                $network = 'flipkart';
+            } elseif (str_starts_with($key, 'revzilla') || str_contains($url, 'revzilla.com')) {
+                $network = 'cj';
+            } elseif (str_starts_with($key, 'allegro') || str_contains($url, 'allegro.')) {
+                $network = 'allegro';
+            } elseif (str_starts_with($key, 'jumia') || str_contains($url, 'jumia.')) {
+                $network = 'jumia';
+            }
+        }
+
         $networkCfg = $settings['affiliate_networks'][$network] ?? [];
 
         $affiliateUrl = match ($network) {
-            'amazon'   => $this->buildAmazonUrl($url, $entry, $networkCfg, $helmetId, $marketplaceId),
+            'amazon'   => $this->buildAmazonUrl($url, $entry, $networkCfg, $helmetId, $marketplaceId, $settings),
             'cj'       => $this->buildCjUrl($url, $entry, $networkCfg, $helmetId),
             'allegro'  => $this->buildAllegroUrl($url, $entry, $networkCfg),
             'jumia'    => $this->buildJumiaUrl($url, $entry, $networkCfg),
@@ -275,9 +328,61 @@ final class RevenueService
 
     // ─── Network-specific URL builders ───────────────────────────────────
 
-    private function buildAmazonUrl(string $url, array $entry, array $cfg, int $helmetId, string $marketplaceId = ''): string
+    public function getAmazonDomainForMarketplace(string $marketplaceId): string
+    {
+        $mp = strtolower(str_replace('_', '-', $marketplaceId));
+        $domains = [
+            'amazon-us' => 'https://www.amazon.com',
+            'amazon'    => 'https://www.amazon.com',
+            'amazon-in' => 'https://www.amazon.in',
+            'amazon-uk' => 'https://www.amazon.co.uk',
+            'amazon-gb' => 'https://www.amazon.co.uk',
+            'amazon-de' => 'https://www.amazon.de',
+            'amazon-cz' => 'https://www.amazon.de', // Amazon DE serves Czech Republic
+            'amazon-at' => 'https://www.amazon.de',
+            'amazon-ch' => 'https://www.amazon.de',
+            'amazon-sk' => 'https://www.amazon.de',
+            'amazon-hu' => 'https://www.amazon.de',
+            'amazon-fr' => 'https://www.amazon.fr',
+            'amazon-ca' => 'https://www.amazon.ca',
+            'amazon-it' => 'https://www.amazon.it',
+            'amazon-es' => 'https://www.amazon.es',
+            'amazon-pt' => 'https://www.amazon.es',
+            'amazon-nl' => 'https://www.amazon.nl',
+            'amazon-pl' => 'https://www.amazon.pl',
+            'amazon-se' => 'https://www.amazon.se',
+            'amazon-be' => 'https://www.amazon.com.be',
+            'amazon-jp' => 'https://www.amazon.co.jp',
+            'amazon-au' => 'https://www.amazon.com.au',
+            'amazon-br' => 'https://www.amazon.com.br',
+            'amazon-mx' => 'https://www.amazon.com.mx',
+            'amazon-ae' => 'https://www.amazon.ae',
+            'amazon-sg' => 'https://www.amazon.sg',
+            'amazon-sa' => 'https://www.amazon.sa',
+            'amazon-ie' => 'https://www.amazon.co.uk',
+        ];
+
+        return $domains[$mp] ?? 'https://www.amazon.com';
+    }
+
+    private function buildAmazonUrl(string $url, array $entry, array $cfg, int $helmetId, string $marketplaceId = '', array $settings = []): string
     {
         $url = $this->normalizeAmazonSearchQuery($url, $helmetId);
+
+        // If target marketplace specifies a region (e.g. amazon-in, amazon-de, amazon-uk, amazon-cz),
+        // adjust the Amazon search URL domain so international users search on their local Amazon store!
+        if ($marketplaceId !== '') {
+            $targetDomain = $this->getAmazonDomainForMarketplace($marketplaceId);
+            if ($targetDomain !== '' && str_contains($url, 'amazon.')) {
+                $targetHost = str_replace(['https://', 'http://', '/'], '', $targetDomain);
+                $parsed = parse_url($url);
+                if (is_array($parsed)) {
+                    $path = $parsed['path'] ?? '/s';
+                    $query = $parsed['query'] ?? '';
+                    $url = 'https://' . $targetHost . $path . ($query !== '' ? '?' . $query : '');
+                }
+            }
+        }
 
         $tag = $entry['tag'] ?? '';
 
@@ -287,24 +392,24 @@ final class RevenueService
 
         // Apply geo-specific tag from settings if available
         if ($tag === '') {
-            $settings = $this->config->revenueConfig();
-            if ($marketplaceId === 'amazon-uk' && ($settings['amazon_tag_uk'] ?? '') !== '') {
-                $tag = $settings['amazon_tag_uk'];
-            } elseif ($marketplaceId === 'amazon-in' && ($settings['amazon_tag_in'] ?? '') !== '') {
-                $tag = $settings['amazon_tag_in'];
-            } elseif ($marketplaceId === 'amazon-de' && ($settings['amazon_tag_de'] ?? '') !== '') {
-                $tag = $settings['amazon_tag_de'];
-            } elseif ($marketplaceId === 'amazon-fr' && ($settings['amazon_tag_fr'] ?? '') !== '') {
-                $tag = $settings['amazon_tag_fr'];
+            $revConfig = ! empty($settings) ? $settings : $this->config->revenueConfig();
+            $mp = strtolower(str_replace('_', '-', $marketplaceId));
+            if (($mp === 'amazon-uk' || $mp === 'amazon-gb') && ($revConfig['amazon_tag_uk'] ?? '') !== '') {
+                $tag = $revConfig['amazon_tag_uk'];
+            } elseif ($mp === 'amazon-in' && ($revConfig['amazon_tag_in'] ?? '') !== '') {
+                $tag = $revConfig['amazon_tag_in'];
+            } elseif (($mp === 'amazon-de' || $mp === 'amazon-cz' || $mp === 'amazon-at') && ($revConfig['amazon_tag_de'] ?? '') !== '') {
+                $tag = $revConfig['amazon_tag_de'];
+            } elseif ($mp === 'amazon-fr' && ($revConfig['amazon_tag_fr'] ?? '') !== '') {
+                $tag = $revConfig['amazon_tag_fr'];
             }
         }
 
         if ($tag === '') {
-            $tag = $cfg['tag'] ?? 'helmetsan-20';
+            $tag = $cfg['tag'] ?? 'vtete-20';
         }
 
-        $separator = str_contains($url, '?') ? '&' : '?';
-        return $url . $separator . 'tag=' . rawurlencode($tag);
+        return add_query_arg('tag', $tag, $url);
     }
 
     /**
@@ -367,6 +472,11 @@ final class RevenueService
 
     private function buildCjUrl(string $url, array $entry, array $cfg, int $helmetId): string
     {
+        // Prevent double-wrapping if already a CJ affiliate link
+        if (str_contains($url, 'anrdoezrs.net') || str_contains($url, 'cj.com') || str_contains($url, 'dpbolvw.net')) {
+            return $url;
+        }
+
         $websiteId = $cfg['website_id'] ?? '';
         $sid = $entry['sid'] ?? (string) $helmetId;
         if ($websiteId === '') {
@@ -383,8 +493,7 @@ final class RevenueService
         if ($affId === '') {
             return $url;
         }
-        $separator = str_contains($url, '?') ? '&' : '?';
-        return $url . $separator . 'aff_id=' . rawurlencode($affId);
+        return add_query_arg('aff_id', $affId, $url);
     }
 
     private function buildJumiaUrl(string $url, array $entry, array $cfg): string
@@ -393,8 +502,7 @@ final class RevenueService
         if ($affId === '') {
             return $url;
         }
-        $separator = str_contains($url, '?') ? '&' : '?';
-        return $url . $separator . 'aff_id=' . rawurlencode($affId);
+        return add_query_arg('aff_id', $affId, $url);
     }
 
     private function buildFlipkartUrl(string $url, array $entry, array $cfg): string
@@ -406,8 +514,7 @@ final class RevenueService
         if ($affId === '') {
             return $url;
         }
-        $separator = str_contains($url, '?') ? '&' : '?';
-        return $url . $separator . 'affid=' . rawurlencode($affId);
+        return add_query_arg('affid', $affId, $url);
     }
 
     /**
@@ -471,48 +578,42 @@ final class RevenueService
      */
     private function buildLegacyAmazonUrlForRegion(int $helmetId, string $marketplaceId, array $settings): string
     {
-        $asin = (string) get_post_meta($helmetId, 'affiliate_asin', true);
-        $mp = strtolower($marketplaceId);
-        $domains = [
-            'amazon-us' => 'https://www.amazon.com',
-            'amazon-in' => 'https://www.amazon.in',
-            'amazon-uk' => 'https://www.amazon.co.uk',
-            'amazon-de' => 'https://www.amazon.de',
-            'amazon-fr' => 'https://www.amazon.fr',
-            'amazon-ca' => 'https://www.amazon.ca',
-            'amazon-it' => 'https://www.amazon.it',
-            'amazon-es' => 'https://www.amazon.es',
-            'amazon-jp' => 'https://www.amazon.co.jp',
-            'amazon-au' => 'https://www.amazon.com.au',
-        ];
-        $base = $domains[$mp] ?? 'https://www.amazon.com';
+        $base = $this->getAmazonDomainForMarketplace($marketplaceId);
 
         $tag = $this->getAmazonTagOverride($helmetId);
         if ($tag === '') {
-            if ($mp === 'amazon-uk' && ($settings['amazon_tag_uk'] ?? '') !== '') {
+            $mp = strtolower(str_replace('_', '-', $marketplaceId));
+            if (($mp === 'amazon-uk' || $mp === 'amazon-gb') && ($settings['amazon_tag_uk'] ?? '') !== '') {
                 $tag = $settings['amazon_tag_uk'];
             } elseif ($mp === 'amazon-in' && ($settings['amazon_tag_in'] ?? '') !== '') {
                 $tag = $settings['amazon_tag_in'];
-            } elseif ($mp === 'amazon-de' && ($settings['amazon_tag_de'] ?? '') !== '') {
+            } elseif (($mp === 'amazon-de' || $mp === 'amazon-cz' || $mp === 'amazon-at') && ($settings['amazon_tag_de'] ?? '') !== '') {
                 $tag = $settings['amazon_tag_de'];
             } elseif ($mp === 'amazon-fr' && ($settings['amazon_tag_fr'] ?? '') !== '') {
                 $tag = $settings['amazon_tag_fr'];
             } else {
-                $tag = $settings['amazon_tag'] ?? 'helmetsan-20';
+                $tag = $settings['amazon_tag'] ?? 'vtete-20';
             }
         }
 
-        if ($asin !== '') {
-            return $base . '/dp/' . rawurlencode($asin) . '?tag=' . rawurlencode($tag);
+        // 1. Search by title on regional Amazon store (resilient, live catalog search that never 404s)
+        $title = (string) get_post_field('post_title', $helmetId);
+        if ($title !== '') {
+            $slug = (string) get_post_field('post_name', $helmetId);
+            $query = $this->searchQueryFromTitleOrSlug($title, $slug);
+            return add_query_arg([
+                'k'   => $query,
+                'tag' => $tag,
+            ], $base . '/s');
         }
 
-        // No ASIN: fall back to search by helmet title so the row still works on every helmet page
-        $title = (string) get_post_field('post_title', $helmetId);
-        if ($title === '') {
-            return '';
+        // 2. ASIN fallback only if title is completely absent
+        $asin = (string) get_post_meta($helmetId, 'affiliate_asin', true);
+        if ($asin !== '') {
+            return add_query_arg('tag', $tag, $base . '/dp/' . rawurlencode($asin));
         }
-        $query = rawurlencode($title);
-        return $base . '/s?k=' . $query . '&tag=' . rawurlencode($tag);
+
+        return '';
     }
 
     /**
@@ -527,17 +628,37 @@ final class RevenueService
             return esc_url_raw($custom);
         }
 
-        $asin = (string) get_post_meta($helmetId, 'affiliate_asin', true);
-        if ($asin === '') {
-            return '';
+        // For accessory posts: check price_json URL if available
+        $priceJson = (string) get_post_meta($helmetId, 'price_json', true);
+        if ($priceJson !== '') {
+            $priceData = json_decode($priceJson, true);
+            if (is_array($priceData) && !empty($priceData['url'])) {
+                return esc_url_raw((string) $priceData['url']);
+            }
         }
 
         $tag = $this->getAmazonTagOverride($helmetId);
         if ($tag === '') {
-            $tag = $settings['amazon_tag'] ?? 'helmetsan-20';
+            $tag = $settings['amazon_tag'] ?? 'vtete-20';
         }
 
-        return 'https://www.amazon.com/dp/' . rawurlencode($asin) . '?tag=' . rawurlencode($tag);
+        // Search by title on Amazon (resilient, live catalog search that never 404s)
+        $title = (string) get_post_field('post_title', $helmetId);
+        if ($title !== '') {
+            $slug = (string) get_post_field('post_name', $helmetId);
+            $query = $this->searchQueryFromTitleOrSlug($title, $slug);
+            return add_query_arg([
+                'k'   => $query,
+                'tag' => $tag,
+            ], 'https://www.amazon.com/s');
+        }
+
+        $asin = (string) get_post_meta($helmetId, 'affiliate_asin', true);
+        if ($asin !== '') {
+            return add_query_arg('tag', $tag, 'https://www.amazon.com/dp/' . rawurlencode($asin));
+        }
+
+        return '';
     }
 
     private function logClick(int $helmetId, string $source, string $network, string $destination, string $marketplaceId = '', string $intent = 'purchase'): void

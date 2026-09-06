@@ -50,6 +50,16 @@ final class PriceService
         $post = get_post($post);
         if (!$post) return '';
 
+        $postId = $post->ID;
+        if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterId = (int) pll_get_post($postId, $defaultLang);
+            if ($masterId && $masterId > 0) {
+                $postId = $masterId;
+                $post = get_post($masterId);
+            }
+        }
+
         $key = match (strtoupper($currency)) {
             'EUR' => 'price_eur',
             'GBP' => 'price_gbp',
@@ -86,11 +96,21 @@ final class PriceService
      */
     public function getBestPrice(int $postId, ?string $countryCode = null): ?PriceResult
     {
+        if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterId = (int) pll_get_post($postId, $defaultLang);
+            if ($masterId && $masterId > 0) {
+                $postId = $masterId;
+            }
+        }
+
+        $postType = (string) get_post_field('post_type', $postId) ?: 'helmet';
+
         $cc = $countryCode ?? $this->geo->getCountry();
         $cc = $cc ?: 'IN'; // Default to India routing
 
         // 1. Check recent price history (under 1 hour old)
-        $latest = $this->history->getLatestByMarketplace($postId, $cc);
+        $latest = $this->history->getLatestByMarketplace($postId, $cc, $postType);
         if (!empty($latest)) {
             $best = null;
             foreach ($latest as $mpId => $entry) {
@@ -129,7 +149,9 @@ final class PriceService
                     $live->countryCode,
                     $live->currency,
                     $live->price,
-                    $live->mrp
+                    $live->mrp,
+                    null,
+                    $postType
                 );
                 return $live;
             }
@@ -147,6 +169,15 @@ final class PriceService
      */
     public function getAllOffers(int $postId, ?string $countryCode = null): array
     {
+        if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterId = (int) pll_get_post($postId, $defaultLang);
+            if ($masterId && $masterId > 0) {
+                $postId = $masterId;
+            }
+        }
+
+        $postType = (string) get_post_field('post_type', $postId) ?: 'helmet';
         $cc = $countryCode ?? $this->geo->getCountry();
         $cc = $cc ?: 'IN'; // Default to India routing
         $helmetRef = (string) get_post_field('post_name', $postId);
@@ -165,7 +196,9 @@ final class PriceService
                 $offer->countryCode,
                 $offer->currency,
                 $offer->price,
-                $offer->mrp
+                $offer->mrp,
+                null,
+                $postType
             );
         }
 
@@ -214,8 +247,98 @@ final class PriceService
      */
     private function buildStaticFallbackOffers(int $postId, string $countryCode): array
     {
+        $countryCode = strtoupper(trim($countryCode));
         $currency = $this->geo->getCurrency($countryCode);
+        $helmetRef = (string) get_post_field('post_name', $postId);
 
+        // 1. Check geo_pricing_json for a manual price for this specific country
+        $geoPricingJson = (string) get_post_meta($postId, 'geo_pricing_json', true);
+        if ($geoPricingJson !== '') {
+            $geoPricing = json_decode($geoPricingJson, true);
+            if (is_array($geoPricing) && isset($geoPricing[$countryCode])) {
+                $manual = $geoPricing[$countryCode];
+                $priceVal = 0.0;
+                if (isset($manual['current_price']) && is_numeric($manual['current_price'])) {
+                    $priceVal = (float) $manual['current_price'];
+                } elseif (isset($manual['price']) && is_numeric($manual['price'])) {
+                    $priceVal = (float) $manual['price'];
+                }
+                $manualCurrency = $manual['currency'] ?? $currency;
+                $mpId = $manual['marketplace_id'] ?? ('amazon-' . strtolower($countryCode));
+
+                return [
+                    new PriceResult(
+                        marketplaceId: $mpId,
+                        helmetRef: $helmetRef,
+                        countryCode: $countryCode,
+                        currency: $manualCurrency,
+                        price: $priceVal,
+                        availability: $manual['availability'] ?? 'in_stock',
+                        capturedAt: gmdate('c'),
+                    )
+                ];
+            }
+        }
+
+        // 2. Check if dynamic Geo-IP pricing conversion is active
+        $geoipEnabled = false;
+        if (function_exists('helmetsan_core')) {
+            $perfConfig = helmetsan_core()->config()->performanceConfig();
+            $geoipEnabled = !empty($perfConfig['enable_geoip_pricing']);
+        }
+
+        if ($geoipEnabled) {
+            $basePrice = get_post_meta($postId, 'price_retail_usd', true);
+            if (!is_numeric($basePrice)) {
+                $basePrice = get_post_meta($postId, 'price_usd', true);
+            }
+            $basePriceVal = is_numeric($basePrice) ? (float) $basePrice : 0.0;
+
+            if ($basePriceVal > 0.0 && function_exists('helmetsan_core')) {
+                $ratesService = helmetsan_core()->exchangeRates();
+                $convertedVal = $ratesService->convert($basePriceVal, 'USD', $currency);
+                $convertedVal = $ratesService->applyVat($convertedVal, $countryCode);
+                $convertedVal = $ratesService->charmRound($convertedVal, $currency);
+                
+                // Map country code to established Amazon marketplace ID
+                $ccUpper = strtoupper($countryCode);
+                $amazonMp = match ($ccUpper) {
+                    'US' => 'amazon-us',
+                    'CA' => 'amazon-ca',
+                    'UK', 'GB', 'IE' => 'amazon-uk',
+                    'DE', 'AT', 'CH', 'CZ', 'SK', 'HU', 'DK', 'FI', 'NO' => 'amazon-de',
+                    'FR', 'BE', 'LU', 'MC' => 'amazon-fr',
+                    'IT' => 'amazon-it',
+                    'ES', 'PT' => 'amazon-es',
+                    'NL' => 'amazon-nl',
+                    'PL' => 'amazon-pl',
+                    'SE' => 'amazon-se',
+                    'IN' => 'amazon-in',
+                    'JP' => 'amazon-jp',
+                    'AU', 'NZ' => 'amazon-au',
+                    'BR' => 'amazon-br',
+                    'MX' => 'amazon-mx',
+                    'AE' => 'amazon-ae',
+                    'SA' => 'amazon-sa',
+                    'SG' => 'amazon-sg',
+                    default => 'amazon-us',
+                };
+
+                return [
+                    new PriceResult(
+                        marketplaceId: $amazonMp,
+                        helmetRef: $helmetRef,
+                        countryCode: $countryCode,
+                        currency: $currency,
+                        price: $convertedVal,
+                        availability: 'in_stock',
+                        capturedAt: gmdate('c'),
+                    )
+                ];
+            }
+        }
+
+        // 3. Fallback to original legacy database keys (price_usd, price_eur, price_gbp)
         // Map currency to the post-meta key we have
         $metaKey = match ($currency) {
             'EUR' => 'price_eur',
@@ -240,7 +363,6 @@ final class PriceService
         }
 
         $priceVal = is_numeric($price) ? (float) $price : 0.0;
-        $helmetRef = (string) get_post_field('post_name', $postId);
 
         // Fetch affiliate_links_json (stored per-region: amazon-us, amazon-in, amazon-uk, etc.)
         $linksJson = (string) get_post_meta($postId, 'affiliate_links_json', true);
