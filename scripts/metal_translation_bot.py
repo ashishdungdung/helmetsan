@@ -24,11 +24,12 @@ import argparse
 import urllib.request
 import urllib.error
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
 # Configuration
 NODE_A_URL       = "http://127.0.0.1:1234/v1"
-DEFAULT_MODEL    = "google/gemma-3-4b"
+DEFAULT_MODEL    = "google/gemma-4-12b-qat"
 REMOTE_SSH_HOST  = "root@31.70.136.154"
 REMOTE_WP_PATH   = "/var/www/helmetsan.com/public"
 REMOTE_BRIDGE    = "/var/www/helmetsan.com/scripts/translate_bridge.php"
@@ -236,7 +237,7 @@ def build_system_prompt(lang):
         )
     return "Translate into the target language. Return ONLY a valid JSON object."
 
-def call_metal_model(model, system_prompt, user_payload, max_tokens=1500, timeout=45):
+def call_metal_model(model, system_prompt, user_payload, max_tokens=1500, timeout=90):
     """Execute inference via Apple Silicon Metal on Node A."""
     req_body = {
         "model": model,
@@ -270,8 +271,10 @@ def clean_json(text):
     """Extract clean JSON object from model response."""
     if not text:
         return None
+    # Strip thinking / reasoning tags defensively if model ever emits them
+    cleaned = re.sub(r"<(thought|think)>[\s\S]*?<\/\1>", "", text, flags=re.IGNORECASE).strip()
     # Strip fences
-    cleaned = re.sub(r"^```(?:json)?\s*", "", text.strip(), flags=re.MULTILINE)
+    cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned.strip(), flags=re.MULTILINE)
     cleaned = re.sub(r"\s*```$", "", cleaned.strip(), flags=re.MULTILINE)
     
     match = re.search(r"\{[\s\S]*\}", cleaned)
@@ -322,12 +325,13 @@ def translate_helmet_metal(helmet, lang, model):
 # Autonomous Live Runner
 # ─────────────────────────────────────────────────────────────────────────────
 class TranslationBot:
-    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None):
+    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None, workers=2):
         self.target_lang = target_lang
         self.model = model
         self.batch_size = batch_size
         self.all_langs = all_langs
         self.max_count = max_count
+        self.workers = max(1, workers)
         self.total_session_translated = 0
         self.running = True
         self.state = load_state()
@@ -343,6 +347,7 @@ class TranslationBot:
         print("=" * 70)
         print(f"  🧠 Model:        {self.model} (Metal Acceleration)")
         print(f"  🌐 Active Lang:  {self.target_lang.upper()} ({LANG_NAMES.get(self.target_lang, '')})")
+        print(f"  ⚡ Workers:      {self.workers} concurrent streams")
         print(f"  📦 Batch Size:   {self.batch_size} helmets / round")
         if self.max_count:
             print(f"  🎯 Session Goal: {self.max_count} helmets")
@@ -395,11 +400,10 @@ class TranslationBot:
             consecutive_empty = 0
             log(f"📥 Fetched {len(candidates)} candidates. Translating on Apple Silicon GPU...")
 
-            translated_batch = []
-            for idx, helmet in enumerate(candidates, 1):
+            def _process_candidate(idx_helmet):
+                idx, helmet = idx_helmet
                 if not self.running:
-                    break
-
+                    return None
                 try:
                     h_id = helmet["id"]
                     h_title = helmet["title"]
@@ -409,7 +413,7 @@ class TranslationBot:
                     if not parsed:
                         log(f"  ❌ #{h_id} '{h_title}' translation failed. Adding to temporary exclude.")
                         self.failed_ids.add(h_id)
-                        continue
+                        return None
 
                     log(f"  ✅ [{idx}/{len(candidates)}] #{h_id} translated in {elapsed:.2f}s: \"{parsed.get('title', h_title)}\"")
 
@@ -422,7 +426,7 @@ class TranslationBot:
                     else:
                         target_slug = f"{h_slug}-{lang}"
 
-                    translated_batch.append({
+                    return {
                         "en_id": h_id,
                         "lang": lang,
                         "title": parsed.get("title", h_title),
@@ -433,10 +437,23 @@ class TranslationBot:
                         "tech": parsed.get("technical_analysis") or "",
                         "features": parsed.get("features") or [],
                         "sizing_fit": {"fit_notes": parsed.get("fit_notes", "")}
-                    })
+                    }
                 except Exception as ex:
                     log(f"  ⚠️ Error processing candidate #{helmet.get('id')}: {ex}. Skipping.")
                     self.failed_ids.add(helmet.get("id"))
+                    return None
+
+            items_to_process = list(enumerate(candidates, 1))
+            if self.workers > 1:
+                with ThreadPoolExecutor(max_workers=self.workers) as pool:
+                    results = list(pool.map(_process_candidate, items_to_process))
+                translated_batch = [r for r in results if r is not None]
+            else:
+                translated_batch = []
+                for item in items_to_process:
+                    res = _process_candidate(item)
+                    if res:
+                        translated_batch.append(res)
 
             if not translated_batch:
                 log("⚠️ No successful translations in this round. Continuing...")
@@ -528,7 +545,8 @@ def start_daemon(args):
         sys.executable, os.path.abspath(__file__),
         "--lang", args.lang,
         "--model", args.model,
-        "--batch-size", str(args.batch_size)
+        "--batch-size", str(args.batch_size),
+        "--workers", str(args.workers)
     ]
     if args.count:
         cmd.extend(["--count", str(args.count)])
@@ -604,6 +622,7 @@ def main():
     parser.add_argument("--lang", default="de", choices=ALL_LANGS, help="Target language (default: de)")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"LM Studio model (default: {DEFAULT_MODEL})")
     parser.add_argument("--batch-size", type=int, default=10, help="Batch size for fetch/save rounds (default: 10)")
+    parser.add_argument("--workers", type=int, default=2, help="Number of concurrent translation workers (default: 2)")
     parser.add_argument("--count", type=int, default=None, help="Target count of helmets to translate in this run (e.g. 200)")
     parser.add_argument("--all-langs", action="store_true", help="Continue sequentially through all 9 languages")
     parser.add_argument("--daemon", action="store_true", help="Launch bot as background daemon")
@@ -629,7 +648,8 @@ def main():
         model=args.model,
         batch_size=args.batch_size,
         all_langs=args.all_langs,
-        max_count=args.count
+        max_count=args.count,
+        workers=args.workers
     )
     bot.run()
 
