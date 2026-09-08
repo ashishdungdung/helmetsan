@@ -768,30 +768,30 @@ function helmetsan_mega_menu_item_url(string $label, string $heading, string $ty
     // "Shop by Brand" column → /brands/slug/
     if (stripos($heading, 'Brand') !== false) {
         $slug = sanitize_title($label);
-        return (string) home_url('/brands/' . $slug . '/');
+        return (string) helmetsan_url('/brands/' . $slug . '/');
     }
 
     // "Shop by Type" column → /helmet-type/slug/
     if (stripos($heading, 'Type') !== false || helmetsan_is_type_label($label)) {
         $slug = helmetsan_find_term_slug_by_label('helmet_type', $label);
-        return (string) home_url('/helmet-type/' . $slug . '/');
+        return (string) helmetsan_url('/helmet-type/' . $slug . '/');
     }
 
     // "Riding Style & Safety" column → certifications or features
     if (stripos($heading, 'Safety') !== false || stripos($heading, 'Riding') !== false) {
         if (helmetsan_is_certification_label($label)) {
             $slug = helmetsan_find_term_slug_by_label('certification', $label);
-            return (string) home_url('/certification/' . $slug . '/');
+            return (string) helmetsan_url('/certification/' . $slug . '/');
         }
         // Riding styles → feature tags
         $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
-        return (string) home_url('/feature/' . $slug . '/');
+        return (string) helmetsan_url('/feature/' . $slug . '/');
     }
 
     // "Features & Style" column → /feature/slug/
     if (stripos($heading, 'Style') !== false || stripos($heading, 'Feature') !== false) {
         $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
-        return (string) home_url('/feature/' . $slug . '/');
+        return (string) helmetsan_url('/feature/' . $slug . '/');
     }
 
     // "Model Family" column → query param
@@ -801,7 +801,7 @@ function helmetsan_mega_menu_item_url(string $label, string $heading, string $ty
 
     // Fallback: feature tag filter
     $slug = helmetsan_find_term_slug_by_label('feature_tag', $label);
-    return (string) home_url('/feature/' . $slug . '/');
+    return (string) helmetsan_url('/feature/' . $slug . '/');
 }
 
 /**
@@ -820,12 +820,43 @@ function helmetsan_mega_menu_footer_url(string $type): string
         'motorcycles' => 'motorcycles',
     ];
     $path = $slug[$type] ?? $type;
-    return (string) home_url('/' . $path . '/');
+    return (string) helmetsan_url('/' . $path . '/');
+}
+
+/**
+ * Resolves the active language reliably across Polylang, URL path prefix, and WP locale.
+ *
+ * @return string 2-letter language code (e.g. en, de, zh, fr, es, it, pl, pt, nl, ja)
+ */
+function helmetsan_get_current_language(): string
+{
+    // 1. Explicit language prefix in URL path takes precedence
+    if (!empty($_SERVER['REQUEST_URI']) && preg_match('#^/([a-z]{2})(?:/|$)#i', $_SERVER['REQUEST_URI'], $m)) {
+        $candidate = strtolower($m[1]);
+        $supported = ['en', 'de', 'zh', 'fr', 'es', 'it', 'pl', 'pt', 'nl', 'ja'];
+        if (in_array($candidate, $supported, true)) {
+            return $candidate;
+        }
+    }
+
+    // 2. Polylang current language
+    $lang = function_exists('pll_current_language') ? (string) pll_current_language() : '';
+    if (!empty($lang)) {
+        return $lang;
+    }
+
+    // 3. WordPress locale fallback
+    $loc = get_locale();
+    if ($loc && $loc !== 'en_US') {
+        return substr($loc, 0, 2);
+    }
+
+    return 'en';
 }
 
 function helmetsan_render_mega_menu(string $type = 'helmet'): void
 {
-    $lang = function_exists('pll_current_language') ? pll_current_language() : 'en';
+    $lang = helmetsan_get_current_language();
     $cacheKey = 'hs_mega_menu_' . $type . '_' . $lang;
 
     // Check transient cache
@@ -869,20 +900,23 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
             // Get JSON just for the highlight blocks / footer / title fallback
             $jsonData = helmetsan_get_mega_menu_data($type);
             $title = $jsonData['title'] ?? ucfirst($type) . ' Menu';
-            $footerLabel = $jsonData['footer'] ?? 'View All ' . ucfirst($type);
+            $typePlural = ['helmet' => 'Helmets', 'brand' => 'Brands', 'motorcycle' => 'Motorcycles', 'accessory' => 'Accessories'];
+            $footerLabel = $jsonData['footer'] ?? ('View All ' . ($typePlural[$type] ?? ucfirst($type) . 's'));
             $footerUrl = helmetsan_mega_menu_footer_url($type);
             
             ?>
             <div class="hs-mega-menu">
                 <div class="hs-mega-menu__inner">
                     <div class="hs-mega-menu__grid">
-                        <?php foreach ($menuTree as $column): ?>
+                        <?php foreach ($menuTree as $column): 
+                            $colHeading = __($column['heading'], 'helmetsan-theme');
+                        ?>
                             <div class="hs-mega-menu__col">
                                 <h3>
                                     <?php if ($column['url'] && $column['url'] !== '#'): ?>
-                                        <a href="<?php echo esc_url($column['url']); ?>"><?php echo esc_html($column['heading']); ?></a>
+                                        <a href="<?php echo esc_url(helmetsan_localize_url($column['url'])); ?>"><?php echo esc_html($colHeading); ?></a>
                                     <?php else: ?>
-                                        <?php echo esc_html($column['heading']); ?>
+                                        <?php echo esc_html($colHeading); ?>
                                     <?php endif; ?>
                                 </h3>
 
@@ -890,8 +924,8 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
                                     <ul>
                                         <?php foreach ($column['children'] as $link): ?>
                                             <li>
-                                                <a href="<?php echo esc_url($link['url']); ?>">
-                                                    <?php echo esc_html($link['label']); ?>
+                                                <a href="<?php echo esc_url(helmetsan_localize_url($link['url'])); ?>">
+                                                    <?php echo esc_html(__($link['label'], 'helmetsan-theme')); ?>
                                                 </a>
                                             </li>
                                         <?php endforeach; ?>
@@ -905,14 +939,14 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
                         <div class="hs-mega-menu__bottom">
                             <?php foreach ($jsonData['highlight_blocks'] as $block): ?>
                                 <div class="hs-mega-menu__highlight">
-                                    <h3><?php echo esc_html($block['heading']); ?></h3>
+                                    <h3><?php echo esc_html(__($block['heading'], 'helmetsan-theme')); ?></h3>
                                     <?php if (! empty($block['items'])): ?>
                                         <ul>
                                             <?php foreach ($block['items'] as $item): 
                                                 $label = is_string($item) ? $item : $item['label'];
                                                 $url = '#'; 
                                             ?>
-                                                <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($label); ?></a></li>
+                                                <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html(__($label, 'helmetsan-theme')); ?></a></li>
                                             <?php endforeach; ?>
                                         </ul>
                                     <?php endif; ?>
@@ -923,20 +957,20 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
 
                     <div class="hs-mega-menu__footer">
                         <a href="<?php echo esc_url($footerUrl); ?>">
-                            <?php echo esc_html($footerLabel); ?> &rarr;
+                            <?php echo esc_html(__($footerLabel, 'helmetsan-theme')); ?> &rarr;
                         </a>
                     </div>
                 </div>
                 
                 <!-- Mobile Fallback (Nav Menu) -->
                 <div class="hs-mega-menu-mobile">
-                     <div class="hs-mega-menu-mobile__title"><?php echo esc_html($title); ?></div>
+                     <div class="hs-mega-menu-mobile__title"><?php echo esc_html(__($title, 'helmetsan-theme')); ?></div>
                      <?php foreach ($menuTree as $column): ?>
                         <details class="hs-mobile-nav-group">
-                            <summary><?php echo esc_html($column['heading']); ?></summary>
+                            <summary><?php echo esc_html(__($column['heading'], 'helmetsan-theme')); ?></summary>
                             <ul>
                                 <?php foreach ($column['children'] as $link): ?>
-                                    <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['label']); ?></a></li>
+                                    <li><a href="<?php echo esc_url(helmetsan_localize_url($link['url'])); ?>"><?php echo esc_html(__($link['label'], 'helmetsan-theme')); ?></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </details>
@@ -970,7 +1004,8 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
     }
 
     $footerUrl  = helmetsan_mega_menu_footer_url($type);
-    $footerLabel = $menu['footer'] ?? 'View All ' . ucfirst($type);
+    $typePlural = ['helmet' => 'Helmets', 'brand' => 'Brands', 'motorcycle' => 'Motorcycles', 'accessory' => 'Accessories'];
+    $footerLabel = $menu['footer'] ?? ('View All ' . ($typePlural[$type] ?? ucfirst($type) . 's'));
     ?>
     <section class="hs-mega-menu" aria-label="<?php echo esc_attr(ucfirst($type)); ?> mega menu">
         <div class="hs-mega-menu__inner">
@@ -981,20 +1016,21 @@ function helmetsan_render_mega_menu(string $type = 'helmet'): void
                     if ($heading === '') continue;
                 ?>
                     <article class="hs-mega-menu__col">
-                        <h3><?php echo esc_html($heading); ?></h3>
+                        <h3><?php echo esc_html(__($heading, 'helmetsan-theme')); ?></h3>
                         <ul>
                         <?php foreach ($items as $item): 
                              $label = is_string($item) ? $item : $item['label'];
                              $url = helmetsan_mega_menu_item_url($label, $heading, $type);
+                             $translatedLabel = __($label, 'helmetsan-theme');
                         ?>
-                            <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($label); ?></a></li>
+                            <li><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($translatedLabel); ?></a></li>
                         <?php endforeach; ?>
                         </ul>
                     </article>
                 <?php endforeach; ?>
             </div>
             <div class="hs-mega-menu__footer">
-                <a href="<?php echo esc_url($footerUrl); ?>"><?php echo esc_html($footerLabel); ?> &rarr;</a>
+                <a href="<?php echo esc_url($footerUrl); ?>"><?php echo esc_html(__($footerLabel, 'helmetsan-theme')); ?> &rarr;</a>
             </div>
         </div>
     </section>
@@ -1432,7 +1468,7 @@ function helmetsan_normalize_country(string $raw): array
  */
 function helmetsan_clear_mega_menu_cache(): void
 {
-    $languages = function_exists('pll_languages_list') ? pll_languages_list() : ['en', 'de', 'zh'];
+    $languages = function_exists('pll_languages_list') ? pll_languages_list() : ['en', 'de', 'zh', 'fr', 'es', 'it', 'pl', 'pt', 'nl', 'ja'];
     $types = ['helmet', 'brands', 'accessories', 'motorcycles'];
     
     foreach ($types as $type) {
@@ -1514,4 +1550,264 @@ function helmetsan_theme_resolve_image_url(string $relPath): string
     }
     return $themeDir . $cleanRel;
 }
+
+/**
+ * Language-aware URL generator.
+ * Automatically injects the active Polylang language directory prefix
+ * (e.g. /de/helmets/, /zh/comparison/) unless default language 'en' is active.
+ *
+ * @param string $path Path relative to site root, e.g. '/helmets/'
+ * @param string|null $lang Target language code (defaults to current language)
+ * @return string Fully-qualified localized URL
+ */
+function helmetsan_url(string $path = '/', ?string $lang = null): string
+{
+    $defaultLang = function_exists('pll_default_language') ? pll_default_language() : 'en';
+    if ($lang === null) {
+        $lang = helmetsan_get_current_language();
+    }
+    $lang = strtolower(trim((string) $lang));
+    if ($lang === '' || $lang === $defaultLang) {
+        return home_url($path);
+    }
+
+    if (function_exists('pll_home_url')) {
+        $base = rtrim(pll_home_url($lang), '/');
+        $cleanPath = '/' . ltrim($path, '/');
+        return $cleanPath === '/' ? $base . '/' : $base . $cleanPath;
+    }
+
+    return home_url('/' . $lang . '/' . ltrim($path, '/'));
+}
+
+/**
+ * Language-aware permalink resolver.
+ * Given a post ID or WP_Post object, resolves the corresponding translated post in the active
+ * language. If no translation exists in that language, gracefully returns the master post permalink.
+ *
+ * @param int|WP_Post $postOrId Post ID or WP_Post object
+ * @param string|null $lang Target language code (defaults to current language)
+ * @return string Localized permalink
+ */
+function helmetsan_permalink($postOrId, ?string $lang = null): string
+{
+    $postId = $postOrId instanceof WP_Post ? (int) $postOrId->ID : (int) $postOrId;
+    if ($postId <= 0) {
+        return '';
+    }
+
+    $defaultLang = function_exists('pll_default_language') ? pll_default_language() : 'en';
+    if ($lang === null) {
+        $lang = function_exists('pll_current_language') ? pll_current_language() : $defaultLang;
+    }
+    $lang = strtolower(trim((string) $lang));
+
+    if (function_exists('pll_get_post') && $lang !== '') {
+        $transId = (int) pll_get_post($postId, $lang);
+        if ($transId > 0 && get_post_status($transId) === 'publish') {
+            return (string) get_permalink($transId);
+        }
+    }
+
+    return (string) get_permalink($postId);
+}
+
+/**
+ * Automatically resolve translations when get_permalink() is called for custom post types.
+ */
+function helmetsan_filter_post_type_link(string $postLink, WP_Post $post): string
+{
+    if (is_admin() || (defined('DOING_CRON') && DOING_CRON) || ! function_exists('pll_current_language') || ! function_exists('pll_default_language')) {
+        return $postLink;
+    }
+
+    $currentLang = pll_current_language();
+    $defaultLang = pll_default_language();
+
+    if ($currentLang === $defaultLang || empty($currentLang)) {
+        return $postLink;
+    }
+
+    $postLang = function_exists('pll_get_post_language') ? pll_get_post_language($post->ID) : '';
+    if ($postLang === $currentLang) {
+        return $postLink;
+    }
+
+    $transId = (int) pll_get_post($post->ID, $currentLang);
+    if ($transId > 0 && $transId !== $post->ID && get_post_status($transId) === 'publish') {
+        remove_filter('post_type_link', 'helmetsan_filter_post_type_link', 10);
+        $translatedLink = get_permalink($transId);
+        add_filter('post_type_link', 'helmetsan_filter_post_type_link', 10, 2);
+        return $translatedLink;
+    }
+
+    return $postLink;
+}
+// Note: add_filter('post_type_link', 'helmetsan_filter_post_type_link', 10, 2); was removed
+// because it hijacked get_permalink() calls across languages, corrupting Polylang switcher and hreflang links.
+// Use helmetsan_permalink() when explicit localized post resolution is desired.
+
+/**
+ * Automatically resolve translations when get_permalink() is called for pages.
+ */
+function helmetsan_filter_page_link(string $postLink, int $postId): string
+{
+    if (is_admin() || (defined('DOING_CRON') && DOING_CRON) || ! function_exists('pll_current_language') || ! function_exists('pll_default_language')) {
+        return $postLink;
+    }
+
+    $currentLang = pll_current_language();
+    $defaultLang = pll_default_language();
+
+    if ($currentLang === $defaultLang || empty($currentLang)) {
+        return $postLink;
+    }
+
+    $postLang = function_exists('pll_get_post_language') ? pll_get_post_language($postId) : '';
+    if ($postLang === $currentLang) {
+        return $postLink;
+    }
+
+    $transId = (int) pll_get_post($postId, $currentLang);
+    if ($transId > 0 && $transId !== $postId && get_post_status($transId) === 'publish') {
+        remove_filter('page_link', 'helmetsan_filter_page_link', 10);
+        $translatedLink = get_permalink($transId);
+        add_filter('page_link', 'helmetsan_filter_page_link', 10, 2);
+        return $translatedLink;
+    }
+
+    return $postLink;
+}
+// Note: add_filter('page_link', 'helmetsan_filter_page_link', 10, 2); was removed
+// to prevent overriding Polylang translation link resolution.
+
+/**
+ * Takes any URL (relative or absolute) and ensures it is properly prefixed with the active language.
+ *
+ * @param string $url The incoming URL
+ * @param string|null $lang Target language code (defaults to current language)
+ * @return string Fully localized URL
+ */
+function helmetsan_localize_url(string $url, ?string $lang = null): string
+{
+    if (empty($url) || $url === '#' || str_starts_with($url, 'javascript:') || str_starts_with($url, 'mailto:')) {
+        return $url;
+    }
+
+    if ($lang === null) {
+        $lang = helmetsan_get_current_language();
+    }
+    $lang = strtolower(trim((string) $lang));
+
+    $siteHost = parse_url(home_url(), PHP_URL_HOST);
+    $urlHost = parse_url($url, PHP_URL_HOST);
+
+    // If external domain, don't modify
+    if ($urlHost !== null && $urlHost !== $siteHost) {
+        return $url;
+    }
+
+    $urlPath = parse_url($url, PHP_URL_PATH) ?? '/';
+    $urlQuery = parse_url($url, PHP_URL_QUERY);
+
+    // Strip existing language directory prefix if present
+    $allLangs = function_exists('pll_languages_list') ? pll_languages_list() : ['en', 'de', 'zh', 'fr', 'es', 'it', 'pl', 'pt', 'nl', 'ja'];
+    $langPattern = implode('|', array_map('preg_quote', $allLangs));
+    $cleanPath = (string) preg_replace('#^/(' . $langPattern . ')(/|$)#', '/', $urlPath);
+
+    $localized = helmetsan_url($cleanPath, $lang);
+    if ($urlQuery) {
+        $localized = $localized . (str_contains($localized, '?') ? '&' : '?') . $urlQuery;
+    }
+
+    return $localized;
+}
+
+/**
+ * Filter all navigation menu items so that internal links preserve the active language.
+ *
+ * @param array<int, WP_Post> $items
+ * @param stdClass $args
+ * @return array<int, WP_Post>
+ */
+function helmetsan_filter_nav_menu_objects(array $items, $args): array
+{
+    if (is_admin() || (defined('DOING_CRON') && DOING_CRON) || ! function_exists('pll_current_language') || ! function_exists('pll_default_language')) {
+        return $items;
+    }
+
+    $currentLang = pll_current_language();
+    $defaultLang = pll_default_language();
+
+    if ($currentLang === $defaultLang || empty($currentLang)) {
+        return $items;
+    }
+
+    foreach ($items as $item) {
+        if (! isset($item->url) || empty($item->url) || $item->url === '#') {
+            continue;
+        }
+
+        // If it's a post_type menu item (like a Page), resolve translated post if available
+        if (isset($item->type) && $item->type === 'post_type' && ! empty($item->object_id)) {
+            $transId = function_exists('pll_get_post') ? (int) pll_get_post((int) $item->object_id, $currentLang) : 0;
+            if ($transId > 0 && get_post_status($transId) === 'publish') {
+                $item->url = get_permalink($transId);
+                continue;
+            }
+        }
+
+        $item->url = helmetsan_localize_url($item->url, $currentLang);
+        if (! empty($item->title)) {
+            $item->title = __($item->title, 'helmetsan-theme');
+        }
+    }
+
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'helmetsan_filter_nav_menu_objects', 10, 2);
+
+/**
+ * Dynamic gettext dictionary filter for helmetsan-theme.
+ * Guarantees instantaneous, 100% reliable translations for all theme strings
+ * in German (de) and Chinese (zh) without depending solely on MO file loading.
+ *
+ * @param string $translation Current translated text.
+ * @param string $text Original English text.
+ * @param string $domain Text domain.
+ * @return string
+ */
+function helmetsan_theme_gettext(string $translation, string $text, string $domain): string
+{
+    if ($domain !== 'helmetsan-theme') {
+        return $translation;
+    }
+
+    $lang = helmetsan_get_current_language();
+    if (empty($lang) || $lang === 'en') {
+        return $translation;
+    }
+
+    static $dictionaries = [];
+    if (!isset($dictionaries[$lang])) {
+        $dictFile = get_stylesheet_directory() . '/languages/translations-' . $lang . '.php';
+        if (file_exists($dictFile)) {
+            $dictionaries[$lang] = require $dictFile;
+        } else {
+            $dictionaries[$lang] = [];
+        }
+    }
+
+    if (isset($dictionaries[$lang][$text])) {
+        return $dictionaries[$lang][$text];
+    }
+
+    return $translation;
+}
+add_filter('gettext', 'helmetsan_theme_gettext', 20, 3);
+add_filter('gettext_with_context', function(string $translation, string $text, string $context, string $domain): string {
+    return helmetsan_theme_gettext($translation, $text, $domain);
+}, 20, 4);
+
+
 
