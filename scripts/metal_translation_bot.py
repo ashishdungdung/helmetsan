@@ -141,7 +141,7 @@ def save_batch_translations(items):
         "action": "save_batch",
         "items": items
     }
-    data = run_bridge_command(payload, timeout=60)
+    data = run_bridge_command(payload, timeout=180)
     if data and data.get("success"):
         return data.get("results", [])
     return []
