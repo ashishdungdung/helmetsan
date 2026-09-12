@@ -184,3 +184,22 @@ Tracking daily development work and IDE sources.
   - Full PHPUnit test suite passing (135/135 tests, 1,166 assertions, 0 errors).
   - Deployed to production server (`31.70.136.154`), flushed Nginx microcache, reloaded `php8.5-fpm`, and purged Cloudflare Edge cache globally.
 
+---
+
+## 2026-09-12 (Session: Retail Uniformity, 404 Fallback & Associate ID Expansion Framework)
+**Source**: Agent (Antigravity) + User Pair Programming
+**Changes**:
+- **"Where to Buy" Standardization**:
+  - Brought retail comparison sections on Helmets (`where-to-buy.php`), Accessories (`single-accessory.php`), and Comparison (`page-comparison.php`) into 100% visual and structural alignment.
+  - Standardized retail brand logos, live pricing cards, trust badges (Authorized Dealer, Price Match Guarantee, Fast Shipping), and FTC affiliate compliance disclosures.
+- **Cross-Border 404 Fallback Protection**:
+  - Fixed Amazon redirection in `RevenueService::resolveGeotargetedUrl()`: when a visitor switches to an international Amazon marketplace (e.g. Australia `amazon.com.au`) and the US ASIN is absent from that catalog, the router now degrades to a targeted search query URL (`/s?k={title}&tag={tag}`) rather than hitting an Amazon 404 dog page.
+- **Amazon UAE Associate ID (`vtete0c-21`) Integration**:
+  - Propagated user's official UAE Associate ID across `Config.php`, `Admin.php`, `AmazonCreatorConnector.php`, `amazon_creators_api.json`, `enqueue.php`, `currency-selector.js`, and `RevenueServiceGeotargetingTest.php`.
+  - Verified live redirect to `www.amazon.ae` with `tag=vtete0c-21`.
+- **Amazon Associates Multi-Region Expansion Framework**:
+  - Documented 21-marketplace scorecard, pending application routes, runtime configuration workflow via WordPress Admin (**Settings → Revenue**), and OneLink linking instructions in `docs/AMAZON_ASSOCIATES_PROGRAM_MATRIX_AND_ONBOARDING.md`.
+- **Repository Hygiene**:
+  - Removed outdated scratch scripts (`rescue_revenue.php`, `update_amazon_tags.php`, `verify_corrections.php`) and cleaned `.DS_Store` artifacts.
+
+

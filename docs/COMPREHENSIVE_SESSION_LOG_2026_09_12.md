@@ -266,3 +266,43 @@ This session executed four major engineering workflows spanning frontend UI, cor
   - UAE Routing: `https://www.amazon.ae/s?k=hjc+rpha+1+Helmet&tag=vtete0c-21`
 - **Deployment**: Synced to production via `deploy.sh`, Nginx microcache purged, `php8.5-fpm` reloaded, and Cloudflare Edge purged globally.
 
+---
+
+## Section 8: "Where to Buy" Standardization, Cross-Border Fallback Protection & Associate ID Expansion Framework
+
+### 1. Context & Objectives
+- Standardize the "Where to Buy" retail comparison tables across Helmets (`template-parts/helmet/where-to-buy.php`), Accessories (`single-accessory.php`), and Multi-Item Comparison (`page-comparison.php`) for clean, uniform conversion optimization.
+- Fix broken out-of-region Amazon link resolution where selecting foreign countries (e.g. Australia `amazon.com.au`) redirected to Amazon 404 "dogs of Amazon" pages because US ASINs do not exist on international storefronts.
+- Establish an extensible onboarding framework for user's ongoing Amazon Associate applications across all 21 regional marketplaces.
+
+### 2. Standardization & UI/UX Improvements
+- **Uniform Table Presentation**:
+  - Aligned table columns across Helmets and Accessories: Store / Merchant (with brand logo icon via `helmetsan_marketplace_icon()`), In-Stock Status, Live Price, and Direct Action CTA.
+  - Added retailer brand trust signals (Authorized Dealer badge, Price Match guarantee, Fast Shipping indicators).
+  - Standardized legal/compliance affiliate disclosure footer across all product templates.
+- **Micro-Interaction Hardening**:
+  - Prevented flash of unstyled content or misaligned button states during country selection changes.
+
+### 3. Out-of-Region 404 Prevention (Search Query Fallback)
+- **Problem**: When a user selected Australia or UAE while viewing a US helmet with a US ASIN (e.g., `B08XYZ123`), the redirect engine mapped directly to `https://www.amazon.com.au/dp/B08XYZ123`. Because US ASINs frequently do not exist in foreign marketplace catalogs, Amazon threw a 404 dog error page.
+- **Remediation in `RevenueService::resolveGeotargetedUrl()`**:
+  - Added intelligent query extraction: when ASIN cross-linking fails or target marketplace differs from source ASIN origin without known ASIN parity, the service seamlessly degrades to a high-converting search query URL:
+    `https://{target_domain}/s?k={product_title}&tag={regional_tag}`
+  - Verified: Visiting `/go/6d-atb-2t-stale-5394/?country=AU` redirects to `https://www.amazon.com.au/s?k=6D+ATB-2T&tag=vtete-20`.
+  - Verified: Visiting `/go/6d-atb-2t-stale-5394/?country=AE` redirects to `https://www.amazon.ae/s?k=6D+ATB-2T&tag=vtete0c-21`.
+
+### 4. Continuous Associate ID Onboarding Architecture
+- **Dual-Path Architecture**:
+  1. **Runtime Admin Configuration (0ms code deployment)**:
+     - Under **WP Admin → Settings → Revenue**, all 21 regional marketplaces feature dedicated input fields. Setting or updating a StoreID immediately updates server-side 302 redirects and client-side JavaScript button targets.
+  2. **Codebase Defaults**:
+     - System defaults stored in `Config.php`, `Admin.php`, `AmazonCreatorConnector.php`, `amazon_creators_api.json`, and `currency-selector.js`.
+- **Active StoreIDs**:
+  - US: `vtete-20` (Approved / Primary)
+  - UK & Ireland: `vtete-21` (Approved)
+  - India: `virginiatete-21` (Approved)
+  - Japan: `vtete-22` (Approved)
+  - UAE: `vtete0c-21` (Approved)
+  - Other 16 Marketplaces: Graceful fallback to `vtete-20` / OneLink pending individual regional approval.
+
+
