@@ -168,7 +168,7 @@ function helmetsan_theme_enqueue_assets(): void
         'AU' => $revConfig['amazon_tag_au'] ?? 'vtete-20',
         'BR' => $revConfig['amazon_tag_br'] ?? 'vtete-20',
         'MX' => $revConfig['amazon_tag_mx'] ?? 'vtete-20',
-        'AE' => $revConfig['amazon_tag_ae'] ?? 'vtete08-21',
+        'AE' => $revConfig['amazon_tag_ae'] ?? 'vtete0c-21',
         'SA' => $revConfig['amazon_tag_sa'] ?? 'vtete-20',
         'SG' => $revConfig['amazon_tag_sg'] ?? 'vtete-20',
         'IE' => $revConfig['amazon_tag_ie'] ?? 'vtete-21',

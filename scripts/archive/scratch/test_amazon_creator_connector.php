@@ -53,7 +53,7 @@ if ($resultJP !== null) {
     echo "   Affiliate URL: " . $resultJP->affiliateUrl . "\n";
 }
 
-echo "\n8. Testing UAE Store Routing (vtete08-21):\n";
+echo "\n8. Testing UAE Store Routing (vtete0c-21):\n";
 $resultAE = $connector->fetchPriceForCountry('hjc-rpha-1', 'AE');
 if ($resultAE !== null) {
     echo "   Marketplace:   " . $resultAE->marketplaceId . "\n";

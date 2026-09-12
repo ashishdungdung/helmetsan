@@ -207,42 +207,51 @@ if (have_posts()) {
             ?>
             <?php if ($hasWhereToBuy && $accessorySlug !== '') : ?>
                 <section class="hs-panel hs-where-to-buy accessory-single__where" id="where-to-buy">
-                    <div class="hs-price-comparer__alert-banner" style="border-radius: var(--hs-radius-lg) var(--hs-radius-lg) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem;">
+                    <div class="hs-price-comparer__alert-banner">
                         <div class="hs-price-comparer__alert-text">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <span class="hs-price-comparer__pulse-dot" aria-hidden="true"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                             <span><?php esc_html_e('Real-time price tracking active across international retailers.', 'helmetsan-theme'); ?></span>
-                            <span class="hs-price-comparer__badge"><?php esc_html_e('Good Buy', 'helmetsan-theme'); ?></span>
                         </div>
                         <button type="button" class="hs-price-comparer__alert-btn" id="hsPriceAlertTrigger" data-helmet-id="<?php echo esc_attr((string) $id); ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                            <?php esc_html_e('Set Drop Alert', 'helmetsan-theme'); ?>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <span><?php esc_html_e('Set Drop Alert', 'helmetsan-theme'); ?></span>
                         </button>
                     </div>
-                    <h2 class="accessory-single__where-title" style="margin-top: var(--hs-sp-2);">
-                        <svg class="accessory-single__where-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                        Where to buy
-                    </h2>
+
+                    <div class="hs-where-to-buy__header" style="margin-bottom: var(--hs-sp-5);">
+                        <h2 class="hs-section-icon-title" style="margin: 0;">
+                            <span class="hs-section-icon-title__icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                            </span>
+                            <?php esc_html_e('Where to buy', 'helmetsan-theme'); ?>
+                        </h2>
+                    </div>
+
                     <div class="hs-table-wrap">
                         <table class="hs-table hs-price-table">
                             <thead>
                                 <tr>
-                                    <th>Retailer</th>
-                                    <th>Price</th>
-                                    <th>Availability</th>
+                                    <th><?php esc_html_e('Retailer', 'helmetsan-theme'); ?></th>
+                                    <th><?php esc_html_e('Price', 'helmetsan-theme'); ?></th>
+                                    <th><?php esc_html_e('Availability', 'helmetsan-theme'); ?></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php if ($affiliateLink !== '') : ?>
-                                    <tr>
+                                    <tr class="hs-price-table__row--best">
                                         <td class="hs-price-table__merchant">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                                            <span class="hs-price-table__merchant-name">Official Partner</span>
+                                            <?php echo function_exists('helmetsan_marketplace_icon') ? helmetsan_marketplace_icon('partner') : ''; ?>
+                                            <span class="hs-price-table__merchant-name"><?php esc_html_e('Official Partner', 'helmetsan-theme'); ?></span>
+                                            <span class="hs-price-table__best-tag"><?php esc_html_e('Best Price', 'helmetsan-theme'); ?></span>
                                         </td>
-                                        <td><strong><?php echo esc_html($priceDisplay . ($currency !== '' ? ' ' . $currency : '')); ?></strong></td>
-                                        <td><span class="accessory-single__avail">In stock</span></td>
-                                        <td>
-                                            <a href="<?php echo esc_url($affiliateLink); ?>" class="hs-price-cta" target="_blank" rel="nofollow noopener noreferrer sponsored">Buy now →</a>
+                                        <td class="hs-price-table__price">
+                                            <strong class="hs-price-table__amount"><?php echo esc_html($priceDisplay . ($currency !== '' ? ' ' . $currency : '')); ?></strong>
+                                        </td>
+                                        <td class="hs-price-table__avail"><span class="accessory-single__avail"><?php esc_html_e('In stock', 'helmetsan-theme'); ?></span></td>
+                                        <td class="hs-price-table__action">
+                                            <a href="<?php echo esc_url($affiliateLink); ?>" class="hs-price-cta" target="_blank" rel="nofollow noopener noreferrer sponsored"><?php esc_html_e('View Deal →', 'helmetsan-theme'); ?></a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
@@ -252,17 +261,15 @@ if (have_posts()) {
                                 ?>
                                     <tr>
                                         <td class="hs-price-table__merchant">
-                                            <?php if (str_contains($mpLower, 'amazon')) : ?>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>
-                                            <?php else : ?>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                                            <?php endif; ?>
+                                            <?php echo function_exists('helmetsan_marketplace_icon') ? helmetsan_marketplace_icon($mpId) : ''; ?>
                                             <span class="hs-price-table__merchant-name"><?php echo esc_html(function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($mpId) : $mpId); ?></span>
                                         </td>
-                                        <td><strong><span class="hs-muted">Check price</span></strong></td>
-                                        <td><span class="accessory-single__avail">View on site</span></td>
-                                        <td>
-                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">Buy now →</a>
+                                        <td class="hs-price-table__price">
+                                            <span class="hs-price-table__check-text hs-muted"><?php esc_html_e('Check live price', 'helmetsan-theme'); ?></span>
+                                        </td>
+                                        <td class="hs-price-table__avail"><span class="accessory-single__avail"><?php esc_html_e('View on site', 'helmetsan-theme'); ?></span></td>
+                                        <td class="hs-price-table__action">
+                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored"><?php esc_html_e('Check Price →', 'helmetsan-theme'); ?></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -272,19 +279,25 @@ if (have_posts()) {
                                 ?>
                                     <tr>
                                         <td class="hs-price-table__merchant">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2"><path d="M4 17c2.5 2.5 6.5 3.5 10.5 1.5M16.5 17l1.5 1.5.5-2"></path></svg>
+                                            <?php echo function_exists('helmetsan_marketplace_icon') ? helmetsan_marketplace_icon($geoMpId) : ''; ?>
                                             <span class="hs-price-table__merchant-name"><?php echo esc_html(function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($geoMpId) : $geoMpId); ?></span>
                                         </td>
-                                        <td><strong><span class="hs-muted">Check price</span></strong></td>
-                                        <td><span class="accessory-single__avail">View on site</span></td>
-                                        <td>
-                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">Buy now →</a>
+                                        <td class="hs-price-table__price">
+                                            <span class="hs-price-table__check-text hs-muted"><?php esc_html_e('Check live price', 'helmetsan-theme'); ?></span>
+                                        </td>
+                                        <td class="hs-price-table__avail"><span class="accessory-single__avail"><?php esc_html_e('View on site', 'helmetsan-theme'); ?></span></td>
+                                        <td class="hs-price-table__action">
+                                            <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored"><?php esc_html_e('Check Price →', 'helmetsan-theme'); ?></a>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
+
+                    <p class="hs-affiliate-disclosure" style="margin-top: var(--hs-sp-4); font-size: 11px; color: var(--hs-muted); opacity: 0.85;">
+                        ℹ️ <em><?php esc_html_e('Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you.', 'helmetsan-theme'); ?></em>
+                    </p>
                 </section>
             <?php endif; ?>
 

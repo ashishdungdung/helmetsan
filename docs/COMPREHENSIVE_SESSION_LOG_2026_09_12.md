@@ -125,7 +125,7 @@ This session executed four major engineering workflows spanning frontend UI, cor
 | 15 | Australia | `AU` | 🇦🇺 | `www.amazon.com.au` | `vtete-20` | Linked Store |
 | 16 | Brazil | `BR` | 🇧🇷 | `www.amazon.com.br` | `vtete-20` | Linked Store |
 | 17 | Mexico | `MX` | 🇲🇽 | `www.amazon.com.mx` | `vtete-20` | Linked Store |
-| 18 | United Arab Emirates | `AE` | 🇦🇪 | `www.amazon.ae` | `vtete08-21` | Linked / Regional Store |
+| 18 | United Arab Emirates | `AE` | 🇦🇪 | `www.amazon.ae` | `vtete0c-21` | Linked / Regional Store |
 | 19 | Saudi Arabia | `SA` | 🇸🇦 | `www.amazon.sa` | `vtete-20` | Linked Store |
 | 20 | Singapore | `SG` | 🇸🇬 | `www.amazon.sg` | `vtete-20` | Linked Store |
 | 21 | Turkey | `TR` | 🇹🇷 | `www.amazon.com.tr` | `vtete-20` | Linked Store |
@@ -222,11 +222,11 @@ This session executed four major engineering workflows spanning frontend UI, cor
 
 ---
 
-## Section 7: UAE StoreID (`vtete08-21`) & Amazon Creator API (v3.1) Deep Audit & Hardening
+## Section 7: UAE StoreID (`vtete0c-21`) & Amazon Creator API (v3.1) Deep Audit & Hardening
 
 ### 1. Context & User Directives
 - **Directives**:
-  1. Add Amazon UAE Associate ID: **`vtete08-21`** (`www.amazon.ae`).
+  1. Add Amazon UAE Associate ID: **`vtete0c-21`** (`www.amazon.ae`).
   2. "recheck on creators api": Conduct an end-to-end audit of Amazon Creator API (v3.1) OAuth2 flow, catalog lookup endpoints, and marketplace support.
 
 ### 2. Live Creator API Diagnostics
@@ -252,7 +252,7 @@ This session executed four major engineering workflows spanning frontend UI, cor
    - Expanded `AmazonCreatorConnector::MARKETPLACES` to all 22 countries (`US`, `CA`, `UK`, `GB`, `DE`, `FR`, `IT`, `ES`, `NL`, `PL`, `SE`, `BE`, `IE`, `IN`, `JP`, `AU`, `BR`, `MX`, `AE`, `SG`, `SA`, `TR`).
    - Synchronized `Plugin.php`, `Config.php`, and `amazon_creators_api.json`.
 4. **UAE StoreID Integration**:
-   - Set `amazon_tag_ae` default to `vtete08-21` across `Config.php`, `Admin.php`, `currency-selector.js`, and `AmazonCreatorConnector.php`.
+   - Set `amazon_tag_ae` default to `vtete0c-21` across `Config.php`, `Admin.php`, `currency-selector.js`, and `AmazonCreatorConnector.php`.
 
 ### 4. Verification & Live Production Proof
 - **Automated Tests**:
@@ -263,6 +263,6 @@ This session executed four major engineering workflows spanning frontend UI, cor
   - Health Check: `OK`
   - Supported Countries: `22`
   - Japan Routing: `https://www.amazon.co.jp/dp/B07Q3K8Z5V?tag=vtete-22` (resolved real helmet ASIN)
-  - UAE Routing: `https://www.amazon.ae/s?k=hjc+rpha+1+Helmet&tag=vtete08-21`
+  - UAE Routing: `https://www.amazon.ae/s?k=hjc+rpha+1+Helmet&tag=vtete0c-21`
 - **Deployment**: Synced to production via `deploy.sh`, Nginx microcache purged, `php8.5-fpm` reloaded, and Cloudflare Edge purged globally.
 

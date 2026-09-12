@@ -343,7 +343,7 @@ $comparison_link = home_url('/comparison/');
                                         $slug = get_post_field('post_name', $helmet->ID);
                                         $go_url = $slug ? home_url('/go/' . $slug . '/?source=comparison') : get_permalink($helmet->ID);
                                         ?>
-                                        <a href="<?php echo esc_url($go_url); ?>" class="hs-btn hs-btn--sm hs-btn--primary" rel="nofollow sponsored" aria-label="<?php echo esc_attr(sprintf(__('Check price for %s', 'helmetsan-theme'), $helmet->post_title)); ?>">Check price</a>
+                                        <a href="<?php echo esc_url($go_url); ?>" class="hs-btn hs-btn--sm hs-btn--primary hs-price-cta" data-marketplace="amazon" rel="nofollow sponsored" aria-label="<?php echo esc_attr(sprintf(__('Check price for %s', 'helmetsan-theme'), $helmet->post_title)); ?>">Check price</a>
                                         <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost js-add-to-compare is-active" 
                                                 data-id="<?php echo (int) $helmet->ID; ?>" 
                                                 aria-label="<?php echo esc_attr(sprintf(__('Remove %s from comparison', 'helmetsan-theme'), $helmet->post_title)); ?>">Remove</button>

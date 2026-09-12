@@ -4447,7 +4447,7 @@ final class Admin
                 'au' => ['name' => 'Australia',            'flag' => '🇦🇺', 'domain' => 'www.amazon.com.au', 'default' => 'vtete-20'],
                 'br' => ['name' => 'Brazil',               'flag' => '🇧🇷', 'domain' => 'www.amazon.com.br', 'default' => 'vtete-20'],
                 'mx' => ['name' => 'Mexico',               'flag' => '🇲🇽', 'domain' => 'www.amazon.com.mx', 'default' => 'vtete-20'],
-                'ae' => ['name' => 'United Arab Emirates', 'flag' => '🇦🇪', 'domain' => 'www.amazon.ae',     'default' => 'vtete08-21'],
+                'ae' => ['name' => 'United Arab Emirates', 'flag' => '🇦🇪', 'domain' => 'www.amazon.ae',     'default' => 'vtete0c-21'],
                 'sa' => ['name' => 'Saudi Arabia',         'flag' => '🇸🇦', 'domain' => 'www.amazon.sa',     'default' => 'vtete-20'],
                 'sg' => ['name' => 'Singapore',            'flag' => '🇸🇬', 'domain' => 'www.amazon.sg',     'default' => 'vtete-20'],
                 'ie' => ['name' => 'Ireland',              'flag' => '🇮🇪', 'domain' => 'www.amazon.co.uk',  'default' => 'vtete-21'],

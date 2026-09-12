@@ -378,7 +378,7 @@
         'AU': { host: 'www.amazon.com.au', tag: 'vtete-20',        label: 'Amazon.com.au' },
         'NZ': { host: 'www.amazon.com.au', tag: 'vtete-20',        label: 'Amazon.com.au' },
         'BR': { host: 'www.amazon.com.br', tag: 'vtete-20',        label: 'Amazon.com.br' },
-        'AE': { host: 'www.amazon.ae',     tag: 'vtete08-21',      label: 'Amazon.ae' },
+        'AE': { host: 'www.amazon.ae',     tag: 'vtete0c-21',      label: 'Amazon.ae' },
         'SA': { host: 'www.amazon.sa',     tag: 'vtete-20',        label: 'Amazon.sa' },
         'SG': { host: 'www.amazon.sg',     tag: 'vtete-20',        label: 'Amazon.sg' },
         'IE': { host: 'www.amazon.co.uk',  tag: 'vtete-21',        label: 'Amazon.co.uk' },
@@ -430,6 +430,8 @@
             const isAffiliate = link.hasAttribute('data-marketplace') || 
                                 link.classList.contains('hs-price-cta') || 
                                 link.classList.contains('hs-btn--amazon') ||
+                                link.classList.contains('hs-btn--primary') ||
+                                link.closest('.hs-comp-header-actions') ||
                                 (link.getAttribute('data-retailer') || '').toLowerCase().includes('amazon');
             if (!isAffiliate) return;
 

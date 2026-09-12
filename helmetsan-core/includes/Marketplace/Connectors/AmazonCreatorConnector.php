@@ -43,7 +43,7 @@ final class AmazonCreatorConnector implements MarketplaceConnectorInterface
         'AU' => ['domain' => 'www.amazon.com.au', 'currency' => 'AUD', 'tag' => 'vtete-20'],
         'BR' => ['domain' => 'www.amazon.com.br', 'currency' => 'BRL', 'tag' => 'vtete-20'],
         'MX' => ['domain' => 'www.amazon.com.mx', 'currency' => 'MXN', 'tag' => 'vtete-20'],
-        'AE' => ['domain' => 'www.amazon.ae',    'currency' => 'AED', 'tag' => 'vtete08-21'],
+        'AE' => ['domain' => 'www.amazon.ae',    'currency' => 'AED', 'tag' => 'vtete0c-21'],
         'SG' => ['domain' => 'www.amazon.sg',    'currency' => 'SGD', 'tag' => 'vtete-20'],
         'SA' => ['domain' => 'www.amazon.sa',    'currency' => 'SAR', 'tag' => 'vtete-20'],
         'TR' => ['domain' => 'www.amazon.com.tr', 'currency' => 'TRY', 'tag' => 'vtete-20'],

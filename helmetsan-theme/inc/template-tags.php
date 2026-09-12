@@ -40,10 +40,40 @@ function helmetsan_marketplace_label(string $marketplaceId): string
         'amazon-cz' => 'Amazon',
         'amazon'    => 'Amazon',
         'flipkart-in' => 'Flipkart',
-        'static' => 'Amazon',
+        'flipkart'  => 'Flipkart',
+        'revzilla'  => 'RevZilla',
+        'cyclegear' => 'Cycle Gear',
+        'fcmoto'    => 'FC-Moto',
+        'static'    => 'Amazon',
     ];
     $key = strtolower($marketplaceId);
     return $labels[$key] ?? ucwords(str_replace('-', ' ', $marketplaceId));
+}
+
+/**
+ * Return an SVG brand or category icon for a retailer/marketplace.
+ *
+ * @param string $marketplaceId
+ * @return string SVG markup
+ */
+function helmetsan_marketplace_icon(string $marketplaceId): string
+{
+    $key = strtolower($marketplaceId);
+
+    if (str_contains($key, 'amazon') || $key === 'static') {
+        return '<svg class="hs-retailer-icon hs-retailer-icon--amazon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17c3 2.5 7.5 3.5 12 1.5M16.5 17l2 1.5.5-2.5" stroke="#FF9900" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    }
+
+    if (str_contains($key, 'flipkart')) {
+        return '<svg class="hs-retailer-icon hs-retailer-icon--flipkart" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" stroke="#2874F0" stroke-width="2"/><path d="M10 8h4a2 2 0 0 1 0 4h-4v4" stroke="#FFE11B" stroke-width="2" stroke-linecap="round"/></svg>';
+    }
+
+    if (str_contains($key, 'revzilla') || str_contains($key, 'cyclegear')) {
+        return '<svg class="hs-retailer-icon hs-retailer-icon--moto" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-3l-3 7h7.5l-2-4.5h3.5"/></svg>';
+    }
+
+    // Default verified store / partner icon
+    return '<svg class="hs-retailer-icon hs-retailer-icon--store" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>';
 }
 
 function helmetsan_get_brand_id(int $helmetId): int

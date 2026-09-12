@@ -42,24 +42,32 @@
 
   function buildChart(data) {
     const wrap = document.getElementById('hs-price-chart-wrap');
+    const emptyEl = document.getElementById('hs-price-chart-empty');
+    const toggles = document.getElementById('hs-date-toggles');
 
-    if (!data || !data.series || data.series.length === 0) {
+    // Filter series to only points with valid, positive prices
+    const validSeries = (data && data.series ? data.series : [])
+      .map(function (s) {
+        return {
+          marketplace_id: s.marketplace_id,
+          currency: s.currency,
+          data: (s.data || []).filter(function (p) {
+            return p && typeof p.price === 'number' && p.price > 0;
+          }),
+        };
+      })
+      .filter(function (s) {
+        return s.data.length > 0;
+      });
+
+    if (validSeries.length === 0) {
       if (wrap) {
         wrap.style.display = '';
-        var emptyEl = document.getElementById('hs-price-chart-empty');
         if (emptyEl) {
           emptyEl.style.display = '';
-        } else {
-          var p = document.createElement('p');
-          p.id = 'hs-price-chart-empty';
-          p.className = 'hs-muted';
-          p.textContent = 'No price history recorded yet.';
-          if (canvas && canvas.parentNode) {
-            canvas.parentNode.insertBefore(p, canvas);
-          }
+          emptyEl.textContent = 'Helmetsan is actively tracking prices across retailers. Historical trends will appear as observations accumulate.';
         }
         if (canvas) canvas.style.display = 'none';
-        var toggles = document.getElementById('hs-date-toggles');
         if (toggles) toggles.style.display = 'none';
       }
       return;
@@ -67,14 +75,12 @@
 
     if (wrap) {
       wrap.style.display = '';
-      var emptyEl = document.getElementById('hs-price-chart-empty');
       if (emptyEl) emptyEl.style.display = 'none';
       if (canvas) canvas.style.display = '';
-      var toggles = document.getElementById('hs-date-toggles');
       if (toggles) toggles.style.display = '';
     }
 
-    const datasets = data.series.map(function (s, i) {
+    const datasets = validSeries.map(function (s, i) {
       return {
         label: s.marketplace_id.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }),
         data: s.data.map(function (point) {
@@ -90,7 +96,7 @@
       };
     });
 
-    const currency = data.series[0].currency || 'USD';
+    const currency = validSeries[0].currency || 'USD';
 
     if (chart) {
       chart.data.datasets = datasets;

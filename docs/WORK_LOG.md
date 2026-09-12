@@ -172,7 +172,7 @@ Tracking daily development work and IDE sources.
 - **Country Selector 5-Layer Hardening**: Fixed BUG-CS-01 through BUG-CS-12. Expanded `GeoService::COUNTRY_MAP` to 35 countries, synchronized exchange rates for 25 currencies, added decoupled safe helper `helmetsan_get_supported_countries()`, sanitized country cookies (`fromCookie()`), and fixed road legality client synchronization for Canada (`CMVSS / DOT / ECE`) and European countries.
 - **Amazon 22-Marketplace Architecture & OneLink System**:
   - Decoupled affiliate StoreIDs from static code into the WordPress Admin settings interface (**Settings → Revenue**).
-  - Configured Virginia Tete's StoreIDs: US (`vtete-20`), UK & Ireland (`vtete-21`), India (`virginiatete-21`), Japan (`vtete-22`), and UAE (`vtete08-21`).
+  - Configured Virginia Tete's StoreIDs: US (`vtete-20`), UK & Ireland (`vtete-21`), India (`virginiatete-21`), Japan (`vtete-22`), and UAE (`vtete0c-21`).
   - Added full dynamic hydration bridge between WordPress configuration and client-side JavaScript (`currency-selector.js`).
   - Implemented Amazon OneTag script controls and fallback edge routing.
 - **Amazon Creator API (v3.1) Audit & Hardening**:

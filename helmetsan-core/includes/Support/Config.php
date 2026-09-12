@@ -162,7 +162,7 @@ final class Config
             'amazon_tag_au'            => 'vtete-20',
             'amazon_tag_br'            => 'vtete-20',
             'amazon_tag_mx'            => 'vtete-20',
-            'amazon_tag_ae'            => 'vtete08-21',
+            'amazon_tag_ae'            => 'vtete0c-21',
             'amazon_tag_sa'            => 'vtete-20',
             'amazon_tag_sg'            => 'vtete-20',
             'amazon_tag_ie'            => 'vtete-21',

@@ -116,7 +116,7 @@ final class RevenueServiceGeotargetingTest extends TestCase
 
         $resolvedAe = $this->service->resolveGeotargetedUrl($originalUrl, 'AE');
         $this->assertStringContainsString('amazon.ae', $resolvedAe);
-        $this->assertStringContainsString('tag=vtete08-21', $resolvedAe);
+        $this->assertStringContainsString('tag=vtete0c-21', $resolvedAe);
     }
 
     public function testNonAmazonUrlRemainsUnchanged(): void

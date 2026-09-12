@@ -700,16 +700,31 @@ final class RevenueService
     {
         $url = $this->normalizeAmazonSearchQuery($url, $helmetId);
 
-        // If target marketplace specifies a region (e.g. amazon-in, amazon-de, amazon-uk, amazon-cz),
-        // adjust the Amazon search URL domain so international users search on their local Amazon store!
+        // If target marketplace specifies a region (e.g. amazon-in, amazon-de, amazon-uk, amazon-au),
+        // adjust the Amazon URL domain so international users visit their local Amazon store.
         if ($marketplaceId !== '') {
             $targetDomain = $this->getAmazonDomainForMarketplace($marketplaceId);
             if ($targetDomain !== '' && str_contains($url, 'amazon.')) {
                 $targetHost = str_replace(['https://', 'http://', '/'], '', $targetDomain);
                 $parsed = parse_url($url);
                 if (is_array($parsed)) {
+                    $originalHost = $parsed['host'] ?? '';
                     $path = $parsed['path'] ?? '/s';
                     $query = $parsed['query'] ?? '';
+
+                    // If crossing to a different regional Amazon domain (e.g. amazon.com -> amazon.com.au)
+                    // and the link is a direct product page (/dp/ or /gp/), regional stores will 404
+                    // because ASINs are region-specific. Convert to a search query for the helmet title instead!
+                    if ($originalHost !== '' && strtolower($originalHost) !== strtolower($targetHost) && (str_contains($path, '/dp/') || str_contains($path, '/gp/'))) {
+                        $title = (string) get_post_field('post_title', $helmetId);
+                        if ($title !== '') {
+                            $slug = (string) get_post_field('post_name', $helmetId);
+                            $queryText = $this->searchQueryFromTitleOrSlug($title, $slug);
+                            $path = '/s';
+                            $query = 'k=' . rawurlencode($queryText);
+                        }
+                    }
+
                     $url = 'https://' . $targetHost . $path . ($query !== '' ? '?' . $query : '');
                 }
             }
@@ -769,9 +784,25 @@ final class RevenueService
             $parsed = wp_parse_url($originalUrl);
             if (is_array($parsed)) {
                 $targetHost = str_replace(['https://', 'http://', '/'], '', $targetDomain);
+                $originalHost = $parsed['host'] ?? '';
                 $path = $parsed['path'] ?? '/s';
                 $query = $parsed['query'] ?? '';
                 parse_str($query, $queryParams);
+
+                // If crossing to a different regional Amazon domain (e.g. amazon.com -> amazon.com.au)
+                // and the link is a direct product page (/dp/ or /gp/), regional stores will 404
+                // because ASINs are region-specific. Convert to a search query for the helmet title instead!
+                if ($originalHost !== '' && strtolower($originalHost) !== strtolower($targetHost) && (str_contains($path, '/dp/') || str_contains($path, '/gp/'))) {
+                    if ($helmetId > 0) {
+                        $title = (string) get_post_field('post_title', $helmetId);
+                        if ($title !== '') {
+                            $slug = (string) get_post_field('post_name', $helmetId);
+                            $queryText = $this->searchQueryFromTitleOrSlug($title, $slug);
+                            $path = '/s';
+                            $queryParams = ['k' => $queryText];
+                        }
+                    }
+                }
 
                 $revConfig = $this->config->revenueConfig();
                 $cCode = strtolower($country);
