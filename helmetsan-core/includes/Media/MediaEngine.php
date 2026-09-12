@@ -608,26 +608,37 @@ final class MediaEngine
      */
     public function sideloadToMediaLibrary(string $url, int $postId, string $provider = ''): array
     {
-        if ($url === '' || ! filter_var($url, FILTER_VALIDATE_URL)) {
+        if ($url === '') {
             return ['url' => '', 'attachment_id' => 0, 'error' => 'invalid_url'];
         }
-        $url = $this->normalizeImportUrl($url);
 
-        $existing = $this->findExistingAttachmentBySourceUrl($url);
-        if ($existing > 0) {
-            $existingUrl = (string) wp_get_attachment_url($existing);
-            if ($existingUrl !== '') {
-                return ['url' => $existingUrl, 'attachment_id' => $existing, 'error' => ''];
+        $isLocal = false;
+        if (file_exists($url) && is_file($url)) {
+            $isLocal = true;
+            $tmp = tempnam(sys_get_temp_dir(), 'hs_media');
+            copy($url, $tmp);
+        } else {
+            if (! filter_var($url, FILTER_VALIDATE_URL)) {
+                return ['url' => '', 'attachment_id' => 0, 'error' => 'invalid_url'];
             }
-        }
+            $url = $this->normalizeImportUrl($url);
 
-        require_once ABSPATH . 'wp-admin/includes/file.php';
-        require_once ABSPATH . 'wp-admin/includes/media.php';
-        require_once ABSPATH . 'wp-admin/includes/image.php';
+            $existing = $this->findExistingAttachmentBySourceUrl($url);
+            if ($existing > 0) {
+                $existingUrl = (string) wp_get_attachment_url($existing);
+                if ($existingUrl !== '') {
+                    return ['url' => $existingUrl, 'attachment_id' => $existing, 'error' => ''];
+                }
+            }
 
-        $tmp = download_url($url, 10);
-        if (is_wp_error($tmp)) {
-            return ['url' => '', 'attachment_id' => 0, 'error' => 'download_error: ' . $tmp->get_error_message()];
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+            require_once ABSPATH . 'wp-admin/includes/media.php';
+            require_once ABSPATH . 'wp-admin/includes/image.php';
+
+            $tmp = download_url($url, 10);
+            if (is_wp_error($tmp)) {
+                return ['url' => '', 'attachment_id' => 0, 'error' => 'download_error: ' . $tmp->get_error_message()];
+            }
         }
 
         $name = $this->buildImportFilename($postId, $url, $provider);

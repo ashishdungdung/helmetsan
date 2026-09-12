@@ -200,6 +200,16 @@ final class DistributorService
             }
         }
 
+        if (isset($data['categories']) && is_array($data['categories'])) {
+            $catTerms = array_filter(array_map(
+                static fn($item): string => sanitize_text_field((string) $item),
+                $data['categories']
+            ));
+            if ($catTerms !== []) {
+                wp_set_object_terms($postId, array_values($catTerms), 'distributor_category', false);
+            }
+        }
+
         return ['ok' => true, 'action' => $action, 'post_id' => $postId];
     }
 

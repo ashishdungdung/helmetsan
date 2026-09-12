@@ -126,9 +126,9 @@ $query = new WP_Query($queryArgs);
     </form>
 
     <?php if ($query->have_posts()) : ?>
-        <div class="helmet-grid">
+        <div class="helmet-grid hs-brand-grid">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
-                <?php get_template_part('template-parts/entity', 'card'); ?>
+                <?php get_template_part('template-parts/brand-card'); ?>
             <?php endwhile; ?>
         </div>
         <?php

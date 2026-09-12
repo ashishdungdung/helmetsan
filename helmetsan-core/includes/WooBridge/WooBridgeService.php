@@ -110,6 +110,23 @@ final class WooBridgeService
             \WC_Product_Variable::sync($productId);
             wc_delete_product_transients($productId);
             update_post_meta($helmetId, 'wc_variation_map_json', wp_json_encode($variationResults['map'], JSON_UNESCAPED_SLASHES));
+
+            // Link WooCommerce product translations via Polylang to avoid language-orphaned products
+            if (function_exists('pll_get_post_translations') && function_exists('pll_save_post_translations')) {
+                $helmetTranslations = pll_get_post_translations($helmetId);
+                if (is_array($helmetTranslations) && $helmetTranslations !== []) {
+                    $productTranslations = [];
+                    foreach ($helmetTranslations as $lang => $translatedHelmetId) {
+                        $wcId = (int) get_post_meta((int) $translatedHelmetId, 'wc_product_id', true);
+                        if ($wcId > 0 && get_post_status($wcId) === 'publish') {
+                            $productTranslations[$lang] = $wcId;
+                        }
+                    }
+                    if (count($productTranslations) > 1) {
+                        pll_save_post_translations($productTranslations);
+                    }
+                }
+            }
         }
 
         return [

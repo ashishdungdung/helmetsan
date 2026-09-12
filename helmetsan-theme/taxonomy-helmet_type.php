@@ -101,6 +101,7 @@ $args = [
     'post_status' => 'publish',
     'posts_per_page' => 18,
     'paged' => $paged,
+    'post_parent' => 0,
 ];
 
 $taxQuery = [];
@@ -144,9 +145,16 @@ if ($brandSlug !== '') {
     }
 
     if ($brandPost instanceof WP_Post) {
+        $brandId = $brandPost->ID;
+        if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+            $translatedId = pll_get_post($brandId, pll_current_language());
+            if ($translatedId > 0) {
+                $brandId = $translatedId;
+            }
+        }
         $metaQuery[] = [
             'key' => 'rel_brand',
-            'value' => (int) $brandPost->ID,
+            'value' => (int) $brandId,
         ];
     } else {
         // If brand slug is invalid, force 0 results instead of showing everything
@@ -310,14 +318,31 @@ if ($priceMax !== '') {
 }
 
 $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
+
+$pageTitle = '';
+if ($queriedObject instanceof WP_Term) {
+    $pageTitle = $queriedObject->name;
+    if (! str_contains(strtolower($pageTitle), 'helmet')) {
+        $pageTitle .= ' ' . __('Helmets', 'helmetsan-theme');
+    }
+} else {
+    $pageTitle = post_type_archive_title('', false);
+}
+if (empty($pageTitle)) {
+    $pageTitle = __('Helmet Catalog', 'helmetsan-theme');
+}
+
+$pageDescription = ($queriedObject instanceof WP_Term && ! empty($queriedObject->description))
+    ? $queriedObject->description
+    : __('Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation.', 'helmetsan-theme');
 ?>
-<section class="hs-section hs-section--archive">
+<section class="hs-section hs-section--archive hs-section--archive-wide">
     <div class="hs-section__head">
-        <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
-        <p>Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation.</p>
+        <h1><?php echo esc_html($pageTitle); ?></h1>
+        <p><?php echo esc_html($pageDescription); ?></p>
     </div>
 
-    <div class="hs-catalog">
+    <div class="hs-catalog hs-catalog--wide">
         <aside id="hsFilterPanel" class="hs-catalog__filters hs-panel" aria-label="Helmet filters">
             <div class="hs-catalog__filters-head">
                 <strong>Filters</strong>
@@ -428,28 +453,25 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 
             <?php if ($query->have_posts()) : ?>
                 <section class="hs-catalog__results-content">
-                    <div class="helmet-grid">
+                    <div class="hs-catalog-grid">
                         <?php while ($query->have_posts()) : $query->the_post(); ?>
                             <?php get_template_part('template-parts/helmet', 'card'); ?>
                         <?php endwhile; ?>
                     </div>
-                    <nav class="hs-pagination-wrap" aria-label="<?php esc_attr_e( 'Helmet catalog pages', 'helmetsan-theme' ); ?>">
+                    <div class="hs-pagination-footer">
                         <?php
-                        $term_link = ($queriedObject instanceof WP_Term) ? get_term_link($queriedObject) : $archiveUrl;
-                        $pagination_base_url = (is_wp_error($term_link)) ? $archiveUrl : (string) $term_link;
-                        $pagination_base = (string) add_query_arg(array_merge($currentQuery, [ 'paged' => '%#%' ]), $pagination_base_url);
-                        echo wp_kses_post(paginate_links([
-                            'base'      => $pagination_base,
-                            'format'    => '',
-                            'current'   => $paged,
-                            'total'     => $max_num_pages,
-                            'mid_size'  => 2,
-                            'prev_text' => '&larr; Prev',
-                            'next_text' => 'Next &rarr;',
-                            'type'      => 'plain',
-                        ]));
+                        $ppp = $query->get('posts_per_page');
+                        $start = (($paged - 1) * $ppp) + 1;
+                        $end = min($paged * $ppp, (int) $query->found_posts);
+                        $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $query->found_posts);
+
+                        get_template_part('template-parts/pagination-modern', null, [
+                            'paged' => $paged,
+                            'total' => $max_num_pages,
+                            'count_text' => $count_text
+                        ]);
                         ?>
-                    </nav>
+                    </div>
                 </section>
                 <?php wp_reset_postdata(); ?>
             <?php else : ?>
@@ -460,9 +482,18 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 </section>
 
 <div class="hs-mobile-tools" aria-label="Mobile catalog tools">
-    <button type="button" data-open-filter>Filter</button>
-    <button type="button" data-open-sort>Sort</button>
-    <button type="button" data-open-size>Size</button>
+    <button type="button" data-open-filter aria-controls="hsFilterPanel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 3H2l8 9v7l4 3v-10L22 3z"/></svg>
+        <span>Filter</span>
+    </button>
+    <button type="button" data-open-sort aria-label="Sort options">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M11 5L6 9l5 4M13 19l5-4-5-4M6 9h12M18 15H6"/></svg>
+        <span>Sort</span>
+    </button>
+    <button type="button" data-open-size aria-label="Quick size selection">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="7" y1="7" x2="17" y2="7"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="17" x2="12" y2="17"/></svg>
+        <span>Size</span>
+    </button>
 </div>
 <?php
 get_footer();

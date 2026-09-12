@@ -20,12 +20,14 @@ class QueueService
     public function __construct(Config $config)
     {
         $mediaSettings = get_option(Config::OPTION_MEDIA, $config->mediaDefaults());
-        $isQueueEnabled = !empty($mediaSettings['enable_cloudflare_queues']);
+        $cfSettings = get_option(Config::OPTION_CLOUDFLARE, []);
 
-        // For MVP, look for these in CONSTANTS or env.
-        $this->accountId = defined('HELMETSAN_CF_ACCOUNT_ID') ? HELMETSAN_CF_ACCOUNT_ID : '';
-        $this->apiToken  = defined('HELMETSAN_CF_API_TOKEN') ? HELMETSAN_CF_API_TOKEN : '';
-        $this->queueName = defined('HELMETSAN_CF_INGEST_QUEUE') ? HELMETSAN_CF_INGEST_QUEUE : 'helmetsan-ingest-queue';
+        $isQueueEnabled = !empty($cfSettings['enable_cloudflare_queues']) || !empty($mediaSettings['enable_cloudflare_queues']);
+
+        // Look in unified config first, then CONSTANTS/env, then old media settings.
+        $this->accountId = defined('HELMETSAN_CLOUDFLARE_ACCOUNT_ID') ? HELMETSAN_CLOUDFLARE_ACCOUNT_ID : (defined('HELMETSAN_CF_ACCOUNT_ID') ? HELMETSAN_CF_ACCOUNT_ID : ($cfSettings['cf_account_id'] ?? ($mediaSettings['r2_account_id'] ?? '')));
+        $this->apiToken  = defined('HELMETSAN_CLOUDFLARE_API_TOKEN') ? HELMETSAN_CLOUDFLARE_API_TOKEN : (defined('HELMETSAN_CF_API_TOKEN') ? HELMETSAN_CF_API_TOKEN : ($cfSettings['cf_api_token'] ?? ''));
+        $this->queueName = defined('HELMETSAN_CF_INGEST_QUEUE') ? HELMETSAN_CF_INGEST_QUEUE : ($cfSettings['queue_name'] ?? 'helmetsan-ingest-queue');
 
         $this->enabled = $isQueueEnabled && !empty($this->accountId) && !empty($this->apiToken);
     }

@@ -1,0 +1,60 @@
+/**
+ * Helmetsan Theme RTL Support Stylesheet.
+ * Automatically loaded by WordPress when is_rtl() is active.
+ */
+
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+}
+
+/* Reset float elements and alignment overrides for RTL */
+.alignleft {
+    float: right;
+    margin-right: 0;
+    margin-left: 1.5em;
+}
+
+.alignright {
+    float: left;
+    margin-left: 0;
+    margin-right: 1.5em;
+}
+
+/* Navigation & Flex Direction Adjustments */
+.site-topbar__inner,
+.site-header__inner,
+.hs-shell-header {
+    flex-direction: row-reverse;
+}
+
+.site-topbar__actions {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.menu--secondary {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* Breadcrumbs RTL support */
+.hs-breadcrumbs .sep {
+    transform: rotate(180deg);
+    display: inline-block;
+}
+
+/* Mega Menu alignment adjustments */
+.hs-primary-nav {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* Form Search alignments */
+.hs-search-bar button {
+    border-radius: var(--hs-radius-md, 6px) 0 0 var(--hs-radius-md, 6px);
+}
+.hs-search-bar input {
+    border-radius: 0 var(--hs-radius-md, 6px) var(--hs-radius-md, 6px) 0;
+}

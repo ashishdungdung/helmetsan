@@ -16,6 +16,27 @@ function helmetsan_ajax_filter_handler(): void
 {
     global $wpdb;
     
+    // Determine active language from request or Polylang context
+    $lang = !empty($_GET['lang']) ? sanitize_key((string) $_GET['lang']) : (function_exists('pll_current_language') ? pll_current_language() : 'en');
+
+    // Align Polylang context in admin-ajax mode
+    if (function_exists('pll_current_language') && $lang !== pll_current_language()) {
+        if (isset($GLOBALS['polylang']) && isset($GLOBALS['polylang']->model) && method_exists($GLOBALS['polylang']->model, 'get_language')) {
+            $langObj = $GLOBALS['polylang']->model->get_language($lang);
+            if ($langObj) {
+                $GLOBALS['polylang']->curlang = $langObj;
+            }
+        }
+    }
+
+    $cacheKey = 'hs_filter_' . $lang . '_' . md5(wp_json_encode($_GET));
+    $cached = get_transient($cacheKey);
+    
+    if ($cached !== false && !is_user_logged_in()) {
+        wp_send_json_success($cached);
+        exit;
+    }
+
     $indexTable = $wpdb->prefix . 'helmetsan_helmet_index';
     $postTable = $wpdb->posts;
     $metaTable = $wpdb->postmeta;
@@ -27,6 +48,11 @@ function helmetsan_ajax_filter_handler(): void
     $selectedCerts = isset($_GET['certification']) ? array_map('sanitize_text_field', (array)$_GET['certification']) : [];
     $selectedFeatures = isset($_GET['feature']) ? array_map('sanitize_text_field', (array)$_GET['feature']) : [];
     $selectedSize = isset($_GET['size']) ? array_map('sanitize_text_field', (array)$_GET['size']) : [];
+    
+    // New Technical Facets
+    $selectedSharp = isset($_GET['sharp_rating']) ? array_map('intval', (array)$_GET['sharp_rating']) : [];
+    $selectedStrap = isset($_GET['strap_type']) ? array_map('sanitize_text_field', (array)$_GET['strap_type']) : [];
+    $selectedComms = isset($_GET['comms_ready']) ? array_map('sanitize_text_field', (array)$_GET['comms_ready']) : [];
     
     $brandSlug = isset($_GET['brand_slug']) ? sanitize_title($_GET['brand_slug']) : '';
     $helmetFamily = isset($_GET['helmet_family']) ? sanitize_text_field($_GET['helmet_family']) : '';
@@ -41,6 +67,7 @@ function helmetsan_ajax_filter_handler(): void
         'post_status' => 'publish',
         'posts_per_page' => $perPage,
         'paged' => $page,
+        'post_parent' => 0,
     ];
 
     $taxQuery = [];
@@ -67,7 +94,14 @@ function helmetsan_ajax_filter_handler(): void
             $brandPost = get_page_by_path($altSlug, OBJECT, 'brand');
         }
         if ($brandPost) {
-            $metaQuery[] = ['key' => 'rel_brand', 'value' => $brandPost->ID];
+            $brandId = $brandPost->ID;
+            if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+                $translatedId = pll_get_post($brandId, pll_current_language());
+                if ($translatedId > 0) {
+                    $brandId = $translatedId;
+                }
+            }
+            $metaQuery[] = ['key' => 'rel_brand', 'value' => $brandId];
         } else {
             $args['post__in'] = [0];
         }
@@ -83,6 +117,18 @@ function helmetsan_ajax_filter_handler(): void
         }
         $metaQuery[] = $sizeQuery;
     }
+    
+    // New Meta Queries
+    if (!empty($selectedSharp)) {
+        $metaQuery[] = ['key' => 'sharp_rating', 'value' => $selectedSharp, 'compare' => 'IN', 'type' => 'NUMERIC'];
+    }
+    if (!empty($selectedStrap)) {
+        $metaQuery[] = ['key' => 'strap_type', 'value' => $selectedStrap, 'compare' => 'IN'];
+    }
+    if (!empty($selectedComms)) {
+        $metaQuery[] = ['key' => 'comms_ready', 'value' => $selectedComms, 'compare' => 'IN'];
+    }
+
     if ($priceMin > 0) {
         $metaQuery[] = ['key' => 'price_retail_usd', 'value' => $priceMin, 'type' => 'NUMERIC', 'compare' => '>='];
     }
@@ -100,13 +146,13 @@ function helmetsan_ajax_filter_handler(): void
         case 'price_desc':
             $args['meta_key'] = 'price_retail_usd'; $args['orderby'] = 'meta_value_num'; $args['order'] = 'DESC'; break;
         case 'top_rated':
-            $args['meta_key'] = 'safety_sharp_rating'; $args['orderby'] = 'meta_value_num'; $args['order'] = 'DESC'; break;
+            $args['meta_key'] = 'sharp_rating'; $args['orderby'] = 'meta_value_num'; $args['order'] = 'DESC'; break;
         case 'newest':
         default:
             $args['orderby'] = 'date'; $args['order'] = 'DESC'; break;
     }
 
-    if ($tableExists && (empty($selectedSize) && empty($helmetFamily) && $sort !== 'top_rated')) {
+    if ($tableExists && (empty($selectedSize) && empty($helmetFamily) && empty($selectedStrap) && empty($selectedComms))) {
         // Use wp_helmetsan_helmet_index for faster query
         $where = ["1=1"];
         $order = "post_id DESC";
@@ -126,11 +172,22 @@ function helmetsan_ajax_filter_handler(): void
         }
 
         if ($brandPost instanceof WP_Post) {
-            $where[] = "brand_id = " . intval($brandPost->ID);
+            $brandId = $brandPost->ID;
+            if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+                $translatedId = pll_get_post($brandId, pll_current_language());
+                if ($translatedId > 0) {
+                    $brandId = $translatedId;
+                }
+            }
+            $where[] = "brand_id = " . intval($brandId);
         }
 
         if ($priceMin > 0) $where[] = "price_usd >= " . floatval($priceMin);
         if ($priceMax > 0) $where[] = "price_usd <= " . floatval($priceMax);
+        
+        if (!empty($selectedSharp)) {
+            $where[] = "sharp_rating IN (" . implode(',', array_map('intval', $selectedSharp)) . ")";
+        }
 
         if (!empty($selectedCerts)) {
             $certNames = [];
@@ -164,6 +221,7 @@ function helmetsan_ajax_filter_handler(): void
 
         if ($sort === 'price_asc') $order = "price_usd ASC";
         if ($sort === 'price_desc') $order = "price_usd DESC";
+        if ($sort === 'top_rated') $order = "sharp_rating DESC, post_id DESC";
 
         $whereStr = implode(' AND ', $where);
         
@@ -184,7 +242,7 @@ function helmetsan_ajax_filter_handler(): void
             ];
             $query = new WP_Query($args);
             $query->found_posts = $totalResults;
-            $query->max_num_pages = ceil($totalResults / $perPage);
+            $query->max_num_pages = (int) ceil($totalResults / $perPage);
         } else {
             $query = new WP_Query(['post__in' => [0]]);
             $query->found_posts = 0;
@@ -224,29 +282,112 @@ function helmetsan_ajax_filter_handler(): void
         $ajax_query_args = array_filter($ajax_query_args, static function ($v) {
             return $v !== null && $v !== '' && $v !== [];
         });
-        $pagination_base = (string) add_query_arg($ajax_query_args, $archive_url);
 
-        echo '<nav class="hs-pagination-wrap" aria-label="Helmet catalog pages">';
-        echo paginate_links([
-            'base' => $pagination_base,
-            'format' => '',
-            'current' => $page,
+        $get_page_url = static function($pageNum) use ($archive_url, $ajax_query_args): string {
+            $args = $ajax_query_args;
+            if ($pageNum > 1) {
+                $args['paged'] = $pageNum;
+            }
+            return (string) add_query_arg($args, $archive_url);
+        };
+
+        $first_url = $get_page_url(1);
+        $prev_url = $get_page_url(max(1, $page - 1));
+        $next_url = $get_page_url(min($query->max_num_pages, $page + 1));
+
+        $start = (($page - 1) * $perPage) + 1;
+        $end = min($page * $perPage, $query->found_posts);
+        $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $query->found_posts);
+
+        echo '<div class="hs-pagination-footer">';
+        get_template_part('template-parts/pagination-modern', null, [
+            'paged' => $page,
             'total' => $query->max_num_pages,
-            'mid_size' => 2,
-            'prev_text' => '&larr; Prev',
-            'next_text' => 'Next &rarr;',
-            'type' => 'plain',
+            'count_text' => $count_text,
+            'first_url' => $first_url,
+            'prev_url' => $prev_url,
+            'next_url' => $next_url
         ]);
-        echo '</nav>';
+        echo '</div>';
     } else {
         echo '<p>No helmets found for the selected filters.</p>';
     }
     $html = ob_get_clean();
 
-    wp_send_json_success([
+    $responseData = [
         'html' => $html,
-        'count' => $query->found_posts,
+        'count' => (int) $query->found_posts,
         'max_pages' => (int) $query->max_num_pages,
         'current_page' => $page,
+    ];
+
+    if (!is_user_logged_in()) {
+        set_transient($cacheKey, $responseData, HOUR_IN_SECONDS);
+    }
+
+    wp_send_json_success($responseData);
+}
+
+add_action('wp_ajax_helmetsan_get_helmets_by_brand', 'helmetsan_ajax_get_helmets_by_brand_handler');
+add_action('wp_ajax_nopriv_helmetsan_get_helmets_by_brand', 'helmetsan_ajax_get_helmets_by_brand_handler');
+
+/**
+ * Return parent helmet models belonging to a specific brand for cascading selectors.
+ */
+function helmetsan_ajax_get_helmets_by_brand_handler(): void
+{
+    $brandId = isset($_GET['brand_id']) ? (int) $_GET['brand_id'] : 0;
+    if ($brandId <= 0) {
+        wp_send_json_success([]);
+        exit;
+    }
+
+    $cacheKey = 'hs_brand_helmets_' . $brandId;
+    $cached = get_transient($cacheKey);
+    if ($cached !== false && !is_user_logged_in()) {
+        wp_send_json_success($cached);
+        exit;
+    }
+
+    $helmetPosts = get_posts([
+        'post_type'      => 'helmet',
+        'post_status'    => 'publish',
+        'post_parent'    => 0,
+        'posts_per_page' => 150,
+        'meta_key'       => 'rel_brand',
+        'meta_value'     => $brandId,
+        'orderby'        => 'title',
+        'order'          => 'ASC',
     ]);
+
+    $out = [];
+    foreach ($helmetPosts as $h) {
+        if (! ($h instanceof WP_Post)) {
+            continue;
+        }
+        $title = trim($h->post_title);
+        if ($title === '') {
+            continue;
+        }
+        if (preg_match('/[\x{4e00}-\x{9fa5}]/u', $title)) {
+            continue;
+        }
+        $cleanedTitle = ltrim($title, '- ');
+        if ($cleanedTitle === '') {
+            continue;
+        }
+        $out[] = [
+            'id'    => (int) $h->ID,
+            'title' => $cleanedTitle,
+        ];
+    }
+
+    usort($out, static fn($a, $b) => strcasecmp($a['title'], $b['title']));
+
+    if (!is_user_logged_in()) {
+        set_transient($cacheKey, $out, HOUR_IN_SECONDS * 12);
+    }
+
+    wp_send_json_success($out);
+    exit;
 }

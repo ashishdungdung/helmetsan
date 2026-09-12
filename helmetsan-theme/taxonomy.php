@@ -22,6 +22,8 @@ if ($queriedObject instanceof WP_Term) {
         $currentTermPrefix = 'certification';
     } elseif ($queriedObject->taxonomy === 'feature_tag') {
         $currentTermPrefix = 'feature';
+    } elseif ($queriedObject->taxonomy === 'use_case') {
+        $currentTermPrefix = 'use_case';
     }
 }
 
@@ -54,6 +56,7 @@ $selectedTypes = $getArray('helmet_type');
 $selectedCerts = $getArray('certification');
 $selectedFeatures = $getArray('feature');
 $selectedSize = $getArray('size');
+$selectedUseCases = $getArray('use_case');
 
 // Auto-select if on taxonomy page (including helmet_brand so /brand/ls2/ shows LS2 helmets)
 if ($queriedObject instanceof WP_Term && empty($_GET)) {
@@ -63,6 +66,12 @@ if ($queriedObject instanceof WP_Term && empty($_GET)) {
         $selectedCerts = [$queriedObject->slug];
     } elseif ($queriedObject->taxonomy === 'feature_tag') {
         $selectedFeatures = [$queriedObject->slug];
+    } elseif ($queriedObject->taxonomy === 'use_case') {
+        if ($queriedObject->slug === 'commuting' || $queriedObject->slug === 'commuter') {
+            $selectedUseCases = ['commuting', 'commuter'];
+        } else {
+            $selectedUseCases = [$queriedObject->slug];
+        }
     }
 }
 // Brand slug: from queried helmet_brand term when on /brand/slug/, else from GET
@@ -82,6 +91,10 @@ if ($sort === '') {
 
 $helmetTypeTerms = get_terms([
     'taxonomy' => 'helmet_type',
+    'hide_empty' => true,
+]);
+$useCaseTerms = get_terms([
+    'taxonomy' => 'use_case',
     'hide_empty' => true,
 ]);
 $certTerms = get_terms([
@@ -106,6 +119,7 @@ $args = [
     'post_status' => 'publish',
     'posts_per_page' => 18,
     'paged' => max(1, get_query_var('paged')),
+    'post_parent' => 0,
 ];
 
 $taxQuery = [];
@@ -138,6 +152,13 @@ if ($selectedFeatures !== []) {
         'terms' => $selectedFeatures,
     ];
 }
+if ($selectedUseCases !== []) {
+    $taxQuery[] = [
+        'taxonomy' => 'use_case',
+        'field' => 'slug',
+        'terms' => $selectedUseCases,
+    ];
+}
 if ($taxQuery !== []) {
     if (count($taxQuery) > 1) {
         $taxQuery['relation'] = 'AND';
@@ -159,9 +180,16 @@ if ($brandSlug !== '' && ! $isHelmetBrandTerm) {
     }
 
     if ($brandPost instanceof WP_Post) {
+        $brandId = $brandPost->ID;
+        if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+            $translatedId = pll_get_post($brandId, pll_current_language());
+            if ($translatedId > 0) {
+                $brandId = $translatedId;
+            }
+        }
         $metaQuery[] = [
             'key' => 'rel_brand',
-            'value' => (int) $brandPost->ID,
+            'value' => (int) $brandId,
         ];
     } else {
         // If brand slug is invalid, force 0 results instead of showing everything
@@ -283,6 +311,10 @@ foreach ($selectedTypes as $slug) {
     $term = get_term_by('slug', $slug, 'helmet_type');
     $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : $slug), 'url' => $removeFilterUrl('helmet_type', $slug)];
 }
+foreach ($selectedUseCases as $slug) {
+    $term = get_term_by('slug', $slug, 'use_case');
+    $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : ucfirst(str_replace('-', ' ', $slug))), 'url' => $removeFilterUrl('use_case', $slug)];
+}
 foreach ($selectedCerts as $slug) {
     $term = get_term_by('slug', $slug, 'certification');
     $activeChips[] = ['label' => ($term instanceof WP_Term ? $term->name : $slug), 'url' => $removeFilterUrl('certification', $slug)];
@@ -308,11 +340,30 @@ if ($priceMax !== '') {
 }
 
 $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
+
+$pageTitle = '';
+if ($queriedObject instanceof WP_Term) {
+    $pageTitle = $queriedObject->name;
+    if ($queriedObject->taxonomy === 'use_case') {
+        $pageTitle .= ' ' . __('Helmets', 'helmetsan-theme');
+    } elseif ($queriedObject->taxonomy === 'helmet_type' && ! str_contains(strtolower($pageTitle), 'helmet')) {
+        $pageTitle .= ' ' . __('Helmets', 'helmetsan-theme');
+    }
+} else {
+    $pageTitle = post_type_archive_title('', false);
+}
+if (empty($pageTitle)) {
+    $pageTitle = __('Helmet Catalog', 'helmetsan-theme');
+}
+
+$pageDescription = ($queriedObject instanceof WP_Term && ! empty($queriedObject->description))
+    ? $queriedObject->description
+    : __('Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation.', 'helmetsan-theme');
 ?>
 <section class="hs-section hs-section--archive">
     <div class="hs-section__head">
-        <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
-        <p>Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation.</p>
+        <h1><?php echo esc_html($pageTitle); ?></h1>
+        <p><?php echo esc_html($pageDescription); ?></p>
     </div>
 
     <div class="hs-catalog">
@@ -342,6 +393,17 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                         <?php endforeach; endif; ?>
                     </div>
                 </details>
+
+                <?php if (is_array($useCaseTerms) && ! empty($useCaseTerms)) : ?>
+                <details class="hs-filter-group" open>
+                    <summary>Riding Style</summary>
+                    <div class="hs-filter-checks">
+                        <?php foreach ($useCaseTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
+                            <label><input type="checkbox" name="use_case[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedUseCases, true)); ?> /> <?php echo esc_html($term->name); ?></label>
+                        <?php endforeach; ?>
+                    </div>
+                </details>
+                <?php endif; ?>
 
                 <details class="hs-filter-group">
                     <summary>Brand</summary>
@@ -425,22 +487,26 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
             </div>
 
             <?php if ($query->have_posts()) : ?>
-                <div class="helmet-grid">
+                <div class="hs-catalog-grid">
                     <?php while ($query->have_posts()) : $query->the_post(); ?>
                         <?php get_template_part('template-parts/helmet', 'card'); ?>
                     <?php endwhile; ?>
                 </div>
-                <?php
-        the_posts_pagination([
-            'total' => $query->max_num_pages,
-            'add_args' => $currentQuery,
-            'mid_size'  => 2,
-            'prev_text' => __( '&larr; Prev', 'helmetsan-theme' ),
-            'next_text' => __( 'Next &rarr;', 'helmetsan-theme' ),
-            'screen_reader_text' => __( 'Helmet Navigation', 'helmetsan-theme' ),
-        ]);
-                wp_reset_postdata();
-                ?>
+                <div class="hs-pagination-footer">
+                    <?php
+                    $ppp = $query->get('posts_per_page');
+                    $start = (($args['paged'] - 1) * $ppp) + 1;
+                    $end = min($args['paged'] * $ppp, (int) $query->found_posts);
+                    $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $query->found_posts);
+
+                    get_template_part('template-parts/pagination-modern', null, [
+                        'paged' => $args['paged'],
+                        'total' => (int) $query->max_num_pages,
+                        'count_text' => $count_text
+                    ]);
+                    ?>
+                </div>
+                <?php wp_reset_postdata(); ?>
             <?php else : ?>
                 <p><?php esc_html_e('No helmets found for the selected filters.', 'helmetsan-theme'); ?></p>
             <?php endif; ?>
@@ -449,9 +515,18 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
 </section>
 
 <div class="hs-mobile-tools" aria-label="Mobile catalog tools">
-    <button type="button" data-open-filter>Filter</button>
-    <button type="button" data-open-sort>Sort</button>
-    <button type="button" data-open-size>Size</button>
+    <button type="button" data-open-filter aria-controls="hsFilterPanel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 3H2l8 9v7l4 3v-10L22 3z"/></svg>
+        <span>Filter</span>
+    </button>
+    <button type="button" data-open-sort aria-label="Sort options">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M11 5L6 9l5 4M13 19l5-4-5-4M6 9h12M18 15H6"/></svg>
+        <span>Sort</span>
+    </button>
+    <button type="button" data-open-size aria-label="Quick size selection">
+        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="7" y1="7" x2="17" y2="7"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="17" x2="12" y2="17"/></svg>
+        <span>Size</span>
+    </button>
 </div>
 <?php
 get_footer();

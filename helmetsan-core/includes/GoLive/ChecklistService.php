@@ -30,6 +30,7 @@ final class ChecklistService
         $health = $this->health->report();
         $smoke  = $this->smoke->run();
         $hygiene = $this->repoHygieneCheck();
+        $seoCheck = $this->seoDataQualityCheck();
 
         $checks = [
             [
@@ -125,8 +126,8 @@ final class ChecklistService
                 'label' => 'SEO baseline data present (brand + price + weight)',
                 'critical' => false,
                 'weight' => 6,
-                'passed' => $this->seoDataQualityCheck(),
-                'details' => 'Sampled helmets have required SEO fields',
+                'passed' => $seoCheck['passed'],
+                'details' => $seoCheck['details'],
             ],
         ];
 
@@ -165,30 +166,78 @@ final class ChecklistService
         ];
     }
 
-    private function seoDataQualityCheck(): bool
+    /**
+     * @return array{passed:bool,details:string}
+     */
+    private function seoDataQualityCheck(): array
     {
         $posts = get_posts([
             'post_type'      => 'helmet',
             'post_status'    => 'publish',
             'posts_per_page' => 20,
+            'orderby'        => 'ID',
+            'order'          => 'ASC',
             'fields'         => 'ids',
         ]);
 
         if (! is_array($posts) || $posts === []) {
-            return false;
+            return [
+                'passed' => false,
+                'details' => 'No published helmets found to sample',
+            ];
         }
+
+        $failed = [];
+        $totalSampled = count($posts);
 
         foreach ($posts as $postId) {
             $postId = (int) $postId;
-            $brand = (int) get_post_meta($postId, 'rel_brand', true);
-            $weight = (string) get_post_meta($postId, 'spec_weight_g', true);
-            $price = (string) get_post_meta($postId, 'price_retail_usd', true);
-            if ($brand <= 0 || $weight === '' || $price === '') {
-                return false;
+            $brand = 0;
+            $weight = '';
+            $price = '';
+
+            if (function_exists('helmetsan_core')) {
+                $brand = (int) helmetsan_core()->helmets()->getInheritedMeta($postId, 'rel_brand');
+                $weight = (string) helmetsan_core()->helmets()->getInheritedMeta($postId, 'spec_weight_g');
+                $price = (string) helmetsan_core()->helmets()->getInheritedMeta($postId, 'price_retail_usd');
+            } else {
+                $brand = (int) get_post_meta($postId, 'rel_brand', true);
+                $weight = (string) get_post_meta($postId, 'spec_weight_g', true);
+                $price = (string) get_post_meta($postId, 'price_retail_usd', true);
+            }
+            
+            $missing = [];
+            if ($brand <= 0) {
+                $missing[] = 'brand';
+            }
+            if ($weight === '') {
+                $missing[] = 'weight';
+            }
+            if ($price === '') {
+                $missing[] = 'price';
+            }
+
+            if ($missing !== []) {
+                $failed[] = "ID {$postId} (missing " . implode(', ', $missing) . ")";
             }
         }
 
-        return true;
+        if ($failed === []) {
+            return [
+                'passed' => true,
+                'details' => sprintf('All %d sampled helmets have required SEO fields', $totalSampled),
+            ];
+        }
+
+        return [
+            'passed' => false,
+            'details' => sprintf(
+                'Fail: %d/%d sampled helmets are missing fields. Examples: %s',
+                count($failed),
+                $totalSampled,
+                implode('; ', array_slice($failed, 0, 3))
+            ),
+        ];
     }
 
     /**

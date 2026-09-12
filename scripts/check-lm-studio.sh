@@ -1,7 +1,8 @@
 #!/bin/bash
 # Check if LM Studio is reachable
 
-LM_URL="${1:-http://192.168.2.240:1234/v1/models}"
+LOCAL_URL=$(php -r '$c = @include __DIR__ . "/local_config.php"; if (!$c) $c = @include "scripts/local_config.php"; echo ($c["lm_studio_base_url"] ?? "http://127.0.0.1:1234/v1") . "/models";')
+LM_URL="${1:-$LOCAL_URL}"
 
 echo "Checking LM Studio health at ${LM_URL}..."
 

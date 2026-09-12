@@ -804,26 +804,21 @@ final class Admin
 
         $merged['enable_redirect_tracking'] = ! empty($merged['enable_redirect_tracking']);
         $merged['default_affiliate_network'] = sanitize_text_field((string) $merged['default_affiliate_network']);
-        $merged['amazon_tag'] = sanitize_text_field((string) $merged['amazon_tag']);
-        $merged['amazon_tag_uk'] = sanitize_text_field((string) ($merged['amazon_tag_uk'] ?? ''));
-        $merged['amazon_tag_in'] = sanitize_text_field((string) ($merged['amazon_tag_in'] ?? ''));
-        $merged['amazon_tag_de'] = sanitize_text_field((string) ($merged['amazon_tag_de'] ?? ''));
-        $merged['amazon_tag_fr'] = sanitize_text_field((string) ($merged['amazon_tag_fr'] ?? ''));
-        // Preserve affiliate tags when submitted empty
+        $merged['amazon_tag'] = sanitize_text_field((string) ($merged['amazon_tag'] ?? ''));
         if ($merged['amazon_tag'] === '') {
             $merged['amazon_tag'] = (string) ($existing['amazon_tag'] ?? $defaults['amazon_tag']);
         }
-        if ($merged['amazon_tag_uk'] === '') {
-            $merged['amazon_tag_uk'] = (string) ($existing['amazon_tag_uk'] ?? '');
-        }
-        if ($merged['amazon_tag_in'] === '') {
-            $merged['amazon_tag_in'] = (string) ($existing['amazon_tag_in'] ?? '');
-        }
-        if ($merged['amazon_tag_de'] === '') {
-            $merged['amazon_tag_de'] = (string) ($existing['amazon_tag_de'] ?? '');
-        }
-        if ($merged['amazon_tag_fr'] === '') {
-            $merged['amazon_tag_fr'] = (string) ($existing['amazon_tag_fr'] ?? '');
+        $merged['amazon_onelink_enabled']    = ! empty($merged['amazon_onelink_enabled']);
+        $merged['amazon_onelink_id']         = sanitize_text_field((string) ($merged['amazon_onelink_id'] ?? ''));
+        $merged['amazon_onelink_parent_tag'] = sanitize_text_field((string) ($merged['amazon_onelink_parent_tag'] ?? 'vtete-20'));
+
+        $amazonRegions = ['uk', 'in', 'jp', 'ca', 'de', 'fr', 'it', 'es', 'nl', 'pl', 'se', 'be', 'au', 'br', 'mx', 'ae', 'sa', 'sg', 'ie', 'tr'];
+        foreach ($amazonRegions as $rCode) {
+            $rKey = 'amazon_tag_' . $rCode;
+            $merged[$rKey] = sanitize_text_field((string) ($merged[$rKey] ?? ''));
+            if ($merged[$rKey] === '') {
+                $merged[$rKey] = (string) ($existing[$rKey] ?? $defaults[$rKey] ?? '');
+            }
         }
         $code = (int) $merged['redirect_status_code'];
         $merged['redirect_status_code'] = in_array($code, [301, 302, 307, 308], true) ? $code : 302;
@@ -1298,11 +1293,17 @@ final class Admin
         $engines = $this->engineSnapshot();
 
         // Google Live Intelligence Services
+        $gaPeriod = isset($_GET['ga_period']) ? (int) $_GET['ga_period'] : 30;
+        if (!in_array($gaPeriod, [7, 30, 90], true)) {
+            $gaPeriod = 30;
+        }
+        $gaPeriodStr = "{$gaPeriod}daysAgo";
+
         $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
         $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
-        $gaOverview = $gaService->getOverviewMetrics('30daysAgo');
+        $gaOverview = $gaService->getOverviewMetrics($gaPeriodStr);
         $gscStatus = $gscService->getSiteStatus();
-        $gscOverview = $gscService->getOverviewMetrics(30);
+        $gscOverview = $gscService->getOverviewMetrics($gaPeriod);
         $gaOk = ! empty($gaOverview['ok']);
         $gscOk = ! empty($gscStatus['connected']);
 
@@ -1403,7 +1404,7 @@ final class Admin
         $this->renderActiveTasks();
 
         // Render Live Google Intelligence Section
-        $this->renderGoogleIntelligenceSection($gaService, $gscService, $gaOverview, $gscStatus, $gscOverview);
+        $this->renderGoogleIntelligenceSection($gaService, $gscService, $gaOverview, $gscStatus, $gscOverview, $gaPeriod);
 
         // Render Live Multilingual Matrix & Autonomous Metal LLM Section
         $this->renderMultilingualControlSection($helmetLangCounts, $enCount);
@@ -4417,16 +4418,60 @@ final class Admin
 
         // ── Revenue & Affiliates ─────────────────────────────────
         if ($activeTab === 'revenue') {
-            $this->renderSettingsSection('Redirect Tracking', 'Affiliate link redirection settings.', [
+            $this->renderSettingsSection('Redirect Tracking', 'Affiliate link redirection and network defaults.', [
                 ['key' => 'enable_redirect_tracking', 'option' => $O_R, 'label' => 'Enable Redirect Tracking', 'desc' => 'Track outbound clicks through /go/ redirects.', 'type' => 'checkbox', 'prefix' => 'rev_'],
                 ['key' => 'default_affiliate_network', 'option' => $O_R, 'label' => 'Default Network', 'desc' => 'Fallback affiliate network.', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag', 'option' => $O_R, 'label' => 'Amazon US/Default Tag', 'desc' => 'e.g. helmetsan-20', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag_uk', 'option' => $O_R, 'label' => 'Amazon UK Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag_in', 'option' => $O_R, 'label' => 'Amazon India Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag_de', 'option' => $O_R, 'label' => 'Amazon Germany Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
-                ['key' => 'amazon_tag_fr', 'option' => $O_R, 'label' => 'Amazon France Tag', 'desc' => 'Leave blank to use default', 'type' => 'text', 'prefix' => 'rev_'],
                 ['key' => 'redirect_status_code', 'option' => $O_R, 'label' => 'Redirect HTTP Code', 'desc' => '302 (temporary) or 301/307/308.', 'type' => 'select', 'choices' => ['301' => '301 Permanent', '302' => '302 Found (default)', '307' => '307 Temp Redirect', '308' => '308 Perm Redirect'], 'prefix' => 'rev_'],
             ], $revenue);
+
+            $this->renderSettingsSection('Amazon OneLink Universal Routing & Global Tag', 'Configure your primary Amazon OneLink parent account and optional edge redirection script.', [
+                ['key' => 'amazon_tag', 'option' => $O_R, 'label' => 'Amazon US / OneLink Parent Tag', 'desc' => 'Primary StoreID (e.g. vtete-20). Applied to US traffic and un-geotargeted fallback links for Amazon OneLink edge routing.', 'type' => 'text', 'prefix' => 'rev_'],
+                ['key' => 'amazon_onelink_enabled', 'option' => $O_R, 'label' => 'Enable Amazon OneTag Script', 'desc' => 'Injects Amazon OneLink onejs script asynchronously in the footer as an extra edge redirection layer.', 'type' => 'checkbox', 'prefix' => 'rev_'],
+                ['key' => 'amazon_onelink_id', 'option' => $O_R, 'label' => 'Amazon OneTag ID', 'desc' => 'OneLink adInstanceId or account key from Associates Central (optional).', 'type' => 'text', 'prefix' => 'rev_'],
+            ], $revenue);
+
+            $amazonMarketplaceList = [
+                'us' => ['name' => 'United States',        'flag' => '🇺🇸', 'domain' => 'www.amazon.com',    'default' => 'vtete-20'],
+                'uk' => ['name' => 'United Kingdom',       'flag' => '🇬🇧', 'domain' => 'www.amazon.co.uk',  'default' => 'vtete-21'],
+                'in' => ['name' => 'India',                'flag' => '🇮🇳', 'domain' => 'www.amazon.in',     'default' => 'virginiatete-21'],
+                'jp' => ['name' => 'Japan',                'flag' => '🇯🇵', 'domain' => 'www.amazon.co.jp',  'default' => 'vtete-22'],
+                'ca' => ['name' => 'Canada',               'flag' => '🇨🇦', 'domain' => 'www.amazon.ca',     'default' => 'vtete-20'],
+                'de' => ['name' => 'Germany',              'flag' => '🇩🇪', 'domain' => 'www.amazon.de',     'default' => 'vtete-20'],
+                'fr' => ['name' => 'France',               'flag' => '🇫🇷', 'domain' => 'www.amazon.fr',     'default' => 'vtete-20'],
+                'it' => ['name' => 'Italy',                'flag' => '🇮🇹', 'domain' => 'www.amazon.it',     'default' => 'vtete-20'],
+                'es' => ['name' => 'Spain',                'flag' => '🇪🇸', 'domain' => 'www.amazon.es',     'default' => 'vtete-20'],
+                'nl' => ['name' => 'Netherlands',          'flag' => '🇳🇱', 'domain' => 'www.amazon.nl',     'default' => 'vtete-20'],
+                'pl' => ['name' => 'Poland',               'flag' => '🇵🇱', 'domain' => 'www.amazon.pl',     'default' => 'vtete-20'],
+                'se' => ['name' => 'Sweden',               'flag' => '🇸🇪', 'domain' => 'www.amazon.se',     'default' => 'vtete-20'],
+                'be' => ['name' => 'Belgium',              'flag' => '🇧🇪', 'domain' => 'www.amazon.com.be', 'default' => 'vtete-20'],
+                'au' => ['name' => 'Australia',            'flag' => '🇦🇺', 'domain' => 'www.amazon.com.au', 'default' => 'vtete-20'],
+                'br' => ['name' => 'Brazil',               'flag' => '🇧🇷', 'domain' => 'www.amazon.com.br', 'default' => 'vtete-20'],
+                'mx' => ['name' => 'Mexico',               'flag' => '🇲🇽', 'domain' => 'www.amazon.com.mx', 'default' => 'vtete-20'],
+                'ae' => ['name' => 'United Arab Emirates', 'flag' => '🇦🇪', 'domain' => 'www.amazon.ae',     'default' => 'vtete08-21'],
+                'sa' => ['name' => 'Saudi Arabia',         'flag' => '🇸🇦', 'domain' => 'www.amazon.sa',     'default' => 'vtete-20'],
+                'sg' => ['name' => 'Singapore',            'flag' => '🇸🇬', 'domain' => 'www.amazon.sg',     'default' => 'vtete-20'],
+                'ie' => ['name' => 'Ireland',              'flag' => '🇮🇪', 'domain' => 'www.amazon.co.uk',  'default' => 'vtete-21'],
+                'tr' => ['name' => 'Turkey',               'flag' => '🇹🇷', 'domain' => 'www.amazon.com.tr', 'default' => 'vtete-20'],
+            ];
+
+            echo '<h2>Amazon Regional Affiliate StoreIDs (21 Marketplaces)</h2>';
+            echo '<p class="description" style="margin:-8px 0 16px;">Configure regional StoreIDs for Virginia Tete and international storefronts. Changing a StoreID here updates server-side redirects (/go/) and client-side buttons dynamically. Blank values default to the configured US/Global tag.</p>';
+            echo '<table class="widefat striped" style="max-width:960px;margin-bottom:24px;">';
+            echo '<thead><tr><th style="width:220px;">Country</th><th style="width:180px;">Amazon Storefront</th><th style="width:260px;">StoreID / Affiliate Tag</th><th>Default Fallback</th></tr></thead><tbody>';
+            foreach ($amazonMarketplaceList as $cCode => $cInfo) {
+                if ($cCode === 'us') {
+                    continue;
+                }
+                $fieldKey = 'amazon_tag_' . $cCode;
+                $val = (string) ($revenue[$fieldKey] ?? '');
+                echo '<tr>';
+                echo '<td><strong>' . esc_html($cInfo['flag']) . ' ' . esc_html($cInfo['name']) . '</strong> <code style="font-size:11px;color:#666;">(' . strtoupper(esc_html($cCode)) . ')</code></td>';
+                echo '<td><code>' . esc_html($cInfo['domain']) . '</code></td>';
+                echo '<td><input type="text" class="regular-text" style="width:220px;" name="' . esc_attr($O_R) . '[' . esc_attr($fieldKey) . ']" value="' . esc_attr($val) . '" placeholder="' . esc_attr($cInfo['default']) . '" /></td>';
+                echo '<td style="color:#666;font-size:12px;"><code>' . esc_html($cInfo['default']) . '</code></td>';
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
 
             // Per-network CPC
             $networkCpc = isset($revenue['network_cpc']) && is_array($revenue['network_cpc']) ? $revenue['network_cpc'] : [];
@@ -5132,15 +5177,28 @@ final class Admin
         \Helmetsan\Core\Analytics\GoogleSearchConsoleService $gscService,
         array $gaOverview,
         array $gscStatus,
-        array $gscOverview
+        array $gscOverview,
+        int $gaPeriod = 30
     ): void {
         $gaOk = !empty($gaOverview['ok']);
         $gscOk = !empty($gscStatus['connected']);
+        $gaPeriodStr = "{$gaPeriod}daysAgo";
 
-        $trendingHelmets = $gaOk ? $gaService->getTrendingHelmets(5, '30daysAgo') : [];
-        $topCountries = $gaOk ? $gaService->getTopCountries(5, '30daysAgo') : [];
-        $topQueries = $gscOk ? $gscService->getTopQueries(5, 30) : [];
-        $topPages = $gscOk ? $gscService->getTopPages(5, 30) : [];
+        $gaRealtime = $gaService->getRealtimeActiveUsers();
+        $gaDevices = $gaOk ? $gaService->getDeviceBreakdown($gaPeriodStr) : ['devices' => [], 'total_sessions' => 0];
+        $gaAnomalies = $gaService->getTrafficAnomaliesSummary();
+
+        $trendingHelmets = $gaOk ? $gaService->getTrendingHelmets(5, $gaPeriodStr) : [];
+        $topCountries = $gaOk ? $gaService->getTopCountries(5, $gaPeriodStr) : [];
+        $acquisitionChannels = $gaOk ? $gaService->getAcquisitionChannels($gaPeriodStr) : [];
+        $aiReferrals = $gaOk ? $gaService->getAiReferrals($gaPeriodStr) : ['total_sessions' => 0, 'platforms' => [], 'items' => []];
+        $lowConversionAudits = $gaOk ? $gaService->getLowConversionAudits(5, $gaPeriodStr, 5) : [];
+
+        $topQueries = $gscOk ? $gscService->getTopQueries(5, $gaPeriod) : [];
+        $strikingQueries = $gscOk ? $gscService->getStrikingDistanceQueries(5, $gaPeriod) : [];
+        $topPages = $gscOk ? $gscService->getTopPages(5, $gaPeriod) : [];
+        $gscSitemaps = $gscOk ? $gscService->getSitemapsList() : [];
+        $gscAppearance = $gscOk ? $gscService->getSearchAppearance($gaPeriod) : [];
 
         echo '<div class="hs-panel" style="margin-bottom: 24px; border: 1px solid rgba(10, 132, 255, 0.35); box-shadow: 0 4px 20px rgba(0,0,0,0.04); background: #ffffff;">';
         echo '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">';
@@ -5148,11 +5206,21 @@ final class Admin
         echo '<h3 style="margin: 0; font-size: 18px; display: flex; align-items: center; gap: 8px;">';
         echo '<span style="color: #0a84ff; font-size: 20px;">⚡</span> Google Live Intelligence: Analytics (GA4) & Search Console (GSC)';
         echo '</h3>';
-        echo '<p class="description" style="margin: 4px 0 0;">Real-time 30-day audience engagement, trending gear, and organic Google Search indexing telemetry.</p>';
+        echo '<p class="description" style="margin: 4px 0 0;">Live audience telemetry (' . esc_html((string) $gaPeriod) . ' days), AI search referrals, device distribution, and organic Google indexation.</p>';
         echo '</div>';
 
-        // Action Toolbar
+        // Action Toolbar & Timeframe Switcher
         echo '<div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">';
+        // Timeframe Pill Selector
+        echo '<div style="display: inline-flex; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; background: #f1f5f9;">';
+        foreach ([7, 30, 90] as $daysOpt) {
+            $isActive = ($gaPeriod === $daysOpt);
+            $btnStyle = $isActive ? 'background: #0a84ff; color: #fff; font-weight: 700;' : 'background: transparent; color: #475569;';
+            $targetUrl = add_query_arg(['page' => 'helmetsan-dashboard', 'ga_period' => $daysOpt], admin_url('admin.php'));
+            echo '<a href="' . esc_url($targetUrl) . '" style="padding: 5px 12px; font-size: 12px; text-decoration: none; transition: all 0.15s ease; ' . $btnStyle . '">' . esc_html((string) $daysOpt) . ' Days</a>';
+        }
+        echo '</div>';
+
         echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" style="display:inline;">';
         wp_nonce_field('helmetsan_refresh_google_intelligence');
         echo '<input type="hidden" name="action" value="helmetsan_refresh_google_intelligence">';
@@ -5175,14 +5243,63 @@ final class Admin
 
         // Feedback Alerts
         if (isset($_GET['google_refreshed'])) {
-            echo '<div class="notice notice-success is-dismissible" style="margin-bottom: 16px;"><p>✓ Live Google Analytics and Search Console data successfully refreshed from Google APIs.</p></div>';
+            echo '<div class="notice notice-success is-dismissible" style="margin-bottom: 16px;"><p>✓ Live Google Analytics and Search Console data successfully refreshed across all timeframes from Google APIs.</p></div>';
         }
         if (isset($_GET['ga4_synced'])) {
-            echo '<div class="notice notice-success is-dismissible" style="margin-bottom: 16px;"><p>✓ Successfully synchronized 30-day GA4 page views for ' . esc_html((string) (int) $_GET['ga4_synced']) . ' helmets into WordPress database.</p></div>';
+            echo '<div class="notice notice-success is-dismissible" style="margin-bottom: 16px;"><p>✓ Successfully synchronized ' . esc_html((string) $gaPeriod) . '-day GA4 page views for ' . esc_html((string) (int) $_GET['ga4_synced']) . ' helmets into WordPress database.</p></div>';
         }
         if (isset($_GET['gsc_sitemap'])) {
             $msg = sanitize_text_field(wp_unslash($_GET['gsc_msg'] ?? ''));
             echo '<div class="notice notice-success is-dismissible" style="margin-bottom: 16px;"><p>✓ GSC Sitemap Status: ' . esc_html($msg) . '</p></div>';
+        }
+
+        // Realtime Active Users Status Bar
+        $activeNow = (int) ($gaRealtime['active_users'] ?? 0);
+        $realtimeCountries = $gaRealtime['countries'] ?? [];
+        echo '<div style="background: #0f172a; color: #f8fafc; border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">';
+        echo '<div style="display: flex; align-items: center; gap: 10px;">';
+        echo '<span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>';
+        echo '<strong style="font-size: 13px; letter-spacing: 0.02em;">LIVE RIDERS ACTIVE:</strong> ';
+        echo '<span style="font-size: 16px; font-weight: 800; color: #38bdf8;">' . number_format($activeNow) . '</span> ';
+        echo '<span style="font-size: 12px; color: #94a3b8;">browsing helmetsan.com in the last 30 minutes</span>';
+        if (!empty($realtimeCountries)) {
+            $geoSnippets = [];
+            foreach (array_slice($realtimeCountries, 0, 4) as $rc) {
+                $geoSnippets[] = esc_html($rc['country']) . ': ' . (int) $rc['active_users'];
+            }
+            echo '<span style="font-size: 12px; color: #64748b; margin-left: 6px;">(' . implode(', ', $geoSnippets) . ')</span>';
+        }
+        echo '</div>';
+        echo '<span style="font-size: 11px; color: #64748b; font-family: monospace;">GA4 Realtime API</span>';
+        echo '</div>';
+
+        // Traffic Anomaly Banner (if flagged)
+        if (!empty($gaAnomalies['anomalies'])) {
+            echo '<div style="background: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px;">';
+            echo '<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">';
+            echo '<span style="font-size: 18px;">⚠️</span> <strong style="color: #b45309; font-size: 14px;">Traffic Anomalies Detected by Baseline Audit:</strong>';
+            echo '</div>';
+            echo '<ul style="margin: 0 0 0 24px; padding: 0; color: #92400e; font-size: 13px;">';
+            foreach ($gaAnomalies['anomalies'] as $anomaly) {
+                echo '<li><strong>' . esc_html($anomaly['country']) . '</strong>: Spiked to <strong>' . number_format((int) $anomaly['today']) . ' sessions</strong> on ' . esc_html($anomaly['target_date']) . ' (' . esc_html((string) $anomaly['factor']) . 'x of 7-day average ' . esc_html((string) $anomaly['average']) . ').</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+        }
+
+        // Generative AI / GEO Traffic Highlight Banner
+        if (!empty($aiReferrals['total_sessions']) && $aiReferrals['total_sessions'] > 0) {
+            $platformsList = !empty($aiReferrals['platforms']) ? implode(', ', array_keys($aiReferrals['platforms'])) : 'ChatGPT, Perplexity';
+            echo '<div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(10, 132, 255, 0.06) 100%); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">';
+            echo '<div style="display: flex; align-items: center; gap: 10px;">';
+            echo '<span style="font-size: 20px;">🤖</span>';
+            echo '<div>';
+            echo '<strong style="color: #065f46; font-size: 13px;">Generative AI / GEO Search Engine Referrals:</strong> ';
+            echo '<span style="font-size: 13px; color: #1e293b;"><strong>' . number_format((int) $aiReferrals['total_sessions']) . ' sessions</strong> inbound from AI platforms (' . esc_html($platformsList) . ').</span>';
+            echo '</div>';
+            echo '</div>';
+            echo '<span style="background: #10b981; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;">GEO Engine Active</span>';
+            echo '</div>';
         }
 
         // 2-Column Responsive Layout
@@ -5191,7 +5308,7 @@ final class Admin
         // COLUMN A: GA4
         echo '<div style="background: rgba(248, 250, 252, 0.85); border: 1px solid rgba(15, 23, 42, 0.08); border-radius: 10px; padding: 16px;">';
         echo '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">';
-        echo '<h4 style="margin: 0; font-size: 15px; font-weight: 600;">📈 Google Analytics 4 (GA4)</h4>';
+        echo '<h4 style="margin: 0; font-size: 15px; font-weight: 600;">📈 Google Analytics 4 (GA4) – ' . esc_html((string) $gaPeriod) . ' Days</h4>';
         echo wp_kses_post($this->renderStatusPill($gaOk ? 'CONNECTED' : 'OFFLINE', $gaOk));
         echo '</div>';
 
@@ -5220,8 +5337,50 @@ final class Admin
             echo '</div>';
             echo '</div>';
 
+            // Rider Device Categories Breakdown
+            $devices = $gaDevices['devices'] ?? [];
+            if (!empty($devices)) {
+                echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">📱 Rider Device Category Share (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
+                echo '<div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-bottom: 14px;">';
+                echo '<div style="display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin-bottom: 10px; background: #e2e8f0;">';
+                $deviceColors = ['mobile' => '#0a84ff', 'desktop' => '#10b981', 'tablet' => '#f59e0b'];
+                foreach ($devices as $cat => $d) {
+                    $pct = (float) ($d['share'] ?? 0);
+                    if ($pct > 0) {
+                        $col = $deviceColors[$cat] ?? '#64748b';
+                        echo '<div style="width: ' . esc_attr((string) $pct) . '%; background: ' . $col . ';" title="' . esc_attr(ucfirst($cat) . ': ' . $pct . '%') . '"></div>';
+                    }
+                }
+                echo '</div>';
+                echo '<div style="display: flex; justify-content: space-around; font-size: 12px; color: #475569;">';
+                foreach (['mobile' => '📱 Mobile', 'desktop' => '💻 Desktop', 'tablet' => '📟 Tablet'] as $key => $label) {
+                    $share = isset($devices[$key]) ? (float) $devices[$key]['share'] : 0.0;
+                    $sess = isset($devices[$key]) ? (int) $devices[$key]['sessions'] : 0;
+                    echo '<div><strong>' . $label . ':</strong> ' . esc_html((string) $share) . '% <span style="color:#94a3b8;">(' . number_format($sess) . ')</span></div>';
+                }
+                echo '</div>';
+                echo '</div>';
+            }
+
+            // Acquisition Channels Breakdown
+            if (!empty($acquisitionChannels)) {
+                echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🚦 Traffic Acquisition Channels (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
+                echo '<table class="widefat striped hs-table-compact" style="background:#fff; margin-bottom: 14px;">';
+                echo '<thead><tr><th>Channel Group</th><th>Source / Medium</th><th style="text-align:right;">Sessions</th><th style="text-align:right;">Users</th></tr></thead><tbody>';
+                foreach (array_slice($acquisitionChannels, 0, 5) as $ch) {
+                    $isAiRow = !empty($ch['is_ai']);
+                    echo '<tr>';
+                    echo '<td><strong>' . ($isAiRow ? '🤖 ' : '') . esc_html($ch['channel'] ?? 'Direct') . '</strong></td>';
+                    echo '<td><code>' . esc_html($ch['source_medium'] ?? '(direct)') . '</code></td>';
+                    echo '<td style="text-align:right; font-weight:600; color:' . ($isAiRow ? '#10b981' : '#0a84ff') . ';">' . number_format((int) ($ch['sessions'] ?? 0)) . '</td>';
+                    echo '<td style="text-align:right;">' . number_format((int) ($ch['active_users'] ?? 0)) . '</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            }
+
             // Trending Helmets
-            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🔥 Top Trending Helmets (30 Days)</h5>';
+            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🔥 Top Trending Helmets (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
             if (empty($trendingHelmets)) {
                 echo '<p class="description">No helmet pageviews recorded yet.</p>';
             } else {
@@ -5233,6 +5392,22 @@ final class Admin
                     echo '<td><code>' . esc_html($th['slug'] ?? '') . '</code></td>';
                     echo '<td style="text-align:right; font-weight:600; color:#0a84ff;">' . number_format((int) ($th['views'] ?? 0)) . '</td>';
                     echo '<td style="text-align:right;"><a class="button button-small" href="' . esc_url(get_edit_post_link((int) ($th['post_id'] ?? 0))) . '">Edit</a></td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            }
+
+            // Low Conversion / Monetization Opportunity
+            if (!empty($lowConversionAudits)) {
+                echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #b45309;">⚠️ Monetization Opportunities (Views with 0 Outbound Clicks)</h5>';
+                echo '<table class="widefat striped hs-table-compact" style="background:#fff; margin-bottom: 14px;">';
+                echo '<thead><tr><th>Helmet</th><th>Slug</th><th style="text-align:right;">Views</th><th style="text-align:right;">Action</th></tr></thead><tbody>';
+                foreach ($lowConversionAudits as $lca) {
+                    echo '<tr>';
+                    echo '<td><strong>' . esc_html($lca['title'] ?? 'Helmet') . '</strong></td>';
+                    echo '<td><code>' . esc_html($lca['slug'] ?? '') . '</code></td>';
+                    echo '<td style="text-align:right; font-weight:600; color:#e11d48;">' . number_format((int) ($lca['views'] ?? 0)) . '</td>';
+                    echo '<td style="text-align:right;"><a class="button button-small" href="' . esc_url(get_edit_post_link((int) ($lca['post_id'] ?? 0))) . '">Monetize</a></td>';
                     echo '</tr>';
                 }
                 echo '</tbody></table>';
@@ -5260,7 +5435,7 @@ final class Admin
         // COLUMN B: GSC
         echo '<div style="background: rgba(248, 250, 252, 0.85); border: 1px solid rgba(15, 23, 42, 0.08); border-radius: 10px; padding: 16px;">';
         echo '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">';
-        echo '<h4 style="margin: 0; font-size: 15px; font-weight: 600;">🔍 Google Search Console (GSC)</h4>';
+        echo '<h4 style="margin: 0; font-size: 15px; font-weight: 600;">🔍 Google Search Console (GSC) – ' . esc_html((string) $gaPeriod) . ' Days</h4>';
         echo wp_kses_post($this->renderStatusPill($gscOk ? 'CONNECTED' : 'OFFLINE', $gscOk));
         echo '</div>';
 
@@ -5289,8 +5464,45 @@ final class Admin
             echo '</div>';
             echo '</div>';
 
+            // GSC Sitemaps Status
+            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🗺️ GSC Sitemap Indexation Health</h5>';
+            if (empty($gscSitemaps)) {
+                echo '<div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 14px; font-size: 12px; color: #64748b;">No sitemaps queried or primary sitemap pending verification.</div>';
+            } else {
+                echo '<table class="widefat striped hs-table-compact" style="background:#fff; margin-bottom: 14px;">';
+                echo '<thead><tr><th>Sitemap</th><th style="text-align:right;">Warnings</th><th style="text-align:right;">Errors</th><th style="text-align:right;">Status</th></tr></thead><tbody>';
+                foreach (array_slice($gscSitemaps, 0, 4) as $sm) {
+                    $hasErr = ($sm['errors'] ?? 0) > 0;
+                    $statusLabel = $hasErr ? 'ERRORS' : ($sm['is_pending'] ? 'PENDING' : 'HEALTHY');
+                    $statusColor = $hasErr ? '#ef4444' : ($sm['is_pending'] ? '#f59e0b' : '#10b981');
+                    echo '<tr>';
+                    echo '<td><code>' . esc_html(basename((string) ($sm['path'] ?? ''))) . '</code></td>';
+                    echo '<td style="text-align:right;">' . (int) ($sm['warnings'] ?? 0) . '</td>';
+                    echo '<td style="text-align:right; font-weight:600; color:' . ($hasErr ? '#ef4444' : '#64748b') . ';">' . (int) ($sm['errors'] ?? 0) . '</td>';
+                    echo '<td style="text-align:right;"><span style="color:' . $statusColor . '; font-weight:700; font-size:11px;">' . esc_html($statusLabel) . '</span></td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            }
+
+            // Search Appearance (Rich Results)
+            if (!empty($gscAppearance)) {
+                echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #0284c7;">✨ Search Appearance & Rich Snippets (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
+                echo '<table class="widefat striped hs-table-compact" style="background:#fff; margin-bottom: 14px;">';
+                echo '<thead><tr><th>Rich Result Type</th><th style="text-align:right;">Impressions</th><th style="text-align:right;">Clicks</th><th style="text-align:right;">CTR</th></tr></thead><tbody>';
+                foreach (array_slice($gscAppearance, 0, 4) as $sa) {
+                    echo '<tr>';
+                    echo '<td><strong>' . esc_html(ucwords(str_replace('_', ' ', (string) ($sa['appearance'] ?? '')))) . '</strong></td>';
+                    echo '<td style="text-align:right;">' . number_format((int) ($sa['impressions'] ?? 0)) . '</td>';
+                    echo '<td style="text-align:right; font-weight:600; color:#138a36;">' . number_format((int) ($sa['clicks'] ?? 0)) . '</td>';
+                    echo '<td style="text-align:right;">' . esc_html((string) ($sa['ctr'] ?? 0.0)) . '%</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            }
+
             // Top Organic Queries
-            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🎯 Top Ranking Search Queries</h5>';
+            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">🎯 Top Ranking Search Queries (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
             if (empty($topQueries)) {
                 echo '<p class="description">No ranking queries reported in Search Console for this period.</p>';
             } else {
@@ -5307,8 +5519,24 @@ final class Admin
                 echo '</tbody></table>';
             }
 
+            // Striking Distance Keywords
+            if (!empty($strikingQueries)) {
+                echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #0284c7;">🎯 Striking Distance Keywords (Positions 4 - 25)</h5>';
+                echo '<table class="widefat striped hs-table-compact" style="background:#fff; margin-bottom: 14px;">';
+                echo '<thead><tr><th>Keyword</th><th style="text-align:right;">Position</th><th style="text-align:right;">Impressions</th><th style="text-align:right;">Opp. Score</th></tr></thead><tbody>';
+                foreach ($strikingQueries as $sq) {
+                    echo '<tr>';
+                    echo '<td><strong>' . esc_html($sq['query'] ?? '') . '</strong></td>';
+                    echo '<td style="text-align:right; font-weight:600; color:#0284c7;">#' . esc_html((string) ($sq['position'] ?? 0.0)) . '</td>';
+                    echo '<td style="text-align:right;">' . number_format((int) ($sq['impressions'] ?? 0)) . '</td>';
+                    echo '<td style="text-align:right; font-weight:700; color:#10b981;">' . esc_html((string) ($sq['opportunity_score'] ?? 0)) . '</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody></table>';
+            }
+
             // Top Landing Pages
-            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">📄 Top Organic Landing Pages</h5>';
+            echo '<h5 style="margin: 0 0 8px; font-size: 13px; color: #334155;">📄 Top Organic Landing Pages (' . esc_html((string) $gaPeriod) . ' Days)</h5>';
             if (empty($topPages)) {
                 echo '<p class="description">No landing page data available.</p>';
             } else {
@@ -5438,22 +5666,34 @@ final class Admin
         }
         check_admin_referer('helmetsan_refresh_google_intelligence');
 
-        delete_transient('helmetsan_ga4_overview_30daysago');
-        delete_transient('helmetsan_ga4_countries_30daysago');
-        delete_transient('helmetsan_gsc_overview_30d');
-        delete_transient('helmetsan_gsc_queries_30d');
-        delete_transient('helmetsan_gsc_pages_30d');
+        foreach ([7, 30, 90] as $p) {
+            delete_transient("helmetsan_ga4_overview_{$p}daysago");
+            delete_transient("helmetsan_ga4_countries_{$p}daysago");
+            delete_transient("helmetsan_ga4_devices_{$p}daysago");
+            delete_transient("helmetsan_gsc_overview_{$p}d");
+            delete_transient("helmetsan_gsc_queries_{$p}d");
+            delete_transient("helmetsan_gsc_pages_{$p}d");
+            delete_transient("helmetsan_gsc_appearance_{$p}d");
+        }
+        delete_transient('helmetsan_ga4_realtime');
+        delete_transient('helmetsan_ga4_anomalies_summary');
+        delete_transient('helmetsan_gsc_sitemaps');
         delete_transient('helmetsan_gsc_status');
 
         $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
         $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
 
+        $gaService->getRealtimeActiveUsers(true);
+        $gaService->getTrafficAnomaliesSummary(true);
         $gaService->getOverviewMetrics('30daysAgo', true);
+        $gaService->getDeviceBreakdown('30daysAgo', true);
         $gaService->getTopCountries(5, '30daysAgo', true);
         $gscService->getSiteStatus(true);
         $gscService->getOverviewMetrics(30, true);
         $gscService->getTopQueries(10, 30, true);
         $gscService->getTopPages(10, 30, true);
+        $gscService->getSitemapsList(true);
+        $gscService->getSearchAppearance(30, true);
 
         wp_safe_redirect(add_query_arg(['page' => 'helmetsan-dashboard', 'google_refreshed' => '1'], admin_url('admin.php')));
         exit;

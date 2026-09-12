@@ -25,6 +25,11 @@ final class DataLayerService
         $saved = get_option(Config::OPTION_ANALYTICS, []);
         $defaults = (new Config())->analyticsDefaults();
         $settings = wp_parse_args(is_array($saved) ? $saved : [], $defaults);
+
+        if (! empty($settings['exclude_admins']) && current_user_can('manage_options')) {
+            return false;
+        }
+
         return ! empty($settings['enable_analytics'])
             && (empty($settings['analytics_respect_monsterinsights']) || ! class_exists('MonsterInsights'));
     }

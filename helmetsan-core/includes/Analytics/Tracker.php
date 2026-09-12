@@ -9,10 +9,12 @@ use Helmetsan\Core\Support\Config;
 final class Tracker
 {
     private Config $config;
+    private ?\Helmetsan\Core\Geo\GeoService $geo;
 
-    public function __construct()
+    public function __construct(?\Helmetsan\Core\Geo\GeoService $geo = null)
     {
         $this->config = new Config();
+        $this->geo = $geo;
     }
 
     public function register(): void
@@ -48,14 +50,24 @@ final class Tracker
     public function enqueueScripts(): void
     {
         $theme_uri = get_stylesheet_directory_uri();
+        wp_enqueue_script(
+            'helmetsan-tracker',
+            $theme_uri . '/assets/js/tracker.js',
+            [],
+            '1.0.0',
+            true
+        );
+
+        $features = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $this->config->featuresDefaults());
+
+        wp_localize_script('helmetsan-tracker', 'helmetsanConfig', [
+            'endpoint' => esc_url_raw(rest_url('helmetsan/v1/event')),
+            'nonce'    => wp_create_nonce('helmetsan_event'),
+            'enableRealUserWebVitals' => !empty($features['enable_real_user_web_vitals']),
+            'enableAdblockBeacon'     => !empty($features['enable_adblock_beacon']),
+        ]);
+
         if (is_singular('helmet')) {
-            wp_enqueue_script(
-                'helmetsan-tracker',
-                get_template_directory_uri() . '/assets/js/tracker.js',
-                [],
-                '1.0.0',
-                true
-            );
             wp_enqueue_script(
                 'helmetsan-analytics-events',
                 $theme_uri . '/assets/js/analytics-events.js',
@@ -101,7 +113,47 @@ final class Tracker
         if ($gtm !== '') {
             $id = esc_js($gtm);
             echo "<!-- Helmetsan Analytics: GTM -->\n";
-            echo "<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');</script>\n";
+            echo "<script>(function(){
+                function isAutomatedClient(){
+                    try {
+                        if (navigator.webdriver) return true;
+                        var ua = navigator.userAgent || '';
+                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                        if (!navigator.languages || navigator.languages.length === 0) return true;
+                        if (window.outerWidth === 0 && window.outerHeight === 0) return true;
+                        var sw = window.screen ? window.screen.width : 0;
+                        var sh = window.screen ? window.screen.height : 0;
+                        var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
+                        if (sh >= 5000) return true;
+                        if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
+                            for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
+                                if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
+                            }
+                        }
+                        if (!isMobile) {
+                            if (sw === 1280 && sh === 1200) return true;
+                            if (sw === 1800 && sh === 1125) return true;
+                            if (sw === 800 && sh === 600) return true;
+                            if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
+                            if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                        }
+                        try {
+                            var canvas = document.createElement('canvas');
+                            var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                            if (gl) {
+                                var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                                if (debugInfo) {
+                                    var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+                                    if (/SwiftShader|llvmpipe|Mesa Offscreen|VirtualBox/i.test(renderer)) return true;
+                                }
+                            }
+                        } catch(glErr) {}
+                        return false;
+                    } catch(e) { return false; }
+                }
+                if (isAutomatedClient()) { return; }
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');
+            })();</script>\n";
             if ($ga4 === '' && $userId !== '') {
                 echo '<script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:"helmetsan_user_id",user_id:"' . esc_js($userId) . '"});</script>' . "\n";
             }
@@ -112,9 +164,55 @@ final class Tracker
         if ($ga4Valid) {
             $ga4e = esc_js($ga4);
             echo "<!-- Helmetsan Analytics: GA4 -->\n";
-            echo "<script async src=\"https://www.googletagmanager.com/gtag/js?id={$ga4e}\"></script>\n";
             $config = $userId !== '' ? ",{'user_id':'" . esc_js($userId) . "'}" : '';
-            echo "<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config','{$ga4e}'{$config});</script>\n";
+            echo "<script>(function(){
+                function isAutomatedClient(){
+                    try {
+                        if (navigator.webdriver) return true;
+                        var ua = navigator.userAgent || '';
+                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                        if (!navigator.languages || navigator.languages.length === 0) return true;
+                        if (window.outerWidth === 0 && window.outerHeight === 0) return true;
+                        var sw = window.screen ? window.screen.width : 0;
+                        var sh = window.screen ? window.screen.height : 0;
+                        var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
+                        if (sh >= 5000) return true;
+                        if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
+                            for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
+                                if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
+                            }
+                        }
+                        if (!isMobile) {
+                            if (sw === 1280 && sh === 1200) return true;
+                            if (sw === 1800 && sh === 1125) return true;
+                            if (sw === 800 && sh === 600) return true;
+                            if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
+                            if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                        }
+                        try {
+                            var canvas = document.createElement('canvas');
+                            var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                            if (gl) {
+                                var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                                if (debugInfo) {
+                                    var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+                                    if (/SwiftShader|llvmpipe|Mesa Offscreen|VirtualBox/i.test(renderer)) return true;
+                                }
+                            }
+                        } catch(glErr) {}
+                        return false;
+                    } catch(e) { return false; }
+                }
+                if (isAutomatedClient()) { return; }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id={$ga4e}';
+                document.head.appendChild(s);
+                window.dataLayer=window.dataLayer||[];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config','{$ga4e}'{$config});
+            })();</script>\n";
         } elseif ($ga4 !== '') {
             echo "<!-- Helmetsan Analytics: GA4 ID invalid (use format G-XXXXXXXXXX) -->\n";
         } else {
@@ -168,7 +266,46 @@ final class Tracker
         $f = $trackFile ? '1' : '0';
         $ep = $trackEmailPhone ? '1' : '0';
 
-        echo "<script>(function(){var cfg={endpoint:'{$endpoint}',nonce:'{$nonce}',o:{$o},s:{$s},sc:{$sc},f:{$f},ep:{$ep}};function send(n,m){var p={event_name:n,page_url:location.href,referrer:document.referrer||'',source:'frontend',meta:m||{},_wpnonce:cfg.nonce};try{if(window.dataLayer){window.dataLayer.push({event:n,helmetsan:p});}if(typeof window.gtag==='function')window.gtag('event',n,m||{});if(navigator.sendBeacon)navigator.sendBeacon(cfg.endpoint,new Blob([JSON.stringify(p)],{type:'application/json'}));}catch(e){}}document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a)return;var href=(a.getAttribute('href')||'').trim();if(!href)return;if(cfg.o&&href.indexOf('http')===0&&href.indexOf(location.origin)!==0)send('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});if(cfg.f&&/\\.(pdf|zip|doc|docx|xls|xlsx)(\\?|$)/i.test(href))send('file_download',{href:href});if(cfg.ep){if(href.indexOf('mailto:')===0)send('email_click',{href:href});if(href.indexOf('tel:')===0)send('phone_click',{href:href});}},true);if(cfg.s)document.addEventListener('submit',function(ev){var i=ev.target&&ev.target.querySelector('input[name=\"s\"]');if(!i)return;var q=(i.value||'').trim();if(q)send('internal_search',{query:q.slice(0,120)});},true);if(cfg.sc){var sd=[25,50,75,90],done={};window.addEventListener('scroll',function(){var h=Math.max(document.documentElement.scrollHeight-document.documentElement.clientHeight,1),y=window.scrollY||window.pageYOffset;sd.forEach(function(d){if(done[d])return;if((y/h)*100>=d){done[d]=1;send('scroll_depth',{depth:d});}});},{passive:true});}})();</script>\n";
+        echo "<script>(function(){
+            function isAutomatedClient(){
+                try {
+                    if (navigator.webdriver) return true;
+                    var ua = navigator.userAgent || '';
+                    if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                    if (!navigator.languages || navigator.languages.length === 0) return true;
+                    if (window.outerWidth === 0 && window.outerHeight === 0) return true;
+                    var sw = window.screen ? window.screen.width : 0;
+                    var sh = window.screen ? window.screen.height : 0;
+                    var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
+                    if (sh >= 5000) return true;
+                    if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
+                        for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
+                            if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
+                        }
+                    }
+                    if (!isMobile) {
+                        if (sw === 1280 && sh === 1200) return true;
+                        if (sw === 1800 && sh === 1125) return true;
+                        if (sw === 800 && sh === 600) return true;
+                        if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
+                        if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                    }
+                    try {
+                        var canvas = document.createElement('canvas');
+                        var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                        if (gl) {
+                            var debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                            if (debugInfo) {
+                                var renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '';
+                                if (/SwiftShader|llvmpipe|Mesa Offscreen|VirtualBox/i.test(renderer)) return true;
+                            }
+                        }
+                    } catch(glErr) {}
+                    return false;
+                } catch(e) { return false; }
+            }
+            if (isAutomatedClient()) { return; }
+            var cfg={endpoint:'{$endpoint}',nonce:'{$nonce}',o:{$o},s:{$s},sc:{$sc},f:{$f},ep:{$ep}};function send(n,m){var p={event_name:n,page_url:location.href,referrer:document.referrer||'',source:'frontend',meta:m||{},_wpnonce:cfg.nonce};try{if(window.dataLayer){window.dataLayer.push({event:n,helmetsan:p});}if(typeof window.gtag==='function')window.gtag('event',n,m||{});if(navigator.sendBeacon)navigator.sendBeacon(cfg.endpoint,new Blob([JSON.stringify(p)],{type:'application/json'}));}catch(e){}}document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a[href]'):null;if(!a)return;var href=(a.getAttribute('href')||'').trim();if(!href)return;if(cfg.o&&href.indexOf('http')===0&&href.indexOf(location.origin)!==0)send('outbound_click',{href:href,text:(a.textContent||'').trim().slice(0,120)});if(cfg.f&&/\\.(pdf|zip|doc|docx|xls|xlsx)(\\?|$)/i.test(href))send('file_download',{href:href});if(cfg.ep){if(href.indexOf('mailto:')===0)send('email_click',{href:href});if(href.indexOf('tel:')===0)send('phone_click',{href:href});}},true);if(cfg.s)document.addEventListener('submit',function(ev){var i=ev.target&&ev.target.querySelector('input[name=\"s\"]');if(!i)return;var q=(i.value||'').trim();if(q)send('internal_search',{query:q.slice(0,120)});},true);if(cfg.sc){var sd=[25,50,75,90],done={};window.addEventListener('scroll',function(){var h=Math.max(document.documentElement.scrollHeight-document.documentElement.clientHeight,1),y=window.scrollY||window.pageYOffset;sd.forEach(function(d){if(done[d])return;if((y/h)*100>=d){done[d]=1;send('scroll_depth',{depth:d});}});},{passive:true});}})();</script>\n";
     }
 
     /**
@@ -190,8 +327,17 @@ final class Tracker
             return false;
         }
 
+        if (! empty($settings['exclude_admins']) && current_user_can('manage_options')) {
+            return false;
+        }
+
         $respectMonsterInsights = ! empty($settings['analytics_respect_monsterinsights']);
         if ($respectMonsterInsights && class_exists('MonsterInsights')) {
+            return false;
+        }
+
+        // Disable analytics for users from China to avoid GFW load blocks
+        if (function_exists('helmetsan_is_china_visitor') && helmetsan_is_china_visitor()) {
             return false;
         }
 

@@ -20,13 +20,16 @@ Short map of where key subsystems live. **Read this first** before exploratory f
 | **SEO** | `includes/Seo/` | SchemaService, YoastSeoSeeder, AiSeoDescriptionProvider. |
 | **Search** | `includes/Search/SearchService.php` | Faceted helmet search: parseParams(), buildQueryArgs(), query(). Used by helmet archive; get via `helmetsan_core()->getSearchService()`. |
 | **Support** | `includes/Support/Config.php`, `Logger.php` | Config, logging. |
+| **Media** | `includes/Media/` | MediaEngine, HelmetImageEnrichmentService. |
+| **Media Admin**| `includes/Admin/MediaAdmin.php` | Media Health Dashboard, Task Queue triggers. |
 
 ## Theme (`helmetsan-theme/`)
 
 | Area | Path | Notes |
 |------|------|--------|
 | **Templates** | Root `.php` (e.g. `archive-helmet.php`), `template-parts/` | Template hierarchy, entity cards. |
-| **Assets** | `assets/` | CSS/JS. |
+| **Assets** | `assets/css/pages.css`, `assets/js/filters.js` | CSS styling (including glassmorphism filter sidebar) and interaction JS. |
+| **Certifications** | `assets/images/certifications/` | SVG badges for ECE, DOT, Snell, SHARP, ISI, FIM. |
 
 ## Data & config
 
@@ -34,7 +37,7 @@ Short map of where key subsystems live. **Read this first** before exploratory f
 |------|------|--------|
 | **JSON catalogs** | `data/` (repo) or plugin data root (Config) | helmets, brands, accessories, etc. |
 | **Schemas** | `data/schemas/` | helmet.schema.json, accessory.schema.json. |
-| **Scripts** | `scripts/` | Deploy, reseed, create_helmets_seed.php, etc. |
+| **Scripts** | `scripts/`, `deploy.sh` (root) | Ingestion/seeding scripts under `scripts/`. Root `deploy.sh` builds plugin/theme zips from source, deploys to VPS, invalidates Nginx FastCGI microcache, flushes WordPress object cache/transients, and performs health checks. |
 
 ## Docs
 
@@ -45,3 +48,5 @@ Short map of where key subsystems live. **Read this first** before exploratory f
 | `docs/data-flow.md` | JSON ↔ WordPress ↔ GitHub. |
 | `docs/COMMANDS_REFERENCE.md` | WP-CLI command list. |
 | `docs/HELMETSAN_SCOPE_AND_ROADMAP.md` | Product/tech scope and priorities. |
+| `docs/media-health-pipeline.md` | Phase C: Background generation & ingestion pipeline. |
+| [docs/migration-playbook.md](file:///Users/anumac/Documents/%20Projects/Helmetsan/docs/migration-playbook.md) | Step-by-step guide for provisioning a clean server, setting up WordPress, and importing data. |

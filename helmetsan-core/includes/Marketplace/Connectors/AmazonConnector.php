@@ -40,6 +40,12 @@ final class AmazonConnector implements MarketplaceConnectorInterface
         'IN' => ['mkt_id' => 'A21TJRUUN4KGV',  'endpoint' => 'https://sellingpartnerapi-eu.amazon.com', 'domain' => 'amazon.in'],
         'JP' => ['mkt_id' => 'A1VC38T7YXB528', 'endpoint' => 'https://sellingpartnerapi-fe.amazon.com', 'domain' => 'amazon.co.jp'],
         'AU' => ['mkt_id' => 'A39IBJ37TRP1C6', 'endpoint' => 'https://sellingpartnerapi-fe.amazon.com', 'domain' => 'amazon.com.au'],
+        'BR' => ['mkt_id' => 'A2Q3Y263D00KWC', 'endpoint' => 'https://sellingpartnerapi-na.amazon.com', 'domain' => 'amazon.com.br'],
+        'AE' => ['mkt_id' => 'A2VIGQ35RCS4UG', 'endpoint' => 'https://sellingpartnerapi-eu.amazon.com', 'domain' => 'amazon.ae'],
+        'SG' => ['mkt_id' => 'A19VAU5U5O7RUS', 'endpoint' => 'https://sellingpartnerapi-fe.amazon.com', 'domain' => 'amazon.sg'],
+        'SA' => ['mkt_id' => 'A17E79C6D8DWNP', 'endpoint' => 'https://sellingpartnerapi-eu.amazon.com', 'domain' => 'amazon.sa'],
+        'BE' => ['mkt_id' => 'AMEN7PMS3EDWL',  'endpoint' => 'https://sellingpartnerapi-eu.amazon.com', 'domain' => 'amazon.com.be'],
+        'IE' => ['mkt_id' => 'A21BTUP2JL7B5P', 'endpoint' => 'https://sellingpartnerapi-eu.amazon.com', 'domain' => 'amazon.ie'],
     ];
 
     private const TRANSIENT_PREFIX = 'helmetsan_amz_';
@@ -401,7 +407,7 @@ final class AmazonConnector implements MarketplaceConnectorInterface
             $mrp = (float) $regularPrice['Amount'];
         }
 
-        $tag = $this->config['affiliate_tag'] ?? 'helmetsan-20';
+        $tag = $this->config['affiliate_tag'] ?? 'vtete-20';
         $productUrl   = 'https://www.' . $region['domain'] . '/dp/' . $asin;
         $affiliateUrl = $productUrl . '?tag=' . rawurlencode($tag);
 

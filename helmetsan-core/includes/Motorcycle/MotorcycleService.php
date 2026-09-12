@@ -112,15 +112,15 @@ final class MotorcycleService
     public function upsertFromPayload(array $data, string $sourceFile = '', bool $dryRun = false): array
     {
         $externalId = isset($data['id']) ? sanitize_title((string) $data['id']) : '';
-        $make = isset($data['make']) ? sanitize_text_field((string) $data['make']) : '';
+        $make = isset($data['brand']) ? sanitize_text_field((string) $data['brand']) : (isset($data['make']) ? sanitize_text_field((string) $data['make']) : '');
         $model = isset($data['model']) ? sanitize_text_field((string) $data['model']) : '';
-        $segment = isset($data['segment']) ? sanitize_text_field((string) $data['segment']) : '';
+        $segment = isset($data['category']) ? sanitize_text_field((string) $data['category']) : (isset($data['segment']) ? sanitize_text_field((string) $data['segment']) : '');
         $title = isset($data['title']) && (string) $data['title'] !== ''
             ? sanitize_text_field((string) $data['title'])
             : trim($make . ' ' . $model);
 
         if ($title === '') {
-            return ['ok' => false, 'message' => 'Motorcycle payload missing make/model'];
+            return ['ok' => false, 'message' => 'Motorcycle payload missing title or brand/model'];
         }
 
         $existingId = 0;
@@ -148,9 +148,11 @@ final class MotorcycleService
         }
 
         $postArgs = [
-            'post_type'   => 'motorcycle',
-            'post_title'  => $title,
-            'post_status' => 'publish',
+            'post_type'    => 'motorcycle',
+            'post_title'   => $title,
+            'post_name'    => $externalId !== '' ? $externalId : sanitize_title($title),
+            'post_content' => isset($data['description']) ? wp_kses_post((string) $data['description']) : '',
+            'post_status'  => 'publish',
         ];
         if ($existingId > 0) {
             $postArgs['ID'] = $existingId;
@@ -176,16 +178,44 @@ final class MotorcycleService
 
         if ($make !== '') {
             update_post_meta($postId, 'motorcycle_make', $make);
+            update_post_meta($postId, 'brand', $make);
         }
         if ($model !== '') {
             update_post_meta($postId, 'motorcycle_model', $model);
         }
         if ($segment !== '') {
             update_post_meta($postId, 'bike_segment', $segment);
+            update_post_meta($postId, 'category', $segment);
         }
-        if (isset($data['engine_cc'])) {
-            update_post_meta($postId, 'engine_cc', (float) $data['engine_cc']);
+        $engineCc = $data['displacement_cc'] ?? $data['engine_cc'] ?? null;
+        if ($engineCc !== null) {
+            update_post_meta($postId, 'engine_cc', (float) $engineCc);
+            update_post_meta($postId, 'displacement_cc', (float) $engineCc);
         }
+        if (isset($data['power_hp'])) {
+            update_post_meta($postId, 'power_hp', (float) $data['power_hp']);
+        }
+        if (isset($data['torque_nm'])) {
+            update_post_meta($postId, 'torque_nm', (float) $data['torque_nm']);
+        }
+        if (isset($data['curb_weight_kg'])) {
+            update_post_meta($postId, 'curb_weight_kg', (float) $data['curb_weight_kg']);
+        }
+        if (isset($data['riding_position'])) {
+            update_post_meta($postId, 'riding_position', sanitize_text_field((string) $data['riding_position']));
+        }
+        if (isset($data['price']) && is_array($data['price'])) {
+            update_post_meta($postId, 'price_usd', (float) ($data['price']['usd'] ?? 0));
+            update_post_meta($postId, 'price_inr', (float) ($data['price']['inr'] ?? 0));
+            $this->setJsonMeta($postId, 'pricing_json', $data['price']);
+        }
+        if (isset($data['yoast_title'])) {
+            update_post_meta($postId, '_yoast_wpseo_title', sanitize_text_field((string) $data['yoast_title']));
+        }
+        if (isset($data['yoast_metadesc'])) {
+            update_post_meta($postId, '_yoast_wpseo_metadesc', sanitize_text_field((string) $data['yoast_metadesc']));
+        }
+
         $this->setJsonMeta($postId, 'recommended_helmet_types_json', $data['recommended_helmet_types'] ?? null);
 
         if (isset($data['regions']) && is_array($data['regions'])) {

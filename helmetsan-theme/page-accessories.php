@@ -195,11 +195,11 @@ if ($snow !== '') {
 }
 ?>
 
-<section class="hs-section">
-    <header class="hs-section__head">
+<section class="hs-section hs-section--archive">
+    <div class="hs-section__head">
         <h1><?php the_title(); ?></h1>
         <p>Accessory catalog with compatibility metadata and feature tags. Browse by category or filter the full list below.</p>
-    </header>
+    </div>
 
     <!-- Section 1: Accessory category cards (product type, not helmet type or brand) -->
     <div class="hs-accessories-categories">
@@ -215,8 +215,10 @@ if ($snow !== '') {
                     $link  = get_term_link($term);
                     $title = $term->name;
                     $desc  = $term->description ?: 'Explore ' . $term->name . '.';
-                    $img   = $themeDir . '/assets/images/hubs/accessory_category/' . $term->slug . '.png';
-                    if (! file_exists(get_stylesheet_directory() . '/assets/images/hubs/accessory_category/' . $term->slug . '.png')) {
+                    $img = function_exists('helmetsan_theme_resolve_image_url')
+                        ? helmetsan_theme_resolve_image_url('/assets/images/hubs/accessory_category/' . $term->slug . '.png')
+                        : ($themeDir . '/assets/images/hubs/accessory_category/' . $term->slug . '.png');
+                    if (! file_exists(get_stylesheet_directory() . '/assets/images/hubs/accessory_category/' . $term->slug . '.png') && ! file_exists(get_stylesheet_directory() . '/assets/images/hubs/accessory_category/' . $term->slug . '.avif')) {
                         $img = $heroImg;
                     }
                     ?>
@@ -351,7 +353,7 @@ if ($snow !== '') {
 
                 <?php if ($accessoryQuery->have_posts()) : ?>
                     <section class="hs-catalog__results-content">
-                        <div class="helmet-grid">
+                        <div class="hs-catalog-grid">
                             <?php
                             while ($accessoryQuery->have_posts()) {
                                 $accessoryQuery->the_post();
@@ -359,23 +361,18 @@ if ($snow !== '') {
                             }
                             ?>
                         </div>
-                        <div class="hs-pagination-wrap">
+                        <div class="hs-pagination-footer">
                             <?php
-                            global $wp_query;
-                            $original_query = $wp_query;
-                            $wp_query = $accessoryQuery; // phpcs:ignore
+                            $ppp = $accessoryQuery->get('posts_per_page');
+                            $start = (($paged - 1) * $ppp) + 1;
+                            $end = min($paged * $ppp, $accessoryQuery->found_posts);
+                            $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $accessoryQuery->found_posts);
 
-                            the_posts_pagination([
-                                'total'     => $accessoryQuery->max_num_pages,
-                                'current'   => $paged,
-                                'add_args'  => $currentQuery,
-                                'mid_size'  => 2,
-                                'prev_text' => __('&larr; Prev', 'helmetsan-theme'),
-                                'next_text' => __('Next &rarr;', 'helmetsan-theme'),
-                                'screen_reader_text' => __('Accessories navigation', 'helmetsan-theme'),
+                            get_template_part('template-parts/pagination-modern', null, [
+                                'paged' => $paged,
+                                'total' => (int) $accessoryQuery->max_num_pages,
+                                'count_text' => $count_text
                             ]);
-
-                            $wp_query = $original_query;
                             ?>
                         </div>
                     </section>

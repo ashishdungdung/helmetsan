@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Helmetsan\Core\Helmet;
 
+use Helmetsan\Core\Support\Config;
 use WP_Post;
 
 /**
@@ -14,6 +15,10 @@ final class HelmetService
     private const NONCE_ACTION = 'helmetsan_helmet_meta';
     private const NONCE_FIELD  = '_helmetsan_helmet_nonce';
 
+    public function __construct(
+        private readonly Config $config
+    ) {}
+
     /**
      * Register admin hooks for meta boxes.
      */
@@ -21,6 +26,14 @@ final class HelmetService
     {
         add_action('add_meta_boxes_helmet', [$this, 'registerMetaBoxes']);
         add_action('save_post_helmet', [$this, 'saveMeta'], 10, 2);
+        add_action('save_post_helmet', [$this, 'clearHelmetCache'], 20, 1);
+        
+        // Auto-sync custom meta and taxonomies across Polylang translations
+        add_action('save_post_helmet', [$this, 'syncTranslationsOnSave'], 30, 2);
+        add_action('save_post_accessory', [$this, 'syncTranslationsOnSave'], 30, 2);
+        add_action('save_post_motorcycle', [$this, 'syncTranslationsOnSave'], 30, 2);
+        add_action('save_post_brand', [$this, 'syncTranslationsOnSave'], 30, 2);
+        add_action('pll_save_post_translations', [$this, 'syncTranslationsOnLink'], 30, 1);
     }
 
     /**
@@ -38,16 +51,146 @@ final class HelmetService
             return '';
         }
 
-        $value = get_post_meta($post->ID, $key, true);
+        $perf = $this->config->performanceConfig();
+        $cacheEnabled = !empty($perf['enable_metadata_caching']);
+        $cacheKey = "hs_meta_{$post->ID}_{$key}_" . ($inherit ? '1' : '0');
 
-        // If explicitly requested to inherit and current value is empty, check parent
-        // Note: '[]' (empty JSON array) is treated as empty for inheritance.
+        if ($cacheEnabled) {
+            $cached = get_transient($cacheKey);
+            if ($cached !== false) {
+                return $cached;
+            }
+        }
+
+        $value = get_post_meta($post->ID, $key, true);
         $isEmpty = ($value === '' || $value === null || $value === [] || $value === '[]');
-        if ($inherit && $isEmpty && $post->post_parent > 0) {
-            return get_post_meta($post->post_parent, $key, true);
+
+        // 1. Child -> Parent inheritance (Variant inherits from Model)
+        if ($inherit && $isEmpty && (int) $post->post_parent > 0) {
+            $value = get_post_meta((int) $post->post_parent, $key, true);
+            $isEmpty = ($value === '' || $value === null || $value === [] || $value === '[]');
+        }
+
+        // 2. Parent -> Variant roll-up (Model inherits from one of its children variants if empty)
+        if ($inherit && $isEmpty && (int) $post->post_parent === 0) {
+            $childCacheKey = "hs_helmet_children_{$post->ID}";
+            $children      = wp_cache_get($childCacheKey);
+            if ($children === false) {
+                $children = get_posts([
+                    'post_type'        => 'helmet',
+                    'post_parent'      => $post->ID,
+                    'numberposts'      => 10,
+                    'fields'           => 'ids',
+                    'post_status'      => 'any',
+                    'suppress_filters' => true,
+                ]);
+                wp_cache_set($childCacheKey, $children, '', 3600);
+            }
+            if (is_array($children) && $children !== []) {
+                foreach ($children as $childId) {
+                    $childValue = get_post_meta($childId, $key, true);
+                    $childIsEmpty = ($childValue === '' || $childValue === null || $childValue === [] || $childValue === '[]');
+                    if (!$childIsEmpty) {
+                        $value = $childValue;
+                        $isEmpty = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // 3. Translation Fallback (Polylang master language post fallback)
+        if ($isEmpty) {
+            if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+                $defaultLang = pll_default_language();
+                $masterPostId = pll_get_post($post->ID, $defaultLang);
+                if ($masterPostId && $masterPostId > 0 && $masterPostId !== $post->ID) {
+                    $value = get_post_meta($masterPostId, $key, true);
+                    $isEmpty = ($value === '' || $value === null || $value === [] || $value === '[]');
+                    
+                    // Child -> Parent fallback on master translation post
+                    if ($inherit && $isEmpty) {
+                        $masterPost = get_post($masterPostId);
+                        if ($masterPost instanceof WP_Post && (int) $masterPost->post_parent > 0) {
+                            $value = get_post_meta((int) $masterPost->post_parent, $key, true);
+                            $isEmpty = ($value === '' || $value === null || $value === [] || $value === '[]');
+                        }
+                    }
+
+                    // Parent -> Variant roll-up on master translation post
+                    if ($inherit && $isEmpty) {
+                        $masterPost = get_post($masterPostId);
+                        if ($masterPost instanceof WP_Post && (int) $masterPost->post_parent === 0) {
+                            $masterChildCacheKey = "hs_helmet_children_{$masterPostId}";
+                            $masterChildren      = wp_cache_get($masterChildCacheKey);
+                            if ($masterChildren === false) {
+                                $masterChildren = get_posts([
+                                    'post_type'        => 'helmet',
+                                    'post_parent'      => $masterPostId,
+                                    'numberposts'      => 10,
+                                    'fields'           => 'ids',
+                                    'post_status'      => 'any',
+                                    'suppress_filters' => true,
+                                ]);
+                                wp_cache_set($masterChildCacheKey, $masterChildren, '', 3600);
+                            }
+                            if (is_array($masterChildren) && $masterChildren !== []) {
+                                foreach ($masterChildren as $childId) {
+                                    $childValue = get_post_meta($childId, $key, true);
+                                    $childIsEmpty = ($childValue === '' || $childValue === null || $childValue === [] || $childValue === '[]');
+                                    if (!$childIsEmpty) {
+                                        $value = $childValue;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if ($cacheEnabled) {
+            $ttl = (int) ($perf['cache_expiration_hours'] ?? 24) * HOUR_IN_SECONDS;
+            set_transient($cacheKey, $value, $ttl);
         }
 
         return $value;
+    }
+
+    /**
+     * Clear all metadata transients for a specific helmet.
+     * Note: This only clears the most common keys. For a full flush, use the admin action.
+     */
+    public function clearHelmetCache(int $postId): void
+    {
+        $keys = [
+            'marketing_description', 'technical_analysis', 'key_specs_json', 
+            'spec_weight_g', 'spec_shell_material', 'head_shape', 'helmet_family',
+            'homologation_standard', 'sharp_rating', 'rotational_tech', 'warranty_years',
+            'strap_type', 'visor_features_json', 'liner_features_json', 'noise_db_at_100kph',
+            'ventilation_score', 'comms_ready', 'compatible_accessories_json'
+        ];
+        foreach ($keys as $key) {
+            delete_transient("hs_meta_{$postId}_{$key}_0");
+            delete_transient("hs_meta_{$postId}_{$key}_1");
+        }
+
+        // If this is a parent post, clear transients for all children inheriting from it
+        $children = get_posts([
+            'post_type'   => 'helmet',
+            'post_parent' => $postId,
+            'fields'      => 'ids',
+            'numberposts' => -1,
+            'post_status' => 'any',
+        ]);
+        if (is_array($children) && $children !== []) {
+            foreach ($children as $childId) {
+                foreach ($keys as $key) {
+                    delete_transient("hs_meta_{$childId}_{$key}_1");
+                }
+            }
+        }
     }
 
     /**
@@ -66,9 +209,27 @@ final class HelmetService
         }
 
         $terms = get_the_terms($post->ID, $taxonomy);
+        $isEmpty = (is_wp_error($terms) || empty($terms));
 
-        if ($inherit && (is_wp_error($terms) || empty($terms)) && $post->post_parent > 0) {
-            return get_the_terms($post->post_parent, $taxonomy);
+        if ($inherit && $isEmpty && (int) $post->post_parent > 0) {
+            $terms = get_the_terms((int) $post->post_parent, $taxonomy);
+            $isEmpty = (is_wp_error($terms) || empty($terms));
+        }
+
+        // Translation Fallback: check Polylang master translation post (default language)
+        if ($isEmpty && function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterPostId = pll_get_post($post->ID, $defaultLang);
+            if ($masterPostId && $masterPostId > 0 && $masterPostId !== $post->ID) {
+                $terms = get_the_terms($masterPostId, $taxonomy);
+                $isEmpty = (is_wp_error($terms) || empty($terms));
+                if ($inherit && $isEmpty) {
+                    $masterPost = get_post($masterPostId);
+                    if ($masterPost instanceof WP_Post && (int) $masterPost->post_parent > 0) {
+                        $terms = get_the_terms((int) $masterPost->post_parent, $taxonomy);
+                    }
+                }
+            }
         }
 
         return $terms;
@@ -150,8 +311,8 @@ final class HelmetService
             // Check for inheritance hint
             $inheritedValue = '';
             $isInherited = false;
-            if ($post->post_parent > 0 && ($value === '' || $value === null || $value === '[]')) {
-                $inheritedValue = get_post_meta($post->post_parent, $key, true);
+            if ((int) $post->post_parent > 0 && ($value === '' || $value === null || $value === '[]')) {
+                $inheritedValue = get_post_meta((int) $post->post_parent, $key, true);
                 if ($inheritedValue !== '' && $inheritedValue !== null && $inheritedValue !== '[]') {
                     $isInherited = true;
                 }
@@ -290,6 +451,21 @@ final class HelmetService
                 'label' => 'Product Family',
                 'type'  => 'text',
                 'hint'  => 'Grouping key for series (e.g. RF-Series, Star-Series)'
+            ],
+            'homologation_standard' => [
+                'label' => 'Homologation Standard',
+                'type'  => 'text',
+                'hint'  => 'e.g. ECE 22.06, SNELL M2020D, FIM FRHPhe-01'
+            ],
+            'sharp_rating' => [
+                'label' => 'SHARP Rating (1-5)',
+                'type'  => 'number',
+                'hint'  => 'Safety stars from UK SHARP testing.'
+            ],
+            'rotational_tech' => [
+                'label' => 'Rotational Protection',
+                'type'  => 'text',
+                'hint'  => 'e.g. MIPS, AIM+, MEDS, FLEX'
             ]
         ];
     }
@@ -330,6 +506,21 @@ final class HelmetService
                     'Emergency Release System (EQRS)', 'Glasses Groove', 'Speaker Pockets'
                 ],
                 'hint'  => 'Select all that apply.'
+            ],
+            'noise_db_at_100kph' => [
+                'label' => 'Noise @ 100kph (dB)',
+                'type'  => 'text',
+                'hint'  => 'Wind noise level measured in decibels.'
+            ],
+            'ventilation_score' => [
+                'label' => 'Ventilation Score (1-10)',
+                'type'  => 'number',
+                'hint'  => 'Efficiency of air flow and cooling.'
+            ],
+            'comms_ready' => [
+                'label' => 'Comms Readiness',
+                'type'  => 'text',
+                'hint'  => 'e.g. Speaker Pockets, Integrated (Sena/Cardo), Pre-wired'
             ]
         ];
     }
@@ -356,5 +547,149 @@ final class HelmetService
                 'hint'  => 'References to accessory post IDs.'
             ]
         ];
+    }
+
+    /**
+     * Hook to sync translations when a post is saved.
+     */
+    public function syncTranslationsOnSave(int $postId, WP_Post $post): void
+    {
+        $this->syncPostTranslations($postId);
+    }
+
+    /**
+     * Hook to sync translations when translations are linked.
+     */
+    public function syncTranslationsOnLink(array $translations): void
+    {
+        $enPostId = $translations['en'] ?? 0;
+        if ($enPostId > 0) {
+            $this->syncPostTranslations($enPostId);
+        }
+    }
+
+    /**
+     * Synchronize technical specifications, custom meta, and taxonomy terms
+     * from the English master post to all of its Polylang translation posts.
+     */
+    public function syncPostTranslations(int $postId): void
+    {
+        static $syncing = false;
+        if ($syncing) {
+            return;
+        }
+
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return;
+        }
+
+        if (!function_exists('pll_get_post_translations') || !function_exists('pll_get_term')) {
+            return;
+        }
+
+        $post = get_post($postId);
+        if (!$post instanceof WP_Post) {
+            return;
+        }
+
+        $supportedPostTypes = ['helmet', 'accessory', 'motorcycle', 'brand'];
+        if (!in_array($post->post_type, $supportedPostTypes, true)) {
+            return;
+        }
+
+        $translations = pll_get_post_translations($postId);
+        if (empty($translations)) {
+            return;
+        }
+
+        $enPostId = $translations['en'] ?? 0;
+        if ($enPostId <= 0) {
+            return;
+        }
+
+        $syncing = true;
+
+        $syncKeys = [
+            // Helmet specs
+            'spec_weight_g', 'spec_weight_lbs', 'spec_shell_material', 'head_shape', 
+            'strap_type', 'noise_db_at_100kph', 'ventilation_score', 'comms_ready',
+            'emergency_release_system', 'multi_density_eps', 'glasses_grooves',
+            'removable_interior', 'integrated_sun_visor', 'pinlock_included',
+            'pinlock_type', 'breath_deflector', 'wind_tunnel_tested',
+            'visor_features_json', 'liner_features_json',
+            'sku', '_helmet_unique_id', 'rel_brand', 'helmet_family',
+            
+            // Accessory specs
+            'warranty_years', 'material', 'weight_g', 'waterproof_rating',
+            'battery_life_hours', 'connectivity_type',
+            
+            // Motorcycle specs
+            'seat_height_mm', 'fuel_capacity_liters', 'weight_wet_kg',
+            'transmission_type', 'horsepower', 'torque_nm', 'top_speed_kph',
+            
+            // Brand specs
+            'founded_year', 'headquarters_city', 'warranty_policy_url'
+        ];
+
+        // Get taxonomies for this post type
+        $taxonomies = get_object_taxonomies($post->post_type);
+        $excludeTaxonomies = ['post_translations', 'language'];
+
+        foreach ($translations as $lang => $translatedPostId) {
+            if ($translatedPostId === $enPostId) {
+                continue;
+            }
+
+            // 1. Sync custom metadata from English master post
+            foreach ($syncKeys as $key) {
+                $enMetaValues = get_post_meta($enPostId, $key);
+                // Delete existing meta values on translation to ensure exact sync
+                delete_post_meta($translatedPostId, $key);
+                foreach ($enMetaValues as $val) {
+                    update_post_meta($translatedPostId, $key, maybe_unserialize($val));
+                }
+            }
+
+            // Sync other non-technical/non-spec metadata only if empty on translation
+            $enAllMeta = get_post_meta($enPostId);
+            foreach ($enAllMeta as $key => $values) {
+                if (in_array($key, $syncKeys, true) || str_starts_with($key, '_edit_') || $key === '_thumbnail_id') {
+                    continue;
+                }
+                // Only copy if not set on the translation (avoids overwriting AI-translated fields)
+                $existingVal = get_post_meta($translatedPostId, $key, true);
+                if ($existingVal === '' || $existingVal === null || $existingVal === [] || $existingVal === '[]') {
+                    delete_post_meta($translatedPostId, $key);
+                    foreach ($values as $val) {
+                        update_post_meta($translatedPostId, $key, maybe_unserialize($val));
+                    }
+                }
+            }
+
+            // 2. Sync taxonomy terms
+            foreach ($taxonomies as $taxonomy) {
+                if (in_array($taxonomy, $excludeTaxonomies, true)) {
+                    continue;
+                }
+
+                $enTerms = wp_get_object_terms($enPostId, $taxonomy, ['fields' => 'ids']);
+                if (is_wp_error($enTerms) || empty($enTerms)) {
+                    wp_set_object_terms($translatedPostId, [], $taxonomy, false);
+                    continue;
+                }
+
+                $translatedTermIds = [];
+                foreach ($enTerms as $termId) {
+                    $translatedTermId = pll_get_term($termId, $lang);
+                    if ($translatedTermId) {
+                        $translatedTermIds[] = (int) $translatedTermId;
+                    }
+                }
+
+                wp_set_object_terms($translatedPostId, $translatedTermIds, $taxonomy, false);
+            }
+        }
+
+        $syncing = false;
     }
 }

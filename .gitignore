@@ -20,9 +20,12 @@ Thumbs.db
 node_modules/
 vendor/
 
-# Archives
+# Archives & Builds
 *.zip
 *.tar.gz
+*.sql.gz
+/dist/
+.playwright-mcp/
 
 # Accidental junk (identifiers extracted as root filenames)
 /config
@@ -58,3 +61,11 @@ credentials/
 *service-account*.json
 ash-*.json
 
+
+# Secrets directory
+secrets/
+
+# Local scripts config & daemon runtime state
+scripts/local_config.php
+scripts/*.pid
+scripts/*_state.json

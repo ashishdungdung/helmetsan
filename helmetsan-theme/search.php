@@ -13,7 +13,7 @@ get_header();
             <?php printf(esc_html__('Search Results for: %s', 'helmetsan-theme'), '<span>' . get_search_query() . '</span>'); ?>
         </h1>
         <div class="hs-archive-hero__content">
-            <form role="search" method="get" class="hs-search-bar" action="<?php echo esc_url( home_url( '/' ) ); ?>" style="margin-top: 1.5rem; margin-bottom: 0;">
+            <form role="search" method="get" class="hs-search-bar" action="<?php echo esc_url( helmetsan_url( '/' ) ); ?>" style="margin-top: 1.5rem; margin-bottom: 0;">
                 <label class="screen-reader-text" for="hs-page-search"><?php echo _x( 'Search for:', 'label', 'helmetsan-theme' ); ?></label>
                 <input type="search" id="hs-page-search" placeholder="<?php echo esc_attr_x( 'Search helmets, brands, accessories...', 'placeholder', 'helmetsan-theme' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
                 <button type="submit" class="hs-btn">Search</button>
@@ -25,12 +25,12 @@ get_header();
         <div class="hs-catalog__results" style="width: 100%;">
             <?php if (have_posts()) : ?>
                 <div class="hs-catalog__topbar hs-panel">
-                    <div class="hs-catalog__count">
+                    <h2 class="hs-catalog__count">
                         <?php
                         global $wp_query;
                         printf(esc_html(_n('%s result found', '%s results found', $wp_query->found_posts, 'helmetsan-theme')), number_format_i18n($wp_query->found_posts));
                         ?>
-                    </div>
+                    </h2>
                 </div>
 
                 <section class="hs-catalog__results-content" style="margin-top: 1.5rem;">

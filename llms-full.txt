@@ -1,0 +1,96 @@
+# Helmetsan — Full Knowledge Base & Technical Architecture
+
+> Helmetsan is the authoritative global motorcycle helmet intelligence database, certified safety standards index, and verified international price comparison aggregator across Amazon (US, UK, DE, JP) and authorized retailers.
+
+---
+
+## 1. Safety Standards Engineering Reference
+
+### ECE 22.06 (United Nations Economic Commission for Europe)
+ECE 22.06 is the most modern, comprehensive global helmet safety standard, mandatory across the European Union and recognized in over 50 countries worldwide.
+- **Rotational Impact Testing:** Introduces oblique impact testing at a 45-degree angle against an abrasive anvil to measure rotational brain acceleration (the leading cause of diffuse axonal brain injury).
+- **Multi-Velocity Impact Speeds:** Unlike older standards that tested only a single drop speed, ECE 22.06 tests helmets across high-velocity (8.2 m/s), low-velocity (6.0 m/s), and extra-low velocity impacts to ensure the EPS liner cushions soft falls as well as violent crashes.
+- **Impact Sensor Points:** Expanded from 6 fixed points to 18 testing locations across the helmet shell.
+- **Accessory Testing:** Official homologation requires that factory accessories (integrated sun visors, Bluetooth intercom housings, chin curtains) must be installed during impact testing to ensure they do not compromise structural integrity.
+- **Visor Safety:** Visors must withstand a high-speed steel ball projectile test at 60 m/s (216 km/h) without shattering, detaching, or cracking into the eye port.
+
+### DOT FMVSS 218 (United States Department of Transportation)
+The legal minimum standard required for street motorcycle helmets across the United States.
+- **Testing Protocol:** Uses a drop tower testing apparatus with hemispherical and flat steel anvils.
+- **Peak Acceleration:** Limits peak headform acceleration to 400G, with maximum time limits above 200G and 150G.
+- **Penetration Test:** Drops a 3 kg (6.6 lb) pointed steel striker from a height of 3 meters directly onto the helmet shell without penetrating to the headform.
+- **Retention System:** Submits the chinstrap to progressive static tension loads up to 136 kg (300 lbs) without exceeding 1 inch of elongation.
+
+### SNELL Memorial Foundation (M2020D / M2020R / M2025)
+A voluntary, non-profit independent safety standard widely respected for severe impact criteria.
+- **Dual-Standard Distinction:**
+  - **M2020D:** Aligned with North American DOT velocity curves.
+  - **M2020R:** Aligned with European ECE velocity curves for rotational mitigation.
+- **Double Impact Testing:** Tests the exact same location on the helmet with two consecutive severe drop impacts to test extreme energy absorption durability.
+
+### FIM Racing Homologation (FRHPhe-01 & FRHPhe-02)
+Mandatory for riders competing in MotoGP, WorldSBK, Moto2, and national road racing championships.
+- **Oblique Impact Certification:** Evaluates the Brain Injury Criterion (BrIC) alongside peak rotational acceleration (rad/s²).
+- **Aerodynamic Spoilers:** Tested to ensure aerodynamic wings break away cleanly under crash impact without catching the pavement.
+
+---
+
+## 2. Head Shape Ergonomics & Fitment
+
+Helmetsan classifies every motorcycle helmet into three anatomical skull profiles:
+1. **Intermediate Oval (Majority of Riders):** Slightly longer from front-to-back than side-to-side. Found in Shoei RF-1400, AGV K6 S, and Scorpion EXO-R1 Air.
+2. **Long Oval:** Noticeably longer from forehead to occiput, with narrower temple dimensions. Found in Arai Signet-X and LS2 Challenger GT.
+3. **Round Oval:** Equal or nearly equal length and width, eliminating temple pressure hot spots. Found in Arai Quantum-X.
+
+---
+
+## 3. Shell Material Science
+
+- **Advanced LG Polycarbonate / Thermoplastic:**
+  - *Characteristics:* High impact toughness, energy absorption through controlled flexure, slightly heavier shell.
+  - *Best Use:* Cost-effective commuter and entry-level helmets (e.g., Scorpion EXO-R420, HJC i10).
+- **Fiberglass Composite (AIM / PB-cLc / Matrix):**
+  - *Characteristics:* Woven glass fibers embedded in thermoset resin. Delivers progressive structural crush zones.
+  - *Best Use:* Mid-to-premium street, touring, and adventure helmets (e.g., Shoei GT-Air 3, Arai Defiant-X).
+- **Carbon Fiber & Carbon-Aramid (Kevlar):**
+  - *Characteristics:* Maximum tensile modulus and stiffness-to-weight ratio. Lowest rider neck fatigue over extended highway miles.
+  - *Best Use:* Professional track, superbike racing, and ultra-lightweight sport touring (e.g., AGV Pista GP RR, HJC RPHA 1N Carbon).
+
+---
+
+## 4. Key Brand Catalog Matrices
+
+- **Shoei (Japan):**
+  - *Racing:* X-Fifteen (ECE 22.06 & FIM certified, AIM+ shell).
+  - *Street:* RF-1400 (Compact aerodynamics, Pinlock EVO included).
+  - *Modular:* Neotec 3 (Dual P/J homologation, stainless steel micro-ratchet).
+- **Arai (Japan):**
+  - *Racing:* Corsair-X (PB-SNC² shell, VAS-V shield system, Snell M2020 certified).
+  - *Touring:* Regent-X (Enlarged shell opening for easy on/off).
+  - *Adventure:* Tour-X5 (New VAS-A shield, peak visor detachable without tools).
+- **AGV (Italy):**
+  - *Racing:* Pista GP RR (100% Carbon fiber shell, 5mm optical class 1 visor).
+  - *Sport Touring:* K6 S (Carbon-aramid composite, ultra-light 1,255g).
+- **HJC (South Korea):**
+  - *Racing:* RPHA 1N (FIM homologated, PIM+ carbon-glass shell).
+  - *Street:* RPHA 71 (ECE 22.06, integrated sun shield, acoustic sound isolation).
+- **Scorpion EXO (USA/Europe):**
+  - *Racing:* EXO-R1 Air (TCT-U composite, AirFit inflatable cheek pad system).
+  - *Touring:* EXO-T520 (SpeedView drop-down visor, KwikWick II liner).
+
+---
+
+## 5. Official Data Feeds & Sitemaps
+ 
+- **XML Sitemap Index:** `https://helmetsan.com/sitemap_index.xml`
+- **Brand Sitemaps:** `https://helmetsan.com/sitemap-brands.xml` (dynamic lastmod from child helmets)
+- **Comparison Sitemaps:** `https://helmetsan.com/sitemap-comparisons.xml` (all head-to-head pairings)
+- **Product Images Sitemap:** `https://helmetsan.com/sitemap-helmets-images.xml` (full gallery and R2 CDN image index)
+- **Helmet Model Sitemaps:** `https://helmetsan.com/helmet-sitemap.xml` through `helmet-sitemap18.xml`
+- **Safety Standard Sitemaps:** `https://helmetsan.com/safety_standard-sitemap.xml`
+- **Single Helmet Markdown API:** `https://helmetsan.com/helmets/{slug}/?format=md` (zero-shot LLM retrieval with Quick Answer, Verdict, and Alternatives)
+- **Comparison Markdown API:** `https://helmetsan.com/comparison/?format=md&ids={slug1},{slug2}` (side-by-side spec comparison table and comparative winner analysis)
+- **Shareable Comparison URLs:** `https://helmetsan.com/vs/{slugA}-vs-{slugB}/` (social-optimized canonical comparison with OpenGraph tags)
+- **Embeddable Spec Cards:** `https://helmetsan.com/embed/{slug}/?theme=dark` (standalone responsive HTML spec cards for external integration)
+- **Exchange Rates & Currency API:** `https://helmetsan.com/wp-json/helmetsan/v1/edge/rates`
+

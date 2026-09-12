@@ -84,3 +84,37 @@ description: Full AI governance — ATEP, guardrails, token optimization. Load o
 | Builder | ✅ | ✅ | ✅ | ✅ (guarded) | ❌ | Limited |
 | Refactor | ✅ | ✅ | ✅ | ✅ (guarded) | ❌ | ❌ |
 | Reviewer | Read | Read | Read | Read | Read | Read |
+
+## Deploy Workflow (CRITICAL)
+
+The deploy script always builds fresh zips from source. Never pre-build manually.
+
+```bash
+# Full deploy (theme + plugin)
+bash deploy.sh
+
+# Theme-only deploy (faster, use after CSS/PHP/template changes)
+bash deploy.sh --theme-only
+
+# Plugin-only deploy (use after helmetsan-core PHP changes)
+bash deploy.sh --plugin-only
+```
+
+The script auto-handles: build zips → upload → extract → set permissions → clear all caches → health check.
+
+### Manual Cache Flush (if needed)
+```bash
+ssh root@66.179.243.155 "rm -rf /var/cache/nginx/microcache/* && nginx -s reload"
+cd /var/www/helmetsan.com/public && wp cache flush --allow-root && wp transient delete --all --allow-root
+```
+
+## Known Gotchas & Hard-won Lessons
+
+| Gotcha | Root Cause | Fix |
+|--------|-----------|-----|
+| Theme/CSS reverts after deploy | `dist/` zips are stale. Old script used pre-built artifacts. | `bash deploy.sh` now ALWAYS builds fresh from source first. Never run old `scp dist/*.zip` pattern. |
+| Active filter chips not showing | `$active_chips` typo — correct variable is `$activeChips` in `archive-helmet.php` | Fixed June 2026. Variable is now `$activeChips` everywhere. |
+| Homepage shows German/Chinese | Polylang browser-language detection was enabled, Nginx cached the 302 redirect | Fixed: `browser => 0` in Polylang options. Never re-enable. |
+| Child theme assets 404 | `get_template_directory_uri()` returns parent theme path | Always use `get_stylesheet_directory_uri()` for child theme assets. |
+| OPcache serves old PHP after deploy | Nginx reload doesn't flush PHP-FPM OPcache | `deploy.sh` now runs `wp cache flush` which triggers OPcache reset via WP. |
+

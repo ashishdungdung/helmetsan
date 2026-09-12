@@ -75,10 +75,11 @@ wp helmetsan sync push --path=data/helmets --limit=200
    - **Option A (seed):** Add `data/helmets/master.json` (same structure as `master.example.json`). Generate seed with `--source-json=data/helmets/master.json`.
    - **Option B (path ingest):** Add or edit per-helmet JSONs in `data/helmets/*.json`. Use path-based ingest or sync pull to apply them.
 2. **Validate:** Use `scripts/create_helmets_seed.php --validate` for seed; use `schemas/` in `data/` for entity JSON if you have CI/CLI validation.
-3. **Sync:**  
-   - **Reseed (seed array):** Run `./scripts/reseed.sh` (generate → deploy → ingest-seed).  
-   - **Path-based / GitHub:** Run `wp helmetsan sync pull` (and optional apply) so the server gets the latest from GitHub, then run path-based ingest or let sync apply files.
-4. **Enrichment:** After ingest, run fill-missing, SEO seed, and cross-link as in the README and **`docs/ai-seeder-enrichment-roadmap.md`**.
+3. **Deploy & Sync:**  
+   - **Deploy Code Changes:** Run `bash deploy.sh` (or `bash deploy.sh --theme-only` / `bash deploy.sh --plugin-only`) to compile zip files from source, push them to the server, extract them, clear caches (Nginx FastCGI microcache + WordPress transients/OPcache), and run health checks.
+   - **Path-based / GitHub:** Run `wp helmetsan sync pull` (and optional apply) so the server gets the latest JSON from GitHub, then run path-based ingest or let sync apply files.
+4. **Enrichment:** After ingest, run fill-missing, SEO seed, and cross-link as in the README and **`docs/ai-seeder-enrichment-roadmap.md`**. Enforce parent post checks to avoid variant spam.
+
 
 ---
 

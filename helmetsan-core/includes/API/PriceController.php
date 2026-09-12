@@ -72,17 +72,29 @@ final class PriceController
         $country = $request->get_param('country');
 
         if ($postId <= 0) {
-            return new WP_REST_Response(['error' => true, 'message' => 'Invalid helmet ID'], 400);
+            return new WP_REST_Response(['error' => true, 'message' => 'Invalid ID'], 400);
         }
         $post = get_post($postId);
-        if (! $post || $post->post_type !== 'helmet') {
-            return new WP_REST_Response(['error' => true, 'message' => 'Helmet not found'], 404);
+        $allowedTypes = ['helmet', 'accessory', 'motorcycle'];
+        if (! $post || ! in_array($post->post_type, $allowedTypes, true)) {
+            return new WP_REST_Response(['error' => true, 'message' => 'Item not found'], 404);
+        }
+
+        if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterId = (int) pll_get_post($postId, $defaultLang);
+            if ($masterId && $masterId > 0) {
+                $postId = $masterId;
+                $post = get_post($masterId);
+            }
         }
 
         $best   = $this->priceService->getBestPrice($postId, $country);
         $offers = $this->priceService->getAllOffers($postId, $country);
 
         return new WP_REST_Response([
+            'post_id'    => $postId,
+            'post_type'  => $post->post_type,
             'helmet_id'  => $postId,
             'helmet_ref' => $post->post_name,
             'best_price' => $best !== null ? $best->toArray() : null,
@@ -104,18 +116,29 @@ final class PriceController
         $country     = $request->get_param('country');
 
         if ($postId <= 0) {
-            return new WP_REST_Response(['error' => true, 'message' => 'Invalid helmet ID'], 400);
+            return new WP_REST_Response(['error' => true, 'message' => 'Invalid ID'], 400);
         }
         $post = get_post($postId);
-        if (! $post || $post->post_type !== 'helmet') {
-            return new WP_REST_Response(['error' => true, 'message' => 'Helmet not found'], 404);
+        $allowedTypes = ['helmet', 'accessory', 'motorcycle'];
+        if (! $post || ! in_array($post->post_type, $allowedTypes, true)) {
+            return new WP_REST_Response(['error' => true, 'message' => 'Item not found'], 404);
+        }
+
+        if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+            $defaultLang = pll_default_language();
+            $masterId = (int) pll_get_post($postId, $defaultLang);
+            if ($masterId && $masterId > 0) {
+                $postId = $masterId;
+                $post = get_post($masterId);
+            }
         }
 
         $history = $this->priceHistory->getHistory(
             $postId,
             $days,
             $marketplace !== '' ? $marketplace : null,
-            $country !== '' && $country !== null ? $country : null
+            $country !== '' && $country !== null ? $country : null,
+            $post->post_type
         );
 
         // Group by marketplace for Chart.js multi-series
@@ -136,6 +159,8 @@ final class PriceController
         }
 
         return new WP_REST_Response([
+            'post_id'   => $postId,
+            'post_type' => $post->post_type,
             'helmet_id' => $postId,
             'days'      => $days,
             'series'    => array_values($series),

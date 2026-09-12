@@ -47,6 +47,7 @@ Maintain **Semantic Integrity** across ALL layers by following these strict cons
 ## 🚀 Autonomous Logic
 
 - **Routing**: If the task involves bulk spec extraction (e.g., "Enrich 50 helmets"), the system defaults to **Local AI**.
+- **State Check**: Bulk tasks must verify the `deep_enriched` flag. If the post has already been deeply enriched (`deep_enriched === '1'`), skip processing.
 - **Correction Loop**: If any AI layer encounters a validation error, it passes the error message to the **Local AI** for a "Correction Prompt" loop until `Validator::validateLogic` returns `ok`.
 - **Hybrid Correction Policy (24/7 Sweep)**:
   - **Auto-Commit**: If the Local AI generates a fix that passes all validation rules (schema + logic) with **zero errors and zero warnings**, it will overwrite the source file directly.
@@ -55,6 +56,8 @@ Maintain **Semantic Integrity** across ALL layers by following these strict cons
 
 ## 🛠️ Performance & Cost Rules
 
-- **Rule 1**: Avoid using Gemini for tasks that involve more than 20 repetitive items. Use `scripts/check-lm-studio.sh`.
+- **Rule 1**: Avoid using Gemini for tasks that involve more than 20 repetitive items. Use `scripts/check-lm-studio.sh` (LM Studio port `1234` at `http://192.168.2.74:1234/v1` or local Cloudflare Tunnel `https://ai.helmetsan.com/v1`).
 - **Rule 2**: If the Local AI is offline, **PAUSE** bulk tasks instead of falling back to Gemini (to save credits).
 - **Rule 3**: Use **PHPStan** for all logic verification first; only use AI for "ambiguous" semantic checks.
+- **Rule 4**: Batch processes must query only parent posts (`post_parent => 0`) to prevent duplicate credit consumption on child variants.
+

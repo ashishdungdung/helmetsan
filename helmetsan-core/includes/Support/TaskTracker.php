@@ -138,18 +138,18 @@ final class TaskTracker
         return $tasks;
     }
 
-    public function queueLaunch(string $actionType, string $id): void
+    public function queueLaunch(string $actionType, string $id, array $extra = []): void
     {
         $dir = $this->getTasksDir() . '/queue';
         if (! is_dir($dir)) {
             wp_mkdir_p($dir);
         }
         $file = $dir . '/' . sanitize_file_name($id) . '.json';
-        file_put_contents($file, wp_json_encode([
+        file_put_contents($file, wp_json_encode(array_merge([
             'id' => $id,
             'action' => $actionType,
             'queued_at' => time()
-        ]));
+        ], $extra)));
     }
 
     private function getTaskFilePath(string $id): string

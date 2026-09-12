@@ -38,6 +38,14 @@ final class AutoSeoObserver
         add_filter('wpseo_canonical', [$this, 'filterHelmetCanonicalUrl']);
         add_filter('get_canonical_url', [$this, 'filterHelmetCanonicalUrl']);
 
+        // Dynamic archive titles & descriptions for filtered/paginated catalog
+        add_filter('wpseo_title', [$this, 'filterArchiveTitle'], 90);
+        add_filter('document_title_parts', [$this, 'filterDocumentTitleParts'], 90);
+        add_filter('wpseo_metadesc', [$this, 'filterArchiveMetaDescription'], 90);
+
+        // Pagination rel="prev" / rel="next" link tags
+        add_action('wp_head', [$this, 'printPaginationLinkTags'], 5);
+
         // Handle quality governance & noindex tags for thin/placeholder pages
         add_action('template_redirect', [$this, 'handleQualityAndNoindexGovernance']);
     }
@@ -159,6 +167,18 @@ final class AutoSeoObserver
      */
     public function filterHelmetCanonicalUrl(mixed $canonical): mixed
     {
+        global $wp_query;
+
+        // 1. Canonical consolidation for zero-result archive/filter queries
+        if (isset($wp_query) && $wp_query->is_main_query() && (int) $wp_query->found_posts === 0) {
+            $isBrandFilter = isset($_GET['brand_slug']) || isset($_GET['sort']);
+            $isArchiveOrSearch = is_archive() || is_search() || is_tax() || is_category() || is_tag() || is_post_type_archive();
+            if ($isArchiveOrSearch || $isBrandFilter) {
+                $cleanArchive = get_post_type_archive_link('helmet');
+                return is_string($cleanArchive) && $cleanArchive !== '' ? $cleanArchive : home_url('/helmets/');
+            }
+        }
+
         if (! is_singular('helmet')) {
             return $canonical;
         }
@@ -268,9 +288,16 @@ final class AutoSeoObserver
         }
 
         // 5. Main archive/search query has 0 found posts
-        if (($isArchiveOrSearch || $isBrandFilter) && $wp_query->is_main_query() && $wp_query->found_posts === 0) {
+        if (($isArchiveOrSearch || $isBrandFilter) && $wp_query->is_main_query() && (int) $wp_query->found_posts === 0) {
             $shouldNoindex = true;
             $robotsDirective = 'noindex, nofollow';
+            $wp_query->is_404 = false;
+
+            if (! headers_sent()) {
+                status_header(200);
+            }
+
+            $this->logEmptyFilterCombo();
         }
 
         // 6. Pagination page exceeds total pages for archives
@@ -306,5 +333,221 @@ final class AutoSeoObserver
                 return $robotsDirective;
             }, 99);
         }
+    }
+
+    /**
+     * Log zero-result filter queries to a transient ring buffer for administrative review.
+     */
+    private function logEmptyFilterCombo(): void
+    {
+        if (is_admin() || (defined('REST_REQUEST') && REST_REQUEST)) {
+            return;
+        }
+
+        $params = array_filter(
+            $_GET,
+            static fn($k) => !in_array($k, ['hs_warm_bypass', '_wpnonce'], true),
+            ARRAY_FILTER_USE_KEY
+        );
+
+        if (empty($params)) {
+            return;
+        }
+
+        $logKey = 'hs_empty_filter_log';
+        $entries = get_transient($logKey);
+        if (!is_array($entries)) {
+            $entries = [];
+        }
+
+        $comboKey = md5(wp_json_encode($params));
+        $now = current_time('mysql');
+
+        if (isset($entries[$comboKey])) {
+            $entries[$comboKey]['hits'] = ($entries[$comboKey]['hits'] ?? 1) + 1;
+            $entries[$comboKey]['last_seen'] = $now;
+        } else {
+            if (count($entries) >= 50) {
+                array_shift($entries);
+            }
+            $entries[$comboKey] = [
+                'params'    => $params,
+                'hits'      => 1,
+                'last_seen' => $now,
+            ];
+        }
+
+        set_transient($logKey, $entries, 7 * DAY_IN_SECONDS);
+    }
+
+    /**
+     * Generate dynamic title for helmet archives, brand filters, and pagination.
+     */
+    public function filterArchiveTitle(mixed $title): mixed
+    {
+        if (! $this->isHelmetCatalogArchive()) {
+            return $title;
+        }
+
+        $dynamicTitle = $this->buildDynamicArchiveTitle();
+        return $dynamicTitle !== '' ? $dynamicTitle : $title;
+    }
+
+    /**
+     * Filter core WordPress document_title_parts.
+     *
+     * @param array<string, string> $parts
+     * @return array<string, string>
+     */
+    public function filterDocumentTitleParts(array $parts): array
+    {
+        if (! $this->isHelmetCatalogArchive()) {
+            return $parts;
+        }
+
+        $dynamicTitle = $this->buildDynamicArchiveTitle(false);
+        if ($dynamicTitle !== '') {
+            $parts['title'] = $dynamicTitle;
+            unset($parts['page']);
+        }
+
+        return $parts;
+    }
+
+    /**
+     * Filter Yoast meta description for helmet catalog archives.
+     */
+    public function filterArchiveMetaDescription(mixed $desc): mixed
+    {
+        if (! $this->isHelmetCatalogArchive()) {
+            return $desc;
+        }
+
+        $dynamicDesc = $this->buildDynamicArchiveDescription();
+        return $dynamicDesc !== '' ? $dynamicDesc : $desc;
+    }
+
+    /**
+     * Print rel="prev" and rel="next" links on paginated archives.
+     */
+    public function printPaginationLinkTags(): void
+    {
+        global $wp_query;
+
+        if (! isset($wp_query) || ! $wp_query->is_main_query() || ! $this->isHelmetCatalogArchive()) {
+            return;
+        }
+
+        $paged = max(1, (int) (get_query_var('paged') ?: (get_query_var('page') ?: 1)));
+        $maxPages = (int) $wp_query->max_num_pages;
+
+        if ($maxPages <= 1) {
+            return;
+        }
+
+        if ($paged > 1) {
+            $prevUrl = $paged === 2 ? remove_query_arg('paged') : add_query_arg('paged', $paged - 1);
+            echo '<link rel="prev" href="' . esc_url($prevUrl) . '">' . "\n";
+        }
+
+        if ($paged < $maxPages) {
+            $nextUrl = add_query_arg('paged', $paged + 1);
+            echo '<link rel="next" href="' . esc_url($nextUrl) . '">' . "\n";
+        }
+    }
+
+    /**
+     * Determine if current query is a helmet catalog archive view.
+     */
+    private function isHelmetCatalogArchive(): bool
+    {
+        if (is_admin() || (defined('REST_REQUEST') && REST_REQUEST)) {
+            return false;
+        }
+
+        if (is_post_type_archive('helmet')) {
+            return true;
+        }
+
+        $requestUri = $_SERVER['REQUEST_URI'] ?? '';
+        if (!is_string($requestUri) || $requestUri === '') {
+            return false;
+        }
+
+        $path = trim((string) wp_parse_url($requestUri, PHP_URL_PATH), '/');
+        $segments = explode('/', $path);
+        return in_array('helmets', $segments, true);
+    }
+
+    /**
+     * Build dynamic archive title string.
+     */
+    private function buildDynamicArchiveTitle(bool $includeSiteName = true): string
+    {
+        global $wp_query;
+
+        $paged = max(1, (int) (get_query_var('paged') ?: (get_query_var('page') ?: 1)));
+        $maxPages = isset($wp_query) && (int) $wp_query->max_num_pages > 0 ? (int) $wp_query->max_num_pages : 1;
+
+        $brandSlug = sanitize_title($_GET['brand_slug'] ?? '');
+        $rawType = $_GET['helmet_type'] ?? '';
+        $helmetType = sanitize_title(is_array($rawType) ? ($rawType[0] ?? '') : $rawType);
+        $rawCert = $_GET['certification'] ?? '';
+        $cert = sanitize_title(is_array($rawCert) ? ($rawCert[0] ?? '') : $rawCert);
+
+        $baseTitle = 'Helmets Catalog';
+
+        if ($brandSlug !== '') {
+            $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
+            $brandName = ($brandPost instanceof \WP_Post) ? $brandPost->post_title : ucfirst(str_replace('-', ' ', $brandSlug));
+            $baseTitle = sprintf('%s Helmets — All Models, Specs & Prices', $brandName);
+        } elseif ($helmetType !== '') {
+            $term = get_term_by('slug', $helmetType, 'helmet_type');
+            $typeName = ($term instanceof \WP_Term) ? $term->name : ucfirst(str_replace('-', ' ', $helmetType));
+            $baseTitle = sprintf('%s Motorcycle Helmets — Specs, Noise & Safety', $typeName);
+        } elseif ($cert !== '') {
+            $term = get_term_by('slug', $cert, 'certification');
+            $certName = ($term instanceof \WP_Term) ? $term->name : strtoupper(str_replace('-', ' ', $cert));
+            $baseTitle = sprintf('%s Certified Motorcycle Helmets', $certName);
+        }
+
+        if ($paged > 1) {
+            $baseTitle .= sprintf(' — Page %d of %d', $paged, max($paged, $maxPages));
+        }
+
+        if ($includeSiteName) {
+            $baseTitle .= ' | Helmetsan';
+        }
+
+        return $baseTitle;
+    }
+
+    /**
+     * Build dynamic archive meta description string.
+     */
+    private function buildDynamicArchiveDescription(): string
+    {
+        $paged = max(1, (int) (get_query_var('paged') ?: (get_query_var('page') ?: 1)));
+        $brandSlug = sanitize_title($_GET['brand_slug'] ?? '');
+        $rawType = $_GET['helmet_type'] ?? '';
+        $helmetType = sanitize_title(is_array($rawType) ? ($rawType[0] ?? '') : $rawType);
+
+        if ($brandSlug !== '') {
+            $brandPost = get_page_by_path($brandSlug, OBJECT, 'brand');
+            $brandName = ($brandPost instanceof \WP_Post) ? $brandPost->post_title : ucfirst(str_replace('-', ' ', $brandSlug));
+            $desc = sprintf('Browse verified %s motorcycle helmets. Compare certified weights, acoustic noise levels (dB @ 100km/h), and safety ratings (ECE 22.06, DOT, Snell).', $brandName);
+        } elseif ($helmetType !== '') {
+            $term = get_term_by('slug', $helmetType, 'helmet_type');
+            $typeName = ($term instanceof \WP_Term) ? $term->name : ucfirst(str_replace('-', ' ', $helmetType));
+            $desc = sprintf('Compare verified %s motorcycle helmets. Side-by-side technical specs, laboratory noise tests, safety standards, and verified rider ratings.', $typeName);
+        } else {
+            $desc = 'Explore 3,100+ verified motorcycle helmets. Compare laboratory noise test metrics (dB), shell weights, safety homologations (ECE 22.06, DOT, FIM), and live retailer pricing.';
+        }
+
+        if ($paged > 1) {
+            $desc .= sprintf(' (Page %d)', $paged);
+        }
+
+        return $desc;
     }
 }

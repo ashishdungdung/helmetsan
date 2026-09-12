@@ -6,6 +6,7 @@ namespace Helmetsan\Core\CrossLink;
 
 use WP_Post;
 use WP_Term;
+use Helmetsan\Core\Cache\ObjectCacheService;
 
 /**
  * Suggests and optionally writes internal links (outgoing_internal_links_json) for helmets, brands, and accessories.
@@ -90,6 +91,10 @@ final class CrossLinkService
                     $updated++;
                 }
             }
+        }
+
+        if (! $dryRun && $updated > 0 && class_exists(ObjectCacheService::class)) {
+            ObjectCacheService::invalidateGroup(ObjectCacheService::GROUP_CROSSLINK);
         }
 
         return [
@@ -333,6 +338,249 @@ final class CrossLinkService
             'order'          => 'ASC',
         ]);
         $posts = $q->posts;
-        return is_array($posts) ? array_map('intval', $posts) : [];
+        return is_array($posts) ? array_map(static fn($p) => $p instanceof WP_Post ? (int) $p->ID : (int) $p, $posts) : [];
+    }
+
+    /**
+     * Resolve localized permalinks for an array of cross links based on current language.
+     *
+     * @param list<array{post_id?: int, url?: string, title?: string, reason?: string}> $links
+     * @param string|null $lang
+     * @return list<array{post_id?: int, url: string, title?: string, reason?: string}>
+     */
+    public static function resolveLocalizedLinks(array $links, ?string $lang = null): array
+    {
+        if ($lang === null && function_exists('pll_current_language')) {
+            $lang = pll_current_language();
+        }
+
+        $resolved = [];
+        foreach ($links as $link) {
+            $postId = (int) ($link['post_id'] ?? 0);
+            if ($postId > 0) {
+                if (function_exists('helmetsan_permalink')) {
+                    $link['url'] = helmetsan_permalink($postId, $lang);
+                } elseif (function_exists('pll_get_post') && ! empty($lang)) {
+                    $transId = (int) pll_get_post($postId, $lang);
+                    if ($transId > 0 && get_post_status($transId) === 'publish') {
+                        $link['url'] = (string) get_permalink($transId);
+                    } else {
+                        $link['url'] = (string) get_permalink($postId);
+                    }
+                } else {
+                    $link['url'] = (string) get_permalink($postId);
+                }
+            }
+            $resolved[] = $link;
+        }
+
+        return $resolved;
+    }
+
+    /**
+     * Get stored outgoing links from post meta.
+     *
+     * @return list<array{post_id?: int, url?: string, reason?: string}>
+     */
+    public function getStoredOutgoingLinks(int $postId): array
+    {
+        $raw = get_post_meta($postId, self::META_OUTGOING_LINKS, true);
+        if (! is_string($raw) || trim($raw) === '') {
+            return [];
+        }
+        $decoded = json_decode($raw, true);
+        return is_array($decoded) ? $decoded : [];
+    }
+
+    /**
+     * Identify orphan pages (published posts with zero incoming or outgoing internal links in outgoing_internal_links_json).
+     *
+     * @param string $postType 'helmet'|'brand'|'accessory'
+     * @param int $limit Max number of orphan pages to return (0 for all)
+     * @return list<array{
+     *     post_id: int,
+     *     title: string,
+     *     url: string,
+     *     post_type: string,
+     *     outgoing_count: int,
+     *     incoming_count: int,
+     *     suggested_links: list<array{post_id: int, url: string, reason: string}>
+     * }>
+     */
+    public function findOrphanPages(string $postType = 'helmet', int $limit = 50): array
+    {
+        global $wpdb;
+
+        $cacheKey = 'orphan_pages_' . $postType . '_' . $limit;
+        if (class_exists(ObjectCacheService::class)) {
+            $cached = ObjectCacheService::get($cacheKey, ObjectCacheService::GROUP_CROSSLINK);
+            if (is_array($cached)) {
+                return $cached;
+            }
+        }
+
+        // 1. Build incoming reference counts from all posts with outgoing_internal_links_json
+        $incomingCounts = [];
+        $outgoingCounts = [];
+
+        if (isset($wpdb) && is_object($wpdb) && ! empty($wpdb->postmeta) && method_exists($wpdb, 'prepare') && method_exists($wpdb, 'get_results')) {
+            $rows = $wpdb->get_results(
+                $wpdb->prepare(
+                    "SELECT post_id, meta_value FROM {$wpdb->postmeta} WHERE meta_key = %s",
+                    self::META_OUTGOING_LINKS
+                ),
+                \ARRAY_A
+            );
+
+            if (is_array($rows)) {
+                foreach ($rows as $row) {
+                    $srcId = (int) ($row['post_id'] ?? 0);
+                    $val = (string) ($row['meta_value'] ?? '');
+                    if ($val === '') {
+                        continue;
+                    }
+                    $decoded = json_decode($val, true);
+                    if (! is_array($decoded)) {
+                        continue;
+                    }
+                    $outgoingCounts[$srcId] = count($decoded);
+                    foreach ($decoded as $link) {
+                        $targetId = (int) ($link['post_id'] ?? 0);
+                        if ($targetId > 0) {
+                            $incomingCounts[$targetId] = ($incomingCounts[$targetId] ?? 0) + 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 2. Fetch published post IDs of $postType
+        $publishedIds = $this->getPostIds($postType, 0, 0);
+        $orphans = [];
+
+        foreach ($publishedIds as $pid) {
+            $incoming = $incomingCounts[$pid] ?? 0;
+            $outgoing = $outgoingCounts[$pid] ?? count($this->getStoredOutgoingLinks($pid));
+
+            // An orphan has zero outgoing links OR zero incoming links
+            if ($outgoing === 0 || $incoming === 0) {
+                $post = get_post($pid);
+                if (! $post instanceof WP_Post || $post->post_status !== 'publish') {
+                    continue;
+                }
+
+                $orphans[] = [
+                    'post_id'         => $pid,
+                    'title'           => (string) $post->post_title,
+                    'url'             => (string) get_permalink($pid),
+                    'post_type'       => $postType,
+                    'outgoing_count'  => $outgoing,
+                    'incoming_count'  => $incoming,
+                    'suggested_links' => $this->suggestForPost($pid),
+                ];
+
+                if ($limit > 0 && count($orphans) >= $limit) {
+                    break;
+                }
+            }
+        }
+
+        if (class_exists(ObjectCacheService::class)) {
+            ObjectCacheService::set($cacheKey, $orphans, ObjectCacheService::GROUP_CROSSLINK, 86400);
+        }
+
+        return $orphans;
+    }
+
+    /**
+     * Analyze outgoing links of a post and identify reciprocal link opportunities.
+     * Checks whether target posts link back to this post, and provides suggestions to close the loop.
+     *
+     * @return array{
+     *     post_id: int,
+     *     outgoing_count: int,
+     *     unreciprocated_outgoing: list<array{target_post_id: int, target_title: string, target_url: string, reason: string}>,
+     *     suggested_reciprocals: list<array{post_id: int, url: string, title: string, reason: string}>
+     * }
+     */
+    public function suggestBidirectionalLinks(int $postId): array
+    {
+        $post = get_post($postId);
+        if (! $post instanceof WP_Post || $post->post_status !== 'publish') {
+            return [
+                'post_id'                 => $postId,
+                'outgoing_count'          => 0,
+                'unreciprocated_outgoing' => [],
+                'suggested_reciprocals'   => [],
+            ];
+        }
+
+        $cacheKey = 'bidirectional_links_' . $postId;
+        if (class_exists(ObjectCacheService::class)) {
+            $cached = ObjectCacheService::get($cacheKey, ObjectCacheService::GROUP_CROSSLINK);
+            if (is_array($cached)) {
+                return $cached;
+            }
+        }
+
+        $outgoingLinks = $this->getStoredOutgoingLinks($postId);
+        if ($outgoingLinks === []) {
+            // Fallback to computed suggestions if meta not yet stored
+            $outgoingLinks = $this->suggestForPost($postId);
+        }
+
+        $unreciprocated = [];
+        $suggestedReciprocals = [];
+
+        foreach ($outgoingLinks as $link) {
+            $targetId = (int) ($link['post_id'] ?? 0);
+            if ($targetId <= 0 || $targetId === $postId) {
+                continue;
+            }
+
+            $targetPost = get_post($targetId);
+            if (! $targetPost instanceof WP_Post || $targetPost->post_status !== 'publish') {
+                continue;
+            }
+
+            $targetLinks = $this->getStoredOutgoingLinks($targetId);
+            $hasReciprocal = false;
+            foreach ($targetLinks as $tLink) {
+                if ((int) ($tLink['post_id'] ?? 0) === $postId) {
+                    $hasReciprocal = true;
+                    break;
+                }
+            }
+
+            if (! $hasReciprocal) {
+                $targetUrl = (string) get_permalink($targetId);
+                $unreciprocated[] = [
+                    'target_post_id' => $targetId,
+                    'target_title'   => (string) $targetPost->post_title,
+                    'target_url'     => $targetUrl,
+                    'reason'         => 'missing_reciprocal_from_target',
+                ];
+
+                $suggestedReciprocals[] = [
+                    'post_id' => $targetId,
+                    'url'     => $targetUrl,
+                    'title'   => (string) $targetPost->post_title,
+                    'reason'  => 'reciprocal_cluster',
+                ];
+            }
+        }
+
+        $result = [
+            'post_id'                 => $postId,
+            'outgoing_count'          => count($outgoingLinks),
+            'unreciprocated_outgoing' => $unreciprocated,
+            'suggested_reciprocals'   => $suggestedReciprocals,
+        ];
+
+        if (class_exists(ObjectCacheService::class)) {
+            ObjectCacheService::set($cacheKey, $result, ObjectCacheService::GROUP_CROSSLINK, 86400);
+        }
+
+        return $result;
     }
 }

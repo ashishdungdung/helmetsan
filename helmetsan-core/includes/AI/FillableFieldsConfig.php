@@ -134,6 +134,10 @@ final class FillableFieldsConfig
                 'label' => 'JSON array of liner features (e.g. ["Moisture-wicking", "Removable", "Washable", "EQRS"])',
                 'max_length' => 500,
             ],
+            'fitment_coordinates_json' => [
+                'label' => 'Fitment Coordinates: JSON object {internal_shape_3d, internal_length_mm, internal_width_mm, crown_depth_mm}',
+                'max_length' => 1000,
+            ],
         ];
     }
 
@@ -220,6 +224,18 @@ final class FillableFieldsConfig
             'accessory_color' => [
                 'label' => 'Color if applicable (e.g. Clear, Dark Smoke, Black)',
                 'max_length' => 40,
+            ],
+            'accessory_pinlock_ready' => [
+                'label' => 'Is this visor/shield Pinlock ready? (0 or 1)',
+                'allowed_values' => ['0', '1'],
+            ],
+            'accessory_electric_compatible' => [
+                'label' => 'Is this accessory electric-heated or compatible with electric shields? (0 or 1)',
+                'allowed_values' => ['0', '1'],
+            ],
+            'accessory_snow_compatible' => [
+                'label' => 'Is this accessory designed for snowmobile use? (0 or 1)',
+                'allowed_values' => ['0', '1'],
             ],
         ];
     }

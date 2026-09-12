@@ -429,3 +429,8 @@ Theme goals:
 - Analytics smoke test operational and MonsterInsights-safe mode works.
 - Docs tab + go-live checklist available.
 - GeneratePress child theme baseline templates integrated.
+- **Theme UI Polish:** Premium glassmorphism filter sidebar (`archive-helmet.php`, `pages.css`, `filters.js`) and SVG certification badges integrated on PDP.
+- **Safe Queries:** Helmet catalog and front-page list queries restricted to parent posts (`post_parent => 0`).
+- **Deploy Pipeline:** Build-first `deploy.sh` compiling from source, clearing Nginx FastCGI microcache, and resetting OPcache/WP transients.
+- **Language safety:** Polylang language detection configured safely (`browser => 0`).
+

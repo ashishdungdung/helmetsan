@@ -324,6 +324,10 @@ More scripts (e.g. `fetch_logos.php`, `update_term_descriptions.php`) are docume
 | `wp helmetsan validate schema \| logic \| integrity \| accessory` | Validate data/schema. Use `validate accessory --file=/path/to.json` for accessory JSON (single object or array). |
 | `wp helmetsan import --file=/path/data.zip --mode=merge` | Import data from file. |
 | `wp helmetsan export --entity=helmet --id=shoei-nxr2 --format=json` | Export entity to JSON. |
+| `wp helmetsan media ingest-local --dir=[helmets\|draw_things]` | Ingest locally generated media into the WordPress library. |
+| `wp helmetsan ai process-queue` | Process tasks queued from the Admin UI (e.g., Pollinations.ai generation). |
+| `wp helmetsan ai task-start --id=ID --label=Label --type=Type` | Start tracking a background task. |
+| `wp helmetsan ai task-stop --id=ID` | Stop tracking a background task. |
 
 ---
 

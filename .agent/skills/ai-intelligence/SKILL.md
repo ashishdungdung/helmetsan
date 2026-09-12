@@ -36,17 +36,20 @@ The project uses a structured `AiService` layer to manage all interactions.
 
 Ensure all batch tasks follow the "Local AI First" rule strictly to save all cloud tokens.
 
-- **Local Endpoint**: `http://192.168.2.240:1234/v1`.
+- **Local Endpoint**: `http://192.168.2.74:1234/v1` (or your local IP config) or local Cloudflare Tunnel `https://ai.helmetsan.com/v1`.
 - **Pre-flight Check**: Always run `scripts/check-lm-studio.sh` before starting any large-scale `wp helmetsan ai fill-missing` or `seo seed` tasks.
 - **Model Bias**: Prefer models like **Qwen 2.5 Coder** or **Qwen 3.5 9B** for structured extraction and **Llama 3** for descriptive SEO content.
+- **Query Safety**: Restrict bulk/batch queries to parent posts (`post_parent => 0`) to prevent duplicate credit consumption on child variants.
 
 ## 5. Enrichment Loop
 
 1. **Step 1: Check Health** (`check-lm-studio.sh`).
-2. **Step 2: Dry Run** (`--dry-run --verbose`).
-3. **Step 3: Enrich** (`--limit=50`).
-4. **Step 4: Validate** (`wp helmetsan health`).
-5. **Step 5: Export & Sync** (Export to JSON, Push to GitHub).
+2. **Step 2: Check Sovereignty** (skip if `deep_enriched` meta key is `'1'`).
+3. **Step 3: Dry Run** (`--dry-run --verbose`).
+4. **Step 4: Enrich** (`--limit=50`).
+5. **Step 5: Validate** (`wp helmetsan health`).
+6. **Step 6: Export & Sync** (Export to JSON, Push to GitHub).
+
 
 ---
 

@@ -36,15 +36,15 @@ $hero_img = $themeDir . '/assets/images/hubs/accessories_hub_hero.png';
 $is_discovery_mode = (empty($search) && empty($category) && empty($helmetType) && empty($pinlock) && empty($electric) && empty($snow));
 ?>
 
-<section class="hs-section">
-    <header class="hs-section__head">
+<section class="hs-section hs-section--archive">
+    <div class="hs-section__head">
         <h1><?php echo esc_html(single_term_title('', false)); ?></h1>
         <?php if (term_description()) : ?>
             <div class="hs-section__desc"><?php echo term_description(); ?></div>
         <?php else : ?>
             <p>Accessory catalog with compatibility metadata and feature tags.</p>
         <?php endif; ?>
-    </header>
+    </div>
 
     <form class="hs-filter-bar" method="get" action="<?php echo esc_url(get_post_type_archive_link('accessory')); ?>">
         <input type="search" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Search accessories" />
@@ -95,7 +95,7 @@ $is_discovery_mode = (empty($search) && empty($category) && empty($helmetType) &
     </form>
 
     <?php if ($is_discovery_mode && !empty($categories)) : ?>
-        <div class="helmet-grid">
+        <div class="hs-catalog-grid">
             <?php foreach ($categories as $term) : 
                 $title = $term->name;
                 $desc = $term->description ?: "Browse " . $term->name . " accessories. Compatible with a range of helmets; filter by type in the catalog.";
@@ -173,25 +173,25 @@ $is_discovery_mode = (empty($search) && empty($category) && empty($helmetType) &
         }
         $query = new WP_Query($args);
         if ($query->have_posts()) : ?>
-            <div class="helmet-grid">
+            <div class="hs-catalog-grid">
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
                     <?php get_template_part('template-parts/entity', 'card'); ?>
                 <?php endwhile; ?>
             </div>
-            <?php
-            $addArgs = [];
-            foreach (['s', 'accessory_category', 'helmet_type', 'pinlock_ready', 'electric', 'snow'] as $argKey) {
-                if (! isset($_GET[$argKey])) {
-                    continue;
-                }
-                $addArgs[$argKey] = sanitize_text_field(wp_unslash((string) $_GET[$argKey]));
-            }
-            the_posts_pagination([
-                'total' => $query->max_num_pages,
-                'add_args' => array_filter($addArgs, static fn(string $v): bool => $v !== ''),
-            ]);
-            wp_reset_postdata();
-            ?>
+            <div class="hs-pagination-footer">
+                <?php
+                $ppp = $query->get('posts_per_page');
+                $start = (($paged - 1) * $ppp) + 1;
+                $end = min($paged * $ppp, $query->found_posts);
+                $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $query->found_posts);
+
+                get_template_part('template-parts/pagination-modern', null, [
+                    'paged' => $paged,
+                    'total' => (int) $query->max_num_pages,
+                    'count_text' => $count_text
+                ]);
+                ?>
+            </div>
         <?php else : ?>
             <p>No accessories found.</p>
         <?php endif; ?>

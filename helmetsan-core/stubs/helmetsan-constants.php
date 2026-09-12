@@ -4,6 +4,9 @@
  * Define optional HELMETSAN_* constants with empty defaults if not already set.
  * Allows IDE/Intelephense to resolve constants; real values come from wp-config.php or env.
  */
+if (! defined('HELMETSAN_DATA_DIR')) {
+    define('HELMETSAN_DATA_DIR', dirname(__DIR__, 2) . '/data');
+}
 if (! defined('HELMETSAN_CJ_WEBSITE_ID')) {
     define('HELMETSAN_CJ_WEBSITE_ID', '');
 }

@@ -18,15 +18,22 @@ The Helmetsan AI module provides a single, configurable layer for all AI-powered
 ### Local & Free (Recommended)
 
 - **LM Studio** – Run models locally on your hardware (e.g. M4 Pro). Use for batch tasks to save all cloud tokens.
-- **Google Gemini** – Generous free tier (e.g. gemini-1.5-flash).
+- **Google Gemini** – Generous free tier (e.g. gemini-1.5-flash). Good for longer copy.
 - **Groq** – Fast inference, free tier for small models.
+- **Together AI** / **Fireworks AI** – Free tier/low-cost chat endpoints using Open Source models.
+- **Cohere** – Free tier, optimal for classification and short text generation.
 
 ### Premium
 
 - **OpenAI (ChatGPT)** – e.g. gpt-4o-mini.
 - **Perplexity** – e.g. sonar (web-aware research).
+- **Anthropic Claude** – Messages API. Optimal for rich scannable copy and highly structured technical briefs.
 
 ---
+
+## State Sovereignty & Skip Checks
+To avoid duplicate credit usage and preserve manual adjustments, the AI Service respects the `deep_enriched` meta flag. If a post has `deep_enriched === '1'`, bulk fill-missing passes skip it unless explicitly running with a override/force parameter.
+
 
 ## Local AI (LM Studio)
 
@@ -35,7 +42,7 @@ The plugin is optimized for **LM Studio** running on your local machine. This of
 ### Setup
 1. **LM Studio**: Load a model (e.g. Qwen 2.5 Coder 7B), enable "Local Server" on port `1234`.
 2. **WP Admin**: Go to **Helmetsan → AI**, enable **LM Studio**.
-3. **URL**: Set Base URL to `http://192.168.2.240:1234/v1` (or your local IP).
+3. **URL**: Set Base URL to `http://192.168.2.74:1234/v1` (or your local IP).
 
 ### Networking (Cloudflare Tunnel)
 To reach your local LM Studio from a production server without port forwarding:

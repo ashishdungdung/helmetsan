@@ -7,12 +7,13 @@
     const container = document.querySelector('.hs-catalog__results');
     const countContainer = document.querySelector('.hs-catalog__count');
     const chipsContainer = document.querySelector('.hs-catalog__chips');
-    const sortSelect = document.getElementById('hsSort');
+    const sortSelect = document.getElementById('hs-catalog-sort') || document.getElementById('hsSort');
     
     // State
     let isLoading = false;
+    let filterTimeout = null;
 
-    if (!form || !container) return;
+    if (!form || !container || config.enable_ajax === false) return;
 
     function setLoading(loading) {
         isLoading = loading;
@@ -37,8 +38,19 @@
 
         const url = new URL(config.url, window.location.origin);
         url.searchParams.set('action', 'helmetsan_filter');
+        if (config.lang && !url.searchParams.has('lang')) {
+            url.searchParams.set('lang', config.lang);
+        }
         for (const [key, value] of params) {
             url.searchParams.append(key, value);
+        }
+
+        // Inject active view and column count from localStorage to render cards in the correct layout state
+        if (!url.searchParams.has('view')) {
+            url.searchParams.set('view', localStorage.getItem('hs_catalog_view') || 'grid');
+        }
+        if (!url.searchParams.has('cols')) {
+            url.searchParams.set('cols', localStorage.getItem('hs_catalog_density') || '4');
         }
 
         try {
@@ -47,7 +59,26 @@
 
             if (data.success) {
                 updateUI(data.data, append);
-                if (!append) updateURL(params);
+                if (!append) {
+                    updateURL(params);
+                    // Telemetry: Track filter_applied in GA4
+                    if (typeof window.gtag === 'function') {
+                        const activeFilters = {};
+                        for (const [key, value] of params.entries()) {
+                            if (['action', 'paged', 'view', 'cols', 'sort'].includes(key)) continue;
+                            if (!activeFilters[key]) {
+                                activeFilters[key] = [];
+                            }
+                            activeFilters[key].push(value);
+                        }
+                        if (Object.keys(activeFilters).length > 0) {
+                            window.gtag('event', 'filter_applied', {
+                                filter_type: Object.keys(activeFilters).join(','),
+                                filter_values: JSON.stringify(activeFilters),
+                            });
+                        }
+                    }
+                }
             } else {
                 console.error('Filter error', data);
             }
@@ -59,50 +90,18 @@
     }
 
     function updateUI(data, append) {
-        let grid = container.querySelector('.helmet-grid');
-        if (!grid) {
-             const msg = container.querySelector('p');
-             if(msg) msg.remove();
-             grid = document.createElement('div');
-             grid.className = 'helmet-grid';
-             container.appendChild(grid);
-        }
-        
-        let targetArea = container.querySelector('.hs-catalog__results-content');
-        if (!targetArea) {
-            targetArea = container; // fallback
-        } else {
-            // we will replace the whole section if present
-        }
-
         if (data.html) {
-            // The API returns the full grid AND pagination
             if (!append) {
                 const resultsSection = container.querySelector('.hs-catalog__results-content');
                 if (resultsSection) {
                     resultsSection.innerHTML = data.html;
                 } else {
-                    // Try to inject at bottom
-                    const newWrapper = document.createElement('section');
-                    newWrapper.className = 'hs-catalog__results-content';
-                    newWrapper.innerHTML = data.html;
-                    container.appendChild(newWrapper);
+                    container.innerHTML = data.html;
                 }
             } else {
-                // If appending, assuming data.html has <div class="helmet-grid"> wrap
-                // Extract just the inner HTML of the grid
-                const temp = document.createElement('div');
-                temp.innerHTML = data.html;
-                const newGrid = temp.querySelector('.helmet-grid');
-                if (newGrid && grid) {
-                    grid.insertAdjacentHTML('beforeend', newGrid.innerHTML);
-                }
-                
-                // Replace pagination
-                const oldPag = container.querySelector('.hs-pagination-wrap');
-                const newPag = temp.querySelector('.hs-pagination-wrap');
-                if (oldPag && newPag) {
-                    oldPag.innerHTML = newPag.innerHTML;
+                const grid = container.querySelector('.hs-catalog-grid') || container.querySelector('.helmet-grid');
+                if (grid) {
+                    grid.insertAdjacentHTML('beforeend', data.html);
                 }
             }
         } else if (!append) {
@@ -113,7 +112,15 @@
         }
 
         // Count
-        if (countContainer) countContainer.textContent = data.count + ' Helmets';
+        if (countContainer && data.count !== undefined) {
+            countContainer.textContent = data.count + ' Helmets';
+        }
+
+        // Accessibility Announcement
+        const announcer = document.getElementById('hs-a11y-announcer');
+        if (announcer) {
+            announcer.textContent = `Filtering complete: ${data.count} helmets found.`;
+        }
 
         // Scroll to top only if NEW filter (not append)
         if (!append) {
@@ -123,20 +130,28 @@
         
         document.body.classList.remove('hs-filter-open');
         document.getElementById('hsFilterPanel')?.classList.remove('is-open');
+        
+        // Update Mobile Trigger ARIA
+        const openBtn = document.querySelector('[data-open-filter]');
+        if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
 
         // Re-bind pagination clicks
         bindPagination();
+
+        // Notify currency selector and other listeners that catalog HTML updated
+        document.dispatchEvent(new CustomEvent('helmetsan:catalog_updated', {
+            detail: { append, count: data.count }
+        }));
     }
 
     function bindPagination() {
-        const pagLinks = container.querySelectorAll('.hs-pagination-wrap a.page-numbers');
+        const pagLinks = container.querySelectorAll('.hs-pagination-modern a');
         pagLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = new URL(link.href, window.location.origin);
                 const page = url.searchParams.get('paged') || url.pathname.match(/page\/(\d+)/)?.[1] || '1';
 
-                // Prefer params from the link URL so filters and sort stay in sync with server-rendered links
                 let params;
                 if (url.search && url.search.length > 1) {
                     params = new URLSearchParams(url.search);
@@ -152,11 +167,25 @@
         });
     }
 
-    // Trigger on form input change
+    function submitFilter() {
+        const formData = new FormData(form);
+        if (sortSelect) formData.set('sort', sortSelect.value);
+        formData.set('paged', '1');
+        const params = new URLSearchParams(formData);
+        fetchResults(params, false);
+    }
+
+    function debounceSubmitFilter(delay = 400) {
+        clearTimeout(filterTimeout);
+        filterTimeout = setTimeout(() => {
+            submitFilter();
+        }, delay);
+    }
+
+    // Trigger on form input change (with debouncing to allow quick multiple selections)
     form.addEventListener('change', (e) => {
-        // Skip text inputs unless they blur
         if (e.target.type === 'text' || e.target.type === 'number') return;
-        submitFilter();
+        debounceSubmitFilter(400);
     });
 
     // Handle text input enter key or submit button
@@ -165,15 +194,6 @@
         submitFilter();
     });
 
-    function submitFilter() {
-        const formData = new FormData(form);
-        if (sortSelect) formData.set('sort', sortSelect.value);
-        // Reset to page 1 on new filter
-        formData.set('paged', '1');
-        const params = new URLSearchParams(formData);
-        fetchResults(params, false);
-    }
-
     // Handle sort change
     if (sortSelect) {
         sortSelect.addEventListener('change', () => {
@@ -181,17 +201,64 @@
         });
     }
 
-    // Chip removal logic
+    // Dynamic Chip removal logic via AJAX (No Full Page Reload!)
     if (chipsContainer) {
         chipsContainer.addEventListener('click', (e) => {
             const btn = e.target.closest('a.hs-chip');
             if (!btn) return;
             e.preventDefault();
 
-            // Just follow the link which is an absolute URL of the removed filter
-            // Or parse the URL and fetch AJAX.
-            // For simplicity, just follow the link to reload without the filter.
-            window.location.href = btn.href;
+            try {
+                const url = new URL(btn.href, window.location.origin);
+                const params = url.searchParams;
+
+                // Reset all form inputs to match the target URL parameters
+                const inputs = form.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+                inputs.forEach(input => {
+                    const name = input.name.replace('[]', '');
+                    const val = input.value;
+                    if (params.has(name)) {
+                        const values = params.getAll(name);
+                        input.checked = values.includes(val);
+                    } else {
+                        input.checked = false;
+                    }
+                });
+
+                // Reset text fields
+                form.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => {
+                    const name = input.name;
+                    input.value = params.get(name) || '';
+                });
+
+                if (sortSelect) {
+                    sortSelect.value = params.get('sort') || 'newest';
+                }
+
+                // Instantly filter via AJAX
+                submitFilter();
+            } catch (err) {
+                // Fallback
+                window.location.href = btn.href;
+            }
+        });
+    }
+
+    // Clear All button AJAX behavior
+    const clearAllBtn = form.querySelector('.hs-filter-actions a.hs-btn--outline');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            form.reset();
+            form.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => {
+                input.value = '';
+            });
+            form.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            if (sortSelect) sortSelect.value = 'newest';
+            
+            submitFilter();
         });
     }
 
@@ -204,17 +271,50 @@
     const openBtn = document.querySelector('[data-open-filter]');
     const closeBtn = document.querySelector('[data-close-filter]');
     const panel = document.getElementById('hsFilterPanel');
+    const backdrop = document.getElementById('hsModalBackdrop');
     
     if (openBtn && panel) {
         openBtn.addEventListener('click', () => {
             panel.classList.add('is-open');
             document.body.classList.add('hs-filter-open');
+            if (backdrop) backdrop.classList.add('is-visible');
+            openBtn.setAttribute('aria-expanded', 'true');
         });
     }
-    if (closeBtn && panel) {
-        closeBtn.addEventListener('click', () => {
-            panel.classList.remove('is-open');
-            document.body.classList.remove('hs-filter-open');
+
+    function closeFilterPanel() {
+        if (!panel) return;
+        panel.classList.remove('is-open');
+        document.body.classList.remove('hs-filter-open');
+        if (backdrop) backdrop.classList.remove('is-visible');
+        if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+        if (openBtn) openBtn.focus();
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeFilterPanel);
+    if (backdrop) backdrop.addEventListener('click', closeFilterPanel);
+
+    /* ── Focus Trap for Mobile Filter ──────────────── */
+    if (panel) {
+        panel.addEventListener('keydown', function(e) {
+            if (!panel.classList.contains('is-open')) return;
+            if (e.key !== 'Tab') return;
+
+            const focusables = panel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    last.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    first.focus();
+                    e.preventDefault();
+                }
+            }
         });
     }
 

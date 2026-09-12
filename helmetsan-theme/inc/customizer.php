@@ -163,6 +163,28 @@ function helmetsan_theme_customize_register(WP_Customize_Manager $wpCustomize): 
         'section' => 'helmetsan_theme_layout',
         'type' => 'text',
     ]);
+
+    // --- Performance ---
+    $wpCustomize->add_section('helmetsan_theme_performance', [
+        'title' => __('Helmetsan Performance', 'helmetsan-theme'),
+        'description' => __('Optimize site speed and database scalability.', 'helmetsan-theme'),
+        'priority' => 160,
+    ]);
+
+    $wpCustomize->add_setting('helmetsan_performance_metadata_cache', [
+        'type' => 'option',
+        'capability' => 'manage_options',
+        'default' => false,
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'rest_sanitize_boolean',
+    ]);
+
+    $wpCustomize->add_control('helmetsan_performance_metadata_cache', [
+        'label' => __('Enable Metadata Caching', 'helmetsan-theme'),
+        'description' => __('Cache inherited helmet specs and features to reduce database load.', 'helmetsan-theme'),
+        'section' => 'helmetsan_theme_performance',
+        'type' => 'checkbox',
+    ]);
 }
 
 function helmetsan_theme_sanitize_layout_alignment(string $value): string
@@ -223,7 +245,16 @@ function helmetsan_theme_get_required_legal_links(): array
             'flag' => 'helmetsan_legal_privacy',
             'url' => static function (): string {
                 $privacyId = (int) get_option('wp_page_for_privacy_policy');
-                return $privacyId > 0 ? (string) get_permalink($privacyId) : '';
+                if ($privacyId > 0) {
+                    if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+                        $translatedId = pll_get_post($privacyId, pll_current_language());
+                        if ($translatedId > 0) {
+                            $privacyId = $translatedId;
+                        }
+                    }
+                    return (string) get_permalink($privacyId);
+                }
+                return '';
             },
         ],
         'terms' => [
@@ -296,22 +327,37 @@ function helmetsan_theme_find_page_url_by_slug(string $slug): string
         'legal/' . $slug,
     ];
 
+    $postId = 0;
+
     foreach ($candidates as $path) {
         $page = get_page_by_path($path);
         if ($page instanceof WP_Post) {
-            return (string) get_permalink($page->ID);
+            $postId = $page->ID;
+            break;
         }
     }
 
-    $q = new WP_Query([
-        'post_type' => 'page',
-        'name' => $slug,
-        'post_status' => 'publish',
-        'posts_per_page' => 1,
-        'fields' => 'ids',
-    ]);
-    if (is_array($q->posts) && $q->posts !== []) {
-        return (string) get_permalink((int) $q->posts[0]);
+    if ($postId === 0) {
+        $q = new WP_Query([
+            'post_type' => 'page',
+            'name' => $slug,
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'fields' => 'ids',
+        ]);
+        if (is_array($q->posts) && $q->posts !== []) {
+            $postId = (int) $q->posts[0];
+        }
+    }
+
+    if ($postId > 0) {
+        if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+            $translatedId = pll_get_post($postId, pll_current_language());
+            if ($translatedId > 0) {
+                $postId = $translatedId;
+            }
+        }
+        return (string) get_permalink($postId);
     }
 
     return '';

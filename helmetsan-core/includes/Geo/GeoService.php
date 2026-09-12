@@ -20,37 +20,62 @@ final class GeoService
     private const COOKIE_NAME = 'helmetsan_geo';
     private const COOKIE_TTL  = 86400; // 24 hours
 
-    /** @var array<string, array{region: string, currency: string}> */
+    /** @var array<string, array{region: string, currency: string, name: string, symbol: string, flag: string}> */
     private const COUNTRY_MAP = [
-        'US' => ['region' => 'NA',   'currency' => 'USD'],
-        'CA' => ['region' => 'NA',   'currency' => 'CAD'],
-        'MX' => ['region' => 'NA',   'currency' => 'MXN'],
-        'UK' => ['region' => 'EU',   'currency' => 'GBP'],
-        'GB' => ['region' => 'EU',   'currency' => 'GBP'],
-        'DE' => ['region' => 'EU',   'currency' => 'EUR'],
-        'FR' => ['region' => 'EU',   'currency' => 'EUR'],
-        'IT' => ['region' => 'EU',   'currency' => 'EUR'],
-        'ES' => ['region' => 'EU',   'currency' => 'EUR'],
-        'PL' => ['region' => 'EU',   'currency' => 'PLN'],
-        'IN' => ['region' => 'APAC', 'currency' => 'INR'],
-        'JP' => ['region' => 'APAC', 'currency' => 'JPY'],
-        'AU' => ['region' => 'APAC', 'currency' => 'AUD'],
-        'BR' => ['region' => 'SA',   'currency' => 'BRL'],
-        'AE' => ['region' => 'ME',   'currency' => 'AED'],
-        'NG' => ['region' => 'AF',   'currency' => 'NGN'],
-        'KE' => ['region' => 'AF',   'currency' => 'KES'],
-        'EG' => ['region' => 'AF',   'currency' => 'EGP'],
-        'MA' => ['region' => 'AF',   'currency' => 'MAD'],
-        'GH' => ['region' => 'AF',   'currency' => 'GHS'],
-        'UG' => ['region' => 'AF',   'currency' => 'UGX'],
-        'TZ' => ['region' => 'AF',   'currency' => 'TZS'],
+        // Asia-Pacific
+        'IN' => ['region' => 'APAC', 'currency' => 'INR', 'name' => 'India',                'symbol' => '₹',    'flag' => '🇮🇳'],
+        'JP' => ['region' => 'APAC', 'currency' => 'JPY', 'name' => 'Japan',                'symbol' => '¥',    'flag' => '🇯🇵'],
+        'AU' => ['region' => 'APAC', 'currency' => 'AUD', 'name' => 'Australia',            'symbol' => 'A$',   'flag' => '🇦🇺'],
+        'NZ' => ['region' => 'APAC', 'currency' => 'NZD', 'name' => 'New Zealand',          'symbol' => 'NZ$',  'flag' => '🇳🇿'],
+        'SG' => ['region' => 'APAC', 'currency' => 'SGD', 'name' => 'Singapore',            'symbol' => 'S$',   'flag' => '🇸🇬'],
+        'KR' => ['region' => 'APAC', 'currency' => 'KRW', 'name' => 'South Korea',          'symbol' => '₩',    'flag' => '🇰🇷'],
+
+        // North America
+        'US' => ['region' => 'NA',   'currency' => 'USD', 'name' => 'United States',        'symbol' => '$',    'flag' => '🇺🇸'],
+        'CA' => ['region' => 'NA',   'currency' => 'CAD', 'name' => 'Canada',               'symbol' => 'CA$',  'flag' => '🇨🇦'],
+        'MX' => ['region' => 'NA',   'currency' => 'MXN', 'name' => 'Mexico',               'symbol' => 'MX$',  'flag' => '🇲🇽'],
+
+        // Europe & UK
+        'GB' => ['region' => 'EU',   'currency' => 'GBP', 'name' => 'United Kingdom',       'symbol' => '£',    'flag' => '🇬🇧'],
+        'UK' => ['region' => 'EU',   'currency' => 'GBP', 'name' => 'United Kingdom',       'symbol' => '£',    'flag' => '🇬🇧'],
+        'DE' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Germany',              'symbol' => '€',    'flag' => '🇩🇪'],
+        'FR' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'France',               'symbol' => '€',    'flag' => '🇫🇷'],
+        'IT' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Italy',                'symbol' => '€',    'flag' => '🇮🇹'],
+        'ES' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Spain',                'symbol' => '€',    'flag' => '🇪🇸'],
+        'NL' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Netherlands',          'symbol' => '€',    'flag' => '🇳🇱'],
+        'PL' => ['region' => 'EU',   'currency' => 'PLN', 'name' => 'Poland',               'symbol' => 'zł',   'flag' => '🇵🇱'],
+        'BE' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Belgium',              'symbol' => '€',    'flag' => '🇧🇪'],
+        'CH' => ['region' => 'EU',   'currency' => 'CHF', 'name' => 'Switzerland',          'symbol' => 'CHF ', 'flag' => '🇨🇭'],
+        'SE' => ['region' => 'EU',   'currency' => 'SEK', 'name' => 'Sweden',               'symbol' => ' kr',  'flag' => '🇸🇪'],
+        'NO' => ['region' => 'EU',   'currency' => 'NOK', 'name' => 'Norway',               'symbol' => ' kr',  'flag' => '🇳🇴'],
+
+        // Middle East & Latin America
+        'AE' => ['region' => 'ME',   'currency' => 'AED', 'name' => 'United Arab Emirates', 'symbol' => 'AED ', 'flag' => '🇦🇪'],
+        'SA' => ['region' => 'ME',   'currency' => 'SAR', 'name' => 'Saudi Arabia',         'symbol' => 'SAR ', 'flag' => '🇸🇦'],
+        'BR' => ['region' => 'SA',   'currency' => 'BRL', 'name' => 'Brazil',               'symbol' => 'R$',   'flag' => '🇧🇷'],
+
+        // Africa
+        'NG' => ['region' => 'AF',   'currency' => 'NGN', 'name' => 'Nigeria',              'symbol' => '₦',    'flag' => '🇳🇬'],
+        'KE' => ['region' => 'AF',   'currency' => 'KES', 'name' => 'Kenya',                'symbol' => 'KSh ', 'flag' => '🇰🇪'],
+        'EG' => ['region' => 'AF',   'currency' => 'EGP', 'name' => 'Egypt',                'symbol' => 'E£',   'flag' => '🇪🇬'],
+        'MA' => ['region' => 'AF',   'currency' => 'MAD', 'name' => 'Morocco',              'symbol' => 'MAD',  'flag' => '🇲🇦'],
+        'GH' => ['region' => 'AF',   'currency' => 'GHS', 'name' => 'Ghana',                'symbol' => 'GH₵',  'flag' => '🇬🇭'],
+        'UG' => ['region' => 'AF',   'currency' => 'UGX', 'name' => 'Uganda',               'symbol' => 'USh ', 'flag' => '🇺🇬'],
+        'TZ' => ['region' => 'AF',   'currency' => 'TZS', 'name' => 'Tanzania',             'symbol' => 'TSh ', 'flag' => '🇹🇿'],
     ];
 
     private ?string $resolvedCountry = null;
+    private ?ComplianceService $compliance = null;
 
-    /**
-     * Get the visitor's ISO 3166-1 alpha-2 country code.
-     */
+    public function compliance(): ComplianceService
+    {
+        if ($this->compliance === null) {
+            $this->compliance = new ComplianceService();
+        }
+
+        return $this->compliance;
+    }
+
     /**
      * Get the visitor's ISO 3166-1 alpha-2 country code.
      */
@@ -67,22 +92,34 @@ final class GeoService
             return $this->resolvedCountry;
         }
 
-        // 1. CloudFlare header (fastest, most reliable behind CF)
-        $cf = $this->fromCloudFlare();
-        if ($cf !== '') {
-            $this->resolvedCountry = $cf;
-            $this->setCookie($cf);
-            return $cf;
+        // 1. Check for active query parameter override (earliest hook safety)
+        if (isset($_GET['country'])) {
+            $paramCc = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', (string) $_GET['country']), 0, 2));
+            if (strlen($paramCc) === 2) {
+                $this->resolvedCountry = $paramCc;
+                $this->setCookie($paramCc);
+                return $paramCc;
+            }
         }
 
-        // 2. Cached cookie
+        // 2. Cached cookie (user manual selection has priority)
         $cookie = $this->fromCookie();
         if ($cookie !== '') {
             $this->resolvedCountry = $cookie;
             return $cookie;
         }
 
-        // 3. Fallback to default
+        // 3. CloudFlare header (auto-detection behind CF)
+        $cf = $this->fromCloudFlare();
+        if ($cf !== '') {
+            $this->resolvedCountry = $cf;
+            // Note: Do NOT set a cookie here on passive auto-detection.
+            // CF-IPCountry is forwarded on every request; emitting Set-Cookie
+            // on cacheable GET responses causes downstream shared cache poisoning.
+            return $cf;
+        }
+
+        // 4. Fallback to default
         $this->resolvedCountry = 'IN';
 
         return $this->resolvedCountry;
@@ -167,18 +204,12 @@ final class GeoService
     }
 
     /**
-     * @return array<string, array{region: string, currency: string}>
+     * Get the list of all supported countries.
+     *
+     * @return array<string, array{region: string, currency: string, name: string, symbol: string, flag: string}>
      */
-    private function getSupportedCountries(): array
+    public static function getSupportedCountries(): array
     {
-        $config = $this->getGeoConfig();
-        $custom = $config['supported_countries'] ?? [];
-
-        if (is_array($custom) && ! empty($custom)) {
-            // Merge custom on top of default
-            return array_merge(self::COUNTRY_MAP, $custom);
-        }
-
         return self::COUNTRY_MAP;
     }
 
@@ -200,7 +231,7 @@ final class GeoService
         $value = $_COOKIE[self::COOKIE_NAME] ?? '';
         $cc = strtoupper(trim((string) $value));
 
-        if ($cc !== '' && strlen($cc) === 2 && ctype_alpha($cc)) {
+        if ($cc !== '' && strlen($cc) === 2 && ctype_alpha($cc) && isset(self::COUNTRY_MAP[$cc])) {
             return $cc;
         }
 
@@ -219,7 +250,7 @@ final class GeoService
             [
                 'expires'  => time() + self::COOKIE_TTL,
                 'path'     => '/',
-                'secure'   => is_ssl(),
+                'secure'   => function_exists('is_ssl') ? is_ssl() : (! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
                 'httponly'  => false,
                 'samesite'  => 'Lax',
             ]

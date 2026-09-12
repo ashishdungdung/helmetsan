@@ -1,0 +1,12 @@
+name = "helmetsan-edge-cache-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# Environment Variables
+[vars]
+CACHE_TTL = "7200" # 2 hours fresh
+STALE_TTL = "86400" # 24 hours stale-while-revalidate
+PURGE_SECRET = "helmetsan-edge-purge-secret-2026"
+
+# Route intercepts (optional if deployed standalone)
+# route = { pattern = "*helmetsan.com/*", zone_id = "f098a57b228462adf58dcde8b65c77f6" }

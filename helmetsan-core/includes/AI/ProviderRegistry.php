@@ -95,6 +95,17 @@ final class ProviderRegistry
             return $this->create($id, $key, $model, array_merge($cfg, ['base_url' => $baseUrl]));
         }
         if ($id === 'cloudflare') {
+            $cfSettings = get_option(\Helmetsan\Core\Support\Config::OPTION_CLOUDFLARE, []);
+            $cfEnabled = !empty($cfSettings['enable_workers_ai']);
+            $cfToken = defined('HELMETSAN_CLOUDFLARE_API_TOKEN') ? HELMETSAN_CLOUDFLARE_API_TOKEN : ($cfSettings['cf_api_token'] ?? '');
+            $cfAccountId = defined('HELMETSAN_CLOUDFLARE_ACCOUNT_ID') ? HELMETSAN_CLOUDFLARE_ACCOUNT_ID : ($cfSettings['cf_account_id'] ?? '');
+            $cfModel = !empty($cfSettings['workers_ai_model']) ? $cfSettings['workers_ai_model'] : '@cf/meta/llama-3-8b-instruct';
+
+            if ($cfEnabled && !empty($cfToken) && !empty($cfAccountId)) {
+                return $this->create($id, $cfToken, $cfModel, ['base_url' => $cfAccountId]);
+            }
+
+            // Fallback to original config
             $accountId = trim((string) ($cfg['base_url'] ?? ''));
             if ($accountId === '') {
                 return null;

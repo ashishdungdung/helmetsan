@@ -21,9 +21,16 @@ final class Config
     public const OPTION_ADSENSE = 'helmetsan_adsense';
     public const OPTION_AI = 'helmetsan_ai';
     public const OPTION_SECURITY = 'helmetsan_security';
+    public const OPTION_PERFORMANCE = 'helmetsan_performance';
+    public const OPTION_CLOUDFLARE = 'helmetsan_cloudflare';
 
     public function aiDefaults(): array
     {
+        $localConfigPath = dirname(dirname(dirname(__DIR__))) . '/scripts/local_config.php';
+        $localConfig = file_exists($localConfigPath) ? include $localConfigPath : [];
+        $lmStudioUrl = $localConfig['lm_studio_base_url'] ?? 'http://192.168.2.74:1234/v1';
+        $lmStudioModel = $localConfig['lm_studio_model'] ?? 'qwen/qwen3.5-9b';
+
         return [
             'providers' => [
                 'groq' => ['enabled' => false, 'api_key' => '', 'model' => 'llama-3.1-8b-instant', 'tier' => 'free'],
@@ -35,7 +42,7 @@ final class Config
                 'fireworks' => ['enabled' => false, 'api_key' => '', 'model' => 'accounts/fireworks/models/llama-v3p1-8b-instruct', 'tier' => 'free'],
                 'cohere' => ['enabled' => false, 'api_key' => '', 'model' => 'command-r-plus', 'tier' => 'free'],
                 'cloudflare' => ['enabled' => false, 'api_key' => '', 'model' => '@cf/meta/llama-3-8b-instruct', 'base_url' => '', 'tier' => 'free'],
-                'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => 'http://192.168.2.240:1234/v1', 'model' => 'qwen/qwen3.5-9b', 'tier' => 'free', 'concurrency' => 4],
+                'lm_studio' => ['enabled' => false, 'api_key' => '', 'base_url' => $lmStudioUrl, 'model' => $lmStudioModel, 'tier' => 'free', 'concurrency' => 4],
                 'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
                 'anthropic' => ['enabled' => false, 'api_key' => '', 'model' => 'claude-sonnet-4-20250514', 'tier' => 'premium'],
                 'perplexity' => ['enabled' => false, 'api_key' => '', 'model' => 'sonar', 'tier' => 'premium'],
@@ -81,6 +88,7 @@ final class Config
             'enable_file_download_tracking'           => false,
             'enable_email_phone_tracking'             => false,
             'enable_user_id_tracking'                 => true,
+            'exclude_admins'                          => true,
             'enable_consent_gate'                     => false,
             'consent_cookie_name'                     => 'helmetsan_consent_analytics',
             'enable_heatmap_clarity'                  => false,
@@ -89,6 +97,12 @@ final class Config
             'hotjar_site_id'                          => '',
             'hotjar_version'                          => '6',
             'd1_analytics_worker_url'                 => '',
+            'ga4_property_id'                         => '',
+            'google_service_account_key'              => '',
+            'analytics_anomaly_threshold'             => '3.0',
+            'analytics_anomaly_min_sessions'          => '500',
+            'analytics_anomaly_alert_email'           => '',
+            'analytics_anomaly_detection_enabled'     => false,
         ];
     }
 
@@ -132,14 +146,33 @@ final class Config
         return [
             'enable_redirect_tracking' => true,
             'default_affiliate_network' => 'amazon',
-            'amazon_tag'               => 'helmetsan-20',
-            'amazon_tag_uk'            => '',
-            'amazon_tag_in'            => '',
-            'amazon_tag_de'            => '',
-            'amazon_tag_fr'            => '',
+            'amazon_tag'               => 'vtete-20',
+            'amazon_tag_uk'            => 'vtete-21',
+            'amazon_tag_in'            => 'virginiatete-21',
+            'amazon_tag_jp'            => 'vtete-22',
+            'amazon_tag_ca'            => 'vtete-20',
+            'amazon_tag_de'            => 'vtete-20',
+            'amazon_tag_fr'            => 'vtete-20',
+            'amazon_tag_it'            => 'vtete-20',
+            'amazon_tag_es'            => 'vtete-20',
+            'amazon_tag_nl'            => 'vtete-20',
+            'amazon_tag_pl'            => 'vtete-20',
+            'amazon_tag_se'            => 'vtete-20',
+            'amazon_tag_be'            => 'vtete-20',
+            'amazon_tag_au'            => 'vtete-20',
+            'amazon_tag_br'            => 'vtete-20',
+            'amazon_tag_mx'            => 'vtete-20',
+            'amazon_tag_ae'            => 'vtete08-21',
+            'amazon_tag_sa'            => 'vtete-20',
+            'amazon_tag_sg'            => 'vtete-20',
+            'amazon_tag_ie'            => 'vtete-21',
+            'amazon_tag_tr'            => 'vtete-20',
+            'amazon_onelink_enabled'   => false,
+            'amazon_onelink_id'        => '',
+            'amazon_onelink_parent_tag'=> 'vtete-20',
             'redirect_status_code'     => 302,
             'affiliate_networks'       => [
-                'amazon'  => ['enabled' => true,  'tag' => 'helmetsan-20'],
+                'amazon'  => ['enabled' => true,  'tag' => 'vtete-20'],
                 'cj'      => ['enabled' => false, 'website_id' => '', 'advertiser_id' => ''],
                 'allegro' => ['enabled' => false, 'aff_id' => ''],
                 'jumia'   => ['enabled' => false, 'aff_id' => ''],
@@ -162,6 +195,11 @@ final class Config
     {
         $saved = get_option(self::OPTION_REVENUE, []);
         $cfg   = wp_parse_args(is_array($saved) ? $saved : [], $this->revenueDefaults());
+
+        // Self-heal UK tag: vtete-20 was US tag mistakenly stored in older DB options
+        if (empty($cfg['amazon_tag_uk']) || $cfg['amazon_tag_uk'] === 'vtete-20') {
+            $cfg['amazon_tag_uk'] = 'vtete-21';
+        }
 
         // Env-var overrides for affiliate IDs
         if (defined('HELMETSAN_CJ_WEBSITE_ID') && \HELMETSAN_CJ_WEBSITE_ID !== '') {
@@ -424,13 +462,22 @@ final class Config
     public function marketplaceDefaults(): array
     {
         return [
-            // Amazon SP-API
+            // Amazon SP-API (Legacy)
             'amazon_enabled'         => false,
             'amazon_client_id'       => '',
             'amazon_client_secret'   => '',
             'amazon_refresh_token'   => '',
-            'amazon_affiliate_tag'   => 'helmetsan-20',
-            'amazon_countries'       => ['US', 'CA', 'FR', 'DE', 'IT', 'NL', 'PL', 'ES', 'SE', 'UK', 'IN'],
+            'amazon_affiliate_tag'   => 'vtete-20',
+            'amazon_countries'       => ['US', 'CA', 'MX', 'BR', 'UK', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'SE', 'BE', 'IN', 'AE', 'SA', 'SG', 'AU', 'JP'],
+
+            // Amazon Creator API (v3.1 OAuth2)
+            'amazon_creator_enabled'       => true,
+            'amazon_creator_client_id'     => '',
+            'amazon_creator_client_secret' => '',
+            'amazon_creator_version'       => 'v3.1',
+            'amazon_creator_partner_tag'   => 'vtete-20',
+            'amazon_creator_india_tag'     => 'virginiatete-21',
+            'amazon_creator_countries'     => ['US', 'CA', 'UK', 'GB', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'SE', 'BE', 'IE', 'IN', 'JP', 'AU', 'BR', 'MX', 'AE', 'SA', 'SG', 'TR'],
 
             // Allegro
             'allegro_enabled'        => false,
@@ -448,6 +495,19 @@ final class Config
             // Flipkart (India)
             'flipkart_enabled'       => false,
             'flipkart_affiliate_id'  => '',
+
+            // eBay Partner Network
+            'ebay_enabled'           => false,
+            'ebay_client_id'         => '',
+            'ebay_client_secret'     => '',
+            'ebay_campaign_id'       => '',
+            'ebay_countries'         => ['US', 'GB', 'DE', 'FR', 'IT', 'ES', 'CA', 'AU'],
+
+            // AliExpress Portals
+            'aliexpress_enabled'     => false,
+            'aliexpress_app_key'     => '',
+            'aliexpress_app_secret'  => '',
+            'aliexpress_tracking_id' => '',
 
             // Affiliate feeds keyed by feed ID
             'affiliate_feeds'        => [
@@ -503,6 +563,20 @@ final class Config
         if (defined('HELMETSAN_AMZ_AFFILIATE_TAG') && \HELMETSAN_AMZ_AFFILIATE_TAG !== '') {
             $cfg['amazon_affiliate_tag'] = (string) \HELMETSAN_AMZ_AFFILIATE_TAG;
         }
+
+        // Amazon Creator API overrides
+        if (defined('HELMETSAN_AMZ_CREATOR_CLIENT_ID') && \HELMETSAN_AMZ_CREATOR_CLIENT_ID !== '') {
+            $cfg['amazon_creator_client_id'] = (string) \HELMETSAN_AMZ_CREATOR_CLIENT_ID;
+        }
+        if (defined('HELMETSAN_AMZ_CREATOR_CLIENT_SECRET') && \HELMETSAN_AMZ_CREATOR_CLIENT_SECRET !== '') {
+            $cfg['amazon_creator_client_secret'] = (string) \HELMETSAN_AMZ_CREATOR_CLIENT_SECRET;
+        }
+        if (defined('HELMETSAN_AMZ_CREATOR_TAG') && \HELMETSAN_AMZ_CREATOR_TAG !== '') {
+            $cfg['amazon_creator_partner_tag'] = (string) \HELMETSAN_AMZ_CREATOR_TAG;
+        }
+        if (defined('HELMETSAN_AMZ_CREATOR_VERSION') && \HELMETSAN_AMZ_CREATOR_VERSION !== '') {
+            $cfg['amazon_creator_version'] = (string) \HELMETSAN_AMZ_CREATOR_VERSION;
+        }
         if (defined('HELMETSAN_ALLEGRO_CLIENT_ID') && \HELMETSAN_ALLEGRO_CLIENT_ID !== '') {
             $cfg['allegro_client_id'] = (string) \HELMETSAN_ALLEGRO_CLIENT_ID;
         }
@@ -514,6 +588,24 @@ final class Config
         }
         if (defined('HELMETSAN_FLIPKART_AFFILIATE_ID') && \HELMETSAN_FLIPKART_AFFILIATE_ID !== '') {
             $cfg['flipkart_affiliate_id'] = (string) \HELMETSAN_FLIPKART_AFFILIATE_ID;
+        }
+        if (defined('HELMETSAN_EBAY_CLIENT_ID') && \HELMETSAN_EBAY_CLIENT_ID !== '') {
+            $cfg['ebay_client_id'] = (string) \HELMETSAN_EBAY_CLIENT_ID;
+        }
+        if (defined('HELMETSAN_EBAY_CLIENT_SECRET') && \HELMETSAN_EBAY_CLIENT_SECRET !== '') {
+            $cfg['ebay_client_secret'] = (string) \HELMETSAN_EBAY_CLIENT_SECRET;
+        }
+        if (defined('HELMETSAN_EBAY_CAMPAIGN_ID') && \HELMETSAN_EBAY_CAMPAIGN_ID !== '') {
+            $cfg['ebay_campaign_id'] = (string) \HELMETSAN_EBAY_CAMPAIGN_ID;
+        }
+        if (defined('HELMETSAN_ALIEXPRESS_APP_KEY') && \HELMETSAN_ALIEXPRESS_APP_KEY !== '') {
+            $cfg['aliexpress_app_key'] = (string) \HELMETSAN_ALIEXPRESS_APP_KEY;
+        }
+        if (defined('HELMETSAN_ALIEXPRESS_APP_SECRET') && \HELMETSAN_ALIEXPRESS_APP_SECRET !== '') {
+            $cfg['aliexpress_app_secret'] = (string) \HELMETSAN_ALIEXPRESS_APP_SECRET;
+        }
+        if (defined('HELMETSAN_ALIEXPRESS_TRACKING_ID') && \HELMETSAN_ALIEXPRESS_TRACKING_ID !== '') {
+            $cfg['aliexpress_tracking_id'] = (string) \HELMETSAN_ALIEXPRESS_TRACKING_ID;
         }
 
         return $cfg;
@@ -529,8 +621,14 @@ final class Config
     public function featuresDefaults(): array
     {
         return [
-            'enable_technical_analysis' => false,
-            'enable_ai_chatbot'         => false,
+            'enable_technical_analysis'   => false,
+            'enable_ai_chatbot'           => false,
+            'enable_ajax_catalog_filters' => true,
+            'enable_comparison_engine'    => true,
+            'enable_geo_pricing_fallback' => true,
+            'enable_real_user_web_vitals' => true,
+            'enable_adblock_beacon'       => true,
+            'enable_ga4_trending_badges'  => true,
         ];
     }
 
@@ -541,5 +639,95 @@ final class Config
     {
         $saved = get_option(self::OPTION_FEATURES, []);
         return wp_parse_args(is_array($saved) ? $saved : [], $this->featuresDefaults());
+    }
+
+    public function performanceDefaults(): array
+    {
+        return [
+            'enable_metadata_caching' => false,
+            'cache_expiration_hours'  => 24,
+            'enable_geoip_pricing'    => false,
+            'enable_active_cache_push'=> false,
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function performanceConfig(): array
+    {
+        $saved = get_option(self::OPTION_PERFORMANCE, []);
+        $defaults = $this->performanceDefaults();
+        $config = wp_parse_args(is_array($saved) ? $saved : [], $defaults);
+
+        // Check for Customizer override (theme-level toggle)
+        $customizerToggle = get_option('helmetsan_performance_metadata_cache', null);
+        if ($customizerToggle !== null) {
+            $config['enable_metadata_caching'] = (bool) $customizerToggle;
+        }
+
+        // Environment overrides
+        if (defined('HELMETSAN_GEO_IP_PRICING')) {
+            $config['enable_geoip_pricing'] = (bool) \HELMETSAN_GEO_IP_PRICING;
+        }
+        if (defined('HELMETSAN_ACTIVE_CACHE_PUSH')) {
+            $config['enable_active_cache_push'] = (bool) \HELMETSAN_ACTIVE_CACHE_PUSH;
+        }
+
+        return $config;
+    }
+
+    public function cloudflareDefaults(): array
+    {
+        return [
+            'enable_edge_assembly'     => false,
+            'enable_d1_reviews'        => false,
+            'd1_reviews_worker_url'    => '',
+            'enable_cloudflare_queues' => false,
+            'enable_r2_backups'        => false,
+            'enable_workers_ai'        => false,
+            'workers_ai_model'         => '@cf/meta/llama-3-8b-instruct',
+            'cf_zone_id'               => '',
+            'cf_api_token'             => '',
+            'cf_account_id'            => '',
+            'cf_webhook_secret'        => '',
+            'queue_name'               => 'helmetsan-ingest-queue',
+            'r2_bucket'                => '',
+            'r2_public_url'            => '',
+        ];
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    public function cloudflareConfig(): array
+    {
+        $saved = get_option(self::OPTION_CLOUDFLARE, []);
+        $cfg = wp_parse_args(is_array($saved) ? $saved : [], $this->cloudflareDefaults());
+
+        // Environment overrides
+        if (defined('HELMETSAN_CLOUDFLARE_ZONE_ID')) {
+            $cfg['cf_zone_id'] = constant('HELMETSAN_CLOUDFLARE_ZONE_ID');
+        }
+        if (defined('HELMETSAN_CLOUDFLARE_API_TOKEN')) {
+            $cfg['cf_api_token'] = constant('HELMETSAN_CLOUDFLARE_API_TOKEN');
+        }
+        if (defined('HELMETSAN_CLOUDFLARE_ACCOUNT_ID')) {
+            $cfg['cf_account_id'] = constant('HELMETSAN_CLOUDFLARE_ACCOUNT_ID');
+        }
+        if (defined('HELMETSAN_WEBHOOK_SECRET')) {
+            $cfg['cf_webhook_secret'] = constant('HELMETSAN_WEBHOOK_SECRET');
+        }
+        if (defined('HELMETSAN_CF_INGEST_QUEUE')) {
+            $cfg['queue_name'] = constant('HELMETSAN_CF_INGEST_QUEUE');
+        }
+        if (defined('HELMETSAN_R2_BUCKET')) {
+            $cfg['r2_bucket'] = constant('HELMETSAN_R2_BUCKET');
+        }
+        if (defined('HELMETSAN_R2_PUBLIC_URL')) {
+            $cfg['r2_public_url'] = constant('HELMETSAN_R2_PUBLIC_URL');
+        }
+
+        return $cfg;
     }
 }

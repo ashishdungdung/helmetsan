@@ -12,6 +12,7 @@ use Helmetsan\Core\Ingestion\IngestionService;
 use Helmetsan\Core\Ingestion\LogRepository as IngestionLogRepository;
 use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
+use Helmetsan\Core\Support\BackgroundTaskService;
 use Helmetsan\Core\Support\Config;
 use Helmetsan\Core\Sync\LogRepository as SyncLogRepository;
 use Helmetsan\Core\Sync\SyncService;
@@ -25,7 +26,10 @@ final class SchedulerService
     public const HOOK_INGESTION = 'helmetsan_cron_ingestion';
     public const HOOK_ENRICHMENT = 'helmetsan_cron_enrichment';
     public const HOOK_IMAGE_ENRICHMENT = 'helmetsan_cron_image_enrichment';
+    public const HOOK_IMAGE_ENRICH_SINGLE = 'helmetsan_image_enrich_single';
     public const HOOK_R2_BACKUPS = 'helmetsan_cron_r2_backups';
+    public const HOOK_ANALYTICS_AUDIT = 'helmetsan_cron_analytics_audit';
+    public const HOOK_ANALYTICS_VIEWS_SYNC = 'helmetsan_cron_sync_page_views';
 
     public function __construct(
         private readonly Config $config,
@@ -35,6 +39,7 @@ final class SchedulerService
         private readonly SyncLogRepository $syncLogs,
         private readonly HealthService $health,
         private readonly AlertService $alerts,
+        private readonly BackgroundTaskService $tasks,
         private readonly ?AiService $aiService = null
     ) {
     }
@@ -50,7 +55,14 @@ final class SchedulerService
         add_action(self::HOOK_INGESTION, [$this, 'runIngestion']);
         add_action(self::HOOK_ENRICHMENT, [$this, 'runEnrichment']);
         add_action(self::HOOK_IMAGE_ENRICHMENT, [$this, 'runImageEnrichment']);
+        add_action(self::HOOK_IMAGE_ENRICH_SINGLE, [$this, 'handleSingleImageEnrichment'], 10, 2);
         add_action(self::HOOK_R2_BACKUPS, [$this, 'runR2Backups']);
+        add_action(self::HOOK_ANALYTICS_AUDIT, function (): void {
+            $this->runAnalyticsAudit();
+        });
+        add_action(self::HOOK_ANALYTICS_VIEWS_SYNC, function (): void {
+            $this->runAnalyticsViewsSync();
+        });
 
         add_action('init', [$this, 'scheduleEvents']);
     }
@@ -70,6 +82,8 @@ final class SchedulerService
         $this->clearHook(self::HOOK_ENRICHMENT);
         $this->clearHook(self::HOOK_IMAGE_ENRICHMENT);
         $this->clearHook(self::HOOK_R2_BACKUPS);
+        $this->clearHook(self::HOOK_ANALYTICS_AUDIT);
+        $this->clearHook(self::HOOK_ANALYTICS_VIEWS_SYNC);
     }
 
     /**
@@ -132,11 +146,25 @@ final class SchedulerService
             $this->clearHook(self::HOOK_ENRICHMENT);
         }
 
-        if (! empty($cfg['r2_backups_enabled'])) {
+        $cfSettings = get_option(\Helmetsan\Core\Support\Config::OPTION_CLOUDFLARE, []);
+        $r2BackupsEnabled = !empty($cfSettings['enable_r2_backups']) || !empty($cfg['r2_backups_enabled']);
+
+        if ($r2BackupsEnabled) {
             $r2BackupsRecurrence = $this->recurrenceFromHours((int) ($cfg['r2_backups_interval_hours'] ?? 24));
             $this->ensureEvent(self::HOOK_R2_BACKUPS, $r2BackupsRecurrence);
         } else {
             $this->clearHook(self::HOOK_R2_BACKUPS);
+        }
+
+        $analyticsSettings = get_option(\Helmetsan\Core\Support\Config::OPTION_ANALYTICS, []);
+        $analyticsAuditEnabled = ! empty($analyticsSettings['analytics_anomaly_detection_enabled']);
+
+        if ($analyticsAuditEnabled) {
+            $this->ensureEvent(self::HOOK_ANALYTICS_AUDIT, 'daily');
+            $this->ensureEvent(self::HOOK_ANALYTICS_VIEWS_SYNC, 'daily');
+        } else {
+            $this->clearHook(self::HOOK_ANALYTICS_AUDIT);
+            $this->clearHook(self::HOOK_ANALYTICS_VIEWS_SYNC);
         }
     }
 
@@ -155,6 +183,8 @@ final class SchedulerService
                 'ingestion'       => wp_next_scheduled(self::HOOK_INGESTION),
                 'enrichment'      => wp_next_scheduled(self::HOOK_ENRICHMENT),
                 'r2_backups'      => wp_next_scheduled(self::HOOK_R2_BACKUPS),
+                'analytics_audit' => wp_next_scheduled(self::HOOK_ANALYTICS_AUDIT),
+                'analytics_views_sync' => wp_next_scheduled(self::HOOK_ANALYTICS_VIEWS_SYNC),
             ],
             'settings' => $this->config->schedulerConfig(),
         ];
@@ -174,6 +204,8 @@ final class SchedulerService
             'enrichment' => $this->runEnrichment(),
             'image_enrichment' => $this->runImageEnrichment(),
             'r2_backups' => $this->runR2Backups(),
+            'analytics_audit' => $this->runAnalyticsAudit(),
+            'analytics_views_sync' => $this->runAnalyticsViewsSync(),
             default => ['ok' => false, 'message' => 'Unknown task: ' . $task],
         };
     }
@@ -472,25 +504,52 @@ final class SchedulerService
                 new \Helmetsan\Core\Media\RevZillaImageService()
             );
 
-            $result = $service->run(
-                $limit, // limit
-                true,   // onlyMissingThumb
-                false,  // useAiWhenNoEan
-                false,  // dryRun
-                null,   // onProgress
-                true,   // useEan
-                true,   // useRevZilla
-                ! empty($cfg['image_enrichment_search']), // useAi (or search)
-                ! empty($cfg['image_enrichment_gallery']), // gallery
-                ! empty($cfg['image_enrichment_search']), // search
-                empty($cfg['image_enrichment_no_high_res']) // highRes
-            );
+            // Fetch IDs that need enrichment
+            $query = new \WP_Query([
+                'post_type'      => 'helmet',
+                'post_status'    => 'publish',
+                'posts_per_page' => $limit,
+                'orderby'        => 'ID',
+                'order'          => 'ASC',
+                'fields'         => 'ids',
+                'meta_query'     => [
+                    [
+                        'key'     => '_thumbnail_id',
+                        'compare' => 'NOT EXISTS',
+                    ],
+                ],
+            ]);
+            $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
 
-            $this->maybeAlert('image_enrichment', $result);
-            return $result;
+            $options = [
+                'useAi'   => ! empty($cfg['image_enrichment_search']),
+                'gallery' => ! empty($cfg['image_enrichment_gallery']),
+                'search'  => ! empty($cfg['image_enrichment_search']),
+                'highRes' => empty($cfg['image_enrichment_no_high_res']),
+            ];
+
+            foreach ($ids as $id) {
+                $this->tasks->dispatch(self::HOOK_IMAGE_ENRICH_SINGLE, [$id, $options]);
+            }
+
+            return ['ok' => true, 'message' => sprintf('Dispatched %d enrichment tasks.', count($ids))];
         } finally {
             $this->releaseLock('image_enrichment');
         }
+    }
+
+    /**
+     * Handle single helmet image enrichment dispatched via BackgroundTaskService.
+     */
+    public function handleSingleImageEnrichment(int $helmetId, array $options): void
+    {
+        $service = new \Helmetsan\Core\Media\HelmetImageEnrichmentService(
+            new \Helmetsan\Core\Media\MediaEngine($this->config),
+            $this->aiService,
+            new \Helmetsan\Core\Media\RevZillaImageService()
+        );
+
+        $service->processHelmet($helmetId, $options);
     }
 
     /**
@@ -573,6 +632,101 @@ final class SchedulerService
             $hours <= 12 => 'helmetsan_12h',
             default => 'helmetsan_24h',
         };
+    }
+
+    /**
+     * Run daily Google Analytics traffic anomaly checks.
+     *
+     * @return array{ok: bool, message: string, anomalies_found?: int}
+     */
+    public function runAnalyticsAudit(): array
+    {
+        if (! $this->acquireLock('analytics_audit', 3600)) {
+            return ['ok' => false, 'message' => 'Analytics audit is already running.'];
+        }
+
+        try {
+            $analyticsSettings = get_option(\Helmetsan\Core\Support\Config::OPTION_ANALYTICS, []);
+            if (empty($analyticsSettings['analytics_anomaly_detection_enabled'])) {
+                return ['ok' => true, 'message' => 'Anomaly detection is disabled in settings.'];
+            }
+
+            $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
+            $res = $gaService->detectTrafficAnomalies();
+
+            if (! $res['ok']) {
+                $this->alerts->send(
+                    'error',
+                    'GA4 Analytics Audit Failed',
+                    $res['message'] ?? 'Unknown error querying GA4 API.',
+                    $res
+                );
+                return ['ok' => false, 'message' => $res['message'] ?? 'Audit failed'];
+            }
+
+            if (! empty($res['anomalies'])) {
+                $count = count($res['anomalies']);
+                $details = '';
+                foreach ($res['anomalies'] as $a) {
+                    $details .= sprintf(
+                        "- Country: %s | Target Date: %s | Sessions: %d | Avg: %s | Spike: %sx\n",
+                        $a['country'],
+                        $a['target_date'],
+                        $a['today'],
+                        $a['average'],
+                        $a['factor']
+                    );
+                }
+
+                // Send email alert to custom recipient
+                $customEmail = trim((string) ($analyticsSettings['analytics_anomaly_alert_email'] ?? ''));
+                if ($customEmail !== '') {
+                    $subject = '[Helmetsan] Traffic Anomaly Alert';
+                    $body = "Google Analytics has detected traffic spikes/anomalies in yesterday's reports:\n\n" . $details . "\n\nPlease review your Cloudflare WAF or firewall settings.";
+                    wp_mail($customEmail, $subject, $body);
+                }
+
+                // Also send via the central AlertService (which handles Slack and default email)
+                $this->alerts->send(
+                    'warning',
+                    "GA4 Anomaly Audit: {$count} spikes detected",
+                    "Traffic anomalies detected in yesterday's reports:\n\n" . $details,
+                    $res
+                );
+            }
+
+            $this->releaseLock('analytics_audit');
+            return ['ok' => true, 'message' => 'Anomaly detection complete.', 'anomalies_found' => count($res['anomalies'])];
+        } catch (\Exception $e) {
+            $this->releaseLock('analytics_audit');
+            return ['ok' => false, 'message' => 'Audit runner error: ' . $e->getMessage()];
+        }
+    }
+
+    /**
+     * Sync page views from GA4 and verify custom dimensions.
+     */
+    public function runAnalyticsViewsSync(): array
+    {
+        if (! $this->acquireLock('analytics_views_sync', 3600)) {
+            return ['ok' => false, 'message' => 'Analytics views sync is already running.'];
+        }
+
+        try {
+            $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
+            
+            // 1. Sync dimensions
+            $gaService->ensureCustomDimensions();
+
+            // 2. Sync page views
+            $res = $gaService->syncHelmetPageViews();
+
+            $this->releaseLock('analytics_views_sync');
+            return $res;
+        } catch (\Exception $e) {
+            $this->releaseLock('analytics_views_sync');
+            return ['ok' => false, 'message' => 'GA4 sync failed: ' . $e->getMessage()];
+        }
     }
 
     /**

@@ -14,9 +14,14 @@ add_action('widgets_init', 'helmetsan_theme_register_sidebars');
 
 function helmetsan_theme_setup(): void
 {
+    load_theme_textdomain('helmetsan-theme', get_stylesheet_directory() . '/languages');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script']);
+    add_theme_support('responsive-embeds');
+    add_theme_support('align-wide');
+    add_theme_support('editor-styles');
+    add_theme_support('customize-selective-refresh-widgets');
     add_theme_support('woocommerce');
 
     register_nav_menus([

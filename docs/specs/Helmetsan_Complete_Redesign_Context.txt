@@ -1,0 +1,901 @@
+HELMETSAN — COMPLETE UI/UX REDESIGN CONTEXT
+
+Purpose
+
+This document is the complete working context for redesigning and
+improving Helmetsan.com using Antigravity IDE and Gemini 3.6. It is
+intended to be given to the coding/AI agent so it understands the
+product vision, current UI, problems identified, approved directions,
+and implementation priorities.
+
+Website: https://helmetsan.com/
+
+Product positioning: GLOBAL HELMET INTELLIGENCE PLATFORM
+
+Helmetsan should NOT become a generic ecommerce helmet store. It should
+be a structured helmet intelligence, discovery, comparison, safety,
+fitment, accessory and price-information platform.
+
+Core product principle: HELP THE RIDER MAKE A BETTER HELMET DECISION.
+
+The site should answer: 1. What helmet is this? 2. Is it safe? 3. Is it
+suitable for me? 4. How does it compare? 5. What accessories fit it? 6.
+Where can I buy it? 7. What evidence/sources support the information?
+
+IMPORTANT DEVELOPMENT PRINCIPLES
+
+-   This is an information architecture and UX redesign, not merely a
+    cosmetic redesign.
+-   Inspect the existing database/data model before making major
+    structural changes.
+-   Reuse actual data wherever possible.
+-   NEVER fabricate product specifications, certifications,
+    compatibility, prices, ratings, reviews, head shapes, weights, model
+    dates, retailer availability, or statistics.
+-   If information is unavailable, show an explicit
+    unavailable/unverified state or omit the field.
+-   Do not infer helmet compatibility simply because two products share
+    a brand or appear visually related.
+-   Do not invent AI scores unless a documented scoring methodology
+    exists.
+-   Data trustworthiness is more important than visual richness.
+-   Fix data/image pipeline issues before hiding them with UI.
+-   Avoid excessive card-based dashboard design.
+-   Use a premium technical/editorial/data-driven aesthetic.
+-   Primary colors: black, white/off-white, neutral gray, restrained
+    Helmetsan red.
+-   Semantic colors: green = verified/compatible, amber = uncertain,
+    gray = unavailable.
+-   Avoid excessive gradients, purple badges, heavy shadows, excessive
+    red borders, fake scores, fake ratings and unnecessary animations.
+
+CURRENT SITE / AREAS REVIEWED
+
+Screenshots and prior redesign work covered: 1. Homepage 2. Helmets
+listing 3. Brands directory 4. Accessories & Optics 5. Motorcycles 6.
+Safety Standards 7. 404 page 8. Contact page 9. Helmet detail/product
+page 10. Helmet mega-navigation
+
+The homepage and major directory pages have already been conceptually
+redesigned. The current focus is the Helmet Detail page, but all pages
+should eventually share a coherent information architecture and data
+model.
+
+============================================================ 1. HOMEPAGE
+— APPROVED DIRECTION
+============================================================
+
+Current homepage concept: - Global Helmet Intelligence Platform - Hero:
+“Find the Right Helmet. Compare Specs. Stay Compliant.” - Featured
+helmet - Stats - Featured helmets - Brands - Accessories - Safety &
+Certifications - Footer
+
+Problems identified: - Homepage had too many disconnected catalog
+sections. - Product discovery was not sufficiently decision-oriented. -
+The site looked more like a database/ecommerce directory than an
+intelligence platform. - Need stronger relationships between helmets,
+brands, accessories, safety standards and comparison.
+
+Homepage should ultimately communicate: “Find the right helmet,
+understand why it is right, verify its safety, compare alternatives, and
+find where to buy.”
+
+Core homepage pathways: - Find a helmet - Compare helmets - Explore
+brands - Understand safety standards - Find compatible accessories -
+Browse by riding style/use case
+
+Do not make the homepage too card-heavy.
+
+============================================================ 2. HELMETS
+LISTING PAGE
+============================================================
+
+The Helmets page evolved from a basic catalog into a more useful
+discovery interface.
+
+Desired architecture: - Hero/introduction - Search - Rider/helmet
+preference finder - Recommended helmets - All matching helmets -
+Filters - Pagination - Educational/database explanation - Footer
+
+Important filter/discovery dimensions: - Helmet size - Helmet type -
+Brand - Price range - Certification - SHARP rating - Riding style -
+Other actual database attributes
+
+The helmet listing should eventually support intent-based discovery: “I
+ride this way, have this budget, need this certification, and want these
+features.”
+
+Product cards should prioritize: - Brand - Helmet name - Main image -
+Certification - Important attributes - Price - Compare/add action - View
+helmet
+
+Avoid tiny unreadable product cards.
+
+============================================================ 3. BRANDS
+PAGE ============================================================
+
+The Brands page was redesigned into a manufacturer directory.
+
+Current approved direction: Hero: “Global Helmet Brands”
+
+Supporting message: Decipher origins, safety specs, design philosophies,
+and manufacturing information.
+
+Stats: - Brands/manufacturers profiled - Origin countries - Helmets
+tracked
+
+Features: - Search - Country exploration - Alphabet navigation -
+Filters - Grid/list views - Brand cards - Pagination
+
+Brand card should show: - Country/origin - Helmet count - Logo - Brand
+name - Short description - Established year where verified - Brand
+positioning where verified - Explore brand
+
+Important data issue: There have been inconsistent counts such as 82 vs
+102 brands and 13 vs 14 countries. These must come from one canonical
+database query, not hardcoded UI values.
+
+Brand data must not invent: - origin - establishment date - helmet
+count - safety positioning - manufacturer status
+
+============================================================ 4.
+ACCESSORIES PAGE — APPROVED UX ARCHITECTURE
+============================================================
+
+The Accessories page has been substantially redesigned and this
+architecture is APPROVED.
+
+Core concept: Helmet -> Need -> Compatible accessory -> Browse catalog
+
+The page should answer: “I have this helmet. What can I add to it, and
+what actually fits?”
+
+Approved structure:
+
+HERO ↓ ACCESSORY FINDER ↓ EXPLORE BY PURPOSE ↓ BROWSE BY FUNCTIONAL
+CATEGORY ↓ ACCESSORY CATALOG ↓ PAGINATION ↓ FOOTER
+
+Hero: “Helmet Accessories & Optics”
+
+Recommended message: “Find the right accessories for your helmet — from
+visibility and communication upgrades to comfort, protection and care.”
+
+Primary CTA: “Find accessories for my helmet”
+
+Secondary: “Browse all accessories”
+
+Stats should be data-driven: - Accessories tracked - Categories -
+Verified compatibility / compatibility data Only use these labels if
+supported by real data.
+
+Accessory Finder: 1. Select your helmet model 2. What are you looking to
+improve?
+
+Purpose options: - Prevent Fogging - Communication - Comfort & Fit -
+Visor & Optics - Travel & Care
+
+Finder requirements: - Selected state must be obvious. - CTA should be
+disabled until minimum required inputs exist. - Add “I don’t know my
+helmet” or “Browse without selecting a helmet”. - Finder MUST actually
+control the catalog results; it must not be decorative.
+
+Example: Helmet = Arai Raider X Purpose = Prevent Fogging
+
+Results should change to: “Accessories for Arai Raider X” “12 matching
+accessories” with removable selection chips.
+
+Compatibility states: - Confirmed compatible - Compatibility likely -
+Compatibility unverified - Not compatible
+
+Only show these when supported by actual data.
+
+Purpose tiles: Use a consistent icon family. Suggested semantic icons: -
+Visibility -> eye - Communication -> headset - Comfort -> fit/cushion -
+Protection -> shield - Travel & Care -> bag/tool
+
+Do not use random reused helmet images to fill category cards.
+
+Functional category groups: VISIBILITY & OPTICS - Anti-Fog Solutions -
+Face Shields - Pinlock Inserts - Tear-Offs - Visor Cleaners - Visors &
+Shields
+
+COMFORT & FIT - Balaclavas - Breath Guards - Cheek Pads - Inner Liners -
+Liners
+
+COMMUNICATION & TECHNOLOGY - Communications - Helmet Cameras
+
+PROTECTION & CARE - Helmet Bags - Helmet Cleaners - Maintenance & Care -
+Peak Visors
+
+Use “Comfort & Fit”, NOT “Comfort & Fitment”. “Fitment” should
+specifically mean product/helmet compatibility.
+
+Accessory catalog: Rename “All accessories” to “Accessory Catalog”.
+
+Show: - Total accessory count - Showing X-Y of N - Search - Filters -
+Sort - Grid/list
+
+Filters should be grouped: CATEGORY COMPATIBILITY FEATURES
+
+If a helmet is selected, show: Your helmet: Arai Raider X
+Compatibility: - Confirmed - Likely - Unverified
+
+Product cards: - Brand - Product name - Compatibility status - Key
+feature if available - Price - View accessory
+
+Price should not dominate the card. “View accessory ->” should be the
+main action rather than aggressive ecommerce “View Details”.
+
+Critical image problem: Many accessory products had missing/broken
+images. First investigate: - product image URL - database mapping -
+CDN - lazy loading - asset path - fallback logic
+
+If no image exists, use a deliberate category-specific placeholder: -
+Visor -> visor silhouette - Communication -> intercom silhouette - Liner
+-> liner illustration - Care -> care kit illustration
+
+Never show browser broken-image icons as the final design.
+
+Desktop can use 3 or 4 cards depending on width; prioritize readable
+cards over maximum density. Tablet: 2. Mobile: 1.
+
+============================================================ 5. SAFETY
+STANDARDS PAGE
+============================================================
+
+Current concept: “Understanding Helmet Safety Standards”
+
+Core content: - Standards at a glance - Global safety standards - Why
+certifications matter - Certified helmet discovery
+
+Tracked standards include examples such as: - DOT FMVSS 218 - ECE
+22.06 - ISI IS 4151 - SHARP - Snell M2020R
+
+Important: Standards must be factually accurate. Do not imply that all
+standards have the same legal role or testing method. Do not infer
+rotational testing requirements without verified source data.
+
+Safety pages should connect to helmet pages: Helmet -> certification ->
+standard explanation.
+
+Each standard can explain: - Region/scope - Legal status - Impact
+testing - Rotational testing - Relevant thresholds - What the
+certification means
+
+============================================================ 6.
+MOTORCYCLES PAGE
+============================================================
+
+Current page is a motorcycle index with cards for models such as: -
+Yamaha YZF-R1 - Royal Enfield Himalayan 450 - Honda Activa 6G -
+Harley-Davidson Street Glide - BMW R 1250 GS
+
+Purpose: Show segment-aware helmet recommendations for motorcycles.
+
+Future relationship: Motorcycle -> suitable riding use -> helmet
+recommendations.
+
+Do not make motorcycle data a disconnected directory.
+
+============================================================ 7. HELMET
+DETAIL PAGE — CURRENT FOCUS
+============================================================
+
+This is the most important redesign.
+
+The current screenshot shows: - Breadcrumb - Product title “Pioneer” -
+Brand information - Basic attributes - Large product image area with
+missing/weak imagery - Buy/store panel - Product
+overview/specifications - Compare & Buy - User reviews - Compatible
+accessories - More from brand - Footer
+
+Current page problems: 1. Hero is weak. 2. Product image appears
+broken/empty. 3. Critical safety information is buried. 4. Technical
+information is fragmented into too many small cards. 5. Review empty
+state displays 0.0, which incorrectly looks like a poor rating. 6. Price
+history has a huge empty state. 7. Accessories section is weak and has
+broken imagery. 8. Similar products are generic instead of
+decision-oriented. 9. Too many boxes create a dashboard/ecommerce feel.
+10. No strong “Helmetsan intelligence” layer. 11. Fit/sizing is weak.
+12. Data provenance/verification is weak. 13. Page does not clearly
+explain who the helmet is for. 14. The relationship to
+standards/accessories/comparison is not strong enough.
+
+============================================================ 8. HELMET
+DETAIL PAGE — TARGET INFORMATION ARCHITECTURE
+============================================================
+
+BREADCRUMB
+
+PRODUCT HERO
+
+STICKY SECTION NAVIGATION
+
+Quick Facts
+
+Helmetsan Quick Verdict
+
+Safety
+
+Fit & Sizing
+
+Specifications
+
+Where to Buy
+
+Compare
+
+Reviews
+
+Accessories
+
+Similar Helmets
+
+Data & Sources
+
+FOOTER
+
+Recommended section navigation: Overview | Safety | Specifications | Fit
+& Sizing | Where to Buy | Reviews | Accessories
+
+Desktop: sticky horizontal navigation. Mobile: horizontal scroll or
+compact navigation.
+
+============================================================ 9. PRODUCT
+HERO — TARGET DESIGN
+============================================================
+
+Hero should immediately communicate:
+
+Brand Product name Helmet type Key metadata Product image/gallery Quick
+Verdict Price Where to Buy
+
+Example:
+
+BILT
+
+Pioneer
+
+Full Face Motorcycle Helmet
+
+[ ECE 22.06 ] [ Full Face ] [ Street ] [ Touring ]
+
+Large image/gallery
+
+Right panel:
+
+HELMETSAN QUICK VERDICT
+
+Best for: Daily riding Street Touring
+
+Consider: Weight Feature set Other actual concerns
+
+Price: ₹X,XXX
+
+Best current price
+
+[ FIND WHERE TO BUY -> ]
+
+Do not invent a numerical score.
+
+If a documented scoring methodology is created later, it must be
+transparent and consistent.
+
+============================================================ 10. PRODUCT
+IMAGE SYSTEM
+============================================================
+
+Product imagery is P0.
+
+Fix: - broken URLs - wrong asset paths - database mappings - CDN - lazy
+loading - image sizing - fallback behavior
+
+Support: - Primary image - thumbnails - image count - zoom - fullscreen
+
+Do not fabricate multiple angles if only one image exists.
+
+If no image exists: show a clean neutral placeholder with “Image
+unavailable” or category-specific placeholder.
+
+Never show a browser broken-image icon.
+
+Reserve image dimensions to prevent layout shift.
+
+Use responsive images and WebP/AVIF where appropriate.
+
+============================================================ 11. PRODUCT
+METADATA ============================================================
+
+Immediately below title, show compact factual chips.
+
+Potential fields: - Helmet type - Certification - Shell material -
+Retention - Weight - Riding style
+
+Only render actual available fields.
+
+============================================================ 12.
+HELMETSAN QUICK VERDICT
+============================================================
+
+This should be a signature feature.
+
+Sections:
+
+BEST FOR - Daily commuting - Street - Touring etc.
+
+CONSIDER IF - actual relevant considerations
+
+WATCH OUT FOR - actual limitations supported by data
+
+Do not create unsupported claims.
+
+This is decision support, not marketing copy.
+
+============================================================ 13. SAFETY
+SNAPSHOT ============================================================
+
+Safety is a primary Helmetsan differentiator.
+
+Create:
+
+SAFETY SNAPSHOT
+
+Certification Impact testing Rotational testing Visor requirements
+Retention Other verified safety attributes
+
+Each should include: - status - short explanation - source if available
+
+Example: ECE 22.06 Verified View standard ->
+
+Do not infer safety properties merely from a certification name.
+
+============================================================ 14. QUICK
+FACTS ============================================================
+
+Create:
+
+QUICK FACTS
+
+Helmet type Shell Weight Retention Certification Visor Sun visor Pinlock
+Ventilation
+
+Only display fields that exist.
+
+============================================================ 15. PRODUCT
+OVERVIEW ============================================================
+
+Create:
+
+WHAT IS THIS HELMET?
+
+2-3 sentence editorial summary based on verified structured product
+information.
+
+Then: Best for Helmet type Construction
+
+Do not create unsupported claims.
+
+============================================================ 16. FIT &
+SIZING ============================================================
+
+Create:
+
+FIT & SIZING
+
+Available sizes Shell sizes Head shape Fit information Measurement
+guidance
+
+If head shape is not verified: “Head shape information not verified.”
+
+Do not infer head shape from appearance.
+
+Add: How to measure your head ->
+
+Potential future feature: Head shape visualization.
+
+============================================================ 17. DATA
+CONFIDENCE ============================================================
+
+Where possible, indicate:
+
+Verified Manufacturer stated Retailer stated Community reported
+Unverified
+
+This is especially important for: - Fit - Head shape - Weight -
+Certification - Compatibility - Price - Reviews
+
+============================================================ 18.
+SPECIFICATIONS
+============================================================
+
+Replace overly fragmented specification cards.
+
+Group into:
+
+CONSTRUCTION - Shell material - Shell sizes - Weight
+
+PROTECTION - Certification - Retention - Impact information
+
+VISIBILITY - Visor - Pinlock - Sun visor - Anti-fog
+
+COMFORT - Liner - Cheek pads - Ventilation - Removability
+
+ELECTRONICS - Communication compatibility - Electronic features
+
+Only show populated groups.
+
+============================================================ 19.
+TECHNICAL EXPLANATIONS
+============================================================
+
+Where useful, add short “What this means” explanations.
+
+Example:
+
+Double D-ring “Secure manual retention system commonly used on
+performance helmets.”
+
+Do not explain every field. Explain technical terms when the explanation
+improves rider understanding.
+
+============================================================ 20. WHERE
+TO BUY ============================================================
+
+Redesign the existing price area.
+
+Create:
+
+WHERE TO BUY
+
+BEST CURRENT PRICE
+
+₹X,XXX
+
+Save ₹XXX if applicable.
+
+Retailer comparison: Retailer Price Availability Shipping Last checked
+
+Primary CTA: Check price ->
+
+Use real retailer data only.
+
+Never fabricate availability.
+
+============================================================ 21. PRICE
+HISTORY ============================================================
+
+If there is insufficient historical data: Do not show a huge empty
+chart/card.
+
+Use a compact state: “Price history will appear as Helmetsan collects
+more price observations.”
+
+If actual data exists: show a simple readable price chart.
+
+Potential future feature: Price alert: “Notify me when price drops below
+₹X” ONLY if real alert infrastructure exists.
+
+============================================================ 22. COMPARE
+============================================================
+
+Create:
+
+COMPARE THIS HELMET
+
+“See how this helmet compares with similar helmets.”
+
+CTA: Compare helmets ->
+
+Comparison should prioritize: - Same helmet type - Similar price - Same
+certification - Similar riding style - Relevant differences
+
+Potential comparison reasons: - Similar price - Lighter - More
+features - Better ventilation - Different certification
+
+Only when supported by actual data.
+
+============================================================ 23. REVIEWS
+============================================================
+
+Current “0.0” rating is bad UX if there are no reviews.
+
+Use: NO VERIFIED RIDER REVIEWS YET
+
+Be the first to share your experience ->
+
+Do not display a zero score.
+
+When real reviews exist, show: - Overall rating - Comfort -
+Ventilation - Noise - Visibility - Value - Fit
+
+Potential sentiment: Common positives Common complaints
+
+Only derive these from actual reviews.
+
+============================================================ 24.
+ACCESSORIES ON HELMET PAGE
+============================================================
+
+Create:
+
+ACCESSORIES FOR THIS HELMET
+
+Separate:
+
+COMPATIBLE ACCESSORIES and RECOMMENDED UPGRADES
+
+Compatible means actual verified fitment.
+
+Recommended means useful upgrade, but not necessarily directly verified
+as fitment.
+
+Each accessory: - Brand - Product - Category - Compatibility status -
+Price if available - View accessory ->
+
+Use the same compatibility system as Accessories page.
+
+============================================================ 25.
+COMPATIBILITY MODEL
+============================================================
+
+Use consistent states:
+
+✓ Confirmed compatible ◐ Compatibility likely ? Compatibility unverified
+— Not compatible
+
+Never infer compatibility.
+
+The compatibility model should be shared across the whole website.
+
+Helmet -> Compatible accessories Accessory -> Compatible helmets
+
+============================================================ 26. SIMILAR
+HELMETS ============================================================
+
+Create:
+
+SIMILAR HELMETS
+
+Prioritize: - Same type - Similar price - Same certification - Similar
+riding style
+
+Add reason labels only if data supports them.
+
+Then optionally: MORE FROM [BRAND]
+
+“More from brand” should be secondary to meaningful alternatives.
+
+============================================================ 27. PRODUCT
+LIFECYCLE ============================================================
+
+If available: Model status: Current / Discontinued / Older generation
+
+Introduced: YYYY
+
+Last verified: YYYY-MM-DD
+
+Do not invent dates.
+
+This is particularly important because helmet safety standards and
+product generations change.
+
+============================================================ 28. DATA &
+SOURCES ============================================================
+
+Create:
+
+DATA & SOURCES
+
+Manufacturer Certification source Retailer sources Last verified
+
+Potential field-level source indicators.
+
+This improves platform credibility.
+
+============================================================ 29. STICKY
+ACTION BAR ============================================================
+
+After scrolling beyond hero, show a sticky desktop action bar:
+
+BILT Pioneer ₹X,XXX ECE 22.06
+
+[ COMPARE ] [ WHERE TO BUY -> ]
+
+Mobile: sticky bottom bar: ₹X,XXX [ WHERE TO BUY ]
+
+============================================================ 30. CARD
+FATIGUE ============================================================
+
+Current site uses too many bordered boxes.
+
+Do not put every section inside a card.
+
+Use a mix of: - editorial sections - tables - compact cards - dividers -
+whitespace
+
+The product page should feel like a premium technical intelligence
+report, not an ecommerce dashboard.
+
+============================================================ 31. VISUAL
+LANGUAGE ============================================================
+
+Use: - Black typography - Neutral/off-white backgrounds - Thin borders -
+Subtle shadows - Helmetsan red for primary actions - Green for
+verified/compatible - Amber for uncertain - Gray for unavailable
+
+Avoid: - Purple - Excessive gradients - Heavy shadows - Too many red
+outlines - Excessive pill badges - Fake AI scores - Fake reviews - Fake
+popularity - Unnecessary animation
+
+============================================================ 32.
+RESPONSIVE ============================================================
+
+Desktop: Large image + intelligence panel.
+
+Tablet: Stack hero intelligently.
+
+Mobile order: 1. Image 2. Product title 3. Quick verdict 4. Price 5. CTA
+6. Key facts 7. Safety 8. Fit 9. Specs 10. Buying 11. Reviews 12.
+Accessories
+
+Mobile: - Section navigation horizontally scrollable - Specs as
+accordions - Retailers as cards - Accessories as cards - Sticky bottom
+purchase CTA
+
+Do not squeeze desktop layout into mobile.
+
+============================================================ 33.
+PERFORMANCE ============================================================
+
+-   Lazy-load lower-page images.
+-   Use correct responsive image sizes.
+-   Use WebP/AVIF where supported.
+-   Reserve image dimensions.
+-   Avoid layout shifts.
+-   Do not load every product image above the fold.
+-   Fix image failures at the source.
+
+============================================================ 34.
+IMPLEMENTATION ORDER
+============================================================
+
+Do NOT attempt everything as one uncontrolled AI change.
+
+PHASE 1 — ABOVE THE FOLD - Hero - Image gallery - Title - Metadata -
+Quick Verdict - Price - Where to Buy - Sticky section navigation
+
+PHASE 2 — INTELLIGENCE - Quick Facts - Safety - Fit & Sizing -
+Specifications - Data confidence - Sources
+
+PHASE 3 — COMMERCE & DECISION SUPPORT - Where to Buy - Price history -
+Compare - Reviews
+
+PHASE 4 — ECOSYSTEM - Compatible accessories - Recommended upgrades -
+Similar helmets - More from brand - Sticky purchase bar - Mobile
+refinement
+
+============================================================ 35.
+CANONICAL HELMET DATA MODEL — FUTURE ARCHITECTURE
+============================================================
+
+This is important.
+
+Do not treat each page as an independent template.
+
+A helmet should be a central entity with relationships to:
+
+HELMET | |– BRAND | |– SAFETY STANDARDS | |– CERTIFICATIONS | |– FIT /
+SIZING | |– SPECIFICATIONS | |– ACCESSORIES | |– REVIEWS | |– RETAILERS
+| |– PRICE HISTORY | |– SIMILAR HELMETS | |– MOTORCYCLES / RIDING USE |
+|– SOURCES
+
+This allows: Helmet -> Accessories Accessory -> Helmets Helmet ->
+Standard Standard -> Certified helmets Helmet -> Compare Helmet ->
+Retailers Helmet -> Reviews Helmet -> Brand
+
+The data model should eventually have field-level provenance: value
+source source type verification status last verified
+
+============================================================ 36.
+HELMETSAN’S CORE UX LOOP
+============================================================
+
+The platform should guide users through:
+
+I HAVE A RIDING NEED ↓ FIND A HELMET ↓ UNDERSTAND SAFETY ↓ CHECK FIT ↓
+COMPARE ↓ CHECK ACCESSORIES ↓ CHECK PRICE ↓ BUY / FIND RETAILER
+
+Or from an existing helmet:
+
+I HAVE THIS HELMET ↓ WHAT FITS IT? ↓ WHAT CAN I UPGRADE? ↓ WHAT DOES IT
+COMPARE TO? ↓ WHERE IS IT CHEAPEST?
+
+============================================================ 37. OVERALL
+PRODUCT POSITIONING
+============================================================
+
+Helmetsan should feel like:
+
+“Bloomberg / technical intelligence for motorcycle helmets”
+
+rather than:
+
+“Another motorcycle helmet ecommerce site.”
+
+The site’s advantage is: - Structured data - Safety standards - Fit
+information - Compatibility - Comparison - Price intelligence -
+Manufacturer intelligence - Source transparency - Rider decision support
+
+============================================================ 38. GEMINI
+/ ANTIGRAVITY INSTRUCTION STYLE
+============================================================
+
+When using Gemini through Antigravity:
+
+-   Give it one major page or subsystem at a time.
+-   Ask it to inspect existing code/data before editing.
+-   Tell it explicitly which architecture is approved.
+-   Tell it not to fabricate missing values.
+-   Ask it to preserve existing routes and working functionality unless
+    intentionally changed.
+-   Ask it to report data/schema problems separately from UI problems.
+-   Make it test desktop and mobile.
+-   Make it inspect console/network errors for missing images.
+-   Do not let it “solve” missing data by generating fake placeholders
+    that look real.
+-   Prefer deterministic components and reusable design-system
+    primitives.
+
+Suggested workflow: 1. Inspect. 2. Identify existing components/data
+sources. 3. Plan. 4. Implement one section. 5. Test. 6. Fix data issues.
+7. Continue.
+
+============================================================ 39. CURRENT
+HELMET DETAIL PAGE — SPECIFIC ISSUES FROM SCREENSHOT
+============================================================
+
+Observed: - Product title and metadata are too small/weak. - Large image
+area appears empty/broken. - Buy/price area is visually isolated. -
+Safety information is not prominent enough. - Product
+overview/specification content is too fragmented. - Compare & Buy area
+needs stronger hierarchy. - Review section displays 0.0 despite no
+reviews. - Price history empty state consumes too much space. -
+Compatible accessories have missing/broken images. - “More from” cards
+are too small. - Page contains too many boxes. - Page feels like a
+dashboard rather than an intelligence/editorial page. - There is no
+strong above-the-fold decision summary. - Fit and sizing need a
+dedicated section. - Data provenance/last verified/source information
+should be added. - Similar helmets should be meaningful alternatives,
+not just catalog products.
+
+============================================================ 40. SUCCESS
+CRITERIA ============================================================
+
+After redesign, a user should understand the following within
+approximately the first screen:
+
+What helmet? What type? What certification? Who is it for? What is the
+quick verdict? What does it cost? Where can I buy it?
+
+Within the next sections:
+
+Is it safe? Will it fit? What are the important specs? How does it
+compare? What accessories fit? What do riders say? Where does the
+information come from?
+
+The page should feel: - Trustworthy - Technical - Premium - Easy to
+scan - Decision-oriented - Data-driven - Not overly commercial
+
+FINAL PRINCIPLE
+
+The helmet detail page is the center of Helmetsan.
+
+Do not optimize for “more information visible.”
+
+Optimize for:
+
+“THE RIGHT INFORMATION AT THE RIGHT MOMENT, WITH CLEAR EVIDENCE.”
+
+Helmetsan should not merely tell riders what a helmet is.
+
+It should help them decide whether it is the right helmet for them.

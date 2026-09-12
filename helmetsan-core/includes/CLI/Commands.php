@@ -38,6 +38,7 @@ use Helmetsan\Core\WooBridge\WooBridgeService;
 use Helmetsan\Core\Price\PriceService;
 use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\Support\Config;
+use Helmetsan\Core\Core\DatabaseManager;
 
 
 final class Commands
@@ -66,8 +67,10 @@ final class Commands
         private readonly PriceService $price,
         private readonly \Helmetsan\Core\Price\PriceHistory $priceHistory,
         private readonly \Helmetsan\Core\Support\TaskTracker $taskTracker,
+        private readonly \Helmetsan\Core\Media\MediaHealthService $mediaHealth,
         private readonly Config $config,
         private readonly \Helmetsan\Core\AI\HealRepository $heals,
+        private readonly DatabaseManager $databaseManager,
         private readonly ?AiService $aiService = null,
         private readonly ?JsonRepository $repository = null,
         private readonly ?SeedGeneratorService $seedGenerator = null,
@@ -97,6 +100,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan seo seed', [$this, 'seoSeed']);
         \WP_CLI::add_command('helmetsan seo check', [$this, 'seoCheck']);
         \WP_CLI::add_command('helmetsan seo update', [$this, 'seoUpdate']);
+        \WP_CLI::add_command('helmetsan indexnow submit', [$this, 'indexNowSubmit']);
         \WP_CLI::add_command('helmetsan ai fill-missing', [$this, 'aiFillMissing']);
         \WP_CLI::add_command('helmetsan ai status', [$this, 'aiStatus']);
         \WP_CLI::add_command('helmetsan ai generate-seed', [$this, 'aiGenerateSeed']);
@@ -106,8 +110,14 @@ final class Commands
         \WP_CLI::add_command('helmetsan ai heal', [$this, 'aiHeal']);
         \WP_CLI::add_command('helmetsan ai config', [$this, 'aiConfig']);
         \WP_CLI::add_command('helmetsan ai process-queue', [$this, 'aiProcessQueue']);
+        \WP_CLI::add_command('helmetsan ai task-start', [$this, 'aiTaskStart']);
+        \WP_CLI::add_command('helmetsan ai task-stop', [$this, 'aiTaskStop']);
+        \WP_CLI::add_command('helmetsan media health-scan', [$this, 'mediaHealthScan']);
+        \WP_CLI::add_command('helmetsan media quality-check', [$this, 'mediaQualityCheck']);
+        \WP_CLI::add_command('helmetsan media ingest-local', [$this, 'mediaIngestLocal']);
         \WP_CLI::add_command('helmetsan revenue report', [$this, 'revenueReport']);
         \WP_CLI::add_command('helmetsan analytics report', [$this, 'analyticsReport']);
+        \WP_CLI::add_command('helmetsan analytics audit', [$this, 'analyticsAudit']);
         \WP_CLI::add_command('helmetsan scheduler status', [$this, 'schedulerStatus']);
         \WP_CLI::add_command('helmetsan scheduler run', [$this, 'schedulerRun']);
         \WP_CLI::add_command('helmetsan alerts test', [$this, 'alertsTest']);
@@ -115,9 +125,13 @@ final class Commands
         \WP_CLI::add_command('helmetsan media backfill-brand-logos', [$this, 'mediaBackfillBrandLogos']);
         \WP_CLI::add_command('helmetsan helmet-images', [$this, 'helmetImages']);
         \WP_CLI::add_command('helmetsan woo-bridge sync', [$this, 'wooBridgeSync']);
+        \WP_CLI::add_command('helmetsan reviews backup', [$this, 'backupReviews']);
+        \WP_CLI::add_command('helmetsan reviews restore', [$this, 'restoreReviews']);
 
         \WP_CLI::add_command('helmetsan data check-duplicates', [$this, 'dataCheckDuplicates']);
         \WP_CLI::add_command('helmetsan data fix-duplicates', [$this, 'dataFixDuplicates']);
+        \WP_CLI::add_command('helmetsan data migrate-tech-specs', [$this, 'migrateTechnicalData']);
+        \WP_CLI::add_command('helmetsan data reindex', [$this, 'reindexProducts']);
         \WP_CLI::add_command('helmetsan ingest-seed', [$this, 'ingestSeed']);
         \WP_CLI::add_command('helmetsan ingest-brands', [$this, 'ingestBrands']);
         \WP_CLI::add_command('helmetsan seed-accessory-categories', [$this, 'seedAccessoryCategories']);
@@ -125,6 +139,22 @@ final class Commands
         \WP_CLI::add_command('helmetsan list-unmapped-accessory-meta', [$this, 'listUnmappedAccessoryMeta']);
         \WP_CLI::add_command('helmetsan revenue import-links', [$this, 'revenueImportLinks']);
         \WP_CLI::add_command('helmetsan price seed-history', [$this, 'priceSeedHistory']);
+        \WP_CLI::add_command('helmetsan price estimate', [$this, 'priceEstimate']);
+        \WP_CLI::add_command('helmetsan translate', [$this, 'translate']);
+        \WP_CLI::add_command('helmetsan api create-key', [$this, 'apiCreateKey']);
+        \WP_CLI::add_command('helmetsan api list-keys', [$this, 'apiListKeys']);
+        \WP_CLI::add_command('helmetsan api revoke-key', [$this, 'apiRevokeKey']);
+        // Data quality & repair commands (Phase 2/3 of pipeline revamp)
+        \WP_CLI::add_command('helmetsan fix-orphan-languages', [$this, 'fixOrphanLanguages']);
+        \WP_CLI::add_command('helmetsan audit', [$this, 'audit']);
+        \WP_CLI::add_command('helmetsan repair-titles', [$this, 'repairTitles']);
+        \WP_CLI::add_command('helmetsan edge-cache purge', [$this, 'edgeCachePurge']);
+        \WP_CLI::add_command('helmetsan edge-cache probe', [$this, 'edgeCacheProbe']);
+        \WP_CLI::add_command('helmetsan analytics overview', [$this, 'analyticsOverview']);
+        \WP_CLI::add_command('helmetsan gsc overview', [$this, 'gscOverview']);
+        \WP_CLI::add_command('helmetsan gsc queries', [$this, 'gscQueries']);
+        \WP_CLI::add_command('helmetsan gsc pages', [$this, 'gscPages']);
+        \WP_CLI::add_command('helmetsan gsc submit-sitemap', [$this, 'gscSubmitSitemap']);
     }
 
     /**
@@ -1857,6 +1887,7 @@ final class Commands
         $reportOnly = isset($assoc['report']);
         $internalId = isset($assoc['internal-id']) ? (string) $assoc['internal-id'] : null;
         $specificPostId = isset($assoc['post-id']) ? (int) $assoc['post-id'] : null;
+        $langFilter = isset($assoc['lang']) && $assoc['lang'] !== '' ? sanitize_key($assoc['lang']) : null;
         $allowed = ['helmet', 'brand', 'accessory', 'safety_standard', 'dealer', 'distributor', 'technology', 'motorcycle', 'comparison', 'recommendation', 'all'];
         if (! in_array($postType, $allowed, true)) {
             \WP_CLI::error('Invalid --post-type. Use: helmet, brand, accessory, safety_standard, dealer, distributor, technology, motorcycle, comparison, recommendation, or all.');
@@ -1884,7 +1915,7 @@ final class Commands
             $fillService = new FillMissingService($this->aiService);
             foreach ($types as $type) {
                 $report = $fillService->getCoverageReport($type, $limit > 0 ? $limit : 0);
-                \WP_CLI::log(sprintf("\n[%s] Total posts: %d", $type, $report['total_posts']));
+                \WP_CLI::log(sprintf("\n[%s] Total posts: %d | Overall Catalog Quality Score: %.1f%%", $type, $report['total_posts'], $report['score']));
                 if ($report['total_posts'] === 0) {
                     continue;
                 }
@@ -2034,12 +2065,13 @@ final class Commands
                 $onProgress, 
                 $onVerbose, 
                 $cacheTtl, 
-                null, 
-                false, 
-                null, 
-                false, 
+                null,   // rateLimitSeconds (ignored, AiService handles it)
+                false,  // refillAccessoryIfNoCategory
+                null,   // onlyTaxonomies
+                false,  // refillHelmetSpecs
                 $multiplex, 
-                $postIdOpt
+                $postIdOpt,
+                $langFilter // Language filter: only enrich posts in this language
             );
             $filled = (int) ($result['filled'] ?? 0);
             $skipped = (int) ($result['skipped'] ?? 0);
@@ -2601,6 +2633,48 @@ final class Commands
     }
 
     /**
+     * Audit Google Analytics 4 traffic data for anomalies.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan analytics audit
+     *
+     * @subcommand audit
+     */
+    public function analyticsAudit(array $args, array $assoc): void
+    {
+        $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
+        
+        \WP_CLI::line('Connecting to Google Analytics Data API...');
+        $res = $gaService->detectTrafficAnomalies();
+
+        if (! $res['ok']) {
+            \WP_CLI::error('GA4 API Query failed: ' . ($res['message'] ?? 'Unknown error'));
+            return;
+        }
+
+        if (empty($res['anomalies'])) {
+            \WP_CLI::success("✓ No traffic anomalies detected in yesterday's GA4 reports.");
+            return;
+        }
+
+        \WP_CLI::warning(sprintf('⚠ Detected %d traffic anomalies/spikes:', count($res['anomalies'])));
+        
+        $rows = [];
+        foreach ($res['anomalies'] as $a) {
+            $rows[] = [
+                'Country'          => $a['country'],
+                'Target Date'      => $a['target_date'],
+                'Audit Sessions'   => (string) $a['today'],
+                'Baseline Average' => (string) $a['average'],
+                'Spike Factor'     => $a['factor'] . 'x',
+            ];
+        }
+
+        \WP_CLI\Utils\format_items('table', $rows, ['Country', 'Target Date', 'Audit Sessions', 'Baseline Average', 'Spike Factor']);
+    }
+
+    /**
      * Sync helmets to WooCommerce product/variations.
      *
      * ## OPTIONS
@@ -2632,7 +2706,7 @@ final class Commands
     /**
      * ## OPTIONS
      * --task=<task>
-     * : sync_pull|retry_failed|cleanup_logs|health_snapshot|ingestion|enrichment
+     * : sync_pull|retry_failed|cleanup_logs|health_snapshot|ingestion|enrichment|image_enrichment|r2_backups|analytics_audit|analytics_views_sync
      */
     public function schedulerRun(array $args, array $assoc): void
     {
@@ -2932,6 +3006,217 @@ final class Commands
     }
 
     /**
+     * Estimate price for product(s) using LM Studio local LLM.
+     *
+     * ## OPTIONS
+     * [--post-id=<id>]
+     * : Specific post ID.
+     * [--post-type=<type>]
+     * : Post type (helmet|accessory|motorcycle). Default helmet.
+     * [--limit=<n>]
+     * : Limit of items to estimate. Default 50.
+     * [--dry-run]
+     * : Perform dry run (print prompts and simulated output without writing to DB).
+     *
+     * ## EXAMPLES
+     *     wp helmetsan price estimate --post-id=18680 --dry-run
+     *     wp helmetsan price estimate --post-type=accessory --limit=10
+     */
+    public function priceEstimate(array $args, array $assoc): void
+    {
+        if ($this->aiService === null) {
+            \WP_CLI::error('AI service is not loaded.');
+        }
+
+        // Configure and enable LM Studio provider in options if not enabled
+        $configObj = new \Helmetsan\Core\Support\Config();
+        $aiDefaults = $configObj->aiDefaults();
+        $defaultUrl = $aiDefaults['providers']['lm_studio']['base_url'] ?? 'http://192.168.2.74:1234/v1';
+
+        $aiSettings = get_option(\Helmetsan\Core\Support\Config::OPTION_AI, []);
+        $updatedSettings = false;
+        if (!isset($aiSettings['providers']['lm_studio'])) {
+            $aiSettings['providers']['lm_studio'] = [];
+        }
+        if (empty($aiSettings['providers']['lm_studio']['enabled'])) {
+            $aiSettings['providers']['lm_studio']['enabled'] = true;
+            $updatedSettings = true;
+        }
+        if (empty($aiSettings['providers']['lm_studio']['base_url'])) {
+            $aiSettings['providers']['lm_studio']['base_url'] = $defaultUrl;
+            $updatedSettings = true;
+        }
+        if ($updatedSettings) {
+            update_option(\Helmetsan\Core\Support\Config::OPTION_AI, $aiSettings);
+            \WP_CLI::log('LM Studio provider configured and enabled in settings.');
+        }
+
+        $postId = isset($assoc['post-id']) ? (int) $assoc['post-id'] : 0;
+        $postType = isset($assoc['post-type']) ? sanitize_key($assoc['post-type']) : (isset($assoc['post_type']) ? sanitize_key($assoc['post_type']) : 'helmet');
+        $limit = isset($assoc['limit']) ? max(1, (int) $assoc['limit']) : 50;
+        $dryRun = isset($assoc['dry-run']);
+
+        $allowedTypes = ['helmet', 'accessory', 'motorcycle'];
+        if (!in_array($postType, $allowedTypes, true)) {
+            \WP_CLI::error("Invalid post type. Supported types: " . implode(', ', $allowedTypes));
+        }
+
+        if ($postId > 0) {
+            $post = get_post($postId);
+            if (!$post) {
+                \WP_CLI::error("Post not found.");
+            }
+            $postType = $post->post_type;
+            if (!in_array($postType, $allowedTypes, true)) {
+                \WP_CLI::error("Post is not of a supported type. Supported: " . implode(', ', $allowedTypes));
+            }
+            $postIds = [$postId];
+        } else {
+            $postIds = get_posts([
+                'post_type'      => $postType,
+                'posts_per_page' => $limit,
+                'post_status'    => 'publish',
+                'fields'         => 'ids',
+            ]);
+        }
+
+        $total = count($postIds);
+        if ($total === 0) {
+            \WP_CLI::warning("No posts found of type '{$postType}'.");
+            return;
+        }
+
+        \WP_CLI::log("Starting price estimation for {$total} item(s) of type '{$postType}'...");
+
+        $successCount = 0;
+        $processedIds = [];
+        foreach ($postIds as $id) {
+            if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
+                $defaultLang = pll_default_language();
+                $masterId = (int) pll_get_post($id, $defaultLang);
+                if ($masterId && $masterId > 0) {
+                    $id = $masterId;
+                }
+            }
+            if (in_array($id, $processedIds, true)) {
+                continue;
+            }
+            $processedIds[] = $id;
+
+            $post = get_post($id);
+            if (!$post) {
+                continue;
+            }
+
+            // Gather specs context based on post type
+            $specs = [];
+            if ($postType === 'helmet') {
+                $brandId = (int) get_post_meta($id, 'rel_brand', true);
+                $brand = $brandId > 0 ? get_the_title($brandId) : '';
+                $typeTerms = wp_get_object_terms($id, 'helmet_type', ['fields' => 'names']);
+                $certTerms = wp_get_object_terms($id, 'certification', ['fields' => 'names']);
+                
+                $specs = [
+                    'brand'          => $brand,
+                    'helmet_type'    => is_array($typeTerms) ? implode(', ', $typeTerms) : '',
+                    'certifications' => is_array($certTerms) ? implode(', ', $certTerms) : '',
+                    'shell_material' => (string) get_post_meta($id, 'spec_shell_material', true),
+                    'weight_g'       => (string) get_post_meta($id, 'spec_weight_g', true),
+                    'family'         => (string) get_post_meta($id, 'helmet_family', true),
+                ];
+            } elseif ($postType === 'accessory') {
+                $specs = [
+                    'parent_category' => (string) get_post_meta($id, 'accessory_parent_category', true),
+                    'accessory_type'  => (string) get_post_meta($id, 'accessory_type', true),
+                    'subcategory'     => (string) get_post_meta($id, 'accessory_subcategory', true),
+                    'color'           => (string) get_post_meta($id, 'accessory_color', true),
+                ];
+            } elseif ($postType === 'motorcycle') {
+                $specs = [
+                    'make'      => (string) get_post_meta($id, 'motorcycle_make', true),
+                    'model'     => (string) get_post_meta($id, 'motorcycle_model', true),
+                    'segment'   => (string) get_post_meta($id, 'bike_segment', true),
+                    'engine_cc' => (string) get_post_meta($id, 'engine_cc', true),
+                ];
+            }
+
+            $basePrice = (float) get_post_meta($id, 'price_retail_usd', true);
+            if ($basePrice <= 0) {
+                $basePrice = (float) get_post_meta($id, 'price_usd', true);
+            }
+
+            // Build prompt
+            $prompt = \Helmetsan\Core\AI\ContextBuilder::forPriceEstimation(
+                $post->post_title,
+                $postType,
+                $specs,
+                $basePrice > 0 ? $basePrice : null
+            );
+
+            \WP_CLI::log("Estimating price for '{$post->post_title}' (ID: {$id})...");
+
+            // Call LM Studio
+            $res = $this->aiService->generate($prompt, $id, 'lm_studio', ['max_tokens' => 300, 'temperature' => 0.2]);
+
+            if ($res === null || trim($res) === '') {
+                \WP_CLI::warning("Failed to get response from LM Studio for post ID {$id}.");
+                continue;
+            }
+
+            $cleanRes = trim($res);
+            $cleanRes = preg_replace('/^```json\s*|\s*```$/i', '', $cleanRes);
+            $cleanRes = trim($cleanRes);
+
+            $data = json_decode($cleanRes, true);
+            if (!is_array($data)) {
+                \WP_CLI::warning("Invalid JSON structure returned for post ID {$id}. Raw response:\n{$res}");
+                continue;
+            }
+
+            $mrp = isset($data['mrp']) && is_numeric($data['mrp']) ? (float) $data['mrp'] : null;
+            $price = isset($data['price']) && is_numeric($data['price']) ? (float) $data['price'] : 0.0;
+            $rationale = isset($data['rationale']) ? (string) $data['rationale'] : '';
+
+            if ($price <= 0.0) {
+                \WP_CLI::warning("LM Studio returned invalid/zero price for post ID {$id}. Raw JSON: {$cleanRes}");
+                continue;
+            }
+
+            if ($dryRun) {
+                \WP_CLI::log("  [DRY RUN] MRP: " . ($mrp !== null ? "\${$mrp}" : "N/A") . " | Deal Price: \${$price}");
+                \WP_CLI::log("  [DRY RUN] Rationale: {$rationale}");
+                $successCount++;
+                continue;
+            }
+
+            // Record pricing snapshot
+            $ok = $this->priceHistory->record(
+                $id,
+                'global',
+                'US',
+                'USD',
+                $price,
+                $mrp,
+                current_time('mysql'),
+                $postType
+            );
+
+            if ($ok) {
+                \WP_CLI::success("  MRP: " . ($mrp !== null ? "\${$mrp}" : "N/A") . " | Deal Price: \${$price} | Recorded successfully.");
+                if ($rationale !== '') {
+                    \WP_CLI::log("  Rationale: {$rationale}");
+                }
+                $successCount++;
+            } else {
+                \WP_CLI::warning("  Failed to save price record in database.");
+            }
+        }
+
+        \WP_CLI::success("Price estimation complete. Successfully processed {$successCount} of {$total} post(s).");
+    }
+
+
+    /**
      * Process the background worker queue (spawned from dashboard).
      * Needs to run as a cron, e.g. * * * * * wp helmetsan ai-process-queue
      * 
@@ -2985,6 +3270,14 @@ final class Commands
                  $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan ai fill-missing --post-type=accessory --limit=0 --multiplex --concurrency=2 --allow-root --path=" . escapeshellarg($wpPath);
             } elseif ($actionType === 'seo_seed_all') {
                 $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan seo seed --post-type=all --scope=all --use-ai --allow-root --path=" . escapeshellarg($wpPath);
+            } elseif ($actionType === 'enrich_images_pollinations') {
+                $cmd = "nohup " . PHP_BINARY . " " . escapeshellarg(dirname(dirname(dirname(__DIR__))) . '/scripts/media_pollinations_batch.php');
+            } elseif ($actionType === 'translate') {
+                $lang = sanitize_key($data['lang'] ?? 'de');
+                $postType = sanitize_key($data['post_type'] ?? 'helmet');
+                $limit = (int) ($data['limit'] ?? 100);
+                $offset = (int) ($data['offset'] ?? 0);
+                $cmd = "nohup " . escapeshellarg($wpExe) . " helmetsan translate --post_type=" . escapeshellarg($postType) . " --lang=" . escapeshellarg($lang) . " --limit=" . $limit . " --offset=" . $offset . " --internal-id=" . escapeshellarg($id) . " --allow-root --path=" . escapeshellarg($wpPath);
             } else {
                  continue;
             }
@@ -2996,6 +3289,7 @@ final class Commands
                 proc_close($proc);
                 @unlink($file); // Remove ONLY after successful launch
                 \WP_CLI::log("Launched queued task: {$actionType} ({$id})");
+                break;
             } else {
                 \WP_CLI::warning("Failed to launch task: {$actionType}");
             }
@@ -3099,6 +3393,36 @@ final class Commands
     }
 
     /**
+     * Start a task in the tracker.
+     * 
+     * ## OPTIONS
+     * --id=<id>
+     * : Task ID.
+     * --label=<label>
+     * : Human readable label.
+     * --type=<type>
+     * : Task type.
+     */
+    public function aiTaskStart(array $args, array $assoc): void
+    {
+        $this->taskTracker->start($assoc['id'], $assoc['label'], $assoc['type']);
+        \WP_CLI::success("Task {$assoc['id']} started.");
+    }
+
+    /**
+     * Stop a task in the tracker.
+     * 
+     * ## OPTIONS
+     * --id=<id>
+     * : Task ID.
+     */
+    public function aiTaskStop(array $args, array $assoc): void
+    {
+        $this->taskTracker->stop($assoc['id']);
+        \WP_CLI::success("Task {$assoc['id']} stopped.");
+    }
+
+    /**
      * Log a heal event to the database.
      *
      * ## OPTIONS
@@ -3147,6 +3471,9 @@ final class Commands
      * ## EXAMPLES
      *     wp helmetsan ai undo-heal --id=123
      */
+    /**
+     * Revert heal...
+     */
     public function undoHeal(array $args, array $assoc): void
     {
         $id = (int) $assoc['id'];
@@ -3154,6 +3481,1410 @@ final class Commands
             \WP_CLI::success("Heal #$id successfully reverted.");
         } else {
             \WP_CLI::error("Failed to revert heal #$id. Check if it was already reverted or original values are missing.");
+        }
+    }
+
+    /**
+     * Migrate high-value technical specs from JSON blobs to formal meta fields.
+     * Use this to backfill existing helmets after schema updates.
+     *
+     * ## OPTIONS
+     * [--force]
+     * : Overwrite existing meta even if already set.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan data migrate-tech-specs
+     */
+    public function migrateTechnicalData(array $args, array $assoc): void
+    {
+        $force = isset($assoc['force']);
+        $helmets = get_posts([
+            'post_type'      => 'helmet',
+            'post_status'    => 'any',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        ]);
+
+        $count = count($helmets);
+        \WP_CLI::log("Starting migration for $count helmets...");
+        $progress = \WP_CLI\Utils\make_progress_bar('Migrating specs', $count);
+
+        $updated = 0;
+        foreach ($helmets as $id) {
+            $changed = false;
+
+            // 1. Safety Intelligence
+            $safety = get_post_meta($id, 'safety_intelligence_json', true);
+            if ($safety) {
+                $data = json_decode($safety, true);
+                if (is_array($data)) {
+                    if (isset($data['homologation_standard']) && ($force || !get_post_meta($id, 'homologation_standard', true))) {
+                        update_post_meta($id, 'homologation_standard', sanitize_text_field((string)$data['homologation_standard']));
+                        $changed = true;
+                    }
+                    if (isset($data['sharp_rating']) && ($force || !get_post_meta($id, 'sharp_rating', true))) {
+                        update_post_meta($id, 'sharp_rating', (int)$data['sharp_rating']);
+                        $changed = true;
+                    }
+                    if (isset($data['rotational_mitigation']) && ($force || !get_post_meta($id, 'rotational_tech', true))) {
+                        update_post_meta($id, 'rotational_tech', sanitize_text_field((string)$data['rotational_mitigation']));
+                        $changed = true;
+                    }
+                }
+            }
+
+            // 2. Aero/Acoustic
+            $aero = get_post_meta($id, 'aero_acoustic_profile_json', true);
+            if ($aero) {
+                $data = json_decode($aero, true);
+                if (is_array($data)) {
+                    if (isset($data['noise_db_at_100kph']) && ($force || !get_post_meta($id, 'noise_db_at_100kph', true))) {
+                        update_post_meta($id, 'noise_db_at_100kph', sanitize_text_field((string)$data['noise_db_at_100kph']));
+                        $changed = true;
+                    }
+                    if (isset($data['ventilation_efficiency_score']) && ($force || !get_post_meta($id, 'ventilation_score', true))) {
+                        update_post_meta($id, 'ventilation_score', sanitize_text_field((string)$data['ventilation_efficiency_score']));
+                        $changed = true;
+                    }
+                }
+            }
+
+            // 3. Tech Integration
+            $tech = get_post_meta($id, 'tech_integration_json', true);
+            if ($tech) {
+                $data = json_decode($tech, true);
+                if (is_array($data)) {
+                    if (isset($data['comms_cutout_type']) && ($force || !get_post_meta($id, 'comms_ready', true))) {
+                        update_post_meta($id, 'comms_ready', sanitize_text_field((string)$data['comms_cutout_type']));
+                        $changed = true;
+                    }
+                }
+            }
+
+            if ($changed) $updated++;
+            $progress->tick();
+        }
+
+        $progress->finish();
+        \WP_CLI::success("Migration complete. Updated $updated helmets.");
+    }
+
+    /**
+     * Rebuild the fast-index table for all helmets.
+     *
+     * ## EXAMPLES
+     *     wp helmetsan data reindex
+     */
+    public function reindexProducts(array $args, array $assoc): void
+    {
+        $types = ['helmet', 'accessory'];
+        $posts = get_posts([
+            'post_type'      => $types,
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+        ]);
+
+        $count = count($posts);
+        if ($count === 0) {
+            \WP_CLI::warning('No products found to index.');
+            return;
+        }
+
+        \WP_CLI::log("Re-indexing $count products (helmets/accessories) into fast-index table...");
+        $progress = \WP_CLI\Utils\make_progress_bar('Indexing', $count);
+
+        foreach ($posts as $id) {
+            $this->databaseManager->indexProduct((int) $id);
+            $progress->tick();
+        }
+
+        $progress->finish();
+        \WP_CLI::success("Successfully re-indexed $count products.");
+    }
+
+    /**
+     * Ingest locally generated media from data/media directory.
+     * 
+     * ## OPTIONS
+     * [--dir=<directory>]
+     * : Subdirectory under data/media to scan (e.g. helmets, draw_things).
+     */
+    public function mediaIngestLocal(array $args, array $assoc): void
+    {
+        $subDir = sanitize_key($assoc['dir'] ?? 'helmets');
+        $baseDir = dirname(dirname(dirname(__DIR__))) . '/data/media/' . $subDir;
+        
+        if (!is_dir($baseDir)) {
+            \WP_CLI::error("Directory not found: $baseDir");
+            return;
+        }
+
+        $files = glob($baseDir . '/*.{png,jpg,jpeg,webp}', GLOB_BRACE);
+        if (!$files) {
+            \WP_CLI::success("No images found in $baseDir");
+            return;
+        }
+
+        $count = count($files);
+        \WP_CLI::log("Scanning $count images in $subDir...");
+        $progress = \WP_CLI\Utils\make_progress_bar('Ingesting', $count);
+        
+        $imported = 0;
+
+        // Known suffixes to strip when extracting helmet IDs from filenames
+        $knownSuffixes = ['_ai_pollination', '_hf_flux', '_draw_things', '_pollinations'];
+
+        foreach ($files as $file) {
+            $filename = basename($file);
+            // Strip extension first
+            $stem = preg_replace('/\.(png|jpg|jpeg|webp)$/i', '', $filename);
+            
+            // Strip known generation suffixes to recover the original helmet ID
+            $id = $stem;
+            foreach ($knownSuffixes as $suffix) {
+                if (str_ends_with($id, $suffix)) {
+                    $id = substr($id, 0, -strlen($suffix));
+                    break;
+                }
+            }
+
+            // Look up the helmet post by its external ID stored in meta
+            $lookup = new \WP_Query([
+                'post_type'      => 'helmet',
+                'post_status'    => 'any',
+                'posts_per_page' => 1,
+                'meta_key'       => 'external_id',
+                'meta_value'     => $id,
+                'fields'         => 'ids',
+                'no_found_rows'  => true,
+            ]);
+            $postId = !empty($lookup->posts) ? (int)$lookup->posts[0] : 0;
+
+            if ($postId > 0) {
+                // Check if already has thumbnail
+                if (get_post_thumbnail_id($postId)) {
+                    $progress->tick();
+                    continue;
+                }
+
+                // Sideload using the injected MediaEngine
+                $result = $this->media->sideloadAndSetFeaturedImage($file, $postId, 'local-' . $subDir);
+                if ($result['attachment_id'] > 0) {
+                    $imported++;
+                }
+            }
+            $progress->tick();
+        }
+
+        $progress->finish();
+        \WP_CLI::success("Successfully imported $imported images from $subDir.");
+    }
+
+    /**
+     * Scan catalog media health and report coverage.
+     * 
+     * ## OPTIONS
+     * [--format=<format>]
+     * : Render output in a particular format.
+     * ---
+     * default: table
+     * options:
+     *   - table
+     *   - json
+     *   - count
+     * ---
+     */
+    public function mediaHealthScan(array $args, array $assoc): void
+    {
+        $stats = $this->mediaHealth->scan();
+        $format = $assoc['format'] ?? 'table';
+
+        if ($format === 'json') {
+            echo wp_json_encode($stats, JSON_PRETTY_PRINT);
+            return;
+        }
+
+        if ($format === 'count') {
+            echo (int)$stats['high_fidelity'];
+            return;
+        }
+
+        \WP_CLI::log("--- Media Health Scan Results ---");
+        \WP_CLI::log("Total Helmets:  " . $stats['total']);
+        \WP_CLI::log("High-Fidelity:  " . $stats['high_fidelity'] . " (" . round(($stats['high_fidelity'] / max(1, $stats['total'])) * 100) . "%)");
+        \WP_CLI::log("Placeholders:   " . $stats['placeholders']);
+        \WP_CLI::log("Missing Image:  " . $stats['missing']);
+        \WP_CLI::log("---------------------------------");
+
+        $table = [];
+        foreach ($stats['by_brand'] as $brand => $bStats) {
+            $pct = round(($bStats['ok'] / max(1, $bStats['total'])) * 100);
+            $table[] = [
+                'Brand' => $brand,
+                'Total' => $bStats['total'],
+                'OK'    => $bStats['ok'],
+                'Place' => $bStats['placeholder'],
+                'Miss'  => $bStats['missing'],
+                'Score' => $pct . '%'
+            ];
+        }
+
+        \WP_CLI\Utils\format_items('table', $table, ['Brand', 'Total', 'OK', 'Place', 'Miss', 'Score']);
+    }
+
+    /**
+     * Audit catalog media quality.
+     * 
+     * ## OPTIONS
+     * [--limit=<limit>]
+     * : Max helmets to check.
+     */
+    public function mediaQualityCheck(array $args, array $assoc): void
+    {
+        $limit = isset($assoc['limit']) ? (int)$assoc['limit'] : -1;
+        $query = new \WP_Query([
+            'post_type'      => 'helmet',
+            'posts_per_page' => $limit,
+            'fields'         => 'ids',
+        ]);
+
+        $ids = array_map('intval', $query->posts);
+        $count = count($ids);
+        \WP_CLI::log("Auditing quality for $count helmets...");
+        $progress = \WP_CLI\Utils\make_progress_bar('Auditing', $count);
+
+        $failures = [];
+        foreach ($ids as $id) {
+            $thumbId = (int)get_post_thumbnail_id($id);
+            if ($thumbId <= 0) {
+                $progress->tick();
+                continue;
+            }
+
+            $res = $this->mediaHealth->validateQuality($thumbId);
+            if (!$res['ok']) {
+                $failures[] = [
+                    'ID' => $id,
+                    'Title' => get_the_title($id),
+                    'Issues' => implode(', ', $res['issues'])
+                ];
+            }
+            $progress->tick();
+        }
+
+        $progress->finish();
+
+        if (empty($failures)) {
+            \WP_CLI::success("All checked media passed quality gates.");
+        } else {
+            \WP_CLI::warning("Found " . count($failures) . " helmets with quality issues:");
+            \WP_CLI\Utils\format_items('table', $failures, ['ID', 'Title', 'Issues']);
+        }
+    }
+
+    /**
+     * Backup all custom reviews from isolated SQL table to git-tracked JSON files.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan reviews backup
+     */
+    public function backupReviews(array $args, array $assoc): void
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'helmetsan_reviews';
+        $reviews = $wpdb->get_results("SELECT * FROM {$table}", ARRAY_A);
+
+        if (empty($reviews)) {
+            \WP_CLI::warning('No reviews found in the database to backup.');
+            return;
+        }
+
+        $backupDir = $this->resolveDataDir() . '/reviews';
+        if (! is_dir($backupDir)) {
+            wp_mkdir_p($backupDir);
+        }
+
+        // Group by product/post ID
+        $grouped = [];
+        foreach ($reviews as $review) {
+            $postId = (int) $review['post_id'];
+            $grouped[$postId][] = [
+                'user_id'         => (int) $review['user_id'],
+                'author_name'     => $review['author_name'],
+                'author_email'    => $review['author_email'],
+                'rating'          => (int) $review['rating'],
+                'content'         => $review['content'],
+                'pros'            => json_decode((string) $review['pros'], true) ?: [],
+                'cons'            => json_decode((string) $review['cons'], true) ?: [],
+                'helpful_votes'   => (int) $review['helpful_votes'],
+                'unhelpful_votes' => (int) $review['unhelpful_votes'],
+                'status'          => $review['status'],
+                'country_code'    => $review['country_code'] ?? '',
+                'created_at'      => $review['created_at'],
+                'updated_at'      => $review['updated_at'],
+            ];
+        }
+
+        $count = 0;
+        foreach ($grouped as $postId => $postReviews) {
+            $filePath = $backupDir . '/' . $postId . '.json';
+            $json = wp_json_encode($postReviews, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+            if (file_put_contents($filePath, $json) !== false) {
+                $count++;
+            }
+        }
+
+        \WP_CLI::success(sprintf('Successfully backed up reviews for %d products to data/reviews/', $count));
+    }
+
+    /**
+     * Restore custom reviews from git-tracked JSON files into isolated SQL table with deduplication checks.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan reviews restore
+     */
+    public function restoreReviews(array $args, array $assoc): void
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . 'helmetsan_reviews';
+        $backupDir = $this->resolveDataDir() . '/reviews';
+
+        if (! is_dir($backupDir)) {
+            \WP_CLI::error("Backup directory {$backupDir} does not exist.");
+            return;
+        }
+
+        $files = glob($backupDir . '/*.json');
+        if (empty($files)) {
+            \WP_CLI::warning('No backup JSON files found in data/reviews/.');
+            return;
+        }
+
+        $insertedCount = 0;
+        $skippedCount = 0;
+
+        foreach ($files as $file) {
+            $postId = (int) pathinfo($file, PATHINFO_FILENAME);
+            $raw = file_get_contents($file);
+            $reviews = json_decode($raw, true);
+
+            if (! is_array($reviews)) {
+                \WP_CLI::warning("Failed to decode or empty reviews in file: " . basename($file));
+                continue;
+            }
+
+            foreach ($reviews as $review) {
+                $authorName = sanitize_text_field($review['author_name'] ?? '');
+                $createdAt  = sanitize_text_field($review['created_at'] ?? '');
+
+                // Deduplication key check
+                $exists = $wpdb->get_var($wpdb->prepare(
+                    "SELECT id FROM {$table} WHERE post_id = %d AND author_name = %s AND created_at = %s",
+                    $postId,
+                    $authorName,
+                    $createdAt
+                ));
+
+                if ($exists) {
+                    $skippedCount++;
+                    continue;
+                }
+
+                $wpdb->insert(
+                    $table,
+                    [
+                        'post_id'         => $postId,
+                        'user_id'         => (int) ($review['user_id'] ?? 0),
+                        'author_name'     => $authorName,
+                        'author_email'    => sanitize_email($review['author_email'] ?? ''),
+                        'rating'          => (int) ($review['rating'] ?? 0),
+                        'content'         => wp_kses_post($review['content'] ?? ''),
+                        'pros'            => !empty($review['pros']) ? json_encode($review['pros']) : null,
+                        'cons'            => !empty($review['cons']) ? json_encode($review['cons']) : null,
+                        'helpful_votes'   => (int) ($review['helpful_votes'] ?? 0),
+                        'unhelpful_votes' => (int) ($review['unhelpful_votes'] ?? 0),
+                        'status'          => sanitize_text_field($review['status'] ?? 'approved'),
+                        'country_code'    => sanitize_text_field($review['country_code'] ?? ''),
+                        'created_at'      => $createdAt,
+                        'updated_at'      => sanitize_text_field($review['updated_at'] ?? $createdAt),
+                    ]
+                );
+
+                $insertedCount++;
+            }
+
+            // Sync aggregate statistics to CPT index and WC caches
+            helmetsan_core()->reviews()->syncAggregates($postId);
+        }
+
+        \WP_CLI::success(sprintf('Restored reviews: %d inserted, %d skipped (duplicates).', $insertedCount, $skippedCount));
+    }
+
+    /**
+     * Resolve the absolute path to the main git-tracked data/ directory.
+     */
+    private function resolveDataDir(): string
+    {
+        $pluginDir = defined('HELMETSAN_CORE_DIR') ? HELMETSAN_CORE_DIR : dirname(__DIR__, 2);
+        
+        $candidates = [
+            ABSPATH . 'data',
+            dirname($pluginDir) . '/data', // Sibling to helmetsan-core (local)
+            dirname($pluginDir, 3) . '/data', // Sibling to wp-content (production)
+        ];
+
+        foreach ($candidates as $candidate) {
+            if (is_dir($candidate)) {
+                return $candidate;
+            }
+        }
+
+        return ABSPATH . 'data';
+    }
+
+    /**
+     * Translate CPTs (helmet, brand, accessory) using the local AI Service.
+     *
+     * ## OPTIONS
+     *
+     * --lang=<de|zh|ja|fr|ar>
+     * : The target language (de for German, zh for Chinese, ja for Japanese, fr for French, ar for Arabic).
+     *
+     * [--post_type=<helmet|brand|accessory>]
+     * : The post type to translate. Default: helmet.
+     *
+     * [--limit=<limit>]
+     * : Number of posts to translate. Default: 5.
+     *
+     * [--offset=<offset>]
+     * : Offset for queries. Default: 0.
+     *
+     * [--force]
+     * : Force translation even if a translation already exists.
+     *
+     * [--internal-id=<id>]
+     * : Internal task ID for tracking.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan translate --lang=de --limit=10
+     */
+    public function translate(array $args, array $assoc): void
+    {
+        if ($this->aiService === null) {
+            \WP_CLI::error('AiService is not initialized.');
+        }
+
+        if (!function_exists('pll_get_post') || !function_exists('pll_set_post_language') || !function_exists('pll_save_post_translations')) {
+            \WP_CLI::error('Polylang plugin functions are not available. Ensure Polylang is active.');
+        }
+
+        $lang = sanitize_key($assoc['lang'] ?? '');
+        $langNames = [
+            'de' => 'German',
+            'zh' => 'Simplified Chinese',
+            'ja' => 'Japanese',
+            'fr' => 'French',
+            'ar' => 'Arabic',
+        ];
+        if (!array_key_exists($lang, $langNames)) {
+            \WP_CLI::error('Invalid target language. Supported: de, zh, ja, fr, ar.');
+        }
+
+        $langName = $langNames[$lang];
+        $postType = sanitize_key($assoc['post_type'] ?? $assoc['post-type'] ?? 'helmet');
+        $limit = (int) ($assoc['limit'] ?? 5);
+        $offset = (int) ($assoc['offset'] ?? 0);
+        $force = isset($assoc['force']);
+
+        $internalId = isset($assoc['internal-id']) ? sanitize_key($assoc['internal-id']) : 'translate_' . $lang . '_' . $postType . '_' . time();
+        if ($this->taskTracker) {
+            $this->taskTracker->start($internalId, "Translate ($postType to $langName)", 'translation');
+        }
+
+        \WP_CLI::log(sprintf('Translating post type "%s" to %s (Limit: %d, Offset: %d)...', $postType, $langName, $limit, $offset));
+
+        $queryArgs = [
+            'post_type'      => $postType,
+            'posts_per_page' => $limit,
+            'offset'         => $offset,
+            'post_status'    => 'publish',
+            'lang'           => 'en', // Retrieve only English source posts for translation
+        ];
+
+        $posts = get_posts($queryArgs);
+        if (empty($posts)) {
+            if ($this->taskTracker) {
+                $this->taskTracker->stop($internalId);
+            }
+            \WP_CLI::success('No posts found to translate.');
+            return;
+        }
+
+        $translatedCount = 0;
+
+        foreach ($posts as $post) {
+            $enPostId = $post->ID;
+            \WP_CLI::log(sprintf('Processing post ID %d: "%s"...', $enPostId, $post->post_title));
+
+            // Ensure source post has a language set. If not, default to English ('en')
+            $postLang = pll_get_post_language($enPostId);
+            if (!$postLang) {
+                pll_set_post_language($enPostId, 'en');
+                $postLang = 'en';
+                \WP_CLI::log(sprintf('  -> Assigned default language "en" to post ID %d.', $enPostId));
+            }
+
+            // We only translate source content from English
+            if ($postLang !== 'en') {
+                \WP_CLI::log(sprintf('  -> Post language is "%s" (not "en"). Skipping.', $postLang));
+                continue;
+            }
+
+            $existingId = pll_get_post($enPostId, $lang);
+            if ($existingId && !$force) {
+                \WP_CLI::log(sprintf('  -> Translation already exists (ID: %d). Skipping.', $existingId));
+                continue;
+            }
+
+            // === Source Language Validation (Flaw 2.2) ===
+            // Ensure the source post_content is actually in English before we translate it.
+            // If it contains CJK characters, it is corrupted seed data — skip it.
+            if (!empty($post->post_content) && preg_match('/[\x{4e00}-\x{9fff}\x{3040}-\x{30ff}]/u', $post->post_content)) {
+                \WP_CLI::warning(sprintf(
+                    '  -> Post ID %d has CJK/non-English characters in source content. Skipping — needs re-enrichment first.',
+                    $enPostId
+                ));
+                continue;
+            }
+
+            // Translate title
+            $titlePrompt = "You are a professional translator for a premium motorcycle gear catalog. " .
+                "Translate the following product title into {$langName}. " .
+                "Keep brand names and model numbers untranslated if appropriate. " .
+                "Do not add any preamble, quotes, or conversational text. Output ONLY the translated title:\n\n" . $post->post_title;
+            $translatedTitle = $this->aiService->generate($titlePrompt, $enPostId);
+            if (empty($translatedTitle) || !$this->validateTranslationOutput($translatedTitle, $lang)) {
+                $translatedTitle = $post->post_title; // fallback to source
+                \WP_CLI::log(sprintf('  -> Title translation validation failed for ID %d; using source title as fallback.', $enPostId));
+            }
+
+            // Translate content
+            $translatedContent = '';
+            if (!empty($post->post_content)) {
+                $contentPrompt = "You are a professional translator for a premium motorcycle gear catalog. " .
+                    "Translate the following product description into {$langName}. " .
+                    "Maintain all HTML markup, formatting, and layout tags. " .
+                    "Do not add any preamble, quotes, or conversational text. Output ONLY the translated text:\n\n" . $post->post_content;
+                $translatedContent = $this->aiService->generate($contentPrompt, $enPostId);
+                if (empty($translatedContent) || !$this->validateTranslationOutput($translatedContent, $lang)) {
+                    $translatedContent = $post->post_content; // fallback to source
+                    \WP_CLI::log(sprintf('  -> Content translation validation failed for ID %d; using source content as fallback.', $enPostId));
+                }
+            }
+
+            // Translate excerpt
+            $translatedExcerpt = '';
+            if (!empty($post->post_excerpt)) {
+                $excerptPrompt = "You are a professional translator for a premium motorcycle gear catalog. " .
+                    "Translate the following product excerpt into {$langName}. " .
+                    "Do not add any preamble, quotes, or conversational text. Output ONLY the translated text:\n\n" . $post->post_excerpt;
+                $translatedExcerpt = $this->aiService->generate($excerptPrompt, $enPostId);
+                if (empty($translatedExcerpt) || !$this->validateTranslationOutput($translatedExcerpt, $lang)) {
+                    $translatedExcerpt = $post->post_excerpt;
+                }
+            }
+
+            // Prepare target post
+            $targetPostData = [
+                'post_type'    => $postType,
+                'post_title'   => $translatedTitle,
+                'post_content' => $translatedContent,
+                'post_excerpt' => $translatedExcerpt,
+                'post_status'  => 'publish',
+            ];
+
+            if ($existingId) {
+                $targetPostData['ID'] = $existingId;
+                $translatedPostId = wp_update_post($targetPostData);
+                \WP_CLI::log(sprintf('  -> Updating existing translation post ID %d.', $translatedPostId));
+            } else {
+                $translatedPostId = wp_insert_post($targetPostData);
+                \WP_CLI::log(sprintf('  -> Created new translation post ID %d.', $translatedPostId));
+            }
+
+            if (is_wp_error($translatedPostId) || !$translatedPostId) {
+                \WP_CLI::warning(sprintf('  -> Failed to create/update post for %d.', $enPostId));
+                continue;
+            }
+
+            // Ensure source post is registered as English in Polylang (closes Flaw 4 loop)
+            pll_set_post_language($enPostId, 'en');
+
+            // Set language
+            pll_set_post_language($translatedPostId, $lang);
+
+            // Link translations
+            $translations = pll_get_post_translations($enPostId);
+            $translations['en'] = $enPostId;
+            $translations[$lang] = $translatedPostId;
+            pll_save_post_translations($translations);
+
+            // Copy metadata
+            $meta = get_post_meta($enPostId);
+            foreach ($meta as $key => $values) {
+                foreach ($values as $value) {
+                    $val = maybe_unserialize($value);
+                    update_post_meta($translatedPostId, $key, $val);
+                }
+            }
+
+            // Translate target fields
+            $fieldsToTranslate = [];
+            if ($postType === 'brand') {
+                $fieldsToTranslate = ['brand_motto', 'brand_story', 'brand_manufacturing_ethos'];
+            } elseif ($postType === 'helmet') {
+                $fieldsToTranslate = ['marketing_description', 'technical_analysis'];
+            }
+
+            $fieldsToTranslate[] = '_yoast_wpseo_title';
+            $fieldsToTranslate[] = '_yoast_wpseo_metadesc';
+
+            foreach ($fieldsToTranslate as $metaKey) {
+                $origMeta = get_post_meta($enPostId, $metaKey, true);
+                if (empty($origMeta)) {
+                    continue;
+                }
+
+                $metaPrompt = "You are a professional translator for a premium motorcycle gear catalog. " .
+                    "Translate the following field content into {$langName}. " .
+                    "Do not add any preamble, quotes, or conversational text. Output ONLY the translated text:\n\n" . $origMeta;
+                $translatedMeta = $this->aiService->generate($metaPrompt, $enPostId);
+
+                if (!empty($translatedMeta)) {
+                    update_post_meta($translatedPostId, $metaKey, $translatedMeta);
+                }
+            }
+
+            $translatedCount++;
+            if ($this->taskTracker && count($posts) > 0) {
+                $this->taskTracker->heartbeat($internalId, (int) round(($translatedCount / count($posts)) * 100));
+            }
+        }
+
+        if ($this->taskTracker) {
+            $this->taskTracker->stop($internalId);
+        }
+
+        \WP_CLI::success(sprintf('Successfully translated %d posts.', $translatedCount));
+    }
+
+    /**
+     * Create a new API key.
+     *
+     * ## OPTIONS
+     *
+     * --label=<label>
+     * : A descriptive label for the key (e.g. Owner name or company).
+     *
+     * [--tier=<tier>]
+     * : API Tier. Options: registered, premium. Default: registered.
+     *
+     * [--email=<email>]
+     * : Owner email.
+     *
+     * [--limit=<limit>]
+     * : Custom daily request limit.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan api create-key --label="Acme Reader" --tier=premium
+     */
+    public function apiCreateKey(array $args, array $assoc): void
+    {
+        if (!function_exists('helmetsan_core')) {
+            \WP_CLI::error('helmetsan_core() function is not available.');
+        }
+
+        $label = sanitize_text_field($assoc['label'] ?? '');
+        if ($label === '') {
+            \WP_CLI::error('Please specify a label using --label.');
+        }
+
+        $tier = sanitize_text_field($assoc['tier'] ?? 'registered');
+        if (!in_array($tier, ['registered', 'premium'], true)) {
+            \WP_CLI::error('Invalid tier. Choose registered or premium.');
+        }
+
+        $email = isset($assoc['email']) ? sanitize_email($assoc['email']) : '';
+        $limit = isset($assoc['limit']) ? (int) $assoc['limit'] : null;
+
+        $keyData = helmetsan_core()->apiGateway()->createKey($label, $tier, $email, $limit);
+
+        if ($keyData === null) {
+            \WP_CLI::error('Failed to create API key.');
+        }
+
+        \WP_CLI::success('API key created successfully.');
+        \WP_CLI::log(sprintf('Raw API Key (SHOWING ONCE ONLY): %s', $keyData['raw_key']));
+        \WP_CLI::log(sprintf('Prefix:                      %s', $keyData['prefix']));
+    }
+
+    /**
+     * List all API keys.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan api list-keys
+     */
+    public function apiListKeys(array $args, array $assoc): void
+    {
+        if (!function_exists('helmetsan_core')) {
+            \WP_CLI::error('helmetsan_core() function is not available.');
+        }
+
+        $keys = helmetsan_core()->apiGateway()->listKeys();
+
+        if (empty($keys)) {
+            \WP_CLI::log('No API keys found.');
+            return;
+        }
+
+        \WP_CLI\Utils\format_items(
+            'table',
+            $keys,
+            ['key_prefix', 'label', 'tier', 'daily_limit', 'owner_email', 'is_active', 'total_requests', 'last_used']
+        );
+    }
+
+    /**
+     * Revoke an API key.
+     *
+     * ## OPTIONS
+     *
+     * <prefix>
+     * : Key prefix (e.g. hs_pk_123456)
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan api revoke-key hs_pk_123456
+     */
+    public function apiRevokeKey(array $args, array $assoc): void
+    {
+        if (!function_exists('helmetsan_core')) {
+            \WP_CLI::error('helmetsan_core() function is not available.');
+        }
+
+        $prefix = sanitize_text_field($args[0] ?? '');
+        if ($prefix === '') {
+            \WP_CLI::error('Please specify the key prefix to revoke.');
+        }
+
+        $success = helmetsan_core()->apiGateway()->revokeKey($prefix);
+
+        if ($success) {
+            \WP_CLI::success(sprintf('API key with prefix %s revoked successfully.', $prefix));
+        } else {
+            \WP_CLI::error(sprintf('No active key found with prefix %s.', $prefix));
+        }
+    }
+
+    // =========================================================================
+    // Data Quality & Repair Commands (Phase 2/3 of Pipeline Revamp)
+    // =========================================================================
+
+    /**
+     * Validate that an AI translation output matches the expected language.
+     *
+     * @param string $text  The translated text to validate.
+     * @param string $lang  The target language code ('de', 'zh', etc.)
+     * @return bool  True if the text appears to be in the correct language.
+     */
+    private function validateTranslationOutput(string $text, string $lang): bool
+    {
+        $text = strip_tags($text);
+        if (trim($text) === '') {
+            return false;
+        }
+
+        if ($lang === 'zh') {
+            // Chinese output must contain CJK characters.
+            return (bool) preg_match('/[\x{4e00}-\x{9fff}]/u', $text);
+        }
+
+        if ($lang === 'ja') {
+            // Japanese output must contain Japanese characters (Hiragana, Katakana, or Kanji).
+            return (bool) preg_match('/[\x{3040}-\x{30ff}\x{4e00}-\x{9fff}]/u', $text);
+        }
+
+        if ($lang === 'ar') {
+            // Arabic output must contain Arabic script characters.
+            return (bool) preg_match('/[\x{0600}-\x{06ff}]/u', $text);
+        }
+
+        if (in_array($lang, ['de', 'fr'], true)) {
+            // German and French output should NOT be predominantly CJK or Arabic.
+            // Allow some CJK/Arabic (brand names etc) but flag if >20% of chars are non-Western/Latin.
+            $totalChars = mb_strlen($text);
+            if ($totalChars === 0) return false;
+            preg_match_all('/[\x{4e00}-\x{9fff}\x{0600}-\x{06ff}]/u', $text, $matches);
+            $invalidCount = count($matches[0] ?? []);
+            return ($invalidCount / $totalChars) < 0.2;
+        }
+
+        // For other languages: accept as long as output is non-empty.
+        return strlen(trim($text)) > 0;
+    }
+
+    /**
+     * Assign the English Polylang language to all posts that have no language tag set.
+     *
+     * ## OPTIONS
+     *
+     * [--post-type=<post-type>]
+     * : Post type to process. Default: helmet. Use 'all' for helmet, brand, accessory.
+     *
+     * [--dry-run]
+     * : Preview changes without saving.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan fix-orphan-languages --post-type=helmet
+     *     wp helmetsan fix-orphan-languages --post-type=all --dry-run
+     *
+     * @subcommand fix-orphan-languages
+     */
+    public function fixOrphanLanguages(array $args, array $assoc): void
+    {
+        if (!function_exists('pll_set_post_language') || !function_exists('pll_get_post_language')) {
+            \WP_CLI::error('Polylang functions are not available. Ensure Polylang is active.');
+        }
+
+        $dryRun = isset($assoc['dry-run']);
+        $postTypeArg = sanitize_key($assoc['post-type'] ?? 'helmet');
+        $postTypes = $postTypeArg === 'all' ? ['helmet', 'brand', 'accessory', 'motorcycle'] : [$postTypeArg];
+
+        $fixed = 0;
+        $skipped = 0;
+
+        foreach ($postTypes as $postType) {
+            \WP_CLI::log("Scanning post type: {$postType}...");
+
+            $posts = get_posts([
+                'post_type'      => $postType,
+                'post_status'    => 'publish',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ]);
+
+            foreach ($posts as $postId) {
+                $lang = pll_get_post_language((int) $postId);
+                if ($lang) {
+                    $skipped++;
+                    continue;
+                }
+
+                if (!$dryRun) {
+                    pll_set_post_language((int) $postId, 'en');
+                }
+                $fixed++;
+                \WP_CLI::log(sprintf('  [%s] Post ID %d -> assigned language "en"', $dryRun ? 'DRY-RUN' : 'FIXED', $postId));
+            }
+        }
+
+        \WP_CLI::success(sprintf(
+            '%s: Fixed %d orphan posts, skipped %d already-tagged posts.',
+            $dryRun ? 'DRY-RUN' : 'DONE',
+            $fixed,
+            $skipped
+        ));
+    }
+
+    /**
+     * Run a data quality audit on posts, checking for common data integrity issues.
+     *
+     * Checks: language tag, duplicate brand prefix in title, price > 0,
+     *         helmet_type taxonomy, helmet_brand taxonomy, certifications.
+     *
+     * ## OPTIONS
+     *
+     * [--post-type=<post-type>]
+     * : Post type to audit. Default: helmet.
+     *
+     * [--limit=<limit>]
+     * : Max posts to check. Default: 500.
+     *
+     * [--format=<format>]
+     * : Output format: table, csv, json. Default: table.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan audit --post-type=helmet --limit=100
+     *     wp helmetsan audit --format=csv > /tmp/audit.csv
+     *
+     * @subcommand audit
+     */
+    public function audit(array $args, array $assoc): void
+    {
+        $postType = sanitize_key($assoc['post-type'] ?? 'helmet');
+        $limit    = (int) ($assoc['limit'] ?? 500);
+        $format   = in_array($assoc['format'] ?? 'table', ['table', 'csv', 'json'], true)
+                    ? ($assoc['format'] ?? 'table')
+                    : 'table';
+
+        $posts = get_posts([
+            'post_type'      => $postType,
+            'post_status'    => 'publish',
+            'posts_per_page' => $limit,
+            'fields'         => 'ids',
+            'orderby'        => 'ID',
+            'order'          => 'ASC',
+        ]);
+
+        if (empty($posts)) {
+            \WP_CLI::success('No posts found.');
+            return;
+        }
+
+        $rows = [];
+        $totalIssues = 0;
+
+        foreach ($posts as $postId) {
+            $post = get_post((int) $postId);
+            if (!$post) continue;
+
+            $issues = [];
+
+            // Check 1: Polylang language tag
+            $lang = function_exists('pll_get_post_language') ? pll_get_post_language((int) $postId) : 'unknown';
+            if (!$lang) {
+                $issues[] = 'NO_LANG';
+            }
+
+            // Check 2: Duplicate brand prefix in title (e.g. "Shark Shark Race R Pro")
+            $brandTerms = get_the_terms((int) $postId, 'helmet_brand');
+            $brandName  = (is_array($brandTerms) && !empty($brandTerms)) ? $brandTerms[0]->name : '';
+            if ($brandName !== '' && stripos($post->post_title, $brandName . ' ' . $brandName) === 0) {
+                $issues[] = 'DUPE_BRAND_PREFIX';
+            }
+
+            // Check 3: CJK chars in wrong-language post
+            if (($lang === 'en') && preg_match('/[\x{4e00}-\x{9fff}]/u', $post->post_title . $post->post_content)) {
+                $issues[] = 'WRONG_LANG_CONTENT';
+            }
+
+            // Check 4: Price zero or missing (helmets only)
+            if ($postType === 'helmet') {
+                $priceUsd = get_post_meta((int) $postId, 'price_retail_usd', true);
+                if ($priceUsd === '' || (float) $priceUsd <= 0) {
+                    $issues[] = 'NO_PRICE';
+                }
+            }
+
+            // Check 5: Helmet type taxonomy (helmets only)
+            if ($postType === 'helmet') {
+                $typeTerms = get_the_terms((int) $postId, 'helmet_type');
+                if (!is_array($typeTerms) || empty($typeTerms)) {
+                    $issues[] = 'NO_TYPE';
+                }
+            }
+
+            // Check 6: Brand taxonomy
+            if ($postType === 'helmet' && (!is_array($brandTerms) || empty($brandTerms))) {
+                $issues[] = 'NO_BRAND';
+            }
+
+            // Check 7: Certifications (helmets only)
+            if ($postType === 'helmet') {
+                $certTerms = get_the_terms((int) $postId, 'certification');
+                if (!is_array($certTerms) || empty($certTerms)) {
+                    $issues[] = 'NO_CERT';
+                }
+            }
+
+            $status = empty($issues) ? 'PASS' : 'FAIL';
+            if ($status === 'FAIL') $totalIssues++;
+
+            $rows[] = [
+                'id'     => $postId,
+                'lang'   => $lang ?: 'NONE',
+                'status' => $status,
+                'issues' => implode(', ', $issues),
+                'title'  => mb_substr($post->post_title, 0, 50),
+            ];
+        }
+
+        \WP_CLI\Utils\format_items($format, $rows, ['id', 'lang', 'status', 'issues', 'title']);
+        \WP_CLI::log(sprintf('Audited %d posts. Issues found: %d / %d.', count($posts), $totalIssues, count($posts)));
+    }
+
+    /**
+     * Repair post titles by stripping duplicate brand name prefixes.
+     *
+     * Finds titles like "Shark Shark Race R Pro" and corrects them to "Shark Race R Pro".
+     *
+     * ## OPTIONS
+     *
+     * [--post-type=<post-type>]
+     * : Post type to process. Default: helmet.
+     *
+     * [--limit=<limit>]
+     * : Max posts to process. Default: 1000.
+     *
+     * [--dry-run]
+     * : Preview changes without saving.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan repair-titles --dry-run
+     *     wp helmetsan repair-titles --post-type=helmet --limit=2000
+     *
+     * @subcommand repair-titles
+     */
+    public function repairTitles(array $args, array $assoc): void
+    {
+        $postType = sanitize_key($assoc['post-type'] ?? 'helmet');
+        $limit    = (int) ($assoc['limit'] ?? 1000);
+        $dryRun   = isset($assoc['dry-run']);
+
+        $posts = get_posts([
+            'post_type'      => $postType,
+            'post_status'    => ['publish', 'draft'],
+            'posts_per_page' => $limit,
+            'fields'         => 'ids',
+            'orderby'        => 'ID',
+            'order'          => 'ASC',
+        ]);
+
+        if (empty($posts)) {
+            \WP_CLI::success('No posts found.');
+            return;
+        }
+
+        $fixed = 0;
+        $scanned = 0;
+
+        foreach ($posts as $postId) {
+            $post = get_post((int) $postId);
+            if (!$post) continue;
+            $scanned++;
+
+            // Detect brand from taxonomy
+            $brandTerms = get_the_terms((int) $postId, 'helmet_brand');
+            $brandName  = (is_array($brandTerms) && !empty($brandTerms)) ? trim($brandTerms[0]->name) : '';
+
+            if ($brandName === '') continue;
+
+            $title = $post->post_title;
+            $dupePrefix = $brandName . ' ' . $brandName . ' ';
+            if (stripos($title, $dupePrefix) !== 0) continue;
+
+            $newTitle = $brandName . ' ' . ltrim(substr($title, strlen($dupePrefix)));
+
+            \WP_CLI::log(sprintf(
+                '  [%s] ID %d: "%s" -> "%s"',
+                $dryRun ? 'DRY-RUN' : 'FIXED',
+                $postId,
+                $title,
+                $newTitle
+            ));
+
+            if (!$dryRun) {
+                wp_update_post(['ID' => (int) $postId, 'post_title' => $newTitle]);
+            }
+            $fixed++;
+        }
+
+        \WP_CLI::success(sprintf(
+            '%s: Scanned %d posts, repaired %d titles.',
+            $dryRun ? 'DRY-RUN' : 'DONE',
+            $scanned,
+            $fixed
+        ));
+    }
+
+    /**
+     * Purge Cloudflare Edge Cache.
+     *
+     * ## OPTIONS
+     *
+     * [<url>]
+     * : Specific URL or path to purge.
+     *
+     * [--all]
+     * : Purge all edge cache.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan edge-cache purge
+     *     wp helmetsan edge-cache purge https://helmetsan.com/helmets/
+     *     wp helmetsan edge-cache purge --all
+     */
+    public function edgeCachePurge(array $args, array $assoc): void
+    {
+        $service = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
+        $url = $args[0] ?? ($assoc['url'] ?? null);
+
+        if ($url) {
+            \WP_CLI::log("Purging URL from Cloudflare Edge: {$url}...");
+            $res = $service->purgeUrls([(string) $url]);
+        } else {
+            \WP_CLI::log("Purging entire Cloudflare Edge Cache...");
+            $res = $service->purgeEverything();
+        }
+
+        if ($res === true || (!is_wp_error($res) && !empty($res['success']))) {
+            \WP_CLI::success("Edge Cache purged successfully.");
+        } else {
+            $msg = is_wp_error($res) ? $res->get_error_message() : ($res['message'] ?? 'Unknown error');
+            \WP_CLI::error("Edge Cache purge failed: " . $msg);
+        }
+    }
+
+    /**
+     * Probe Cloudflare Edge Cache Worker.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan edge-cache probe
+     */
+    public function edgeCacheProbe(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Probing Cloudflare Edge Cache Worker...");
+        $service = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
+        $res = $service->probe();
+
+        if (($res['status'] ?? '') === 'online') {
+            \WP_CLI::success(sprintf(
+                "Worker Online: %s v%s at PoP %s (%s, %s) - %sms",
+                $res['worker'] ?? 'unknown',
+                $res['version'] ?? 'unknown',
+                $res['colo'] ?? 'UNKNOWN',
+                $res['city'] ?? 'Edge',
+                $res['country'] ?? 'Global',
+                (string) ($res['duration_ms'] ?? 0)
+            ));
+        } else {
+            \WP_CLI::error("Worker Probe Failed: " . ($res['message'] ?? 'Unexpected status ' . ($res['status'] ?? 'unknown')));
+        }
+    }
+
+    /**
+     * Display Google Analytics 4 (GA4) traffic overview.
+     *
+     * ## OPTIONS
+     *
+     * [--period=<period>]
+     * : GA4 period (e.g. 30daysAgo, 7daysAgo). Default: 30daysAgo.
+     *
+     * [--days=<days>]
+     * : Number of days to inspect. Alternative to --period.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan analytics overview
+     *     wp helmetsan analytics overview --days=30
+     */
+    public function analyticsOverview(array $args, array $assoc): void
+    {
+        $period = (string) ($assoc['period'] ?? ($assoc['days'] ?? '30daysAgo'));
+        $gaService = new \Helmetsan\Core\Analytics\GoogleAnalyticsService($this->config);
+        $res = $gaService->getOverviewMetrics($period, true);
+
+        if (empty($res['ok'])) {
+            \WP_CLI::error('GA4 Query Failed: ' . ($res['message'] ?? 'Unknown error'));
+        }
+
+        \WP_CLI::success("GA4 Overview ({$period}):");
+        \WP_CLI\Utils\format_items('table', [
+            [
+                'Active Users'  => number_format((int) $res['active_users']),
+                'Sessions'      => number_format((int) $res['sessions']),
+                'Page Views'    => number_format((int) $res['page_views']),
+                'Avg Duration'  => $res['avg_session_duration'] . 's',
+                'Bounce Rate'   => $res['bounce_rate'] . '%',
+            ]
+        ], ['Active Users', 'Sessions', 'Page Views', 'Avg Duration', 'Bounce Rate']);
+    }
+
+    /**
+     * Display Google Search Console (GSC) organic visibility overview.
+     *
+     * ## OPTIONS
+     *
+     * [--days=<days>]
+     * : Number of days to inspect. Default: 30.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan gsc overview
+     */
+    public function gscOverview(array $args, array $assoc): void
+    {
+        $days = (int) ($assoc['days'] ?? 30);
+        $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
+        $res = $gscService->getOverviewMetrics($days, true);
+
+        if (empty($res['ok'])) {
+            \WP_CLI::error('GSC Query Failed: ' . ($res['message'] ?? 'Unknown error'));
+        }
+
+        \WP_CLI::success("Google Search Console Performance (Last {$days} Days):");
+        \WP_CLI\Utils\format_items('table', [
+            [
+                'Impressions'  => number_format((int) $res['impressions']),
+                'Clicks'       => number_format((int) $res['clicks']),
+                'CTR'          => $res['ctr'] . '%',
+                'Avg Position' => $res['position'],
+            ]
+        ], ['Impressions', 'Clicks', 'CTR', 'Avg Position']);
+    }
+
+    /**
+     * Display top organic queries from Google Search Console.
+     *
+     * ## OPTIONS
+     *
+     * [--limit=<limit>]
+     * : Max queries to return. Default: 10.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan gsc queries --limit=10
+     */
+    public function gscQueries(array $args, array $assoc): void
+    {
+        $limit = (int) ($assoc['limit'] ?? 10);
+        $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
+        $queries = $gscService->getTopQueries($limit, 30, true);
+
+        if (empty($queries)) {
+            \WP_CLI::warning('No search queries found in Google Search Console.');
+            return;
+        }
+
+        \WP_CLI\Utils\format_items('table', $queries, ['query', 'impressions', 'clicks', 'ctr', 'position']);
+    }
+
+    /**
+     * Display top landing pages from Google Search Console.
+     *
+     * ## OPTIONS
+     *
+     * [--limit=<limit>]
+     * : Max pages to return. Default: 10.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan gsc pages --limit=10
+     */
+    public function gscPages(array $args, array $assoc): void
+    {
+        $limit = (int) ($assoc['limit'] ?? 10);
+        $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
+        $pages = $gscService->getTopPages($limit, 30, true);
+
+        if (empty($pages)) {
+            \WP_CLI::warning('No landing pages found in Google Search Console.');
+            return;
+        }
+
+        \WP_CLI\Utils\format_items('table', $pages, ['path', 'impressions', 'clicks', 'ctr', 'position']);
+    }
+
+    /**
+     * Submit XML sitemap to Google Search Console.
+     *
+     * ## OPTIONS
+     *
+     * [--url=<url>]
+     * : Sitemap URL. Default: https://helmetsan.com/sitemap_index.xml
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan gsc submit-sitemap
+     */
+    public function gscSubmitSitemap(array $args, array $assoc): void
+    {
+        $url = (string) ($assoc['url'] ?? home_url('/sitemap_index.xml'));
+        $gscService = new \Helmetsan\Core\Analytics\GoogleSearchConsoleService($this->config);
+        $res = $gscService->submitSitemap($url);
+
+        if (!empty($res['ok'])) {
+            \WP_CLI::success($res['message'] ?? 'Sitemap submitted successfully.');
+        } else {
+            \WP_CLI::error($res['message'] ?? 'Sitemap submission failed.');
+        }
+    }
+
+    /**
+     * Submit catalog URLs in bulk to Bing, Copilot, and Yandex via IndexNow.
+     *
+     * ## OPTIONS
+     *
+     * [--post-type=<type>]
+     * : Post type to submit (helmet, accessory, motorcycle, post, or all). Default: helmet.
+     *
+     * [--limit=<number>]
+     * : Maximum number of URLs to submit. Default: 10000.
+     *
+     * [--dry-run]
+     * : Preview URLs to be submitted without sending them.
+     */
+    public function indexNowSubmit(array $args, array $assoc): void
+    {
+        $rawType = (string) ($assoc['post-type'] ?? 'helmet');
+        $limit = isset($assoc['limit']) ? (int) $assoc['limit'] : 10000;
+        $dryRun = !empty($assoc['dry-run']);
+
+        $postTypes = match ($rawType) {
+            'all' => ['helmet', 'accessory', 'motorcycle', 'post'],
+            default => explode(',', $rawType),
+        };
+
+        \WP_CLI::log(sprintf(
+            "Submitting URLs for post type(s) [%s] (Limit: %d, Mode: %s)...",
+            implode(', ', $postTypes),
+            $limit,
+            $dryRun ? 'DRY-RUN' : 'LIVE'
+        ));
+
+        $service = new \Helmetsan\Core\Seo\IndexNowService();
+        $result = $service->submitCatalog($postTypes, $limit, $dryRun);
+
+        if ($result['total_urls'] === 0) {
+            \WP_CLI::warning("No published URLs found matching criteria.");
+            return;
+        }
+
+        \WP_CLI\Utils\format_items('table', [
+            [
+                'Total URLs' => $result['total_urls'],
+                'Batches'    => $result['batches'],
+                'Success'    => $result['success_count'],
+                'Failed'     => $result['failed_count'],
+                'Status'     => $result['ok'] ? ($dryRun ? 'DRY-RUN OK' : 'SUBMITTED (200/202)') : 'ERRORS',
+            ]
+        ], ['Total URLs', 'Batches', 'Success', 'Failed', 'Status']);
+
+        if (!empty($result['sample_urls'])) {
+            \WP_CLI::log("\nSample Submitted URLs:");
+            foreach ($result['sample_urls'] as $sample) {
+                \WP_CLI::log("  - " . $sample);
+            }
+        }
+
+        if (!empty($result['errors'])) {
+            \WP_CLI::error("IndexNow API Errors: " . implode('; ', $result['errors']), false);
+        } else {
+            \WP_CLI::success(sprintf(
+                "Successfully %s %d URLs to Bing/Copilot IndexNow engine.",
+                $dryRun ? 'prepared' : 'pushed',
+                $result['success_count']
+            ));
         }
     }
 }

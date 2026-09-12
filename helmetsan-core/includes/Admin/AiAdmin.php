@@ -11,6 +11,7 @@ use Helmetsan\Core\AI\FillMissingService;
 use Helmetsan\Core\AI\ProviderRegistry;
 use Helmetsan\Core\Repository\JsonRepository;
 use Helmetsan\Core\Support\Config;
+use Helmetsan\Core\Admin\MediaAdmin;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
 
 /**
@@ -28,7 +29,8 @@ final class AiAdmin
         private readonly ?\Helmetsan\Core\AI\HealService $healService = null,
         private readonly ?\Helmetsan\Core\Health\HealthService $health = null,
         private readonly ?\Helmetsan\Core\AI\CertificationAutomatorService $certAutomator = null,
-        private readonly ?\Helmetsan\Core\Discovery\AlternativesService $discovery = null
+        private readonly ?\Helmetsan\Core\Discovery\AlternativesService $discovery = null,
+        private readonly ?MediaAdmin $mediaAdmin = null
     ) {
     }
 
@@ -256,6 +258,9 @@ final class AiAdmin
         echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=history')) . '" class="nav-tab ' . ($activeTab === 'history' ? 'nav-tab-active' : '') . '">' . esc_html__('Healing History', 'helmetsan-core') . '</a>';
         echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=corrections')) . '" class="nav-tab ' . ($activeTab === 'corrections' ? 'nav-tab-active' : '') . '">' . esc_html__('Correction Center', 'helmetsan-core') . '</a>';
         echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=settings')) . '" class="nav-tab ' . ($activeTab === 'settings' ? 'nav-tab-active' : '') . '">' . esc_html__('Settings', 'helmetsan-core') . '</a>';
+        if ($this->mediaAdmin !== null) {
+            echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-ai&tab=media')) . '" class="nav-tab ' . ($activeTab === 'media' ? 'nav-tab-active' : '') . '">' . esc_html__('Media Health', 'helmetsan-core') . '</a>';
+        }
         echo '</h2>';
 
         settings_errors('helmetsan_ai');
@@ -269,6 +274,11 @@ final class AiAdmin
                 break;
             case 'settings':
                 $this->renderSettingsTab();
+                break;
+            case 'media':
+                if ($this->mediaAdmin !== null) {
+                    $this->mediaAdmin->renderPage();
+                }
                 break;
             case 'quality':
                 $this->renderQualityHubTab();

@@ -1,257 +1,169 @@
 /**
- * Comparison Feature Logic
+ * Helmetsan 1-Click Comparison System Controller (V3 Enterprise)
+ * Synchronizes LocalStorage, Sticky Bar UI, Checkboxes, PDP Buttons & Routing
  */
-(function() {
-    'use strict';
-
-    const STORAGE_KEY = 'helmetsan_compare';
-    const MAX_ITEMS = 4;
+document.addEventListener('DOMContentLoaded', function() {
+    const STORAGE_KEY = 'helmetsan_compare_list';
     
-    // State: Array of objects { id, title, img }
-    let comparedItems = [];
-    
-    // DOM Elements
-    let floatBar, listContainer, countSpan, viewBtn;
+    // UI Elements (Supports multiple ID/class variants)
+    const barEl = document.getElementById('hs-comparison-bar') || document.getElementById('hsComparisonTray');
+    const listEl = document.getElementById('hs-comparison-list') || document.getElementById('hsCompareChips');
+    const countEl = document.getElementById('hs-comparison-count') || document.getElementById('hsCompareCount');
+    const clearBtn = document.getElementById('hs-comparison-clear') || document.getElementById('hsClearCompare');
+    const viewBtn = document.getElementById('hs-comparison-view');
 
-    function init() {
-        console.log('Helmetsan Comparison: initializing...');
-        
-        // Initialize DOM elements
-        floatBar = document.getElementById('hs-comparison-bar');
-        listContainer = document.getElementById('hs-comparison-list');
-        countSpan = document.getElementById('hs-comparison-count');
-        viewBtn = document.getElementById('hs-comparison-view');
-
-        if (!floatBar) {
-            console.warn('Helmetsan Comparison: #hs-comparison-bar not found.');
-        }
-
-        // Load Data (with migration from old format)
+    function getCompareList() {
         try {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-                const parsed = JSON.parse(stored);
-                if (!Array.isArray(parsed)) {
-                    comparedItems = [];
-                } else if (parsed.length > 0 && typeof parsed[0] === 'number') {
-                    // MIGRATION: Old format was [id, id, id]
-                    comparedItems = parsed.map(id => ({ id: id, title: 'Helmet', img: '' }));
-                    save();
-                    console.log('Helmetsan Comparison: Migrated old data format.');
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        } catch(e) {
+            return [];
+        }
+    }
+
+    function saveCompareList(list) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+        updateTrayUI();
+        syncButtonsAndCheckboxes();
+    }
+
+    function syncButtonsAndCheckboxes() {
+        const list = getCompareList();
+        const ids = list.map(item => String(item.id));
+        const slugs = list.map(item => String(item.slug || item.id));
+
+        // Sync Checkboxes
+        document.querySelectorAll('.hs-compare-checkbox').forEach(cb => {
+            const cbId = String(cb.dataset.helmetId || cb.dataset.id || cb.value);
+            cb.checked = ids.includes(cbId) || slugs.includes(cbId);
+        });
+
+        // Sync PDP / Single-Helmet Buttons (.js-add-to-compare)
+        document.querySelectorAll('.js-add-to-compare').forEach(btn => {
+            const btnId = String(btn.dataset.id || btn.dataset.helmetId);
+            const isAdded = ids.includes(btnId) || slugs.includes(btnId);
+
+            if (btn.tagName.toLowerCase() === 'button') {
+                if (isAdded) {
+                    btn.classList.add('is-active', 'hs-btn--success');
+                    btn.setAttribute('title', 'Remove from comparison');
                 } else {
-                    comparedItems = parsed;
+                    btn.classList.remove('is-active', 'hs-btn--success');
+                    btn.setAttribute('title', 'Add to comparison');
                 }
-            }
-            // Sync from comparison page URL: when we land with ?ids=, bar should show correct count
-            if (window.helmetsanComparisonIds && Array.isArray(window.helmetsanComparisonIds) && window.helmetsanComparisonIds.length > 0) {
-                const titles = window.helmetsanComparisonTitles || {};
-                comparedItems = window.helmetsanComparisonIds.map(id => ({
-                    id: id,
-                    title: titles[id] || ('Helmet ' + id),
-                    img: ''
-                }));
-                save();
-            }
-        } catch (e) {
-            console.error('Comparison storage error', e);
-        }
-
-        // Single One-Time Event Binding (Delegated)
-        bindGlobalEvents();
-
-        // Initial UI Update
-        updateUI();
-    }
-
-    function bindGlobalEvents() {
-        // We bind to body ONCE. No more re-binding on mutations.
-        document.body.addEventListener('click', function(e) {
-            // 1. Toggle Button
-            const btn = e.target.closest('.js-add-to-compare');
-            if (btn) {
-                e.preventDefault();
-                const id = parseInt(btn.dataset.id, 10);
-                if (id) {
-                    toggleItem(btn, id);
+            } else if (btn.tagName.toLowerCase() === 'a') {
+                if (isAdded) {
+                    btn.textContent = '✓ In Compare (View →)';
+                    btn.classList.add('hs-btn--success');
+                } else {
+                    btn.textContent = '+ Add to compare';
+                    btn.classList.remove('hs-btn--success');
                 }
-                return;
-            }
-
-            // 2. Clear Button
-            const clearBtn = e.target.closest('#hs-comparison-clear, .js-comparison-clear');
-            if (clearBtn) {
-                e.preventDefault();
-                console.log('Helmetsan Comparison: Clearing all');
-                comparedItems = [];
-                save();
-                updateUI();
-                return;
             }
         });
     }
 
-    function toggleItem(btn, id) {
-        if (!id) return;
+    function updateTrayUI() {
+        const list = getCompareList();
+        if (!barEl) return;
 
-        const idx = comparedItems.findIndex(item => item.id === id);
-        
-        if (idx > -1) {
-            // Remove
-            console.log('Helmetsan Comparison: Removing ID', id);
-            comparedItems.splice(idx, 1);
+        if (list.length > 0) {
+            barEl.classList.remove('is-hidden', 'hs-hidden');
+            if (countEl) countEl.textContent = list.length;
+            
+            if (listEl) {
+                listEl.innerHTML = list.map(item => `
+                    <span class="hs-chip hs-chip-dark hs-flex hs-items-center hs-gap-1" style="display:inline-flex; align-items:center; background:rgba(30,41,59,0.9); color:#fff; padding:0.25rem 0.6rem; border-radius:9999px; font-size:0.8rem; border:1px solid rgba(255,255,255,0.15);">
+                        ${item.title}
+                        <button type="button" class="hs-remove-compare-chip" data-id="${item.id}" style="background:none; border:none; color:#f43f5e; font-weight:bold; margin-left:0.3rem; cursor:pointer;">&times;</button>
+                    </span>
+                `).join('');
+            }
+
+            if (viewBtn) {
+                const idsParam = list.map(item => item.slug || item.id).join(',');
+                const baseUrl = viewBtn.getAttribute('href') ? viewBtn.getAttribute('href').split('?')[0] : '/comparison/';
+                viewBtn.setAttribute('href', `${baseUrl}?ids=${idsParam}`);
+            }
         } else {
-            // Add
-            if (comparedItems.length >= MAX_ITEMS) {
-                alert(`You can compare up to ${MAX_ITEMS} helmets. Please remove one first.`);
-                return;
-            }
-            
-            console.log('Helmetsan Comparison: Adding ID', id);
-            
-            // Extract data from context
-            let title = 'Helmet';
-            let img = '';
-            
-            if (btn && btn.closest) {
-                const card = btn.closest('.helmet-card') || btn.closest('.helmet-single');
-                if (card) {
-                    const titleEl = card.querySelector('.helmet-card__title a') || card.querySelector('h1');
-                    if (titleEl) title = titleEl.textContent.trim();
-                    const imgEl = card.querySelector('img');
-                    if (imgEl) img = imgEl.src;
-                }
-            }
-            
-            comparedItems.push({ id, title, img });
-        }
-        save();
-        updateUI();
-    }
-
-    function save() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(comparedItems));
-    }
-
-    function updateUI() {
-        // console.log('Helmetsan Comparison: UI Update'); // Too verbose for prod
-        const currentIds = comparedItems.map(i => i.id);
-
-        // 1. Reactively update ALL buttons currently in DOM
-        const allBtns = document.querySelectorAll('.js-add-to-compare');
-        allBtns.forEach(btn => {
-            const id = parseInt(btn.dataset.id, 10);
-            const span = btn.querySelector('span');
-            // Safe check
-            if(!id) return;
-
-            if (currentIds.includes(id)) {
-                btn.classList.add('is-active', 'hs-btn--primary');
-                btn.setAttribute('aria-pressed', 'true');
-                if(span) span.textContent = 'Remove';
-            } else {
-                btn.classList.remove('is-active', 'hs-btn--primary');
-                btn.setAttribute('aria-pressed', 'false');
-                if(span) span.textContent = 'Compare';
-            }
-        });
-
-        // 2. Update specific "View" buttons next to active compare buttons
-        const viewLinkBtns = document.querySelectorAll('.js-view-compare');
-        viewLinkBtns.forEach(btn => {
-             // Find closest structure
-             const context = btn.closest('.helmet-single__media') || btn.closest('.helmet-card') || btn.parentElement;
-             if (context) {
-                 const sibling = context.querySelector('.js-add-to-compare');
-                 if (sibling) {
-                     const id = parseInt(sibling.dataset.id, 10);
-                     if (currentIds.includes(id)) {
-                         btn.classList.remove('is-hidden');
-                         btn.href = '/comparison/?ids=' + currentIds.join(',');
-                     } else {
-                         btn.classList.add('is-hidden');
-                     }
-                 }
-             }
-        });
-
-        // 3. Update Float Bar
-        if (floatBar) {
-            if (comparedItems.length > 0) {
-                floatBar.classList.remove('is-hidden');
-                floatBar.style.display = 'flex';
-                const onComparisonPage = typeof window.location !== 'undefined' && window.location.pathname.indexOf('comparison') !== -1;
-                if (countSpan) countSpan.textContent = comparedItems.length;
-                const prefixEl = document.getElementById('hs-comparison-prefix');
-                const labelEl = document.getElementById('hs-comparison-label');
-                if (prefixEl) prefixEl.textContent = onComparisonPage ? 'Comparing ' : '';
-                if (labelEl) labelEl.textContent = onComparisonPage ? ' helmets ' : ' Helmets Selected ';
-
-                // Update Thumbnails
-                if (listContainer) {
-                    listContainer.innerHTML = '';
-                    comparedItems.forEach(item => {
-                        const thumb = document.createElement('div');
-                        thumb.className = 'hs-comp-thumb';
-                        thumb.title = 'Remove ' + item.title;
-                        
-                        if (item.img) {
-                             const img = document.createElement('img');
-                             img.src = item.img;
-                             img.alt = item.title;
-                             thumb.appendChild(img);
-                        } else {
-                             const span = document.createElement('span');
-                             span.textContent = item.id;
-                             thumb.appendChild(span);
-                        }
-                        
-                        // Inline binding for generated elements is fine/simplest here
-                        thumb.onclick = (e) => {
-                             e.preventDefault(); 
-                             e.stopPropagation();
-                             toggleItem({}, item.id); // Passing empty obj as btn mimics external call
-                        };
-
-                        listContainer.appendChild(thumb);
-                    });
-                }
-
-                if (viewBtn) {
-                    const onComparisonPage = typeof window.location !== 'undefined' && window.location.pathname.indexOf('comparison') !== -1;
-                    viewBtn.href = onComparisonPage ? '/helmets/' : `/comparison/?ids=${currentIds.join(',')}`;
-                    viewBtn.textContent = onComparisonPage ? 'Change selection →' : `Compare Now (${comparedItems.length})`;
-                }
-            } else {
-                floatBar.classList.add('is-hidden');
-            }
+            barEl.classList.add('is-hidden', 'hs-hidden');
         }
     }
 
-    // Export for debug
-    window.HelmetsanCompare = {
-        update: updateUI,
-        reset: () => { comparedItems = []; save(); updateUI(); }
-    };
+    // Toggle Action Handler
+    function toggleHelmetInCompare(helmetObj) {
+        let list = getCompareList();
+        const existsIndex = list.findIndex(item => String(item.id) === String(helmetObj.id) || String(item.slug) === String(helmetObj.slug));
 
-    // Initialize
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
+        if (existsIndex > -1) {
+            list.splice(existsIndex, 1);
+        } else {
+            if (list.length >= 4) {
+                alert('You can compare up to 4 helmets simultaneously.');
+                return false;
+            }
+            list.push(helmetObj);
+        }
+        saveCompareList(list);
+        return true;
     }
 
-    // Auto-update on AJAX mutations
-    // Key: Only call updateUI(), never re-bind events!
-    const observer = new MutationObserver((mutations) => {
-        let shouldUpdate = false;
-        mutations.forEach(mutation => {
-            if (mutation.addedNodes.length) shouldUpdate = true;
-        });
-        if (shouldUpdate) {
-            setTimeout(updateUI, 100);
+    // Click Delegation Listener for Buttons & Anchors
+    document.addEventListener('click', function(e) {
+        // Handle .js-add-to-compare buttons & links
+        const addBtn = e.target.closest('.js-add-to-compare');
+        if (addBtn) {
+            const id = addBtn.dataset.id || addBtn.dataset.helmetId;
+            const title = addBtn.dataset.title || addBtn.dataset.helmetTitle || document.title.split('-')[0].trim();
+            const slug = addBtn.dataset.slug || id;
+
+            if (id) {
+                const list = getCompareList();
+                const isAlreadyIn = list.some(item => String(item.id) === String(id) || String(item.slug) === String(slug));
+                
+                // If it's an anchor tag and already in compare, allow navigating to /comparison/?ids=...
+                if (addBtn.tagName.toLowerCase() === 'a' && isAlreadyIn) {
+                    const idsParam = list.map(item => item.slug || item.id).join(',');
+                    addBtn.setAttribute('href', `/comparison/?ids=${idsParam}`);
+                    return;
+                }
+
+                e.preventDefault();
+                toggleHelmetInCompare({ id: id, slug: slug, title: title });
+            }
+            return;
+        }
+
+        // Handle Chip Remove Buttons
+        const removeBtn = e.target.closest('.hs-remove-compare-chip');
+        if (removeBtn) {
+            e.preventDefault();
+            const id = removeBtn.dataset.id;
+            let list = getCompareList().filter(item => String(item.id) !== String(id) && String(item.slug) !== String(id));
+            saveCompareList(list);
+            return;
+        }
+
+        // Handle Clear Button
+        if (e.target && (e.target.id === 'hs-comparison-clear' || e.target.id === 'hsClearCompare')) {
+            e.preventDefault();
+            saveCompareList([]);
+            return;
         }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    // Checkbox Change Listener
+    document.addEventListener('change', function(e) {
+        if (e.target && e.target.classList.contains('hs-compare-checkbox')) {
+            const cb = e.target;
+            const id = cb.dataset.helmetId || cb.dataset.id || cb.value;
+            const title = cb.dataset.helmetTitle || id;
+            const slug = cb.dataset.slug || id;
+            
+            toggleHelmetInCompare({ id: id, slug: slug, title: title });
+        }
+    });
 
-})();
+    // Initial Sync
+    updateTrayUI();
+    syncButtonsAndCheckboxes();
+});

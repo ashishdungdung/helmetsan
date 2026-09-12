@@ -4,7 +4,7 @@
  *
  * @package HelmetsanTheme
  */
-$compare_url = home_url('/comparison/');
+$compare_url = helmetsan_url('/comparison/');
 ?>
 <div id="hs-comparison-bar" class="hs-comparison-bar is-hidden" aria-live="polite" aria-label="<?php esc_attr_e('Comparison bar', 'helmetsan-theme'); ?>">
     <div id="hs-comparison-list" class="hs-comparison-bar__thumbs"></div>

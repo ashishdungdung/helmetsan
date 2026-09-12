@@ -11,14 +11,25 @@ $themeDir = get_stylesheet_directory_uri();
 $hero_img = $themeDir . '/assets/images/hubs/motorcycles_hub_hero.png';
 ?>
 
-<section class="hs-section">
-    <header class="hs-section__head">
+<section class="hs-section hs-section--archive">
+    <div class="hs-section__head">
         <h1><?php echo esc_html(post_type_archive_title('', false)); ?></h1>
         <p>Motorcycle index with segment-aware helmet recommendations.</p>
-    </header>
+    </div>
 
-    <?php if (have_posts()) : ?>
-        <div class="helmet-grid">
+    <?php 
+    if (! have_posts()) {
+        $paged = max(1, (int) get_query_var('paged', 1));
+        query_posts([
+            'post_type' => 'motorcycle',
+            'post_status' => 'publish',
+            'posts_per_page' => 12,
+            'paged' => $paged,
+            'lang' => '',
+        ]);
+    }
+    if (have_posts()) : ?>
+        <div class="hs-catalog-grid">
             <?php while (have_posts()) : the_post(); 
                 $title = get_the_title();
                 $desc = get_the_excerpt() ?: "Explore compatible helmets for the " . $title . ".";
@@ -45,7 +56,23 @@ $hero_img = $themeDir . '/assets/images/hubs/motorcycles_hub_hero.png';
                 </a>
             <?php endwhile; ?>
         </div>
-        <?php the_posts_pagination(); ?>
+        <div class="hs-pagination-footer">
+            <?php
+            global $wp_query;
+            $paged = max(1, (int) get_query_var('paged'));
+            $total = (int) $wp_query->max_num_pages;
+            $ppp = (int) get_query_var('posts_per_page');
+            $start = (($paged - 1) * $ppp) + 1;
+            $end = min($paged * $ppp, (int) $wp_query->found_posts);
+            $count_text = sprintf(__('Showing %d–%d of %d', 'helmetsan-theme'), $start, $end, $wp_query->found_posts);
+
+            get_template_part('template-parts/pagination-modern', null, [
+                'paged' => $paged,
+                'total' => $total,
+                'count_text' => $count_text
+            ]);
+            ?>
+        </div>
     <?php else : ?>
         <p>No motorcycles found.</p>
     <?php endif; ?>

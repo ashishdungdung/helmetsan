@@ -1,0 +1,7 @@
+name = "helmetsan-edge-assembly-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-01"
+
+# Route intercepts
+route = { pattern = "*helmetsan.com/*", zone_id = "f098a57b228462adf58dcde8b65c77f6" }
+

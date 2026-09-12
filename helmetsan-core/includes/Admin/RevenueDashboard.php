@@ -45,6 +45,7 @@ final class RevenueDashboard
         $days   = isset($_GET['days']) ? max(1, (int) $_GET['days']) : 30;
         $report = $this->revenue->report($days);
         $byMarketplace = $this->revenue->reportByMarketplace($days);
+        $attributionReport = $this->revenue->getAttributionReport($days);
         $revCfg = $this->config->revenueConfig();
         $networkCpc = $revCfg['network_cpc'] ?? [];
         $defaultCpc = 0.04;
@@ -175,6 +176,65 @@ final class RevenueDashboard
                 </div>
             </div>
 
+            <!-- Traffic Attribution & Referral Channels (Pillar IV Growth Engine) -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+                <!-- Clicks by Referral Channel -->
+                <div class="postbox" style="padding:16px;margin:0;">
+                    <h2>Traffic Attribution by Channel</h2>
+                    <table class="widefat striped">
+                        <thead><tr><th>Channel</th><th>Clicks</th><th>Share</th></tr></thead>
+                        <tbody>
+                        <?php
+                        $channelLabels = [
+                            'ai_assistant' => ['label' => 'AI Assistants (ChatGPT, Perplexity, Claude)', 'color' => '#8b5cf6'],
+                            'forum'        => ['label' => 'Motorcycle Forums & Reddit', 'color' => '#f97316'],
+                            'social'       => ['label' => 'Social Networks (YouTube, IG, X)', 'color' => '#ec4899'],
+                            'search'       => ['label' => 'Search Engines (Google, Bing)', 'color' => '#3b82f6'],
+                            'email'        => ['label' => 'Email & Newsletters', 'color' => '#10b981'],
+                            'direct'       => ['label' => 'Direct Navigation', 'color' => '#64748b'],
+                            'referral'     => ['label' => 'Other External Referrals', 'color' => '#06b6d4'],
+                        ];
+                        $totalAttrClicks = max(1, (int) ($attributionReport['total_clicks'] ?? 1));
+                        foreach (($attributionReport['by_channel'] ?? []) as $channelKey => $cnt) :
+                            $meta = $channelLabels[$channelKey] ?? ['label' => ucfirst($channelKey), 'color' => '#64748b'];
+                            $pct = round(($cnt / $totalAttrClicks) * 100, 1);
+                        ?>
+                            <tr>
+                                <td>
+                                    <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:<?php echo esc_attr($meta['color']); ?>;margin-right:6px;"></span>
+                                    <strong><?php echo esc_html($meta['label']); ?></strong>
+                                </td>
+                                <td><?php echo esc_html(number_format((int) $cnt)); ?></td>
+                                <td><?php echo esc_html((string) $pct); ?>%</td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <?php if (empty($attributionReport['by_channel'])) : ?>
+                            <tr><td colspan="3">No attribution data yet</td></tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Top Inbound UTM Sources -->
+                <div class="postbox" style="padding:16px;margin:0;">
+                    <h2>Top Inbound UTM Campaigns & Sources</h2>
+                    <table class="widefat striped">
+                        <thead><tr><th>UTM Source</th><th>Clicks</th></tr></thead>
+                        <tbody>
+                        <?php foreach (($attributionReport['by_utm_source'] ?? []) as $src => $cnt) : ?>
+                            <tr>
+                                <td><code><?php echo esc_html((string) $src); ?></code></td>
+                                <td><?php echo esc_html(number_format((int) $cnt)); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <?php if (empty($attributionReport['by_utm_source'])) : ?>
+                            <tr><td colspan="2">No UTM tagged clicks recorded</td></tr>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <!-- Top Helmets with Latest Prices -->
             <div class="postbox" style="padding:16px;margin:24px 0 0;">
                 <h2>Top Clicked Helmets</h2>
@@ -213,6 +273,31 @@ final class RevenueDashboard
                     </tbody>
                 </table>
             </div>
+
+            <!-- Recent Attributed Conversions (Pillar IV) -->
+            <?php if (! empty($attributionReport['recent_conversions'])) : ?>
+            <div class="postbox" style="padding:16px;margin:24px 0 0;">
+                <h2>Recent Attributed Conversions</h2>
+                <table class="widefat striped">
+                    <thead><tr><th>Time</th><th>Helmet</th><th>Marketplace</th><th>Channel</th><th>UTM Source</th></tr></thead>
+                    <tbody>
+                    <?php foreach ($attributionReport['recent_conversions'] as $conv) : ?>
+                        <tr>
+                            <td><?php echo esc_html((string) $conv['created_at']); ?></td>
+                            <td>
+                                <a href="<?php echo esc_url(get_edit_post_link((int) $conv['helmet_id'])); ?>">
+                                    <?php echo esc_html((string) $conv['title']); ?>
+                                </a>
+                            </td>
+                            <td><code><?php echo esc_html((string) $conv['marketplace_id']); ?></code></td>
+                            <td><strong><?php echo esc_html((string) $conv['referral_channel']); ?></strong></td>
+                            <td><?php echo $conv['utm_source'] !== '' ? '<code>' . esc_html((string) $conv['utm_source']) . '</code>' : '—'; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <?php endif; ?>
 
             <!-- Network Configuration -->
             <div class="postbox" style="padding:16px;margin:24px 0 0;">

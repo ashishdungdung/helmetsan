@@ -120,25 +120,27 @@ Admin: list each provider with “Tier”, “Best for” (e.g. “Meta descript
 
 | Flow | Seeder/ingest | Standalone CLI | AI admin (quick actions) |
 |------|----------------|----------------|--------------------------|
-| **Unique id + hash** | Yes | N/A (operates on existing posts) | N/A |
+| **Unique id + hash** | Yes (skips if hash matches; prevents duplicates) | N/A (operates on existing posts) | N/A |
+| **Multi-language Alignment** | Parent CPT language status inherited by child variants | Syncs language settings on update | Triggers Polylang synchronization on save |
 | **Fill empty meta** | Optional post-step | `wp helmetsan ai fill-missing` | “Fill missing” button |
 | **Assign taxonomies** | From payload if present | Fill-missing can suggest/assign | Same |
 | **SEO seed** | Optional post-step | `wp helmetsan seo seed` | “Generate SEO” per entity |
 | **Cross-link** | Optional post-step | `wp helmetsan ai cross-link` (new) | Optional “Suggest links” |
 | **Provider choice** | Same as plugin settings | Same | Same |
 
-So: **one set of rules** (unique id, hash, fill-only-empty, validation, taxonomy resolution, cross-link) used everywhere; only the trigger differs (batch ingest, CLI, or single-post admin).
+So: **one set of rules** (unique id, hash, fill-only-empty, validation, taxonomy resolution, cross-link) used everywhere; only the trigger differs (batch ingest, CLI, or single-post admin). Recent database hardening also enforces that only parent helmets (`post_parent => 0`) undergo primary enrichment runs to prevent duplicate credit consumption on child variants.
 
 ---
 
-## 7. Implementation phases (suggested)
+## 7. Implementation phases (completed)
 
 - **Phase A — Seeder consistency**: Harden ingestion to skip unchanged by hash; document unique ids for brands/accessories; add validation before upsert.
-  - **Done:** Helmet and accessory ingest paths now count **skipped** when hash unchanged (accessory branch in `IngestionService` fixed to treat `action === 'skipped'` as skipped). Brands and accessories already use `_brand_unique_id` / `_accessory_unique_id` and `_source_hash`. See **`docs/ingestion-unique-ids-and-hash.md`** for canonical unique keys and hash-based skip for all entity types.
-- **Phase B — Fill-missing extended**: `FillableFieldsConfig` already includes extended meta (use_case, price_range, model_year, yoast_title, yoast_metadesc, yoast_focuskw, outgoing_internal_links_json) and `taxonomyFillableConfig()` / `yoastMetaMapping()`. **(Done)** (1) Yoast meta is synced when filling yoast_* keys. (2) FillMissingService now fills missing taxonomy terms (helmet_type, certification, feature_tag, helmet_brand, accessory_category): AI suggests from existing term names only; code resolves to term and calls `wp_set_object_terms`. Use `--no-taxonomies` to skip taxonomy fill. (3) Fill order: meta first, then taxonomies for the same post.
-- **Phase C — SEO seed relations**: **(Done)** (1) **Helmet SEO**: YoastSeoSeeder passes `helmet_family`, `feature_tags`, `use_case` into AI context; fallback template includes family when set; focus keyword includes helmet type when it fits in 60 chars. AiSeoDescriptionProvider and ContextBuilder::forSeoDescription use the same extended context (family, features, use_case) in prompts. (2) **Brand SEO**: Brand meta `brand_motto` and `brand_story` (trimmed snippet) are passed to AI for richer meta descriptions; fallback unchanged. (3) **Accessory SEO**: Focus keyword now includes category when not generic (e.g. "Pinlock 120 Visor") and is truncated to 60 chars.
-- **Phase D — Cross-link**: **(Done)** (1) **CrossLinkService** (`includes/CrossLink/CrossLinkService.php`): `suggestForPost($postId)` returns related links by entity type — helmets: same brand, same helmet_type, same certification, same helmet_family (up to 10 links); brands: links to that brand’s helmets; accessories: same accessory_category. Stored format: `outgoing_internal_links_json` = JSON array of `{post_id, url, reason}`. (2) **CLI** `wp helmetsan ai cross-link [--post-type=helmet|brand|accessory|all] [--limit=N] [--offset=N] [--dry-run]` runs the service and optionally writes meta. “Received” links can be computed later by scanning other posts’ outgoing links.
-- **Phase E — Providers**: **(Done)** Added **Together AI**, **Fireworks AI**, **Cohere**, and **Anthropic (Claude)**. Together and Fireworks use OpenAI-compatible chat endpoints; Cohere uses v1 chat; Anthropic uses Messages API. All four are in Config and ProviderRegistry (Together, Fireworks, Cohere = free; Anthropic = premium). Admin AI page shows a **Best for** column for every provider.
-- **Phase F — Deep Enrichment Turbo**: **(Done)** Successfully processed 2,148 helmets with deep technical specs (SHARP, ASINs, Fit Notes). Implemented **Turbo Architecture** (10-way concurrency) and **State Sovereignty** (using `deep_enriched` flags). See [High-Performance Enrichment Blueprint](blueprints/high-performance-enrichment-blueprint.md) for methodology.
+  - **Done:** Helmet and accessory ingest paths now count **skipped** when hash unchanged. Brands and accessories already use `_brand_unique_id` / `_accessory_unique_id` and `_source_hash`. Sanitized WordPress DB of orphaned helmets with missing IDs (~80 deleted) to ensure hash skips function correctly.
+- **Phase B — Fill-missing extended**: `FillableFieldsConfig` already includes extended meta (use_case, price_range, model_year, yoast_title, yoast_metadesc, yoast_focuskw, outgoing_internal_links_json) and `taxonomyFillableConfig()` / `yoastMetaMapping()`. **(Done)** Yoast meta is synced when filling yoast_* keys.
+- **Phase C — SEO seed relations**: **(Done)** YoastSeoSeeder passes `helmet_family`, `feature_tags`, `use_case` into AI context; fallback template includes family when set.
+- **Phase D — Cross-link**: **(Done)** `CrossLinkService` returns related links by entity type. CLI `wp helmetsan ai cross-link` writes metadata.
+- **Phase E — Providers**: **(Done)** Added **Together AI**, **Fireworks AI**, **Cohere**, and **Anthropic (Claude)**.
+- **Phase F — Deep Enrichment Turbo**: **(Done)** Successfully processed 2,148 helmets with deep technical specs (SHARP, ASINs, Fit Notes). Implemented **Turbo Architecture** (10-way concurrency) and **State Sovereignty** (using `deep_enriched` flags). Verified Polylang child translation linking to parent nodes.
+
 
 This roadmap should be used both when running the **seeder**, when running **standalone** CLI commands, and when using **AI mode** in the admin for updating metadata.

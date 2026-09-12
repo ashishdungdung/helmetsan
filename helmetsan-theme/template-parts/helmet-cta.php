@@ -39,8 +39,9 @@ else :
     $cc = strtolower($geo);
     $ccSuffix = ($cc === 'uk' || $cc === 'gb') ? 'uk' : $cc;
     $preferredMp = 'amazon-' . $ccSuffix;
-    if (!empty($links[$preferredMp])) :
-        $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($preferredMp) . '&source=single_page');
+    $targetMp = !empty($links[$preferredMp]) ? $preferredMp : (!empty($links['amazon']) ? $preferredMp : '');
+    if ($targetMp !== '') :
+        $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($targetMp) . '&source=single_page');
         ?>
         <p><a class="hs-btn hs-btn--primary hs-price-cta" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored">Buy Now</a></p>
         <?php

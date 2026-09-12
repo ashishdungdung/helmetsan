@@ -7,8 +7,8 @@ namespace Helmetsan\Core\Price;
 /**
  * Manages the wp_helmetsan_price_history table.
  *
- * Records a snapshot each time a price is fetched from a marketplace
- * connector, enabling historical price charts on the PDP.
+ * Records a snapshot each time a price is fetched or estimated,
+ * enabling historical price charts on the PDP for helmets, accessories, and motorcycles.
  */
 final class PriceHistory
 {
@@ -24,7 +24,9 @@ final class PriceHistory
 
         $sql = "CREATE TABLE {$table} (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-            helmet_id bigint(20) unsigned NOT NULL,
+            post_id bigint(20) unsigned NOT NULL,
+            post_type varchar(20) NOT NULL DEFAULT 'helmet',
+            helmet_id bigint(20) unsigned DEFAULT NULL,
             marketplace_id varchar(50) NOT NULL DEFAULT 'global',
             country_code char(2) NOT NULL DEFAULT 'US',
             currency char(3) NOT NULL DEFAULT 'USD',
@@ -32,15 +34,22 @@ final class PriceHistory
             mrp decimal(10,2) DEFAULT NULL,
             captured_at datetime NOT NULL,
             PRIMARY KEY (id),
+            KEY post_id_type (post_id, post_type),
             KEY helmet_id (helmet_id),
             KEY marketplace_id (marketplace_id),
             KEY country_code (country_code),
             KEY captured_at (captured_at),
-            UNIQUE KEY unique_snapshot (helmet_id, marketplace_id, country_code, captured_at)
+            UNIQUE KEY unique_snapshot (post_id, post_type, marketplace_id, country_code, captured_at)
         ) {$charset};";
 
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         dbDelta($sql);
+
+        // Run data migration if post_id values are unpopulated
+        $columnCheck = $wpdb->get_results("SHOW COLUMNS FROM {$table} LIKE 'post_id'");
+        if (!empty($columnCheck)) {
+            $wpdb->query("UPDATE {$table} SET post_id = helmet_id, post_type = 'helmet' WHERE post_id = 0 AND helmet_id IS NOT NULL AND helmet_id > 0");
+        }
     }
 
     public function tableName(): string
@@ -52,18 +61,16 @@ final class PriceHistory
 
     /**
      * Record a price snapshot.
-     *
-     * Silently skips if a record for the same helmet/marketplace/country/date exists
-     * (the UNIQUE KEY prevents duplicates within the same timestamp).
      */
     public function record(
-        int    $helmetId,
+        int    $postId,
         string $marketplaceId,
         string $countryCode,
         string $currency,
         float  $price,
         ?float $mrp = null,
-        ?string $capturedAt = null
+        ?string $capturedAt = null,
+        string $postType = 'helmet'
     ): bool {
         global $wpdb;
 
@@ -74,7 +81,9 @@ final class PriceHistory
         $result = $wpdb->insert(
             $this->tableName(),
             [
-                'helmet_id'      => $helmetId,
+                'post_id'        => $postId,
+                'post_type'      => sanitize_key($postType),
+                'helmet_id'      => $postType === 'helmet' ? $postId : null,
                 'marketplace_id' => sanitize_text_field($marketplaceId),
                 'country_code'   => strtoupper(substr(sanitize_text_field($countryCode), 0, 2)),
                 'currency'       => strtoupper(substr(sanitize_text_field($currency), 0, 3)),
@@ -82,22 +91,23 @@ final class PriceHistory
                 'mrp'            => $mrp,
                 'captured_at'    => $capturedAt ?? current_time('mysql'),
             ],
-            ['%d', '%s', '%s', '%s', '%f', '%f', '%s']
+            ['%d', '%s', '%d', '%s', '%s', '%s', '%f', '%f', '%s']
         );
 
         return $result !== false;
     }
 
     /**
-     * Get price history for a helmet, optionally filtered by marketplace and country.
+     * Get price history for an object, optionally filtered by marketplace and country.
      *
      * @return array<int, array{marketplace_id: string, country_code: string, currency: string, price: float, mrp: float|null, captured_at: string}>
      */
     public function getHistory(
-        int     $helmetId,
+        int     $postId,
         int     $days = 30,
         ?string $marketplaceId = null,
-        ?string $countryCode = null
+        ?string $countryCode = null,
+        string  $postType = 'helmet'
     ): array {
         global $wpdb;
 
@@ -108,7 +118,7 @@ final class PriceHistory
         $table = $this->tableName();
         $from  = gmdate('Y-m-d H:i:s', time() - ($days * DAY_IN_SECONDS));
 
-        $where  = $wpdb->prepare('helmet_id = %d AND captured_at >= %s', $helmetId, $from);
+        $where  = $wpdb->prepare('post_id = %d AND post_type = %s AND captured_at >= %s', $postId, sanitize_key($postType), $from);
 
         if ($marketplaceId !== null) {
             $where .= $wpdb->prepare(' AND marketplace_id = %s', $marketplaceId);
@@ -138,11 +148,11 @@ final class PriceHistory
     }
 
     /**
-     * Get the latest price for each marketplace for a helmet.
+     * Get the latest price for each marketplace for a post.
      *
      * @return array<string, array{price: float, mrp: float|null, currency: string, captured_at: string}>
      */
-    public function getLatestByMarketplace(int $helmetId, ?string $countryCode = null): array
+    public function getLatestByMarketplace(int $postId, ?string $countryCode = null, string $postType = 'helmet'): array
     {
         global $wpdb;
 
@@ -151,15 +161,16 @@ final class PriceHistory
         }
 
         $table = $this->tableName();
-        $where = $wpdb->prepare('h.helmet_id = %d', $helmetId);
+        $where = $wpdb->prepare('h.post_id = %d AND h.post_type = %s', $postId, sanitize_key($postType));
         if ($countryCode !== null) {
             $where .= $wpdb->prepare(' AND h.country_code = %s', strtoupper($countryCode));
         }
 
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
         $subquery = $wpdb->prepare(
-            "SELECT marketplace_id, MAX(captured_at) as max_date FROM {$table} WHERE helmet_id = %d GROUP BY marketplace_id",
-            $helmetId
+            "SELECT marketplace_id, MAX(captured_at) as max_date FROM {$table} WHERE post_id = %d AND post_type = %s GROUP BY marketplace_id",
+            $postId,
+            sanitize_key($postType)
         );
 
         // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared

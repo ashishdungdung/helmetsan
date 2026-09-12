@@ -24,6 +24,9 @@ import argparse
 import urllib.request
 import urllib.error
 import subprocess
+import threading
+import logging
+from logging.handlers import RotatingFileHandler
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
@@ -36,14 +39,22 @@ REMOTE_BRIDGE    = "/var/www/helmetsan.com/scripts/translate_bridge.php"
 
 SCRIPT_DIR       = os.path.dirname(os.path.abspath(__file__))
 STATE_FILE       = os.path.join(SCRIPT_DIR, "metal_bot_state.json")
+STAGING_FILE     = os.path.join(SCRIPT_DIR, "metal_bot_staging.json")
 LOG_FILE         = os.path.join(SCRIPT_DIR, "metal_bot.log")
 PID_FILE         = os.path.join(SCRIPT_DIR, "metal_bot.pid")
+
+try:
+    from translation_memory import get_translation_memory
+except ImportError:
+    import sys
+    sys.path.append(SCRIPT_DIR)
+    from translation_memory import get_translation_memory
 
 ALL_LANGS = ["de", "zh", "fr", "es", "it", "pl", "pt", "nl", "ja"]
 
 LANG_NAMES = {
     "de": "German (Deutsch)",
-    "zh": "Chinese (Simplified)",
+    "zh": "Chinese (中文)",
     "fr": "French (Français)",
     "es": "Spanish (Español)",
     "it": "Italian (Italiano)",
@@ -53,16 +64,51 @@ LANG_NAMES = {
     "ja": "Japanese (日本語)"
 }
 
+# Thread-safe lock for local staging file access
+_staging_lock = threading.RLock()
+
+def load_staging():
+    with _staging_lock:
+        if os.path.exists(STAGING_FILE):
+            try:
+                with open(STAGING_FILE, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+        return []
+
+def save_staging(items):
+    with _staging_lock:
+        try:
+            with open(STAGING_FILE, "w", encoding="utf-8") as f:
+                json.dump(items, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            log(f"⚠️ Failed to save staging: {e}")
+
+def append_staging(item):
+    with _staging_lock:
+        items = load_staging()
+        items = [it for it in items if it.get("en_id") != item.get("en_id")]
+        items.append(item)
+        save_staging(items)
+
+# Setup rotating log handler (10MB max size, 3 backup files)
+_bot_logger = logging.getLogger("metal_translation_bot")
+_bot_logger.setLevel(logging.INFO)
+if not _bot_logger.handlers:
+    _rfh = RotatingFileHandler(LOG_FILE, maxBytes=10 * 1024 * 1024, backupCount=3, encoding="utf-8")
+    _rfh.setFormatter(logging.Formatter("[%(asctime)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S"))
+    _bot_logger.addHandler(_rfh)
+
 def log(msg):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{timestamp}] {msg}"
     print(line, flush=True)
-    if sys.stdout.isatty():
-        try:
-            with open(LOG_FILE, "a", encoding="utf-8") as f:
-                f.write(line + "\n")
-        except Exception:
-            pass
+    try:
+        _bot_logger.info(msg)
+    except Exception:
+        pass
+        pass
 
 def save_state(state):
     try:
@@ -91,9 +137,12 @@ def load_state():
 # Remote Bridge Client
 # ─────────────────────────────────────────────────────────────────────────────
 def run_bridge_command(payload, timeout=45):
-    """Send JSON payload via SSH to remote bridge script."""
+    """Send JSON payload via SSH to remote bridge script with keep-alive."""
     cmd = [
-        "ssh", "-o", "ConnectTimeout=10", REMOTE_SSH_HOST,
+        "ssh", "-o", "ConnectTimeout=10",
+        "-o", "ServerAliveInterval=15",
+        "-o", "ServerAliveCountMax=8",
+        REMOTE_SSH_HOST,
         f"wp --path={REMOTE_WP_PATH} eval-file {REMOTE_BRIDGE} --allow-root"
     ]
     json_bytes = json.dumps(payload).encode("utf-8")
@@ -122,7 +171,7 @@ def fetch_stats():
         return data
     return None
 
-def fetch_candidates(lang, limit=20, exclude_ids=None):
+def fetch_candidates(lang, limit=20, exclude_ids=None, post_id=None):
     """Fetch untranslated candidate helmets for target language."""
     payload = {
         "action": "fetch_candidates",
@@ -130,6 +179,8 @@ def fetch_candidates(lang, limit=20, exclude_ids=None):
         "limit": limit,
         "exclude_ids": exclude_ids or []
     }
+    if post_id:
+        payload["post_id"] = int(post_id)
     data = run_bridge_command(payload, timeout=60)
     if data is not None and data.get("success"):
         return data.get("candidates", [])
@@ -289,7 +340,7 @@ def clean_json(text):
         return None
 
 def translate_helmet_metal(helmet, lang, model):
-    """Translate a single helmet payload with retry."""
+    """Translate a single helmet payload with Translation Memory pre-filtering and retry."""
     system_prompt = build_system_prompt(lang)
     
     sizing = helmet.get("sizing_fit")
@@ -301,13 +352,17 @@ def translate_helmet_metal(helmet, lang, model):
         
     features = helmet.get("features") if isinstance(helmet.get("features"), list) else []
     
+    # Translation Memory (TM) pre-filtering: deterministic 0-token matching
+    tm = get_translation_memory()
+    resolved_tm_map, novel_indices, novel_features = tm.partition_features(features, lang)
+    
     source_payload = {
         "title": helmet["title"],
         "description": helmet.get("content") or helmet.get("title"),
         "excerpt": helmet.get("excerpt") or "",
         "marketing_description": helmet.get("marketing") or "",
         "technical_analysis": helmet.get("tech") or "",
-        "features": features,
+        "features": novel_features,
         "fit_notes": fit_notes
     }
     
@@ -315,6 +370,9 @@ def translate_helmet_metal(helmet, lang, model):
         raw_text, elapsed = call_metal_model(model, system_prompt, source_payload)
         parsed = clean_json(raw_text)
         if parsed and (parsed.get("description") or parsed.get("title")):
+            # Merge TM-resolved features back in original sequence
+            llm_novel_feats = parsed.get("features") if isinstance(parsed.get("features"), list) else []
+            parsed["features"] = tm.merge_features(resolved_tm_map, novel_indices, llm_novel_feats, original_features=features)
             return parsed, elapsed
         log(f"⚠️ Retry #{attempt} for helmet #{helmet['id']} ('{helmet['title']}') - JSON parse failed")
         time.sleep(1)
@@ -325,16 +383,19 @@ def translate_helmet_metal(helmet, lang, model):
 # Autonomous Live Runner
 # ─────────────────────────────────────────────────────────────────────────────
 class TranslationBot:
-    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None, workers=2):
+    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None, workers=2, post_id=None):
         self.target_lang = target_lang
         self.model = model
-        self.batch_size = batch_size
+        self.post_id = post_id
+        self.batch_size = 1 if post_id else batch_size
         self.all_langs = all_langs
-        self.max_count = max_count
-        self.workers = max(1, workers)
+        self.max_count = 1 if post_id else max_count
+        self.workers = 1 if post_id else max(1, workers)
         self.total_session_translated = 0
         self.running = True
         self.state = load_state()
+        self.baseline_tokens_saved_tm = self.state.get("tokens_saved_tm", 0)
+        self.baseline_tm_hits = self.state.get("tm_hits", 0)
         self.failed_ids = set()
 
     def stop(self, signum=None, frame=None):
@@ -375,13 +436,26 @@ class TranslationBot:
                 self.running = False
                 break
 
+            # 1. Flush any previously staged items from previous rounds/runs
+            staged = load_staging()
+            if staged:
+                log(f"🔄 Retrying ingestion of {len(staged)} previously translated helmets from local staging...")
+                save_results = save_batch_translations(staged)
+                saved_en_ids = set(r["en_id"] for r in save_results if r.get("success"))
+                if saved_en_ids:
+                    staged = [it for it in staged if it.get("en_id") not in saved_en_ids]
+                    save_staging(staged)
+                    success_cnt = len(saved_en_ids)
+                    self.total_session_translated += success_cnt
+                    log(f"🎉 Staged batch committed: {success_cnt} helmets saved to WP.")
+
             round_num += 1
             needed = (self.max_count - self.total_session_translated) if self.max_count else self.batch_size
             fetch_limit = max(1, min(self.batch_size, needed))
             
             log(f"\n--- [Round {round_num}] Fetching {fetch_limit} candidate helmets for [{lang.upper()}] ---")
             
-            candidates = fetch_candidates(lang, limit=fetch_limit, exclude_ids=list(self.failed_ids))
+            candidates = fetch_candidates(lang, limit=fetch_limit, exclude_ids=list(self.failed_ids), post_id=self.post_id)
             
             if candidates is None:
                 log(f"⚠️ Remote bridge timed out or returned error. Retrying in 5s...")
@@ -417,12 +491,19 @@ class TranslationBot:
 
                     log(f"  ✅ [{idx}/{len(candidates)}] #{h_id} translated in {elapsed:.2f}s: \"{parsed.get('title', h_title)}\"")
 
-                    # Generate clean target slug
+                    # Generate clean target slug with language suffix to prevent WP slug collisions
                     raw_title = parsed.get("title", "")
                     clean_title_slug = re.sub(r"[^a-zA-Z0-9\-]", "-", raw_title.lower()).strip("-")
                     clean_title_slug = re.sub(r"-+", "-", clean_title_slug)
-                    if clean_title_slug and len(clean_title_slug) > 3 and not re.search(r"[\x80-\xff]", clean_title_slug):
-                        target_slug = clean_title_slug
+
+                    # Always append language suffix to prevent WP collisions and CJK truncation
+                    if lang in ("zh", "ja"):
+                        target_slug = f"{h_slug}-{lang}"
+                    elif clean_title_slug and len(clean_title_slug) > 3:
+                        if not clean_title_slug.endswith(f"-{lang}"):
+                            target_slug = f"{clean_title_slug}-{lang}"
+                        else:
+                            target_slug = clean_title_slug
                     else:
                         target_slug = f"{h_slug}-{lang}"
 
@@ -459,28 +540,46 @@ class TranslationBot:
                 log("⚠️ No successful translations in this round. Continuing...")
                 continue
 
-            # Ingest batch into WordPress
-            log(f"💾 Saving {len(translated_batch)} translated helmets to WordPress database...")
-            save_results = save_batch_translations(translated_batch)
+            # Ingest batch into WordPress with on-disk staging safety
+            for item in translated_batch:
+                append_staging(item)
 
-            success_cnt = sum(1 for r in save_results if r.get("success"))
+            staged_to_save = load_staging()
+            log(f"💾 Saving {len(staged_to_save)} staged translated helmets to WordPress database...")
+            save_results = save_batch_translations(staged_to_save)
+
+            saved_en_ids = set(r["en_id"] for r in save_results if r.get("success"))
+            if saved_en_ids:
+                remaining = [it for it in staged_to_save if it.get("en_id") not in saved_en_ids]
+                save_staging(remaining)
+                success_cnt = len(saved_en_ids)
+            else:
+                success_cnt = 0
+                log(f"⚠️ Remote save did not report success. Retaining {len(staged_to_save)} items in staging for zero-token retry.")
+
             self.total_session_translated += success_cnt
             elapsed_total = time.time() - session_t0
             speed = (self.total_session_translated / (elapsed_total / 60)) if elapsed_total > 0 else 0
 
-            log(f"🎉 Batch saved: {success_cnt}/{len(translated_batch)} succeeded. "
-                f"Session Total: {self.total_session_translated} | Speed: {speed:.1f} helmets/min")
-
-            for res in save_results:
-                if res.get("success"):
-                    log(f"   🔗 #{res['en_id']} -> WP ID #{res['new_id']} ({res.get('permalink', '')})")
-
-            # Update state file
+            # Update token metrics in state file (cumulative across runs)
+            tm = get_translation_memory()
+            session_tokens_saved = tm.stats.get("tokens_saved", 0)
+            session_tm_hits = tm.stats.get("tm_hits", 0)
+            self.state["tokens_saved_tm"] = self.baseline_tokens_saved_tm + session_tokens_saved
+            self.state["tm_hits"] = self.baseline_tm_hits + session_tm_hits
             self.state["total_translated"] = self.state.get("total_translated", 0) + success_cnt
             self.state["active_language"] = lang
             self.state["last_update"] = datetime.now().isoformat()
             self.state["speed_helmets_per_min"] = round(speed, 2)
             save_state(self.state)
+
+            log(f"🎉 Batch saved: {success_cnt}/{len(staged_to_save)} succeeded. "
+                f"Session Total: {self.total_session_translated} | Speed: {speed:.1f} helmets/min | "
+                f"TM Hits: {self.state['tm_hits']} ({self.state['tokens_saved_tm']} total tokens saved, +{session_tokens_saved} this session)")
+
+            for res in save_results:
+                if res.get("success"):
+                    log(f"   🔗 #{res['en_id']} -> WP ID #{res['new_id']} ({res.get('permalink', '')})")
 
             if self.max_count and self.total_session_translated >= self.max_count:
                 log(f"🎯 Target goal of {self.max_count} helmets reached! Finishing run.")
@@ -624,6 +723,7 @@ def main():
     parser.add_argument("--batch-size", type=int, default=10, help="Batch size for fetch/save rounds (default: 10)")
     parser.add_argument("--workers", type=int, default=2, help="Number of concurrent translation workers (default: 2)")
     parser.add_argument("--count", type=int, default=None, help="Target count of helmets to translate in this run (e.g. 200)")
+    parser.add_argument("--post-id", type=int, default=None, help="Translate a specific helmet ID on-demand")
     parser.add_argument("--all-langs", action="store_true", help="Continue sequentially through all 9 languages")
     parser.add_argument("--daemon", action="store_true", help="Launch bot as background daemon")
     parser.add_argument("--stop", action="store_true", help="Stop running background daemon")
@@ -649,7 +749,8 @@ def main():
         batch_size=args.batch_size,
         all_langs=args.all_langs,
         max_count=args.count,
-        workers=args.workers
+        workers=args.workers,
+        post_id=args.post_id
     )
     bot.run()
 

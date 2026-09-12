@@ -1,0 +1,43 @@
+{
+  "service": "Amazon Creator API",
+  "version": "v3.1",
+  "auth_type": "OAuth 2.0 Client Credentials Grant",
+  "token_endpoint": "https://api.amazon.com/auth/o2/token",
+  "api_endpoint": "https://creatorsapi.amazon/catalog/v1/",
+  "credentials": {
+    "credential_id": "YOUR_AMAZON_CREATOR_CLIENT_ID",
+    "credential_secret": "YOUR_AMAZON_CREATOR_CLIENT_SECRET",
+    "scope": "creatorsapi::default"
+  },
+  "affiliate_tags": {
+    "onelink_tag": "vtete-20",
+    "uk_tag": "vtete-21",
+    "india_tag": "virginiatete-21",
+    "japan_tag": "vtete-22",
+    "uae_tag": "vtete08-21"
+  },
+  "supported_marketplaces": {
+    "US": { "domain": "www.amazon.com", "currency": "USD", "tag": "vtete-20" },
+    "CA": { "domain": "www.amazon.ca", "currency": "CAD", "tag": "vtete-20" },
+    "UK": { "domain": "www.amazon.co.uk", "currency": "GBP", "tag": "vtete-21" },
+    "GB": { "domain": "www.amazon.co.uk", "currency": "GBP", "tag": "vtete-21" },
+    "DE": { "domain": "www.amazon.de", "currency": "EUR", "tag": "vtete-20" },
+    "FR": { "domain": "www.amazon.fr", "currency": "EUR", "tag": "vtete-20" },
+    "IT": { "domain": "www.amazon.it", "currency": "EUR", "tag": "vtete-20" },
+    "ES": { "domain": "www.amazon.es", "currency": "EUR", "tag": "vtete-20" },
+    "NL": { "domain": "www.amazon.nl", "currency": "EUR", "tag": "vtete-20" },
+    "PL": { "domain": "www.amazon.pl", "currency": "PLN", "tag": "vtete-20" },
+    "SE": { "domain": "www.amazon.se", "currency": "SEK", "tag": "vtete-20" },
+    "BE": { "domain": "www.amazon.com.be", "currency": "EUR", "tag": "vtete-20" },
+    "IE": { "domain": "www.amazon.co.uk", "currency": "EUR", "tag": "vtete-21" },
+    "IN": { "domain": "www.amazon.in", "currency": "INR", "tag": "virginiatete-21" },
+    "JP": { "domain": "www.amazon.co.jp", "currency": "JPY", "tag": "vtete-22" },
+    "AU": { "domain": "www.amazon.com.au", "currency": "AUD", "tag": "vtete-20" },
+    "BR": { "domain": "www.amazon.com.br", "currency": "BRL", "tag": "vtete-20" },
+    "MX": { "domain": "www.amazon.com.mx", "currency": "MXN", "tag": "vtete-20" },
+    "AE": { "domain": "www.amazon.ae", "currency": "AED", "tag": "vtete08-21" },
+    "SG": { "domain": "www.amazon.sg", "currency": "SGD", "tag": "vtete-20" },
+    "SA": { "domain": "www.amazon.sa", "currency": "SAR", "tag": "vtete-20" },
+    "TR": { "domain": "www.amazon.com.tr", "currency": "TRY", "tag": "vtete-20" }
+  }
+}

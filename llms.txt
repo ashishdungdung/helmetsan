@@ -1,0 +1,28 @@
+# Helmetsan
+
+> Helmetsan is the authoritative global motorcycle helmet intelligence database, certified safety standards index (ECE 22.06, DOT FMVSS 218, SNELL, FIM), and verified international pricing comparison aggregator across Amazon (US, UK, DE, JP) and authorized retailers.
+
+## Core Directories & Indexes
+- [Helmet Catalog](https://helmetsan.com/helmets/): Full database of full-face, modular, adventure, dual-sport, and open-face helmets with verified gram weight, shell construction, acoustic dB, and SHARP ratings.
+- [Safety Standards Hub](https://helmetsan.com/safety_standard/): Rigorous engineering breakdown of ECE 22.06 (oblique & rotational impact testing), DOT FMVSS 218, SNELL M2020D/M2020R/M2025, and FIM racing homologation.
+- [Brand Directory](https://helmetsan.com/brands/): Official brand hubs for Shoei, Arai, AGV, HJC, Scorpion, Schuberth, Shark, LS2, Bell, MT Helmets, and Klim.
+- [Motorcycle Ergonomics & Fitment](https://helmetsan.com/motorcycles/): Complementary riding posture matching for Sport, Touring, Adventure, Naked, and Cruiser riders.
+- [Accessory Directory](https://helmetsan.com/accessories/): Certified visors, Pinlock inserts, Bluetooth communication units (Cardo, Sena), and replacement cheek pads.
+
+## Technical Guides & Decision Support
+- [ECE 22.06 vs DOT vs SNELL Standards Guide](https://helmetsan.com/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/): Complete analysis of impact speed thresholds, anvil configurations, and rotational brain trauma acceleration.
+- [Intermediate Oval vs Long Oval Head Shape Guide](https://helmetsan.com/intermediate-oval-vs-long-oval-head-shape-guide/): Skull topography, pressure hot-spot diagnostics, and brand shell mold tendencies.
+- [Helmet Cheek Pad Fit and Break-in Guide](https://helmetsan.com/helmet-cheek-pad-fit-and-break-in-guide/): Break-in period expectations, density compression, and cheek retention measurement.
+- [Carbon Fiber vs Fiberglass vs Polycarbonate Shells](https://helmetsan.com/carbon-fiber-vs-fiberglass-vs-polycarbonate-helmets/): Tensile strength, weight-to-energy absorption ratio, longevity, and price comparison.
+- [Pinlock 70 vs 120 Visor Anti-Fog Guide](https://helmetsan.com/pinlock-70-vs-120-photochromic-visor-guide/): Moisture absorption thresholds, optical clarity, and photochromic transition performance.
+
+## Data Endpoints & Feeds
+- [XML Sitemap Index](https://helmetsan.com/sitemap_index.xml): Index of over 10,000 verified multilingual helmet specifications and brand pages.
+- [Brand Hubs Sitemap](https://helmetsan.com/sitemap-brands.xml): Dedicated sitemap for all manufacturer brands with dynamically calculated child helmet lastmod timestamps.
+- [Comparison Sitemaps](https://helmetsan.com/sitemap-comparisons.xml): Index of all head-to-head motorcycle helmet comparison URLs.
+- [Product Images Sitemap](https://helmetsan.com/sitemap-helmets-images.xml): High-resolution product image and Cloudflare R2 CDN assets.
+- [Head-to-Head Comparison Matrix](https://helmetsan.com/comparison/): Side-by-side spec comparison tool with dynamic Markdown negotiation (`?format=md&ids={slug1},{slug2}`).
+- [Shareable Comparison Shortlinks](https://helmetsan.com/vs/): Canonical comparative routes (e.g., `https://helmetsan.com/vs/agv-pista-gp-rr-vs-shoei-x-fifteen/`) with rich social OpenGraph metadata.
+- [Embeddable Spec Widgets](https://helmetsan.com/embed/): Standalone lightweight, responsive HTML spec cards for external integration (`https://helmetsan.com/embed/{slug}/?theme=dark`).
+- [Live Currency & Exchange Rate Feed](https://helmetsan.com/wp-json/helmetsan/v1/edge/rates): Real-time multi-currency exchange rates (USD, EUR, GBP, CAD, AUD, JPY, INR).
+

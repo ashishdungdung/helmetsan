@@ -62,6 +62,9 @@ echo "AI MODE:      " . strtoupper($aiMode) . "\n";
 echo "PILOT LIMIT:  " . PILOT_LIMIT . "\n";
 echo "CONCURRENCY:  " . ($aiMode === 'local' ? CONCURRENCY . 'x Parallel' : ($aiMode === 'server' ? 'Sequential (Plugin)' : 'IDE Assisted')) . "\n\n";
 
+// 0. CHECK TASK QUEUE
+process_task_queue();
+
 /**
  * Main Execution
  */
@@ -108,6 +111,73 @@ function process_batch_ide(array $batch): int {
     echo "  ! Action: Use your IDE AI to apply this fix and save to the original file.\n";
     
     return 1; // Increment count as "handled" by IDE
+}
+
+/**
+ * Process tasks queued from the WordPress Admin.
+ */
+function process_task_queue(): void {
+    $queueDir = HS_DATA_DIR . '/tasks/queue';
+    if (!is_dir($queueDir)) return;
+
+    $files = glob($queueDir . '/*.json');
+    if (!$files) return;
+
+    // Resolve WP path for CLI commands
+    $wpPath = getenv('REMOTE_WP_PATH') ?: '/var/www/helmetsan.com/public';
+    $wpFlag = "--path=" . escapeshellarg($wpPath) . " --allow-root";
+
+    echo "📥 Processing " . count($files) . " queued task(s)...\n";
+    
+    foreach ($files as $file) {
+        $content = file_get_contents($file);
+        $data = json_decode((string)$content, true);
+        if (!$data || empty($data['action'])) {
+            @unlink($file);
+            continue;
+        }
+
+        $action = $data['action'];
+        $id = $data['id'] ?? 'task_' . time();
+        
+        echo "  [TASK] Running action: $action ($id)...\n";
+        
+        // Start tracking
+        $tracker = "wp helmetsan ai task-start --id=" . escapeshellarg($id) . " --label=" . escapeshellarg("Task: $action") . " --type=" . escapeshellarg($action) . " $wpFlag";
+        shell_exec($tracker);
+
+        switch ($action) {
+            case 'enrich_images_pollinations':
+                $cmd = PHP_BINARY . " " . escapeshellarg(dirname(__DIR__) . '/scripts/media_pollinations_batch.php');
+                passthru($cmd);
+                // Auto-ingest
+                passthru("wp helmetsan media ingest-local --dir=helmets $wpFlag");
+                break;
+            case 'enrich_images_huggingface':
+                $cmd = PHP_BINARY . " " . escapeshellarg(dirname(__DIR__) . '/scripts/media_huggingface.php');
+                passthru($cmd);
+                // Auto-ingest
+                passthru("wp helmetsan media ingest-local --dir=hf_flux $wpFlag");
+                break;
+            case 'enrich_helmets':
+                passthru("wp helmetsan ai fill-missing --post-type=helmet --limit=50 $wpFlag");
+                break;
+            case 'enrich_brands':
+                passthru("wp helmetsan ai fill-missing --post-type=brand --limit=50 $wpFlag");
+                break;
+            case 'seo_seed_all':
+                passthru("wp helmetsan seo seed --use-ai $wpFlag");
+                break;
+            default:
+                echo "    ! Unknown action: $action\n";
+                break;
+        }
+
+        // Stop tracking and cleanup
+        shell_exec("wp helmetsan ai task-stop --id=" . escapeshellarg($id) . " $wpFlag");
+        @unlink($file);
+        echo "  ✓ Task completed and removed from queue.\n";
+    }
 }
 
 define('HS_STATE_FILE', HS_DATA_DIR . '/.sweep_state.json');

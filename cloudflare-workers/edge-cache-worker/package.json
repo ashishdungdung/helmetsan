@@ -1,0 +1,14 @@
+{
+  "name": "helmetsan-edge-cache-worker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dedicated Cloudflare Edge Cache Worker for Helmetsan",
+  "main": "src/index.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "keywords": ["cloudflare", "worker", "edge-cache", "wordpress"],
+  "author": "Helmetsan Team",
+  "license": "ISC"
+}

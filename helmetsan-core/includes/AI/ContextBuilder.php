@@ -309,4 +309,41 @@ final class ContextBuilder
 
         return $prompt;
     }
+
+    /**
+     * Build prompt for estimating prices of products (helmet, accessory, motorcycle).
+     */
+    public static function forPriceEstimation(string $postTitle, string $postType, array $specs, ?float $basePrice = null): string
+    {
+        $specsJson = wp_json_encode($specs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        
+        $prompt = "You are an expert pricing analyst for motorcycle gear, helmets, and vehicles.\n";
+        $prompt .= "Estimate the typical market retail price (MSRP/MRP) and active deal price range in USD for the following item.\n";
+        $prompt .= "Analyze the brand positioning, materials, features, and specs to make a highly realistic estimation.\n\n";
+        
+        if ($postType === 'motorcycle') {
+            $prompt .= "CRITICAL: For this motorcycle, you MUST estimate the original brand-new MSRP (Manufacturer Suggested Retail Price) for its model year. Do NOT estimate used or resale market values. Provide a brief reference to typical used/resale ranges within the rationale field if needed.\n\n";
+        }
+
+        $prompt .= "Item Details:\n";
+        $prompt .= "- Title: {$postTitle}\n";
+        $prompt .= "- Type: {$postType}\n";
+        $prompt .= "- Specifications Context:\n{$specsJson}\n";
+        
+        if ($basePrice !== null && $basePrice > 0) {
+            $prompt .= "- Existing/Reference Price: {$basePrice} USD\n";
+        }
+        
+        $prompt .= "\nRespond ONLY with a valid JSON block matching this schema:\n";
+        $prompt .= "{\n";
+        $prompt .= "  \"mrp\": float (estimated manufacturer suggested retail price, e.g. 599.99),\n";
+        $prompt .= "  \"price\": float (estimated active retail/deal price, e.g. 549.99),\n";
+        $prompt .= "  \"confidence_score\": float (0.0 to 1.0),\n";
+        $prompt .= "  \"rationale\": string (brief explanation of pricing tier, brand factor, and estimated range)\n";
+        $prompt .= "}\n";
+        $prompt .= "Do not include any markdown backticks, conversational preamble, or formatting wrappers. Return raw JSON text only.";
+        
+        return $prompt;
+    }
 }
+

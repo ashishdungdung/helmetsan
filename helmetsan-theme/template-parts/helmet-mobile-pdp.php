@@ -50,26 +50,27 @@ if ($sizeOptions === [] && $variants !== []) {
     }
 }
 
-$ctaUrl = '';
-$asin = (string) get_post_meta($helmetId, 'affiliate_asin', true);
-if ($asin !== '') {
-    $slug = (string) get_post_field('post_name', $helmetId);
-    $ctaUrl = (string) home_url('/go/' . $slug . '/?source=single_page_mobile');
-}
+$slug = (string) get_post_field('post_name', $helmetId);
+$ctaUrl = $slug !== '' ? home_url('/go/' . $slug . '/?source=single_page_mobile') : '';
 ?>
 <article <?php post_class('helmet-mobile-pdp hs-section'); ?>>
+    <?php get_template_part('template-parts/helmet-mobile-sticky-head', null, [
+        'helmet_id' => $helmetId,
+        'brand_name' => $brandName,
+        'price' => $price,
+    ]); ?>
     <header class="helmet-mobile-pdp__head hs-panel">
         <p class="hs-eyebrow"><?php echo esc_html($brandName !== '' ? $brandName : 'Helmet'); ?></p>
         <h1><?php the_title(); ?></h1>
         <p class="helmet-mobile-pdp__rating"><?php echo esc_html($certs !== '' ? $certs : 'Certification details available'); ?></p>
-        <p class="helmet-mobile-pdp__price"><?php echo esc_html($price !== '' ? $price : 'N/A'); ?></p>
+        <p class="helmet-mobile-pdp__price"><?php echo helmetsan_render_price_element($helmetId); ?></p>
     </header>
 
     <section class="helmet-mobile-pdp__gallery hs-panel" style="padding:0;">
         <?php 
         $gallery = helmetsan_core()->mediaService()->getProductGallery($helmetId);
         if (!empty($gallery)) : ?>
-            <div class="hs-carousel">
+            <div class="hs-carousel" role="region" aria-roledescription="carousel" aria-label="<?php echo esc_attr(sprintf(__('Gallery for %s', 'helmetsan-theme'), get_the_title())); ?>">
                 <div class="hs-carousel__track">
                     <?php foreach ($gallery as $item) : ?>
                         <div class="hs-carousel__slide">
@@ -83,221 +84,159 @@ if ($asin !== '') {
                 </div>
             </div>
         <?php else : ?>
-            <div class="helmet-single__placeholder" style="padding: 2rem; text-align: center;">No image available</div>
+            <div class="helmet-single__placeholder" style="padding: 2rem; text-align: center;">
+                <p class="helmet-single__placeholder-text" style="font-weight: 800; font-size: 0.85rem; margin-bottom: 0.25rem;">IMAGE UNAVAILABLE</p>
+                <p class="helmet-single__placeholder-hint" style="font-size: 0.75rem; color: var(--hs-muted);">Helmetsan does not currently have a verified product image for this model.</p>
+            </div>
         <?php endif; ?>
     </section>
 
-    <!-- Where to Buy (Mobile) -->
-    <?php
-    $plugin = helmetsan_core();
-    $priceService = $plugin->price();
-    $bestOffer = $priceService->getBestPrice($helmetId);
-    $allOffers = $priceService->getAllOffers($helmetId);
-    ?>
-    <?php if (!empty($allOffers) || $bestOffer !== null) : ?>
-        <section class="hs-panel hs-where-to-buy" id="where-to-buy">
-            <h2>🛒 Where to Buy</h2>
+    <div class="hs-segmented-control" id="hsPdpSegments">
+        <button class="hs-segmented-control__btn is-active" data-segment="store">
+            <?php echo helmetsan_get_icon('store'); ?>
+            <span>Store</span>
+        </button>
+        <button class="hs-segmented-control__btn" data-segment="specs">
+            <?php echo helmetsan_get_icon('specs'); ?>
+            <span>Specs</span>
+        </button>
+        <button class="hs-segmented-control__btn" data-segment="about">
+            <?php echo helmetsan_get_icon('analysis'); ?>
+            <span>About</span>
+        </button>
+    </div>
 
-            <?php if ($bestOffer !== null) : ?>
-                <div class="hs-best-badge">
-                    <span class="hs-best-badge__label">Best Price Today</span>
-                    <span class="hs-best-badge__price"><?php echo esc_html($priceService->formatPrice($bestOffer->price, $bestOffer->currency)); ?></span>
-                    <span class="hs-best-badge__source"><?php echo esc_html(ucfirst($bestOffer->marketplaceId)); ?></span>
+    <div class="hs-segment-content is-active" id="segment-store">
+        <!-- Where to Buy (Mobile) -->
+        <?php
+        $plugin = helmetsan_core();
+        $priceService = $plugin->price();
+        $bestOffer = $priceService->getBestPrice($helmetId);
+        $allOffers = $priceService->getAllOffers($helmetId);
+        ?>
+        <?php if (!empty($allOffers) || $bestOffer !== null) : ?>
+            <section class="hs-panel hs-where-to-buy" id="where-to-buy">
+                <h2><?php echo helmetsan_get_icon('cart'); ?> Available Offers</h2>
+                <?php if ($bestOffer !== null) : ?>
+                    <div class="hs-best-badge">
+                        <span class="hs-best-badge__label">Best Price Today</span>
+                        <span class="hs-best-badge__price"><?php echo esc_html($priceService->formatPrice($bestOffer->price, $bestOffer->currency)); ?></span>
+                        <span class="hs-best-badge__source"><?php echo esc_html(ucfirst($bestOffer->marketplaceId)); ?></span>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($allOffers)) : ?>
+                    <div class="hs-table-wrap">
+                        <table class="hs-table hs-price-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Store</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($allOffers as $offer) :
+                                $isBest = $bestOffer !== null && $offer->marketplaceId === $bestOffer->marketplaceId && $offer->price === $bestOffer->price;
+                                $mpId = $offer->marketplaceId;
+                                $slug = (string) get_post_field('post_name', $helmetId);
+                                $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($mpId) . '&source=mobile_pdp');
+                            ?>
+                                <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
+                                    <th scope="row">
+                                        <?php echo esc_html(helmetsan_marketplace_label($mpId)); ?>
+                                    </th>
+                                    <td><strong><?php echo $offer->price > 0 ? esc_html($priceService->formatPrice($offer->price, $offer->currency)) : '<span class="hs-muted">Check price</span>'; ?></strong></td>
+                                    <td>
+                                        <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">Check price →</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php endif; ?>
+                
+                <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
+                    <h3>Price Trend</h3>
+                    <canvas id="hs-price-chart" data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>" height="220"></canvas>
                 </div>
-            <?php endif; ?>
+            </section>
+        <?php endif; ?>
+    </div>
 
-            <?php if (!empty($allOffers)) : ?>
-                <div class="hs-table-wrap">
-                    <table class="hs-table hs-price-table">
-                        <thead>
-                            <tr>
-                                <th>Marketplace</th>
-                                <th>Price</th>
-                                <th>Updated</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($allOffers as $offer) :
-                            $isBest = $bestOffer !== null && $offer->marketplaceId === $bestOffer->marketplaceId && $offer->price === $bestOffer->price;
-                            $mpId = $offer->marketplaceId;
-                            $slug = (string) get_post_field('post_name', $helmetId);
-                            $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($mpId) . '&source=mobile_pdp');
-                        ?>
-                            <tr class="<?php echo $isBest ? 'hs-price-table__row--best' : ''; ?>">
-                                <td>
-                                    <?php if ($isBest) : ?><span class="hs-price-table__best-tag">★ Best</span><?php endif; ?>
-                                    <?php echo esc_html(helmetsan_marketplace_label($mpId)); ?>
-                                </td>
-                                <td><strong><?php echo $offer->price > 0 ? esc_html($priceService->formatPrice($offer->price, $offer->currency)) : '<span class="hs-muted">Check price</span>'; ?></strong></td>
-                                <td><small><?php echo esc_html($offer->capturedAt !== '' ? human_time_diff(strtotime($offer->capturedAt), time()) . ' ago' : '—'); ?></small></td>
-                                <td>
-                                    <a href="<?php echo esc_url($goUrl); ?>" class="hs-price-cta" target="_blank" rel="noopener noreferrer sponsored">
-                                        Buy
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
+    <div class="hs-segment-content" id="segment-specs">
+        <?php 
+        get_template_part('template-parts/helmet', 'tech-specs', ['helmet_id' => $helmetId]); 
+        ?>
+
+        <section class="helmet-mobile-pdp__size hs-panel">
+            <h2>Size & Fit</h2>
+            <?php if ($sizeOptions !== []) : ?>
+                <div class="hs-pill-grid">
+                    <?php foreach ($sizeOptions as $sizeLabel) : ?>
+                        <label class="hs-pill-input">
+                            <input type="radio" name="helmet_size_mobile" value="<?php echo esc_attr($sizeLabel); ?>" />
+                            <span><?php echo esc_html($sizeLabel); ?></span>
+                        </label>
+                    <?php endforeach; ?>
                 </div>
             <?php endif; ?>
             
-            <!-- Price History Chart (Mobile) -->
-            <div class="hs-price-chart-wrap" id="hs-price-chart-wrap">
-                <h3>Price History</h3>
-                <p id="hs-price-chart-empty" class="hs-muted" style="display:none;">No price history recorded yet.</p>
-                <div class="hs-price-date-toggles" id="hs-date-toggles">
-                    <button class="hs-btn hs-btn--sm is-active" data-days="30">30d</button>
-                    <button class="hs-btn hs-btn--sm" data-days="90">90d</button>
-                    <button class="hs-btn hs-btn--sm" data-days="365">1y</button>
-                </div>
-                <canvas id="hs-price-chart" data-helmet-id="<?php echo esc_attr((string) $helmetId); ?>" height="250"></canvas>
-            </div>
-        </section>
-    <?php endif; ?>
-
-    <!-- About the Helmet (Mobile) -->
-    <?php
-    $analysis = helmetsan_get_technical_analysis($helmetId);
-    $helmetTypeLabel = '';
-    $helmetTypeTermsRaw = get_the_terms($helmetId, 'helmet_type');
-    if (is_array($helmetTypeTermsRaw) && !empty($helmetTypeTermsRaw)) {
-        $helmetTypeLabel = $helmetTypeTermsRaw[0]->name;
-    }
-    $featuresJson = (string) get_post_meta($helmetId, 'features_json', true);
-    $featuresArr = json_decode($featuresJson, true);
-    ?>
-    <section class="hs-panel">
-        <div class="hs-about-card">
-            <div class="hs-about-card__icon">🪖</div>
-            <div class="hs-about-card__body">
-                <h2>About the <?php echo esc_html(get_the_title()); ?></h2>
-                <?php if ($helmetTypeLabel !== '') : ?>
-                    <span class="hs-about-card__type"><?php echo esc_html($helmetTypeLabel); ?></span>
-                <?php endif; ?>
-                <?php $descContent = get_the_content(); ?>
-                <?php if ($descContent) : ?>
-                    <div class="hs-about-card__desc"><?php echo wpautop(wp_kses_post($descContent)); ?></div>
-                <?php elseif ($analysis) : ?>
-                    <p class="hs-about-card__desc"><?php echo esc_html($analysis); ?></p>
-                <?php endif; ?>
-                <div class="hs-about-card__attrs">
-                    <?php if ($certs !== '' && $certs !== 'N/A') : ?>
-                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">✅</span> <?php echo esc_html($certs); ?></span>
-                    <?php endif; ?>
-                    <?php if ($headShape !== '') : ?>
-                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🧠</span> <?php echo esc_html(ucwords(str_replace('-', ' ', $headShape))); ?></span>
-                    <?php endif; ?>
-                    <?php if ($helmetFamily !== '') : ?>
-                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🏷️</span> <?php echo esc_html($helmetFamily); ?> Family</span>
-                    <?php endif; ?>
-                    <?php if ($shell !== '') : ?>
-                        <span class="hs-about-card__attr"><span class="hs-about-card__attr-icon">🛡️</span> <?php echo esc_html($shell); ?></span>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <?php if (is_array($featuresArr) && $featuresArr !== []) : ?>
-        <section class="hs-panel">
-            <h2>Feature Highlights</h2>
-            <div class="hs-feature-pills">
-                <?php foreach ($featuresArr as $feature) : ?>
-                    <span class="hs-feature-pill"><?php echo esc_html((string) $feature); ?></span>
-                <?php endforeach; ?>
-            </div>
-        </section>
-    <?php endif; ?>
-
-    <section class="helmet-mobile-pdp__size hs-panel">
-        <h2>Size Selection</h2>
-        <?php if ($sizeOptions !== []) : ?>
-            <div class="hs-pill-grid">
-                <?php foreach ($sizeOptions as $sizeLabel) : ?>
-                    <label class="hs-pill-input">
-                        <input type="radio" name="helmet_size_mobile" value="<?php echo esc_attr($sizeLabel); ?>" />
-                        <span><?php echo esc_html($sizeLabel); ?></span>
-                    </label>
-                <?php endforeach; ?>
-            </div>
-            <p class="helmet-mobile-pdp__size-help"><a class="hs-link" href="#helmet-sizing-fit">Size Guide</a></p>
-        <?php else : ?>
-            <p>Size matrix will appear as soon as variant data is added.</p>
-        <?php endif; ?>
-    </section>
-
-    <section class="helmet-mobile-pdp__snapshot hs-panel">
-        <h2>Key Features</h2>
-        <ul class="hs-list">
-            <li>Weight: <?php echo esc_html($weight !== '' ? $weight . ' g' : 'N/A'); ?><?php echo $weightLbs !== '' ? esc_html(' / ' . $weightLbs . ' lbs') : ''; ?></li>
-            <li>Shell: <?php echo esc_html($shell !== '' ? $shell : 'N/A'); ?></li>
-            <li>Head Shape: <?php echo esc_html($headShape !== '' ? $headShape : 'N/A'); ?></li>
-            <li>Helmet Family: <?php echo esc_html($helmetFamily !== '' ? $helmetFamily : 'N/A'); ?></li>
-            <li>Certifications: <?php echo esc_html($certs !== '' ? $certs : 'N/A'); ?></li>
-        </ul>
-    </section>
-
-    <section class="helmet-mobile-pdp__accordion">
-        <details class="hs-panel" open>
-            <summary>Description</summary>
-            <div><?php the_content(); ?></div>
-        </details>
-
-        <details class="hs-panel" id="helmet-sizing-fit">
-            <summary>Sizing &amp; Fit</summary>
-            <?php if (! empty($sizingFit['fit_notes'])) : ?>
-                <p><?php echo esc_html((string) $sizingFit['fit_notes']); ?></p>
-            <?php endif; ?>
             <?php if (isset($sizingFit['size_translation']) && is_array($sizingFit['size_translation']) && $sizingFit['size_translation'] !== []) : ?>
-                <div class="hs-table-wrap">
+                <div class="hs-table-wrap" style="margin-top: 1rem;">
                     <table class="hs-table">
-                        <thead><tr><th>Size</th><th>CM</th><th>Inches</th></tr></thead>
+                        <thead><tr><th scope="col">Size</th><th scope="col">CM</th></tr></thead>
                         <tbody>
                         <?php foreach ($sizingFit['size_translation'] as $row) : if (! is_array($row)) { continue; } ?>
                             <tr>
-                                <td><?php echo esc_html((string) ($row['size'] ?? '')); ?></td>
+                                <th scope="row"><?php echo esc_html((string) ($row['size'] ?? '')); ?></th>
                                 <td><?php echo esc_html((string) ($row['cm'] ?? '')); ?></td>
-                                <td><?php echo esc_html((string) ($row['in'] ?? '')); ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
             <?php endif; ?>
-        </details>
+        </section>
+    </div>
 
-        <details class="hs-panel">
-            <summary>Product Details</summary>
-            <div class="hs-table-wrap">
-                <table class="hs-table">
-                    <tbody>
-                        <tr><th>Product Style</th><td><?php echo esc_html((string) ($productDetails['style'] ?? 'N/A')); ?></td></tr>
-                        <tr><th>MFR Product Number</th><td><?php echo esc_html((string) ($productDetails['mfr_product_number'] ?? 'N/A')); ?></td></tr>
-                        <tr><th>Sizing &amp; Fit</th><td><?php echo esc_html((string) ($productDetails['sizing_fit'] ?? 'See Sizing & Fit')); ?></td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </details>
-
-        <?php if ($relatedVideos !== []) : ?>
-            <details class="hs-panel">
-                <summary>Related Videos</summary>
-                <div class="hs-meta-grid">
-                    <?php foreach ($relatedVideos as $video) : if (! is_array($video)) { continue; }
-                        $videoUrl = isset($video['url']) ? esc_url((string) $video['url']) : '';
-                        if ($videoUrl === '') { continue; }
-                        ?>
-                        <article class="hs-meta-card">
-                            <h3><?php echo esc_html((string) ($video['title'] ?? 'Video')); ?></h3>
-                            <p><a class="hs-link" href="<?php echo $videoUrl; ?>" target="_blank" rel="noopener noreferrer">Watch</a></p>
-                        </article>
-                    <?php endforeach; ?>
+    <div class="hs-segment-content" id="segment-about">
+        <?php
+        $analysis = helmetsan_get_technical_analysis($helmetId);
+        $helmetTypeLabel = '';
+        $helmetTypeTermsRaw = get_the_terms($helmetId, 'helmet_type');
+        if (is_array($helmetTypeTermsRaw) && !empty($helmetTypeTermsRaw)) {
+            $helmetTypeLabel = $helmetTypeTermsRaw[0]->name;
+        }
+        ?>
+        <section class="hs-panel">
+            <div class="hs-about-card">
+                <div class="hs-about-card__body">
+                    <h2>Platform Narrative</h2>
+                    <?php if ($helmetTypeLabel !== '') : ?>
+                        <span class="hs-about-card__type"><?php echo esc_html($helmetTypeLabel); ?></span>
+                    <?php endif; ?>
+                    <?php $descContent = get_the_content(); ?>
+                    <div class="hs-about-card__desc">
+                        <?php if ($descContent) : ?>
+                            <?php echo wpautop(wp_kses_post($descContent)); ?>
+                        <?php elseif ($analysis) : ?>
+                            <p><?php echo esc_html($analysis); ?></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </details>
+            </div>
+        </section>
+
+        <?php if ($brandId > 0) : ?>
+            <p style="text-align: center; margin: 1rem 0;">
+                <a class="hs-btn hs-btn--ghost" href="<?php echo esc_url(get_permalink($brandId)); ?>">
+                    Explore <?php echo esc_html($brandName); ?> Profile
+                </a>
+            </p>
         <?php endif; ?>
-    </section>
+    </div>
 
     <?php if ($relatedAccessories !== []) : ?>
         <section class="hs-panel">
@@ -325,7 +264,7 @@ if ($asin !== '') {
 <?php if ($ctaUrl !== '') : ?>
     <div class="helmet-mobile-atc" role="region" aria-label="Helmet purchase actions">
         <div class="helmet-mobile-atc__meta">
-            <strong><?php echo esc_html($price !== '' ? $price : 'N/A'); ?></strong>
+            <strong><?php echo helmetsan_render_price_element($helmetId); ?></strong>
             <span><?php echo esc_html($brandName); ?></span>
         </div>
         <a class="hs-btn hs-btn--primary" href="<?php echo esc_url($ctaUrl); ?>" rel="nofollow sponsored">Check Price</a>

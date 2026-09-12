@@ -215,6 +215,11 @@ final class YoastSeoSeeder
                 update_term_meta($term->term_id, self::YOAST_TITLE, $triple['title']);
                 update_term_meta($term->term_id, self::YOAST_METADESC, $triple['metadesc']);
                 update_term_meta($term->term_id, self::YOAST_FOCUSKW, $this->normalizeFocusKw($triple['focuskw']));
+                
+                // Noindex helmet_brand taxonomy in favor of Brand CPT profile
+                if ($taxonomy === 'helmet_brand') {
+                    update_term_meta($term->term_id, '_yoast_wpseo_meta-robots-noindex', 1);
+                }
             }
             $updated++;
         }
@@ -249,6 +254,7 @@ final class YoastSeoSeeder
             'helmet_brand' => 'Brands',
             'use_case' => 'Use Cases',
             'price_range' => 'Price Ranges',
+            'distributor_category' => 'Distributor Categories',
             default => ucfirst(str_replace('_', ' ', $taxonomy)),
         };
     }
@@ -259,7 +265,7 @@ final class YoastSeoSeeder
      */
     public static function getTaxonomiesForTermSeo(): array
     {
-        return ['helmet_type', 'region', 'certification', 'feature_tag', 'accessory_category', 'helmet_brand', 'use_case', 'price_range'];
+        return ['helmet_type', 'region', 'certification', 'feature_tag', 'accessory_category', 'helmet_brand', 'use_case', 'price_range', 'distributor_category'];
     }
 
     /**

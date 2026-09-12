@@ -76,7 +76,18 @@ This document captures **future scope** and **technical scope** from a product a
 
 ---
 
-## 3. Prioritization (summary)
+## 3. Shipped & Completed (June 2026)
+
+- **Search & Filters Redesign:** Premium glassmorphic sidebar layout with dynamic badge counts, collapsible groups (SVG icon-enriched headings), inline min/max price range inputs, active chips interaction, and dedicated Show/Clear footer actions.
+- **Key Specs Panel:** Interactive specs table wrapped in a clean, modern card layout (`hs-specs-card`) on the Single Helmet PDP.
+- **Official Certification SVG Badges:** Replaced generic placeholder badge graphics with 6 clickable and hover-responsive SVG badges for DOT, ECE, Snell, SHARP, ISI, and FIM.
+- **Build-First Deployment Pipeline:** Overhauled `deploy.sh` to compile theme/plugin zips directly from source first to prevent stale cached asset deployments. Included automatic cache clearing (Nginx FastCGI microcache + WordPress transients/OPcache resets) and assets verification.
+- **Multi-language Caching Safety:** Disabled Polylang's browser-language detection (`browser => 0`) to resolve Nginx FastCGI redirect poisoning loops.
+- **Orphaned Post Removal:** Sanitized the WordPress database of legacy helmet posts without a valid `_helmet_unique_id` meta key.
+
+---
+
+## 4. Prioritization (summary)
 
 | Area | Priority | Notes |
 |------|----------|------|
@@ -87,11 +98,11 @@ This document captures **future scope** and **technical scope** from a product a
 | AiService / ProviderRegistry / BaseProvider | Medium | Robustness, timeout, optional cache/retry |
 | HealthService depth | Medium | AI config, fill summary, accessory check |
 | Brand/Price services and controllers | Medium | API and consistency |
-| Templates, menus, frontend | Ongoing | Incremental polish and accessibility |
+| Templates, menus, frontend | Ongoing | Incremental polish, styling alignments, and accessibility |
 
 ---
 
-## 4. References
+## 5. References
 
 - **Agent workflow:** `.agent/workflows/ai-optimizations.md`
 - **Data flow:** `docs/data-flow.md`

@@ -24,6 +24,7 @@ final class EventService
         'hs_price_chart_toggle',
         'hs_offer_table_view',
         'hs_marketplace_click',
+        'adblock_detected',
     ];
 
     public function __construct(private readonly EventRepository $events)

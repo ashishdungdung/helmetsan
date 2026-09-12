@@ -22,18 +22,22 @@
 
 ---
 
-## 2. SEO Policy
+## 2. SEO & AdSense Quality Policy
 
 - **Minimum content requirements:** Every important template meets a minimum of substantial, original text (guidance: 300+ words of unique prose where applicable, plus structured data).
+- **Indexation & Sitemap Governance:** Programmatic child SKU variants (`post_parent > 0`), thin CPTs (`dealer`, `distributor`, `comparison`, `recommendation`), and granular taxonomy archives are excluded from XML sitemaps and governed with `noindex, follow` to protect against "Low value content" penalties.
+- **Canonical Consolidation:** Child helmet variants canonicalize directly to their primary parent helmet model (`post_parent = 0`).
 - **Unique titles and meta:** Yoast/SEO seed and AI fill-missing drive unique titles, meta descriptions, and focus keyphrases per entity.
 - **No thin or duplicate patterns:** Avoid large numbers of URLs that differ only by pagination or filter with identical boilerplate. Add unique intros, term descriptions, or editorial blocks.
 - **Schema & accessibility:** Maintain Product, Brand, and BreadcrumbList schema; keep headings and landmarks logical for screen readers and crawlers.
+- **Full AdSense Blueprint:** See [AdSense Approval Strategy & Blueprint](adsense-approval-strategy.md) for full compliance protocols and future CPT re-enablement procedures.
 
 ---
 
 ## 3. Design Policy
 
 ### 3.1 Design Principles
+- **No Fake/Slop UI:** We never display elements that have no backend mechanism or direct utility. Elements like "Earn Rewards" buttons or placeholders with dead ends are strictly forbidden. Every feature must be operational or omitted.
 - **Clear hierarchy:** Dedicated sections that clearly show one thing (e.g. Technical Analysis, Safety Intelligence, Compare CTA). Each section has a purpose.
 - **Marketplace-inspired UX:** Take cues from top helmet sites (RevZilla, Chromeburner, HelmetReviews.org): clear filters, strong product presentation, comparison tools, trust signals.
 - **Visual language:** Graphical, great icons, thoughtful animation, and color used with intent. Not “AI slop”—distinct, confident, rider-focused.
@@ -44,10 +48,18 @@
 - **Design tokens:** Single source of truth for colors, typography, spacing, radius, and shadows. All components consume tokens.
 
 ### 3.3 Components & Pages
+- **Premium Filter Sidebar (Archive Pages):** Renders in `archive-helmet.php` using a glassmorphic visual style with a sticky layout. Key design guidelines:
+  - Collapsible filter headings with SVG category icons, badge counts displaying selected terms, and animated chevrons.
+  - Price Range filters integrated in a single block with input boxes showing the localized currency symbol (`$`, `€`, `£`) as a prefix.
+  - Custom checkboxes utilizing modern CSS properties (e.g. `accent-color`) matching the theme color scheme.
+  - Sticky footer action bar containing "Clear All" (with X icon) and "Show Results" (with search icon).
+- **Key Specs Panel (`hs-specs-card`):** A customized, interactive data grid designed to house primary parameters (weight, shell size, shape, material) in a sleek card container on PDPs. Uses high-contrast typography and subtle dividers.
+- **Interactive SVG Certification Badges:** Rendered dynamically using vector paths rather than static images. Must support interactive mouse-over states (slight scale or shadow lift) and click actions revealing specific standard parameters.
 - **Cards and lists:** Informative (specs, certs, price) plus clear CTA (View, Compare, See offers). No “dead” cards.
 - **Archives and categories:** Beautiful layout, real copy, strong structure. Hero or intro area, filters, then grid/list. No bare “Explore our X collection” as the only content.
 - **Single templates:** Rich sections (About, Technical Analysis, Safety, Pricing, Related, Compare CTA). Content above the fold where possible; CTAs visible without excessive scrolling.
 - **Single helmet (RevZilla-inspired):** Product description (About + Technical Analysis), Part numbers (RevZilla-style table: Product style, MFR. product #, Availability; plus optional label/value rows), Sizing & fit (size chart, How to measure, disclaimer), Images & details (gallery), Related videos. In-page nav jumps to Product description, Part numbers, Sizing & fit. Section headings use icons consistently. **View on retailers** lists linked marketplace URLs (RevZilla, Amazon, etc.) when `marketplace_links` are stored; these links support affiliate and future AI/data/image workflows (see [Data flow – Marketplace links](data-flow.md#marketplace-links-revzilla-amazon-etc)).
+
 
 ---
 
@@ -82,6 +94,7 @@
 
 ## 7. References
 
-- AdSense: Minimum content requirements, unique high-quality content, Webmaster quality guidelines, thin content guidance.
+- AdSense Strategy: [adsense-approval-strategy.md](adsense-approval-strategy.md). Comprehensive remediation blueprint, sitemap governance, and re-submission guide.
+- AdSense Policies: Minimum content requirements, unique high-quality content, Webmaster quality guidelines, thin content guidance.
 - Data flow: [data-flow.md](data-flow.md). AI enrichment → Export → Push for JSON.
 - AI enrichment: [ai-seeder-enrichment-roadmap.md](ai-seeder-enrichment-roadmap.md). Fill-missing and SEO seed feed visible content.

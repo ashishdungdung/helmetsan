@@ -125,6 +125,27 @@ function helmetsan_get_helmet_price($helmetId): string
 }
 
 /**
+ * Get all supported countries with metadata.
+ * Decoupled wrapper that calls GeoService::getSupportedCountries() if available,
+ * with fallback to prevent fatal errors if helmetsan-core is disabled.
+ *
+ * @return array<string, array{region: string, currency: string, name: string, symbol: string, flag: string}>
+ */
+function helmetsan_get_supported_countries(): array
+{
+    if (class_exists('\\Helmetsan\\Core\\Geo\\GeoService')) {
+        return \Helmetsan\Core\Geo\GeoService::getSupportedCountries();
+    }
+
+    return [
+        'IN' => ['region' => 'APAC', 'currency' => 'INR', 'name' => 'India',                'symbol' => '₹',    'flag' => '🇮🇳'],
+        'US' => ['region' => 'NA',   'currency' => 'USD', 'name' => 'United States',        'symbol' => '$',    'flag' => '🇺🇸'],
+        'GB' => ['region' => 'EU',   'currency' => 'GBP', 'name' => 'United Kingdom',       'symbol' => '£',    'flag' => '🇬🇧'],
+        'DE' => ['region' => 'EU',   'currency' => 'EUR', 'name' => 'Germany',              'symbol' => '€',    'flag' => '🇩🇪'],
+    ];
+}
+
+/**
  * Render dynamic price HTML wrapper for Geo-IP Edge/Client parsing.
  */
 function helmetsan_render_price_element(int $helmetId, string $class = 'hs-price', string $extraAttrs = ''): string
@@ -159,7 +180,7 @@ function helmetsan_render_price_element(int $helmetId, string $class = 'hs-price
         $cc = helmetsan_core()->geo()->getCountry();
         $vatCountries = [
             'DE', 'FR', 'IT', 'ES', 'GB', 'UK', 'PL', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'FI',
-            'GR', 'HR', 'HU', 'IE', 'LT', 'LU', 'LV', 'MT', 'NL', 'PT', 'RO', 'SE', 'SI', 'SK'
+            'GR', 'HR', 'HU', 'IE', 'LT', 'LU', 'LV', 'MT', 'NL', 'PT', 'RO', 'SE', 'SI', 'SK', 'CH', 'NO'
         ];
         if (in_array($cc, $vatCountries, true)) {
             $taxLabel = ' <small class="hs-tax-label">incl. VAT</small>';
@@ -230,7 +251,353 @@ function helmetsan_get_certifications(int $helmetId): string
     }
 
     $names = array_map(static fn ($term): string => (string) $term->name, $terms);
+
+    // Regional prioritization:
+    $currentLang = function_exists('pll_current_language') ? (string) pll_current_language() : '';
+    $geoCountry = function_exists('helmetsan_core') ? helmetsan_core()->geo()->getCountry() : 'US';
+    $isEurope = in_array($currentLang, ['de', 'fr', 'es', 'it', 'pl', 'nl', 'pt'], true)
+        || in_array($geoCountry, ['DE', 'FR', 'IT', 'ES', 'PL', 'NL', 'PT', 'AT', 'CH', 'BE', 'UK', 'GB'], true);
+
+    usort($names, static function (string $a, string $b) use ($isEurope, $currentLang): int {
+        $rank = static function (string $name) use ($isEurope, $currentLang): int {
+            $upper = strtoupper($name);
+            if ($isEurope) {
+                if (str_contains($upper, '22.06')) return 1;
+                if (str_contains($upper, '22.05') || str_contains($upper, 'ECE')) return 2;
+                if (str_contains($upper, 'SHARP')) return 3;
+                if (str_contains($upper, 'FIM')) return 4;
+                if (str_contains($upper, 'DOT')) return 5;
+                if (str_contains($upper, 'SNELL')) return 6;
+            } elseif ($currentLang === 'ja') {
+                if (str_contains($upper, 'JIS')) return 1;
+                if (str_contains($upper, 'MFJ')) return 2;
+                if (str_contains($upper, '22.06') || str_contains($upper, 'ECE')) return 3;
+            } else {
+                if (str_contains($upper, 'DOT')) return 1;
+                if (str_contains($upper, '22.06')) return 2;
+                if (str_contains($upper, 'SNELL')) return 3;
+                if (str_contains($upper, 'ECE')) return 4;
+                if (str_contains($upper, 'FIM')) return 5;
+            }
+            return 10;
+        };
+        return $rank($a) <=> $rank($b);
+    });
+
     return implode(', ', $names);
+}
+
+/**
+ * Get certifications as a clean array of strings.
+ *
+ * @return list<string>
+ */
+function helmetsan_get_certifications_array(int $helmetId): array
+{
+    $terms = [];
+    if (function_exists('helmetsan_core')) {
+        $terms = helmetsan_core()->helmets()->getInheritedTerms($helmetId, 'certification');
+    } else {
+        $terms = get_the_terms($helmetId, 'certification');
+    }
+
+    if (! is_array($terms) || $terms === []) {
+        return [];
+    }
+
+    $names = [];
+    foreach ($terms as $term) {
+        if (is_object($term) && isset($term->name)) {
+            $names[] = (string) $term->name;
+        }
+    }
+
+    return array_values(array_unique($names));
+}
+
+/**
+ * Resolve regional road legality for a helmet based on certifications and country code.
+ *
+ * @param list<string> $certs
+ * @return array{status: string, flag: string, headline: string, subtitle: string, standard: string, country: string}
+ */
+function helmetsan_resolve_road_legality(array $certs, string $countryCode = '', string $brandName = ''): array
+{
+    $cc = strtoupper(trim($countryCode));
+    if ($cc === '') {
+        $cc = function_exists('helmetsan_core') ? helmetsan_core()->geo()->getCountry() : 'IN';
+    }
+
+    $upperCerts = array_map('strtoupper', $certs);
+    $certsStr = implode(' ', $upperCerts);
+    $brandUpper = strtoupper($brandName);
+
+    $hasIsi = str_contains($certsStr, 'ISI') || str_contains($certsStr, 'IS 4151') || str_contains($certsStr, 'IS4151')
+        || in_array($brandUpper, ['VEGA', 'STEELBIRD', 'STUDDS', 'AXOR', 'SMK'], true);
+    $hasDot = str_contains($certsStr, 'DOT') || str_contains($certsStr, 'FMVSS');
+    $hasSnell = str_contains($certsStr, 'SNELL');
+    $hasEce2206 = str_contains($certsStr, '22.06') || str_contains($certsStr, '22-06');
+    $hasEce2205 = str_contains($certsStr, '22.05') || str_contains($certsStr, '22-05') || str_contains($certsStr, 'ECE');
+    $hasEce = $hasEce2206 || $hasEce2205;
+    $hasJis = str_contains($certsStr, 'JIS') || str_contains($certsStr, 'MFJ');
+    $hasAcu = str_contains($certsStr, 'ACU');
+    $hasAs = str_contains($certsStr, '1698') || str_contains($certsStr, 'AS/NZS');
+
+    switch ($cc) {
+        case 'IN':
+            if ($hasIsi) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇮🇳',
+                    'headline' => 'Legal for Indian Roads (IS 4151 Certified)',
+                    'subtitle' => 'Fully compliant with Bureau of Indian Standards (BIS) motor vehicle safety mandate.',
+                    'standard' => 'IS 4151',
+                    'country'  => 'IN',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇮🇳',
+                'headline' => 'International Spec (' . ($hasEce2206 ? 'ECE 22.06' : ($hasEce ? 'ECE' : 'DOT')) . ')',
+                'subtitle' => 'Meets world-class international safety benchmarks; verify local RTO enforcement regarding IS 4151 mandate.',
+                'standard' => $hasEce2206 ? 'ECE 22.06' : ($hasEce ? 'ECE' : 'DOT'),
+                'country'  => 'IN',
+            ];
+
+        case 'US':
+            if ($hasSnell && $hasDot) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇺🇸',
+                    'headline' => 'DOT + SNELL Certified (US Street & Track Legal)',
+                    'subtitle' => 'Exceeds FMVSS No. 218 federal standard with rigorous Snell Memorial Foundation impact testing.',
+                    'standard' => 'DOT / SNELL',
+                    'country'  => 'US',
+                ];
+            }
+            if ($hasDot) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇺🇸',
+                    'headline' => 'DOT Street Legal (FMVSS No. 218)',
+                    'subtitle' => 'Certified for highway and street riding across all 50 US states.',
+                    'standard' => 'DOT',
+                    'country'  => 'US',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇺🇸',
+                'headline' => 'Non-DOT Spec (Track / Off-Highway Only)',
+                'subtitle' => 'Carries international homologation; not certified under FMVSS No. 218 for US public road use.',
+                'standard' => 'Non-DOT',
+                'country'  => 'US',
+            ];
+
+        case 'CA':
+            if ($hasDot || $hasEce || $hasSnell) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇨🇦',
+                    'headline' => 'Street Legal in Canada (CMVSS / DOT / ECE)',
+                    'subtitle' => 'Approved across all Canadian provinces and territories under CMVSS guidelines.',
+                    'standard' => $hasEce2206 ? 'ECE 22.06' : ($hasDot ? 'DOT' : 'ECE'),
+                    'country'  => 'CA',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇨🇦',
+                'headline' => 'Non-Approved Spec in Canada',
+                'subtitle' => 'Check provincial motorcycle safety helmet requirements before highway use.',
+                'standard' => 'Advisory',
+                'country'  => 'CA',
+            ];
+
+        case 'GB':
+        case 'UK':
+            if ($hasAcu && $hasEce) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇬🇧',
+                    'headline' => 'UK Road & Track Legal (ECE 22.06 + ACU Gold)',
+                    'subtitle' => 'Certified for British public highways and ACU-sanctioned circuit track days.',
+                    'standard' => 'ECE / ACU Gold',
+                    'country'  => 'GB',
+                ];
+            }
+            if ($hasEce2206) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇬🇧',
+                    'headline' => 'ECE 22.06 Certified (UK Road Legal)',
+                    'subtitle' => 'Meets latest UNECE Regulation 22.06 standard required for UK highway use.',
+                    'standard' => 'ECE 22.06',
+                    'country'  => 'GB',
+                ];
+            }
+            if ($hasEce2205) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇬🇧',
+                    'headline' => 'ECE 22.05 Road Legal',
+                    'subtitle' => 'Approved for UK road use under UNECE 22.05 regulations.',
+                    'standard' => 'ECE 22.05',
+                    'country'  => 'GB',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇬🇧',
+                'headline' => 'Non-ECE Spec (Not UK Road Legal)',
+                'subtitle' => 'Does not carry UNECE approval required under the UK Road Traffic Act.',
+                'standard' => 'Non-ECE',
+                'country'  => 'GB',
+            ];
+
+        case 'FR':
+            if ($hasEce2206) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇫🇷',
+                    'headline' => 'ECE 22.06 Approved (Street Legal in France)',
+                    'subtitle' => 'Compliant with UNECE 22.06. French law (Art. R431-1) strictly mandates 4 retro-reflective stickers (front, rear, sides) to avoid a €135 fine and 3-point license penalty.',
+                    'standard' => 'ECE 22.06',
+                    'country'  => 'FR',
+                ];
+            }
+            if ($hasEce2205) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇫🇷',
+                    'headline' => 'ECE 22.05 Road Legal in France',
+                    'subtitle' => 'Homologated for road use in France. Must have 4 retro-reflective stickers affixed (Art. R431-1 Code de la route) to avoid points penalty.',
+                    'standard' => 'ECE 22.05',
+                    'country'  => 'FR',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇫🇷',
+                'headline' => 'Non-ECE Homologation (Not Street Legal in France)',
+                'subtitle' => 'Does not carry UNECE Regulation 22 approval required on French public roads.',
+                'standard' => 'Non-ECE',
+                'country'  => 'FR',
+            ];
+
+        case 'DE':
+        case 'IT':
+        case 'ES':
+        case 'NL':
+        case 'PL':
+        case 'PT':
+        case 'AT':
+        case 'BE':
+        case 'SE':
+        case 'DK':
+        case 'FI':
+        case 'EU':
+            $euFlag = match ($cc) {
+                'DE' => '🇩🇪',
+                'IT' => '🇮🇹',
+                'ES' => '🇪🇸',
+                'NL' => '🇳🇱',
+                'PL' => '🇵🇱',
+                'PT' => '🇵🇹',
+                'AT' => '🇦🇹',
+                'BE' => '🇧🇪',
+                default => '🇪🇺',
+            };
+            if ($hasEce2206) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => $euFlag,
+                    'headline' => 'ECE 22.06 Approved (Latest EU Safety Standard)',
+                    'subtitle' => 'Meets rotational impact and high-speed oblique safety mandates across the EU.',
+                    'standard' => 'ECE 22.06',
+                    'country'  => $cc,
+                ];
+            }
+            if ($hasEce2205) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => $euFlag,
+                    'headline' => 'ECE 22.05 Road Legal in Europe',
+                    'subtitle' => 'Homologated for public highway use across all EU member countries.',
+                    'standard' => 'ECE 22.05',
+                    'country'  => $cc,
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => $euFlag,
+                'headline' => 'Non-ECE Homologation (Track / Off-Road Only)',
+                'subtitle' => 'Does not carry UNECE Regulation 22 approval required on European public roads.',
+                'standard' => 'Non-ECE',
+                'country'  => $cc,
+            ];
+
+        case 'JP':
+            if ($hasJis || $hasEce2206) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🇯🇵',
+                    'headline' => 'JIS / MFJ Road Compliant (Japan)',
+                    'subtitle' => 'Meets Japanese Industrial Standards and safety regulations for public roads.',
+                    'standard' => 'JIS / MFJ',
+                    'country'  => 'JP',
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🇯🇵',
+                'headline' => 'Non-JIS Spec',
+                'subtitle' => 'Carries international certs; verify local Japanese Ministry of Land, Infrastructure, Transport rules.',
+                'standard' => 'Non-JIS',
+                'country'  => 'JP',
+            ];
+
+        case 'AU':
+        case 'NZ':
+            if ($hasEce2206 || $hasEce2205 || $hasAs) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => $cc === 'NZ' ? '🇳🇿' : '🇦🇺',
+                    'headline' => 'Road Legal in Australia & NZ (ECE 22.06 / AS 1698)',
+                    'subtitle' => 'Compliant with Australian Road Rules and state/territory motorcycle helmet standards.',
+                    'standard' => 'ECE / AS 1698',
+                    'country'  => $cc,
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => $cc === 'NZ' ? '🇳🇿' : '🇦🇺',
+                'headline' => 'Non-ECE / Non-AS Spec',
+                'subtitle' => 'Does not carry approved ADR / ECE certification for Australian public roads.',
+                'standard' => 'Advisory',
+                'country'  => $cc,
+            ];
+
+        default:
+            if ($hasEce2206 || $hasDot || $hasEce) {
+                return [
+                    'status'   => 'legal',
+                    'flag'     => '🌐',
+                    'headline' => 'Certified Road Helmet (' . ($hasEce2206 ? 'ECE 22.06' : ($hasDot ? 'DOT' : 'ECE')) . ')',
+                    'subtitle' => 'Meets internationally recognized motorcycle impact and retention safety benchmarks.',
+                    'standard' => $hasEce2206 ? 'ECE 22.06' : ($hasDot ? 'DOT' : 'ECE'),
+                    'country'  => $cc,
+                ];
+            }
+            return [
+                'status'   => 'advisory',
+                'flag'     => '🌐',
+                'headline' => 'Safety Homologation Unverified',
+                'subtitle' => 'Confirm local road legality certifications before purchasing.',
+                'standard' => 'Unknown',
+                'country'  => $cc,
+            ];
+    }
 }
 
 /**

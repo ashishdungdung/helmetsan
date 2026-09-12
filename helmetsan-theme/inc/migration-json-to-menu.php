@@ -86,8 +86,8 @@ function helmetsan_migrate_json_to_menu($type, $jsonFile, $menuName, $location) 
                 // Simple logic to approximate the dynamic URL generation
                 // This "freezes" the logic. 
                 if ($type === 'brand') {
-                    // /brand/slug/
-                    $url = home_url('/brand/' . sanitize_title($label) . '/');
+                    // /brands/slug/
+                    $url = home_url('/brands/' . sanitize_title($label) . '/');
                 } elseif ($type === 'accessory') {
                     $url = home_url('/accessory-category/' . sanitize_title($label) . '/');
                 } elseif ($type === 'motorcycle') {

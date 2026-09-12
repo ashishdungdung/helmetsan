@@ -9,7 +9,7 @@ parameters:
     excludePaths:
         - helmetsan-core/includes/WooBridge/
     bootstrapFiles:
-        - vendor/autoload.php
+        - helmetsan-core/stubs/phpstan-bootstrap.php
     parallel:
         maximumNumberOfProcesses: 4
     treatPhpDocTypesAsCertain: false

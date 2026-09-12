@@ -46,7 +46,7 @@ if (have_posts()) {
             $currency = (string) ($price['currency'] ?? '');
         }
         $compatCount = count($helmetTypes);
-        $accessoriesUrl = get_post_type_archive_link('accessory') ?: home_url('/accessories/');
+        $accessoriesUrl = helmetsan_url('/accessories/');
         ?>
         <article <?php post_class('accessory-single'); ?>>
             <nav class="accessory-single__breadcrumb" aria-label="Breadcrumb">
@@ -84,6 +84,20 @@ if (have_posts()) {
                             <strong class="accessory-hero__stat-value"><?php echo esc_html($compatCount === 0 ? '—' : sprintf(_n('%s helmet type', '%s helmet types', $compatCount, 'helmetsan-theme'), number_format_i18n($compatCount))); ?></strong>
                         </li>
                     </ul>
+
+                    <?php
+                    $accSlug = get_post_field('post_name', $id);
+                    $accAmazonUrl = $accSlug !== '' ? home_url('/go/' . $accSlug . '/?marketplace=amazon&source=accessory_hero') : '#where-to-buy';
+                    ?>
+                    <div class="accessory-hero__cta" style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <a href="<?php echo esc_url($accAmazonUrl); ?>" class="hs-btn hs-btn--amazon hs-price-cta" target="_blank" rel="noopener noreferrer sponsored" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #111827; font-weight: 800; display: inline-flex; align-items: center; gap: 0.5rem; border: none; border-radius: var(--hs-radius-md, 8px); padding: 0.75rem 1.25rem; text-decoration: none; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                            <?php esc_html_e('Buy on Amazon →', 'helmetsan-theme'); ?>
+                        </a>
+                        <a href="#where-to-buy" class="hs-btn hs-btn--secondary" style="display: inline-flex; align-items: center; padding: 0.75rem 1rem;">
+                            <?php esc_html_e('View Stores', 'helmetsan-theme'); ?>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="accessory-hero__media">
@@ -112,9 +126,46 @@ if (have_posts()) {
                 if (trim(strip_tags($accContent)) !== '') :
                     the_content();
                 else :
-                    ?>
-                    <p><?php the_title(); ?> is a <?php echo esc_html($type ?: 'accessory'); ?><?php echo $parentCategory ? ' in the ' . esc_html($parentCategory) . ' category' : ''; ?>. <?php echo $compatCount > 0 ? 'Compatible with ' . number_format_i18n($compatCount) . ' helmet type(s). ' : ''; ?>Check compatibility and pricing above, or <a href="<?php echo esc_url($accessoriesUrl); ?>">browse more accessories</a>.</p>
-                <?php endif; ?>
+                    $specsList = [];
+                    if ($type !== '') {
+                        $specsList[] = '<strong>' . esc_html__('Product Category:', 'helmetsan-theme') . '</strong> ' . esc_html($type);
+                    }
+                    if ($parentCategory !== '') {
+                        $specsList[] = '<strong>' . esc_html__('Parent Classification:', 'helmetsan-theme') . '</strong> ' . esc_html($parentCategory);
+                    }
+                    if ($subcategory !== '') {
+                        $specsList[] = '<strong>' . esc_html__('Subcategory:', 'helmetsan-theme') . '</strong> ' . esc_html($subcategory);
+                    }
+                    if ($color !== '') {
+                        $specsList[] = '<strong>' . esc_html__('Color/Finish:', 'helmetsan-theme') . '</strong> ' . esc_html($color);
+                    }
+                    if ($youthAdult !== '') {
+                        $specsList[] = '<strong>' . esc_html__('Sizing Group:', 'helmetsan-theme') . '</strong> ' . esc_html(ucfirst($youthAdult));
+                    }
+                    if ($pinlockReady === '1') {
+                        $specsList[] = '<strong>' . esc_html__('Pinlock Integration:', 'helmetsan-theme') . '</strong> ' . esc_html__('Yes (Anti-fog ready)', 'helmetsan-theme');
+                    }
+                    if ($electricCompat === '1') {
+                        $specsList[] = '<strong>' . esc_html__('Electric Heating Compatibility:', 'helmetsan-theme') . '</strong> ' . esc_html__('Yes', 'helmetsan-theme');
+                    }
+                    if ($snowCompat === '1') {
+                        $specsList[] = '<strong>' . esc_html__('Snowmobile/Winter Use:', 'helmetsan-theme') . '</strong> ' . esc_html__('Yes', 'helmetsan-theme');
+                    }
+                    if ($compatCount > 0) {
+                        $specsList[] = '<strong>' . esc_html__('Helmet Compatibility:', 'helmetsan-theme') . '</strong> ' . sprintf(_n('Verified compatible with %s helmet type', 'Verified compatible with %s helmet types', $compatCount, 'helmetsan-theme'), number_format_i18n($compatCount));
+                    }
+                    
+                    if (!empty($specsList)) : ?>
+                        <p><?php printf(esc_html__('Overview and specifications for the %s based on verified manufacturer details:', 'helmetsan-theme'), esc_html(get_the_title())); ?></p>
+                        <ul class="hs-specs-list" style="margin-left: 20px; list-style-type: disc;">
+                            <?php foreach ($specsList as $spec) : ?>
+                                <li style="margin-bottom: 5px;"><?php echo $spec; ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else : ?>
+                        <p><?php printf(esc_html__('Detailed specifications and technical profile details for the %s are available in the tables below.', 'helmetsan-theme'), esc_html(get_the_title())); ?></p>
+                    <?php endif;
+                endif; ?>
             </div>
 
             <section class="hs-panel accessory-single__panel">
@@ -156,7 +207,18 @@ if (have_posts()) {
             ?>
             <?php if ($hasWhereToBuy && $accessorySlug !== '') : ?>
                 <section class="hs-panel hs-where-to-buy accessory-single__where" id="where-to-buy">
-                    <h2 class="accessory-single__where-title">
+                    <div class="hs-price-comparer__alert-banner" style="border-radius: var(--hs-radius-lg) var(--hs-radius-lg) 0 0; margin: -1.5rem -1.5rem 1.5rem -1.5rem;">
+                        <div class="hs-price-comparer__alert-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <span><?php esc_html_e('Real-time price tracking active across international retailers.', 'helmetsan-theme'); ?></span>
+                            <span class="hs-price-comparer__badge"><?php esc_html_e('Good Buy', 'helmetsan-theme'); ?></span>
+                        </div>
+                        <button type="button" class="hs-price-comparer__alert-btn" id="hsPriceAlertTrigger" data-helmet-id="<?php echo esc_attr((string) $id); ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                            <?php esc_html_e('Set Drop Alert', 'helmetsan-theme'); ?>
+                        </button>
+                    </div>
+                    <h2 class="accessory-single__where-title" style="margin-top: var(--hs-sp-2);">
                         <svg class="accessory-single__where-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                         Where to buy
                     </h2>
@@ -304,24 +366,83 @@ if (have_posts()) {
             ]) : null;
             $showHelmetCards = $helmetsQuery && $helmetsQuery->have_posts();
             ?>
-            <section class="hs-section accessory-single__helmets">
-                <h2 class="accessory-single__panel-title">Compatible helmets</h2>
+            <?php get_template_part('template-parts/helmet-reviews', null, ['helmet_id' => get_the_ID()]); ?>
+
+            <section class="hs-compat-carousel-section accessory-single__helmets">
+                <h2 class="hs-section-icon-title" style="margin-bottom: var(--hs-sp-4);">
+                    <span class="hs-section-icon-title__icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </span>
+                    <?php esc_html_e('Compatible Helmets', 'helmetsan-theme'); ?>
+                </h2>
                 <?php if ($showHelmetCards) : ?>
-                    <div class="helmet-grid">
-                        <?php
-                        while ($helmetsQuery->have_posts()) {
-                            $helmetsQuery->the_post();
-                            get_template_part('template-parts/helmet', 'card');
-                        }
-                        wp_reset_postdata();
-                        ?>
+                    <div class="hs-compat-carousel-wrap">
+                        <div class="hs-compat-carousel">
+                            <?php
+                            while ($helmetsQuery->have_posts()) {
+                                $helmetsQuery->the_post();
+                                $helmetId = get_the_ID();
+                                $brandName = helmetsan_get_brand_name($helmetId);
+                                $priceStr = helmetsan_get_helmet_price($helmetId);
+                                $thumbUrl = get_the_post_thumbnail_url($helmetId, 'medium');
+                                $link = get_permalink($helmetId);
+                            ?>
+                                <div class="hs-compat-carousel__slide">
+                                    <article class="hs-compat-card">
+                                        <div class="hs-compat-card__img-box">
+                                            <?php if ($thumbUrl) : ?>
+                                                <img src="<?php echo esc_url($thumbUrl); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
+                                            <?php else : ?>
+                                                <svg class="hs-compat-card__placeholder-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="hs-compat-card__content">
+                                            <?php if ($brandName !== '') : ?>
+                                                <span class="hs-compat-card__tag"><?php echo esc_html($brandName); ?></span>
+                                            <?php endif; ?>
+                                            <h3 class="hs-compat-card__title">
+                                                <a href="<?php echo esc_url($link); ?>" style="color: inherit; text-decoration: none;"><?php the_title(); ?></a>
+                                            </h3>
+                                            <div class="hs-compat-card__price-row">
+                                                <span class="hs-compat-card__price"><?php echo esc_html($priceStr); ?></span>
+                                                <a href="<?php echo esc_url($link); ?>" class="hs-compat-card__btn">
+                                                    <?php esc_html_e('View', 'helmetsan-theme'); ?> &rarr;
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            <?php
+                            }
+                            wp_reset_postdata();
+                            ?>
+                        </div>
                     </div>
                 <?php else : ?>
-                    <p class="accessory-single__empty-state">No specific compatible helmets linked. Use compatible helmet types and brands above to find suitable helmets.</p>
+                    <p class="accessory-single__empty-state"><?php esc_html_e('No specific compatible helmets linked. Use compatible types and brands above to filter.', 'helmetsan-theme'); ?></p>
                 <?php endif; ?>
             </section>
 
         </article>
+        <!-- Price Alert Modal -->
+        <div class="hs-pdp-modal" id="hsPriceAlertModal" role="dialog" aria-modal="true" aria-labelledby="hsPriceAlertModalTitle">
+            <div class="hs-pdp-modal__overlay"></div>
+            <div class="hs-pdp-modal__body">
+                <button type="button" class="hs-pdp-modal__close" aria-label="Close modal">&times;</button>
+                <h3 class="hs-pdp-modal__title" id="hsPriceAlertModalTitle"><?php esc_html_e('Price Drop Alert', 'helmetsan-theme'); ?></h3>
+                <p class="hs-pdp-modal__desc"><?php esc_html_e('We track prices on Amazon, Flipkart, FC-Moto, and others. Enter your email and target price below, and we will email you the moment the price drops!', 'helmetsan-theme'); ?></p>
+                
+                <form id="hsPriceAlertForm">
+                    <div class="hs-pdp-modal__form-row">
+                        <input type="email" class="hs-pdp-modal__input" id="hsAlertEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="hs-pdp-modal__form-row">
+                        <input type="number" class="hs-pdp-modal__input" id="hsAlertPrice" placeholder="Target Price ($)" required>
+                    </div>
+                    <button type="submit" class="hs-pdp-modal__submit"><?php esc_html_e('Activate Track Alert', 'helmetsan-theme'); ?></button>
+                </form>
+            </div>
+        </div>
         <?php
     }
 }

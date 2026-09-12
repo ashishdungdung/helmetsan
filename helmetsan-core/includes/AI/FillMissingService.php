@@ -58,7 +58,8 @@ final class FillMissingService
         ?array $onlyTaxonomies = null,
         bool $refillHelmetSpecs = false,
         bool $multiplex = true, // Default to true now for speed
-        ?int $postId = null
+        ?int $postId = null,
+        ?string $lang = null // Language filter: 'en', 'de', 'zh', etc. Null = all languages.
     ): array {
         $fillable = FillableFieldsConfig::forPostType($postType);
         if ($onlyFields !== null && $onlyFields !== []) {
@@ -82,6 +83,17 @@ final class FillMissingService
             'order' => 'ASC',
             'fields' => 'ids',
         ];
+        // Language filter: restrict enrichment to a specific Polylang language.
+        // Without this, fill-missing overwrites translated posts with English content.
+        if ($lang !== null && $lang !== '' && function_exists('pll_languages_list')) {
+            $queryArgs['tax_query'] = [
+                [
+                    'taxonomy' => 'language',
+                    'field'    => 'slug',
+                    'terms'    => sanitize_key($lang),
+                ],
+            ];
+        }
         if ($postId !== null && $postId > 0) {
             $queryArgs['post__in'] = [$postId];
         }
@@ -174,6 +186,10 @@ final class FillMissingService
                         if ($postType === 'helmet' && ! str_starts_with($metaKey, 'yoast_')) {
                             $this->propagateToChildren($postId, $metaKey, $sanitized);
                         }
+                        // Track AI Provenance & Quality Score
+                        $score = $this->calculateEntityScore($postId, $fillable);
+                        update_post_meta($postId, '_ai_quality_score', $score);
+                        update_post_meta($postId, '_ai_enriched_at', current_time('mysql'));
                         set_transient($cacheKey, '1', $cacheTtl);
                     }
                     $filled++;
@@ -248,10 +264,37 @@ final class FillMissingService
         return is_wp_error($terms) || ! is_array($terms) || $terms === [];
     }
 
-    private function filterIncompletePosts(array $ids, array $fillable): array
+    /**
+     * Compute entity data quality completeness score (0.0 to 100.0%).
+     */
+    public function calculateEntityScore(int $postId, array $fillable): float
+    {
+        $total = count($fillable);
+        if ($total === 0) return 100.0;
+        $set = 0;
+        foreach (array_keys($fillable) as $metaKey) {
+            $v = get_post_meta($postId, $metaKey, true);
+            if ($v !== '' && $v !== null && $v !== []) {
+                if (get_post_type($postId) === 'helmet' && ($metaKey === 'marketing_description' || $metaKey === 'technical_analysis')) {
+                    if ($this->isFallbackDescription($postId, (string) $v)) {
+                        continue;
+                    }
+                }
+                $set++;
+            }
+        }
+        return round(($set / $total) * 100, 1);
+    }
+
+    private function filterIncompletePosts(array $ids, array $fillable, float $minScore = 100.0): array
     {
         $out = [];
         foreach ($ids as $postId) {
+            $score = $this->calculateEntityScore($postId, $fillable);
+            if ($score < $minScore) {
+                $out[] = $postId;
+                continue;
+            }
             foreach (array_keys($fillable) as $metaKey) {
                 $v = get_post_meta($postId, $metaKey, true);
                 if ($v === '' || $v === null || $v === []) {
@@ -259,13 +302,8 @@ final class FillMissingService
                     break;
                 }
 
-                // NEW: If it's a helmet description, check if it's just a fallback
                 if (get_post_type($postId) === 'helmet' && ($metaKey === 'marketing_description' || $metaKey === 'technical_analysis')) {
                     if ($this->isFallbackDescription($postId, (string) $v)) {
-                        $out[] = $postId;
-                        break;
-                    }
-                    if (strlen((string) $v) < 60) {
                         $out[] = $postId;
                         break;
                     }
@@ -276,11 +314,21 @@ final class FillMissingService
     }
 
     /**
-     * Check if a description matches the generic fallback pattern:
-     * "Title | Type: X | Brand: Y"
+     * Check if a description matches generic fallback patterns (e.g. "Title | Type: X | Brand: Y")
+     * or is too short/templated for a quality post.
      */
     private function isFallbackDescription(int $postId, string $desc): bool
     {
+        $trimDesc = trim($desc);
+        if ($trimDesc === '' || strlen($trimDesc) < 80) {
+            return true;
+        }
+
+        // Check if description contains explicit pipe-delimited fallback placeholders
+        if (str_contains($trimDesc, '| Type:') || str_contains($trimDesc, '| Brand:') || (str_contains($trimDesc, 'Type: ') && str_contains($trimDesc, 'Brand: '))) {
+            return true;
+        }
+
         $post = get_post($postId);
         if (! $post) return false;
 
@@ -304,7 +352,7 @@ final class FillMissingService
         ];
 
         foreach ($patterns as $pattern) {
-            if (trim($desc) === trim($pattern)) {
+            if ($pattern !== '' && ($trimDesc === trim($pattern) || str_starts_with($trimDesc, trim($pattern)))) {
                 return true;
             }
         }
@@ -370,12 +418,20 @@ final class FillMissingService
             return '';
         }
 
-        if ($metaKey === 'spec_weight_g' && preg_match('/\b(\d{1,5})\b/', $value, $m)) {
-            return $m[1];
+        if ($metaKey === 'spec_weight_g' && preg_match('/\b(\d{3,4})\b/', $value, $m)) {
+            $weight = (int) $m[1];
+            if ($weight >= 500 && $weight <= 3500) {
+                return (string) $weight;
+            }
+            return '';
         }
 
         if ($metaKey === 'price_retail_usd' && preg_match('/(\d+(?:\.\d{1,2})?)/', $value, $m)) {
-            return $m[1];
+            $price = (float) $m[1];
+            if ($price >= 10.0 && $price <= 5000.0) {
+                return number_format($price, 2, '.', '');
+            }
+            return '';
         }
 
         $max = is_array($config) && isset($config['max_length']) ? $config['max_length'] : self::DEFAULT_MAX_LENGTH;

@@ -11,14 +11,20 @@ if (! defined('ABSPATH')) {
 }
 
 $helmetId = get_the_ID();
-$price = function_exists('helmetsan_get_helmet_price') ? helmetsan_get_helmet_price($helmetId) : '';
+$price = function_exists('helmetsan_render_price_element') ? helmetsan_render_price_element((int) $helmetId, 'hs-featured-helmet__price') : '';
 $certs = function_exists('helmetsan_get_certifications') ? helmetsan_get_certifications($helmetId) : '';
 $brandName = '';
 $brandTerms = get_the_terms($helmetId, 'helmet_brand');
 if ($brandTerms && ! is_wp_error($brandTerms)) {
     $brandName = $brandTerms[0]->name ?? '';
 }
-$tagline = get_the_excerpt();
+// Only display the brand line if the post title doesn't already start with the brand name
+$postTitle = get_the_title();
+if ($brandName !== '' && stripos($postTitle, $brandName) === 0) {
+    $brandName = ''; // suppress duplicate — title already starts with brand
+}
+// Strip all HTML from the excerpt to avoid raw anchor tags leaking into the tagline
+$tagline = wp_strip_all_tags(get_the_excerpt());
 if ($tagline === '') {
     $tagline = __('Built for riders who demand clarity and compliance.', 'helmetsan-theme');
 }
@@ -28,7 +34,7 @@ if ($tagline === '') {
         <div class="hs-featured-helmet__media">
             <?php if (has_post_thumbnail()) : ?>
                 <a href="<?php the_permalink(); ?>" class="hs-featured-helmet__link">
-                    <?php the_post_thumbnail('large', ['class' => 'hs-featured-helmet__img', 'loading' => 'eager']); ?>
+                    <?php the_post_thumbnail('large', ['class' => 'hs-featured-helmet__img', 'loading' => 'eager', 'fetchpriority' => 'high']); ?>
                 </a>
             <?php else :
                 $defaultImg = function_exists('helmetsan_core') ? helmetsan_core()->defaultImages()->getDefaultImageUrl('helmet') : '';
@@ -53,7 +59,7 @@ if ($tagline === '') {
             <p class="hs-featured-helmet__tagline"><?php echo esc_html($tagline); ?></p>
             <div class="hs-featured-helmet__specs">
                 <?php if ($price !== '') : ?>
-                    <span class="hs-featured-helmet__price"><?php echo esc_html($price); ?></span>
+                    <?php echo $price; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- helmetsan_render_price_element returns sanitised HTML ?>
                 <?php endif; ?>
                 <?php if ($certs !== '') : ?>
                     <span class="hs-featured-helmet__certs"><?php echo esc_html($certs); ?></span>

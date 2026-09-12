@@ -12,6 +12,7 @@ get_header();
 $query = new WP_Query([
     'post_type'      => 'helmet',
     'post_status'    => 'publish',
+    'post_parent'    => 0,
     'posts_per_page' => 12,
     'meta_query'     => [
         [

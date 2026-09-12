@@ -9,6 +9,10 @@ if (! defined('HELMETSAN_CORE_DIR')) {
 }
 require_once __DIR__ . '/stubs.php';
 
+if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
+    require_once dirname(__DIR__) . '/vendor/autoload.php';
+}
+
 spl_autoload_register(static function (string $class): void {
     $prefix = 'Helmetsan\\Core\\';
     if (strpos($class, $prefix) !== 0) {

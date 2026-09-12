@@ -10,11 +10,14 @@
     <div class="site-footer__widgets">
         <div class="site-footer__inner">
             <div class="site-footer__brand">
-                <strong><?php bloginfo('name'); ?></strong>
-                <p>Helmetsan is a trademark, owned and operated by Ash Digital Services.</p>
+                <a href="<?php echo esc_url(helmetsan_url('/')); ?>" class="site-footer__brand-title"><?php bloginfo('name'); ?></a>
+                <p><?php esc_html_e('Helmetsan is a trademark, owned and operated by Ash Digital Services.', 'helmetsan-theme'); ?></p>
                 <?php if ((bool) get_theme_mod('helmetsan_show_made_in_india', true)) : ?>
                     <p class="site-footer__india">
-                        Made with <span aria-hidden="true">&lt;3</span> in India
+                        <?php printf(
+                            esc_html__('Made with %s in India', 'helmetsan-theme'),
+                            '<span aria-hidden="true">&lt;3</span>'
+                        ); ?>
                         <span class="site-footer__india-mark" aria-hidden="true">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" role="img">
                                 <path d="M9.2 2.2l3 1.2 2.8-.6 1.4 2 2.6.9-.3 2.8 1.7 2-1.7 2 .3 2.8-2.6.9-1.4 2-2.8-.6-3 1.2-1.6-2.4-2.5-1.1.4-2.6-1.8-2.2 1.8-2.2-.4-2.6 2.5-1.1L9.2 2.2z"></path>
@@ -24,14 +27,59 @@
                 <?php endif; ?>
             </div>
             <div class="site-footer__menus">
-                <?php
-                wp_nav_menu([
-                    'theme_location' => 'footer',
-                    'container'      => 'nav',
-                    'menu_class'     => 'menu menu--footer',
-                    'fallback_cb'    => false,
-                ]);
-                ?>
+                <div class="site-footer__menus-grid">
+                    <div class="site-footer__col">
+                        <h3 class="site-footer__col-title"><?php esc_html_e('Catalog', 'helmetsan-theme'); ?></h3>
+                        <ul class="site-footer__col-links">
+                            <li><a href="<?php echo esc_url(helmetsan_url('/helmets/')); ?>"><?php esc_html_e('Helmets', 'helmetsan-theme'); ?></a></li>
+                            <li><a href="<?php echo esc_url(helmetsan_url('/brands/')); ?>"><?php esc_html_e('Brands', 'helmetsan-theme'); ?></a></li>
+                            <li><a href="<?php echo esc_url(helmetsan_url('/accessories/')); ?>"><?php esc_html_e('Accessories', 'helmetsan-theme'); ?></a></li>
+                            <li><a href="<?php echo esc_url(helmetsan_url('/motorcycles/')); ?>"><?php esc_html_e('Motorcycles', 'helmetsan-theme'); ?></a></li>
+                            <li><a href="<?php echo esc_url(helmetsan_url('/dealers/')); ?>"><?php esc_html_e('Dealers Directory', 'helmetsan-theme'); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="site-footer__col">
+                        <h3 class="site-footer__col-title"><?php esc_html_e('Resources', 'helmetsan-theme'); ?></h3>
+                        <ul class="site-footer__col-links">
+                            <li><a href="<?php echo esc_url(helmetsan_url('/safety-standards/')); ?>"><?php esc_html_e('Safety Standards', 'helmetsan-theme'); ?></a></li>
+                            <?php
+                            $helmetTypesUrl = helmetsan_theme_find_page_url_by_slug('helmet-types');
+                            if ($helmetTypesUrl) : ?>
+                                <li><a href="<?php echo esc_url($helmetTypesUrl); ?>"><?php esc_html_e('Helmet Types', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                            <?php
+                            $comparisonUrl = helmetsan_theme_find_page_url_by_slug('comparison');
+                            if ($comparisonUrl) : ?>
+                                <li><a href="<?php echo esc_url($comparisonUrl); ?>"><?php esc_html_e('Helmet Comparison', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                            <?php
+                            $certDocsUrl = helmetsan_theme_find_page_url_by_slug('certification-documents');
+                            if ($certDocsUrl) : ?>
+                                <li><a href="<?php echo esc_url($certDocsUrl); ?>"><?php esc_html_e('Certifications & Documents', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                    <div class="site-footer__col">
+                        <h3 class="site-footer__col-title"><?php esc_html_e('Company', 'helmetsan-theme'); ?></h3>
+                        <ul class="site-footer__col-links">
+                            <?php
+                            $aboutUrl = helmetsan_theme_find_page_url_by_slug('about');
+                            if ($aboutUrl) : ?>
+                                <li><a href="<?php echo esc_url($aboutUrl); ?>"><?php esc_html_e('About Helmetsan', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                            <?php
+                            $contactUrl = helmetsan_theme_find_page_url_by_slug('contact');
+                            if ($contactUrl) : ?>
+                                <li><a href="<?php echo esc_url($contactUrl); ?>"><?php esc_html_e('Contact Us', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                            <?php
+                            $blogUrl = helmetsan_theme_find_page_url_by_slug('blog');
+                            if ($blogUrl) : ?>
+                                <li><a href="<?php echo esc_url($blogUrl); ?>"><?php esc_html_e('Blog & News', 'helmetsan-theme'); ?></a></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="site-footer__widget-areas">
@@ -77,6 +125,7 @@
     </div>
 </footer>
 <?php 
+get_template_part('template-parts/sticky-comparison-bar');
 get_template_part('template-parts/ai-selection-tool');
 wp_footer(); 
 ?>

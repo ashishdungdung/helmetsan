@@ -56,6 +56,10 @@ final class JsonRepository
     {
         $base = rtrim($this->rootPath() . '/' . ltrim($relativePath, '/'), '/');
 
+        if (is_file($base)) {
+            return [$base];
+        }
+
         if (! is_dir($base)) {
             return [];
         }
@@ -68,6 +72,9 @@ final class JsonRepository
                 continue;
             }
             if (strtolower((string) $item->getExtension()) !== 'json') {
+                continue;
+            }
+            if (str_contains($item->getFilename(), '.example.')) {
                 continue;
             }
 

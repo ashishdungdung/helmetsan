@@ -35,16 +35,18 @@ Variant keys:
 
 ## WooCommerce Mapping (Future)
 When commerce is enabled:
-- Create Woo Product per Helmet Family (or per core helmet model).
+- Create Woo Product per Helmet Family (or per parent helmet model).
 - Create Woo variations from `variants_json`.
 - Map fields:
   - `color` -> `pa_color`
   - `size` -> `pa_size`
   - `style/graphics` -> `pa_style`
   - `mfr_part_number` -> variation meta
-  - geo pricing -> price sync rules by region/country
+  - geo pricing -> price sync rules by region/country (synced dynamically using regional currency conversions and geo IP settings).
+- **Variant Language & Taxonomy Propagation:** WooCommerce variations must inherit the Polylang translation links of their parent product. In addition, certifications and brand taxonomies from the parent helmet CPT are propagated to the variation attributes to ensure faceted search works seamlessly.
 - Keep `helmet` CPT as editorial/spec authority.
 - Link Woo product IDs in `helmet` meta (`wc_product_id`, `wc_variation_map_json`).
+
 
 ## Product Page UX Pattern
 Adopt full, data-native depth with data-native sections:

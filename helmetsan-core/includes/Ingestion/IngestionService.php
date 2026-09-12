@@ -776,6 +776,17 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'marketing_description', sanitize_textarea_field($data['marketing_description']));
         }
 
+        if (isset($data['pros_and_cons']) && is_array($data['pros_and_cons'])) {
+            $json = wp_json_encode($data['pros_and_cons'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            if (is_string($json) && $json !== '') {
+                update_post_meta($resolvedPostId, 'hs_pros_and_cons_json', $json);
+            }
+        }
+
+        if (isset($data['rider_takeaway']) && is_string($data['rider_takeaway']) && $data['rider_takeaway'] !== '') {
+            update_post_meta($resolvedPostId, 'rider_takeaway', sanitize_text_field($data['rider_takeaway']));
+        }
+
         if (isset($data['outgoing_internal_links_json'])) {
             $links = $data['outgoing_internal_links_json'];
             if (is_array($links) || is_object($links)) {

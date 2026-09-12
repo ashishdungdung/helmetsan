@@ -105,7 +105,7 @@ Modules are grouped by domain. Each has a detailed doc in [`docs/modules/`](file
 | [Helmets](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md)          | `HelmetService`               | Helmet CPT management     |
 | [Accessories](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md)      | `AccessoryService`            | Accessory CPT management  |
 | [Motorcycles](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md)      | `MotorcycleService`           | Motorcycle CPT management |
-| [Safety Standards](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md) | `SafetyStandardService`       | ECE/DOT/Snell standards   |
+| [Safety Standards](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md) | `SafetyStandardService`       | ECE/DOT/Snell standards. Interactive SVG badges at `helmetsan-theme/assets/images/certifications/` (dot, ece, snell, sharp, isi, fim) render dynamically on PDP. |
 | [Dealers](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md)          | `DealerService`               | Dealer directory          |
 | [Distributors](file:///Users/anumac/Documents/Helmetsan/docs/modules/content-types.md)     | `DistributorService`          | Distributor directory     |
 
@@ -114,7 +114,7 @@ Modules are grouped by domain. Each has a detailed doc in [`docs/modules/`](file
 | Module                                                                          | Service            | Purpose                              |
 | ------------------------------------------------------------------------------- | ------------------ | ------------------------------------ |
 | [WooBridge](file:///Users/anumac/Documents/Helmetsan/docs/modules/woobridge.md) | `WooBridgeService` | Helmet → WooCommerce product sync    |
-| [Search](file:///Users/anumac/Documents/Helmetsan/docs/modules/search.md)       | `SearchService`    | Enhanced search with meta + taxonomy |
+| [Search](file:///Users/anumac/Documents/Helmetsan/docs/modules/search.md)       | `SearchService`    | Enhanced search with meta + taxonomy. Frontend premium filters: `archive-helmet.php` + `pages.css` + `filters.js` (glassmorphism sidebar, active chips, price ranges, and SVG icon groups). |
 
 ## Data Flow
 

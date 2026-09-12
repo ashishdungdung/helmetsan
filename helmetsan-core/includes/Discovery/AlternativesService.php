@@ -58,8 +58,9 @@ final class AlternativesService
             ];
         }
 
+        $args['fields'] = 'ids';
         $query = new \WP_Query($args);
-        $ids = is_array($query->posts) ? array_map('intval', $query->posts) : [];
+        $ids = is_array($query->posts) ? array_map(static fn($p) => $p instanceof \WP_Post ? (int) $p->ID : (int) $p, $query->posts) : [];
 
         // Simple ranking logic: count how many metadata matches we have
         $weighted = [];

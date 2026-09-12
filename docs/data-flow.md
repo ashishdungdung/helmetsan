@@ -105,8 +105,25 @@ Schema: `data/schemas/helmet.schema.json` and `data/schemas/accessory.schema.jso
 2. **Use AI to fill content** — Once links (or other context) are stored, use Catalog “Fill all missing / outdated” or `wp helmetsan ai fill-missing --post-type=helmet --only-incomplete --limit=500` to populate technical analysis, product description, part numbers, sizing, etc. See [Populating content via AI](DESIGN_AND_CONTENT_PHILOSOPHY.md#6-populating-content-via-ai).
 3. **Accessories** — The same `marketplace_links` pattern is supported for accessories: add to schema, ingestion (AccessoryService), and optional export; use for affiliate and as source for AI/data/images.
 
+## Ingestion, Multi-language, and Database Integrity
+
+### 1. Multi-language (Polylang & Nginx Caching)
+Nginx FastCGI microcaching caches redirects. When Polylang's browser language detection is enabled, Nginx caches the 302 redirects to language-specific URLs (e.g. `/de/` or `/zh/`), causing visitors to get redirected incorrectly or see cached translation pages.
+* **Rule:** Polylang browser-language detection must be disabled (`browser => 0` in Polylang options). Never re-enable.
+
+### 2. Child Variant Language Inheritance
+When ingesting child variants, `IngestionService.php` ensures that child variants automatically inherit their parent post's language status and Polylang translations. This aligns terms correctly and avoids catalog fragmentation.
+
+### 3. Front-page & Query Safety (`post_parent => 0`)
+To prevent child variants (which are stored as posts of type `helmet` with a `post_parent` pointing to their parent helmet post) from leaking into catalogs and homepage queries:
+* **Rule:** Always include `'post_parent' => 0` in any `WP_Query` arguments for lists (such as "Today's Pick" and "Featured Helmets").
+
+### 4. Orphaned Posts Prevention
+Helmets must have a valid `_helmet_unique_id` meta key. If a post is created without this key (e.g. legacy seeding errors), it is treated as an orphaned post. Orphaned posts (~80 were removed in June 2026) cause duplicates and fail hash skips. Database sanitization checks should periodically clean these up.
+
 ## See also
 
 - [Sync module](modules/sync.md) — Pull/push behavior, profiles, configuration.
 - [Ingestion module](modules/ingestion.md) — Meta fields written, identifiers, round-trip.
 - [Ingestion unique IDs and hash](ingestion-unique-ids-and-hash.md) — How upserts and skips work.
+

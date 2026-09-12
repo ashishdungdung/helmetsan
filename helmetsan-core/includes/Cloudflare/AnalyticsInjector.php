@@ -13,17 +13,24 @@ use Helmetsan\Core\Support\Config;
 class AnalyticsInjector
 {
     private string $cfAnalyticsToken;
+    private ?\Helmetsan\Core\Geo\GeoService $geo;
 
-    public function __construct(Config $config)
+    public function __construct(Config $config, ?\Helmetsan\Core\Geo\GeoService $geo = null)
     {
         $settings = get_option(Config::OPTION_ANALYTICS, $config->analyticsDefaults());
         // Retrieve the token from settings, or fall back to a CONSTANT for dev overriding
         $this->cfAnalyticsToken = $settings['cf_analytics_token']
             ?? (defined('HELMETSAN_CF_ANALYTICS_TOKEN') ? constant('HELMETSAN_CF_ANALYTICS_TOKEN') : '');
+        $this->geo = $geo;
     }
 
     public function bootstrap(): void
     {
+        // Disable for China visitors to prevent GFW loading lag
+        if (function_exists('helmetsan_is_china_visitor') && helmetsan_is_china_visitor()) {
+            return;
+        }
+
         if (!empty($this->cfAnalyticsToken) && !is_admin()) {
             add_action('wp_footer', [$this, 'injectBeacon'], 99);
         }

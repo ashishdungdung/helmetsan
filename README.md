@@ -206,17 +206,18 @@ It provides objective score, critical blockers, and per-check diagnostics.
 
 <!-- STATS_START -->
 
-## 📊 Project Dashboard (Status: Live)
+## 📊 Project Dashboard (Status: Live & Verified)
 
-| Metric                | Value       | Status      |
-| :-------------------- | :---------- | :---------- |
-| **Brands in Catalog** | 73          | ✅          |
-| **Helmets Indexed**   | 1,412       | ✅ Live     |
-| **Parent Models**     | 297         | ✅          |
-| **Logo Coverage**     | 67% (49/73) | 🎨 Enriched |
-| **Last Sync**         | 2026-02-23  | 📡 Active   |
-
-> _Stats generated automatically by `scripts/update_stats.php`_
+| Metric | Value | Status |
+| :--- | :--- | :--- |
+| **Helmets Indexed** | 2,235 | ✅ Master DB Live |
+| **Motorcycles Indexed** | 3,247 | ✅ Comprehensive Matrix |
+| **Accessories Indexed** | 27 | ✅ Verified Specs |
+| **Cross-Compatibility Pairs** | 38,196 | ✅ High-Speed Cache |
+| **Brands in Catalog** | 61 | ✅ Enriched Profiles |
+| **Published WordPress Posts** | 9,391 | 🌐 Live on 31.70.136.154 |
+| **Mobile SQLite DB** | 2,235 helmets / 38k links | 📱 Ready for Native App |
+| **Last Audit** | 2026-09-06 | 📡 Synchronized |
 
 <!-- STATS_END -->
 

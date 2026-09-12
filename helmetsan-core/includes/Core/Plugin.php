@@ -56,6 +56,8 @@ use Helmetsan\Core\Scheduler\SchedulerService;
 use Helmetsan\Core\Seed\Seeder;
 use Helmetsan\Core\Seo\SchemaService;
 use Helmetsan\Core\Seo\AutoSeoObserver;
+use Helmetsan\Core\Seo\SlugRedirectService;
+use Helmetsan\Core\Seo\SitemapEnhancer;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
 use Helmetsan\Core\Admin\MediaAdmin;
 use Helmetsan\Core\Admin\TranslationAdmin;
@@ -87,6 +89,7 @@ use Helmetsan\Core\Marketplace\Connectors\EbayConnector;
 use Helmetsan\Core\Marketplace\Connectors\AliExpressConnector;
 use Helmetsan\Core\Marketplace\MarketplaceRouter;
 use Helmetsan\Core\Geo\GeoService;
+use Helmetsan\Core\Geo\ComplianceService;
 use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\API\PriceController;
 use Helmetsan\Core\API\ReviewController;
@@ -99,6 +102,8 @@ use Helmetsan\Core\Support\BackgroundTaskService;
 use Helmetsan\Core\Core\DatabaseManager;
 use Helmetsan\Core\Price\ExchangeRateService;
 use Helmetsan\Core\Cache\CacheWarmingService;
+use Helmetsan\Core\Cache\ObjectCacheService;
+use Helmetsan\Core\Revenue\ShareableLinksService;
 
 final class Plugin
 {
@@ -114,6 +119,7 @@ final class Plugin
     private SyncService $sync;
     private SyncLogRepository $syncLogs;
     private RevenueService $revenue;
+    private ShareableLinksService $shareableLinks;
     private ImportService $importService;
     private ExportService $exportService;
     private SchemaService $schema;
@@ -177,6 +183,8 @@ final class Plugin
     private AnalyticsInjector $analyticsInjector;
     private IngestionCallbackController $ingestionCallbackController;
     private AutoSeoObserver $autoSeoObserver;
+    private SlugRedirectService $slugRedirects;
+    private SitemapEnhancer $sitemapEnhancer;
     private AiSeoDescriptionProvider $aiSeoProvider;
     private TurnstileService $turnstileService;
     private TaskTracker $taskTracker;
@@ -270,7 +278,8 @@ final class Plugin
             $this->recommendations,
             $this->commerce
         );
-        $this->revenue    = new RevenueService($this->config, $this->geo);
+        $this->revenue        = new RevenueService($this->config, $this->geo);
+        $this->shareableLinks = new ShareableLinksService($this->config, $this->revenue);
         $this->feedTask = new FeedIngestionTask(
             $this->config,
             $this->marketplace,
@@ -375,6 +384,8 @@ final class Plugin
         $this->queueService = new QueueService($this->config);
         $this->analyticsInjector = new AnalyticsInjector($this->config, $this->geo);
         $this->autoSeoObserver = new AutoSeoObserver(new YoastSeoSeeder($this->aiSeoProvider));
+        $this->slugRedirects = new SlugRedirectService();
+        $this->sitemapEnhancer = new SitemapEnhancer();
         $this->assetIngestionService = new AssetIngestionService(
             $this->scraperService,
             $this->imageAnalysisService,
@@ -387,6 +398,7 @@ final class Plugin
         $this->ingestionCallbackController = new IngestionCallbackController($this->assetManager);
 
         $this->analyticsInjector->bootstrap();
+        (new \Helmetsan\Core\Seo\IndexNowService())->register();
     }
 
     public function boot(): void
@@ -410,6 +422,8 @@ final class Plugin
         $this->assetManagerAdmin->register();
 
         $this->autoSeoObserver->init();
+        $this->slugRedirects->register();
+        $this->sitemapEnhancer->register();
 
         $this->aiAdmin->register();
         $this->helmetImagesAdmin->register();
@@ -444,8 +458,11 @@ final class Plugin
         $this->scheduler->register();
         $this->schema->register();
         $this->revenue->register();
+        $this->shareableLinks->register();
         $this->geo->register();
         $this->cacheWarming->register();
+        ObjectCacheService::register();
+        (new \Helmetsan\Core\Cloudflare\CloudflareCacheService())->registerAjaxHooks();
         add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
         add_action('template_redirect', [$this, 'redirectCorruptedHelmetSlugs'], 1);
         $this->adsTxt->register();
@@ -667,6 +684,11 @@ final class Plugin
         return $this->geo;
     }
 
+    public function compliance(): ComplianceService
+    {
+        return $this->geo->compliance();
+    }
+
     public function router(): MarketplaceRouter
     {
         return $this->router;
@@ -675,6 +697,11 @@ final class Plugin
     public function revenue(): RevenueService
     {
         return $this->revenue;
+    }
+
+    public function shareableLinks(): ShareableLinksService
+    {
+        return $this->shareableLinks;
     }
 
     public function ingestion(): IngestionService
@@ -733,14 +760,17 @@ final class Plugin
 
         // Amazon Creator API (v3.1 OAuth2)
         if (!empty($mktCfg['amazon_creator_enabled'])) {
-            $registry->register(new \Helmetsan\Core\Marketplace\Connectors\AmazonCreatorConnector([
+            $revConfig = $this->config->revenueConfig();
+            $allCreatorCountries = ['US', 'CA', 'UK', 'GB', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'SE', 'BE', 'IE', 'IN', 'JP', 'AU', 'BR', 'MX', 'AE', 'SA', 'SG', 'TR'];
+            $registry->register(new \Helmetsan\Core\Marketplace\Connectors\AmazonCreatorConnector(array_merge($revConfig, [
                 'client_id'         => $mktCfg['amazon_creator_client_id'] ?? '',
                 'client_secret'     => $mktCfg['amazon_creator_client_secret'] ?? '',
                 'version'           => $mktCfg['amazon_creator_version'] ?? 'v3.1',
-                'partner_tag'       => $mktCfg['amazon_creator_partner_tag'] ?? 'vtete-20',
-                'india_tag'         => $mktCfg['amazon_creator_india_tag'] ?? 'virginiatete-21',
-                'enabled_countries' => $mktCfg['amazon_creator_countries'] ?? ['US', 'CA', 'UK', 'DE', 'FR', 'IT', 'ES', 'NL', 'PL', 'SE', 'IN'],
-            ]));
+                'partner_tag'       => $revConfig['amazon_tag'] ?? $mktCfg['amazon_creator_partner_tag'] ?? 'vtete-20',
+                'uk_tag'            => $revConfig['amazon_tag_uk'] ?? 'vtete-21',
+                'india_tag'         => $revConfig['amazon_tag_in'] ?? $mktCfg['amazon_creator_india_tag'] ?? 'virginiatete-21',
+                'enabled_countries' => $mktCfg['amazon_creator_countries'] ?? $allCreatorCountries,
+            ])));
         }
 
         // Allegro

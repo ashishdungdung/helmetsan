@@ -142,48 +142,19 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             </button>
 
-            <!-- Currency Selector -->
-            <div class="hs-currency-selector-wrapper">
-                <select class="hs-currency-select" aria-label="<?php esc_attr_e( 'Select Currency', 'helmetsan-theme' ); ?>">
-                    <?php
-                    $visitorCc = 'IN';
-                    if (function_exists('helmetsan_core')) {
-                        $visitorCc = helmetsan_core()->geo()->getCountry();
-                    }
-                    $supportedCountriesList = [
-                        'US' => 'US ($) · United States',
-                        'CA' => 'CA (CA$) · Canada',
-                        'MX' => 'MX (MX$) · Mexico',
-                        'GB' => 'UK (£) · United Kingdom',
-                        'DE' => 'DE (€) · Germany',
-                        'FR' => 'FR (€) · France',
-                        'IT' => 'IT (€) · Italy',
-                        'ES' => 'ES (€) · Spain',
-                        'PL' => 'PL (zł) · Poland',
-                        'IN' => 'IN (₹) · India',
-                        'JP' => 'JP (¥) · Japan',
-                        'AU' => 'AU (A$) · Australia',
-                        'BR' => 'BR (R$) · Brazil',
-                        'AE' => 'AE (AED) · UAE',
-                        'NG' => 'NG (₦) · Nigeria',
-                        'KE' => 'KE (KSh) · Kenya',
-                        'EG' => 'EG (E£) · Egypt',
-                        'MA' => 'MA (MAD) · Morocco',
-                        'GH' => 'GH (GH₵) · Ghana',
-                        'UG' => 'UG (USh) · Uganda',
-                        'TZ' => 'TZ (TSh) · Tanzania'
-                    ];
-                    foreach ($supportedCountriesList as $cc => $label) {
-                        echo sprintf(
-                            '<option value="%s" %s>%s</option>',
-                            esc_attr($cc),
-                            selected($cc, $visitorCc, false),
-                            esc_html($label)
-                        );
-                    }
-                    ?>
-                </select>
-            </div>
+            <!-- Country & Currency Trigger -->
+            <?php
+            $headerGeo = function_exists('helmetsan_core') && helmetsan_core()->geo() ? helmetsan_core()->geo()->getCountry() : 'IN';
+            $headerCountries = function_exists('helmetsan_get_supported_countries') ? helmetsan_get_supported_countries() : [];
+            $activeHeaderCountry = $headerCountries[$headerGeo] ?? ($headerCountries['IN'] ?? ['name' => 'India', 'symbol' => '₹', 'flag' => '🇮🇳']);
+            ?>
+            <button type="button" class="hs-country-trigger" id="hsCountryTrigger" aria-label="<?php esc_attr_e( 'Select Country and Currency', 'helmetsan-theme' ); ?>" aria-haspopup="dialog" aria-expanded="false" aria-controls="hsCountryModal">
+                <span class="hs-country-trigger__flag" id="hsCurrentFlag"><?php echo esc_html($activeHeaderCountry['flag']); ?></span>
+                <span class="hs-country-trigger__name" id="hsCurrentCountry"><?php echo esc_html($activeHeaderCountry['name']); ?></span>
+                <span class="hs-country-trigger__code" id="hsCurrentCode"><?php echo esc_html($headerGeo); ?></span>
+                <span class="hs-country-trigger__currency" id="hsCurrentCurrency">(<?php echo esc_html($activeHeaderCountry['symbol']); ?>)</span>
+                <svg class="hs-country-trigger__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
 
             <!-- Theme Toggle -->
             <button type="button" id="hs-theme-toggle" class="hs-theme-toggle" aria-label="<?php esc_attr_e( 'Switch to dark mode', 'helmetsan-theme' ); ?>">
@@ -198,6 +169,7 @@
         </div>
     </div>
 </header>
+<?php get_template_part('template-parts/components/country-selector-modal'); ?>
 
 <div class="hs-modal-backdrop" id="hsModalBackdrop" aria-hidden="true"></div>
 

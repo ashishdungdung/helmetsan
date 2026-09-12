@@ -4,12 +4,17 @@ This document tracks the planned improvements across Helmetsan admin tabs, inges
 
 ---
 
-## Phase 1 — Delivered / In progress
+## Phase 1 — Completed
 
-### Brands tab — AI enrichment (in progress)
-- **Fillable fields:** total models, helmet types, cert coverage, support URL, warranty, origin (add to `FillableFieldsConfig::forBrand()`; some already exist).
-- **UI:** On Brands page, add "AI enrichment" panel with actions: "Fill all missing / outdated" (up to 100 brands), "Fill key fields only" (total models, helmet types, cert coverage, support URL, warranty, origin). Reuse catalog AI pattern: `admin_post_helmetsan_brand_ai_*` handlers, transient result, message on redirect.
-- **Backend:** Reuse `FillMissingService::run('brand', ...)` with appropriate `onlyFields`; add any missing brand meta to fillable config and optional URL validation for `brand_support_url`.
+### Brands tab — AI enrichment
+- **Status:** **Completed** (March 2026). Brands now support AI enrichment with fields like `total_models`, `helmet_types`, `cert_coverage`, `support_url`, `warranty`, and `origin`.
+- **UI:** Added an "AI enrichment" panel on the Brands admin page allowing "Fill all missing / outdated" runs and "Fill key fields only" triggers.
+
+### System & Core UX (June 2026)
+- **Deployment Admin:** Integrated checks verifying Compiled CSS/JS assets (e.g. `pages.css`) directly from the automated build-first `deploy.sh` script.
+- **Cache Invalidation:** Automated triggers for clearing the Nginx microcache and WordPress transients are configured alongside post-deployment routines.
+- **DB Integrity Checks:** Added a database cleanup command to prune legacy, orphaned posts lacking `_helmet_unique_id` meta keys.
+
 
 ---
 

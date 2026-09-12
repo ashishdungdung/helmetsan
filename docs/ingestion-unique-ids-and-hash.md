@@ -11,6 +11,9 @@ This document defines the **canonical unique key** and **hash-based skip** behav
 | **Hash** | `_source_hash` = SHA-256 of JSON-encoded payload. |
 | **Skip** | If existing post has same `_source_hash` **and** has at least one `helmet_type` term, the record is **skipped** (no update). Logged as `skipped`. |
 | **Payload** | Seed/JSON must include stable `id`; ingestion uses it for upsert. All ingested meta (e.g. `safety_intelligence_json`, `aero_acoustic_profile_json`, `tech_integration_json`, `fitment_coordinates_json`, `spec_shell_sizes`, `model_year`, identifiers, key_specs) is included in the payload and thus in the hash. |
+| **Polylang Sync** | Ingestion assigns language to parent posts. Child variants inherit parent post language configuration and term groupings automatically. |
+| **Orphan Protection**| Any post of type `helmet` without a valid `_helmet_unique_id` is an orphaned post. Database sanitation runs prune these to prevent duplicates and skip anomalies. |
+
 
 ## Accessory
 

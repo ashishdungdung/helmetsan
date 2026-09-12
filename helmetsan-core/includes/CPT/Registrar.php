@@ -15,6 +15,8 @@ final class Registrar
     {
         add_action('init', [$this, 'registerTypes']);
         add_action('init', [$this, 'registerTaxonomies']);
+        add_filter('pll_get_post_types', [$this, 'filterPolylangPostTypes'], 10, 2);
+        add_filter('pll_get_taxonomies', [$this, 'filterPolylangTaxonomies'], 10, 2);
         add_action('init', function() {
             if (!get_option('helmetsan_rules_flushed_v4')) {
                 flush_rewrite_rules();
@@ -115,15 +117,6 @@ final class Registrar
                 'icon'         => 'dashicons-star-filled',
                 'menu_pos'     => 14,
                 'supports'     => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'],
-                'has_archive'  => true,
-            ],
-            'review' => [
-                'label'        => 'Reviews',
-                'singular'     => 'Review',
-                'slug'         => 'reviews',
-                'icon'         => 'dashicons-format-chat',
-                'menu_pos'     => 15,
-                'supports'     => ['title', 'editor', 'excerpt', 'revisions', 'custom-fields'],
                 'has_archive'  => true,
             ],
             'asset' => [
@@ -269,6 +262,30 @@ final class Registrar
             'show_admin_column' => true,
             'rewrite'           => ['slug' => 'price-range', 'with_front' => false],
         ]);
+
+        // --- Size ---
+        // Standardized sizing: XS, S, M, L, XL, XXL
+        register_taxonomy('size', ['helmet', 'accessory'], [
+            'label'             => 'Sizes',
+            'labels'            => $this->taxonomyLabels('Size', 'Sizes'),
+            'public'            => true,
+            'show_in_rest'      => true,
+            'hierarchical'      => false,
+            'show_admin_column' => true,
+            'rewrite'           => ['slug' => 'size', 'with_front' => false],
+        ]);
+
+        // --- Distributor Category ---
+        // Categories: Wholesale, Retailer, Logistics, Importer, etc.
+        register_taxonomy('distributor_category', ['distributor'], [
+            'label'             => 'Distributor Categories',
+            'labels'            => $this->taxonomyLabels('Distributor Category', 'Distributor Categories'),
+            'public'            => true,
+            'show_in_rest'      => true,
+            'hierarchical'      => true,
+            'show_admin_column' => true,
+            'rewrite'           => ['slug' => 'distributor-category', 'with_front' => false],
+        ]);
     }
 
     /**
@@ -291,5 +308,57 @@ final class Registrar
             'new_item_name'     => 'New ' . $singular . ' Name',
             'menu_name'         => $plural,
         ];
+    }
+
+    /**
+     * Ensure all core catalog post types are recognized by Polylang for multi-language support.
+     *
+     * @param array<string,string> $types
+     * @param bool $isSettings
+     * @return array<string,string>
+     */
+    public function filterPolylangPostTypes(array $types, bool $isSettings): array
+    {
+        $ourTypes = [
+            'helmet',
+            'brand',
+            'accessory',
+            'motorcycle',
+            'safety_standard',
+            'dealer',
+            'distributor',
+            'technology',
+        ];
+
+        foreach ($ourTypes as $postType) {
+            $types[$postType] = $postType;
+        }
+
+        return $types;
+    }
+
+    /**
+     * Ensure catalog taxonomies are recognized by Polylang for multi-language support.
+     *
+     * @param array<string,string> $taxonomies
+     * @param bool $isSettings
+     * @return array<string,string>
+     */
+    public function filterPolylangTaxonomies(array $taxonomies, bool $isSettings): array
+    {
+        $ourTaxonomies = [
+            'helmet_type',
+            'riding_style',
+            'certification',
+            'head_shape',
+            'accessory_category',
+            'motorcycle_category',
+        ];
+
+        foreach ($ourTaxonomies as $taxonomy) {
+            $taxonomies[$taxonomy] = $taxonomy;
+        }
+
+        return $taxonomies;
     }
 }

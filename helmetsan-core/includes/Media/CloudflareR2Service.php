@@ -24,24 +24,31 @@ class CloudflareR2Service
     public function __construct(Config $config)
     {
         $settings = get_option(Config::OPTION_MEDIA, $config->mediaDefaults());
+        $cfSettings = get_option(Config::OPTION_CLOUDFLARE, []);
 
-        $this->enabled = !empty($settings['r2_enabled']);
-        $this->bucket = $settings['r2_bucket'] ?? '';
-        $this->publicUrlPrefix = rtrim($settings['r2_public_url'] ?? '', '/');
+        $r2_account_id = defined('HELMETSAN_CLOUDFLARE_ACCOUNT_ID') ? HELMETSAN_CLOUDFLARE_ACCOUNT_ID : ($cfSettings['cf_account_id'] ?? ($settings['r2_account_id'] ?? ''));
+        $r2_access_key = defined('HELMETSAN_R2_ACCESS_KEY_ID') ? HELMETSAN_R2_ACCESS_KEY_ID : ($settings['r2_access_key'] ?? '');
+        $r2_secret_key = defined('HELMETSAN_R2_SECRET_ACCESS_KEY') ? HELMETSAN_R2_SECRET_ACCESS_KEY : ($settings['r2_secret_key'] ?? '');
+
+        $this->bucket = defined('HELMETSAN_R2_BUCKET') ? HELMETSAN_R2_BUCKET : ($cfSettings['r2_bucket'] ?? ($settings['r2_bucket'] ?? ''));
+        $this->publicUrlPrefix = rtrim(defined('HELMETSAN_R2_PUBLIC_URL') ? HELMETSAN_R2_PUBLIC_URL : ($cfSettings['r2_public_url'] ?? ($settings['r2_public_url'] ?? '')), '/');
         $this->resizingEnabled = !empty($settings['r2_image_resizing_enabled']);
         $this->resizerUrl = rtrim($settings['r2_image_resizer_url'] ?? '', '/');
 
-        if ($this->enabled && !empty($settings['r2_account_id']) && !empty($settings['r2_access_key']) && !empty($settings['r2_secret_key'])) {
+        $this->enabled = !empty($cfSettings['enable_r2_backups']) || !empty($settings['r2_enabled']) || (!empty($r2_account_id) && !empty($r2_access_key) && !empty($r2_secret_key) && !empty($this->bucket));
+
+        if ($this->enabled && !empty($r2_account_id) && !empty($r2_access_key) && !empty($r2_secret_key)) {
             $this->client = new S3Client([
                 'region' => 'auto',
-                'endpoint' => sprintf('https://%s.r2.cloudflarestorage.com', $settings['r2_account_id']),
+                'endpoint' => sprintf('https://%s.r2.cloudflarestorage.com', $r2_account_id),
                 'version' => 'latest',
                 'credentials' => [
-                    'key' => $settings['r2_access_key'],
-                    'secret' => $settings['r2_secret_key'],
+                    'key' => $r2_access_key,
+                    'secret' => $r2_secret_key,
                 ],
             ]);
         }
+
     }
 
     public function isEnabled(): bool

@@ -25,3 +25,12 @@ function helmetsan_theme_check_dependencies(): void
         });
     }
 }
+add_filter('use_widgets_block_editor', '__return_false');
+
+// Declare WooCommerce HPOS compatibility
+add_action('before_woocommerce_init', static function (): void {
+    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', get_stylesheet(), true);
+    }
+});
+

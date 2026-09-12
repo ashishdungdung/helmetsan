@@ -1,0 +1,50 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="copy">price_retail_usd</custom-field>
+        <custom-field action="copy">spec_weight_g</custom-field>
+        <custom-field action="translate">brand_motto</custom-field>
+        <custom-field action="translate">brand_story</custom-field>
+        <custom-field action="translate">brand_manufacturing_ethos</custom-field>
+        <custom-field action="copy">brand_origin_country</custom-field>
+        <custom-field action="copy">brand_founded_year</custom-field>
+        <custom-field action="translate">_yoast_wpseo_title</custom-field>
+        <custom-field action="translate">_yoast_wpseo_metadesc</custom-field>
+        <custom-field action="translate">_yoast_wpseo_focuskw</custom-field>
+        <custom-field action="translate">rel_brand</custom-field>
+        <!-- WooCommerce Custom Fields -->
+        <custom-field action="copy">_price</custom-field>
+        <custom-field action="copy">_regular_price</custom-field>
+        <custom-field action="copy">_sale_price</custom-field>
+        <custom-field action="copy">_sku</custom-field>
+        <custom-field action="copy">_stock</custom-field>
+        <custom-field action="copy">_stock_status</custom-field>
+        <custom-field action="copy">_manage_stock</custom-field>
+        <custom-field action="copy">_weight</custom-field>
+        <custom-field action="copy">_length</custom-field>
+        <custom-field action="copy">_width</custom-field>
+        <custom-field action="copy">_height</custom-field>
+        <custom-field action="copy">_virtual</custom-field>
+        <custom-field action="copy">_downloadable</custom-field>
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="1">helmet</custom-type>
+        <custom-type translate="1">brand</custom-type>
+        <custom-type translate="1">accessory</custom-type>
+        <!-- WooCommerce Custom Types -->
+        <custom-type translate="1">product</custom-type>
+        <custom-type translate="1">product_variation</custom-type>
+    </custom-types>
+    <taxonomies>
+        <taxonomy translate="1">helmet_type</taxonomy>
+        <taxonomy translate="1">feature_tag</taxonomy>
+        <taxonomy translate="1">certification</taxonomy>
+        <taxonomy translate="1">accessory_category</taxonomy>
+        <!-- WooCommerce Taxonomies -->
+        <taxonomy translate="1">product_cat</taxonomy>
+        <taxonomy translate="1">product_tag</taxonomy>
+        <taxonomy translate="1">product_shipping_class</taxonomy>
+        <taxonomy translate="1">pa_color</taxonomy>
+        <taxonomy translate="1">pa_size</taxonomy>
+        <taxonomy translate="1">pa_style</taxonomy>
+    </taxonomies>
+</wpml-config>
