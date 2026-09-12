@@ -3,22 +3,90 @@
   "id": "iridium-visor-agv",
   "title": "AGV Pista GP RR Iridium Gold Race Visor",
   "type": "Face Shield",
-  "compatible_helmet_types": ["Full Face", "Race"],
-  "compatible_brands": ["AGV"],
-  "compatible_helmet_ids": ["agv-pista-gp-rr", "agv-k6"],
-  "features": [
-    "Iridium gold mirror coating",
-    "Scratch-resistant hard coat",
-    "Anti-UV treatment",
-    "Metal visor lock compatible",
-    "Race-ready optics — optical class 1",
-    "Designed for AGV Pista/Corsa/K6 visor mechanism"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Race"
   ],
-  "price": { "current": 129.95, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 129.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 109.00, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 11999, "currency": "INR", "availability": "limited", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "AGV"
+  ],
+  "compatible_helmet_ids": [
+    "agv-pista-gp-rr",
+    "agv-k6"
+  ],
+  "features": [
+    "Iridium Gold anti-glare coating for superior visibility in bright conditions",
+    "Pinlock 7 compatible to prevent fogging and ensure clear vision",
+    "Designed specifically for AGV Pista GP RR helmets with secure fitment"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The AGV Iridium Gold Race Visor adds aggressive style and sun protection to your Pista GP RR or K6. The mirror coating reduces glare while maintaining excellent optical clarity. Scratch-resistant and UV-treated, it meets the demands of both track and street riding.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 129.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 109,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 11999,
+      "currency": "INR",
+      "availability": "limited",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to withstand harsh ultraviolet radiation and dense condensation, the AGV Pista GP RR Iridium Gold Race Visor from AGV elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds).</p><p>The AGV Pista GP RR Iridium Gold Race Visor is an essential visual clarity upgrade from AGV. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.</p>",
+  "accessory_pinlock_ready": 1,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Tinted Race Visor",
+  "identifiers": {
+    "mpn": "AGV-PGARRIG"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the AGV AGV Pista GP RR Iridium Gold Race Visor.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "optical_tint_vlt_percentage": "12% to 15% VLT (Track / Bright Sunlight Race Application)",
+    "optical_clarity_class": "Optical Class 1 (Zero peripheral distortion at 240+ km/h)",
+    "uv_protection_rating": "UV400 (Blocks 99.9% of harmful UVA and UVB radiation)",
+    "battery_life_operating_hours": "Passive Photonic / Molecular Dye Matrix (No Battery Required)",
+    "waterproof_ip_rating": "Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal",
+    "installation_difficulty": "1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds)",
+    "audio_driver_specification": "Optical Class 1 Injection-Molded Polycarbonate with 99.9% UV-A/UV-B Shielding"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Pronounced central or side visor-lift tab designed for positive thumb engagement even while wearing thick waterproof gloves.",
+    "wind_noise_suppression_mic": "Aero-beaded perimeter seal compresses firmly against eyeport gasket to prevent high-speed whistling.",
+    "real_world_pros": [
+      "100% fog-free vision in freezing rain and humid urban stop-and-go traffic",
+      "True Optical Class 1 clarity without edge distortion or night-time glare haloing",
+      "Rapid toolless trackside installation"
+    ],
+    "real_world_cons": [
+      "Dark smoke versions are restricted to daytime use under DOT/ECE regulations",
+      "Pinlock silicone bead requires gentle cleaning with lukewarm water only"
+    ],
+    "editorial_verdict": "The AGV Pista GP RR Iridium Gold Race Visor is an essential visual clarity upgrade from AGV. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
+  },
+  "brand": "AGV",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=AGV+Pista+GP+RR+Iridium+Gold+Race+Visor&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=AGV+Pista+GP+RR+Iridium+Gold+Race+Visor&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

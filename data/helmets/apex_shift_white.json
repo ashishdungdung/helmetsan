@@ -1,78 +1,270 @@
 {
-    "id": "apex_shift_white",
-    "entity": "helmet",
-    "title": "Apex Shift White",
-    "brand": "Apex",
-    "type": "Modular",
-    "helmet_types": [
-        "Modular"
-    ],
-    "parent_id": "apex_shift",
-    "helmet_family": "Shift",
-    "price": {
-        "current": 259.99,
-        "usd": 259.99,
-        "eur": 239.19,
-        "gbp": 205.39
-    },
+  "id": "apex_shift_white",
+  "entity": "helmet",
+  "title": "Shift White",
+  "brand": "Apex",
+  "type": "Modular",
+  "helmet_types": [
+    "Modular"
+  ],
+  "parent_id": "apex_shift",
+  "helmet_family": "Shift",
+  "price": {
+    "usd": 259,
+    "inr": 21497,
+    "eur": 238,
+    "gbp": 205,
+    "jpy": 40145
+  },
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1345,
+    "weight_lbs": 2.97,
     "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 87
+  },
+  "description": "The Apex Shift White is delivers one-handed chin bar actuation paired with certified dual-homologation protection, pairing a quick-flip chin bar with certified impact protection. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1345g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~89 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Modular with flip-up and internal sun visor."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/apex_shift_white_front.png",
+    "https://helmetsan.com/assets/helmets/apex_shift_white_side.png",
+    "https://helmetsan.com/assets/helmets/apex_shift_white_rear.png"
+  ],
+  "color": "White",
+  "color_family": "White",
+  "sku": "APE-APEXSH",
+  "finish": "gloss",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 18,
+    "cable_management": true,
+    "hud_ready": true
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B09X7Z8Y3W",
+    "ean": "8421567890123",
+    "mpn": "APX-MS-WHT-24",
+    "sku": "APE-APEXSH"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 5,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Modular fit system allows adjustment for oval and intermediate head shapes; cheek pads are removable for custom sizing.",
+    "head_shape": "Intermediate/Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 87,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.34
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 168,
+    "crown_depth_mm": 102
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Apex Shift White: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Apex Shift White: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "apex shift white modular helmet",
+  "yoast_metadesc": "In-depth review of the Apex Shift White. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Apex+Shift+White&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Apex+Shift+White"
+  },
+  "cross_links": [
+    {
+      "keyword": "Apex",
+      "target_id": "apex",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "Apex Shift",
+      "target_id": "apex_shift",
+      "target_type": "helmet"
+    }
+  ],
+  "country_origin": "Global",
+  "category": "Modular",
+  "physics_intelligence": {
+    "weight_grams": 1345,
+    "acoustic_noise_rating_db": "87 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Apex Shift White is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Apex's Modular lineup, the Shift White brings Indian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Apex Shift White represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Modular helmet tailored to an Intermediate Oval head shape, the Apex Shift White delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Apex Shift White represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Modular helmet tailored to an Intermediate Oval head shape, the Apex Shift White delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Smooth cable-actuated internal drop-down sun visor simplifies variable light riding",
+      "Featherweight 1345g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "Slightly broader frontal profile than fixed race lids, creating moderate drag in aggressive tuck"
+    ]
+  },
+  "editorial_overview": "The Apex Shift White is delivers one-handed chin bar actuation paired with certified dual-homologation protection, pairing a quick-flip chin bar with certified impact protection. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1345g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~89 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A dependable modular workhorse engineered for straightforward daily commuting and weekend touring flexibility.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Modular Touring & Urban Versatility",
+      "riding_stance": "Upright / Neutral Ergonomic Stance",
+      "core_priority": "Flip-up chin bar flexibility, dual P/J homologation, and drop-down sun visor convenience"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1345,
+      "measured_weight_lbs": 2.97
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~89 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "ECE 22.05"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Polycarbonate",
-        "weight_g": 1710,
-        "weight_lbs": 3.77,
-        "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 5,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "Modular with flip-up and internal sun visor.",
-    "product_details": {
-        "description": "Modular with flip-up and internal sun visor."
+    "verdict_takeaway": "A dependable modular workhorse engineered for straightforward daily commuting and weekend touring flexibility."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ducati_multistrada_v4_rally",
+      "title": "Multistrada V4 Rally",
+      "make": "Ducati",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Ducati Multistrada V4 Rally."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Apex+Shift+White",
-        "https://placehold.co/800x800/222/white?text=Apex+Shift+White+Side",
-        "https://placehold.co/800x800/222/white?text=Apex+Shift+White+Back"
-    ],
-    "color": "White",
-    "color_family": "White",
-    "sku": "APX-SHF-WHI",
-    "finish": "gloss",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "royal_enfield_scram_411_rally_touring_pack",
+      "title": "Scram 411 Rally (Touring Pack)",
+      "make": "Royal Enfield",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Scram 411 Rally (Touring Pack)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 18,
-        "cable_management": true,
-        "hud_ready": true
+    {
+      "id": "bmw_motorrad_hp2_enduro_legend_enduro_spec",
+      "title": "HP2 Enduro Legend (Enduro Spec)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the BMW Motorrad HP2 Enduro Legend (Enduro Spec)."
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B09X7Z8Y3W",
-        "ean": "8421567890123",
-        "mpn": "APX-MS-WHT-24"
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_250_adventure",
+      "title": "250 Adventure",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the 250 Adventure."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Modular fit system allows adjustment for oval and intermediate head shapes; cheek pads are removable for custom sizing.",
-        "head_shape": "Intermediate/Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 87
 }

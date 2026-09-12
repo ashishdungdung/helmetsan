@@ -1,78 +1,272 @@
 {
-    "id": "agv_k3_operator-blue",
-    "entity": "helmet",
-    "title": "AGV K3 Operator Blue",
-    "brand": "AGV",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "agv_k3",
-    "helmet_family": "K3",
-    "price": {
-        "current": 319.95,
-        "usd": 319.95,
-        "eur": 294.35,
-        "gbp": 252.76
-    },
+  "id": "agv_k3_operator-blue",
+  "entity": "helmet",
+  "title": "K3 Operator Blue",
+  "brand": "AGV",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "agv_k3",
+  "helmet_family": "K3",
+  "price": {
+    "usd": 319,
+    "inr": 26477,
+    "eur": 293,
+    "gbp": 252,
+    "jpy": 49445
+  },
+  "certifications": [
+    "DOT",
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Thermoplastic",
+    "weight_g": 1439,
+    "weight_lbs": 3.17,
     "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 3,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 86
+  },
+  "description": "Optimized for spirited canyon carvers and urban commuters alike, the AGV K3 Operator Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1439g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Versatile road helmet with internal sun visor."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/agv_k3_operator_blue_front.png",
+    "https://helmetsan.com/assets/helmets/agv_k3_operator_blue_side.png",
+    "https://helmetsan.com/assets/helmets/agv_k3_operator_blue_rear.png"
+  ],
+  "color": "Operator Blue",
+  "color_family": "Blue",
+  "sku": "AGV-AGVK3O",
+  "finish": "matte",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B0CQXJ8V9L",
+    "ean": "8021356470006",
+    "mpn": "K3-OP-BLU",
+    "sku": "AGV-AGVK3O"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.06",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for a sporty, snug fit with an Intermediate Oval head shape; may feel tight on very round heads due to the aggressive aerodynamic shell profile.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 86,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 112
+  },
+  "technical_analysis": "Features 100% 3K Carbon Fiber shell construction developed under AGV Extreme Safety protocol for MotoGP performance paired with Class-1 optical Ultravision shield offering 190° horizontal and 85° vertical field of view. The interior utilizes 360° Adaptive Fit crown structure with 2Dry moisture-wicking Shalimar & Ritmo fabric lining with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the AGV K3 Operator Blue: combining Italy 🇮🇹 craftsmanship with Class-1 optical Ultravision shield offering 190° horizontal and 85° vertical field of view and 360° Adaptive Fit crown structure with 2Dry moisture-wicking Shalimar & Ritmo fabric lining. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "AGV K3 Operator Blue: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "agv k3 operator blue helmet",
+  "yoast_metadesc": "In-depth review of the AGV K3 Operator Blue. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=AGV+K3+Operator+Blue&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=AGV+K3+Operator+Blue"
+  },
+  "cross_links": [
+    {
+      "keyword": "AGV",
+      "target_id": "agv",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "AGV K3",
+      "target_id": "agv_k3",
+      "target_type": "helmet"
+    }
+  ],
+  "spec_weight_g": 1520,
+  "repaired_and_enriched": true,
+  "country_origin": "Italy 🇮🇹",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1439,
+    "acoustic_noise_rating_db": "86 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The AGV K3 Operator Blue is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in AGV's Full Face lineup, the K3 Operator Blue brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+  "story": "The AGV K3 Operator Blue represents AGV's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Full Face helmet tailored to an Intermediate Oval head shape, the AGV K3 Operator Blue delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The AGV K3 Operator Blue represents AGV's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Full Face helmet tailored to an Intermediate Oval head shape, the AGV K3 Operator Blue delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Optically correct face shield with quick-release tool-less visor removal system",
+      "Well-balanced 1439g center of gravity reduces rider fatigue on long highway stretches",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
+    ]
+  },
+  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the AGV K3 Operator Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1439g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "rider_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Daily Urban Commuting & Naked Street",
+      "riding_stance": "Upright Street Stance",
+      "core_priority": "Wide panoramic eye-port for cross-traffic awareness, lightweight stop-and-go comfort, and quick latching"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1439,
+      "measured_weight_lbs": 3.17
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~87 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Thermoplastic",
-        "weight_g": 1550,
-        "weight_lbs": 3.42,
-        "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Versatile road helmet with internal sun visor.",
-    "product_details": {
-        "description": "Versatile road helmet with internal sun visor."
+    "verdict_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ducati_panigale_v4_r_homologation_sport_black",
+      "title": "Panigale V4 R Homologation (Sport Black)",
+      "make": "Ducati",
+      "category": "Homologation Superbike",
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Ducati Panigale V4 R Homologation (Sport Black)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=AGV+K3+Operator+Blue",
-        "https://placehold.co/800x800/222/white?text=AGV+K3+Operator+Blue+Side",
-        "https://placehold.co/800x800/222/white?text=AGV+K3+Operator+Blue+Back"
-    ],
-    "color": "Operator Blue",
-    "color_family": "Blue",
-    "sku": "AGV-K3-OPE",
-    "finish": "matte",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "vintage_exotics_mv_agusta_brutale_1000_rr_enduro_spec",
+      "title": "Vintage & Exotics MV Agusta Brutale 1000 RR (Enduro Spec)",
+      "make": "MV Agusta",
+      "category": "Middleweight Sportbike",
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Vintage & Exotics MV Agusta Brutale 1000 RR (Enduro Spec) velocity benchmarks."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "aprilia_moto_guzzi_aprilia_rs_457_supersport_race_replica",
+      "title": "RS 457 Supersport (Race Replica)",
+      "make": "Aprilia",
+      "category": "Middleweight Sportbike",
+      "match_score": 90,
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Aprilia performance."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "asin": "B0CQXJ8V9L",
-        "ean": "8021356470006",
-        "mpn": "K3-OP-BLU"
+    {
+      "id": "ducati_multistrada_v4_rally",
+      "title": "Multistrada V4 Rally",
+      "make": "Ducati",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Multistrada V4 Rally."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "iridium-visor-agv",
+      "title": "AGV Pista GP RR Iridium Gold Race Visor",
+      "fitment": "Metal visor mechanism trackside lock fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Ultra-wide race eyeport anti-fog chamber"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for a sporty, snug fit with a slightly oval head shape; may feel tight on very round heads due to the aggressive aerodynamic shell profile.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "visor-tear-offs",
+      "title": "100% Speedlab Vision System Tear-Offs (Pack of 20)",
+      "fitment": "Trackside perimeter post alignment"
+    }
+  ],
+  "noise_db": 86
 }

@@ -10,6 +10,13 @@
     "model": { "type": "string" },
     "segment": { "type": "string" },
     "engine_cc": { "type": "number" },
-    "recommended_helmet_types": { "type": "array", "items": { "type": "string" } }
+    "recommended_helmet_types": { "type": "array", "items": { "type": "string" } },
+    "seat_height_mm": { "type": "number" },
+    "fuel_capacity_liters": { "type": "number" },
+    "weight_wet_kg": { "type": "number" },
+    "transmission_type": { "type": "string" },
+    "horsepower": { "type": "number" },
+    "torque_nm": { "type": "number" },
+    "top_speed_kph": { "type": "number" }
   }
 }

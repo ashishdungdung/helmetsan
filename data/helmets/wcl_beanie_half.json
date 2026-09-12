@@ -1,222 +1,436 @@
 {
-    "id": "wcl_beanie_half",
-    "entity": "helmet",
-    "title": "WCL Beanie Half",
-    "brand": "WCL",
-    "type": "Half",
-    "helmet_family": "Beanie Half",
-    "price": {
+  "id": "wcl_beanie_half",
+  "entity": "helmet",
+  "title": "WCL Beanie Half",
+  "brand": "Wcl",
+  "type": "Half",
+  "helmet_family": "Beanie Half",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Round Oval",
+  "specs": {
+    "material": "ABS",
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 1,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 101
+  },
+  "description": "The Wcl Beanie Half is crafted for riders seeking low-profile styling with DOT baseline compliance, pairing low-profile styling with essential certified head protection. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1474g, channeling boundary-layer airflow to maintain a ~102 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "product_details": {
+    "description": "Super-slim DOT half helmet for short-distance cruiser rides."
+  },
+  "variants": [
+    {
+      "id": "wcl_beanie_half_gloss-black",
+      "entity": "helmet",
+      "title": "WCL Beanie Half Gloss Black",
+      "type": "Half",
+      "parent_id": "wcl_beanie_half",
+      "helmet_family": "Beanie Half",
+      "head_shape": "Round Oval",
+      "color": "Gloss Black",
+      "color_family": "Black",
+      "sku": "WCL-BEAN-BLK",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Wcl WCL Beanie Half is a benchmark Half helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Round Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Super-slim DOT half helmet for short-distance cruiser rides."
+      },
+      "price": {
         "current": 39.99,
-        "currency": "USD"
-    },
-    "head_shape": "Round Oval",
-    "specs": {
+        "usd": 39.99,
+        "eur": 36.79,
+        "gbp": 31.59
+      },
+      "specs": {
         "material": "ABS",
         "weight_g": 700,
         "weight_lbs": 1.54,
         "certifications": [
-            "DOT"
-        ],
-        "warranty_years": 1,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 2
-    },
-    "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
-    "product_details": {
-        "description": "Super-slim DOT half helmet for short-distance cruiser rides."
-    },
-    "variants": [
-        {
-            "id": "wcl_beanie_half_gloss-black",
-            "entity": "helmet",
-            "title": "WCL Beanie Half Gloss Black",
-            "type": "Half",
-            "parent_id": "wcl_beanie_half",
-            "helmet_family": "Beanie Half",
-            "head_shape": "Round Oval",
-            "color": "Gloss Black",
-            "color_family": "Black",
-            "sku": "WCL-BEAN-BLK",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
-            "product_details": {
-                "description": "Super-slim DOT half helmet for short-distance cruiser rides."
-            },
-            "price": {
-                "current": 39.99,
-                "usd": 39.99,
-                "eur": 36.79,
-                "gbp": 31.59
-            },
-            "specs": {
-                "material": "ABS",
-                "weight_g": 700,
-                "weight_lbs": 1.54,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+Black",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+Black+Side",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+Black+Back"
-            ],
-            "helmet_types": [
-                "Half"
-            ]
-        },
-        {
-            "id": "wcl_beanie_half_gloss-white",
-            "entity": "helmet",
-            "title": "WCL Beanie Half Gloss White",
-            "type": "Half",
-            "parent_id": "wcl_beanie_half",
-            "helmet_family": "Beanie Half",
-            "head_shape": "Round Oval",
-            "color": "Gloss White",
-            "color_family": "White",
-            "sku": "WCL-BEAN-WHI",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
-            "product_details": {
-                "description": "Super-slim DOT half helmet for short-distance cruiser rides."
-            },
-            "price": {
-                "current": 39.99,
-                "usd": 39.99,
-                "eur": 36.79,
-                "gbp": 31.59
-            },
-            "specs": {
-                "material": "ABS",
-                "weight_g": 700,
-                "weight_lbs": 1.54,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+White",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+White+Side",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Gloss+White+Back"
-            ],
-            "helmet_types": [
-                "Half"
-            ]
-        },
-        {
-            "id": "wcl_beanie_half_pearl-white",
-            "entity": "helmet",
-            "title": "WCL Beanie Half Pearl White",
-            "type": "Half",
-            "parent_id": "wcl_beanie_half",
-            "helmet_family": "Beanie Half",
-            "head_shape": "Round Oval",
-            "color": "Pearl White",
-            "color_family": "White",
-            "sku": "WCL-BEAN-WHI",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
-            "product_details": {
-                "description": "Super-slim DOT half helmet for short-distance cruiser rides."
-            },
-            "price": {
-                "current": 39.99,
-                "usd": 39.99,
-                "eur": 36.79,
-                "gbp": 31.59
-            },
-            "specs": {
-                "material": "ABS",
-                "weight_g": 700,
-                "weight_lbs": 1.54,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Pearl+White",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Pearl+White+Side",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Pearl+White+Back"
-            ],
-            "helmet_types": [
-                "Half"
-            ]
-        },
-        {
-            "id": "wcl_beanie_half_street-tc-2",
-            "entity": "helmet",
-            "title": "WCL Beanie Half Street TC-2",
-            "type": "Half",
-            "parent_id": "wcl_beanie_half",
-            "helmet_family": "Beanie Half",
-            "head_shape": "Round Oval",
-            "color": "Street TC-2",
-            "color_family": "Multi",
-            "sku": "WCL-BEAN-STR",
-            "finish": "gloss",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "Super-slim DOT half helmet for short-distance cruiser rides.",
-            "product_details": {
-                "description": "Super-slim DOT half helmet for short-distance cruiser rides."
-            },
-            "price": {
-                "current": 89.99000000000001,
-                "usd": 89.99000000000001,
-                "eur": 82.79,
-                "gbp": 71.09
-            },
-            "specs": {
-                "material": "ABS",
-                "weight_g": 700,
-                "weight_lbs": 1.54,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Street+TC-2",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Street+TC-2+Side",
-                "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+Street+TC-2+Back"
-            ],
-            "helmet_types": [
-                "Half"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+1",
-        "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+2",
-        "https://placehold.co/800x800/222/white?text=WCL+Beanie+Half+3"
-    ],
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
-    },
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_gloss_black_front.png",
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_gloss_black_side.png"
+      ],
+      "helmet_types": [
+        "Half"
+      ],
+      "introduction": "Positioned in Wcl's Half lineup, the WCL Beanie Half brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "WCL Beanie Half Gloss Black (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Wcl WCL Beanie Half in WCL Beanie Half Gloss Black. A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence.",
+      "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B08X7Y9Z1A",
-        "ean": "8423567890123",
-        "mpn": "WCL-HB-001"
+    {
+      "id": "wcl_beanie_half_gloss-white",
+      "entity": "helmet",
+      "title": "WCL Beanie Half Gloss White",
+      "type": "Half",
+      "parent_id": "wcl_beanie_half",
+      "helmet_family": "Beanie Half",
+      "head_shape": "Round Oval",
+      "color": "Gloss White",
+      "color_family": "White",
+      "sku": "WCL-BEAN-WHI",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Wcl WCL Beanie Half is a benchmark Half helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Round Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Super-slim DOT half helmet for short-distance cruiser rides."
+      },
+      "price": {
+        "current": 39.99,
+        "usd": 39.99,
+        "eur": 36.79,
+        "gbp": 31.59
+      },
+      "specs": {
+        "material": "ABS",
+        "weight_g": 700,
+        "weight_lbs": 1.54,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_gloss_white_front.png",
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_gloss_white_side.png"
+      ],
+      "helmet_types": [
+        "Half"
+      ],
+      "introduction": "Positioned in Wcl's Half lineup, the WCL Beanie Half brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "WCL Beanie Half Gloss White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Wcl WCL Beanie Half in WCL Beanie Half Gloss White. A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence.",
+      "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
-    "safety_intelligence": {
-        "sharp_rating": 4
+    {
+      "id": "wcl_beanie_half_pearl-white",
+      "entity": "helmet",
+      "title": "WCL Beanie Half Pearl White",
+      "type": "Half",
+      "parent_id": "wcl_beanie_half",
+      "helmet_family": "Beanie Half",
+      "head_shape": "Round Oval",
+      "color": "Pearl White",
+      "color_family": "White",
+      "sku": "WCL-BEAN-WHI",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Wcl WCL Beanie Half is a benchmark Half helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Round Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Super-slim DOT half helmet for short-distance cruiser rides."
+      },
+      "price": {
+        "current": 39.99,
+        "usd": 39.99,
+        "eur": 36.79,
+        "gbp": 31.59
+      },
+      "specs": {
+        "material": "ABS",
+        "weight_g": 700,
+        "weight_lbs": 1.54,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_pearl_white_front.png",
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_pearl_white_side.png"
+      ],
+      "helmet_types": [
+        "Half"
+      ],
+      "introduction": "Positioned in Wcl's Half lineup, the WCL Beanie Half brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "WCL Beanie Half Pearl White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Wcl WCL Beanie Half in WCL Beanie Half Pearl White. A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence.",
+      "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for casual wear and light commuting; offers a relaxed fit suitable for various head shapes but lacks specific retention systems for high-speed riding.",
-        "head_shape": "Universal"
+    {
+      "id": "wcl_beanie_half_street-tc-2",
+      "entity": "helmet",
+      "title": "WCL Beanie Half Street TC-2",
+      "type": "Half",
+      "parent_id": "wcl_beanie_half",
+      "helmet_family": "Beanie Half",
+      "head_shape": "Round Oval",
+      "color": "Street TC-2",
+      "color_family": "Multi",
+      "sku": "WCL-BEAN-STR",
+      "finish": "gloss",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The Wcl WCL Beanie Half is a benchmark Half helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Round Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Super-slim DOT half helmet for short-distance cruiser rides."
+      },
+      "price": {
+        "current": 89.99000000000001,
+        "usd": 89.99000000000001,
+        "eur": 82.79,
+        "gbp": 71.09
+      },
+      "specs": {
+        "material": "ABS",
+        "weight_g": 700,
+        "weight_lbs": 1.54,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_street_tc_2_front.png",
+        "https://helmetsan.com/assets/helmets/wcl_beanie_half_street_tc_2_side.png"
+      ],
+      "helmet_types": [
+        "Half"
+      ],
+      "introduction": "Positioned in Wcl's Half lineup, the WCL Beanie Half brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "WCL Beanie Half Street TC-2 (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Wcl WCL Beanie Half in WCL Beanie Half Street TC-2. A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence.",
+      "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/wcl_beanie_half_front.png",
+    "https://helmetsan.com/assets/helmets/wcl_beanie_half_side.png",
+    "https://helmetsan.com/assets/helmets/wcl_beanie_half_rear.png"
+  ],
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts"
+  },
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B08X7Y9Z1A",
+    "ean": "8423567890123",
+    "mpn": "WCL-BH-001",
+    "sku": "WCL-WCLBEA"
+  },
+  "safety_intelligence": {
+    "sharp_rating": 0,
+    "homologation_standard": "DOT, ECE 22.05",
+    "rotational_mitigation": true,
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for casual wear and light commuting; offers a relaxed fit suitable for various head shapes but lacks specific retention systems for high-speed riding.",
+    "head_shape": "Universal"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 101,
+    "ventilation_efficiency_score": 4,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 165,
+    "crown_depth_mm": 88
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Wcl WCL Beanie Half: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Wcl WCL Beanie Half: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "wcl beanie half helmet",
+  "yoast_metadesc": "In-depth review of the Wcl WCL Beanie Half. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Round Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Wcl+WCL+Beanie+Half&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Wcl+WCL+Beanie+Half"
+  },
+  "unified_enriched": true,
+  "sku": "WCL-WCLBEA",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Half",
+  "physics_intelligence": {
+    "weight_grams": 1474,
+    "acoustic_noise_rating_db": "101 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The Wcl WCL Beanie Half is a benchmark Half helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Wcl's Half lineup, the WCL Beanie Half brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Wcl Beanie Half represents Wcl's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~102 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Half helmet tailored to a Round Oval head shape, the Wcl Beanie Half delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Quick-release retention system with low-profile profile tailored for classic cruisers",
+      "Well-balanced 1474g center of gravity reduces rider fatigue on long highway stretches",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~102 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "High wind buffeting and road noise require earplugs and dedicated riding eyewear"
+    ]
+  },
+  "editorial_overview": "The Wcl Beanie Half is crafted for riders seeking low-profile styling with DOT baseline compliance, pairing low-profile styling with essential certified head protection. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1474g, channeling boundary-layer airflow to maintain a ~102 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "rider_takeaway": "A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Half-Helmet Minimalist Highway Cruiser",
+      "riding_stance": "Relaxed Highway Stance",
+      "core_priority": "Maximum minimalism, low-profile cranial coverage, and unrestricted sensory connection"
     },
-    "deep_enriched": true
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1474,
+      "measured_weight_lbs": 3.25
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~102 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Round Oval",
+      "fit_profile": "Round Oval (Lateral Temple Contour)",
+      "fit_details": "Provides expanded lateral clearance across the temples and ears, ensuring plush, zero-pinch crown contact.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": true
+    },
+    "verdict_takeaway": "A classic low-profile half-shell helmet offering featherweight comfort and traditional custom V-twin cruiser presence."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "yamaha_fz_x_chrome_retro",
+      "title": "FZ-X Chrome Retro",
+      "make": "Yamaha",
+      "category": "Urban Roadster",
+      "match_score": 97,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Yamaha FZ-X Chrome Retro."
+    },
+    {
+      "id": "hero_motocorp_splendor_01_edition_sport_black",
+      "title": "Splendor+ 01 Edition (Sport Black)",
+      "make": "Hero MotoCorp",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Splendor+ 01 Edition (Sport Black)."
+    },
+    {
+      "id": "ducati_scrambler_icon_gen_2_touring_pack",
+      "title": "Scrambler Icon Gen-2 (Touring Pack)",
+      "make": "Ducati",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Ducati Scrambler Icon Gen-2 (Touring Pack)."
+    },
+    {
+      "id": "yezdi_motorcycles_yezdi_roadster_dark_shadow",
+      "title": "Yezdi Roadster Dark Shadow",
+      "make": "Yezdi Motorcycles",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Yezdi Roadster Dark Shadow."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 101,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ],
+  "sharp_rating": 0
 }

@@ -1,0 +1,125 @@
+{
+  "id": "aprilia_moto_guzzi_aprilia_tuono_660_factory",
+  "entity": "motorcycle",
+  "title": "Tuono 660 Factory",
+  "brand": "Aprilia",
+  "country_origin": "Italy 🇮🇹",
+  "category": "Urban Roadster",
+  "displacement_cc": 660,
+  "power_hp": 85,
+  "torque_nm": 70,
+  "curb_weight_kg": 195,
+  "price": {
+    "usd": 9500,
+    "inr": 788500,
+    "eur": 8740,
+    "gbp": 7505,
+    "jpy": 1472500
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Representing Aprilia's prowess in the Urban Roadster class, the Aprilia Tuono 660 Factory is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 660cc powerplant pumps out 85 HP and 70 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Aprilia Tuono 660 Factory: Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Aprilia Tuono 660 Factory.",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Moderate",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 15.5,
+  "top_speed_kmh": 215,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Aprilia's prowess in the Urban Roadster class, the Aprilia Tuono 660 Factory is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 660cc powerplant pumps out 85 HP and 70 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "660cc",
+      "power_hp": 85,
+      "torque_nm": 70,
+      "curb_weight_kg": 195,
+      "power_to_weight": "43.6 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 15.5,
+      "estimated_range_km": "~434 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "nolan_n60_6_urban-tc-5",
+      "title": "N60-6 Urban TC-5",
+      "brand": "Nolan",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Aprilia Tuono 660 Factory."
+    },
+    {
+      "id": "agv_x3000_tech-tc-1",
+      "title": "X3000 Tech TC-1",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Tuono 660 Factory at highway speeds."
+    },
+    {
+      "id": "shoei_rf_1400_nocturne-tc-5",
+      "title": "RF-1400 Nocturne TC-5",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Aprilia Tuono 660 Factory."
+    },
+    {
+      "id": "agv_k3",
+      "title": "K3",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Tuono 660 Factory."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Attenuates harsh open-air buffeting from the unfaired handlebars of the Aprilia Tuono 660 Factory without blocking emergency sirens."
+    },
+    {
+      "id": "led-brake-light",
+      "title": "Brake Free Smart LED Helmet Light",
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Tuono 660 Factory."
+    },
+    {
+      "id": "cardo-spirit-hd",
+      "title": "Cardo Spirit HD Duo",
+      "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
+    }
+  ]
+}

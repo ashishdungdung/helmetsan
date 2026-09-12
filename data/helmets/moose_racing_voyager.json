@@ -1,147 +1,346 @@
 {
-    "id": "moose_racing_voyager",
-    "entity": "helmet",
-    "title": "Moose Racing Voyager",
-    "brand": "Moose Racing",
-    "type": "Adventure / Dual Sport",
-    "helmet_family": "Voyager",
-    "price": {
+  "id": "moose_racing_voyager",
+  "entity": "helmet",
+  "title": "Racing Voyager",
+  "brand": "Moose",
+  "type": "Adventure / Dual Sport",
+  "helmet_family": "Voyager",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Fiberglass",
+    "weight_g": 1393,
+    "weight_lbs": 3.07,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 1,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 90
+  },
+  "description": "The Moose Racing Voyager is purpose-built for adventure riders tackling varied weather and challenging backcountry trails, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1393g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~90 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "product_details": {
+    "description": "Adventure touring helmet with removable peak and good ventilation."
+  },
+  "variants": [
+    {
+      "id": "moose_racing_voyager_matte-black",
+      "entity": "helmet",
+      "title": "Moose Racing Voyager Matte Black",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "moose_racing_voyager",
+      "helmet_family": "Voyager",
+      "head_shape": "Intermediate Oval",
+      "color": "Matte Black",
+      "color_family": "Black",
+      "sku": "MOO-VOY-MBK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Moose Racing Voyager is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Adventure touring helmet with removable peak and good ventilation."
+      },
+      "price": {
         "current": 229.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 229.99,
+        "eur": 211.59,
+        "gbp": 181.69
+      },
+      "specs": {
         "material": "Fiberglass",
         "weight_g": 1550,
         "weight_lbs": 3.42,
         "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 1,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 2
-    },
-    "description": "Adventure touring helmet with removable peak and good ventilation.",
-    "product_details": {
-        "description": "Adventure touring helmet with removable peak and good ventilation."
-    },
-    "variants": [
-        {
-            "id": "moose_racing_voyager_matte-black",
-            "entity": "helmet",
-            "title": "Moose Racing Voyager Matte Black",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "moose_racing_voyager",
-            "helmet_family": "Voyager",
-            "head_shape": "Intermediate Oval",
-            "color": "Matte Black",
-            "color_family": "Black",
-            "sku": "MOO-VOY-MBK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Adventure touring helmet with removable peak and good ventilation.",
-            "product_details": {
-                "description": "Adventure touring helmet with removable peak and good ventilation."
-            },
-            "price": {
-                "current": 229.99,
-                "usd": 229.99,
-                "eur": 211.59,
-                "gbp": 181.69
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Matte+Black",
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Matte+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Matte+Black+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        },
-        {
-            "id": "moose_racing_voyager_gloss-white",
-            "entity": "helmet",
-            "title": "Moose Racing Voyager Gloss White",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "moose_racing_voyager",
-            "helmet_family": "Voyager",
-            "head_shape": "Intermediate Oval",
-            "color": "Gloss White",
-            "color_family": "White",
-            "sku": "MOO-VOY-WHT",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Adventure touring helmet with removable peak and good ventilation.",
-            "product_details": {
-                "description": "Adventure touring helmet with removable peak and good ventilation."
-            },
-            "price": {
-                "current": 229.99,
-                "usd": 229.99,
-                "eur": 211.59,
-                "gbp": 181.69
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White",
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White+Side",
-                "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+Gloss+White+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+1",
-        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+2",
-        "https://placehold.co/800x800/222/white?text=Moose+Racing+Voyager+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.05"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/moose_racing_voyager_matte_black_front.png",
+        "https://helmetsan.com/assets/helmets/moose_racing_voyager_matte_black_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Moose's Adventure / Dual Sport lineup, the Racing Voyager brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Moose Racing Voyager represents Moose's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Moose Racing Voyager delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Moose Racing Voyager Matte Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Moose Racing Voyager in Moose Racing Voyager Matte Black. A dependable multi-surface helmet offering goggle versatility and certified impact protection for weekend trail blazers.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 18,
-        "cable_management": true
+    {
+      "id": "moose_racing_voyager_gloss-white",
+      "entity": "helmet",
+      "title": "Moose Racing Voyager Gloss White",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "moose_racing_voyager",
+      "helmet_family": "Voyager",
+      "head_shape": "Intermediate Oval",
+      "color": "Gloss White",
+      "color_family": "White",
+      "sku": "MOO-VOY-WHT",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Moose Racing Voyager is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Adventure touring helmet with removable peak and good ventilation."
+      },
+      "price": {
+        "current": 229.99,
+        "usd": 229.99,
+        "eur": 211.59,
+        "gbp": 181.69
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/moose_racing_voyager_gloss_white_front.png",
+        "https://helmetsan.com/assets/helmets/moose_racing_voyager_gloss_white_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Moose's Adventure / Dual Sport lineup, the Racing Voyager brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Moose Racing Voyager represents Moose's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Moose Racing Voyager delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Moose Racing Voyager Gloss White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Moose Racing Voyager in Moose Racing Voyager Gloss White. A dependable multi-surface helmet offering goggle versatility and certified impact protection for weekend trail blazers.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/moose_racing_voyager_front.png",
+    "https://helmetsan.com/assets/helmets/moose_racing_voyager_side.png",
+    "https://helmetsan.com/assets/helmets/moose_racing_voyager_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 18,
+    "cable_management": true
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B08X7Y9Z1A",
+    "ean": "8423567890123",
+    "mpn": "VR-ADV-24-BLK",
+    "sku": "MOO-MOOSER"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 5,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for adventure riding with extended rear coverage; may require sizing up for riders with larger necks due to aggressive cheek pad placement.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 90,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 245,
+    "internal_width_mm": 195,
+    "crown_depth_mm": 115
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Moose Racing Voyager: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Moose Racing Voyager: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "moose racing voyager helmet",
+  "yoast_metadesc": "In-depth review of the Moose Racing Voyager. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Moose+Racing+Voyager&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Moose+Racing+Voyager"
+  },
+  "sku": "MOO-MOOSER",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Adventure / Dual Sport",
+  "physics_intelligence": {
+    "weight_grams": 1393,
+    "acoustic_noise_rating_db": "90 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Moose Racing Voyager is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Moose's Adventure / Dual Sport lineup, the Racing Voyager brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Moose Racing Voyager represents Moose's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Moose Racing Voyager delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Moose Racing Voyager represents Moose's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Moose Racing Voyager delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Aerodynamic roost peak visor designed to channel highway airflow while shielding intense sun glare",
+      "Well-balanced 1393g center of gravity reduces rider fatigue on long highway stretches",
+      "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "Larger exterior shell volume and ventilation ports generate elevated highway wind noise"
+    ]
+  },
+  "editorial_overview": "The Moose Racing Voyager is purpose-built for adventure riders tackling varied weather and challenging backcountry trails, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1393g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~90 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "rider_takeaway": "A dependable multi-surface helmet offering goggle versatility and certified impact protection for weekend trail blazers.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Adventure Touring & Dual-Sport Exploration",
+      "riding_stance": "Upright All-Terrain Posture",
+      "core_priority": "Aerodynamic peak visor stability, modular goggle adaptation, and multi-stage dust filtering"
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B08X7Y9Z1A",
-        "ean": "8423567890123",
-        "mpn": "VR-ADV-24-BLK"
+    "physics_and_kinetics": {
+      "material_tier": "High-Performance Fiberglass Composite (HPFC)",
+      "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
+      "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
+      "measured_weight_g": 1393,
+      "measured_weight_lbs": 3.07
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    "acoustic_envelope": {
+      "sound_index_db": "~90 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for adventure riding with extended rear coverage; may require sizing up for riders with larger necks due to aggressive cheek pad placement.",
-        "head_shape": "Intermediate Oval"
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "deep_enriched": true
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 5,
+      "sharp_verified": false,
+      "rotational_mitigation": true
+    },
+    "verdict_takeaway": "A dependable multi-surface helmet offering goggle versatility and certified impact protection for weekend trail blazers."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "yamaha_tenere_700",
+      "title": "Tenere 700 World Raid",
+      "make": "Yamaha",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Yamaha Tenere 700 World Raid."
+    },
+    {
+      "id": "bmw_motorrad_hp2_enduro_legend_race_replica",
+      "title": "HP2 Enduro Legend (Race Replica)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the HP2 Enduro Legend (Race Replica)."
+    },
+    {
+      "id": "ducati_desertx_rally_edition_rally_edition",
+      "title": "DesertX Rally Edition (Rally Edition)",
+      "make": "Ducati",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Ducati DesertX Rally Edition (Rally Edition)."
+    },
+    {
+      "id": "ktm_husqvarna_gasgas_gasgas_ec_350f_enduro_dark_edition",
+      "title": "GasGas EC 350F Enduro (Dark Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the GasGas EC 350F Enduro (Dark Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
+    },
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 90,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ]
 }

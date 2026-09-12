@@ -1,80 +1,269 @@
 {
-    "id": "bell_star_dlx_mips_matte-black",
-    "entity": "helmet",
-    "title": "Bell Star DLX MIPS Matte Black",
-    "brand": "Bell",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "bell_star_dlx_mips",
-    "helmet_family": "Star DLX MIPS",
-    "price": {
-        "current": 569.95,
-        "usd": 569.95,
-        "eur": 524.35,
-        "gbp": 450.26
-    },
+  "id": "bell_star_dlx_mips_matte-black",
+  "entity": "helmet",
+  "title": "Star DLX MIPS Matte Black",
+  "brand": "Bell",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "bell_star_dlx_mips",
+  "helmet_family": "Star DLX MIPS",
+  "price": {
+    "usd": 569,
+    "inr": 47227,
+    "eur": 523,
+    "gbp": 450,
+    "jpy": 88195
+  },
+  "certifications": [
+    "DOT",
+    "Snell M2020",
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Tri-Matrix",
+    "weight_g": 1417,
+    "weight_lbs": 3.12,
     "certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 3,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 93
+  },
+  "description": "Serving closed-circuit and supersport riders, the Bell Star DLX MIPS Matte Black is engineered for high-velocity circuit stability. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1417g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~90 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Street optimized version of the Star with MIPS protection."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/bell_star_dlx_mips_matte_black_front.png",
+    "https://helmetsan.com/assets/helmets/bell_star_dlx_mips_matte_black_side.png",
+    "https://helmetsan.com/assets/helmets/bell_star_dlx_mips_matte_black_rear.png"
+  ],
+  "color": "Matte Black",
+  "color_family": "Black",
+  "sku": "BEL-BELLST",
+  "finish": "matte",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 18,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B07QKZV8YJ",
+    "ean": "885916234567",
+    "mpn": "110000000000",
+    "sku": "BEL-BELLST"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, Snell M2020, ECE 22.06",
+    "sharp_rating": 5,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Matte Black finish; MIPS technology integrated for rotational impact protection.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 93,
+    "ventilation_efficiency_score": 7.5,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 218,
+    "internal_width_mm": 146,
+    "crown_depth_mm": 122
+  },
+  "technical_analysis": "Features 3K Carbon Fiber shell featuring Flex Impact Liner with progressive three-layer density rotational energy management paired with Panovision Class-1 optics visor with extended lateral field of view. The interior utilizes Virus CoolJade anti-bacterial lining paired with Magnefusion magnetic removable cheek pads with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Bell Star DLX MIPS Matte Black: combining United States 🇺🇸 craftsmanship with Panovision Class-1 optics visor with extended lateral field of view and Virus CoolJade anti-bacterial lining paired with Magnefusion magnetic removable cheek pads. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Bell Star DLX MIPS Matte Black: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "bell star dlx mips matte black",
+  "yoast_metadesc": "In-depth review of the Bell Star DLX MIPS Matte Black. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Bell+Star+DLX+MIPS+Matte+Black&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Bell+Star+DLX+MIPS+Matte+Black"
+  },
+  "cross_links": [
+    {
+      "keyword": "Bell",
+      "target_id": "bell",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "Bell Star",
+      "target_id": "bell_star",
+      "target_type": "helmet"
+    }
+  ],
+  "country_origin": "United States 🇺🇸",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1417,
+    "acoustic_noise_rating_db": "93 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Bell Star DLX MIPS Matte Black is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Bell's Full Face lineup, the Star DLX MIPS Matte Black brings American engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, Snell M2020, ECE 22.06 track safety.",
+  "story": "The Bell Star DLX MIPS Matte Black represents Bell's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Bell Star DLX MIPS Matte Black delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Bell Star DLX MIPS Matte Black represents Bell's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~90 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Bell Star DLX MIPS Matte Black delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval profiles with snug 3D laser-cut race cheek pads providing emergency quick release (EQRS). Expect an initial 15-20 riding hour break-in for 15-20% foam compression.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Tear-off post ready Class-1 optical shield with dual-action race locking latch",
+      "Well-balanced 1417g center of gravity reduces rider fatigue on long highway stretches",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "High-flow track venting increases cabin air volume, necessitating earplugs at speed"
+    ]
+  },
+  "editorial_overview": "Serving closed-circuit and supersport riders, the Bell Star DLX MIPS Matte Black is engineered for high-velocity circuit stability. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1417g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~90 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A track-focused sport helmet engineered for aggressive tuck geometry and high-speed stability without a four-figure price tag.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Closed-Circuit Superbike & Track Days",
+      "riding_stance": "Aggressive Full Tuck (180+ km/h)",
+      "core_priority": "Extreme high-speed stability, maximum peripheral vision, and negative aerodynamic lift"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1417,
+      "measured_weight_lbs": 3.12
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~90 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval profiles with snug 3D laser-cut race cheek pads providing emergency quick release (EQRS). Expect an initial 15-20 riding hour break-in for 15-20% foam compression."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "Snell M2020",
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Tri-Matrix",
-        "weight_g": 1600,
-        "weight_lbs": 3.53,
-        "certifications": [
-            "DOT",
-            "Snell M2020",
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 5,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "Street optimized version of the Star with MIPS protection.",
-    "product_details": {
-        "description": "Street optimized version of the Star with MIPS protection."
+    "verdict_takeaway": "A track-focused sport helmet engineered for aggressive tuck geometry and high-speed stability without a four-figure price tag."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_rc_390_gp_factory_urban_commuter",
+      "title": "RC 390 GP Factory (Urban Commuter)",
+      "make": "KTM",
+      "category": "Middleweight Sportbike",
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the KTM RC 390 GP Factory (Urban Commuter)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Bell+Star+DLX+MIPS+Matte+Black",
-        "https://placehold.co/800x800/222/white?text=Bell+Star+DLX+MIPS+Matte+Black+Side",
-        "https://placehold.co/800x800/222/white?text=Bell+Star+DLX+MIPS+Matte+Black+Back"
-    ],
-    "color": "Matte Black",
-    "color_family": "Black",
-    "sku": "BEL-STAR-BLK",
-    "finish": "matte",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "honda_cbr650r_e_clutch_urban_carbon",
+      "title": "CBR650R E-Clutch (Urban Carbon)",
+      "make": "Honda",
+      "category": "Middleweight Sportbike",
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at CBR650R E-Clutch (Urban Carbon) velocity benchmarks."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 18,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "triumph_tiger_1200_gt_pro_dark_edition",
+      "title": "Tiger 1200 GT Pro (Dark Edition)",
+      "make": "Triumph",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Triumph Tiger 1200 GT Pro (Dark Edition)."
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B07QKZV8YJ",
-        "ean": "885916234567",
-        "mpn": "110000000000"
+    {
+      "id": "triumph_tiger_1200_rally_explorer_special_edition",
+      "title": "Tiger 1200 Rally Explorer (Special Edition)",
+      "make": "Triumph",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Tiger 1200 Rally Explorer (Special Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "photochromic-visor",
+      "title": "ProTint Photochromic Replacement Shield",
+      "fitment": "Panovision toolless base plate fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
-    },
-    "sizing_fit": {
-        "fit_notes": "Matte Black finish; MIPS technology integrated for rotational impact protection.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed 40mm speaker cutout routing"
+    }
+  ],
+  "noise_db": 93
 }

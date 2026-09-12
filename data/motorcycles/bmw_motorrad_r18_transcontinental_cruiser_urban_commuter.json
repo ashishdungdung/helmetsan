@@ -1,0 +1,129 @@
+{
+  "id": "bmw_motorrad_r18_transcontinental_cruiser_urban_commuter",
+  "entity": "motorcycle",
+  "title": "R18 Transcontinental Cruiser (Urban Commuter)",
+  "brand": "BMW Motorrad",
+  "country_origin": "Germany 🇩🇪",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 0,
+  "power_hp": 16,
+  "torque_nm": 13,
+  "curb_weight_kg": 108,
+  "price": {
+    "usd": 2450,
+    "inr": 203350,
+    "eur": 2254,
+    "gbp": 1936,
+    "jpy": 379750
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Engineered for riders seeking confident performance and refined dynamics, the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter) is born on the race grid to deliver uncompromised high-speed aerodynamic downforce. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Aggressive Forward Tuck posture paired with a balanced 820mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "yoast_title": "BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [bmw_motorrad_r18_transcontinental_cruiser] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "bmw_motorrad_r18_transcontinental_cruiser",
+  "trim_type": "urban_commuter",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Engineered for riders seeking confident performance and refined dynamics, the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter) is born on the race grid to deliver uncompromised high-speed aerodynamic downforce. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Aggressive Forward Tuck posture paired with a balanced 820mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "rider_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Aggressive Full Forward Tuck",
+      "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 16,
+      "torque_nm": 13,
+      "curb_weight_kg": 108,
+      "power_to_weight": "14.8 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding."
+  },
+  "compatible_helmets": [
+    {
+      "id": "steelbird_thunder_gloss-white",
+      "title": "Thunder Gloss White",
+      "brand": "Steelbird",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter)."
+    },
+    {
+      "id": "ogk_kabuto_kamui_3_flow-blue",
+      "title": "OGK Kabuto Kamui-3 Flow Blue",
+      "brand": "Ogk",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the R18 Transcontinental Cruiser (Urban Commuter)."
+    },
+    {
+      "id": "agv_k5_s_gloss-white",
+      "title": "K5 S Gloss White",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter)."
+    },
+    {
+      "id": "apex_rush_red",
+      "title": "Rush Red",
+      "brand": "Apex",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for R18 Transcontinental Cruiser (Urban Commuter) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the BMW Motorrad R18 Transcontinental Cruiser (Urban Commuter)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the BMW Motorrad engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

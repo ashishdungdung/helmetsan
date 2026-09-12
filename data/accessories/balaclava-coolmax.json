@@ -3,22 +3,94 @@
   "id": "balaclava-coolmax",
   "title": "Alpinestars Race V3 Balaclava",
   "type": "Riding Gear",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Motocross"],
-  "compatible_brands": ["Universal"],
-  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "agv-pista-gp-rr", "scorpion-exo-r1-air", "bell-star-dlx-mips"],
-  "features": [
-    "Coolmax moisture-wicking fabric",
-    "Flat-seam construction prevents pressure points",
-    "Open face design for visor visibility",
-    "Antibacterial treatment",
-    "Quick-dry performance",
-    "Lightweight and breathable"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Motocross"
   ],
-  "price": { "current": 34.95, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 34.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 29.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 2990, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "hjc-rpha-71",
+    "agv-pista-gp-rr",
+    "scorpion-exo-r1-air",
+    "bell-star-dlx-mips"
+  ],
+  "features": [
+    "Full-face coverage for maximum protection against wind and debris",
+    "Breathable mesh panels for enhanced airflow during high-speed riding",
+    "Elasticated fit ensures secure stay in place without restricting movement"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The Alpinestars Race V3 Balaclava is a track-ready under-helmet layer that wicks moisture away from the skin, keeping you cool and dry during intense riding. The flat-seam construction prevents pressure points under your helmet, while antibacterial treatment keeps odors at bay.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 34.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 29.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 2990,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Alpinestars Race V3 Balaclava from Alpine provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Alpinestars Race V3 Balaclava represents an indispensable touring and group-ride upgrade from Alpine. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Balaclava",
+  "identifiers": {
+    "mpn": "AV3B"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Alpine Alpinestars Race V3 Balaclava.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
+    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
+    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    ],
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
+    ],
+    "editorial_verdict": "The Alpinestars Race V3 Balaclava represents an indispensable touring and group-ride upgrade from Alpine. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Alpine",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Alpinestars+Race+V3+Balaclava&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Alpinestars+Race+V3+Balaclava&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

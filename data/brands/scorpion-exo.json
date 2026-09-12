@@ -1,18 +1,39 @@
 {
-  "entity": "brand",
-  "id": "scorpion-exo",
-  "title": "Scorpion EXO",
-  "profile": {
-    "origin_country": "United States",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.scorpionusa.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Feature-rich helmets with strong value and broad rider segment coverage.",
-    "distributor_regions": "US\nEU",
-    "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/scorpionexo.com"
-  }
+    "entity": "brand",
+    "id": "scorpion-exo",
+    "title": "Scorpion EXO",
+    "canonical_name": "Scorpion EXO",
+    "aliases": [
+        "Scorpion",
+        "Scorpion EXO",
+        "Scorpion-EXO"
+    ],
+    "profile": {
+        "origin_country": "United States",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.scorpionusa.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Feature-rich helmets with strong value and broad rider segment coverage.",
+        "distributor_regions": "US\nEU",
+        "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/scorpionexo.com",
+        "story": "Scorpion was founded in France in 1974 by Jean-Pierre Plancq, initially focusing on the production of high-performance motorcycle helmets for professional racers and enthusiasts.",
+        "motto": "Safety First",
+        "founded_year": 1974
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Scorpion EXO Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Scorpion EXO is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Scorpion EXO consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

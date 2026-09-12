@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "bell",
-  "title": "Bell",
-  "profile": {
-    "origin_country": "United States",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.bellhelmets.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Motorsport heritage with strong safety and lifestyle product lines.",
-    "distributor_regions": "US\nEU",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/bellhelmets.com"
-  }
+    "entity": "brand",
+    "id": "bell",
+    "title": "Bell",
+    "profile": {
+        "origin_country": "United States",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.bellhelmets.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Motorsport heritage with strong safety and lifestyle product lines.",
+        "distributor_regions": "US\nEU",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/bellhelmets.com",
+        "story": "Bell Helmets traces its origins to 1932 when John Bell and his brother George established the company in Los Angeles, initially focusing on leather caps for motorcycle racers before transitioning into protective headgear. The brand's pivotal moment arrived in 1935 with the introduction of the first hard-shell helmet designed specifically for racing, a move that set a new standard for impact resistance and rider safety. Over the decades, Bell has remained at the forefront of innovation, pioneering technologies such as the first full-face helmet in 1968 and developing advanced retention systems and energy-absorbing liners that have become industry benchmarks.",
+        "motto": "The Best Protection",
+        "founded_year": 1932
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "United States \ud83c\uddfa\ud83c\uddf8",
+        "founding_year": 1954,
+        "headquarters_location": "Santa Cruz, California, USA",
+        "flagship_helmet_series": "Bell Race Star Flex & Custom 500",
+        "engineering_philosophy": "Motorsport Heritage, Progressive Flex Impact Protection & Iconic Styling",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Bell is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Bell consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

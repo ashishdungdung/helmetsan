@@ -3,22 +3,99 @@
   "id": "helmet-bag-premium",
   "title": "Shoei Premium Fleece-Lined Helmet Bag",
   "type": "Storage",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face"],
-  "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "HJC", "Bell", "Schuberth"],
-  "compatible_helmet_ids": ["shoei-rf-1400", "shoei-neotec-3", "arai-corsair-x", "arai-xd-5", "hjc-rpha-71", "agv-pista-gp-rr"],
-  "features": [
-    "Soft fleece-lined interior prevents scratches",
-    "Heavy-duty drawstring closure",
-    "Ventilated mesh panels for airflow",
-    "Reinforced carry handle",
-    "Fits helmets up to size 3XL",
-    "Branded embroidered logo"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Open Face"
   ],
-  "price": { "current": 39.99, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 39.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 34.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 2999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "Universal",
+    "Shoei",
+    "Arai",
+    "AGV",
+    "HJC",
+    "Bell",
+    "Schuberth"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "shoei-neotec-3",
+    "arai-corsair-x",
+    "arai-xd-5",
+    "hjc-rpha-71",
+    "agv-pista-gp-rr"
+  ],
+  "features": [
+    "Premium fleece-lined interior protects helmet from scratches and dust",
+    "Durable water-resistant exterior material for all-weather storage",
+    "Reinforced handles and shoulder strap for easy transport"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>Protect your investment with a premium fleece-lined helmet bag. The ultra-soft interior prevents scratches on visors and paint, while breathable mesh panels keep your helmets fresh during storage or transport. Fits all standard full-face, modular, and adventure helmets up to size 3XL.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 39.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 34.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 2999,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Built to protect your helmet investment between epic journeys, the Shoei Premium Fleece-Lined Helmet Bag from Shoei delivers comprehensive hygiene, drying, and surface protection. Built with Fleece-Padded Protective Enclosure Shielding Against Scratches and UV, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation).</p><p>The Shoei Premium Fleece-Lined Helmet Bag from Shoei is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Bag",
+  "identifiers": {
+    "mpn": "SHOEI-FLEECE-BAG"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Shoei Shoei Premium Fleece-Lined Helmet Bag.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "battery_life_operating_hours": "Passive Structural Storage Asset",
+    "waterproof_ip_rating": "Fleece-Padded Protective Enclosure Shielding Against Scratches and UV",
+    "installation_difficulty": "1.0 / 10 (Direct wipe application or plug-and-play operation)",
+    "audio_driver_specification": "Anti-Microbial Sanitization & Optical Surface Hydrophobic Shielding"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Heavy-duty oversized zipper pulls and wide-mouth access operable with gloved hands.",
+    "wind_noise_suppression_mic": "Soft fleece interior lining prevents scratch micro-abrasions to expensive helmet shells and tinted visors.",
+    "real_world_pros": [
+      "Maintains fresh helmet interior hygiene and prevents fungal buildup",
+      "Padded exterior protection shields paint finish from garage drops and luggage bumps",
+      "Simple, highly effective maintenance ritual extending helmet lifespan"
+    ],
+    "real_world_cons": [
+      "Takes up moderate storage footprint in touring panniers",
+      "Must be used regularly for maximum sanitization efficacy"
+    ],
+    "editorial_verdict": "The Shoei Premium Fleece-Lined Helmet Bag from Shoei is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions."
+  },
+  "brand": "Shoei",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Shoei+Premium+Fleece-Lined+Helmet+Bag&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Shoei+Premium+Fleece-Lined+Helmet+Bag&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

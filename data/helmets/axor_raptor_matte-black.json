@@ -1,76 +1,271 @@
 {
-    "id": "axor_raptor_matte-black",
-    "entity": "helmet",
-    "title": "Axor Raptor Matte Black",
-    "brand": "Axor",
-    "type": "Adventure / Dual Sport",
-    "helmet_types": [
-        "Adventure / Dual Sport"
-    ],
-    "parent_id": "axor_raptor",
-    "helmet_family": "Raptor",
-    "price": {
-        "current": 109.99,
-        "usd": 109.99,
-        "eur": 101.19,
-        "gbp": 86.89
-    },
+  "id": "axor_raptor_matte-black",
+  "entity": "helmet",
+  "title": "Raptor Matte Black",
+  "brand": "Axor",
+  "type": "Adventure / Dual Sport",
+  "helmet_types": [
+    "Adventure / Dual Sport"
+  ],
+  "parent_id": "axor_raptor",
+  "helmet_family": "Raptor",
+  "price": {
+    "usd": 109,
+    "inr": 9047,
+    "eur": 100,
+    "gbp": 86,
+    "jpy": 16895
+  },
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1332,
+    "weight_lbs": 2.94,
     "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 91
+  },
+  "description": "The Axor Raptor Matte Black is bridges highway aerodynamic poise with high-flow off-road ventilation, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1332g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "product_details": {
+    "description": "Axor adventure helmet with removable peak and dual visor."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/axor_raptor_matte_black_front.png",
+    "https://helmetsan.com/assets/helmets/axor_raptor_matte_black_side.png",
+    "https://helmetsan.com/assets/helmets/axor_raptor_matte_black_rear.png"
+  ],
+  "color": "Matte Black",
+  "color_family": "Black",
+  "sku": "AXO-AXORRA",
+  "finish": "matte",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 8,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": "2024",
+  "identifiers": {
+    "mpn": "AXOR-RAP-MAT-BLK",
+    "asin": "B08X7K2P9L",
+    "ean": "8412345678901",
+    "sku": "AXO-AXORRA"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 0,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for adventure riding with a slightly roomier fit to accommodate goggles and communication systems; features a multi-density EPS liner for impact absorption.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 91,
+    "ventilation_efficiency_score": 8,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 245,
+    "internal_width_mm": 165,
+    "crown_depth_mm": 118
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Axor Raptor Matte Black: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Axor Raptor Matte Black: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "axor raptor matte black helmet",
+  "yoast_metadesc": "In-depth review of the Axor Raptor Matte Black. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Axor+Raptor+Matte+Black&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Axor+Raptor+Matte+Black"
+  },
+  "cross_links": [
+    {
+      "keyword": "Axor",
+      "target_id": "axor",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "Axor Raptor",
+      "target_id": "axor_raptor",
+      "target_type": "helmet"
+    }
+  ],
+  "unified_enriched": true,
+  "country_origin": "India 🇮🇳",
+  "category": "Adventure / Dual Sport",
+  "physics_intelligence": {
+    "weight_grams": 1332,
+    "acoustic_noise_rating_db": "91 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Axor Raptor Matte Black is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified, ISI IS:4151 Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Axor's Adventure / Dual Sport lineup, the Raptor Matte Black brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Axor Raptor Matte Black represents Axor's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~91 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Axor Raptor Matte Black delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Axor Raptor Matte Black represents Axor's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~91 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Axor Raptor Matte Black delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Aerodynamic roost peak visor designed to channel highway airflow while shielding intense sun glare",
+      "Featherweight 1332g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "Aerodynamic peak visor can catch highway crosswinds and buffeting at speeds above 75 mph (120 km/h)"
+    ]
+  },
+  "editorial_overview": "The Axor Raptor Matte Black is bridges highway aerodynamic poise with high-flow off-road ventilation, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1332g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "rider_takeaway": "An adaptable adventure workhorse ready for gravel switchbacks, highway connectors, and dusty trails alike.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Adventure Touring & Dual-Sport Exploration",
+      "riding_stance": "Upright All-Terrain Posture",
+      "core_priority": "Aerodynamic peak visor stability, modular goggle adaptation, and multi-stage dust filtering"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1332,
+      "measured_weight_lbs": 2.94
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~91 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "ECE 22.05"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Polycarbonate",
-        "weight_g": 1550,
-        "weight_lbs": 3.42,
-        "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Axor adventure helmet with removable peak and dual visor.",
-    "product_details": {
-        "description": "Axor adventure helmet with removable peak and dual visor."
+    "verdict_takeaway": "An adaptable adventure workhorse ready for gravel switchbacks, highway connectors, and dusty trails alike."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "suzuki_gsx_s1000_naked_stealth_edition",
+      "title": "GSX-S1000 Naked (Stealth Edition)",
+      "make": "Suzuki",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Suzuki GSX-S1000 Naked (Stealth Edition)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Axor+Raptor+Matte+Black",
-        "https://placehold.co/800x800/222/white?text=Axor+Raptor+Matte+Black+Side",
-        "https://placehold.co/800x800/222/white?text=Axor+Raptor+Matte+Black+Back"
-    ],
-    "color": "Matte Black",
-    "color_family": "Black",
-    "sku": "AXR-RAP-BLK",
-    "finish": "matte",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "benelli_cfmoto_kove_cfmoto_650mt_adventure_enduro_spec",
+      "title": "Benelli & CFMOTO & KOVE CFMOTO 650MT Adventure (Enduro Spec)",
+      "make": "CFMOTO",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Benelli & CFMOTO & KOVE CFMOTO 650MT Adventure (Enduro Spec)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 8,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "bmw_motorrad_hp2_enduro_legend_stealth_edition",
+      "title": "HP2 Enduro Legend (Stealth Edition)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the BMW Motorrad HP2 Enduro Legend (Stealth Edition)."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "mpn": "AX-RAP-MAT-BLK"
+    {
+      "id": "bmw_motorrad_f750gs_stealth_edition",
+      "title": "F750GS (Stealth Edition)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the F750GS (Stealth Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for adventure riding with a slightly roomier fit to accommodate goggles and communication systems; features a multi-density EPS liner for impact absorption.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 91
 }

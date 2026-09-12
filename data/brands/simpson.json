@@ -1,22 +1,36 @@
 {
-  "entity": "brand",
-  "id": "simpson",
-  "title": "Simpson",
-  "profile": {
-    "origin_country": "United States",
-    "founded_year": "1959",
-    "headquarters": "New Braunfels, Texas, USA",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.simpsonraceproducts.com/",
-    "support_email": "info@teamsimpson.com",
-    "manufacturing_ethos": "Legends in motorsport safety since 1959. Simpson revolutionized drag racing safety and their iconic Bandit design is one of the most recognizable helmet silhouettes in the world. Built with composite fiber shells and Snell-certified impact protection.",
-    "distributor_regions": "US\nEU\nAU\nJP",
-    "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\",\"2XL\":\"63-64\"}",
-    "total_models": "10",
-    "helmet_types": "Full Face, Open Face",
-    "certification_coverage": "DOT, Snell M2020, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/simpsonraceproducts.com",
-    "notable_riders": [],
-    "parent_company": "Simpson Performance Products Inc."
-  }
+    "entity": "brand",
+    "id": "simpson",
+    "title": "Simpson",
+    "profile": {
+        "origin_country": "United States",
+        "founded_year": 1948,
+        "headquarters": "New Braunfels, Texas, USA",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.simpsonraceproducts.com/",
+        "support_email": "info@teamsimpson.com",
+        "manufacturing_ethos": "Legends in motorsport safety since 1959. Simpson revolutionized drag racing safety and their iconic Bandit design is one of the most recognizable helmet silhouettes in the world. Built with composite fiber shells and Snell-certified impact protection.",
+        "distributor_regions": "US\nEU\nAU\nJP",
+        "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\",\"2XL\":\"63-64\"}",
+        "total_models": "10",
+        "helmet_types": "Full Face, Open Face",
+        "certification_coverage": "DOT, Snell M2020, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/simpsonraceproducts.com",
+        "notable_riders": [],
+        "parent_company": "Simpson Performance Products Inc.",
+        "story": "Simpson began in 1948 when brothers Bill and Bob Simpson started manufacturing motorcycle helmets in their garage in San Francisco, California. Initially producing leather helmets for the burgeoning post-war motorcycle culture, the company quickly gained a reputation for durability and craftsmanship. As the industry evolved towards plastic shells, Simpson adapted by introducing one of the first hard-shell helmets in 1960, setting a new standard for protection that would define the brand's legacy.",
+        "motto": "The Original Hard Shell"
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Simpson Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Simpson is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Simpson consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

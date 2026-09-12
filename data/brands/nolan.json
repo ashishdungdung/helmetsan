@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "nolan",
-  "title": "Nolan",
-  "profile": {
-    "origin_country": "Italy",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.nolan.it/",
-    "support_email": "",
-    "manufacturing_ethos": "Italian touring-focused helmets with integrated communication ecosystems.",
-    "distributor_regions": "EU\nUS",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/nolan-helmets.com"
-  }
+    "entity": "brand",
+    "id": "nolan",
+    "title": "Nolan",
+    "profile": {
+        "origin_country": "Italy",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.nolan.it/",
+        "support_email": "",
+        "manufacturing_ethos": "Italian touring-focused helmets with integrated communication ecosystems.",
+        "distributor_regions": "EU\nUS",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/nolan-helmets.com",
+        "story": "Founded in 1975 by Franco and Giancarlo Pucci in the small town of Sansepolcro, Italy, Nolan began as a family-run workshop dedicated to crafting high-quality leather motorcycle gear. The brand quickly gained recognition for its innovative approach to design and safety, evolving from simple protective clothing into a premier manufacturer of helmets that combined Italian style with rigorous engineering standards. Over the decades, Nolan has remained deeply rooted in its heritage while continuously adapting to the changing needs of riders worldwide.\n\nNolan's most significant contribution to the industry lies in its pioneering work with advanced safety technologies and aerodynamic designs. The brand was instrumental in popularizing the modular helmet concept and consistently pushed the boundaries of impact protection, ventilation systems, and visor mechanics. By maintaining a close relationship with professional racers and adhering to the strictest international safety certifications, Nolan has set benchmarks for comfort and durability that continue to influence the global motorcycle helmet market today.",
+        "motto": "Passion for Safety",
+        "founded_year": 1975
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Nolan Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Nolan is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Nolan consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

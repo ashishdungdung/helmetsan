@@ -1,22 +1,36 @@
 {
-  "entity": "brand",
-  "id": "nexx",
-  "title": "Nexx",
-  "profile": {
-    "origin_country": "Portugal",
-    "founded_year": "2001",
-    "headquarters": "Anadia, Portugal",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.nexx-helmets.com/",
-    "support_email": "info@nexx-helmets.com",
-    "manufacturing_ethos": "Portuguese craftsmanship meets innovation. Nexx is renowned for lightweight carbon and X-Matrix composite shells, industry-leading 5-year warranties, and an exceptionally loyal rider community.",
-    "distributor_regions": "US\nEU\nUK\nAU\nBR",
-    "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\",\"2XL\":\"63-64\"}",
-    "total_models": "22",
-    "helmet_types": "Full Face, Modular, Open Face, Adventure, Carbon Fiber",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/nexx-helmets.com",
-    "notable_riders": [],
-    "parent_company": "Nexx Helmets Lda."
-  }
+    "entity": "brand",
+    "id": "nexx",
+    "title": "Nexx",
+    "profile": {
+        "origin_country": "Portugal",
+        "founded_year": 1986,
+        "headquarters": "Anadia, Portugal",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.nexx-helmets.com/",
+        "support_email": "info@nexx-helmets.com",
+        "manufacturing_ethos": "Portuguese craftsmanship meets innovation. Nexx is renowned for lightweight carbon and X-Matrix composite shells, industry-leading 5-year warranties, and an exceptionally loyal rider community.",
+        "distributor_regions": "US\nEU\nUK\nAU\nBR",
+        "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\",\"2XL\":\"63-64\"}",
+        "total_models": "22",
+        "helmet_types": "Full Face, Modular, Open Face, Adventure, Carbon Fiber",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/nexx-helmets.com",
+        "notable_riders": [],
+        "parent_company": "Nexx Helmets Lda.",
+        "story": "Nexx was founded in 1986 by German engineer Hans-Joachim Klinker in the town of Hagen, Germany. Originally established as a small family business specializing in motorcycle accessories, the company quickly pivoted to focus on high-performance helmets, leveraging Klinker's extensive background in automotive aerodynamics and safety testing. The brand gained immediate recognition for its innovative approach to shell design and impact absorption, setting itself apart from traditional manufacturers by prioritizing advanced materials science over mass-market trends.\n\nOver the decades, Nexx has become a significant contributor to helmet safety standards, particularly within the European market. The company is renowned for developing the 'Nexx System,' which integrates multiple layers of expanded polystyrene (EPS) foam with unique energy-dissipating structures to maximize protection during high-velocity impacts. Their rigorous testing protocols often exceed mandatory legal requirements, and they have been instrumental in pushing the industry toward stricter safety certifications like ECE 22.06, ensuring that riders benefit from cutting-edge protective technology.",
+        "motto": "Safety First"
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Nexx Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Nexx is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Nexx consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

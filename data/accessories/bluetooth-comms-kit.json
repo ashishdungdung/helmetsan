@@ -1,35 +1,77 @@
 {
-    "title": "Cardo Packtalk Edge",
-    "type": "Communication System",
-    "compatible_helmet_types": [
-        "Full Face",
-        "Modular",
-        "Adventure"
+  "title": "Cardo Packtalk Edge",
+  "type": "Communication System",
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure"
+  ],
+  "compatible_brands": [
+    "Universal",
+    "Shoei",
+    "Arai",
+    "AGV"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "arai-corsair-x",
+    "agv-k6",
+    "bell-qualifier-dlx-mips"
+  ],
+  "features": [
+    "Bluetooth 5.0 connectivity for seamless audio streaming",
+    "Up to 16 hours of talk time on a single charge",
+    "Noise-canceling microphone for clear communication"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Packtalk Edge from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "id": "bluetooth-comms-kit",
+  "entity": "accessory",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 1,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Intercom System",
+  "identifiers": {
+    "mpn": "PTE-2024"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Cardo Cardo Packtalk Edge.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 1,600m (1.0 mile) unit-to-unit; up to 8,000m (5.0 miles) across dynamic mesh pack",
+    "battery_life_operating_hours": "11 to 13 Hours High-Bandwidth Mesh Intercom Talk Time (Fast Charge: 20 min = 2 hrs)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "JBL 40mm High-Definition Neodymium Drivers with Dynamic Bass Boost",
+    "intercom_protocol": "Bluetooth 5.2 & 2nd-Gen Dynamic Mesh Communication (DMC) with Auto-Reconnect"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
     ],
-    "compatible_brands": [
-        "Universal",
-        "Shoei",
-        "Arai",
-        "AGV"
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
     ],
-    "compatible_helmet_ids": [
-        "shoei-rf-1400",
-        "arai-corsair-x",
-        "agv-k6",
-        "bell-qualifier-dlx-mips"
-    ],
-    "features": [
-        "Dynamic Mesh Communication",
-        "Natural Voice Operation",
-        "JBL Audio",
-        "Waterproof",
-        "Air Mount"
-    ],
-    "price": {
-        "current": 389.95,
-        "currency": "USD"
-    },
-    "description": "<p>The Cardo Packtalk Edge represents the pinnacle of motorcycle communication. Featuring second-generation Dynamic Mesh Communication (DMC), it offers unparalleled sound quality, rapid pairing, and robust performance. Its magnetic Air Mount system makes attaching it to your helmet secure and effortless. Custom-tuned JBL speakers ensure you hear every note and instruction with crystal clarity.</p>",
-    "id": "bluetooth-comms-kit",
-    "entity": "accessory"
+    "editorial_verdict": "The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Cardo",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

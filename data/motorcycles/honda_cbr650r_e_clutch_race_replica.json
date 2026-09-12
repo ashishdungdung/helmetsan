@@ -1,0 +1,125 @@
+{
+  "id": "honda_cbr650r_e_clutch_race_replica",
+  "entity": "motorcycle",
+  "title": "CBR650R E-Clutch (Race Replica)",
+  "brand": "Honda",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 650,
+  "power_hp": 89,
+  "torque_nm": 73,
+  "curb_weight_kg": 193,
+  "price": {
+    "usd": 10450,
+    "inr": 867350,
+    "eur": 9614,
+    "gbp": 8256,
+    "jpy": 1619750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Representing Honda's prowess in the Middleweight Sportbike class, the Honda CBR650R E-Clutch (Race Replica) is delivers razor-sharp chassis feedback for riders hunting apexes. A 650cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Honda CBR650R E-Clutch (Race Replica): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Honda CBR650R E-Clutch (Race Replica).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Moderate",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 15.5,
+  "top_speed_kmh": 215,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node B (M3 Pro Worker) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_b",
+  "editorial_overview": "Representing Honda's prowess in the Middleweight Sportbike class, the Honda CBR650R E-Clutch (Race Replica) is delivers razor-sharp chassis feedback for riders hunting apexes. A 650cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Dedicated Forward Lean",
+      "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "650cc",
+      "power_hp": 89,
+      "torque_nm": 73,
+      "curb_weight_kg": 193,
+      "power_to_weight": "46.1 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 15.5,
+      "estimated_range_km": "~434 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shoei_x_fifteen_marquez-7-tc-1",
+      "title": "X-Fifteen Marquez 7 TC-1",
+      "brand": "Shoei",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Honda CBR650R E-Clutch (Race Replica)."
+    },
+    {
+      "id": "hjc_rpha_1n_quartararo-replica",
+      "title": "RPHA 1N Quartararo Replica",
+      "brand": "HJC",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the CBR650R E-Clutch (Race Replica)."
+    },
+    {
+      "id": "bell_race_star_flex_dlx",
+      "title": "Race Star Flex DLX",
+      "brand": "Bell",
+      "type": "Track / Race",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Honda CBR650R E-Clutch (Race Replica)."
+    },
+    {
+      "id": "arai_corsair_x",
+      "title": "Corsair-X",
+      "brand": "Arai",
+      "type": "Track / Race",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for CBR650R E-Clutch (Race Replica) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Honda CBR650R E-Clutch (Race Replica)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Honda engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

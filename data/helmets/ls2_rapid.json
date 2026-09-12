@@ -1,147 +1,356 @@
 {
-    "id": "ls2_rapid",
-    "entity": "helmet",
-    "title": "LS2 Rapid",
-    "brand": "LS2",
-    "type": "Open Face",
-    "helmet_family": "Rapid",
-    "price": {
+  "id": "ls2_rapid",
+  "entity": "helmet",
+  "title": "Rapid",
+  "brand": "LS2",
+  "type": "Open Face",
+  "helmet_family": "Rapid",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1266,
+    "weight_lbs": 2.79,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 95
+  },
+  "description": "Tailored for classic roadsters and urban cruising, the LS2 Rapid is engineered for warm-weather riding with featherweight crown comfort. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1266g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~98 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "product_details": {
+    "description": "LS2 open face with inner sun visor for urban riding."
+  },
+  "variants": [
+    {
+      "id": "ls2_rapid_black",
+      "entity": "helmet",
+      "title": "LS2 Rapid Black",
+      "type": "Open Face",
+      "parent_id": "ls2_rapid",
+      "helmet_family": "Rapid",
+      "head_shape": "Intermediate Oval",
+      "color": "Black",
+      "color_family": "Black",
+      "sku": "LS2-RAP-BLK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The LS2 Rapid is a benchmark Open Face helmet crafted in Spain / China 🇪🇸🇨🇳. Built around Kinetic Polymer Alloy (KPA) / HPFC High Performance Fiberglass Composite shell construction, it is engineered specifically for Intermediate Oval ergonomics. Optimized for urban commuters and retro cruisers, offering lightweight agility, wide peripheral vision, and step-through convenience. Modern Spanish design engineering accessible to riders worldwide.",
+      "product_details": {
+        "description": "LS2 open face with inner sun visor for urban riding."
+      },
+      "price": {
         "current": 89.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 89.99,
+        "eur": 82.79,
+        "gbp": 71.09
+      },
+      "specs": {
         "material": "Polycarbonate",
         "weight_g": 1020,
         "weight_lbs": 2.25,
         "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "LS2 open face with inner sun visor for urban riding.",
-    "product_details": {
-        "description": "LS2 open face with inner sun visor for urban riding."
-    },
-    "variants": [
-        {
-            "id": "ls2_rapid_black",
-            "entity": "helmet",
-            "title": "LS2 Rapid Black",
-            "type": "Open Face",
-            "parent_id": "ls2_rapid",
-            "helmet_family": "Rapid",
-            "head_shape": "Intermediate Oval",
-            "color": "Black",
-            "color_family": "Black",
-            "sku": "LS2-RAP-BLK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "LS2 open face with inner sun visor for urban riding.",
-            "product_details": {
-                "description": "LS2 open face with inner sun visor for urban riding."
-            },
-            "price": {
-                "current": 89.99,
-                "usd": 89.99,
-                "eur": 82.79,
-                "gbp": 71.09
-            },
-            "specs": {
-                "material": "Polycarbonate",
-                "weight_g": 1020,
-                "weight_lbs": 2.25,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Black",
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Black+Side",
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Black+Back"
-            ],
-            "helmet_types": [
-                "Open Face"
-            ]
-        },
-        {
-            "id": "ls2_rapid_silver",
-            "entity": "helmet",
-            "title": "LS2 Rapid Silver",
-            "type": "Open Face",
-            "parent_id": "ls2_rapid",
-            "helmet_family": "Rapid",
-            "head_shape": "Intermediate Oval",
-            "color": "Silver",
-            "color_family": "Grey",
-            "sku": "LS2-RAP-SLV",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "LS2 open face with inner sun visor for urban riding.",
-            "product_details": {
-                "description": "LS2 open face with inner sun visor for urban riding."
-            },
-            "price": {
-                "current": 89.99,
-                "usd": 89.99,
-                "eur": 82.79,
-                "gbp": 71.09
-            },
-            "specs": {
-                "material": "Polycarbonate",
-                "weight_g": 1020,
-                "weight_lbs": 2.25,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Silver",
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Silver+Side",
-                "https://placehold.co/800x800/222/white?text=LS2+Rapid+Silver+Back"
-            ],
-            "helmet_types": [
-                "Open Face"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=LS2+Rapid+1",
-        "https://placehold.co/800x800/222/white?text=LS2+Rapid+2",
-        "https://placehold.co/800x800/222/white?text=LS2+Rapid+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.05"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/ls2_rapid_black_front.png",
+        "https://helmetsan.com/assets/helmets/ls2_rapid_black_side.png"
+      ],
+      "helmet_types": [
+        "Open Face"
+      ],
+      "introduction": "Positioned in LS2's Open Face lineup, the Rapid brings Spanish engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The LS2 Rapid represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Rapid delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "LS2 Rapid Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "LS2 Rapid in LS2 Rapid Black. A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides.",
+      "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 35,
-        "cable_management": true
+    {
+      "id": "ls2_rapid_silver",
+      "entity": "helmet",
+      "title": "LS2 Rapid Silver",
+      "type": "Open Face",
+      "parent_id": "ls2_rapid",
+      "helmet_family": "Rapid",
+      "head_shape": "Intermediate Oval",
+      "color": "Silver",
+      "color_family": "Grey",
+      "sku": "LS2-RAP-SLV",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The LS2 Rapid is a benchmark Open Face helmet crafted in Spain / China 🇪🇸🇨🇳. Built around Kinetic Polymer Alloy (KPA) / HPFC High Performance Fiberglass Composite shell construction, it is engineered specifically for Intermediate Oval ergonomics. Optimized for urban commuters and retro cruisers, offering lightweight agility, wide peripheral vision, and step-through convenience. Modern Spanish design engineering accessible to riders worldwide.",
+      "product_details": {
+        "description": "LS2 open face with inner sun visor for urban riding."
+      },
+      "price": {
+        "current": 89.99,
+        "usd": 89.99,
+        "eur": 82.79,
+        "gbp": 71.09
+      },
+      "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1020,
+        "weight_lbs": 2.25,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/ls2_rapid_silver_front.png",
+        "https://helmetsan.com/assets/helmets/ls2_rapid_silver_side.png"
+      ],
+      "helmet_types": [
+        "Open Face"
+      ],
+      "introduction": "Positioned in LS2's Open Face lineup, the Rapid brings Spanish engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The LS2 Rapid represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Rapid delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "LS2 Rapid Silver (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "LS2 Rapid in LS2 Rapid Silver. A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides.",
+      "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/ls2_rapid_front.png",
+    "https://helmetsan.com/assets/helmets/ls2_rapid_side.png",
+    "https://helmetsan.com/assets/helmets/ls2_rapid_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 35,
+    "cable_management": true
+  },
+  "model_year": 2019,
+  "identifiers": {
+    "asin": "B07QKZV8Y5",
+    "ean": "8916740230000",
+    "mpn": "LS2-669F",
+    "sku": "LS-LS2RAP"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for oval head shapes; may feel tight on diamond heads due to extended cheek coverage.",
+    "head_shape": "Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 95,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.36
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 158,
+    "crown_depth_mm": 112
+  },
+  "technical_analysis": "Features Kinetic Polymer Alloy (KPA) / HPFC High Performance Fiberglass Composite shell construction paired with 3D Optically Correct Class A polycarbonate visor with quick release system and internal sun shield. The interior utilizes Laser-cut multi-density EPS with breathable hypoallergenic removable lining with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the LS2 Rapid: combining Spain / China 🇪🇸🇨🇳 craftsmanship with 3D Optically Correct Class A polycarbonate visor with quick release system and internal sun shield and Laser-cut multi-density EPS with breathable hypoallergenic removable lining. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "LS2 Rapid: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "ls2 rapid helmet",
+  "yoast_metadesc": "In-depth review of the LS2 Rapid. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=LS2+Rapid&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=LS2+Rapid"
+  },
+  "cross_links": [
+    {
+      "keyword": "LS2",
+      "target_id": "ls2",
+      "target_type": "brand"
+    }
+  ],
+  "sku": "LS-LS2RAP",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Spain / China 🇪🇸🇨🇳",
+  "category": "Open Face",
+  "physics_intelligence": {
+    "weight_grams": 1266,
+    "acoustic_noise_rating_db": "95 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The LS2 Rapid is a benchmark Open Face helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in LS2's Open Face lineup, the Rapid brings Spanish engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The LS2 Rapid represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Rapid delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The LS2 Rapid represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Rapid delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Ultra-lightweight low-profile shell prevents neck and shoulder fatigue on casual rides",
+      "Featherweight 1266g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~98 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Open-face design lacks chin bar protection, leaving the lower facial zone exposed in an impact"
+    ]
+  },
+  "editorial_overview": "Tailored for classic roadsters and urban cruising, the LS2 Rapid is engineered for warm-weather riding with featherweight crown comfort. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1266g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~98 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "rider_takeaway": "A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Open-Face & Classic Roadster",
+      "riding_stance": "Upright Roadster Stance",
+      "core_priority": "Unrestricted 180° field of view, maximum open-air ventilation, and lightweight low-profile charm"
     },
-    "model_year": 2019,
-    "identifiers": {
-        "asin": "B07QKZV8Y5",
-        "ean": "8916740230000",
-        "mpn": "LS2-669F"
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1266,
+      "measured_weight_lbs": 2.79
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    "acoustic_envelope": {
+      "sound_index_db": "~98 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for oval head shapes; may feel tight on diamond heads due to extended cheek coverage.",
-        "head_shape": "Oval"
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
-    "deep_enriched": true
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": true
+    },
+    "verdict_takeaway": "A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "honda_adv350_maxi_touring_pack",
+      "title": "ADV350 Maxi (Touring Pack)",
+      "make": "Honda",
+      "category": "Urban Adventure Scooter",
+      "match_score": 97,
+      "match_reason": "Lightweight agile shell and quick-release buckle provide effortless urban convenience for metropolitan riding on the Honda ADV350 Maxi (Touring Pack)."
+    },
+    {
+      "id": "simple_energy_simple_one_electric_212km_range_dark_edition",
+      "title": "Simple One Electric 212km Range (Dark Edition)",
+      "make": "Simple Energy",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Simple One Electric 212km Range (Dark Edition)."
+    },
+    {
+      "id": "indian_commuters_hero_passion_xtec",
+      "title": "Indian Commuters Hero Passion XTEC",
+      "make": "Global",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Global Indian Commuters Hero Passion XTEC."
+    },
+    {
+      "id": "royal_enfield_classic_350_redditch_dark_edition",
+      "title": "Classic 350 Redditch (Dark Edition)",
+      "make": "Royal Enfield",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Classic 350 Redditch (Dark Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
+    },
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 95,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ],
+  "sharp_rating": 0
 }

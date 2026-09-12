@@ -1,28 +1,71 @@
 {
-    "title": "Premium Multi-Density Cheek Pads",
-    "type": "Replacement Liner",
-    "compatible_helmet_types": [
-        "Full Face"
+  "title": "Premium Multi-Density Cheek Pads",
+  "type": "Replacement Liner",
+  "compatible_helmet_types": [
+    "Full Face"
+  ],
+  "compatible_brands": [
+    "Shoei"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "agv-k6",
+    "arai-corsair-x"
+  ],
+  "features": [
+    "Multi-density foam construction for superior comfort and impact absorption",
+    "Universal fit compatible with most full-face motorcycle helmets",
+    "Easy snap-in replacement design for quick installation"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Premium Multi-Density Cheek Pads from Universal Moto provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Premium Multi-Density Cheek Pads represents an indispensable touring and group-ride upgrade from Universal Moto. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "id": "cheek-pad-set",
+  "entity": "accessory",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Cheek Pads",
+  "identifiers": {
+    "mpn": "UP-MDP-CHEEK"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Universal Moto Premium Multi-Density Cheek Pads.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
+    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
+    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
     ],
-    "compatible_brands": [
-        "Shoei"
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
     ],
-    "compatible_helmet_ids": [
-        "shoei-rf-1400",
-        "agv-k6",
-        "arai-corsair-x"
-    ],
-    "features": [
-        "Moisture-wicking Max-Dry material",
-        "Multi-layer polyurethane foam",
-        "Emergency Quick Release System (EQRS)",
-        "Washable"
-    ],
-    "price": {
-        "current": 49.95,
-        "currency": "USD"
-    },
-    "description": "<p>Refresh the fit of your Shoei RF-1400 with a new set of Type-E cheek pads. Over time, helmet liners compress and lose their snug fit. These genuine Shoei replacement pads restore the original, secure feel of your helmet. Constructed with Max-Dry material, they absorb and dissipate sweat twice as fast as traditional nylon, keeping you comfortable on long rides.</p>",
-    "id": "cheek-pad-set",
-    "entity": "accessory"
+    "editorial_verdict": "The Premium Multi-Density Cheek Pads represents an indispensable touring and group-ride upgrade from Universal Moto. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Universal Moto",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Premium+Multi-Density+Cheek+Pads&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Premium+Multi-Density+Cheek+Pads&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

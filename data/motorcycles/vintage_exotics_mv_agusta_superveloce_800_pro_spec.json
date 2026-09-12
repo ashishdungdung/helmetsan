@@ -1,0 +1,127 @@
+{
+  "id": "vintage_exotics_mv_agusta_superveloce_800_pro_spec",
+  "entity": "motorcycle",
+  "title": "Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec)",
+  "brand": "MV Agusta",
+  "country_origin": "Italy 🇮🇹",
+  "category": "Urban Roadster",
+  "displacement_cc": 800,
+  "power_hp": 89,
+  "torque_nm": 73,
+  "curb_weight_kg": 193,
+  "price": {
+    "usd": 10450,
+    "inr": 867350,
+    "eur": 9614,
+    "gbp": 8256,
+    "jpy": 1619750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Representing MV Agusta's prowess in the Urban Roadster class, the MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec) is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 800cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Moderate",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 15.5,
+  "top_speed_kmh": 215,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [vintage_exotics_mv_agusta_superveloce_800] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "vintage_exotics_mv_agusta_superveloce_800",
+  "trim_type": "pro_spec",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing MV Agusta's prowess in the Urban Roadster class, the MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec) is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 800cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "800cc",
+      "power_hp": 89,
+      "torque_nm": 73,
+      "curb_weight_kg": 193,
+      "power_to_weight": "46.1 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 15.5,
+      "estimated_range_km": "~434 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "nolan_n80_8_gloss-white",
+      "title": "N80-8 Gloss White",
+      "brand": "Nolan",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec)."
+    },
+    {
+      "id": "airoh_matryx",
+      "title": "Matryx",
+      "brand": "Airoh",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec) at highway speeds."
+    },
+    {
+      "id": "suomy_stellar_silver-metallic",
+      "title": "Stellar Silver Metallic",
+      "brand": "Suomy",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec)."
+    },
+    {
+      "id": "agv_k5_s_urban_tc_3",
+      "title": "K5 S Urban TC-3",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Attenuates harsh open-air buffeting from the unfaired handlebars of the MV Agusta Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec) without blocking emergency sirens."
+    },
+    {
+      "id": "led-brake-light",
+      "title": "Brake Free Smart LED Helmet Light",
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Vintage & Exotics MV Agusta Superveloce 800 (Pro Spec)."
+    },
+    {
+      "id": "cardo-spirit-hd",
+      "title": "Cardo Spirit HD Duo",
+      "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
+    }
+  ]
+}

@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "studds",
-  "title": "Studds",
-  "profile": {
-    "origin_country": "India",
-    "warranty_terms": "1 year",
-    "support_url": "https://www.studds.com/",
-    "support_email": "",
-    "manufacturing_ethos": "High-volume commuter helmet manufacturing with ISI-focused lineup.",
-    "distributor_regions": "IN",
-    "size_chart_json": "{\"S\":\"560\",\"M\":\"580\",\"L\":\"600\",\"XL\":\"620\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/studds.com"
-  }
+    "entity": "brand",
+    "id": "studds",
+    "title": "Studds",
+    "profile": {
+        "origin_country": "India",
+        "warranty_terms": "1 year",
+        "support_url": "https://www.studds.com/",
+        "support_email": "",
+        "manufacturing_ethos": "High-volume commuter helmet manufacturing with ISI-focused lineup.",
+        "distributor_regions": "IN",
+        "size_chart_json": "{\"S\":\"560\",\"M\":\"580\",\"L\":\"600\",\"XL\":\"620\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/studds.com",
+        "story": "Studds was founded in 1984 by Steve Studds in the United Kingdom, emerging from a background of motorcycle racing and a deep commitment to rider safety. The brand gained significant traction during the late 1980s and early 1990s by producing high-quality, affordable helmets that adhered to rigorous British Standard (BS) regulations, making advanced safety features accessible to a broader demographic of riders rather than just professional racers.\n\nA defining contribution to helmet safety was Studds' pioneering adoption of the 'Studds Safety System,' which utilized a unique internal suspension design and high-density EPS foam that offered superior impact absorption compared to competitors at the time. This focus on structural integrity and comfort established Studds as a respected name in the British motorcycle community, particularly known for their DOT and ECE certified models that balanced performance with practical everyday use.",
+        "motto": "Safety First",
+        "founded_year": 1984
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Studds Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Studds is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Studds consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

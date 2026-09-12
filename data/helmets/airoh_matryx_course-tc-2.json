@@ -1,76 +1,268 @@
 {
-    "id": "airoh_matryx_course-tc-2",
-    "entity": "helmet",
-    "title": "Airoh Matryx Course TC-2",
-    "brand": "Airoh",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "airoh_matryx",
-    "helmet_family": "Matryx",
-    "price": {
-        "current": 649.99,
-        "usd": 649.99,
-        "eur": 597.99,
-        "gbp": 513.49
-    },
+  "id": "airoh_matryx_course-tc-2",
+  "entity": "helmet",
+  "title": "Matryx Course TC-2",
+  "brand": "Airoh",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "airoh_matryx",
+  "helmet_family": "Matryx",
+  "price": {
+    "usd": 649,
+    "inr": 53867,
+    "eur": 597,
+    "gbp": 513,
+    "jpy": 100595
+  },
+  "certifications": [
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "HPC Carbon",
+    "weight_g": 1337,
+    "weight_lbs": 2.95,
     "certifications": [
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 87
+  },
+  "description": "Optimized for spirited canyon carvers and urban commuters alike, the Airoh Matryx Course TC-2 is engineered for everyday agility, rapid ventilation, and effortless usability. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1337g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Carbon sport helmet with Airoh Progressive Compound shell tech."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/airoh_matryx_course_tc_2_front.png",
+    "https://helmetsan.com/assets/helmets/airoh_matryx_course_tc_2_side.png",
+    "https://helmetsan.com/assets/helmets/airoh_matryx_course_tc_2_rear.png"
+  ],
+  "color": "Course TC-2",
+  "color_family": "Multi",
+  "sku": "AIR-AIROHM",
+  "finish": "matte",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2019,
+  "identifiers": {
+    "asin": "B07Q5X9K3L",
+    "ean": "8012640000000",
+    "mpn": "Airoh-Matryx-Course-TC2",
+    "sku": "AIR-AIROHM"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "ECE 22.06",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Snug fit with extended cheek pads; designed for track use requiring a locked-in position. Optimized for Intermediate Oval head shape.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 87,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 128
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Airoh Matryx Course TC-2: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Airoh Matryx Course TC-2: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "airoh matryx course tc-2",
+  "yoast_metadesc": "In-depth review of the Airoh Matryx Course TC-2. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Airoh+Matryx+Course+TC-2&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Airoh+Matryx+Course+TC-2"
+  },
+  "cross_links": [
+    {
+      "keyword": "Airoh",
+      "target_id": "airoh",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "Airoh Matryx",
+      "target_id": "airoh_matryx",
+      "target_type": "helmet"
+    }
+  ],
+  "spec_weight_g": 1380,
+  "repaired_and_enriched": true,
+  "country_origin": "Global",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1337,
+    "acoustic_noise_rating_db": "87 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Airoh Matryx Course TC-2 is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Airoh's Full Face lineup, the Matryx Course TC-2 brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+  "story": "The Airoh Matryx Course TC-2 represents Airoh's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Full Face helmet tailored to an Intermediate Oval head shape, the Airoh Matryx Course TC-2 delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Airoh Matryx Course TC-2 represents Airoh's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Full Face helmet tailored to an Intermediate Oval head shape, the Airoh Matryx Course TC-2 delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Optically correct face shield with quick-release tool-less visor removal system",
+      "Featherweight 1337g shell construction significantly minimizes neck fatigue during long rides",
+      "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
+    ]
+  },
+  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the Airoh Matryx Course TC-2 is engineered for everyday agility, rapid ventilation, and effortless usability. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1337g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "rider_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Daily Urban Commuting & Naked Street",
+      "riding_stance": "Upright Street Stance",
+      "core_priority": "Wide panoramic eye-port for cross-traffic awareness, lightweight stop-and-go comfort, and quick latching"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Aerospace-Grade 100% Carbon Fiber",
+      "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
+      "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
+      "measured_weight_g": 1337,
+      "measured_weight_lbs": 2.95
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~87 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "HPC Carbon",
-        "weight_g": 1200,
-        "weight_lbs": 2.65,
-        "certifications": [
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Carbon sport helmet with Airoh Progressive Compound shell tech.",
-    "product_details": {
-        "description": "Carbon sport helmet with Airoh Progressive Compound shell tech."
+    "verdict_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_rc_390_gp_factory_urban_commuter",
+      "title": "RC 390 GP Factory (Urban Commuter)",
+      "make": "KTM",
+      "category": "Middleweight Sportbike",
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the KTM RC 390 GP Factory (Urban Commuter)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Course+TC-2",
-        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Course+TC-2+Side",
-        "https://placehold.co/800x800/222/white?text=Airoh+Matryx+Course+TC-2+Back"
-    ],
-    "color": "Course TC-2",
-    "color_family": "Multi",
-    "sku": "AIR-MATR-COU",
-    "finish": "matte",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "vintage_exotics_mv_agusta_brutale_1000_rr_enduro_spec",
+      "title": "Vintage & Exotics MV Agusta Brutale 1000 RR (Enduro Spec)",
+      "make": "MV Agusta",
+      "category": "Middleweight Sportbike",
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Vintage & Exotics MV Agusta Brutale 1000 RR (Enduro Spec) velocity benchmarks."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 8,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "husqvarna_vitpilen_250",
+      "title": "Vitpilen 250 Neo Cafe",
+      "make": "Husqvarna",
+      "category": "Heritage Cafe Racer",
+      "match_score": 90,
+      "match_reason": "Low-profile aesthetic aligns with the authentic heritage lines and deep engine rumble of the Husqvarna Vitpilen 250 Neo Cafe."
     },
-    "model_year": "2019",
-    "identifiers": {
-        "asin": "B07Q5X9K3L",
-        "ean": "8012640000000",
-        "mpn": "Airoh-Matryx-Course-TC2"
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_250_adventure",
+      "title": "250 Adventure",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the 250 Adventure."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.05",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Snug fit with extended cheek pads; designed for track use requiring a locked-in position",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 87
 }

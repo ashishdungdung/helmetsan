@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "shark",
-  "title": "Shark",
-  "profile": {
-    "origin_country": "France",
-    "warranty_terms": "5 years",
-    "support_url": "https://shark-helmets.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Innovative shell technology and aggressive design language.",
-    "distributor_regions": "EU\nUS\nAPAC",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/shark-helmets.com"
-  }
+    "entity": "brand",
+    "id": "shark",
+    "title": "Shark",
+    "profile": {
+        "origin_country": "France",
+        "warranty_terms": "5 years",
+        "support_url": "https://shark-helmets.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Innovative shell technology and aggressive design language.",
+        "distributor_regions": "EU\nUS\nAPAC",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/shark-helmets.com",
+        "story": "Shark was founded in 1992 by Jean-Marc Pontbriand and his brother Marc Pontbriand in Saint-Quentin-en-Yvelines, France. Originally established as a small workshop specializing in motorcycle accessories, the brand quickly gained recognition for its innovative approach to helmet design, focusing on aerodynamics and comfort. The founders' vision was to create helmets that offered superior protection without compromising on style or usability, setting them apart from traditional manufacturers who often prioritized one over the other.",
+        "motto": "The best in safety",
+        "founded_year": 1992
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Shark Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Shark is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Shark consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

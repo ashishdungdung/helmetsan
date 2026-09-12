@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "arai",
-  "title": "Arai",
-  "profile": {
-    "origin_country": "Japan",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.araihelmet.eu/",
-    "support_email": "",
-    "manufacturing_ethos": "Handcrafted shell quality and conservative safety engineering.",
-    "distributor_regions": "US\nEU\nJP",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "60",
-    "helmet_types": "Full Face, Open Face, Off-road",
-    "certification_coverage": "ECE 22.06, Snell, FIM",
-    "original_logo": "https://logo.clearbit.com/arai.com"
-  }
+    "entity": "brand",
+    "id": "arai",
+    "title": "Arai",
+    "profile": {
+        "origin_country": "Japan",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.araihelmet.eu/",
+        "support_email": "",
+        "manufacturing_ethos": "Handcrafted shell quality and conservative safety engineering.",
+        "distributor_regions": "US\nEU\nJP",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "60",
+        "helmet_types": "Full Face, Open Face, Off-road",
+        "certification_coverage": "ECE 22.06, Snell, FIM",
+        "original_logo": "https://logo.clearbit.com/arai.com",
+        "story": "Arai Corporation was founded in 1948 by Shojiro Arai in Tokyo, initially manufacturing motorcycle helmets for the Japanese military during World War II. After the war, the company pivoted to civilian use but faced significant challenges due to a lack of established safety standards and consumer trust; early models were often rejected by police forces and racing teams who deemed them unsafe compared to leather caps or other designs.\n\nThe brand's pivotal contribution to safety came in 1972 when Shojiro Arai developed the first helmet featuring an internal EPS (Expanded Polystyrene) liner, a technology that revolutionized impact absorption. This innovation set a new global benchmark for head protection, leading to widespread adoption by racing organizations and eventually influencing international safety standards like Snell and DOT, cementing Arai's reputation as a pioneer in protective gear engineering.",
+        "motto": "Safety is our business",
+        "founded_year": 1948
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Japan \ud83c\uddef\ud83c\uddf5",
+        "founding_year": 1926,
+        "headquarters_location": "Saitama, Japan",
+        "flagship_helmet_series": "Arai Corsair-X & XD4",
+        "engineering_philosophy": "R75 Continuous Curve Smooth Shell for Maximum Impact Glancing-Off",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Arai is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Arai consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

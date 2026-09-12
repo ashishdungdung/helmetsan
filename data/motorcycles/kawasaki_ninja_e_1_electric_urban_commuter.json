@@ -1,0 +1,129 @@
+{
+  "id": "kawasaki_ninja_e_1_electric_urban_commuter",
+  "entity": "motorcycle",
+  "title": "Ninja e-1 Electric (Urban Commuter)",
+  "brand": "Kawasaki",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 0,
+  "power_hp": 16,
+  "torque_nm": 13,
+  "curb_weight_kg": 108,
+  "price": {
+    "usd": 2450,
+    "inr": 203350,
+    "eur": 2254,
+    "gbp": 1936,
+    "jpy": 379750
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing Kawasaki's prowess in the Middleweight Sportbike class, the Kawasaki Ninja e-1 Electric (Urban Commuter) is delivers razor-sharp chassis feedback for riders hunting apexes. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Kawasaki Ninja e-1 Electric (Urban Commuter): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Kawasaki Ninja e-1 Electric (Urban Commuter).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [kawasaki_ninja_e_1_electric] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "kawasaki_ninja_e_1_electric",
+  "trim_type": "urban_commuter",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Kawasaki's prowess in the Middleweight Sportbike class, the Kawasaki Ninja e-1 Electric (Urban Commuter) is delivers razor-sharp chassis feedback for riders hunting apexes. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Dedicated Forward Lean",
+      "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 16,
+      "torque_nm": 13,
+      "curb_weight_kg": 108,
+      "power_to_weight": "14.8 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners."
+  },
+  "compatible_helmets": [
+    {
+      "id": "hjc_rpha_1n",
+      "title": "RPHA 1N",
+      "brand": "HJC",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Kawasaki Ninja e-1 Electric (Urban Commuter)."
+    },
+    {
+      "id": "shark_race_r_pro_gp_street-tc-5",
+      "title": "Race-R Pro GP Street TC-5",
+      "brand": "Shark",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the Ninja e-1 Electric (Urban Commuter)."
+    },
+    {
+      "id": "shoei_rf_1200_gloss-black",
+      "title": "RF-1200 Gloss Black",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Kawasaki Ninja e-1 Electric (Urban Commuter)."
+    },
+    {
+      "id": "hjc_f70_hi-viz-yellow",
+      "title": "F70 Hi-Viz Yellow",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for Ninja e-1 Electric (Urban Commuter) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Kawasaki Ninja e-1 Electric (Urban Commuter)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Kawasaki engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

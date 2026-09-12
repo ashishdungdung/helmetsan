@@ -1,59 +1,76 @@
 {
-  "_comment": "Reference for brand JSON shape. Ingest from data/brands/<slug>.json. Copy or split into per-file JSONs. Add more brands here or under data/brands/*.json for detailed info.",
-  "items": [
-    {
-      "entity": "brand",
-      "id": "shoei",
-      "title": "Shoei",
-      "profile": {
-        "origin_country": "Japan",
-        "warranty_terms": "5 years",
-        "support_url": "https://www.shoei.com/",
-        "support_email": "support@shoei.com",
-        "manufacturing_ethos": "Performance-first safety engineering. Multiple shell sizes for optimal fit.",
-        "distributor_regions": "US\nEU\nJP\nIN",
-        "total_models": "55",
-        "helmet_types": "Full Face, Modular, Off-road, Open Face, Adventure, Touring",
-        "certification_coverage": "DOT, ECE 22.06, Snell, FIM",
-        "brand_story": "Shoei has been a leader in helmet technology since 1959, pioneering carbon and composite shells.",
-        "brand_motto": "Safety and innovation first.",
-        "original_logo": "https://logo.clearbit.com/shoei-helmets.com"
-      }
+    "_comment": "Reference for brand JSON shape. Ingest from data/brands/<slug>.json. Copy or split into per-file JSONs. Add more brands here or under data/brands/*.json for detailed info.",
+    "items": [
+        {
+            "entity": "brand",
+            "id": "shoei",
+            "title": "Shoei",
+            "profile": {
+                "origin_country": "Japan",
+                "warranty_terms": "5 years",
+                "support_url": "https://www.shoei.com/",
+                "support_email": "support@shoei.com",
+                "manufacturing_ethos": "Performance-first safety engineering. Multiple shell sizes for optimal fit.",
+                "distributor_regions": "US\nEU\nJP\nIN",
+                "total_models": "55",
+                "helmet_types": "Full Face, Modular, Off-road, Open Face, Adventure, Touring",
+                "certification_coverage": "DOT, ECE 22.06, Snell, FIM",
+                "brand_story": "Shoei has been a leader in helmet technology since 1959, pioneering carbon and composite shells.",
+                "brand_motto": "Safety and innovation first.",
+                "original_logo": "https://logo.clearbit.com/shoei-helmets.com"
+            }
+        },
+        {
+            "entity": "brand",
+            "id": "arai",
+            "title": "Arai",
+            "profile": {
+                "origin_country": "Japan",
+                "warranty_terms": "5 years",
+                "support_url": "https://www.araihelmet.eu/",
+                "support_email": "",
+                "manufacturing_ethos": "Handcrafted shell quality and conservative safety engineering.",
+                "distributor_regions": "US\nEU\nJP",
+                "total_models": "60",
+                "helmet_types": "Full Face, Open Face, Off-road",
+                "certification_coverage": "ECE 22.06, Snell, FIM",
+                "brand_story": "Arai focuses on multiple shell sizes and round-oval fit for superior protection.",
+                "original_logo": "https://logo.clearbit.com/arai.com"
+            }
+        },
+        {
+            "entity": "brand",
+            "id": "agv",
+            "title": "AGV",
+            "profile": {
+                "origin_country": "Italy",
+                "warranty_terms": "5 years",
+                "support_url": "https://www.agv.com/",
+                "support_email": "",
+                "manufacturing_ethos": "Race-bred design and aerodynamics.",
+                "distributor_regions": "US\nEU\nIN",
+                "total_models": "45",
+                "helmet_types": "Full Face, Modular, Off-road, Open Face",
+                "certification_coverage": "DOT, ECE 22.06, FIM",
+                "original_logo": "https://logo.clearbit.com/agv.com"
+            }
+        }
+    ],
+    "profile": {
+        "story": "Master Example was founded in 1974 by industrial engineer Elena Rossi, who recognized a critical gap in the motorcycle safety market regarding aerodynamic stability at high speeds. Initially operating out of a small workshop in Bologna, Italy, the company focused on developing composite materials that could withstand impact while reducing weight, challenging the industry's reliance on heavy fiberglass shells. Their first major breakthrough came in 1978 with the 'AeroGuard' series, which introduced an internal suspension system designed to absorb rotational forces during a crash, setting a new standard for head protection technology.",
+        "motto": "Protecting Every Mile",
+        "founded_year": 1974
     },
-    {
-      "entity": "brand",
-      "id": "arai",
-      "title": "Arai",
-      "profile": {
-        "origin_country": "Japan",
-        "warranty_terms": "5 years",
-        "support_url": "https://www.araihelmet.eu/",
-        "support_email": "",
-        "manufacturing_ethos": "Handcrafted shell quality and conservative safety engineering.",
-        "distributor_regions": "US\nEU\nJP",
-        "total_models": "60",
-        "helmet_types": "Full Face, Open Face, Off-road",
-        "certification_coverage": "ECE 22.06, Snell, FIM",
-        "brand_story": "Arai focuses on multiple shell sizes and round-oval fit for superior protection.",
-        "original_logo": "https://logo.clearbit.com/arai.com"
-      }
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Brand Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
     },
-    {
-      "entity": "brand",
-      "id": "agv",
-      "title": "AGV",
-      "profile": {
-        "origin_country": "Italy",
-        "warranty_terms": "5 years",
-        "support_url": "https://www.agv.com/",
-        "support_email": "",
-        "manufacturing_ethos": "Race-bred design and aerodynamics.",
-        "distributor_regions": "US\nEU\nIN",
-        "total_models": "45",
-        "helmet_types": "Full Face, Modular, Off-road, Open Face",
-        "certification_coverage": "DOT, ECE 22.06, FIM",
-        "original_logo": "https://logo.clearbit.com/agv.com"
-      }
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Brand is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Brand consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
     }
-  ]
 }

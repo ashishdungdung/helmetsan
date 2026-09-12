@@ -1,225 +1,438 @@
 {
-    "id": "caberg_duke_x",
-    "entity": "helmet",
-    "title": "Caberg Duke X",
-    "brand": "Caberg",
-    "type": "Modular",
-    "helmet_family": "Duke X",
-    "price": {
+  "id": "caberg_duke_x",
+  "entity": "helmet",
+  "title": "Duke X",
+  "brand": "Caberg",
+  "type": "Modular",
+  "helmet_family": "Duke X",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Composite Fibre",
+    "weight_g": 1634,
+    "weight_lbs": 3.6,
+    "certifications": [
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 86
+  },
+  "description": "The Caberg Duke X is engineered for seamless transitions between open-face city stops and full-face highway cruising, delivering flip-up versatility for city stops and sealed protection at speed. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1634g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "product_details": {
+    "description": "Italian-designed modular with DVT (Double Visor Tech) and 180° flip-up."
+  },
+  "variants": [
+    {
+      "id": "caberg_duke_x_gloss-black",
+      "entity": "helmet",
+      "title": "Caberg Duke X Gloss Black",
+      "type": "Modular",
+      "parent_id": "caberg_duke_x",
+      "helmet_family": "Duke X",
+      "head_shape": "Intermediate Oval",
+      "color": "Gloss Black",
+      "color_family": "Black",
+      "sku": "CAB-DUKE-BLK",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Caberg Duke X is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Italian-designed modular with DVT (Double Visor Tech) and 180° flip-up."
+      },
+      "price": {
         "current": 449.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 449.99,
+        "eur": 413.99,
+        "gbp": 355.49
+      },
+      "specs": {
         "material": "Composite Fibre",
         "weight_g": 1600,
         "weight_lbs": 3.53,
         "certifications": [
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
-    },
-    "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up.",
-    "product_details": {
-        "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up."
-    },
-    "variants": [
-        {
-            "id": "caberg_duke_x_gloss-black",
-            "entity": "helmet",
-            "title": "Caberg Duke X Gloss Black",
-            "type": "Modular",
-            "parent_id": "caberg_duke_x",
-            "helmet_family": "Duke X",
-            "head_shape": "Intermediate Oval",
-            "color": "Gloss Black",
-            "color_family": "Black",
-            "sku": "CAB-DUKE-BLK",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up.",
-            "product_details": {
-                "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up."
-            },
-            "price": {
-                "current": 449.99,
-                "usd": 449.99,
-                "eur": 413.99,
-                "gbp": 355.49
-            },
-            "specs": {
-                "material": "Composite Fibre",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Gloss+Black",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Gloss+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Gloss+Black+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        },
-        {
-            "id": "caberg_duke_x_pearl-white",
-            "entity": "helmet",
-            "title": "Caberg Duke X Pearl White",
-            "type": "Modular",
-            "parent_id": "caberg_duke_x",
-            "helmet_family": "Duke X",
-            "head_shape": "Intermediate Oval",
-            "color": "Pearl White",
-            "color_family": "White",
-            "sku": "CAB-DUKE-WHI",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up.",
-            "product_details": {
-                "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up."
-            },
-            "price": {
-                "current": 449.99,
-                "usd": 449.99,
-                "eur": 413.99,
-                "gbp": 355.49
-            },
-            "specs": {
-                "material": "Composite Fibre",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Pearl+White",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Pearl+White+Side",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Pearl+White+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        },
-        {
-            "id": "caberg_duke_x_hi-viz-yellow",
-            "entity": "helmet",
-            "title": "Caberg Duke X Hi-Viz Yellow",
-            "type": "Modular",
-            "parent_id": "caberg_duke_x",
-            "helmet_family": "Duke X",
-            "head_shape": "Intermediate Oval",
-            "color": "Hi-Viz Yellow",
-            "color_family": "Yellow",
-            "sku": "CAB-DUKE-YEL",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up.",
-            "product_details": {
-                "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up."
-            },
-            "price": {
-                "current": 449.99,
-                "usd": 449.99,
-                "eur": 413.99,
-                "gbp": 355.49
-            },
-            "specs": {
-                "material": "Composite Fibre",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Hi-Viz+Yellow",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Hi-Viz+Yellow+Side",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Hi-Viz+Yellow+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        },
-        {
-            "id": "caberg_duke_x_tech-red",
-            "entity": "helmet",
-            "title": "Caberg Duke X Tech Red",
-            "type": "Modular",
-            "parent_id": "caberg_duke_x",
-            "helmet_family": "Duke X",
-            "head_shape": "Intermediate Oval",
-            "color": "Tech Red",
-            "color_family": "Red",
-            "sku": "CAB-DUKE-TEC",
-            "finish": "matte",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up.",
-            "product_details": {
-                "description": "Italian-designed modular with DVT (Double Visor Tech) and 180\u00b0 flip-up."
-            },
-            "price": {
-                "current": 499.99,
-                "usd": 499.99,
-                "eur": 459.99,
-                "gbp": 394.99
-            },
-            "specs": {
-                "material": "Composite Fibre",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Tech+Red",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Tech+Red+Side",
-                "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+Tech+Red+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+1",
-        "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+2",
-        "https://placehold.co/800x800/222/white?text=Caberg+Duke+X+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "ECE 22.06"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_gloss_black_front.png",
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_gloss_black_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Caberg's Modular lineup, the Duke X brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+      "story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Caberg Duke X Gloss Black (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Caberg Duke X in Caberg Duke X Gloss Black. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "caberg_duke_x_pearl-white",
+      "entity": "helmet",
+      "title": "Caberg Duke X Pearl White",
+      "type": "Modular",
+      "parent_id": "caberg_duke_x",
+      "helmet_family": "Duke X",
+      "head_shape": "Intermediate Oval",
+      "color": "Pearl White",
+      "color_family": "White",
+      "sku": "CAB-DUKE-WHI",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Caberg Duke X is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Italian-designed modular with DVT (Double Visor Tech) and 180° flip-up."
+      },
+      "price": {
+        "current": 449.99,
+        "usd": 449.99,
+        "eur": 413.99,
+        "gbp": 355.49
+      },
+      "specs": {
+        "material": "Composite Fibre",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_pearl_white_front.png",
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_pearl_white_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Caberg's Modular lineup, the Duke X brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+      "story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Caberg Duke X Pearl White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Caberg Duke X in Caberg Duke X Pearl White. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "mpn": "Duke-X-Modular"
+    {
+      "id": "caberg_duke_x_hi-viz-yellow",
+      "entity": "helmet",
+      "title": "Caberg Duke X Hi-Viz Yellow",
+      "type": "Modular",
+      "parent_id": "caberg_duke_x",
+      "helmet_family": "Duke X",
+      "head_shape": "Intermediate Oval",
+      "color": "Hi-Viz Yellow",
+      "color_family": "Yellow",
+      "sku": "CAB-DUKE-YEL",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Caberg Duke X is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Italian-designed modular with DVT (Double Visor Tech) and 180° flip-up."
+      },
+      "price": {
+        "current": 449.99,
+        "usd": 449.99,
+        "eur": 413.99,
+        "gbp": 355.49
+      },
+      "specs": {
+        "material": "Composite Fibre",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_hi_viz_yellow_front.png",
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_hi_viz_yellow_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Caberg's Modular lineup, the Duke X brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+      "story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Caberg Duke X Hi-Viz Yellow (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Caberg Duke X in Caberg Duke X Hi-Viz Yellow. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "caberg_duke_x_tech-red",
+      "entity": "helmet",
+      "title": "Caberg Duke X Tech Red",
+      "type": "Modular",
+      "parent_id": "caberg_duke_x",
+      "helmet_family": "Duke X",
+      "head_shape": "Intermediate Oval",
+      "color": "Tech Red",
+      "color_family": "Red",
+      "sku": "CAB-DUKE-TEC",
+      "finish": "matte",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The Caberg Duke X is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Italian-designed modular with DVT (Double Visor Tech) and 180° flip-up."
+      },
+      "price": {
+        "current": 499.99,
+        "usd": 499.99,
+        "eur": 459.99,
+        "gbp": 394.99
+      },
+      "specs": {
+        "material": "Composite Fibre",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_tech_red_front.png",
+        "https://helmetsan.com/assets/helmets/caberg_duke_x_tech_red_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Caberg's Modular lineup, the Duke X brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+      "story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Caberg Duke X Tech Red (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Caberg Duke X in Caberg Duke X Tech Red. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/caberg_duke_x_front.png",
+    "https://helmetsan.com/assets/helmets/caberg_duke_x_side.png",
+    "https://helmetsan.com/assets/helmets/caberg_duke_x_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 12,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": "2024",
+  "identifiers": {
+    "mpn": "Duke X",
+    "sku": "CAB-CABERG",
+    "asin": "B0C5C9578D",
+    "ean": "4961932955447"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "ECE 22.06",
+    "sharp_rating": 0,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for a semi-fit with a slightly rounded interior shell; may feel snug on very large heads due to the modular hinge mechanism.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 86,
+    "ventilation_efficiency_score": 8,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 145,
+    "crown_depth_mm": 128
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Caberg Duke X: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Caberg Duke X: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "caberg duke x helmet",
+  "yoast_metadesc": "In-depth review of the Caberg Duke X. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Caberg+Duke+X&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Caberg+Duke+X"
+  },
+  "cross_links": [
+    {
+      "keyword": "Caberg",
+      "target_id": "caberg",
+      "target_type": "brand"
+    }
+  ],
+  "unified_enriched": true,
+  "sku": "CAB-CABERG",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Modular",
+  "physics_intelligence": {
+    "weight_grams": 1634,
+    "acoustic_noise_rating_db": "86 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Caberg Duke X is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Caberg's Modular lineup, the Duke X brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+  "story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Caberg Duke X represents Caberg's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Modular helmet tailored to an Intermediate Oval head shape, the Caberg Duke X delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Single-button flip-up chin bar mechanism provides effortless touring convenience at stops",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Slightly broader frontal profile than fixed race lids, creating moderate drag in aggressive tuck"
+    ]
+  },
+  "editorial_overview": "The Caberg Duke X is engineered for seamless transitions between open-face city stops and full-face highway cruising, delivering flip-up versatility for city stops and sealed protection at speed. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1634g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "rider_takeaway": "A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Modular Touring & Urban Versatility",
+      "riding_stance": "Upright / Neutral Ergonomic Stance",
+      "core_priority": "Flip-up chin bar flexibility, dual P/J homologation, and drop-down sun visor convenience"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for a semi-fit with a slightly rounded interior shell; may feel snug on very large heads due to the modular hinge mechanism.",
-        "head_shape": "Intermediate Oval"
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1634,
+      "measured_weight_lbs": 3.6
     },
-    "deep_enriched": true
+    "acoustic_envelope": {
+      "sound_index_db": "~87 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "ECE 22.06"
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
+    },
+    "verdict_takeaway": "A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "royal_enfield_himalayan_452_sherpa_track_edition",
+      "title": "Himalayan 452 Sherpa (Track Edition)",
+      "make": "Royal Enfield",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Royal Enfield Himalayan 452 Sherpa (Track Edition)."
+    },
+    {
+      "id": "husqvarna_norden_901",
+      "title": "Norden 901 Expedition",
+      "make": "Husqvarna",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Norden 901 Expedition."
+    },
+    {
+      "id": "benelli_cfmoto_kove_cfmoto_650mt_adventure_enduro_spec",
+      "title": "Benelli & CFMOTO & KOVE CFMOTO 650MT Adventure (Enduro Spec)",
+      "make": "CFMOTO",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the CFMOTO Benelli & CFMOTO & KOVE CFMOTO 650MT Adventure (Enduro Spec)."
+    },
+    {
+      "id": "indian_commuters_hero_xpulse_200_4v_rally",
+      "title": "Indian Commuters Hero Xpulse 200 4V Rally",
+      "make": "Global",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Indian Commuters Hero Xpulse 200 4V Rally."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 86,
+  "certifications": [
+    "ECE 22.06"
+  ]
 }

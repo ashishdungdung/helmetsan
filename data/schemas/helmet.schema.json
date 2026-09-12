@@ -37,7 +37,12 @@
         "weight_lbs": { "type": "number" },
         "material": { "type": "string" },
         "shell_sizes": { "type": ["string", "number"] },
-        "certifications": { "type": "array", "items": { "type": "string" } }
+        "certifications": { "type": "array", "items": { "type": "string" } },
+        "integrated_sun_visor": { "type": "boolean" },
+        "pinlock_included": { "type": "boolean" },
+        "pinlock_type": { "type": "string", "enum": ["None", "Pinlock 30", "Pinlock 70", "Pinlock 120"] },
+        "breath_deflector_curtain_included": { "type": "boolean" },
+        "wind_tunnel_tested": { "type": "boolean" }
       }
     },
     "price": {
@@ -97,7 +102,9 @@
         "head_shape": { "type": "string" },
         "fit_notes": { "type": "string" },
         "size_chart": { "type": "array", "items": { "type": "object" } },
-        "size_translation": { "type": "array", "items": { "type": "object" } }
+        "size_translation": { "type": "array", "items": { "type": "object" } },
+        "glasses_grooves": { "type": "boolean" },
+        "removable_washable_interior": { "type": "boolean" }
       }
     },
     "related_videos": {
@@ -137,7 +144,10 @@
             "right": { "type": "number" }
           }
         },
-        "rotational_mitigation": { "type": "string" }
+        "rotational_mitigation": { "type": "string" },
+        "emergency_release_system": { "type": "boolean" },
+        "strap_fastener_type": { "type": "string", "enum": ["Double-D Ring", "Micrometric Ratchet", "Fidlock Magnetic", "Quick Release", "None"] },
+        "multi_density_eps": { "type": "boolean" }
       }
     },
     "aero_acoustic_profile": {
@@ -154,7 +164,8 @@
         "comms_cutout_type": { "type": "string" },
         "speaker_pocket_depth_mm": { "type": "number" },
         "cable_management": { "type": "boolean" },
-        "hud_ready": { "type": "boolean" }
+        "hud_ready": { "type": "boolean" },
+        "dedicated_intercom_integration": { "type": "string" }
       }
     },
     "fitment_coordinates": {

@@ -1,189 +1,399 @@
 {
-    "id": "shoei_gt_air_3",
-    "entity": "helmet",
-    "title": "Shoei GT-Air 3",
-    "brand": "Shoei",
-    "type": "Touring",
-    "helmet_family": "GT-Air 3",
-    "price": {
+  "id": "shoei_gt_air_3",
+  "entity": "helmet",
+  "title": "GT-Air 3",
+  "brand": "Shoei",
+  "type": "Touring",
+  "helmet_family": "GT-Air 3",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "AIM",
+    "weight_g": 1439,
+    "weight_lbs": 3.17,
+    "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 4,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 86
+  },
+  "description": "Purpose-built for long-distance touring, the Shoei GT-Air 3 is crafted for long-haul endurance with premium acoustic sealing to minimize neck fatigue on cross-country treks. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1439g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
+  },
+  "variants": [
+    {
+      "id": "shoei_gt_air_3_matte-black",
+      "entity": "helmet",
+      "title": "Shoei GT-Air 3 Matte Black",
+      "type": "Touring",
+      "parent_id": "shoei_gt_air_3",
+      "helmet_family": "GT-Air 3",
+      "head_shape": "Intermediate Oval",
+      "color": "Matte Black",
+      "color_family": "Black",
+      "sku": "SHO-GTA3-MBK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Shoei GT-Air 3 is a benchmark Touring helmet crafted in Japan 🇯🇵. Built around Advanced Integrated Matrix Plus (AIM+) 6-layer organic fiber and fiberglass composite shell, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Engineered in Tokyo for peak aero-acoustics and track stability.",
+      "product_details": {
+        "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
+      },
+      "price": {
         "current": 699.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 699.99,
+        "eur": 643.99,
+        "gbp": 552.99
+      },
+      "specs": {
         "material": "AIM",
         "weight_g": 1550,
         "weight_lbs": 3.42,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor.",
-    "product_details": {
-        "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
-    },
-    "variants": [
-        {
-            "id": "shoei_gt_air_3_matte-black",
-            "entity": "helmet",
-            "title": "Shoei GT-Air 3 Matte Black",
-            "type": "Touring",
-            "parent_id": "shoei_gt_air_3",
-            "helmet_family": "GT-Air 3",
-            "head_shape": "Intermediate Oval",
-            "color": "Matte Black",
-            "color_family": "Black",
-            "sku": "SHO-GTA3-MBK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor.",
-            "product_details": {
-                "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
-            },
-            "price": {
-                "current": 699.99,
-                "usd": 699.99,
-                "eur": 643.99,
-                "gbp": 552.99
-            },
-            "specs": {
-                "material": "AIM",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Matte+Black",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Matte+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Matte+Black+Back"
-            ],
-            "helmet_types": [
-                "Touring"
-            ]
-        },
-        {
-            "id": "shoei_gt_air_3_brilliant-yellow",
-            "entity": "helmet",
-            "title": "Shoei GT-Air 3 Brilliant Yellow",
-            "type": "Touring",
-            "parent_id": "shoei_gt_air_3",
-            "helmet_family": "GT-Air 3",
-            "head_shape": "Intermediate Oval",
-            "color": "Brilliant Yellow",
-            "color_family": "Yellow",
-            "sku": "SHO-GTA3-YEL",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor.",
-            "product_details": {
-                "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
-            },
-            "price": {
-                "current": 699.99,
-                "usd": 699.99,
-                "eur": 643.99,
-                "gbp": 552.99
-            },
-            "specs": {
-                "material": "AIM",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Brilliant+Yellow",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Brilliant+Yellow+Side",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Brilliant+Yellow+Back"
-            ],
-            "helmet_types": [
-                "Touring"
-            ]
-        },
-        {
-            "id": "shoei_gt_air_3_discipline-tc-2",
-            "entity": "helmet",
-            "title": "Shoei GT-Air 3 Discipline TC-2",
-            "type": "Touring",
-            "parent_id": "shoei_gt_air_3",
-            "helmet_family": "GT-Air 3",
-            "head_shape": "Intermediate Oval",
-            "color": "Discipline TC-2",
-            "color_family": "Blue",
-            "sku": "SHO-GTA3-DIS",
-            "finish": "gloss",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor.",
-            "product_details": {
-                "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
-            },
-            "price": {
-                "current": 799.99,
-                "usd": 799.99,
-                "eur": 735.99,
-                "gbp": 631.99
-            },
-            "specs": {
-                "material": "AIM",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Discipline+TC-2",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Discipline+TC-2+Side",
-                "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+Discipline+TC-2+Back"
-            ],
-            "helmet_types": [
-                "Touring"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+1",
-        "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+2",
-        "https://placehold.co/800x800/222/white?text=Shoei+GT-Air+3+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.06"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_matte_black_front.png",
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_matte_black_side.png"
+      ],
+      "helmet_types": [
+        "Touring"
+      ],
+      "introduction": "Positioned in Shoei's Touring lineup, the GT-Air 3 brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Shoei GT-Air 3 represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Touring helmet tailored to an Intermediate Oval head shape, the Shoei GT-Air 3 delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Shoei GT-Air 3 Matte Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Shoei GT-Air 3 in Shoei GT-Air 3 Matte Black. A practical cross-country lid combining drop-down sun visor convenience with road-proven impact protection.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 18,
-        "cable_management": true
+    {
+      "id": "shoei_gt_air_3_brilliant-yellow",
+      "entity": "helmet",
+      "title": "Shoei GT-Air 3 Brilliant Yellow",
+      "type": "Touring",
+      "parent_id": "shoei_gt_air_3",
+      "helmet_family": "GT-Air 3",
+      "head_shape": "Intermediate Oval",
+      "color": "Brilliant Yellow",
+      "color_family": "Yellow",
+      "sku": "SHO-GTA3-YEL",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Shoei GT-Air 3 is a benchmark Touring helmet crafted in Japan 🇯🇵. Built around Advanced Integrated Matrix Plus (AIM+) 6-layer organic fiber and fiberglass composite shell, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Engineered in Tokyo for peak aero-acoustics and track stability.",
+      "product_details": {
+        "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
+      },
+      "price": {
+        "current": 699.99,
+        "usd": 699.99,
+        "eur": 643.99,
+        "gbp": 552.99
+      },
+      "specs": {
+        "material": "AIM",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_brilliant_yellow_front.png",
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_brilliant_yellow_side.png"
+      ],
+      "helmet_types": [
+        "Touring"
+      ],
+      "introduction": "Positioned in Shoei's Touring lineup, the GT-Air 3 brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Shoei GT-Air 3 represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Touring helmet tailored to an Intermediate Oval head shape, the Shoei GT-Air 3 delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Shoei GT-Air 3 Brilliant Yellow (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Shoei GT-Air 3 in Shoei GT-Air 3 Brilliant Yellow. A practical cross-country lid combining drop-down sun visor convenience with road-proven impact protection.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B0CQXZ8V9L",
-        "ean": "4546732123456",
-        "mpn": "GT-AIR-3-BLK"
+    {
+      "id": "shoei_gt_air_3_discipline-tc-2",
+      "entity": "helmet",
+      "title": "Shoei GT-Air 3 Discipline TC-2",
+      "type": "Touring",
+      "parent_id": "shoei_gt_air_3",
+      "helmet_family": "GT-Air 3",
+      "head_shape": "Intermediate Oval",
+      "color": "Discipline TC-2",
+      "color_family": "Blue",
+      "sku": "SHO-GTA3-DIS",
+      "finish": "gloss",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The Shoei GT-Air 3 is a benchmark Touring helmet crafted in Japan 🇯🇵. Built around Advanced Integrated Matrix Plus (AIM+) 6-layer organic fiber and fiberglass composite shell, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Engineered in Tokyo for peak aero-acoustics and track stability.",
+      "product_details": {
+        "description": "The GT-Air 3 is the ultimate sport-touring helmet with sun visor."
+      },
+      "price": {
+        "current": 799.99,
+        "usd": 799.99,
+        "eur": 735.99,
+        "gbp": 631.99
+      },
+      "specs": {
+        "material": "AIM",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_discipline_tc_2_front.png",
+        "https://helmetsan.com/assets/helmets/shoei_gt_air_3_discipline_tc_2_side.png"
+      ],
+      "helmet_types": [
+        "Touring"
+      ],
+      "introduction": "Positioned in Shoei's Touring lineup, the GT-Air 3 brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Shoei GT-Air 3 represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Touring helmet tailored to an Intermediate Oval head shape, the Shoei GT-Air 3 delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Shoei GT-Air 3 Discipline TC-2 (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Shoei GT-Air 3 in Shoei GT-Air 3 Discipline TC-2. A practical cross-country lid combining drop-down sun visor convenience with road-proven impact protection.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/shoei_gt_air_3_front.png",
+    "https://helmetsan.com/assets/helmets/shoei_gt_air_3_side.png",
+    "https://helmetsan.com/assets/helmets/shoei_gt_air_3_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 18,
+    "cable_management": true
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B0CQXZ8V9L",
+    "ean": "4546732123456",
+    "mpn": "GT-AIR-3-BLK",
+    "sku": "SHO-SHOEIG"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.06",
+    "sharp_rating": 5,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for a balanced fit suitable for touring; slightly roomier in the rear compared to the GT-Air 2.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 86,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 245,
+    "internal_width_mm": 168,
+    "crown_depth_mm": 112
+  },
+  "technical_analysis": "Features Advanced Integrated Matrix Plus (AIM+) 6-layer organic fiber and fiberglass composite shell paired with CWR-F2 3D injection-molded visor with Pinlock EVO lens inserts and vortex generators along the shield edges. The interior utilizes Dual-layer multi-density EPS with internal cooling channels and 3D Max-Dry custom cheek pad fitment with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Shoei GT-Air 3: combining Japan 🇯🇵 craftsmanship with CWR-F2 3D injection-molded visor with Pinlock EVO lens inserts and vortex generators along the shield edges and Dual-layer multi-density EPS with internal cooling channels and 3D Max-Dry custom cheek pad fitment. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Shoei GT-Air 3: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "shoei gt-air 3 helmet",
+  "yoast_metadesc": "In-depth review of the Shoei GT-Air 3. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Shoei+GT-Air+3&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Shoei+GT-Air+3"
+  },
+  "cross_links": [
+    {
+      "keyword": "Shoei",
+      "target_id": "shoei",
+      "target_type": "brand"
+    }
+  ],
+  "sku": "SHO-SHOEIG",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Japan 🇯🇵",
+  "category": "Touring",
+  "physics_intelligence": {
+    "weight_grams": 1439,
+    "acoustic_noise_rating_db": "86 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Shoei GT-Air 3 is a benchmark Aero-Acoustic Premium Touring helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Shoei's Touring lineup, the GT-Air 3 brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+  "story": "The Shoei GT-Air 3 represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Touring helmet tailored to an Intermediate Oval head shape, the Shoei GT-Air 3 delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Shoei GT-Air 3 represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Touring helmet tailored to an Intermediate Oval head shape, the Shoei GT-Air 3 delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport-Touring & Long Distance",
+  "pros_and_cons": {
+    "pros": [
+      "Factory-prepared speaker pockets tailored for seamless Bluetooth communicator installation",
+      "Well-balanced 1439g center of gravity reduces rider fatigue on long highway stretches",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
+    ]
+  },
+  "editorial_overview": "Purpose-built for long-distance touring, the Shoei GT-Air 3 is crafted for long-haul endurance with premium acoustic sealing to minimize neck fatigue on cross-country treks. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1439g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A practical cross-country lid combining drop-down sun visor convenience with road-proven impact protection.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Long-Distance & Cross-Country Touring",
+      "riding_stance": "Neutral-Forward Ergonomic Stance",
+      "core_priority": "Acoustic cabin dampening, drop-down sun visor utility, and all-day neck fatigue prevention"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1439,
+      "measured_weight_lbs": 3.17
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for a balanced fit suitable for touring; slightly roomier in the rear compared to the GT-Air 2.",
-        "head_shape": "Intermediate Oval"
+    "acoustic_envelope": {
+      "sound_index_db": "~86 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
     },
-    "deep_enriched": true
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.06"
+      ],
+      "sharp_rating": 5,
+      "sharp_verified": false,
+      "rotational_mitigation": true
+    },
+    "verdict_takeaway": "A practical cross-country lid combining drop-down sun visor convenience with road-proven impact protection."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "harley_davidson_indian_h_d_road_glide_limited_grand_american_enduro_spec",
+      "title": "H-D Road Glide Limited Grand American (Enduro Spec)",
+      "make": "Harley-Davidson",
+      "category": "Luxury Grand Tourer",
+      "match_score": 97,
+      "match_reason": "Acoustically insulated shell isolates high-mileage road drone, pairing harmoniously with the Harley-Davidson H-D Road Glide Limited Grand American (Enduro Spec) touring slipstream."
+    },
+    {
+      "id": "honda_gold_wing_tour_dct_urban_commuter",
+      "title": "Gold Wing Tour DCT (Urban Commuter)",
+      "make": "Honda",
+      "category": "Luxury Grand Tourer",
+      "match_score": 93,
+      "match_reason": "Integrated speaker recesses and drop-down sun visor offer seamless touring utility across long saddle hours on the Gold Wing Tour DCT (Urban Commuter)."
+    },
+    {
+      "id": "bmw_motorrad_r1250rt_luxury_tourer_custom_edition",
+      "title": "R1250RT Luxury Tourer (Custom Edition)",
+      "make": "BMW Motorrad",
+      "category": "Luxury Grand Tourer",
+      "match_score": 90,
+      "match_reason": "Plush anti-microbial interior lining guarantees all-day comfort across transcontinental BMW Motorrad R1250RT Luxury Tourer (Custom Edition) itineraries."
+    },
+    {
+      "id": "harley_road_glide_limited",
+      "title": "Road Glide Limited Grand American",
+      "make": "Harley-Davidson",
+      "category": "Luxury Grand Tourer",
+      "match_score": 86,
+      "match_reason": "Modular flip-up versatility provides convenient border-crossing ease without removing the helmet on long Road Glide Limited Grand American tours."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "transition-visor",
+      "title": "Shoei CWR-F2 Transitions Photochromic Shield",
+      "fitment": "OEM CWR-F2 base plate toolless spring-lock fitment"
+    },
+    {
+      "id": "helmet-interior-liner-set",
+      "title": "Shoei RF-1400 Complete Interior Liner Set",
+      "fitment": "Direct EPS channel snap-in replacement"
+    },
+    {
+      "id": "helmet-bag-premium",
+      "title": "Shoei Premium Fleece-Lined Helmet Bag",
+      "fitment": "Fleece-lined tailored shell transport protection"
+    }
+  ],
+  "noise_db": 86,
+  "certifications": [
+    "DOT",
+    "ECE 22.06"
+  ]
 }

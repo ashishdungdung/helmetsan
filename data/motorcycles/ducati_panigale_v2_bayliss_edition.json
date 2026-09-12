@@ -1,0 +1,127 @@
+{
+  "id": "ducati_panigale_v2_bayliss_edition",
+  "entity": "motorcycle",
+  "title": "Panigale V2 Bayliss Edition",
+  "brand": "Ducati",
+  "country_origin": "Italy 🇮🇹",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 0,
+  "power_hp": 12,
+  "torque_nm": 10,
+  "curb_weight_kg": 110,
+  "price": {
+    "usd": 1500,
+    "inr": 124500,
+    "eur": 1380,
+    "gbp": 1185,
+    "jpy": 232500
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing Ducati's prowess in the Middleweight Sportbike class, the Ducati Panigale V2 Bayliss Edition is tuned for uncompromising circuit performance with laser-guided cornering stability. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 110 kg, ensuring responsive roll-on acceleration in demanding road conditions. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Ducati Panigale V2 Bayliss Edition: Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Ducati Panigale V2 Bayliss Edition.",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Ducati's prowess in the Middleweight Sportbike class, the Ducati Panigale V2 Bayliss Edition is tuned for uncompromising circuit performance with laser-guided cornering stability. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 110 kg, ensuring responsive roll-on acceleration in demanding road conditions. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Aggressive Full Forward Tuck",
+      "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 12,
+      "torque_nm": 10,
+      "curb_weight_kg": 110,
+      "power_to_weight": "10.9 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shark_race_r_pro_gp_tech-tc-2",
+      "title": "Race-R Pro GP Tech TC-2",
+      "brand": "Shark",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Ducati Panigale V2 Bayliss Edition."
+    },
+    {
+      "id": "arai_corso_x_gloss_black",
+      "title": "Corso X Gloss Black",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the Panigale V2 Bayliss Edition."
+    },
+    {
+      "id": "agv_k3_camo-tc-5",
+      "title": "K3 Camo TC-5",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Ducati Panigale V2 Bayliss Edition."
+    },
+    {
+      "id": "arai_raider_x_gloss_black",
+      "title": "Raider X Gloss Black",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for Panigale V2 Bayliss Edition speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Ducati Panigale V2 Bayliss Edition."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Ducati engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

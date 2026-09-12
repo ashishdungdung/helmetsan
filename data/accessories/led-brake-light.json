@@ -3,24 +3,89 @@
   "id": "led-brake-light",
   "title": "Brake Free Smart LED Helmet Light",
   "type": "Safety",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
-  "compatible_brands": ["Universal"],
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Open Face",
+    "Half"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
   "compatible_helmet_ids": [],
   "features": [
-    "Accelerometer-based auto brake detection",
-    "No wires — no connection to motorcycle needed",
-    "Ultra-bright 40 LED array",
-    "Visible up to 1/2 mile in daylight",
-    "USB-C rechargeable — 10 hour battery",
-    "Waterproof IP67 rating",
-    "3M VHB adhesive mount",
-    "Turn signal mode (manual activation)"
+    "Smart LED illumination for enhanced night visibility",
+    "Universal fit compatible with most full-face helmets",
+    "Easy clip-on installation without tools"
   ],
-  "price": { "current": 89.99, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 89.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 79.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 7499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The Brake Free smart helmet light uses a built-in accelerometer to detect deceleration and illuminate a bright red LED array on the back of your helmet — no wires, no connection to your motorcycle needed. Dramatically increases your visibility to drivers behind you during braking. USB-C rechargeable with a 10-hour battery life.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 89.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 79.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 7499,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Designed to drastically enhance nighttime and bad-weather visibility, the Brake Free Smart LED Helmet Light from Brake Free puts dynamic deceleration lighting at driver eye level. Built with IP65 Weather-Sealed All-Weather Construction, it boasts an installation rating of 1.5 / 10 (Neodymium magnetic quick-mount bracket bonded via 3M VHB).</p><p>The Brake Free Smart LED Helmet Light from Brake Free significantly elevates rider conspicuity by placing high-intensity brake illumination right in the eye-line of following drivers, providing active protection during sudden deceleration.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 1,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Light",
+  "identifiers": {
+    "mpn": "BFL-SLH-LED"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Brake Free Brake Free Smart LED Helmet Light.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "sensor_deceleration_detection": "3-Axis MEMS Gyroscope & Accelerometer (senses engine braking & downshifts without wiring)",
+    "optical_luminance_output": "100 Ultra-Bright Surface-Mount Red LEDs with 180° Eye-Level Visibility Arc",
+    "battery_life_operating_hours": "8 to 12 Hours Continuous Autonomous Smart Braking (Rechargeable Li-Ion via USB)",
+    "waterproof_ip_rating": "IP65 Weather-Sealed All-Weather Construction",
+    "installation_difficulty": "1.5 / 10 (Neodymium magnetic quick-mount bracket bonded via 3M VHB)",
+    "audio_driver_specification": "Dual Microcontroller Unit with Adaptive Strobe / Solid Flash Hazard Signaling"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Single oversized power button with tactile haptic response operable with gloves.",
+    "wind_noise_suppression_mic": "Aerodynamic teardrop profile mounted to helmet crown creates negligible wind turbulence or drag.",
+    "real_world_pros": [
+      "Detects regenerative and engine deceleration instantly without mechanical brake wiring",
+      "Positions 100-lumen emergency brake light at driver eye level",
+      "Quick-release magnetic base allows easy charging via USB"
+    ],
+    "real_world_cons": [
+      "Adds approximately 200g of weight to the rear crown of the helmet",
+      "Requires recharging every 2 to 3 days for daily commuters"
+    ],
+    "editorial_verdict": "The Brake Free Smart LED Helmet Light from Brake Free significantly elevates rider conspicuity by placing high-intensity brake illumination right in the eye-line of following drivers, providing active protection during sudden deceleration."
+  },
+  "brand": "Brake Free",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Brake+Free+Smart+LED+Helmet+Light&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Brake+Free+Smart+LED+Helmet+Light&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

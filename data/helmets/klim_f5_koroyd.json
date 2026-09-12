@@ -1,189 +1,400 @@
 {
-    "id": "klim_f5_koroyd",
-    "entity": "helmet",
-    "title": "Klim F5 Koroyd",
-    "brand": "Klim",
-    "type": "Dirt / MX",
-    "helmet_family": "F5 Koroyd",
-    "price": {
+  "id": "klim_f5_koroyd",
+  "entity": "helmet",
+  "title": "F5 Koroyd",
+  "brand": "Klim",
+  "type": "Dirt / MX",
+  "helmet_family": "F5 Koroyd",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Carbon Fiber",
+    "weight_g": 1269,
+    "weight_lbs": 2.8,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 97
+  },
+  "description": "The Klim F5 Koroyd is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1269g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~99 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
+  },
+  "variants": [
+    {
+      "id": "klim_f5_koroyd_gloss-black",
+      "entity": "helmet",
+      "title": "Klim F5 Koroyd Gloss Black",
+      "type": "Dirt / MX",
+      "parent_id": "klim_f5_koroyd",
+      "helmet_family": "F5 Koroyd",
+      "head_shape": "Intermediate Oval",
+      "color": "Gloss Black",
+      "color_family": "Black",
+      "sku": "KLI-F5KO-BLK",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Klim F5 Koroyd is a benchmark Dirt / MX helmet crafted in United States 🇺🇸. Built around Hand-laid Karbonite Carbon Fiber shell construction optimized for extreme adventure dual-sport touring, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Uncompromising North American gear built for extreme climates and ADV travel.",
+      "product_details": {
+        "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
+      },
+      "price": {
         "current": 649.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 649.99,
+        "eur": 597.99,
+        "gbp": 513.49
+      },
+      "specs": {
         "material": "Carbon Fiber",
         "weight_g": 1100,
         "weight_lbs": 2.43,
         "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "Revolutionary Koroyd liner crumple zone for superior impact protection.",
-    "product_details": {
-        "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
-    },
-    "variants": [
-        {
-            "id": "klim_f5_koroyd_gloss-black",
-            "entity": "helmet",
-            "title": "Klim F5 Koroyd Gloss Black",
-            "type": "Dirt / MX",
-            "parent_id": "klim_f5_koroyd",
-            "helmet_family": "F5 Koroyd",
-            "head_shape": "Intermediate Oval",
-            "color": "Gloss Black",
-            "color_family": "Black",
-            "sku": "KLI-F5KO-BLK",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Revolutionary Koroyd liner crumple zone for superior impact protection.",
-            "product_details": {
-                "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
-            },
-            "price": {
-                "current": 649.99,
-                "usd": 649.99,
-                "eur": 597.99,
-                "gbp": 513.49
-            },
-            "specs": {
-                "material": "Carbon Fiber",
-                "weight_g": 1100,
-                "weight_lbs": 2.43,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Gloss+Black+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        },
-        {
-            "id": "klim_f5_koroyd_anthracite",
-            "entity": "helmet",
-            "title": "Klim F5 Koroyd Anthracite",
-            "type": "Dirt / MX",
-            "parent_id": "klim_f5_koroyd",
-            "helmet_family": "F5 Koroyd",
-            "head_shape": "Intermediate Oval",
-            "color": "Anthracite",
-            "color_family": "Grey",
-            "sku": "KLI-F5KO-GRE",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Revolutionary Koroyd liner crumple zone for superior impact protection.",
-            "product_details": {
-                "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
-            },
-            "price": {
-                "current": 649.99,
-                "usd": 649.99,
-                "eur": 597.99,
-                "gbp": 513.49
-            },
-            "specs": {
-                "material": "Carbon Fiber",
-                "weight_g": 1100,
-                "weight_lbs": 2.43,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite+Side",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Anthracite+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        },
-        {
-            "id": "klim_f5_koroyd_vortex-tc-2",
-            "entity": "helmet",
-            "title": "Klim F5 Koroyd Vortex TC-2",
-            "type": "Dirt / MX",
-            "parent_id": "klim_f5_koroyd",
-            "helmet_family": "F5 Koroyd",
-            "head_shape": "Intermediate Oval",
-            "color": "Vortex TC-2",
-            "color_family": "Multi",
-            "sku": "KLI-F5KO-VOR",
-            "finish": "matte",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "Revolutionary Koroyd liner crumple zone for superior impact protection.",
-            "product_details": {
-                "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
-            },
-            "price": {
-                "current": 699.99,
-                "usd": 699.99,
-                "eur": 643.99,
-                "gbp": 552.99
-            },
-            "specs": {
-                "material": "Carbon Fiber",
-                "weight_g": 1100,
-                "weight_lbs": 2.43,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2+Side",
-                "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+Vortex+TC-2+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+1",
-        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+2",
-        "https://placehold.co/800x800/222/white?text=Klim+F5+Koroyd+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.05"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_gloss_black_front.png",
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_gloss_black_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in Klim's Dirt / MX lineup, the F5 Koroyd brings American engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Klim F5 Koroyd represents Klim's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~99 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the Klim F5 Koroyd delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Klim F5 Koroyd Gloss Black (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Klim F5 Koroyd in Klim F5 Koroyd Gloss Black. A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 45,
-        "cable_management": true
+    {
+      "id": "klim_f5_koroyd_anthracite",
+      "entity": "helmet",
+      "title": "Klim F5 Koroyd Anthracite",
+      "type": "Dirt / MX",
+      "parent_id": "klim_f5_koroyd",
+      "helmet_family": "F5 Koroyd",
+      "head_shape": "Intermediate Oval",
+      "color": "Anthracite",
+      "color_family": "Grey",
+      "sku": "KLI-F5KO-GRE",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Klim F5 Koroyd is a benchmark Dirt / MX helmet crafted in United States 🇺🇸. Built around Hand-laid Karbonite Carbon Fiber shell construction optimized for extreme adventure dual-sport touring, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Uncompromising North American gear built for extreme climates and ADV travel.",
+      "product_details": {
+        "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
+      },
+      "price": {
+        "current": 649.99,
+        "usd": 649.99,
+        "eur": 597.99,
+        "gbp": 513.49
+      },
+      "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_anthracite_front.png",
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_anthracite_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in Klim's Dirt / MX lineup, the F5 Koroyd brings American engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Klim F5 Koroyd represents Klim's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~99 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the Klim F5 Koroyd delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Klim F5 Koroyd Anthracite (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Klim F5 Koroyd in Klim F5 Koroyd Anthracite. A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "model_year": 2019,
-    "identifiers": {
-        "asin": "B07Q5WZ8V3",
-        "ean": "8429610000000",
-        "mpn": "F5-KOR-CL"
+    {
+      "id": "klim_f5_koroyd_vortex-tc-2",
+      "entity": "helmet",
+      "title": "Klim F5 Koroyd Vortex TC-2",
+      "type": "Dirt / MX",
+      "parent_id": "klim_f5_koroyd",
+      "helmet_family": "F5 Koroyd",
+      "head_shape": "Intermediate Oval",
+      "color": "Vortex TC-2",
+      "color_family": "Multi",
+      "sku": "KLI-F5KO-VOR",
+      "finish": "matte",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The Klim F5 Koroyd is a benchmark Dirt / MX helmet crafted in United States 🇺🇸. Built around Hand-laid Karbonite Carbon Fiber shell construction optimized for extreme adventure dual-sport touring, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Uncompromising North American gear built for extreme climates and ADV travel.",
+      "product_details": {
+        "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
+      },
+      "price": {
+        "current": 699.99,
+        "usd": 699.99,
+        "eur": 643.99,
+        "gbp": 552.99
+      },
+      "specs": {
+        "material": "Carbon Fiber",
+        "weight_g": 1100,
+        "weight_lbs": 2.43,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_vortex_tc_2_front.png",
+        "https://helmetsan.com/assets/helmets/klim_f5_koroyd_vortex_tc_2_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in Klim's Dirt / MX lineup, the F5 Koroyd brings American engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Klim F5 Koroyd represents Klim's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~99 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the Klim F5 Koroyd delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Klim F5 Koroyd Vortex TC-2 (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Klim F5 Koroyd in Klim F5 Koroyd Vortex TC-2. A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/klim_f5_koroyd_front.png",
+    "https://helmetsan.com/assets/helmets/klim_f5_koroyd_side.png",
+    "https://helmetsan.com/assets/helmets/klim_f5_koroyd_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 45,
+    "cable_management": true
+  },
+  "model_year": 2019,
+  "identifiers": {
+    "asin": "B07Q5WZ8V3",
+    "ean": "8429610000000",
+    "mpn": "F5-KOR-CL",
+    "sku": "KLI-KLIMF5"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 3,
+    "rotational_mitigation": "Koroyd"
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for aggressive riding positions; may feel tight on high cheekbones due to dirt-specific shell geometry.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 97,
+    "ventilation_efficiency_score": 8,
+    "drag_coefficient": 0.36
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 254,
+    "internal_width_mm": 198,
+    "crown_depth_mm": 102
+  },
+  "technical_analysis": "Features Hand-laid Karbonite Carbon Fiber shell construction optimized for extreme adventure dual-sport touring paired with Fidlock magnetic quick-release chinstrap buckle with distortion-free optical shield and peak visor. The interior utilizes Klimatek cooling fabric interior with high-volume chin intake ventilation with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Klim F5 Koroyd: combining United States 🇺🇸 craftsmanship with Fidlock magnetic quick-release chinstrap buckle with distortion-free optical shield and peak visor and Klimatek cooling fabric interior with high-volume chin intake ventilation. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Klim F5 Koroyd: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "klim f5 koroyd helmet",
+  "yoast_metadesc": "In-depth review of the Klim F5 Koroyd. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Klim+F5+Koroyd&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Klim+F5+Koroyd"
+  },
+  "cross_links": [
+    {
+      "keyword": "KLIM",
+      "target_id": "klim",
+      "target_type": "brand"
+    }
+  ],
+  "sku": "KLI-KLIMF5",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "United States 🇺🇸",
+  "category": "Dirt / MX",
+  "physics_intelligence": {
+    "weight_grams": 1269,
+    "acoustic_noise_rating_db": "97 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Klim F5 Koroyd is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Klim's Dirt / MX lineup, the F5 Koroyd brings American engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Klim F5 Koroyd represents Klim's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~99 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the Klim F5 Koroyd delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Klim F5 Koroyd represents Klim's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~99 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the Klim F5 Koroyd delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Multi-position shatter-resistant roost visor with breakaway hardware",
+      "Featherweight 1269g shell construction significantly minimizes neck fatigue during long rides",
+      "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~99 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Zero acoustic sound insulation; not designed or suitable for extended high-speed highway touring"
+    ]
+  },
+  "editorial_overview": "The Klim F5 Koroyd is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1269g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~99 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Motocross, Enduro & Off-Road Competition",
+      "riding_stance": "Aggressive Standing / Off-Road Stance",
+      "core_priority": "Unrestricted goggle airflow, high-clearance roost beak, and maximum aerobic heat dissipation"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 3,
-        "rotational_mitigation": "Koroyd"
+    "physics_and_kinetics": {
+      "material_tier": "Aerospace-Grade 100% Carbon Fiber",
+      "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
+      "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
+      "measured_weight_g": 1269,
+      "measured_weight_lbs": 2.8
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for aggressive riding positions; may feel tight on high cheekbones due to dirt-specific shell geometry.",
-        "head_shape": "Intermediate Oval"
+    "acoustic_envelope": {
+      "sound_index_db": "~99 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
     },
-    "deep_enriched": true
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 3,
+      "sharp_verified": false,
+      "rotational_mitigation": "Koroyd"
+    },
+    "verdict_takeaway": "A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ktm_husqvarna_gasgas_husqvarna_fe_501_enduro_track_edition",
+      "title": "Husqvarna FE 501 Enduro (Track Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the KTM Husqvarna FE 501 Enduro (Track Edition)."
+    },
+    {
+      "id": "bmw_motorrad_f900gs_enduro_stealth_edition",
+      "title": "F900GS Enduro (Stealth Edition)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the F900GS Enduro (Stealth Edition)."
+    },
+    {
+      "id": "honda_crf300l_rally_circuit_spec",
+      "title": "CRF300L Rally (Circuit Spec)",
+      "make": "Honda",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Honda CRF300L Rally (Circuit Spec)."
+    },
+    {
+      "id": "royal_enfield_himalayan_411_rally_classic_heritage",
+      "title": "Himalayan 411 Rally (Classic Heritage)",
+      "make": "Royal Enfield",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Himalayan 411 Rally (Classic Heritage)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 97,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ]
 }

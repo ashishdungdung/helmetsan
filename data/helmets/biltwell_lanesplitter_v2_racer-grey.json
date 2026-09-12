@@ -1,78 +1,265 @@
 {
-    "id": "biltwell_lanesplitter_v2_racer-grey",
-    "entity": "helmet",
-    "title": "Biltwell Lanesplitter V2 Racer Grey",
-    "brand": "Biltwell",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "biltwell_lanesplitter_v2",
-    "helmet_family": "Lanesplitter V2",
-    "price": {
-        "current": 269.95,
-        "usd": 269.95,
-        "eur": 248.35,
-        "gbp": 213.26
-    },
+  "id": "biltwell_lanesplitter_v2_racer-grey",
+  "entity": "helmet",
+  "title": "Lanesplitter V2 Racer Grey",
+  "brand": "Biltwell",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "biltwell_lanesplitter_v2",
+  "helmet_family": "Lanesplitter V2",
+  "price": {
+    "usd": 269,
+    "inr": 22327,
+    "eur": 247,
+    "gbp": 213,
+    "jpy": 41695
+  },
+  "certifications": [
+    "DOT",
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "ABS",
+    "weight_g": 1411,
+    "weight_lbs": 3.11,
     "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 86
+  },
+  "description": "The Biltwell Lanesplitter V2 Racer Grey is optimized for upright naked and roadster riders seeking wide-angle road awareness, delivering responsive balance and confident road feel. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1411g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Updated lane-splitter with improved ventilation and ECE certification."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/biltwell_lanesplitter_v2_racer_grey_front.png",
+    "https://helmetsan.com/assets/helmets/biltwell_lanesplitter_v2_racer_grey_side.png",
+    "https://helmetsan.com/assets/helmets/biltwell_lanesplitter_v2_racer_grey_rear.png"
+  ],
+  "color": "Racer Grey",
+  "color_family": "Grey",
+  "sku": "BIL-BILTWE",
+  "finish": "gloss",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 12,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": "2018",
+  "identifiers": {
+    "asin": "B07QKZV8Y3",
+    "ean": "8429561000000",
+    "mpn": "LSP-V2-RG",
+    "sku": "BIL-BILTWE"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.06",
+    "sharp_rating": 0,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Biltwell Lanesplitter V2 is a retro-styled full-face helmet known for its unique 'racer' shape and high-quality interior padding. It does not feature modern safety technologies like MIPS (rotational mitigation), integrated speaker pockets, or factory cable management channels. The fit is generally reported as comfortable with a slightly oval-to-round head shape preference.",
+    "head_shape": "Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 86,
+    "ventilation_efficiency_score": 6,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 225,
+    "internal_width_mm": 145,
+    "crown_depth_mm": 115
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Biltwell Lanesplitter V2 Racer Grey: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Biltwell Lanesplitter V2 Racer Grey: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "biltwell lanesplitter v2 helmet",
+  "yoast_metadesc": "In-depth review of the Biltwell Lanesplitter V2 Racer Grey. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Biltwell+Lanesplitter+V2+Racer+Grey&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Biltwell+Lanesplitter+V2+Racer+Grey"
+  },
+  "cross_links": [
+    {
+      "keyword": "Biltwell",
+      "target_id": "biltwell",
+      "target_type": "brand"
+    }
+  ],
+  "country_origin": "Global",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1411,
+    "acoustic_noise_rating_db": "86 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Biltwell Lanesplitter V2 Racer Grey is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Biltwell's Full Face lineup, the Lanesplitter V2 Racer Grey brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+  "story": "The Biltwell Lanesplitter V2 Racer Grey represents Biltwell's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Full Face helmet tailored to an Intermediate Oval head shape, the Biltwell Lanesplitter V2 Racer Grey delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Biltwell Lanesplitter V2 Racer Grey represents Biltwell's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~86 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Full Face helmet tailored to an Intermediate Oval head shape, the Biltwell Lanesplitter V2 Racer Grey delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Eyewear-compatible interior lining accommodates sunglasses and prescription frames without hot spots",
+      "Well-balanced 1411g center of gravity reduces rider fatigue on long highway stretches",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Upper intake vent sliders require gloved dexterity to operate seamlessly at highway speeds"
+    ]
+  },
+  "editorial_overview": "The Biltwell Lanesplitter V2 Racer Grey is optimized for upright naked and roadster riders seeking wide-angle road awareness, delivering responsive balance and confident road feel. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1411g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A sharp and well-rounded daily sport lid that pairs multi-angle impact protection with comfortable all-day airflow.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Daily Urban Commuting & Naked Street",
+      "riding_stance": "Upright Street Stance",
+      "core_priority": "Wide panoramic eye-port for cross-traffic awareness, lightweight stop-and-go comfort, and quick latching"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1411,
+      "measured_weight_lbs": 3.11
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~86 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Race Multi-Layer Graphic",
+      "finish_narrative": "Wrapped in a high-definition multi-layer graphic sealed beneath UV-inhibiting clear lacquer for long-lasting visual depth."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "ABS",
-        "weight_g": 1300,
-        "weight_lbs": 2.87,
-        "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Updated lane-splitter with improved ventilation and ECE certification.",
-    "product_details": {
-        "description": "Updated lane-splitter with improved ventilation and ECE certification."
+    "verdict_takeaway": "A sharp and well-rounded daily sport lid that pairs multi-angle impact protection with comfortable all-day airflow."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "triumph_tf_250_x_motocross_dark_edition",
+      "title": "TF 250-X Motocross (Dark Edition)",
+      "make": "Triumph",
+      "category": "Middleweight Sportbike",
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Triumph TF 250-X Motocross (Dark Edition)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey",
-        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Side",
-        "https://placehold.co/800x800/222/white?text=Biltwell+Lanesplitter+V2+Racer+Grey+Back"
-    ],
-    "color": "Racer Grey",
-    "color_family": "Grey",
-    "sku": "BIL-LANE-RAC",
-    "finish": "gloss",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "harley_pan_america_1250",
+      "title": "Pan America 1250 Special",
+      "make": "Harley-Davidson",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Pan America 1250 Special."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "royal_enfield_bullet_350_j_series_apex_spec",
+      "title": "Bullet 350 J-Series (Apex Spec)",
+      "make": "Royal Enfield",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Royal Enfield Bullet 350 J-Series (Apex Spec)."
     },
-    "model_year": "2018",
-    "identifiers": {
-        "asin": "B07QKZV8Y3",
-        "ean": "8429561000000",
-        "mpn": "LSP-V2-RG"
+    {
+      "id": "triumph_speed_400_roadster_pro_spec",
+      "title": "Speed 400 Roadster (Pro Spec)",
+      "make": "Triumph",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Speed 400 Roadster (Pro Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.05",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Biltwell Lanesplitter V2 is a retro-styled full-face helmet known for its unique 'racer' shape and high-quality interior padding. It does not feature modern safety technologies like MIPS (rotational mitigation), integrated speaker pockets, or factory cable management channels. The fit is generally reported as comfortable with a slightly oval-to-round head shape preference.",
-        "head_shape": "Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 86
 }

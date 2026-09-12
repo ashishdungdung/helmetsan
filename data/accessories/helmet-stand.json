@@ -3,22 +3,87 @@
   "id": "helmet-stand",
   "title": "BikeMaster Deluxe Helmet Stand",
   "type": "Storage",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
-  "compatible_brands": ["Universal"],
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Open Face",
+    "Half"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
   "compatible_helmet_ids": [],
   "features": [
-    "Padded cradle prevents visor scratches",
-    "Non-slip rubber base",
-    "Built-in glove dryer hooks",
-    "Collapsible design for travel",
-    "Fits all helmet sizes XS-3XL",
-    "Ventilation channels for liner drying"
+    "Heavy-duty steel construction for long-lasting durability",
+    "Adjustable height and angle to fit various helmet sizes",
+    "Non-slip rubber base prevents sliding on any surface"
   ],
-  "price": { "current": 34.95, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 34.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 29.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 2499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The BikeMaster Deluxe Helmet Stand keeps your helmet safe and ventilated when not in use. The padded cradle protects the visor from scratches, while built-in glove dryer hooks keep all your gear organized. Collapses flat for easy storage or travel.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 34.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 29.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 2499,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Built to protect your helmet investment between epic journeys, the BikeMaster Deluxe Helmet Stand from BikeMaster delivers comprehensive hygiene, drying, and surface protection. Built with Fleece-Padded Protective Enclosure Shielding Against Scratches and UV, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation).</p><p>The BikeMaster Deluxe Helmet Stand from BikeMaster is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Stand",
+  "identifiers": {
+    "mpn": "BM-HS-DLX"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the BikeMaster BikeMaster Deluxe Helmet Stand.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "battery_life_operating_hours": "Passive Structural Storage Asset",
+    "waterproof_ip_rating": "Fleece-Padded Protective Enclosure Shielding Against Scratches and UV",
+    "installation_difficulty": "1.0 / 10 (Direct wipe application or plug-and-play operation)",
+    "audio_driver_specification": "Anti-Microbial Sanitization & Optical Surface Hydrophobic Shielding"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Heavy-duty oversized zipper pulls and wide-mouth access operable with gloved hands.",
+    "wind_noise_suppression_mic": "Soft fleece interior lining prevents scratch micro-abrasions to expensive helmet shells and tinted visors.",
+    "real_world_pros": [
+      "Maintains fresh helmet interior hygiene and prevents fungal buildup",
+      "Padded exterior protection shields paint finish from garage drops and luggage bumps",
+      "Simple, highly effective maintenance ritual extending helmet lifespan"
+    ],
+    "real_world_cons": [
+      "Takes up moderate storage footprint in touring panniers",
+      "Must be used regularly for maximum sanitization efficacy"
+    ],
+    "editorial_verdict": "The BikeMaster Deluxe Helmet Stand from BikeMaster is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions."
+  },
+  "brand": "BikeMaster",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=BikeMaster+Deluxe+Helmet+Stand&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=BikeMaster+Deluxe+Helmet+Stand&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

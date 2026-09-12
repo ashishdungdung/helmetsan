@@ -1,0 +1,127 @@
+{
+  "id": "yamaha_xsr700_heritage_touring_pack",
+  "entity": "motorcycle",
+  "title": "XSR700 Heritage (Touring Pack)",
+  "brand": "Yamaha",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 700,
+  "power_hp": 89,
+  "torque_nm": 73,
+  "curb_weight_kg": 193,
+  "price": {
+    "usd": 10450,
+    "inr": 867350,
+    "eur": 9614,
+    "gbp": 8256,
+    "jpy": 1619750
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing Yamaha's prowess in the Middleweight Sportbike class, the Yamaha XSR700 Heritage (Touring Pack) is delivers razor-sharp chassis feedback for riders hunting apexes. A 700cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Yamaha XSR700 Heritage (Touring Pack): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Yamaha XSR700 Heritage (Touring Pack).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Moderate",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 15.5,
+  "top_speed_kmh": 215,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:47Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Yamaha's prowess in the Middleweight Sportbike class, the Yamaha XSR700 Heritage (Touring Pack) is delivers razor-sharp chassis feedback for riders hunting apexes. A 700cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Dedicated Forward Lean",
+      "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "700cc",
+      "power_hp": 89,
+      "torque_nm": 73,
+      "curb_weight_kg": 193,
+      "power_to_weight": "46.1 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 15.5,
+      "estimated_range_km": "~434 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners."
+  },
+  "compatible_helmets": [
+    {
+      "id": "arai_corsair_x",
+      "title": "Corsair-X",
+      "brand": "Arai",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Yamaha XSR700 Heritage (Touring Pack)."
+    },
+    {
+      "id": "shark_race_r_pro_gp_street-tc-5",
+      "title": "Race-R Pro GP Street TC-5",
+      "brand": "Shark",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the XSR700 Heritage (Touring Pack)."
+    },
+    {
+      "id": "hjc_rpha_11_pro_venom-marvel",
+      "title": "RPHA 11 Pro Venom Marvel",
+      "brand": "HJC",
+      "type": "Track / Race",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Yamaha XSR700 Heritage (Touring Pack)."
+    },
+    {
+      "id": "hjc_v10_track-red",
+      "title": "V10 Track Red",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for XSR700 Heritage (Touring Pack) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Yamaha XSR700 Heritage (Touring Pack)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Yamaha engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

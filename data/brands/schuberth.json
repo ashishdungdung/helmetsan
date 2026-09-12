@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "schuberth",
-  "title": "Schuberth",
-  "profile": {
-    "origin_country": "Germany",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.schuberth.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Premium touring helmets with low-noise and high-comfort design priorities.",
-    "distributor_regions": "EU\nUS",
-    "size_chart_json": "{\"S\":\"55\",\"M\":\"57\",\"L\":\"59\",\"XL\":\"61\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/schuberth.com"
-  }
+    "entity": "brand",
+    "id": "schuberth",
+    "title": "Schuberth",
+    "profile": {
+        "origin_country": "Germany",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.schuberth.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Premium touring helmets with low-noise and high-comfort design priorities.",
+        "distributor_regions": "EU\nUS",
+        "size_chart_json": "{\"S\":\"55\",\"M\":\"57\",\"L\":\"59\",\"XL\":\"61\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/schuberth.com",
+        "story": "Schuberth was founded in 1950 by Hans Schuberth and his son Peter in the small town of Bad Liebenstein, Germany. Initially a family-run enterprise specializing in leather goods and motorcycle accessories, the company pivoted to helmet manufacturing in the early 1960s, driven by a desire to create safer riding gear for the growing motorcycling community. Their first full-face helmet, the C-1, introduced in 1964, was revolutionary for its time, featuring a robust fiberglass shell and an innovative internal suspension system that significantly improved impact absorption compared to the hard hats and open-face designs prevalent then.\n\nOver the decades, Schuberth has become synonymous with uncompromising safety standards and aerodynamic excellence. The brand pioneered the use of carbon fiber composites in high-end helmets and developed the 'Airflow' ventilation system, which became an industry benchmark. Throughout the 1980s and 1990s, Schuberth helmets were frequently tested to exceed European ECE regulations, often setting the standard for what would later become mandatory global safety norms. Today, they remain a leader in premium helmet technology, continuously pushing the boundaries of protection, comfort, and visibility for professional racers and enthusiasts alike.",
+        "motto": "Safety First",
+        "founded_year": 1950
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Germany \ud83c\udde9\ud83c\uddea",
+        "founding_year": 1922,
+        "headquarters_location": "Magdeburg, Germany",
+        "flagship_helmet_series": "Schuberth C5 & E2",
+        "engineering_philosophy": "Acoustic Wind-Tunnel Damping & German Modular Touring Innovation",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Schuberth is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Schuberth consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

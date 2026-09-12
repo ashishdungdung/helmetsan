@@ -1,0 +1,127 @@
+{
+  "id": "royal_enfield_classic_350_redditch_dark_edition",
+  "entity": "motorcycle",
+  "title": "Classic 350 Redditch (Dark Edition)",
+  "brand": "Royal Enfield",
+  "country_origin": "India 🇮🇳",
+  "category": "Urban Roadster",
+  "displacement_cc": 350,
+  "power_hp": 44,
+  "torque_nm": 38,
+  "curb_weight_kg": 163,
+  "price": {
+    "usd": 6450,
+    "inr": 535350,
+    "eur": 5934,
+    "gbp": 5096,
+    "jpy": 999750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "The Royal Enfield Classic 350 Redditch (Dark Edition) is combines low-slung road presence with generous low-end torque rumble, positioned in the Urban Roadster segment for riders demanding engaging everyday dynamics. Powered by a 350cc engine generating 44 HP and 38 Nm of torque against a curb weight of 163 kg, it delivers predictable, roll-on throttle response across its usable powerband. The cockpit is configured with an Upright Neutral riding stance and a balanced 790mm seat height providing confident footing and natural knee comfort, making daily city navigation as intuitive as weekend backroad escapes.",
+  "yoast_title": "Royal Enfield Classic 350 Redditch (Dark Edition): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Royal Enfield Classic 350 Redditch (Dark Edition).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 13.5,
+  "top_speed_kmh": 165,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [royal_enfield_classic_350_redditch] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "royal_enfield_classic_350_redditch",
+  "trim_type": "dark_edition",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "The Royal Enfield Classic 350 Redditch (Dark Edition) is combines low-slung road presence with generous low-end torque rumble, positioned in the Urban Roadster segment for riders demanding engaging everyday dynamics. Powered by a 350cc engine generating 44 HP and 38 Nm of torque against a curb weight of 163 kg, it delivers predictable, roll-on throttle response across its usable powerband. The cockpit is configured with an Upright Neutral riding stance and a balanced 790mm seat height providing confident footing and natural knee comfort, making daily city navigation as intuitive as weekend backroad escapes.",
+  "rider_takeaway": "A torque-rich boulevard bruiser that turns every highway mile into a relaxed, stylish journey.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Relaxed Feet-Forward Stance",
+      "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "350cc",
+      "power_hp": 44,
+      "torque_nm": 38,
+      "curb_weight_kg": 163,
+      "power_to_weight": "27.0 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 13.5,
+      "estimated_range_km": "~378 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A torque-rich boulevard bruiser that turns every highway mile into a relaxed, stylish journey."
+  },
+  "compatible_helmets": [
+    {
+      "id": "biltwell_gringo_ece_matte-black",
+      "title": "Gringo ECE Matte Black",
+      "brand": "Biltwell",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Royal Enfield Classic 350 Redditch (Dark Edition)."
+    },
+    {
+      "id": "shoei_rf_1200_urban-red",
+      "title": "RF-1200 Urban Red",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Classic 350 Redditch (Dark Edition) at highway speeds."
+    },
+    {
+      "id": "arai_chaser_x_operator_blue",
+      "title": "Chaser X Operator Blue",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Royal Enfield Classic 350 Redditch (Dark Edition)."
+    },
+    {
+      "id": "bell_star_dlx_mips_apex-tc-1",
+      "title": "Star DLX MIPS Apex TC-1",
+      "brand": "Bell",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Classic 350 Redditch (Dark Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Attenuates harsh open-air buffeting from the unfaired handlebars of the Royal Enfield Classic 350 Redditch (Dark Edition) without blocking emergency sirens."
+    },
+    {
+      "id": "led-brake-light",
+      "title": "Brake Free Smart LED Helmet Light",
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Classic 350 Redditch (Dark Edition)."
+    },
+    {
+      "id": "cardo-spirit-hd",
+      "title": "Cardo Spirit HD Duo",
+      "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
+    }
+  ]
+}

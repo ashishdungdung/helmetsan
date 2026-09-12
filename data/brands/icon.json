@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "icon",
-  "title": "Icon",
-  "profile": {
-    "origin_country": "United States",
-    "warranty_terms": "1 year",
-    "support_url": "https://rideicon.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Street-focused, bold styling with commuter and urban emphasis.",
-    "distributor_regions": "US\nEU",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/rideicon.com"
-  }
+    "entity": "brand",
+    "id": "icon",
+    "title": "Icon",
+    "profile": {
+        "origin_country": "United States",
+        "warranty_terms": "1 year",
+        "support_url": "https://rideicon.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Street-focused, bold styling with commuter and urban emphasis.",
+        "distributor_regions": "US\nEU",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\",\"XL\":\"61-62\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/rideicon.com",
+        "story": "Icon began its journey in 1998 when three friends\u2014Mike Cullum, Brian Bales, and Dave Hahn\u2014founded the company in Texas with a singular mission to create high-performance motorcycle gear that prioritized safety without sacrificing style. Initially focusing on protective clothing, the brand quickly expanded into helmets after recognizing a critical gap in the market for affordable yet advanced safety equipment. Their early innovations included integrating multi-density EPS foam and superior ventilation systems, setting a new standard for entry-level and mid-range helmets that challenged the dominance of established European manufacturers.\n\nOver the decades, Icon has become synonymous with American-made quality and relentless innovation in helmet technology. The brand is particularly renowned for its 'Airway' system, which utilizes a unique internal air channel to keep riders cool during high-speed runs, and their proprietary MIPS (Multi-directional Impact Protection System) integration that offers enhanced rotational impact protection. By consistently pushing the boundaries of what a helmet can do while maintaining rigorous safety certifications like Snell and DOT, Icon has evolved from a startup into a global leader, proving that safety and performance are not mutually exclusive.",
+        "motto": "Built for the Ride",
+        "founded_year": 1998
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Icon Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Icon is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Icon consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

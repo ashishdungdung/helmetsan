@@ -16,6 +16,10 @@
     "mrp": { "type": "number" },
     "discount_percent": { "type": "number" },
     "url": { "type": "string" },
-    "valid_until": { "type": "string" }
+    "valid_until": { "type": "string" },
+    "discount_amount": { "type": "number" },
+    "is_coupon_required": { "type": "boolean" },
+    "shipping_cost": { "type": "number" },
+    "estimated_delivery_days": { "type": "number" }
   }
 }

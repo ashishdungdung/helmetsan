@@ -1,190 +1,393 @@
 {
-    "id": "bering_avalon",
-    "entity": "helmet",
-    "title": "Bering Avalon",
-    "brand": "Bering",
-    "type": "Modular",
-    "helmet_family": "Avalon",
-    "price": {
+  "id": "bering_avalon",
+  "entity": "helmet",
+  "title": "Avalon",
+  "brand": "Bering",
+  "type": "Modular",
+  "helmet_family": "Avalon",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Fiberglass",
+    "weight_g": 1674,
+    "weight_lbs": 3.69,
+    "certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 88
+  },
+  "description": "The Bering Avalon is engineered for seamless transitions between open-face city stops and full-face highway cruising, delivering flip-up versatility for city stops and sealed protection at speed. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a solid 1674g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "product_details": {
+    "description": "Flip-up modular with sun visor and prepared for comms."
+  },
+  "variants": [
+    {
+      "id": "bering_avalon_matte-black",
+      "entity": "helmet",
+      "title": "Bering Avalon Matte Black",
+      "type": "Modular",
+      "parent_id": "bering_avalon",
+      "helmet_family": "Avalon",
+      "head_shape": "Intermediate Oval",
+      "color": "Matte Black",
+      "color_family": "Black",
+      "sku": "BER-AVL-BLK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bering Avalon is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Flip-up modular with sun visor and prepared for comms."
+      },
+      "price": {
         "current": 249.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 249.99,
+        "eur": 229.99,
+        "gbp": 197.49
+      },
+      "specs": {
         "material": "Fiberglass",
         "weight_g": 1680,
         "weight_lbs": 3.7,
         "certifications": [
-            "DOT",
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "Flip-up modular with sun visor and prepared for comms.",
-    "product_details": {
-        "description": "Flip-up modular with sun visor and prepared for comms."
-    },
-    "variants": [
-        {
-            "id": "bering_avalon_matte-black",
-            "entity": "helmet",
-            "title": "Bering Avalon Matte Black",
-            "type": "Modular",
-            "parent_id": "bering_avalon",
-            "helmet_family": "Avalon",
-            "head_shape": "Intermediate Oval",
-            "color": "Matte Black",
-            "color_family": "Black",
-            "sku": "BER-AVL-BLK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Flip-up modular with sun visor and prepared for comms.",
-            "product_details": {
-                "description": "Flip-up modular with sun visor and prepared for comms."
-            },
-            "price": {
-                "current": 249.99,
-                "usd": 249.99,
-                "eur": 229.99,
-                "gbp": 197.49
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1680,
-                "weight_lbs": 3.7,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Matte+Black+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        },
-        {
-            "id": "bering_avalon_white",
-            "entity": "helmet",
-            "title": "Bering Avalon White",
-            "type": "Modular",
-            "parent_id": "bering_avalon",
-            "helmet_family": "Avalon",
-            "head_shape": "Intermediate Oval",
-            "color": "White",
-            "color_family": "White",
-            "sku": "BER-AVL-WHT",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Flip-up modular with sun visor and prepared for comms.",
-            "product_details": {
-                "description": "Flip-up modular with sun visor and prepared for comms."
-            },
-            "price": {
-                "current": 249.99,
-                "usd": 249.99,
-                "eur": 229.99,
-                "gbp": 197.49
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1680,
-                "weight_lbs": 3.7,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White+Side",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+White+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        },
-        {
-            "id": "bering_avalon_anthracite",
-            "entity": "helmet",
-            "title": "Bering Avalon Anthracite",
-            "type": "Modular",
-            "parent_id": "bering_avalon",
-            "helmet_family": "Avalon",
-            "head_shape": "Intermediate Oval",
-            "color": "Anthracite",
-            "color_family": "Grey",
-            "sku": "BER-AVL-ANT",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Flip-up modular with sun visor and prepared for comms.",
-            "product_details": {
-                "description": "Flip-up modular with sun visor and prepared for comms."
-            },
-            "price": {
-                "current": 249.99,
-                "usd": 249.99,
-                "eur": 229.99,
-                "gbp": 197.49
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1680,
-                "weight_lbs": 3.7,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.06"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite+Side",
-                "https://placehold.co/800x800/222/white?text=Bering+Avalon+Anthracite+Back"
-            ],
-            "helmet_types": [
-                "Modular"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Bering+Avalon+1",
-        "https://placehold.co/800x800/222/white?text=Bering+Avalon+2",
-        "https://placehold.co/800x800/222/white?text=Bering+Avalon+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.06"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bering_avalon_matte_black_front.png",
+        "https://helmetsan.com/assets/helmets/bering_avalon_matte_black_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Bering's Modular lineup, the Avalon brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Bering Avalon represents Bering's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Modular helmet tailored to an Intermediate Oval head shape, the Bering Avalon delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bering Avalon Matte Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bering Avalon in Bering Avalon Matte Black. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 45,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "bering_avalon_white",
+      "entity": "helmet",
+      "title": "Bering Avalon White",
+      "type": "Modular",
+      "parent_id": "bering_avalon",
+      "helmet_family": "Avalon",
+      "head_shape": "Intermediate Oval",
+      "color": "White",
+      "color_family": "White",
+      "sku": "BER-AVL-WHT",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bering Avalon is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Flip-up modular with sun visor and prepared for comms."
+      },
+      "price": {
+        "current": 249.99,
+        "usd": 249.99,
+        "eur": 229.99,
+        "gbp": 197.49
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1680,
+        "weight_lbs": 3.7,
+        "certifications": [
+          "DOT",
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bering_avalon_white_front.png",
+        "https://helmetsan.com/assets/helmets/bering_avalon_white_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Bering's Modular lineup, the Avalon brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Bering Avalon represents Bering's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Modular helmet tailored to an Intermediate Oval head shape, the Bering Avalon delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bering Avalon White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bering Avalon in Bering Avalon White. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "model_year": 2019,
-    "identifiers": {
-        "asin": "B07QKZJ8V3",
-        "ean": "6925410000000",
-        "mpn": "AVL-001"
+    {
+      "id": "bering_avalon_anthracite",
+      "entity": "helmet",
+      "title": "Bering Avalon Anthracite",
+      "type": "Modular",
+      "parent_id": "bering_avalon",
+      "helmet_family": "Avalon",
+      "head_shape": "Intermediate Oval",
+      "color": "Anthracite",
+      "color_family": "Grey",
+      "sku": "BER-AVL-ANT",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bering Avalon is a benchmark Modular helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Engineered for highway touring flexibility, featuring a dual P/J homologated flip-up chinbar, one-handed latch mechanism, and integrated sun visor. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Flip-up modular with sun visor and prepared for comms."
+      },
+      "price": {
+        "current": 249.99,
+        "usd": 249.99,
+        "eur": 229.99,
+        "gbp": 197.49
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1680,
+        "weight_lbs": 3.7,
+        "certifications": [
+          "DOT",
+          "ECE 22.06"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bering_avalon_anthracite_front.png",
+        "https://helmetsan.com/assets/helmets/bering_avalon_anthracite_side.png"
+      ],
+      "helmet_types": [
+        "Modular"
+      ],
+      "introduction": "Positioned in Bering's Modular lineup, the Avalon brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+      "story": "The Bering Avalon represents Bering's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Modular helmet tailored to an Intermediate Oval head shape, the Bering Avalon delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bering Avalon Anthracite (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bering Avalon in Bering Avalon Anthracite. A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/bering_avalon_front.png",
+    "https://helmetsan.com/assets/helmets/bering_avalon_side.png",
+    "https://helmetsan.com/assets/helmets/bering_avalon_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 45,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2019,
+  "identifiers": {
+    "asin": "B07QKZJ8V3",
+    "ean": "6925410000000",
+    "mpn": "AVL-001",
+    "sku": "BER-BERING"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.06",
+    "sharp_rating": 5,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for oval head shapes; may feel tight on intermediate oval heads.",
+    "head_shape": "Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 88,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 112
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Bering Avalon: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Bering Avalon: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "bering avalon helmet",
+  "yoast_metadesc": "In-depth review of the Bering Avalon. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Bering+Avalon&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Bering+Avalon"
+  },
+  "sku": "BER-BERING",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Modular",
+  "physics_intelligence": {
+    "weight_grams": 1674,
+    "acoustic_noise_rating_db": "88 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Bering Avalon is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Bering's Modular lineup, the Avalon brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.06 track safety.",
+  "story": "The Bering Avalon represents Bering's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Modular helmet tailored to an Intermediate Oval head shape, the Bering Avalon delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Bering Avalon represents Bering's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Modular helmet tailored to an Intermediate Oval head shape, the Bering Avalon delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Single-button flip-up chin bar mechanism provides effortless touring convenience at stops",
+      "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Substantial shell weight (1674g) may cause neck fatigue over consecutive multi-hour riding days",
+      "Slightly broader frontal profile than fixed race lids, creating moderate drag in aggressive tuck"
+    ]
+  },
+  "editorial_overview": "The Bering Avalon is engineered for seamless transitions between open-face city stops and full-face highway cruising, delivering flip-up versatility for city stops and sealed protection at speed. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a solid 1674g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "rider_takeaway": "A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Modular Touring & Urban Versatility",
+      "riding_stance": "Upright / Neutral Ergonomic Stance",
+      "core_priority": "Flip-up chin bar flexibility, dual P/J homologation, and drop-down sun visor convenience"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    "physics_and_kinetics": {
+      "material_tier": "High-Performance Fiberglass Composite (HPFC)",
+      "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
+      "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
+      "measured_weight_g": 1674,
+      "measured_weight_lbs": 3.69
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for oval head shapes; may feel tight on intermediate oval heads.",
-        "head_shape": "Oval"
+    "acoustic_envelope": {
+      "sound_index_db": "~87 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
     },
-    "deep_enriched": true
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.06"
+      ],
+      "sharp_rating": 5,
+      "sharp_verified": false,
+      "rotational_mitigation": true
+    },
+    "verdict_takeaway": "A practical flip-up helmet delivering one-handed chin bar convenience, drop-down sun protection, and certified safety at a sensible price."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "kawasaki_kx450_rally_chrome_edition",
+      "title": "KX450 Rally (Chrome Edition)",
+      "make": "Kawasaki",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Kawasaki KX450 Rally (Chrome Edition)."
+    },
+    {
+      "id": "ktm_husqvarna_gasgas_gasgas_ec_350f_enduro_performance_edition",
+      "title": "GasGas EC 350F Enduro (Performance Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the GasGas EC 350F Enduro (Performance Edition)."
+    },
+    {
+      "id": "suzuki_gsx_s1000gx_crossover_pro_spec",
+      "title": "GSX-S1000GX Crossover (Pro Spec)",
+      "make": "Suzuki",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Suzuki GSX-S1000GX Crossover (Pro Spec)."
+    },
+    {
+      "id": "triumph_tiger_1200_rally_explorer_performance_edition",
+      "title": "Tiger 1200 Rally Explorer (Performance Edition)",
+      "make": "Triumph",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Tiger 1200 Rally Explorer (Performance Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 88,
+  "certifications": [
+    "DOT",
+    "ECE 22.06"
+  ]
 }

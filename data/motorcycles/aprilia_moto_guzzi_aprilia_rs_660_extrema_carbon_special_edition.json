@@ -1,0 +1,127 @@
+{
+  "id": "aprilia_moto_guzzi_aprilia_rs_660_extrema_carbon_special_edition",
+  "entity": "motorcycle",
+  "title": "RS 660 Extrema Carbon (Special Edition)",
+  "brand": "Aprilia",
+  "country_origin": "Italy 🇮🇹",
+  "category": "Urban Roadster",
+  "displacement_cc": 660,
+  "power_hp": 89,
+  "torque_nm": 73,
+  "curb_weight_kg": 193,
+  "price": {
+    "usd": 10450,
+    "inr": 867350,
+    "eur": 9614,
+    "gbp": 8256,
+    "jpy": 1619750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Representing Aprilia's prowess in the Urban Roadster class, the Aprilia RS 660 Extrema Carbon (Special Edition) is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 660cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Aprilia RS 660 Extrema Carbon (Special Edition): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Aprilia RS 660 Extrema Carbon (Special Edition).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Moderate",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 15.5,
+  "top_speed_kmh": 215,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [aprilia_moto_guzzi_aprilia_rs_660_extrema_carbon] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "aprilia_moto_guzzi_aprilia_rs_660_extrema_carbon",
+  "trim_type": "special_edition",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Aprilia's prowess in the Urban Roadster class, the Aprilia RS 660 Extrema Carbon (Special Edition) is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 660cc powerplant pumps out 89 HP and 73 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "660cc",
+      "power_hp": 89,
+      "torque_nm": 73,
+      "curb_weight_kg": 193,
+      "power_to_weight": "46.1 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 15.5,
+      "estimated_range_km": "~434 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shark_race_r_pro_gp_course-grey",
+      "title": "Race-R Pro GP Course Grey",
+      "brand": "Shark",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Aprilia RS 660 Extrema Carbon (Special Edition)."
+    },
+    {
+      "id": "agv_pista_gp_rr_soleluna-2023",
+      "title": "Pista GP RR Soleluna 2023",
+      "brand": "AGV",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the RS 660 Extrema Carbon (Special Edition)."
+    },
+    {
+      "id": "suomy_sr_gp_evo_apex-tc-1",
+      "title": "SR-GP Evo Apex TC-1",
+      "brand": "Suomy",
+      "type": "Track / Race",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Aprilia RS 660 Extrema Carbon (Special Edition)."
+    },
+    {
+      "id": "suomy_sr_gp_evo",
+      "title": "SR-GP Evo",
+      "brand": "Suomy",
+      "type": "Track / Race",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for RS 660 Extrema Carbon (Special Edition) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Aprilia RS 660 Extrema Carbon (Special Edition)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Aprilia engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

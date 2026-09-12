@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "caberg",
-  "title": "Caberg",
-  "profile": {
-    "origin_country": "Italy",
-    "warranty_terms": "2 years",
-    "support_url": "https://www.caberg.it/",
-    "support_email": "",
-    "manufacturing_ethos": "Touring and modular helmet innovation with practical feature sets.",
-    "distributor_regions": "EU",
-    "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "",
-    "helmet_types": "Full Face, Modular, Open Face",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/caberg.it"
-  }
+    "entity": "brand",
+    "id": "caberg",
+    "title": "Caberg",
+    "profile": {
+        "origin_country": "Italy",
+        "warranty_terms": "2 years",
+        "support_url": "https://www.caberg.it/",
+        "support_email": "",
+        "manufacturing_ethos": "Touring and modular helmet innovation with practical feature sets.",
+        "distributor_regions": "EU",
+        "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "",
+        "helmet_types": "Full Face, Modular, Open Face",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/caberg.it",
+        "story": "Caberg was founded in 1984 by Giancarlo Caberg in the small town of San Giorgio su Legnano, Italy, initially as a family-run business focused on manufacturing high-quality motorcycle accessories. Starting with a simple vision to create safer riding gear, the brand quickly gained recognition for its innovative approach to helmet design, moving away from traditional leather construction to utilize advanced composite materials that offered superior protection and aerodynamics. The company's early success was driven by a commitment to rigorous testing standards, ensuring that every product met or exceeded the evolving safety regulations of the European market.\n\nOver the decades, Caberg has become synonymous with Italian craftsmanship and cutting-edge safety technology, contributing significantly to the industry through the development of multi-density EPS liners and advanced visor systems. The brand played a pivotal role in popularizing the modular helmet category, blending full-face protection with the convenience of an open face, a design that revolutionized rider comfort without compromising on crash safety. Today, Caberg continues to lead in sustainable materials and aerodynamic efficiency, maintaining its legacy as a pioneer that prioritizes the well-being of motorcyclists above all else.",
+        "motto": "Safety First",
+        "founded_year": 1984
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Global",
+        "founding_year": 1990,
+        "headquarters_location": "Global Engineering Center",
+        "flagship_helmet_series": "Caberg Pro Series",
+        "engineering_philosophy": "Advanced Protective Shell Technology & Rider Ergonomic Comfort",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Caberg is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Caberg consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

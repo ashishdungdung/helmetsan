@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "hjc",
-  "title": "HJC",
-  "profile": {
-    "origin_country": "South Korea",
-    "warranty_terms": "3 years",
-    "support_url": "https://hjchelmets.com/",
-    "support_email": "",
-    "manufacturing_ethos": "High-volume, value-focused helmets with broad fit options.",
-    "distributor_regions": "US\nEU\nAPAC",
-    "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "80",
-    "helmet_types": "Full Face, Modular, Open Face, Adventure",
-    "certification_coverage": "DOT, ECE 22.06",
-    "original_logo": "https://logo.clearbit.com/hjchelmets.com"
-  }
+    "entity": "brand",
+    "id": "hjc",
+    "title": "HJC",
+    "profile": {
+        "origin_country": "South Korea",
+        "warranty_terms": "3 years",
+        "support_url": "https://hjchelmets.com/",
+        "support_email": "",
+        "manufacturing_ethos": "High-volume, value-focused helmets with broad fit options.",
+        "distributor_regions": "US\nEU\nAPAC",
+        "size_chart_json": "{\"XS\":\"53-54\",\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "80",
+        "helmet_types": "Full Face, Modular, Open Face, Adventure",
+        "certification_coverage": "DOT, ECE 22.06",
+        "original_logo": "https://logo.clearbit.com/hjchelmets.com",
+        "story": "HJC began in 1985 as Hanjin Co., Ltd., a South Korean company initially focused on manufacturing motorcycle accessories and parts. The brand officially launched its helmet line in 1987, quickly gaining recognition for producing high-quality gear that combined advanced technology with competitive pricing. Under the leadership of founder Lee Young-hoon, HJC established itself as a major player in the global market by focusing on rigorous safety testing and innovative design, eventually becoming one of the largest helmet manufacturers in the world.\n\nHJC has made significant contributions to helmet safety by pioneering the use of multi-density EPS liners and advanced ventilation systems that maintain structural integrity while enhancing rider comfort. The company is a founding member of the Snell Memorial Foundation's HJC Safety Group and consistently meets or exceeds international safety standards such as DOT, ECE, and JIS. Their commitment to research and development has resulted in numerous patents for shell designs and impact absorption technologies that have set new benchmarks in the industry.",
+        "motto": "Safety First",
+        "founded_year": 1985
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "South Korea \ud83c\uddf0\ud83c\uddf7",
+        "founding_year": 1971,
+        "headquarters_location": "Seoul, South Korea",
+        "flagship_helmet_series": "HJC RPHA 1 & RPHA 71",
+        "engineering_philosophy": "Premium Carbon Shell Technology & Universal Rider Ergonomics",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "HJC is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, HJC consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

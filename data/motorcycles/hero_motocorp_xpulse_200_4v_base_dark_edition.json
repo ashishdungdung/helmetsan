@@ -1,0 +1,129 @@
+{
+  "id": "hero_motocorp_xpulse_200_4v_base_dark_edition",
+  "entity": "motorcycle",
+  "title": "Xpulse 200 4V Base (Dark Edition)",
+  "brand": "Hero MotoCorp",
+  "country_origin": "India 🇮🇳",
+  "category": "Adventure Tourer",
+  "displacement_cc": 200,
+  "power_hp": 16,
+  "torque_nm": 13,
+  "curb_weight_kg": 108,
+  "price": {
+    "usd": 2450,
+    "inr": 203350,
+    "eur": 2254,
+    "gbp": 1936,
+    "jpy": 379750
+  },
+  "recommended_helmet_types": [
+    "Adventure / Dual Sport",
+    "Modular"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "The Hero MotoCorp Xpulse 200 4V Base (Dark Edition) is engineered for uncompromised trans-continental exploration, positioned in the Adventure Tourer segment for riders demanding engaging everyday dynamics. Powered by a 200cc engine generating 16 HP and 13 Nm of torque against a curb weight of 108 kg, it delivers predictable, roll-on throttle response across its usable powerband. The cockpit is configured with an Aggressive Forward Tuck riding stance and a commanding 855mm perch delivering excellent ground clearance and expansive sightlines, making daily city navigation as intuitive as weekend backroad escapes.",
+  "yoast_title": "Hero MotoCorp Xpulse 200 4V Base (Dark Edition): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Hero MotoCorp Xpulse 200 4V Base (Dark Edition).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.44,
+    "max_lean_angle_deg": 48,
+    "wind_protection_rating": "9.2 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear anti-fog with internal drop-down Amber Sun Visor"
+  },
+  "seat_height_mm": 855,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 125,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [hero_motocorp_xpulse_200_4v_base] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "hero_motocorp_xpulse_200_4v_base",
+  "trim_type": "dark_edition",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "The Hero MotoCorp Xpulse 200 4V Base (Dark Edition) is engineered for uncompromised trans-continental exploration, positioned in the Adventure Tourer segment for riders demanding engaging everyday dynamics. Powered by a 200cc engine generating 16 HP and 13 Nm of torque against a curb weight of 108 kg, it delivers predictable, roll-on throttle response across its usable powerband. The cockpit is configured with an Aggressive Forward Tuck riding stance and a commanding 855mm perch delivering excellent ground clearance and expansive sightlines, making daily city navigation as intuitive as weekend backroad escapes.",
+  "rider_takeaway": "An all-conquering globetrotter ready for continuous highway transits and rugged off-the-beaten-path detours.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Adventure Tourer",
+      "riding_stance": "Upright Commanding Stance",
+      "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "200cc",
+      "power_hp": 16,
+      "torque_nm": 13,
+      "curb_weight_kg": 108,
+      "power_to_weight": "14.8 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 855,
+      "inseam_confidence": "Commanding Tall Perch (>825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Adventure / Dual Sport",
+        "Modular"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An all-conquering globetrotter ready for continuous highway transits and rugged off-the-beaten-path detours."
+  },
+  "compatible_helmets": [
+    {
+      "id": "smk_ranger_orange",
+      "title": "SMK Ranger Orange",
+      "brand": "SMK Helmets",
+      "type": "Adventure / Dual Sport",
+      "match_score": 98,
+      "match_reason": "Aerodynamic visor peak sheds high-speed airflow without lift, transitioning seamlessly to stand-up postures on the Xpulse 200 4V Base (Dark Edition)."
+    },
+    {
+      "id": "apex_trail_pro_matte-black",
+      "title": "Trail Pro Matte Black",
+      "brand": "Apex",
+      "type": "Adventure / Dual Sport",
+      "match_score": 94,
+      "match_reason": "Pinlock-ready dual-pane shield keeps vision 100% fog-free through sudden mountain altitude shifts on the Hero MotoCorp Xpulse 200 4V Base (Dark Edition)."
+    },
+    {
+      "id": "steelbird_sbh_40_trip_silver-metallic",
+      "title": "SBH-40 Trip Silver Metallic",
+      "brand": "Steelbird",
+      "type": "Adventure / Dual Sport",
+      "match_score": 91,
+      "match_reason": "Dual-density EPS with high-flow chin venting prevents heat buildup across grueling off-road stints on the Xpulse 200 4V Base (Dark Edition)."
+    },
+    {
+      "id": "z1r_range_matte-black",
+      "title": "Z1R Range Matte Black",
+      "brand": "Z1r",
+      "type": "Adventure / Dual Sport",
+      "match_score": 87,
+      "match_reason": "Quiet touring acoustic shell minimizes low-frequency windscreen buffeting across cross-continental Xpulse 200 4V Base (Dark Edition) tours."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Multi-channel group mesh intercom with Harman Kardon audio for cross-country Xpulse 200 4V Base (Dark Edition) expeditions."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Suppresses low-frequency windscreen turbulence fatigue across 500+ km touring stints on the Xpulse 200 4V Base (Dark Edition)."
+    },
+    {
+      "id": "rain-visor-sealant",
+      "title": "Rain-X Visor Rain Repellent",
+      "reason": "115° hydrophobic water beading ensures crystal-clear optical sightlines during wet mountain passes on the Xpulse 200 4V Base (Dark Edition)."
+    }
+  ]
+}

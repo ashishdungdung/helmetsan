@@ -1,0 +1,125 @@
+{
+  "id": "honda_cbr500r_sport_classic_heritage",
+  "entity": "motorcycle",
+  "title": "CBR500R Sport (Classic Heritage)",
+  "brand": "Honda",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 500,
+  "power_hp": 44,
+  "torque_nm": 38,
+  "curb_weight_kg": 163,
+  "price": {
+    "usd": 6450,
+    "inr": 535350,
+    "eur": 5934,
+    "gbp": 5096,
+    "jpy": 999750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Engineered for riders seeking confident performance and refined dynamics, the Honda CBR500R Sport (Classic Heritage) is engineered for relaxed boulevard cruising backed by muscular roll-on passing power. At its heart lies a 500cc powertrain delivering 44 HP and 38 Nm of torque, tuned to translate its 163 kg mass into punchy mid-range acceleration. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 820mm seat height providing confident footing and natural knee comfort, backed by a 13.5L fuel tank for extended saddle stints.",
+  "yoast_title": "Honda CBR500R Sport (Classic Heritage): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Honda CBR500R Sport (Classic Heritage).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 13.5,
+  "top_speed_kmh": 165,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Engineered for riders seeking confident performance and refined dynamics, the Honda CBR500R Sport (Classic Heritage) is engineered for relaxed boulevard cruising backed by muscular roll-on passing power. At its heart lies a 500cc powertrain delivering 44 HP and 38 Nm of torque, tuned to translate its 163 kg mass into punchy mid-range acceleration. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 820mm seat height providing confident footing and natural knee comfort, backed by a 13.5L fuel tank for extended saddle stints.",
+  "rider_takeaway": "A torque-rich boulevard bruiser that turns every highway mile into a relaxed, stylish journey.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Relaxed Feet-Forward Stance",
+      "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "500cc",
+      "power_hp": 44,
+      "torque_nm": 38,
+      "curb_weight_kg": 163,
+      "power_to_weight": "27.0 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 13.5,
+      "estimated_range_km": "~378 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A torque-rich boulevard bruiser that turns every highway mile into a relaxed, stylish journey."
+  },
+  "compatible_helmets": [
+    {
+      "id": "hjc_v10_track-red",
+      "title": "V10 Track Red",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Honda CBR500R Sport (Classic Heritage)."
+    },
+    {
+      "id": "bell_eliminator_tech-tc-3",
+      "title": "Eliminator Tech TC-3",
+      "brand": "Bell",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the CBR500R Sport (Classic Heritage)."
+    },
+    {
+      "id": "shoei_tec_ii_gloss_black",
+      "title": "TC-10 Gloss Black",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Honda CBR500R Sport (Classic Heritage)."
+    },
+    {
+      "id": "hjc_cs_15_black",
+      "title": "CS-15 Black",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for CBR500R Sport (Classic Heritage) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Honda CBR500R Sport (Classic Heritage)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Honda engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

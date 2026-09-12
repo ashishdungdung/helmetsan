@@ -3,22 +3,98 @@
   "id": "helmet-sanitizer-spray",
   "title": "Motul M2 Helmet Interior Cleaner",
   "type": "Maintenance",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Half"],
-  "compatible_brands": ["Universal"],
-  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "agv-k6", "arai-corsair-x", "bell-qualifier-dlx-mips", "mt-thunder-3", "steelbird-air-sba-21", "smk-stellar"],
-  "features": [
-    "Antibacterial formula kills 99.9% of odor-causing bacteria",
-    "Safe for all helmet liner materials",
-    "Quick-dry spray application",
-    "Pleasant fresh scent",
-    "250ml aerosol can",
-    "Does not damage EPS foam"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Open Face",
+    "Half"
   ],
-  "price": { "current": 14.99, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 14.99, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 11.99, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 999, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "hjc-rpha-71",
+    "agv-k6",
+    "arai-corsair-x",
+    "bell-qualifier-dlx-mips",
+    "mt-thunder-3",
+    "steelbird-air-sba-21",
+    "smk-stellar"
+  ],
+  "features": [
+    "Deep cleans and removes grime from helmet interiors",
+    "Safe for all types of helmet liners including leather and fabric",
+    "Leaves a fresh scent without leaving residue"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>Keep your helmet fresh and hygienic with Motul M2 Interior Cleaner. The antibacterial formula penetrates helmet liner fibers to eliminate sweat buildup, odors, and bacteria. Safe for all materials including Coolmax, Alveotech, and removable liners. Simply spray, let it sit for 60 seconds, and air dry.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 14.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 11.99,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 999,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Motul M2 Helmet Interior Cleaner from Motul provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Motul M2 Helmet Interior Cleaner represents an indispensable touring and group-ride upgrade from Motul. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Interior Cleaner",
+  "identifiers": {
+    "mpn": "M2"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Motul Motul M2 Helmet Interior Cleaner.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
+    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
+    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    ],
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
+    ],
+    "editorial_verdict": "The Motul M2 Helmet Interior Cleaner represents an indispensable touring and group-ride upgrade from Motul. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Motul",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

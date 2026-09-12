@@ -1,0 +1,127 @@
+{
+  "id": "honda_gold_wing_tour_dct_pro_spec",
+  "entity": "motorcycle",
+  "title": "Gold Wing Tour DCT (Pro Spec)",
+  "brand": "Honda",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Luxury Grand Tourer",
+  "displacement_cc": 0,
+  "power_hp": 16,
+  "torque_nm": 13,
+  "curb_weight_kg": 108,
+  "price": {
+    "usd": 2450,
+    "inr": 203350,
+    "eur": 2254,
+    "gbp": 1936,
+    "jpy": 379750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Engineered for riders seeking confident performance and refined dynamics, the Honda Gold Wing Tour DCT (Pro Spec) is built for luxurious two-up cross-country expeditions with supreme wind protection. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 790mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "yoast_title": "Honda Gold Wing Tour DCT (Pro Spec): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Honda Gold Wing Tour DCT (Pro Spec).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [honda_gold_wing_tour_dct] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "honda_gold_wing_tour_dct",
+  "trim_type": "pro_spec",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Engineered for riders seeking confident performance and refined dynamics, the Honda Gold Wing Tour DCT (Pro Spec) is built for luxurious two-up cross-country expeditions with supreme wind protection. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 790mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "rider_takeaway": "The pinnacle of cross-country touring comfort, isolating riders from wind buffeting over endless tarmac.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Luxury Grand Tourer",
+      "riding_stance": "All-Day Ergonomic Touring Stance",
+      "target_terrain": "Interstate highways, cross-country transits, and two-up touring"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 16,
+      "torque_nm": 13,
+      "curb_weight_kg": 108,
+      "power_to_weight": "14.8 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "The pinnacle of cross-country touring comfort, isolating riders from wind buffeting over endless tarmac."
+  },
+  "compatible_helmets": [
+    {
+      "id": "bell_broozer",
+      "title": "Broozer",
+      "brand": "Bell",
+      "type": "Modular",
+      "match_score": 98,
+      "match_reason": "Acoustically insulated shell isolates high-mileage road drone, harmonizing with the Honda Gold Wing Tour DCT (Pro Spec) slipstream."
+    },
+    {
+      "id": "nolan_n100_5_raptor-tc-3",
+      "title": "N100-5 Raptor TC-3",
+      "brand": "Nolan",
+      "type": "Modular",
+      "match_score": 94,
+      "match_reason": "Integrated speaker recesses facilitate high-definition intercom and GPS navigation cues across long Gold Wing Tour DCT (Pro Spec) journeys."
+    },
+    {
+      "id": "hjc_rpha_91_anthracite",
+      "title": "RPHA 91 Anthracite",
+      "brand": "HJC",
+      "type": "Modular",
+      "match_score": 91,
+      "match_reason": "Modular flip-up chin bar provides border-crossing convenience and hydration access without removing helmet."
+    },
+    {
+      "id": "bell_srt_modular",
+      "title": "SRT Modular",
+      "brand": "Bell",
+      "type": "Modular",
+      "match_score": 87,
+      "match_reason": "Ergonomic interior lining with 3D contour cheek foam guarantees plush comfort over 10-hour saddle stints on the Gold Wing Tour DCT (Pro Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Multi-channel group mesh intercom with Harman Kardon audio for cross-country Gold Wing Tour DCT (Pro Spec) expeditions."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Suppresses low-frequency windscreen turbulence fatigue across 500+ km touring stints on the Gold Wing Tour DCT (Pro Spec)."
+    },
+    {
+      "id": "rain-visor-sealant",
+      "title": "Rain-X Visor Rain Repellent",
+      "reason": "115° hydrophobic water beading ensures crystal-clear optical sightlines during wet mountain passes on the Gold Wing Tour DCT (Pro Spec)."
+    }
+  ]
+}

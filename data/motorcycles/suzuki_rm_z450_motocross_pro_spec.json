@@ -1,0 +1,129 @@
+{
+  "id": "suzuki_rm_z450_motocross_pro_spec",
+  "entity": "motorcycle",
+  "title": "RM-Z450 Motocross (Pro Spec)",
+  "brand": "Suzuki",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 450,
+  "power_hp": 44,
+  "torque_nm": 38,
+  "curb_weight_kg": 163,
+  "price": {
+    "usd": 6450,
+    "inr": 535350,
+    "eur": 5934,
+    "gbp": 5096,
+    "jpy": 999750
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing Suzuki's prowess in the Middleweight Sportbike class, the Suzuki RM-Z450 Motocross (Pro Spec) is delivers razor-sharp chassis feedback for riders hunting apexes. A 450cc powerplant pumps out 44 HP and 38 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Suzuki RM-Z450 Motocross (Pro Spec): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Suzuki RM-Z450 Motocross (Pro Spec).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 13.5,
+  "top_speed_kmh": 165,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [suzuki_rm_z450_motocross] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "suzuki_rm_z450_motocross",
+  "trim_type": "pro_spec",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Suzuki's prowess in the Middleweight Sportbike class, the Suzuki RM-Z450 Motocross (Pro Spec) is delivers razor-sharp chassis feedback for riders hunting apexes. A 450cc powerplant pumps out 44 HP and 38 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Dedicated Forward Lean",
+      "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "450cc",
+      "power_hp": 44,
+      "torque_nm": 38,
+      "curb_weight_kg": 163,
+      "power_to_weight": "27.0 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 13.5,
+      "estimated_range_km": "~378 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "The sweet spot for apex hunters who want track-level thrills without sacrificing real-world street manners."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shoei_x_fifteen_white",
+      "title": "X-Fifteen White",
+      "brand": "Shoei",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Suzuki RM-Z450 Motocross (Pro Spec)."
+    },
+    {
+      "id": "hjc_cl_17",
+      "title": "CL-17",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the RM-Z450 Motocross (Pro Spec)."
+    },
+    {
+      "id": "arai_raider_x_gloss_black",
+      "title": "Raider X Gloss Black",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Suzuki RM-Z450 Motocross (Pro Spec)."
+    },
+    {
+      "id": "arai_dt_x_raptor-grey",
+      "title": "DT-X Raptor Grey",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for RM-Z450 Motocross (Pro Spec) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Suzuki RM-Z450 Motocross (Pro Spec)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Suzuki engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

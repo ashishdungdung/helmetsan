@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "shoei",
-  "title": "Shoei",
-  "profile": {
-    "origin_country": "Japan",
-    "warranty_terms": "5 years",
-    "support_url": "https://www.shoei.com/",
-    "support_email": "support@shoei.example",
-    "manufacturing_ethos": "Performance-first safety engineering.",
-    "distributor_regions": "US\nEU\nIN",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "55",
-    "helmet_types": "Full Face, Modular, Off-road, Open Face, Adventure",
-    "certification_coverage": "DOT, ECE 22.06, Snell",
-    "original_logo": "https://logo.clearbit.com/shoei-helmets.com"
-  }
+    "entity": "brand",
+    "id": "shoei",
+    "title": "Shoei",
+    "profile": {
+        "origin_country": "Japan",
+        "warranty_terms": "5 years",
+        "support_url": "https://www.shoei.com/",
+        "support_email": "support@shoei.example",
+        "manufacturing_ethos": "Performance-first safety engineering.",
+        "distributor_regions": "US\nEU\nIN",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "55",
+        "helmet_types": "Full Face, Modular, Off-road, Open Face, Adventure",
+        "certification_coverage": "DOT, ECE 22.06, Snell",
+        "original_logo": "https://logo.clearbit.com/shoei-helmets.com",
+        "story": "Shoei Co., Ltd. was established in 1972 by Masahiro Shiomi, a former engineer from the Japanese motorcycle industry who sought to create helmets that combined advanced safety technology with superior comfort. Initially focusing on racing applications, Shoei quickly gained recognition for its rigorous testing standards and innovative design, eventually becoming a global leader in protective headgear for both professional racers and everyday riders.\n\nThe brand's most significant contribution to the industry was its pioneering work in multi-density EPS foam liners and advanced aerodynamic shell designs, which set new benchmarks for impact absorption and ventilation. Shoei consistently pushed the boundaries of safety certification standards, often exceeding regulatory requirements to ensure maximum protection, thereby establishing a legacy of uncompromising quality that has defined premium motorcycle helmets for over five decades.",
+        "motto": "Ride Safe",
+        "founded_year": 1972
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Japan \ud83c\uddef\ud83c\uddf5",
+        "founding_year": 1959,
+        "headquarters_location": "Tokyo, Japan",
+        "flagship_helmet_series": "Shoei X-Fifteen & RF-1400",
+        "engineering_philosophy": "Aero-Acoustic Wind-Tunnel Precision & Hand-Crafted Japanese Quality",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "Shoei is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, Shoei consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

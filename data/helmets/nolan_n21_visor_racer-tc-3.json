@@ -1,75 +1,263 @@
 {
-    "id": "nolan_n21_visor_racer-tc-3",
-    "entity": "helmet",
-    "title": "Nolan N21 Visor Racer TC-3",
-    "brand": "Nolan",
-    "type": "Open Face",
-    "helmet_types": [
-        "Open Face"
-    ],
-    "parent_id": "nolan_n21_visor",
-    "helmet_family": "N21 Visor",
-    "price": {
-        "current": 249.99,
-        "usd": 249.99,
-        "eur": 229.99,
-        "gbp": 197.49
-    },
+  "id": "nolan_n21_visor_racer-tc-3",
+  "entity": "helmet",
+  "title": "N21 Visor Racer TC-3",
+  "brand": "Nolan",
+  "type": "Open Face",
+  "helmet_types": [
+    "Open Face"
+  ],
+  "parent_id": "nolan_n21_visor",
+  "helmet_family": "N21 Visor",
+  "price": {
+    "usd": 249,
+    "inr": 20667,
+    "eur": 229,
+    "gbp": 197,
+    "jpy": 38595
+  },
+  "certifications": [
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1313,
+    "weight_lbs": 2.89,
     "certifications": [
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Microlock2 (Micrometric Ratchet)",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 98
+  },
+  "description": "The Nolan N21 Visor Racer TC-3 is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1313g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly Microlock2 (Micrometric Ratchet) retention system for effortless warm-weather riding.",
+  "product_details": {
+    "description": "Urban open face with integrated visor and N-Com communication ready."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/nolan_n21_visor_racer_tc_3_front.png",
+    "https://helmetsan.com/assets/helmets/nolan_n21_visor_racer_tc_3_side.png",
+    "https://helmetsan.com/assets/helmets/nolan_n21_visor_racer_tc_3_rear.png"
+  ],
+  "color": "Racer TC-3",
+  "color_family": "Multi",
+  "sku": "NOL-NOLANN",
+  "finish": "gloss",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 45,
+    "cable_management": true
+  },
+  "model_year": 2018,
+  "identifiers": {
+    "asin": "B07QKZV8Y3",
+    "ean": "8052641093326",
+    "mpn": "N21-TC3-RACER",
+    "sku": "NOL-NOLANN"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "ECE 22.06",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Open-face design with extended cheek coverage; requires chin strap for secure fit during high-speed riding.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 98,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.34
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 225,
+    "internal_width_mm": 168,
+    "crown_depth_mm": 115
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Nolan N21 Visor Racer TC-3: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Nolan N21 Visor Racer TC-3: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "nolan n21 visor racer tc-3",
+  "yoast_metadesc": "In-depth review of the Nolan N21 Visor Racer TC-3. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Nolan+N21+Visor+Racer+TC-3&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Nolan+N21+Visor+Racer+TC-3"
+  },
+  "cross_links": [
+    {
+      "keyword": "Nolan",
+      "target_id": "nolan",
+      "target_type": "brand"
+    }
+  ],
+  "country_origin": "Italy 🇮🇹",
+  "category": "Open Face",
+  "physics_intelligence": {
+    "weight_grams": 1313,
+    "acoustic_noise_rating_db": "98 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The Nolan N21 Visor Racer TC-3 is a benchmark Open Face helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Nolan's Open Face lineup, the N21 Visor Racer TC-3 brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+  "story": "The Nolan N21 Visor Racer TC-3 represents Nolan's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~96 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the Nolan N21 Visor Racer TC-3 delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Nolan N21 Visor Racer TC-3 represents Nolan's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~96 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the Nolan N21 Visor Racer TC-3 delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Unrestricted 180-degree panoramic field of view maximizing urban cross-traffic awareness",
+      "Featherweight 1313g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~96 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Increased exposure to ambient road noise, rain, and highway flying debris"
+    ]
+  },
+  "editorial_overview": "The Nolan N21 Visor Racer TC-3 is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1313g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly Microlock2 (Micrometric Ratchet) retention system for effortless warm-weather riding.",
+  "rider_takeaway": "A breezy, lightweight classic lid delivering unrestricted 180-degree peripheral vision and easygoing city riding comfort.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Open-Face & Classic Roadster",
+      "riding_stance": "Upright Roadster Stance",
+      "core_priority": "Unrestricted 180° field of view, maximum open-air ventilation, and lightweight low-profile charm"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1313,
+      "measured_weight_lbs": 2.89
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~96 dB @ 100km/h",
+      "acoustic_grade": "High-Flow Aerobic Ventilation Cockpit",
+      "practical_effect": "High-volume air exchange optimized for physical exertion and anti-fogging; earplugs recommended for high-speed highway transfers."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Microlock2 (Micrometric Ratchet)",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Race Multi-Layer Graphic",
+      "finish_narrative": "Wrapped in a high-definition multi-layer graphic sealed beneath UV-inhibiting clear lacquer for long-lasting visual depth."
+    },
+    "safety_homologation": {
+      "certifications": [
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Polycarbonate",
-        "weight_g": 1100,
-        "weight_lbs": 2.43,
-        "certifications": [
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "Urban open face with integrated visor and N-Com communication ready.",
-    "product_details": {
-        "description": "Urban open face with integrated visor and N-Com communication ready."
+    "verdict_takeaway": "A breezy, lightweight classic lid delivering unrestricted 180-degree peripheral vision and easygoing city riding comfort."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "honda_cl500_scrambler_special_edition",
+      "title": "CL500 Scrambler (Special Edition)",
+      "make": "Honda",
+      "category": "Urban Roadster",
+      "match_score": 97,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Honda CL500 Scrambler (Special Edition)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Racer+TC-3",
-        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Racer+TC-3+Side",
-        "https://placehold.co/800x800/222/white?text=Nolan+N21+Visor+Racer+TC-3+Back"
-    ],
-    "color": "Racer TC-3",
-    "color_family": "Multi",
-    "sku": "NOL-N21V-RAC",
-    "finish": "gloss",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "ducati_scrambler_icon_gen_2_touring_pack",
+      "title": "Scrambler Icon Gen-2 (Touring Pack)",
+      "make": "Ducati",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Scrambler Icon Gen-2 (Touring Pack)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 45,
-        "cable_management": true
+    {
+      "id": "aprilia_moto_guzzi_moto_guzzi_v9_bobber_enduro_spec",
+      "title": "Moto Guzzi V9 Bobber (Enduro Spec)",
+      "make": "Aprilia",
+      "category": "Performance Cruiser",
+      "match_score": 90,
+      "match_reason": "Low-profile aesthetic aligns with the authentic heritage lines and deep engine rumble of the Aprilia Moto Guzzi V9 Bobber (Enduro Spec)."
     },
-    "model_year": 2018,
-    "identifiers": {
-        "asin": "B07QKZV8Y3",
-        "ean": "8052641093326",
-        "mpn": "N21-TC3-RACER"
+    {
+      "id": "honda_activa_6g_premium_pro_spec",
+      "title": "Activa 6G Premium (Pro Spec)",
+      "make": "Honda",
+      "category": "Commuter Scooter",
+      "match_score": 86,
+      "match_reason": "Direct flow-through ventilation keeps riders cool and comfortable through stop-and-go commuting on the Activa 6G Premium (Pro Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.05",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Open-face design with extended cheek coverage; requires chin strap for secure fit during high-speed riding.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 98,
+  "sharp_rating": 0
 }

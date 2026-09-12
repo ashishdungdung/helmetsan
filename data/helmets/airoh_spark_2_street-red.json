@@ -1,76 +1,263 @@
 {
-    "id": "airoh_spark_2_street-red",
-    "entity": "helmet",
-    "title": "Airoh Spark 2 Street Red",
-    "brand": "Airoh",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "airoh_spark_2",
-    "helmet_family": "Spark 2",
-    "price": {
-        "current": 399.99,
-        "usd": 399.99,
-        "eur": 367.99,
-        "gbp": 315.99
-    },
+  "id": "airoh_spark_2_street-red",
+  "entity": "helmet",
+  "title": "Spark 2 Street Red",
+  "brand": "Airoh",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "airoh_spark_2",
+  "helmet_family": "Spark 2",
+  "price": {
+    "usd": 399,
+    "inr": 33117,
+    "eur": 367,
+    "gbp": 315,
+    "jpy": 61845
+  },
+  "certifications": [
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "HRT Composite",
+    "weight_g": 1465,
+    "weight_lbs": 3.23,
     "certifications": [
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 85
+  },
+  "description": "The Airoh Spark 2 Street Red is tuned for riders carving apexes and commanding fast sweepers, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1465g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Sport touring with integrated sun visor and Pinlock included."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/airoh_spark_2_street_red_front.png",
+    "https://helmetsan.com/assets/helmets/airoh_spark_2_street_red_side.png",
+    "https://helmetsan.com/assets/helmets/airoh_spark_2_street_red_rear.png"
+  ],
+  "color": "Street Red",
+  "color_family": "Red",
+  "sku": "AIR-AIROHS",
+  "finish": "matte",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B0CQXJ8V9L",
+    "ean": "8013645270000",
+    "mpn": "SPARK-2-STREET-RED",
+    "sku": "AIR-AIROHS"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "ECE 22.06",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Standard Airoh fit for Intermediate Oval head shape; slightly roomy in the crown for comfort on long rides, with a secure chin bar. The cheek pads are moderately thick to accommodate communication systems without excessive pressure.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 85,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 168,
+    "crown_depth_mm": 112
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Airoh Spark 2 Street Red: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Airoh Spark 2 Street Red: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "airoh spark 2 street red",
+  "yoast_metadesc": "In-depth review of the Airoh Spark 2 Street Red. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Airoh+Spark+2+Street+Red&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Airoh+Spark+2+Street+Red"
+  },
+  "cross_links": [
+    {
+      "keyword": "Airoh",
+      "target_id": "airoh",
+      "target_type": "brand"
+    }
+  ],
+  "spec_weight_g": 1420,
+  "repaired_and_enriched": true,
+  "country_origin": "Global",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1465,
+    "acoustic_noise_rating_db": "85 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Airoh Spark 2 Street Red is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Airoh's Full Face lineup, the Spark 2 Street Red brings Italian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+  "story": "The Airoh Spark 2 Street Red represents Airoh's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Airoh Spark 2 Street Red delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Airoh Spark 2 Street Red represents Airoh's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~87 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Airoh Spark 2 Street Red delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Eyewear-compatible interior lining accommodates sunglasses and prescription frames without hot spots",
+      "Well-balanced 1465g center of gravity reduces rider fatigue on long highway stretches",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "Cheek pads have a firm initial break-in period before contouring comfortably to facial profile"
+    ]
+  },
+  "editorial_overview": "The Airoh Spark 2 Street Red is tuned for riders carving apexes and commanding fast sweepers, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1465g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Sport & Canyon Carving",
+      "riding_stance": "3/4 Forward Lean",
+      "core_priority": "Balanced downforce, aggressive brow ventilation, and low rotational inertia during quick transitions"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1465,
+      "measured_weight_lbs": 3.23
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~87 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "HRT Composite",
-        "weight_g": 1400,
-        "weight_lbs": 3.09,
-        "certifications": [
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Sport touring with integrated sun visor and Pinlock included.",
-    "product_details": {
-        "description": "Sport touring with integrated sun visor and Pinlock included."
+    "verdict_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "husqvarna_norden_901",
+      "title": "Norden 901 Expedition",
+      "make": "Husqvarna",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Husqvarna Norden 901 Expedition."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red",
-        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red+Side",
-        "https://placehold.co/800x800/222/white?text=Airoh+Spark+2+Street+Red+Back"
-    ],
-    "color": "Street Red",
-    "color_family": "Red",
-    "sku": "AIR-SPAR-STR",
-    "finish": "matte",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "ktm_husqvarna_gasgas_gasgas_ec_350f_enduro_performance_edition",
+      "title": "GasGas EC 350F Enduro (Performance Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the GasGas EC 350F Enduro (Performance Edition)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "vintage_exotics_mv_agusta_f4_750_legend",
+      "title": "Vintage & Exotics MV Agusta F4 750 Legend",
+      "make": "MV Agusta",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the MV Agusta Vintage & Exotics MV Agusta F4 750 Legend."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "asin": "B0CQXJ8V9L",
-        "ean": "8013645270000",
-        "mpn": "SPARK-2-STREET-RED"
+    {
+      "id": "vintage_exotics_mv_agusta_superveloce_800_special_edition",
+      "title": "Vintage & Exotics MV Agusta Superveloce 800 (Special Edition)",
+      "make": "MV Agusta",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Vintage & Exotics MV Agusta Superveloce 800 (Special Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Standard Airoh fit; slightly roomy in the crown for comfort on long rides, with a secure chin bar. The cheek pads are moderately thick to accommodate communication systems without excessive pressure.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 85
 }

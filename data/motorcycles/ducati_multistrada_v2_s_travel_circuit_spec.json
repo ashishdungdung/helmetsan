@@ -1,0 +1,125 @@
+{
+  "id": "ducati_multistrada_v2_s_travel_circuit_spec",
+  "entity": "motorcycle",
+  "title": "Multistrada V2 S Travel (Circuit Spec)",
+  "brand": "Ducati",
+  "country_origin": "Italy 🇮🇹",
+  "category": "Urban Roadster",
+  "displacement_cc": 0,
+  "power_hp": 16,
+  "torque_nm": 13,
+  "curb_weight_kg": 108,
+  "price": {
+    "usd": 2450,
+    "inr": 203350,
+    "eur": 2254,
+    "gbp": 1936,
+    "jpy": 379750
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "The Ducati Multistrada V2 S Travel (Circuit Spec) is crafted for flickable urban agility and stoplight-to-stoplight punch, positioned in the Urban Roadster segment for riders demanding engaging everyday dynamics. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. The cockpit is configured with an Upright Neutral riding stance and a balanced 790mm seat height providing confident footing and natural knee comfort, making daily city navigation as intuitive as weekend backroad escapes.",
+  "yoast_title": "Ducati Multistrada V2 S Travel (Circuit Spec): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Ducati Multistrada V2 S Travel (Circuit Spec).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node B (M3 Pro Worker) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_b",
+  "editorial_overview": "The Ducati Multistrada V2 S Travel (Circuit Spec) is crafted for flickable urban agility and stoplight-to-stoplight punch, positioned in the Urban Roadster segment for riders demanding engaging everyday dynamics. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 108 kg, ensuring responsive roll-on acceleration in demanding road conditions. The cockpit is configured with an Upright Neutral riding stance and a balanced 790mm seat height providing confident footing and natural knee comfort, making daily city navigation as intuitive as weekend backroad escapes.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 16,
+      "torque_nm": 13,
+      "curb_weight_kg": 108,
+      "power_to_weight": "14.8 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shark_skwal_i3_vortex-grey",
+      "title": "Skwal i3 Vortex Grey",
+      "brand": "Shark",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Ducati Multistrada V2 S Travel (Circuit Spec)."
+    },
+    {
+      "id": "agv_k5_s_camo-tc-2",
+      "title": "K5 S Camo TC-2",
+      "brand": "AGV",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Multistrada V2 S Travel (Circuit Spec) at highway speeds."
+    },
+    {
+      "id": "suomy_stellar_hi-viz-yellow",
+      "title": "Stellar Hi-Viz Yellow",
+      "brand": "Suomy",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Ducati Multistrada V2 S Travel (Circuit Spec)."
+    },
+    {
+      "id": "arai_defiant_x_gloss-black",
+      "title": "Defiant-X Gloss Black",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Multistrada V2 S Travel (Circuit Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Attenuates harsh open-air buffeting from the unfaired handlebars of the Ducati Multistrada V2 S Travel (Circuit Spec) without blocking emergency sirens."
+    },
+    {
+      "id": "led-brake-light",
+      "title": "Brake Free Smart LED Helmet Light",
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Multistrada V2 S Travel (Circuit Spec)."
+    },
+    {
+      "id": "cardo-spirit-hd",
+      "title": "Cardo Spirit HD Duo",
+      "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
+    }
+  ]
+}

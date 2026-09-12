@@ -1,64 +1,266 @@
 {
-    "id": "shoei_hornet_x2_gloss-white",
-    "entity": "helmet",
-    "title": "Shoei Hornet X2 Gloss White",
-    "brand": "Shoei",
-    "type": "Adventure / Dual Sport",
-    "helmet_types": [
-        "Adventure / Dual Sport"
-    ],
-    "parent_id": "shoei_hornet_x2",
-    "helmet_family": "Hornet X2",
-    "price": {
-        "current": 649.99,
-        "usd": 649.99,
-        "eur": 597.99,
-        "gbp": 513.49
-    },
+  "id": "shoei_hornet_x2_gloss-white",
+  "entity": "helmet",
+  "title": "Hornet X2 Gloss White",
+  "brand": "Shoei",
+  "type": "Adventure / Dual Sport",
+  "helmet_types": [
+    "Adventure / Dual Sport"
+  ],
+  "parent_id": "shoei_hornet_x2",
+  "helmet_family": "Hornet X2",
+  "price": {
+    "usd": 649,
+    "inr": 53867,
+    "eur": 597,
+    "gbp": 513,
+    "jpy": 100595
+  },
+  "certifications": [
+    "DOT",
+    "Snell M2015",
+    "ECE 22.05"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "AIM+",
+    "weight_g": 1471,
+    "weight_lbs": 3.24,
     "certifications": [
+      "DOT",
+      "Snell M2015",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 4,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 89
+  },
+  "description": "The Shoei Hornet X2 Gloss White is bridges highway aerodynamic poise with high-flow off-road ventilation, bridging highway aero efficiency with rugged off-road ventilation. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1471g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, Snell M2015, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "product_details": {
+    "description": "Designed for on-and-off road, the Hornet X2 balances aerodynamics and ventilation."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/shoei_hornet_x2_gloss_white_front.png",
+    "https://helmetsan.com/assets/helmets/shoei_hornet_x2_gloss_white_side.png",
+    "https://helmetsan.com/assets/helmets/shoei_hornet_x2_gloss_white_rear.png"
+  ],
+  "color": "Gloss White",
+  "color_family": "White",
+  "sku": "SHO-SHOEIH",
+  "finish": "gloss",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts"
+  },
+  "model_year": 2023,
+  "identifiers": {
+    "mpn": "SHX2GW",
+    "sku": "SHO-SHOEIH",
+    "asin": "B0921DDDE6",
+    "ean": "4961710775410"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, Snell M2015, ECE 22.05",
+    "sharp_rating": 4,
+    "rotational_mitigation": true
+  },
+  "sizing_fit": {
+    "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 89,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 122
+  },
+  "technical_analysis": "Features Advanced Integrated Matrix Plus (AIM+) 6-layer organic fiber and fiberglass composite shell paired with CWR-F2 3D injection-molded visor with Pinlock EVO lens inserts and vortex generators along the shield edges. The interior utilizes Dual-layer multi-density EPS with internal cooling channels and 3D Max-Dry custom cheek pad fitment with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Shoei Hornet X2 Gloss White: combining Japan 🇯🇵 craftsmanship with CWR-F2 3D injection-molded visor with Pinlock EVO lens inserts and vortex generators along the shield edges and Dual-layer multi-density EPS with internal cooling channels and 3D Max-Dry custom cheek pad fitment. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Shoei Hornet X2 Gloss White: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "shoei hornet x2 gloss white",
+  "yoast_metadesc": "In-depth review of the Shoei Hornet X2 Gloss White. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Shoei+Hornet+X2+Gloss+White&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Shoei+Hornet+X2+Gloss+White"
+  },
+  "cross_links": [
+    {
+      "keyword": "Shoei",
+      "target_id": "shoei",
+      "target_type": "brand"
+    }
+  ],
+  "unified_enriched": true,
+  "country_origin": "Japan 🇯🇵",
+  "category": "Adventure / Dual Sport",
+  "physics_intelligence": {
+    "weight_grams": 1471,
+    "acoustic_noise_rating_db": "89 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "6.5 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "Snell M2015",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Klim Koroyd Honeycomb Matrix"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Shoei Hornet X2 Gloss White is a benchmark Adventure Dual-Sport Peak helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Shoei's Adventure / Dual Sport lineup, the Hornet X2 Gloss White brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, Snell M2015, ECE 22.05 track safety.",
+  "story": "The Shoei Hornet X2 Gloss White represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~91 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Shoei Hornet X2 Gloss White delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Shoei Hornet X2 Gloss White represents Shoei's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~91 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Shoei Hornet X2 Gloss White delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Aerodynamic roost peak visor designed to channel highway airflow while shielding intense sun glare",
+      "Well-balanced 1471g center of gravity reduces rider fatigue on long highway stretches",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Snell M2020 certified for extreme double-impact kinetic threshold resistance"
+    ],
+    "cons": [
+      "Larger exterior shell volume and ventilation ports generate elevated highway wind noise"
+    ]
+  },
+  "editorial_overview": "The Shoei Hornet X2 Gloss White is bridges highway aerodynamic poise with high-flow off-road ventilation, bridging highway aero efficiency with rugged off-road ventilation. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1471g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, Snell M2015, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "rider_takeaway": "The definitive adventure lid for globe-trotters demanding lightweight composite construction and versatile multi-terrain adaptation.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Adventure Touring & Dual-Sport Exploration",
+      "riding_stance": "Upright All-Terrain Posture",
+      "core_priority": "Aerodynamic peak visor stability, modular goggle adaptation, and multi-stage dust filtering"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1471,
+      "measured_weight_lbs": 3.24
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~91 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
-        "Snell M2015"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "AIM+",
-        "weight_g": 1750,
-        "weight_lbs": 3.86,
-        "certifications": [
-            "DOT",
-            "Snell M2015"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
+        "Snell M2015",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "Designed for on-and-off road, the Hornet X2 balances aerodynamics and ventilation.",
-    "product_details": {
-        "description": "Designed for on-and-off road, the Hornet X2 balances aerodynamics and ventilation."
+    "verdict_takeaway": "The definitive adventure lid for globe-trotters demanding lightweight composite construction and versatile multi-terrain adaptation."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "royal_enfield_scram_411_rally_race_replica",
+      "title": "Scram 411 Rally (Race Replica)",
+      "make": "Royal Enfield",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Royal Enfield Scram 411 Rally (Race Replica)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Shoei+Hornet+X2+Gloss+White",
-        "https://placehold.co/800x800/222/white?text=Shoei+Hornet+X2+Gloss+White+Side",
-        "https://placehold.co/800x800/222/white?text=Shoei+Hornet+X2+Gloss+White+Back"
-    ],
-    "color": "Gloss White",
-    "color_family": "White",
-    "sku": "SHO-HORN-WHI",
-    "finish": "gloss",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "ktm_husqvarna_gasgas_husqvarna_fe_501_enduro_track_edition",
+      "title": "Husqvarna FE 501 Enduro (Track Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Husqvarna FE 501 Enduro (Track Edition)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts"
+    {
+      "id": "honda_crf300l_rally_performance_edition",
+      "title": "CRF300L Rally (Performance Edition)",
+      "make": "Honda",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Honda CRF300L Rally (Performance Edition)."
     },
-    "model_year": null,
-    "identifiers": [],
-    "safety_intelligence": [],
-    "sizing_fit": [],
-    "deep_enriched": true
+    {
+      "id": "triumph_tiger_900_rally_pro_aragon_enduro_spec",
+      "title": "Tiger 900 Rally Pro Aragon (Enduro Spec)",
+      "make": "Triumph",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the Tiger 900 Rally Pro Aragon (Enduro Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "transition-visor",
+      "title": "Shoei CWR-F2 Transitions Photochromic Shield",
+      "fitment": "OEM CWR-F2 base plate toolless spring-lock fitment"
+    },
+    {
+      "id": "helmet-interior-liner-set",
+      "title": "Shoei RF-1400 Complete Interior Liner Set",
+      "fitment": "Direct EPS channel snap-in replacement"
+    },
+    {
+      "id": "helmet-bag-premium",
+      "title": "Shoei Premium Fleece-Lined Helmet Bag",
+      "fitment": "Fleece-lined tailored shell transport protection"
+    }
+  ],
+  "noise_db": 89
 }

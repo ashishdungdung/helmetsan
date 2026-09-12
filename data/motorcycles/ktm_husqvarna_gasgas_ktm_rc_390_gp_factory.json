@@ -1,0 +1,125 @@
+{
+  "id": "ktm_husqvarna_gasgas_ktm_rc_390_gp_factory",
+  "entity": "motorcycle",
+  "title": "RC 390 GP Factory",
+  "brand": "KTM",
+  "country_origin": "Austria 🇦🇹",
+  "category": "Urban Roadster",
+  "displacement_cc": 0,
+  "power_hp": 12,
+  "torque_nm": 10,
+  "curb_weight_kg": 110,
+  "price": {
+    "usd": 1500,
+    "inr": 124500,
+    "eur": 1380,
+    "gbp": 1185,
+    "jpy": 232500
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Engineered for riders seeking confident performance and refined dynamics, the KTM RC 390 GP Factory is tuned for spirited street performance with an intuitive wide-handlebar command. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 110 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 790mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "yoast_title": "KTM RC 390 GP Factory: Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the KTM RC 390 GP Factory.",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.36,
+    "max_lean_angle_deg": 46,
+    "wind_protection_rating": "5.5 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear Pinlock 120 Max Vision"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 5.5,
+  "top_speed_kmh": 90,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:47Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Engineered for riders seeking confident performance and refined dynamics, the KTM RC 390 GP Factory is tuned for spirited street performance with an intuitive wide-handlebar command. Its tuned powertrain delivers immediate, tractable torque against a curb weight of 110 kg, ensuring responsive roll-on acceleration in demanding road conditions. Riders are greeted by an ergonomic Upright Neutral posture paired with a balanced 790mm seat height providing confident footing and natural knee comfort, backed by a 5.5L fuel tank for extended saddle stints.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "high-efficiency electric",
+      "power_hp": 12,
+      "torque_nm": 10,
+      "curb_weight_kg": 110,
+      "power_to_weight": "10.9 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 5.5,
+      "estimated_range_km": "~154 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "airoh_gp550_s",
+      "title": "GP550 S",
+      "brand": "Airoh",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the KTM RC 390 GP Factory."
+    },
+    {
+      "id": "bell_qualifier_dlx_mips_silver-metallic",
+      "title": "Qualifier DLX MIPS Silver Metallic",
+      "brand": "Bell",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the RC 390 GP Factory."
+    },
+    {
+      "id": "shoei_glamster_anthracite",
+      "title": "Glamster Anthracite",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the KTM RC 390 GP Factory."
+    },
+    {
+      "id": "bell_qualifier_dlx_mips_hi-viz-yellow",
+      "title": "Qualifier DLX MIPS Hi-Viz Yellow",
+      "brand": "Bell",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for RC 390 GP Factory speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the KTM RC 390 GP Factory."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the KTM engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

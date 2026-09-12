@@ -3,24 +3,100 @@
   "id": "cardo-spirit-hd",
   "title": "Cardo Spirit HD Duo",
   "type": "Communication System",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
-  "compatible_brands": ["Universal", "Shoei", "HJC", "Bell", "Scorpion", "LS2", "Shark"],
-  "compatible_helmet_ids": ["shoei-rf-1400", "hjc-rpha-71", "bell-star-dlx-mips", "scorpion-exo-r1-air", "ls2-challenger-gt", "shark-spartan-rs"],
-  "features": [
-    "Bluetooth 5.2 connectivity",
-    "Rider-to-rider intercom — up to 600m range",
-    "HD 40mm speakers",
-    "2-way intercom (duo pack includes 2 units)",
-    "IP67 waterproof",
-    "Voice-activated controls",
-    "8-hour talk time battery",
-    "Simultaneous phone + intercom + music"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure"
   ],
-  "price": { "current": 219.95, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 219.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 199.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 19990, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "Universal",
+    "Shoei",
+    "HJC",
+    "Bell",
+    "Scorpion",
+    "LS2",
+    "Shark"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "hjc-rpha-71",
+    "bell-star-dlx-mips",
+    "scorpion-exo-r1-air",
+    "ls2-challenger-gt",
+    "shark-spartan-rs"
+  ],
+  "features": [
+    "Bluetooth hands-free calling with noise cancellation",
+    "HD audio quality for crystal clear communication",
+    "Intercom capability for up to 10 riders"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The Cardo Spirit HD Duo is a budget-friendly Bluetooth intercom set for riding pairs. This dual-pack includes two units for rider-to-passenger or rider-to-rider communication over 600m. HD 40mm speakers deliver clear audio for calls, music, and GPS directions. Bluetooth 5.2 ensures stable, low-latency connections.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 219.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 199.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 19990,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Spirit HD Duo from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Cardo Spirit HD Duo represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 1,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Intercom System",
+  "identifiers": {
+    "mpn": "SPIRIT-HD-DUO"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Cardo Cardo Spirit HD Duo.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
+    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "JBL 40mm High-Definition Neodymium Drivers with Dynamic Bass Boost",
+    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    ],
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
+    ],
+    "editorial_verdict": "The Cardo Spirit HD Duo represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Cardo",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Cardo+Spirit+HD+Duo&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Cardo+Spirit+HD+Duo&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

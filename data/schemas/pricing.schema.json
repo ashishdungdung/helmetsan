@@ -14,6 +14,10 @@
     "current_price": { "type": "number" },
     "mrp": { "type": "number" },
     "source_url": { "type": "string" },
-    "captured_at": { "type": "string" }
+    "captured_at": { "type": "string" },
+    "discount_amount": { "type": "number" },
+    "is_coupon_required": { "type": "boolean" },
+    "shipping_cost": { "type": "number" },
+    "estimated_delivery_days": { "type": "number" }
   }
 }

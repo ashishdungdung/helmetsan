@@ -19,7 +19,19 @@
         "size_chart_json": { "type": "string" },
         "total_models": { "type": ["string", "number"] },
         "helmet_types": { "type": "string" },
-        "certification_coverage": { "type": "string" }
+        "certification_coverage": { "type": "string" },
+        "founded_year": { "type": "number" },
+        "headquarters_city": { "type": "string" },
+        "warranty_policy_url": { "type": "string" },
+        "social_links": {
+          "type": "object",
+          "properties": {
+            "website": { "type": "string", "format": "uri" },
+            "instagram": { "type": "string" },
+            "facebook": { "type": "string" },
+            "youtube": { "type": "string" }
+          }
+        }
       }
     }
   }

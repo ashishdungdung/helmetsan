@@ -1,0 +1,125 @@
+{
+  "id": "triumph_speed_triple_1200_rs",
+  "entity": "motorcycle",
+  "title": "Speed Triple 1200 RS",
+  "brand": "Triumph",
+  "country_origin": "United Kingdom 🇬🇧",
+  "category": "Urban Roadster",
+  "displacement_cc": 1200,
+  "power_hp": 150,
+  "torque_nm": 120,
+  "curb_weight_kg": 230,
+  "price": {
+    "usd": 18000,
+    "inr": 1494000,
+    "eur": 16560,
+    "gbp": 14220,
+    "jpy": 2790000
+  },
+  "recommended_helmet_types": [
+    "Full Face"
+  ],
+  "riding_position": "Upright Neutral",
+  "description": "Representing Triumph's prowess in the Urban Roadster class, the Triumph Speed Triple 1200 RS is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 1200cc powerplant pumps out 150 HP and 120 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Triumph Speed Triple 1200 RS: Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Triumph Speed Triple 1200 RS.",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.31,
+    "max_lean_angle_deg": 56,
+    "wind_protection_rating": "7.5 / 10",
+    "traffic_heat_radiation": "High",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Iridium Dark Smoke / Photochromic Transition"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 19.5,
+  "top_speed_kmh": 235,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node B (M3 Pro Worker) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:47Z",
+  "_audited_by_node": "node_b",
+  "editorial_overview": "Representing Triumph's prowess in the Urban Roadster class, the Triumph Speed Triple 1200 RS is delivers muscular mid-range acceleration paired with effortless city maneuvering. A 1200cc powerplant pumps out 150 HP and 120 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Upright Neutral layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Urban Roadster",
+      "riding_stance": "Upright Neutral Street Stance",
+      "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "1200cc",
+      "power_hp": 150,
+      "torque_nm": 120,
+      "curb_weight_kg": 230,
+      "power_to_weight": "65.2 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Upright Neutral",
+      "fuel_capacity_l": 19.5,
+      "estimated_range_km": "~546 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An engaging, versatile roadster that balances streetfighter attitude with effortless everyday usability."
+  },
+  "compatible_helmets": [
+    {
+      "id": "shoei_rf_1200_camo-grey",
+      "title": "RF-1200 Camo Grey",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Triumph Speed Triple 1200 RS."
+    },
+    {
+      "id": "arai_dt_x_vortex-tc-5",
+      "title": "DT-X Vortex TC-5",
+      "brand": "Arai",
+      "type": "Full Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Speed Triple 1200 RS at highway speeds."
+    },
+    {
+      "id": "bell_star_blue",
+      "title": "Star Blue",
+      "brand": "Bell",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Triumph Speed Triple 1200 RS."
+    },
+    {
+      "id": "shoei_tec_ii_stripe_red",
+      "title": "TC-10 Street Stripe Red",
+      "brand": "Shoei",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Speed Triple 1200 RS."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Attenuates harsh open-air buffeting from the unfaired handlebars of the Triumph Speed Triple 1200 RS without blocking emergency sirens."
+    },
+    {
+      "id": "led-brake-light",
+      "title": "Brake Free Smart LED Helmet Light",
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Speed Triple 1200 RS."
+    },
+    {
+      "id": "cardo-spirit-hd",
+      "title": "Cardo Spirit HD Duo",
+      "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
+    }
+  ]
+}

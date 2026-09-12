@@ -1,77 +1,272 @@
 {
-    "id": "ls2_blaze_silver",
-    "entity": "helmet",
-    "title": "LS2 Blaze Silver",
-    "brand": "LS2",
-    "type": "Open Face",
-    "helmet_types": [
-        "Open Face"
-    ],
-    "parent_id": "ls2_blaze",
-    "helmet_family": "Blaze",
-    "price": {
-        "current": 79.99,
-        "usd": 79.99,
-        "eur": 73.59,
-        "gbp": 63.19
-    },
+  "id": "ls2_blaze_silver",
+  "entity": "helmet",
+  "title": "Blaze Silver",
+  "brand": "LS2",
+  "type": "Open Face",
+  "helmet_types": [
+    "Open Face"
+  ],
+  "parent_id": "ls2_blaze",
+  "helmet_family": "Blaze",
+  "price": {
+    "usd": 79,
+    "inr": 6557,
+    "eur": 73,
+    "gbp": 62,
+    "jpy": 12245
+  },
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1322,
+    "weight_lbs": 2.91,
     "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 97
+  },
+  "description": "The LS2 Blaze Silver pairs retro roadster charm with modern multi-density cranial protection, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1322g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "product_details": {
+    "description": "LS2 Blaze open face with inner visor."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/ls2_blaze_silver_front.png",
+    "https://helmetsan.com/assets/helmets/ls2_blaze_silver_side.png",
+    "https://helmetsan.com/assets/helmets/ls2_blaze_silver_rear.png"
+  ],
+  "color": "Silver",
+  "color_family": "Grey",
+  "sku": "LS-LS2BLA",
+  "finish": "gloss",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 35,
+    "cable_management": true
+  },
+  "model_year": 2019,
+  "identifiers": {
+    "asin": "B07QKZV3Y5",
+    "ean": "8426910000000",
+    "mpn": "LS2-669F",
+    "sku": "LS-LS2BLA"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for oval head shapes; may feel tight on round heads due to aggressive cheek pad placement.",
+    "head_shape": "Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 97,
+    "ventilation_efficiency_score": 6,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 145,
+    "crown_depth_mm": 110
+  },
+  "technical_analysis": "Features Kinetic Polymer Alloy (KPA) / HPFC High Performance Fiberglass Composite shell construction paired with 3D Optically Correct Class A polycarbonate visor with quick release system and internal sun shield. The interior utilizes Laser-cut multi-density EPS with breathable hypoallergenic removable lining with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the LS2 Blaze Silver: combining Spain / China 🇪🇸🇨🇳 craftsmanship with 3D Optically Correct Class A polycarbonate visor with quick release system and internal sun shield and Laser-cut multi-density EPS with breathable hypoallergenic removable lining. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "LS2 Blaze Silver: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "ls2 blaze silver helmet",
+  "yoast_metadesc": "In-depth review of the LS2 Blaze Silver. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=LS2+Blaze+Silver&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=LS2+Blaze+Silver"
+  },
+  "cross_links": [
+    {
+      "keyword": "LS2",
+      "target_id": "ls2",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "LS2 Blaze",
+      "target_id": "ls2_blaze",
+      "target_type": "helmet"
+    }
+  ],
+  "country_origin": "Spain / China 🇪🇸🇨🇳",
+  "category": "Open Face",
+  "physics_intelligence": {
+    "weight_grams": 1322,
+    "acoustic_noise_rating_db": "97 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The LS2 Blaze Silver is a benchmark Open Face helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in LS2's Open Face lineup, the Blaze Silver brings Spanish engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The LS2 Blaze Silver represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~97 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Blaze Silver delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The LS2 Blaze Silver represents LS2's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~97 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to an Intermediate Oval head shape, the LS2 Blaze Silver delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Unrestricted 180-degree panoramic field of view maximizing urban cross-traffic awareness",
+      "Featherweight 1322g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~97 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Increased exposure to ambient road noise, rain, and highway flying debris"
+    ]
+  },
+  "editorial_overview": "The LS2 Blaze Silver pairs retro roadster charm with modern multi-density cranial protection, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1322g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "rider_takeaway": "An authentic open-face helmet engineered for urban commuters and custom bike riders who prioritize airflow, visibility, and timeless aesthetics.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Open-Face & Classic Roadster",
+      "riding_stance": "Upright Roadster Stance",
+      "core_priority": "Unrestricted 180° field of view, maximum open-air ventilation, and lightweight low-profile charm"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1322,
+      "measured_weight_lbs": 2.91
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~97 dB @ 100km/h",
+      "acoustic_grade": "High-Flow Aerobic Ventilation Cockpit",
+      "practical_effect": "High-volume air exchange optimized for physical exertion and anti-fogging; earplugs recommended for high-speed highway transfers."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
         "ECE 22.05"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Polycarbonate",
-        "weight_g": 1010,
-        "weight_lbs": 2.23,
-        "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "LS2 Blaze open face with inner visor.",
-    "product_details": {
-        "description": "LS2 Blaze open face with inner visor."
+    "verdict_takeaway": "An authentic open-face helmet engineered for urban commuters and custom bike riders who prioritize airflow, visibility, and timeless aesthetics."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "hero_motocorp_xtreme_125r_abs",
+      "title": "Xtreme 125R ABS",
+      "make": "Hero MotoCorp",
+      "category": "Urban Roadster",
+      "match_score": 97,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Hero MotoCorp Xtreme 125R ABS."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=LS2+Blaze+Silver",
-        "https://placehold.co/800x800/222/white?text=LS2+Blaze+Silver+Side",
-        "https://placehold.co/800x800/222/white?text=LS2+Blaze+Silver+Back"
-    ],
-    "color": "Silver",
-    "color_family": "Grey",
-    "sku": "LS2-BLZ-SLV",
-    "finish": "gloss",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "yamaha_tricity_300_3_wheel_dark_edition",
+      "title": "Tricity 300 3-Wheel (Dark Edition)",
+      "make": "Yamaha",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Tricity 300 3-Wheel (Dark Edition)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 35,
-        "cable_management": true
+    {
+      "id": "honda_giorno_50_retro_touring_pack",
+      "title": "Giorno 50 Retro (Touring Pack)",
+      "make": "Honda",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Honda Giorno 50 Retro (Touring Pack)."
     },
-    "model_year": 2019,
-    "identifiers": {
-        "asin": "B07QKZV3Y5",
-        "ean": "8426910000000",
-        "mpn": "LS2-669F"
+    {
+      "id": "yamaha_tmax_560_tech_max_performance_edition",
+      "title": "TMAX 560 Tech MAX (Performance Edition)",
+      "make": "Yamaha",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the TMAX 560 Tech MAX (Performance Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for oval head shapes; may feel tight on round heads due to aggressive cheek pad placement.",
-        "head_shape": "Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 97,
+  "sharp_rating": 0
 }

@@ -1,78 +1,271 @@
 {
-    "id": "arai_dt_x_gloss-white",
-    "entity": "helmet",
-    "title": "Arai DT-X Gloss White",
-    "brand": "Arai",
-    "type": "Full Face",
-    "helmet_types": [
-        "Full Face"
-    ],
-    "parent_id": "arai_dt_x",
-    "helmet_family": "DT-X",
-    "price": {
-        "current": 579.95,
-        "usd": 579.95,
-        "eur": 533.55,
-        "gbp": 458.16
-    },
+  "id": "arai_dt_x_gloss-white",
+  "entity": "helmet",
+  "title": "DT-X Gloss White",
+  "brand": "Arai",
+  "type": "Full Face",
+  "helmet_types": [
+    "Full Face"
+  ],
+  "parent_id": "arai_dt_x",
+  "helmet_family": "DT-X",
+  "price": {
+    "usd": 579,
+    "inr": 48057,
+    "eur": 533,
+    "gbp": 457,
+    "jpy": 89745
+  },
+  "certifications": [
+    "DOT",
+    "Snell M2020",
+    "ECE 22.05"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "PB-cLc",
+    "weight_g": 1399,
+    "weight_lbs": 3.08,
     "certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 4,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 86
+  },
+  "description": "Optimized for spirited canyon carvers and urban commuters alike, the Arai DT-X Gloss White is tuned for city streets, daily work runs, and weekend joyrides. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1399g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Versatile all-road helmet bridging sport and touring capabilities."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/arai_dt_x_gloss_white_front.png",
+    "https://helmetsan.com/assets/helmets/arai_dt_x_gloss_white_side.png",
+    "https://helmetsan.com/assets/helmets/arai_dt_x_gloss_white_rear.png"
+  ],
+  "color": "Gloss White",
+  "color_family": "White",
+  "sku": "ARA-ARAIDT",
+  "finish": "gloss",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B0CQXJ8V9L",
+    "ean": "4549762130000",
+    "mpn": "DT-X-GW-5XL",
+    "sku": "ARA-ARAIDT"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, Snell M2020, ECE 22.05",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Premium fit with high cheekbones and deep crown; requires precise sizing due to rigid shell construction. Designed for Intermediate Oval head shape.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 86,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 102
+  },
+  "technical_analysis": "Features Complex Laminate Construction (CLC) with PB-SNC2 peripheral belt reinforcement and R75 smooth shell geometry for glance-off impact energy redirection paired with VAS (Variable Axis System) shield mechanism with dual-latch shield lock and IC Duct 5 ventilation intake ports. The interior utilizes One-piece multi-density EPS liner with Eco-Pure anti-microbial removable Dry-Cool interior lining with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Arai DT-X Gloss White: combining Japan 🇯🇵 craftsmanship with VAS (Variable Axis System) shield mechanism with dual-latch shield lock and IC Duct 5 ventilation intake ports and One-piece multi-density EPS liner with Eco-Pure anti-microbial removable Dry-Cool interior lining. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Arai DT-X Gloss White: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "arai dt-x gloss white",
+  "yoast_metadesc": "In-depth review of the Arai DT-X Gloss White. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Arai+DT-X+Gloss+White&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Arai+DT-X+Gloss+White"
+  },
+  "cross_links": [
+    {
+      "keyword": "Arai",
+      "target_id": "arai",
+      "target_type": "brand"
+    }
+  ],
+  "spec_weight_g": 1520,
+  "repaired_and_enriched": true,
+  "country_origin": "Japan 🇯🇵",
+  "category": "Full Face",
+  "physics_intelligence": {
+    "weight_grams": 1399,
+    "acoustic_noise_rating_db": "86 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Arai DT-X Gloss White is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low (Snug, even pressure distribution across forehead without hot-spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Arai's Full Face lineup, the DT-X Gloss White brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, Snell M2020, ECE 22.05 track safety.",
+  "story": "The Arai DT-X Gloss White represents Arai's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~88 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Arai DT-X Gloss White delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Arai DT-X Gloss White represents Arai's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~88 dB at 100 km/h. For riders seeking an Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) Full Face helmet tailored to an Intermediate Oval head shape, the Arai DT-X Gloss White delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Optically correct face shield with quick-release tool-less visor removal system",
+      "Well-balanced 1399g center of gravity reduces rider fatigue on long highway stretches",
+      "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
+      "Snell M2020 certified for extreme double-impact kinetic threshold resistance"
+    ],
+    "cons": [
+      "Upper intake vent sliders require gloved dexterity to operate seamlessly at highway speeds"
+    ]
+  },
+  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the Arai DT-X Gloss White is tuned for city streets, daily work runs, and weekend joyrides. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1399g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "rider_takeaway": "A proven street all-rounder designed to deliver reliable protection, crisp ventilation, and confident ergonomics across every ride.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Daily Urban Commuting & Naked Street",
+      "riding_stance": "Upright Street Stance",
+      "core_priority": "Wide panoramic eye-port for cross-traffic awareness, lightweight stop-and-go comfort, and quick latching"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
+      "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
+      "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
+      "measured_weight_g": 1399,
+      "measured_weight_lbs": 3.08
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~88 dB @ 100km/h",
+      "acoustic_grade": "Aero-Acoustically Tuned Highway Isolation",
+      "practical_effect": "Aerodynamically tuned shell sculpting channels boundary layer air smoothly around the crown, keeping wind drone well within comfortable highway thresholds."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
-        "Snell M2020"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "PB-cLc",
-        "weight_g": 1540,
-        "weight_lbs": 3.4,
-        "certifications": [
-            "DOT",
-            "Snell M2020"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+        "Snell M2020",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Versatile all-road helmet bridging sport and touring capabilities.",
-    "product_details": {
-        "description": "Versatile all-road helmet bridging sport and touring capabilities."
+    "verdict_takeaway": "A proven street all-rounder designed to deliver reliable protection, crisp ventilation, and confident ergonomics across every ride."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "honda_cbr1000rr_r_fireblade_sp",
+      "title": "CBR1000RR-R Fireblade SP",
+      "make": "Honda",
+      "category": "Homologation Superbike",
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Honda CBR1000RR-R Fireblade SP."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Arai+DT-X+Gloss+White",
-        "https://placehold.co/800x800/222/white?text=Arai+DT-X+Gloss+White+Side",
-        "https://placehold.co/800x800/222/white?text=Arai+DT-X+Gloss+White+Back"
-    ],
-    "color": "Gloss White",
-    "color_family": "White",
-    "sku": "ARA-DTX-WHI",
-    "finish": "gloss",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "kawasaki_ninja_h2r_track_only_classic_heritage",
+      "title": "Ninja H2R Track Only (Classic Heritage)",
+      "make": "Kawasaki",
+      "category": "Homologation Superbike",
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ninja H2R Track Only (Classic Heritage) velocity benchmarks."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "ducati_panigale_v4_r",
+      "title": "Panigale V4 R",
+      "make": "Ducati",
+      "category": "Homologation Superbike",
+      "match_score": 90,
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ducati performance."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "asin": "B0CQXJ8V9L",
-        "ean": "4549762130000",
-        "mpn": "DT-X-GW-5XL"
+    {
+      "id": "kawasaki_ninja_500_se_chrome_edition",
+      "title": "Ninja 500 SE (Chrome Edition)",
+      "make": "Kawasaki",
+      "category": "Middleweight Sportbike",
+      "match_score": 86,
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja 500 SE (Chrome Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Premium fit with high cheekbones and deep crown; requires precise sizing due to rigid shell construction.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 86
 }

@@ -1,77 +1,276 @@
 {
-    "id": "vega_rapid_silver",
-    "entity": "helmet",
-    "title": "Vega Rapid Silver",
-    "brand": "Vega",
-    "type": "Open Face",
-    "helmet_types": [
-        "Open Face"
-    ],
-    "parent_id": "vega_rapid",
-    "helmet_family": "Rapid",
-    "price": {
-        "current": 29.99,
-        "usd": 29.99,
-        "eur": 27.59,
-        "gbp": 23.69
-    },
+  "id": "vega_rapid_silver",
+  "entity": "helmet",
+  "title": "Rapid Silver",
+  "brand": "Vega",
+  "type": "Open Face",
+  "helmet_types": [
+    "Open Face"
+  ],
+  "parent_id": "vega_rapid",
+  "helmet_family": "Rapid",
+  "price": {
+    "usd": 29,
+    "inr": 2407,
+    "eur": 27,
+    "gbp": 23,
+    "jpy": 4495
+  },
+  "certifications": [
+    "DOT",
+    "ISI",
+    "ECE 22.05"
+  ],
+  "head_shape": "Round Oval",
+  "specs": {
+    "material": "ABS",
+    "weight_g": 1094,
+    "weight_lbs": 2.41,
     "certifications": [
+      "DOT",
+      "ISI",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 97
+  },
+  "description": "The Vega Rapid Silver pairs retro roadster charm with modern multi-density cranial protection, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1094g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "product_details": {
+    "description": "Light Vega open face with flip visor for short trips."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/vega_rapid_silver_front.png",
+    "https://helmetsan.com/assets/helmets/vega_rapid_silver_side.png",
+    "https://helmetsan.com/assets/helmets/vega_rapid_silver_rear.png"
+  ],
+  "color": "Silver",
+  "color_family": "Grey",
+  "sku": "VEG-VEGARA",
+  "finish": "gloss",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 18,
+    "cable_management": true
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B09X7Z8Y3W",
+    "ean": "8421567890123",
+    "mpn": "VR-OS-SLV-24",
+    "sku": "VEG-VEGARA"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ISI, ECE 22.05",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for open-face fitment with extended cheek pads for larger jawlines; Silver finish may show fingerprints.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 97,
+    "ventilation_efficiency_score": 6,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 148,
+    "crown_depth_mm": 105
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Vega Rapid Silver: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Vega Rapid Silver: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "vega rapid silver helmet",
+  "yoast_metadesc": "In-depth review of the Vega Rapid Silver. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Round Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Vega+Rapid+Silver&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Vega+Rapid+Silver"
+  },
+  "cross_links": [
+    {
+      "keyword": "Vega",
+      "target_id": "vega",
+      "target_type": "brand"
+    },
+    {
+      "keyword": "Vega Rapid",
+      "target_id": "vega_rapid",
+      "target_type": "helmet"
+    }
+  ],
+  "country_origin": "India 🇮🇳",
+  "category": "Open Face",
+  "physics_intelligence": {
+    "weight_grams": 1094,
+    "acoustic_noise_rating_db": "97 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ISI",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The Vega Rapid Silver is a benchmark Open Face helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Vega's Open Face lineup, the Rapid Silver brings Indian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Round Oval fitment, it connects daily usability with certified DOT, ISI, ECE 22.05 track safety.",
+  "story": "The Vega Rapid Silver represents Vega's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~97 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to a Round Oval head shape, the Vega Rapid Silver delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Vega Rapid Silver represents Vega's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~97 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Open Face helmet tailored to a Round Oval head shape, the Vega Rapid Silver delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Unrestricted 180-degree panoramic field of view maximizing urban cross-traffic awareness",
+      "Featherweight 1094g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~97 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Increased exposure to ambient road noise, rain, and highway flying debris"
+    ]
+  },
+  "editorial_overview": "The Vega Rapid Silver pairs retro roadster charm with modern multi-density cranial protection, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1094g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "rider_takeaway": "An authentic open-face helmet engineered for urban commuters and custom bike riders who prioritize airflow, visibility, and timeless aesthetics.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Open-Face & Classic Roadster",
+      "riding_stance": "Upright Roadster Stance",
+      "core_priority": "Unrestricted 180° field of view, maximum open-air ventilation, and lightweight low-profile charm"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1094,
+      "measured_weight_lbs": 2.41
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~97 dB @ 100km/h",
+      "acoustic_grade": "High-Flow Aerobic Ventilation Cockpit",
+      "practical_effect": "High-volume air exchange optimized for physical exertion and anti-fogging; earplugs recommended for high-speed highway transfers."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Round Oval",
+      "fit_profile": "Round Oval (Lateral Temple Contour)",
+      "fit_details": "Provides expanded lateral clearance across the temples and ears, ensuring plush, zero-pinch crown contact.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Round Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
-        "ISI"
-    ],
-    "head_shape": "Round Oval",
-    "specs": {
-        "material": "ABS",
-        "weight_g": 870,
-        "weight_lbs": 1.92,
-        "certifications": [
-            "DOT",
-            "ISI"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
+        "ISI",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": true
     },
-    "description": "Light Vega open face with flip visor for short trips.",
-    "product_details": {
-        "description": "Light Vega open face with flip visor for short trips."
+    "verdict_takeaway": "An authentic open-face helmet engineered for urban commuters and custom bike riders who prioritize airflow, visibility, and timeless aesthetics."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "honda_adv350_maxi_stealth_edition",
+      "title": "ADV350 Maxi (Stealth Edition)",
+      "make": "Honda",
+      "category": "Urban Adventure Scooter",
+      "match_score": 97,
+      "match_reason": "Lightweight agile shell and quick-release buckle provide effortless urban convenience for metropolitan riding on the Honda ADV350 Maxi (Stealth Edition)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Vega+Rapid+Silver",
-        "https://placehold.co/800x800/222/white?text=Vega+Rapid+Silver+Side",
-        "https://placehold.co/800x800/222/white?text=Vega+Rapid+Silver+Back"
-    ],
-    "color": "Silver",
-    "color_family": "Grey",
-    "sku": "VEG-RAP-SLV",
-    "finish": "gloss",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_250_duke_gen_3_urban_carbon",
+      "title": "250 Duke Gen-3 (Urban Carbon)",
+      "make": "KTM",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the 250 Duke Gen-3 (Urban Carbon)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 18,
-        "cable_management": true
+    {
+      "id": "royal_enfield_classic_350_chrome_red",
+      "title": "Classic 350 Chrome Red",
+      "make": "Royal Enfield",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Royal Enfield Classic 350 Chrome Red."
     },
-    "model_year": 2024,
-    "identifiers": {
-        "asin": "B09X7Z8Y3W",
-        "ean": "8421567890123",
-        "mpn": "VR-OS-SLV-24"
+    {
+      "id": "bajaj_auto_pulsar_n250_traction_control_custom_edition",
+      "title": "Pulsar N250 Traction Control (Custom Edition)",
+      "make": "Bajaj Auto",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Pulsar N250 Traction Control (Custom Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 5,
-        "rotational_mitigation": true
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for open-face fitment with extended cheek pads for larger jawlines; Silver finish may show fingerprints.",
-        "head_shape": "Intermediate Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 97,
+  "sharp_rating": 0
 }

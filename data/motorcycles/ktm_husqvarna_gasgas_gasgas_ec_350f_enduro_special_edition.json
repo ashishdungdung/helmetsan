@@ -1,0 +1,129 @@
+{
+  "id": "ktm_husqvarna_gasgas_gasgas_ec_350f_enduro_special_edition",
+  "entity": "motorcycle",
+  "title": "GasGas EC 350F Enduro (Special Edition)",
+  "brand": "KTM",
+  "country_origin": "Austria 🇦🇹",
+  "category": "Adventure Tourer",
+  "displacement_cc": 350,
+  "power_hp": 44,
+  "torque_nm": 38,
+  "curb_weight_kg": 163,
+  "price": {
+    "usd": 6450,
+    "inr": 535350,
+    "eur": 5934,
+    "gbp": 5096,
+    "jpy": 999750
+  },
+  "recommended_helmet_types": [
+    "Adventure / Dual Sport",
+    "Modular"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Engineered for riders seeking confident performance and refined dynamics, the KTM GasGas EC 350F Enduro (Special Edition) is purpose-built to crush coast-to-coast highway miles and conquer rugged backcountry tracks. At its heart lies a 350cc powertrain delivering 44 HP and 38 Nm of torque, tuned to translate its 163 kg mass into punchy mid-range acceleration. Riders are greeted by an ergonomic Aggressive Forward Tuck posture paired with a commanding 855mm perch delivering excellent ground clearance and expansive sightlines, backed by a 13.5L fuel tank for extended saddle stints.",
+  "yoast_title": "KTM GasGas EC 350F Enduro (Special Edition): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the KTM GasGas EC 350F Enduro (Special Edition).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.44,
+    "max_lean_angle_deg": 48,
+    "wind_protection_rating": "9.2 / 10",
+    "traffic_heat_radiation": "Low",
+    "vibration_smoothness_score": "7.5 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Clear anti-fog with internal drop-down Amber Sun Visor"
+  },
+  "seat_height_mm": 855,
+  "fuel_capacity_l": 13.5,
+  "top_speed_kmh": 165,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [ktm_husqvarna_gasgas_gasgas_ec_350f_enduro] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "ktm_husqvarna_gasgas_gasgas_ec_350f_enduro",
+  "trim_type": "special_edition",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Engineered for riders seeking confident performance and refined dynamics, the KTM GasGas EC 350F Enduro (Special Edition) is purpose-built to crush coast-to-coast highway miles and conquer rugged backcountry tracks. At its heart lies a 350cc powertrain delivering 44 HP and 38 Nm of torque, tuned to translate its 163 kg mass into punchy mid-range acceleration. Riders are greeted by an ergonomic Aggressive Forward Tuck posture paired with a commanding 855mm perch delivering excellent ground clearance and expansive sightlines, backed by a 13.5L fuel tank for extended saddle stints.",
+  "rider_takeaway": "An all-conquering globetrotter ready for continuous highway transits and rugged off-the-beaten-path detours.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Adventure Tourer",
+      "riding_stance": "Upright Commanding Stance",
+      "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "350cc",
+      "power_hp": 44,
+      "torque_nm": 38,
+      "curb_weight_kg": 163,
+      "power_to_weight": "27.0 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 855,
+      "inseam_confidence": "Commanding Tall Perch (>825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 13.5,
+      "estimated_range_km": "~378 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Adventure / Dual Sport",
+        "Modular"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "An all-conquering globetrotter ready for continuous highway transits and rugged off-the-beaten-path detours."
+  },
+  "compatible_helmets": [
+    {
+      "id": "klim_krios_pro_matte-black",
+      "title": "Krios Pro Matte Black",
+      "brand": "Klim",
+      "type": "Adventure / Dual Sport",
+      "match_score": 98,
+      "match_reason": "Aerodynamic visor peak sheds high-speed airflow without lift, transitioning seamlessly to stand-up postures on the GasGas EC 350F Enduro (Special Edition)."
+    },
+    {
+      "id": "airoh_trr_s",
+      "title": "TRR S",
+      "brand": "Airoh",
+      "type": "Adventure / Dual Sport",
+      "match_score": 94,
+      "match_reason": "Pinlock-ready dual-pane shield keeps vision 100% fog-free through sudden mountain altitude shifts on the KTM GasGas EC 350F Enduro (Special Edition)."
+    },
+    {
+      "id": "shoei_hornet_x2_hi-viz-yellow",
+      "title": "Hornet X2 Hi-Viz Yellow",
+      "brand": "Shoei",
+      "type": "Adventure / Dual Sport",
+      "match_score": 91,
+      "match_reason": "Dual-density EPS with high-flow chin venting prevents heat buildup across grueling off-road stints on the GasGas EC 350F Enduro (Special Edition)."
+    },
+    {
+      "id": "shoei_hornet_x2_raptor-grey",
+      "title": "Hornet X2 Raptor Grey",
+      "brand": "Shoei",
+      "type": "Adventure / Dual Sport",
+      "match_score": 87,
+      "match_reason": "Quiet touring acoustic shell minimizes low-frequency windscreen buffeting across cross-continental GasGas EC 350F Enduro (Special Edition) tours."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "reason": "Multi-channel group mesh intercom with Harman Kardon audio for cross-country GasGas EC 350F Enduro (Special Edition) expeditions."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Suppresses low-frequency windscreen turbulence fatigue across 500+ km touring stints on the GasGas EC 350F Enduro (Special Edition)."
+    },
+    {
+      "id": "cooling-vest-insert",
+      "title": "Macna Cooling Vest Evo",
+      "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the GasGas EC 350F Enduro (Special Edition)."
+    }
+  ]
+}

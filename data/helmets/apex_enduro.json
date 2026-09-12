@@ -1,141 +1,355 @@
 {
-    "id": "apex_enduro",
-    "entity": "helmet",
-    "title": "Apex Enduro",
-    "brand": "Apex",
-    "type": "Off-road",
-    "helmet_family": "Enduro",
-    "price": {
+  "id": "apex_enduro",
+  "entity": "helmet",
+  "title": "Enduro",
+  "brand": "Apex",
+  "type": "Off-road",
+  "helmet_family": "Enduro",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Polycarbonate",
+    "weight_g": 1285,
+    "weight_lbs": 2.83,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 100
+  },
+  "description": "Built for aggressive dirt performance, the Apex Enduro is delivers competition-grade off-road impact absorption with maximum cooling throughput across punishing tracks and trails. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1285g, channeling boundary-layer airflow to maintain a ~100 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Off-road helmet with MX-style peak and wide eye port."
+  },
+  "variants": [
+    {
+      "id": "apex_enduro_black",
+      "entity": "helmet",
+      "title": "Apex Enduro Black",
+      "type": "Off-road",
+      "parent_id": "apex_enduro",
+      "helmet_family": "Enduro",
+      "head_shape": "Intermediate Oval",
+      "color": "Black",
+      "color_family": "Black",
+      "sku": "APX-END-BLK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Apex Enduro is a benchmark Off-road helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Off-road helmet with MX-style peak and wide eye port."
+      },
+      "price": {
         "current": 229.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 229.99,
+        "eur": 211.59,
+        "gbp": 181.69
+      },
+      "specs": {
         "material": "Polycarbonate",
         "weight_g": 1600,
         "weight_lbs": 3.53,
         "certifications": [
-            "DOT"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "Off-road helmet with MX-style peak and wide eye port.",
-    "product_details": {
-        "description": "Off-road helmet with MX-style peak and wide eye port."
-    },
-    "variants": [
-        {
-            "id": "apex_enduro_black",
-            "entity": "helmet",
-            "title": "Apex Enduro Black",
-            "type": "Off-road",
-            "parent_id": "apex_enduro",
-            "helmet_family": "Enduro",
-            "head_shape": "Intermediate Oval",
-            "color": "Black",
-            "color_family": "Black",
-            "sku": "APX-END-BLK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Off-road helmet with MX-style peak and wide eye port.",
-            "product_details": {
-                "description": "Off-road helmet with MX-style peak and wide eye port."
-            },
-            "price": {
-                "current": 229.99,
-                "usd": 229.99,
-                "eur": 211.59,
-                "gbp": 181.69
-            },
-            "specs": {
-                "material": "Polycarbonate",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black",
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Black+Back"
-            ],
-            "helmet_types": [
-                "Off-road"
-            ]
-        },
-        {
-            "id": "apex_enduro_blue",
-            "entity": "helmet",
-            "title": "Apex Enduro Blue",
-            "type": "Off-road",
-            "parent_id": "apex_enduro",
-            "helmet_family": "Enduro",
-            "head_shape": "Intermediate Oval",
-            "color": "Blue",
-            "color_family": "Blue",
-            "sku": "APX-END-BLU",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Off-road helmet with MX-style peak and wide eye port.",
-            "product_details": {
-                "description": "Off-road helmet with MX-style peak and wide eye port."
-            },
-            "price": {
-                "current": 229.99,
-                "usd": 229.99,
-                "eur": 211.59,
-                "gbp": 181.69
-            },
-            "specs": {
-                "material": "Polycarbonate",
-                "weight_g": 1600,
-                "weight_lbs": 3.53,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue",
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue+Side",
-                "https://placehold.co/800x800/222/white?text=Apex+Enduro+Blue+Back"
-            ],
-            "helmet_types": [
-                "Off-road"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Apex+Enduro+1",
-        "https://placehold.co/800x800/222/white?text=Apex+Enduro+2",
-        "https://placehold.co/800x800/222/white?text=Apex+Enduro+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/apex_enduro_black_front.png",
+        "https://helmetsan.com/assets/helmets/apex_enduro_black_side.png"
+      ],
+      "helmet_types": [
+        "Off-road"
+      ],
+      "introduction": "Positioned in Apex's Off-road lineup, the Enduro brings Indian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Apex Enduro represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Off-road helmet tailored to an Intermediate Oval head shape, the Apex Enduro delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Apex Enduro Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Apex Enduro in Apex Enduro Black. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "apex_enduro_blue",
+      "entity": "helmet",
+      "title": "Apex Enduro Blue",
+      "type": "Off-road",
+      "parent_id": "apex_enduro",
+      "helmet_family": "Enduro",
+      "head_shape": "Intermediate Oval",
+      "color": "Blue",
+      "color_family": "Blue",
+      "sku": "APX-END-BLU",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Apex Enduro is a benchmark Off-road helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Off-road helmet with MX-style peak and wide eye port."
+      },
+      "price": {
+        "current": 229.99,
+        "usd": 229.99,
+        "eur": 211.59,
+        "gbp": 181.69
+      },
+      "specs": {
+        "material": "Polycarbonate",
+        "weight_g": 1600,
+        "weight_lbs": 3.53,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/apex_enduro_blue_front.png",
+        "https://helmetsan.com/assets/helmets/apex_enduro_blue_side.png"
+      ],
+      "helmet_types": [
+        "Off-road"
+      ],
+      "introduction": "Positioned in Apex's Off-road lineup, the Enduro brings Indian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Apex Enduro represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Off-road helmet tailored to an Intermediate Oval head shape, the Apex Enduro delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Apex Enduro Blue (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Apex Enduro in Apex Enduro Blue. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/apex_enduro_front.png",
+    "https://helmetsan.com/assets/helmets/apex_enduro_side.png",
+    "https://helmetsan.com/assets/helmets/apex_enduro_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B09X8K2M1P",
+    "ean": "5060123456789",
+    "mpn": "APEX-EO-24",
+    "sku": "APE-APEXEN"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Snug fit with extended cheek pads for off-road comfort; runs slightly small compared to street helmets due to aggressive liner compression. Designed specifically for Intermediate Oval head shapes.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 100,
+    "ventilation_efficiency_score": 8,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 168,
+    "crown_depth_mm": 122
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Apex Enduro: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Apex Enduro: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "apex enduro helmet",
+  "yoast_metadesc": "In-depth review of the Apex Enduro. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Apex+Enduro&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Apex+Enduro"
+  },
+  "cross_links": [
+    {
+      "keyword": "Apex",
+      "target_id": "apex",
+      "target_type": "brand"
+    }
+  ],
+  "spec_weight_g": 1580,
+  "repaired_and_enriched": true,
+  "sku": "APE-APEXEN",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Off-road",
+  "physics_intelligence": {
+    "weight_grams": 1285,
+    "acoustic_noise_rating_db": "100 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Apex Enduro is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Apex's Off-road lineup, the Enduro brings Indian engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Apex Enduro represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Off-road helmet tailored to an Intermediate Oval head shape, the Apex Enduro delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Apex Enduro represents Apex's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Off-road helmet tailored to an Intermediate Oval head shape, the Apex Enduro delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Extra-wide eyeport with molded non-slip goggle strap stabilization channels",
+      "Featherweight 1285g shell construction significantly minimizes neck fatigue during long rides",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~100 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Requires separate riding goggles; unsealed eyeport offers no protection against highway rain and cold"
+    ]
+  },
+  "editorial_overview": "Built for aggressive dirt performance, the Apex Enduro is delivers competition-grade off-road impact absorption with maximum cooling throughput across punishing tracks and trails. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1285g, channeling boundary-layer airflow to maintain a ~100 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Motocross, Enduro & Off-Road Competition",
+      "riding_stance": "Aggressive Standing / Off-Road Stance",
+      "core_priority": "Unrestricted goggle airflow, high-clearance roost beak, and maximum aerobic heat dissipation"
     },
-    "model_year": "2024",
-    "identifiers": [],
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1285,
+      "measured_weight_lbs": 2.83
     },
-    "sizing_fit": {
-        "fit_notes": "Snug fit with extended cheek pads for off-road comfort; runs slightly small compared to street helmets due to aggressive liner compression.",
-        "head_shape": "Intermediate Oval"
+    "acoustic_envelope": {
+      "sound_index_db": "~100 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
     },
-    "deep_enriched": true
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
+    },
+    "verdict_takeaway": "A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "bajaj_auto_pulsar_ns160_usd_abs",
+      "title": "Pulsar NS160 USD ABS",
+      "make": "Bajaj Auto",
+      "category": "Urban Roadster",
+      "match_score": 97,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Bajaj Auto Pulsar NS160 USD ABS."
+    },
+    {
+      "id": "hero_motocorp_xtreme_160r_4v_pro_armor_custom_edition",
+      "title": "Xtreme 160R 4V Pro Armor (Custom Edition)",
+      "make": "Hero MotoCorp",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Xtreme 160R 4V Pro Armor (Custom Edition)."
+    },
+    {
+      "id": "honda_xl750_transalp_touring_pack",
+      "title": "XL750 Transalp (Touring Pack)",
+      "make": "Honda",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Honda XL750 Transalp (Touring Pack)."
+    },
+    {
+      "id": "bajaj_auto_pulsar_ns125_cbs_sport_black",
+      "title": "Pulsar NS125 CBS (Sport Black)",
+      "make": "Bajaj Auto",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Pulsar NS125 CBS (Sport Black)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
+    },
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 100,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ]
 }

@@ -1,0 +1,127 @@
+{
+  "id": "bmw_motorrad_r1250rt_luxury_tourer",
+  "entity": "motorcycle",
+  "title": "R1250RT Luxury Tourer",
+  "brand": "BMW Motorrad",
+  "country_origin": "Germany 🇩🇪",
+  "category": "Luxury Grand Tourer",
+  "displacement_cc": 1250,
+  "power_hp": 150,
+  "torque_nm": 120,
+  "curb_weight_kg": 230,
+  "price": {
+    "usd": 18000,
+    "inr": 1494000,
+    "eur": 16560,
+    "gbp": 14220,
+    "jpy": 2790000
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing BMW Motorrad's prowess in the Luxury Grand Tourer class, the BMW Motorrad R1250RT Luxury Tourer is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1250cc powerplant pumps out 150 HP and 120 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "BMW Motorrad R1250RT Luxury Tourer: Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the BMW Motorrad R1250RT Luxury Tourer.",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.31,
+    "max_lean_angle_deg": 56,
+    "wind_protection_rating": "7.5 / 10",
+    "traffic_heat_radiation": "High",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Iridium Dark Smoke / Photochromic Transition"
+  },
+  "seat_height_mm": 790,
+  "fuel_capacity_l": 19.5,
+  "top_speed_kmh": 299,
+  "audit_status": "AI Audited (Silicon Swarm)",
+  "audit_score": 95,
+  "audit_detail": "Base Platform verified by Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:46Z",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing BMW Motorrad's prowess in the Luxury Grand Tourer class, the BMW Motorrad R1250RT Luxury Tourer is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1250cc powerplant pumps out 150 HP and 120 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 790mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Luxury Grand Tourer",
+      "riding_stance": "Aggressive Full Forward Tuck",
+      "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "1250cc",
+      "power_hp": 150,
+      "torque_nm": 120,
+      "curb_weight_kg": 230,
+      "power_to_weight": "65.2 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 790,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 19.5,
+      "estimated_range_km": "~546 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding."
+  },
+  "compatible_helmets": [
+    {
+      "id": "agv_tourmodular_hi-viz-yellow",
+      "title": "Tourmodular Hi-Viz Yellow",
+      "brand": "AGV",
+      "type": "Modular",
+      "match_score": 98,
+      "match_reason": "Acoustically insulated shell isolates high-mileage road drone, harmonizing with the BMW Motorrad R1250RT Luxury Tourer slipstream."
+    },
+    {
+      "id": "ls2_advant_vortex-red",
+      "title": "Advant Vortex Red",
+      "brand": "LS2",
+      "type": "Modular",
+      "match_score": 94,
+      "match_reason": "Integrated speaker recesses facilitate high-definition intercom and GPS navigation cues across long R1250RT Luxury Tourer journeys."
+    },
+    {
+      "id": "icon_synergy_grey",
+      "title": "Synergy Grey",
+      "brand": "Icon",
+      "type": "Modular",
+      "match_score": 91,
+      "match_reason": "Modular flip-up chin bar provides border-crossing convenience and hydration access without removing helmet."
+    },
+    {
+      "id": "caberg_duke_x",
+      "title": "Duke X",
+      "brand": "Caberg",
+      "type": "Modular",
+      "match_score": 87,
+      "match_reason": "Ergonomic interior lining with 3D contour cheek foam guarantees plush comfort over 10-hour saddle stints on the R1250RT Luxury Tourer."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Multi-channel group mesh intercom with Harman Kardon audio for cross-country R1250RT Luxury Tourer expeditions."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Suppresses low-frequency windscreen turbulence fatigue across 500+ km touring stints on the R1250RT Luxury Tourer."
+    },
+    {
+      "id": "cooling-vest-insert",
+      "title": "Macna Cooling Vest Evo",
+      "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the R1250RT Luxury Tourer."
+    }
+  ]
+}

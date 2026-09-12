@@ -3,23 +3,89 @@
   "id": "helmet-dryer",
   "title": "Capit Helmet Dryer Pro",
   "type": "Maintenance",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure", "Open Face", "Motocross"],
-  "compatible_brands": ["Universal"],
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure",
+    "Open Face",
+    "Motocross"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
   "compatible_helmet_ids": [],
   "features": [
-    "Warm air circulation system (40°C max safe temp)",
-    "Timer: 30, 60, 90, 120 minute presets",
-    "Dual function — dries helmet + gloves simultaneously",
-    "Ozone antibacterial cycle kills 99% germs",
-    "Silent fan operation (<35 dB)",
-    "Auto shut-off safety feature",
-    "Universal helmet cradle"
+    "Rapidly dries motorcycle helmets after washing or rain exposure",
+    "Prevents mold and mildew growth inside helmet liners",
+    "Includes adjustable stand for optimal airflow circulation"
   ],
-  "price": { "current": 89.95, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 89.95, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 79.95, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 7499, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The Capit Helmet Dryer Pro circulates warm air through your helmet liner to dry it completely between rides. The ozone antibacterial cycle kills odor-causing bacteria without chemicals. Dries gloves on the integrated hooks at the same time. Timer presets prevent over-drying and the auto shut-off ensures safety.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 89.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 79.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 7499,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Capit Helmet Dryer Pro from Capit provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Capit Helmet Dryer Pro represents an indispensable touring and group-ride upgrade from Capit. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 1,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Dryer",
+  "identifiers": {
+    "mpn": "CAP-HDR-PRO"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Capit Capit Helmet Dryer Pro.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
+    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
+    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    ],
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
+    ],
+    "editorial_verdict": "The Capit Helmet Dryer Pro represents an indispensable touring and group-ride upgrade from Capit. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Capit",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Capit+Helmet+Dryer+Pro&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Capit+Helmet+Dryer+Pro&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

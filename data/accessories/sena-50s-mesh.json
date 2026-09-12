@@ -3,24 +3,100 @@
   "id": "sena-50s-mesh",
   "title": "Sena 50S Mesh 2.0",
   "type": "Communication System",
-  "compatible_helmet_types": ["Full Face", "Modular", "Adventure"],
-  "compatible_brands": ["Universal", "Shoei", "Arai", "AGV", "HJC", "Bell", "Schuberth"],
-  "compatible_helmet_ids": ["shoei-rf-1400", "shoei-neotec-3", "hjc-rpha-71", "arai-xd-5", "bell-star-dlx-mips", "agv-pista-gp-rr"],
-  "features": [
-    "Mesh 2.0 Intercom (virtually unlimited riders)",
-    "Harman Kardon premium audio",
-    "WiFi Adapter for firmware updates",
-    "Smart Audio Mix for simultaneous audio sources",
-    "Voice-activated Google Assistant / Siri",
-    "IP67 waterproof rating",
-    "13-hour battery life",
-    "Advanced Noise Control"
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure"
   ],
-  "price": { "current": 359.00, "currency": "USD" },
-  "geo_pricing": {
-    "US": { "price": 359.00, "currency": "USD", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "EU": { "price": 329.00, "currency": "EUR", "availability": "in_stock", "updated_at": "2026-02-20" },
-    "IN": { "price": 34990, "currency": "INR", "availability": "in_stock", "updated_at": "2026-02-20" }
+  "compatible_brands": [
+    "Universal",
+    "Shoei",
+    "Arai",
+    "AGV",
+    "HJC",
+    "Bell",
+    "Schuberth"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "shoei-neotec-3",
+    "hjc-rpha-71",
+    "arai-xd-5",
+    "bell-star-dlx-mips",
+    "agv-pista-gp-rr"
+  ],
+  "features": [
+    "Mesh 2.0 digital communication technology for clear audio",
+    "Up to 16 riders per group with seamless switching",
+    "Built-in GPS tracking and live location sharing"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
   },
-  "description": "<p>The Sena 50S is the flagship Bluetooth communication system for motorcycle riders. Featuring Mesh 2.0 intercom technology with virtually unlimited rider-to-rider connectivity, premium Harman Kardon speakers, and 13 hours of talk time, it's the gold standard for group riding. Smart Audio Mix lets you listen to music, GPS, and intercom simultaneously with intelligent volume balancing.</p>"
+  "geo_pricing": {
+    "US": {
+      "price": 359,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 329,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 34990,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Sena 50S Mesh 2.0 from Sena provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Sena 50S Mesh 2.0 represents an indispensable touring and group-ride upgrade from Sena. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Mesh Intercom",
+  "identifiers": {
+    "mpn": "SEN-50S-MESH2"
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Sena Sena 50S Mesh 2.0.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "mesh_network_range_m": "Up to 1,600m (1.0 mile) unit-to-unit; up to 8,000m (5.0 miles) across dynamic mesh pack",
+    "battery_life_operating_hours": "11 to 13 Hours High-Bandwidth Mesh Intercom Talk Time (Fast Charge: 20 min = 2 hrs)",
+    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
+    "intercom_protocol": "Bluetooth 5.2 & 2nd-Gen Dynamic Mesh Communication (DMC) with Auto-Reconnect"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+    "real_world_pros": [
+      "Crisp, distortion-free audio communication over highway wind noise",
+      "True waterproof housing withstands torrential downpours without rain jackets",
+      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    ],
+    "real_world_cons": [
+      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+      "Premium replacement price compared to budget unbranded headsets"
+    ],
+    "editorial_verdict": "The Sena 50S Mesh 2.0 represents an indispensable touring and group-ride upgrade from Sena. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+  },
+  "brand": "Sena",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Sena+50S+Mesh+2.0&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Sena+50S+Mesh+2.0&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  }
 }

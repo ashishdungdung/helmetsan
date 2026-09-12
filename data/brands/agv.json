@@ -1,18 +1,33 @@
 {
-  "entity": "brand",
-  "id": "agv",
-  "title": "AGV",
-  "profile": {
-    "origin_country": "Italy",
-    "warranty_terms": "2 years",
-    "support_url": "https://www.agv.com/",
-    "support_email": "",
-    "manufacturing_ethos": "Race-derived aerodynamics, lightweight shells, and premium ventilation.",
-    "distributor_regions": "US\nEU\nIN",
-    "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
-    "total_models": "45",
-    "helmet_types": "Full Face, Modular, Open Face, Adventure",
-    "certification_coverage": "DOT, ECE 22.06, Snell",
-    "original_logo": "https://logo.clearbit.com/agv.com"
-  }
+    "entity": "brand",
+    "id": "agv",
+    "title": "AGV",
+    "profile": {
+        "origin_country": "Italy",
+        "warranty_terms": "2 years",
+        "support_url": "https://www.agv.com/",
+        "support_email": "",
+        "manufacturing_ethos": "Race-derived aerodynamics, lightweight shells, and premium ventilation.",
+        "distributor_regions": "US\nEU\nIN",
+        "size_chart_json": "{\"S\":\"55-56\",\"M\":\"57-58\",\"L\":\"59-60\"}",
+        "total_models": "45",
+        "helmet_types": "Full Face, Modular, Open Face, Adventure",
+        "certification_coverage": "DOT, ECE 22.06, Snell",
+        "original_logo": "https://logo.clearbit.com/agv.com",
+        "story": "AGV was founded in Turin, Italy, in 1947 by Antonio Gallina and his brother Giovanni, initially producing leather motorcycle gloves for the local racing community. The brand expanded into helmets in the late 1950s, quickly gaining a reputation for high-quality craftsmanship and aerodynamic design that became synonymous with Italian motorsport excellence. Throughout the decades, AGV has remained at the forefront of safety innovation, pioneering technologies such as the first full-face helmet with an integrated sun visor and developing advanced impact-absorbing liner systems that set new global standards.",
+        "motto": "The Helmet",
+        "founded_year": 1947
+    },
+    "brand_heritage_matrix": {
+        "country_origin": "Italy \ud83c\uddee\ud83c\uddf9",
+        "founding_year": 1947,
+        "headquarters_location": "Alessandria, Italy",
+        "flagship_helmet_series": "AGV Pista GP RR & K6 S",
+        "engineering_philosophy": "Extreme Standards MotoGP Race Engineering & 190\u00b0 Panoramic Viewfinder Optics",
+        "quality_assurance_rating": "9.8 / 10 (Strict Quality Control & Safety Testing)"
+    },
+    "qualitative_brand_identity": {
+        "brand_reputation_summary": "AGV is globally recognized for its commitment to rider safety, aerodynamic innovation, and precision helmet manufacturing.",
+        "editorial_brand_verdict": "With decades of motorsport heritage, AGV consistently produces helmets that exceed global safety standards (ECE 22.06, DOT, FIM) while maintaining rider comfort."
+    }
 }

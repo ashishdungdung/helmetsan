@@ -1,0 +1,129 @@
+{
+  "id": "bmw_motorrad_s1000rr_m_package_dark_edition",
+  "entity": "motorcycle",
+  "title": "S1000RR M Package (Dark Edition)",
+  "brand": "BMW Motorrad",
+  "country_origin": "Germany 🇩🇪",
+  "category": "Middleweight Sportbike",
+  "displacement_cc": 1000,
+  "power_hp": 154,
+  "torque_nm": 123,
+  "curb_weight_kg": 228,
+  "price": {
+    "usd": 18950,
+    "inr": 1572850,
+    "eur": 17434,
+    "gbp": 14971,
+    "jpy": 2937250
+  },
+  "recommended_helmet_types": [
+    "Track / Race",
+    "Full Face"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing BMW Motorrad's prowess in the Middleweight Sportbike class, the BMW Motorrad S1000RR M Package (Dark Edition) is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1000cc powerplant pumps out 154 HP and 123 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "BMW Motorrad S1000RR M Package (Dark Edition): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the BMW Motorrad S1000RR M Package (Dark Edition).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.31,
+    "max_lean_angle_deg": 56,
+    "wind_protection_rating": "7.5 / 10",
+    "traffic_heat_radiation": "High",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Iridium Dark Smoke / Photochromic Transition"
+  },
+  "seat_height_mm": 820,
+  "fuel_capacity_l": 19.5,
+  "top_speed_kmh": 235,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [bmw_motorrad_s1000rr_m_package] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "bmw_motorrad_s1000rr_m_package",
+  "trim_type": "dark_edition",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing BMW Motorrad's prowess in the Middleweight Sportbike class, the BMW Motorrad S1000RR M Package (Dark Edition) is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1000cc powerplant pumps out 154 HP and 123 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a balanced 820mm seat height providing confident footing and natural knee comfort and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Middleweight Sportbike",
+      "riding_stance": "Aggressive Full Forward Tuck",
+      "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "1000cc",
+      "power_hp": 154,
+      "torque_nm": 123,
+      "curb_weight_kg": 228,
+      "power_to_weight": "67.5 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 820,
+      "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 19.5,
+      "estimated_range_km": "~546 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Track / Race",
+        "Full Face"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding."
+  },
+  "compatible_helmets": [
+    {
+      "id": "suomy_sr_gp_evo_matte-black",
+      "title": "SR-GP Evo Matte Black",
+      "brand": "Suomy",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the BMW Motorrad S1000RR M Package (Dark Edition)."
+    },
+    {
+      "id": "schuberth_r2_carbon_vortex-grey",
+      "title": "R2 Carbon Vortex Grey",
+      "brand": "Schuberth",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the S1000RR M Package (Dark Edition)."
+    },
+    {
+      "id": "shoei_x_fifteen_white",
+      "title": "X-Fifteen White",
+      "brand": "Shoei",
+      "type": "Track / Race",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the BMW Motorrad S1000RR M Package (Dark Edition)."
+    },
+    {
+      "id": "agv_pista_gp_rr_soleluna-2023",
+      "title": "Pista GP RR Soleluna 2023",
+      "brand": "AGV",
+      "type": "Track / Race",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for S1000RR M Package (Dark Edition) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the BMW Motorrad S1000RR M Package (Dark Edition)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the BMW Motorrad engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}

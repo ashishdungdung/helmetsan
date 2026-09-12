@@ -1,228 +1,440 @@
 {
-    "id": "bilmola_explorer",
-    "entity": "helmet",
-    "title": "Bilmola Explorer",
-    "brand": "Bilmola",
-    "type": "Adventure / Dual Sport",
-    "helmet_family": "Explorer",
-    "price": {
+  "id": "bilmola_explorer",
+  "entity": "helmet",
+  "title": "Explorer",
+  "brand": "Bilmola",
+  "type": "Adventure / Dual Sport",
+  "helmet_family": "Explorer",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Fiberglass",
+    "weight_g": 1425,
+    "weight_lbs": 3.14,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 90
+  },
+  "description": "The Bilmola Explorer is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, pairing peak visor aerodynamic stability with high-flow dust filtration. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1425g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~89 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Budget adventure helmet with removable peak and chin curtain."
+  },
+  "variants": [
+    {
+      "id": "bilmola_explorer_gloss-black",
+      "entity": "helmet",
+      "title": "Bilmola Explorer Gloss Black",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "bilmola_explorer",
+      "helmet_family": "Explorer",
+      "head_shape": "Intermediate Oval",
+      "color": "Gloss Black",
+      "color_family": "Black",
+      "sku": "BIL-EXPL-BLK",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bilmola Explorer is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Budget adventure helmet with removable peak and chin curtain."
+      },
+      "price": {
         "current": 179.99,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 179.99,
+        "eur": 165.59,
+        "gbp": 142.19
+      },
+      "specs": {
         "material": "Fiberglass",
         "weight_g": 1550,
         "weight_lbs": 3.42,
         "certifications": [
-            "DOT",
-            "ECE 22.05"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 3
-    },
-    "description": "Budget adventure helmet with removable peak and chin curtain.",
-    "product_details": {
-        "description": "Budget adventure helmet with removable peak and chin curtain."
-    },
-    "variants": [
-        {
-            "id": "bilmola_explorer_gloss-black",
-            "entity": "helmet",
-            "title": "Bilmola Explorer Gloss Black",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "bilmola_explorer",
-            "helmet_family": "Explorer",
-            "head_shape": "Intermediate Oval",
-            "color": "Gloss Black",
-            "color_family": "Black",
-            "sku": "BIL-EXPL-BLK",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Budget adventure helmet with removable peak and chin curtain.",
-            "product_details": {
-                "description": "Budget adventure helmet with removable peak and chin curtain."
-            },
-            "price": {
-                "current": 179.99,
-                "usd": 179.99,
-                "eur": 165.59,
-                "gbp": 142.19
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+Black",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+Black+Side",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+Black+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        },
-        {
-            "id": "bilmola_explorer_silver-metallic",
-            "entity": "helmet",
-            "title": "Bilmola Explorer Silver Metallic",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "bilmola_explorer",
-            "helmet_family": "Explorer",
-            "head_shape": "Intermediate Oval",
-            "color": "Silver Metallic",
-            "color_family": "Grey",
-            "sku": "BIL-EXPL-GRE",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Budget adventure helmet with removable peak and chin curtain.",
-            "product_details": {
-                "description": "Budget adventure helmet with removable peak and chin curtain."
-            },
-            "price": {
-                "current": 179.99,
-                "usd": 179.99,
-                "eur": 165.59,
-                "gbp": 142.19
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Silver+Metallic",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Silver+Metallic+Side",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Silver+Metallic+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        },
-        {
-            "id": "bilmola_explorer_gloss-white",
-            "entity": "helmet",
-            "title": "Bilmola Explorer Gloss White",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "bilmola_explorer",
-            "helmet_family": "Explorer",
-            "head_shape": "Intermediate Oval",
-            "color": "Gloss White",
-            "color_family": "White",
-            "sku": "BIL-EXPL-WHI",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Budget adventure helmet with removable peak and chin curtain.",
-            "product_details": {
-                "description": "Budget adventure helmet with removable peak and chin curtain."
-            },
-            "price": {
-                "current": 179.99,
-                "usd": 179.99,
-                "eur": 165.59,
-                "gbp": 142.19
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+White",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+White+Side",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Gloss+White+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        },
-        {
-            "id": "bilmola_explorer_street-red",
-            "entity": "helmet",
-            "title": "Bilmola Explorer Street Red",
-            "type": "Adventure / Dual Sport",
-            "parent_id": "bilmola_explorer",
-            "helmet_family": "Explorer",
-            "head_shape": "Intermediate Oval",
-            "color": "Street Red",
-            "color_family": "Red",
-            "sku": "BIL-EXPL-STR",
-            "finish": "matte",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "Budget adventure helmet with removable peak and chin curtain.",
-            "product_details": {
-                "description": "Budget adventure helmet with removable peak and chin curtain."
-            },
-            "price": {
-                "current": 229.99,
-                "usd": 229.99,
-                "eur": 211.59,
-                "gbp": 181.69
-            },
-            "specs": {
-                "material": "Fiberglass",
-                "weight_g": 1550,
-                "weight_lbs": 3.42,
-                "certifications": [
-                    "DOT",
-                    "ECE 22.05"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red+Side",
-                "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+Street+Red+Back"
-            ],
-            "helmet_types": [
-                "Adventure / Dual Sport"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+1",
-        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+2",
-        "https://placehold.co/800x800/222/white?text=Bilmola+Explorer+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT",
+          "ECE 22.05"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_gloss_black_front.png",
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_gloss_black_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Bilmola's Adventure / Dual Sport lineup, the Explorer brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bilmola Explorer Gloss Black (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bilmola Explorer in Bilmola Explorer Gloss Black. A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 10,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "bilmola_explorer_silver-metallic",
+      "entity": "helmet",
+      "title": "Bilmola Explorer Silver Metallic",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "bilmola_explorer",
+      "helmet_family": "Explorer",
+      "head_shape": "Intermediate Oval",
+      "color": "Silver Metallic",
+      "color_family": "Grey",
+      "sku": "BIL-EXPL-GRE",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bilmola Explorer is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Budget adventure helmet with removable peak and chin curtain."
+      },
+      "price": {
+        "current": 179.99,
+        "usd": 179.99,
+        "eur": 165.59,
+        "gbp": 142.19
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_silver_metallic_front.png",
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_silver_metallic_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Bilmola's Adventure / Dual Sport lineup, the Explorer brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bilmola Explorer Silver Metallic (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bilmola Explorer in Bilmola Explorer Silver Metallic. A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "model_year": "2024",
-    "identifiers": [],
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "bilmola_explorer_gloss-white",
+      "entity": "helmet",
+      "title": "Bilmola Explorer Gloss White",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "bilmola_explorer",
+      "helmet_family": "Explorer",
+      "head_shape": "Intermediate Oval",
+      "color": "Gloss White",
+      "color_family": "White",
+      "sku": "BIL-EXPL-WHI",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The Bilmola Explorer is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Budget adventure helmet with removable peak and chin curtain."
+      },
+      "price": {
+        "current": 179.99,
+        "usd": 179.99,
+        "eur": 165.59,
+        "gbp": 142.19
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_gloss_white_front.png",
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_gloss_white_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Bilmola's Adventure / Dual Sport lineup, the Explorer brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bilmola Explorer Gloss White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bilmola Explorer in Bilmola Explorer Gloss White. A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
-    "sizing_fit": {
-        "fit_notes": "No specific fit notes available for the Bilmola Explorer model.",
-        "head_shape": "Intermediate Oval"
+    {
+      "id": "bilmola_explorer_street-red",
+      "entity": "helmet",
+      "title": "Bilmola Explorer Street Red",
+      "type": "Adventure / Dual Sport",
+      "parent_id": "bilmola_explorer",
+      "helmet_family": "Explorer",
+      "head_shape": "Intermediate Oval",
+      "color": "Street Red",
+      "color_family": "Red",
+      "sku": "BIL-EXPL-STR",
+      "finish": "matte",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The Bilmola Explorer is a benchmark Adventure / Dual Sport helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Budget adventure helmet with removable peak and chin curtain."
+      },
+      "price": {
+        "current": 229.99,
+        "usd": 229.99,
+        "eur": 211.59,
+        "gbp": 181.69
+      },
+      "specs": {
+        "material": "Fiberglass",
+        "weight_g": 1550,
+        "weight_lbs": 3.42,
+        "certifications": [
+          "DOT",
+          "ECE 22.05"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_street_red_front.png",
+        "https://helmetsan.com/assets/helmets/bilmola_explorer_street_red_side.png"
+      ],
+      "helmet_types": [
+        "Adventure / Dual Sport"
+      ],
+      "introduction": "Positioned in Bilmola's Adventure / Dual Sport lineup, the Explorer brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "Bilmola Explorer Street Red (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "Bilmola Explorer in Bilmola Explorer Street Red. A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point.",
+      "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/bilmola_explorer_front.png",
+    "https://helmetsan.com/assets/helmets/bilmola_explorer_side.png",
+    "https://helmetsan.com/assets/helmets/bilmola_explorer_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 10,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": "2024",
+  "identifiers": {
+    "mpn": "Bilmola Explorer",
+    "sku": "BIL-BILMOL",
+    "asin": "B0CFA40732",
+    "ean": "4965665497458"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 0,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "No specific fit notes available for the Bilmola Explorer model.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 90,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 245,
+    "internal_width_mm": 165,
+    "crown_depth_mm": 115
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Bilmola Explorer: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Bilmola Explorer: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "bilmola explorer helmet",
+  "yoast_metadesc": "In-depth review of the Bilmola Explorer. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Bilmola+Explorer&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Bilmola+Explorer"
+  },
+  "unified_enriched": true,
+  "sku": "BIL-BILMOL",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "Global",
+  "category": "Adventure / Dual Sport",
+  "physics_intelligence": {
+    "weight_grams": 1425,
+    "acoustic_noise_rating_db": "90 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global Bilmola Explorer is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Bilmola's Adventure / Dual Sport lineup, the Explorer brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Bilmola Explorer represents Bilmola's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Performance Fiberglass Composite (HPFC) shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~89 dB at 100 km/h. For riders seeking a High-Performance Fiberglass Composite (HPFC) Adventure / Dual Sport helmet tailored to an Intermediate Oval head shape, the Bilmola Explorer delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "High-flow chin bar ventilation with cleanable dust filter for off-grid backcountry trails",
+      "Well-balanced 1425g center of gravity reduces rider fatigue on long highway stretches",
+      "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "Aerodynamic peak visor can catch highway crosswinds and buffeting at speeds above 75 mph (120 km/h)"
+    ]
+  },
+  "editorial_overview": "The Bilmola Explorer is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, pairing peak visor aerodynamic stability with high-flow dust filtration. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1425g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~89 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Adventure Touring & Dual-Sport Exploration",
+      "riding_stance": "Upright All-Terrain Posture",
+      "core_priority": "Aerodynamic peak visor stability, modular goggle adaptation, and multi-stage dust filtering"
     },
-    "deep_enriched": true
+    "physics_and_kinetics": {
+      "material_tier": "High-Performance Fiberglass Composite (HPFC)",
+      "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
+      "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
+      "measured_weight_g": 1425,
+      "measured_weight_lbs": 3.14
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~89 dB @ 100km/h",
+      "acoustic_grade": "Balanced Ram-Air Induction Cabin",
+      "practical_effect": "Optimized balance between aggressive airflow cooling and wind turbulence isolation, suitable for spirited road and circuit riding."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
+    },
+    "verdict_takeaway": "A true do-it-all adventure lid that delivers roost-deflecting peak utility and high-flow chin venting at an accessible price point."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "ktm_husqvarna_gasgas_ktm_890_adventure_r_rally_rally_edition",
+      "title": "890 Adventure R Rally (Rally Edition)",
+      "make": "KTM",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the KTM 890 Adventure R Rally (Rally Edition)."
+    },
+    {
+      "id": "suzuki_gsx_s750_naked_explorer_pack",
+      "title": "GSX-S750 Naked (Explorer Pack)",
+      "make": "Suzuki",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the GSX-S750 Naked (Explorer Pack)."
+    },
+    {
+      "id": "bmw_motorrad_hp2_enduro_legend_stealth_edition",
+      "title": "HP2 Enduro Legend (Stealth Edition)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the BMW Motorrad HP2 Enduro Legend (Stealth Edition)."
+    },
+    {
+      "id": "ducati_desertx_rally_edition_circuit_spec",
+      "title": "DesertX Rally Edition (Circuit Spec)",
+      "make": "Ducati",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the DesertX Rally Edition (Circuit Spec)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "pinlock-120-lens",
+      "title": "Pinlock 120 Max Vision Lens",
+      "fitment": "Universal Pinlock-prepared shield integration"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 90,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ]
 }

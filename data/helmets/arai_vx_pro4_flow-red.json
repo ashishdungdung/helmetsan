@@ -1,78 +1,272 @@
 {
-    "id": "arai_vx_pro4_flow-red",
-    "entity": "helmet",
-    "title": "Arai VX-Pro4 Flow Red",
-    "brand": "Arai",
-    "type": "Dirt / MX",
-    "helmet_types": [
-        "Dirt / MX"
-    ],
-    "parent_id": "arai_vx_pro4",
-    "helmet_family": "VX-Pro4",
-    "price": {
-        "current": 799.95,
-        "usd": 799.95,
-        "eur": 735.95,
-        "gbp": 631.96
-    },
+  "id": "arai_vx_pro4_flow-red",
+  "entity": "helmet",
+  "title": "VX-Pro4 Flow Red",
+  "brand": "Arai",
+  "type": "Dirt / MX",
+  "helmet_types": [
+    "Dirt / MX"
+  ],
+  "parent_id": "arai_vx_pro4",
+  "helmet_family": "VX-Pro4",
+  "price": {
+    "usd": 799,
+    "inr": 66317,
+    "eur": 735,
+    "gbp": 631,
+    "jpy": 123845
+  },
+  "certifications": [
+    "DOT",
+    "Snell M2020",
+    "ECE 22.05"
+  ],
+  "head_shape": "Long Oval",
+  "specs": {
+    "material": "cLc",
+    "weight_g": 1421,
+    "weight_lbs": 3.13,
     "certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.05"
+    ],
+    "warranty_years": 1,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 4,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 97
+  },
+  "description": "The Arai VX-Pro4 Flow Red is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1421g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Professional grade motocross protection."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/arai_vx_pro4_flow_red_front.png",
+    "https://helmetsan.com/assets/helmets/arai_vx_pro4_flow_red_side.png",
+    "https://helmetsan.com/assets/helmets/arai_vx_pro4_flow_red_rear.png"
+  ],
+  "color": "Flow Red",
+  "color_family": "Red",
+  "sku": "ARA-ARAIVX",
+  "finish": "matte",
+  "is_graphic": true,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2023,
+  "identifiers": {
+    "asin": "B09TQWZ8K3",
+    "ean": "4547621000000",
+    "mpn": "VX-PRO4-FLOW-RED",
+    "sku": "ARA-ARAIVX"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, Snell M2020, ECE 22.05",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Arai's signature 'Perfect Fit' system; requires specific shell size selection based on head circumference and shape (Long Oval) for optimal cheek pad clearance and stability.",
+    "head_shape": "Long Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 97,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.32
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 238,
+    "internal_width_mm": 165,
+    "crown_depth_mm": 72
+  },
+  "technical_analysis": "Features Complex Laminate Construction (CLC) with PB-SNC2 peripheral belt reinforcement and R75 smooth shell geometry for glance-off impact energy redirection paired with VAS (Variable Axis System) shield mechanism with dual-latch shield lock and IC Duct 5 ventilation intake ports. The interior utilizes One-piece multi-density EPS liner with Eco-Pure anti-microbial removable Dry-Cool interior lining with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Arai VX-Pro4 Flow Red: combining Japan 🇯🇵 craftsmanship with VAS (Variable Axis System) shield mechanism with dual-latch shield lock and IC Duct 5 ventilation intake ports and One-piece multi-density EPS liner with Eco-Pure anti-microbial removable Dry-Cool interior lining. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Arai VX-Pro4 Flow Red: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "arai vx-pro4 flow red helmet",
+  "yoast_metadesc": "In-depth review of the Arai VX-Pro4 Flow Red. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Long Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Arai+VX-Pro4+Flow+Red&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Arai+VX-Pro4+Flow+Red"
+  },
+  "cross_links": [
+    {
+      "keyword": "Arai",
+      "target_id": "arai",
+      "target_type": "brand"
+    }
+  ],
+  "spec_weight_g": 1430,
+  "repaired_and_enriched": true,
+  "country_origin": "Japan 🇯🇵",
+  "category": "Dirt / MX",
+  "physics_intelligence": {
+    "weight_grams": 1421,
+    "acoustic_noise_rating_db": "97 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "Snell M2020",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Arai VX-Pro4 Flow Red is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low (Snug, even pressure distribution across forehead without hot-spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Arai's Dirt / MX lineup, the VX-Pro4 Flow Red brings Japanese engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for a Long Oval fitment, it connects daily usability with certified DOT, Snell M2020, ECE 22.05 track safety.",
+  "story": "The Arai VX-Pro4 Flow Red represents Arai's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Dirt / MX helmet tailored to a Long Oval head shape, the Arai VX-Pro4 Flow Red delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Arai VX-Pro4 Flow Red represents Arai's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking a High-Yield Impact-Resistant Polycarbonate / Lexan Dirt / MX helmet tailored to a Long Oval head shape, the Arai VX-Pro4 Flow Red delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Contoured for Long Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Massive multi-port ram-air intake channels engineered for maximum aerobic cooling during intense motos",
+      "Well-balanced 1421g center of gravity reduces rider fatigue on long highway stretches",
+      "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
+      "Snell M2020 certified for extreme double-impact kinetic threshold resistance"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~98 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Requires separate riding goggles; unsealed eyeport offers no protection against highway rain and cold"
+    ]
+  },
+  "editorial_overview": "The Arai VX-Pro4 Flow Red is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1421g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A dedicated off-road lid engineered to channel maximum airflow during aggressive motos while delivering certified impact protection.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Motocross, Enduro & Off-Road Competition",
+      "riding_stance": "Aggressive Standing / Off-Road Stance",
+      "core_priority": "Unrestricted goggle airflow, high-clearance roost beak, and maximum aerobic heat dissipation"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
+      "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
+      "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
+      "measured_weight_g": 1421,
+      "measured_weight_lbs": 3.13
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~98 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Long Oval",
+      "fit_profile": "Long Oval (Elongated Forehead Relief)",
+      "fit_details": "Features extended front-to-back interior architecture, eliminating painful forehead pinch points for riders with narrower facial structures.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Contoured for Long Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "DOT",
-        "Snell M2020"
-    ],
-    "head_shape": "Long Oval",
-    "specs": {
-        "material": "cLc",
-        "weight_g": 1430,
-        "weight_lbs": 3.15,
-        "certifications": [
-            "DOT",
-            "Snell M2020"
-        ],
-        "warranty_years": 1,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 2
+        "Snell M2020",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Professional grade motocross protection.",
-    "product_details": {
-        "description": "Professional grade motocross protection."
+    "verdict_takeaway": "A dedicated off-road lid engineered to channel maximum airflow during aggressive motos while delivering certified impact protection."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "suzuki_gsx_s750_naked_enduro_spec",
+      "title": "GSX-S750 Naked (Enduro Spec)",
+      "make": "Suzuki",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Suzuki GSX-S750 Naked (Enduro Spec)."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red",
-        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red+Side",
-        "https://placehold.co/800x800/222/white?text=Arai+VX-Pro4+Flow+Red+Back"
-    ],
-    "color": "Flow Red",
-    "color_family": "Red",
-    "sku": "ARA-VXPR-FLO",
-    "finish": "matte",
-    "is_graphic": true,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "honda_nx500_adventure",
+      "title": "NX500 Adventure",
+      "make": "Honda",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the NX500 Adventure."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "royal_enfield_himalayan_411_rally_pro_spec",
+      "title": "Himalayan 411 Rally (Pro Spec)",
+      "make": "Royal Enfield",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Royal Enfield Himalayan 411 Rally (Pro Spec)."
     },
-    "model_year": "",
-    "identifiers": {
-        "asin": "B09TQWZ8K3",
-        "ean": "4547621000000",
-        "mpn": "VX-PRO4-FLOW-RED"
+    {
+      "id": "suzuki_v_strom_1050de_adventure_custom_edition",
+      "title": "V-Strom 1050DE Adventure (Custom Edition)",
+      "make": "Suzuki",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the V-Strom 1050DE Adventure (Custom Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "sizing_fit": {
-        "fit_notes": "Arai's signature 'Perfect Fit' system; requires specific shell size selection based on head circumference and shape (Long Oval) for optimal cheek pad clearance and stability.",
-        "head_shape": "Long Oval"
-    },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 97
 }

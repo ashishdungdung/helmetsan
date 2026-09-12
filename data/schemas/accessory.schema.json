@@ -39,6 +39,12 @@
     "pinlock_ready": { "type": "boolean" },
     "snow_compatible": { "type": "boolean" },
     "color": { "type": "string" },
-    "price": { "type": "object" }
+    "price": { "type": "object" },
+    "warranty_years": { "type": "number" },
+    "material": { "type": "string" },
+    "weight_g": { "type": "number" },
+    "waterproof_rating": { "type": "string" },
+    "battery_life_hours": { "type": "number" },
+    "connectivity_type": { "type": "string" }
   }
 }

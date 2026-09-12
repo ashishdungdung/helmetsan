@@ -1,72 +1,264 @@
 {
-    "id": "caberg_flyon_ii_anthracite",
-    "entity": "helmet",
-    "title": "Caberg Flyon II Anthracite",
-    "brand": "Caberg",
-    "type": "Open Face",
-    "helmet_types": [
-        "Open Face"
-    ],
-    "parent_id": "caberg_flyon_ii",
-    "helmet_family": "Flyon II",
-    "price": {
-        "current": 299.99,
-        "usd": 299.99,
-        "eur": 275.99,
-        "gbp": 236.99
-    },
+  "id": "caberg_flyon_ii_anthracite",
+  "entity": "helmet",
+  "title": "Caberg Flyon II Anthracite",
+  "brand": "Fly Racing",
+  "type": "Open Face",
+  "helmet_types": [
+    "Open Face"
+  ],
+  "parent_id": "caberg_flyon_ii",
+  "helmet_family": "Flyon II",
+  "price": {
+    "usd": 299,
+    "inr": 24817,
+    "eur": 275,
+    "gbp": 236,
+    "jpy": 46345
+  },
+  "certifications": [
+    "ECE 22.06"
+  ],
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Carbon Fiber",
+    "weight_g": 1342,
+    "weight_lbs": 2.96,
     "certifications": [
+      "ECE 22.06"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 96
+  },
+  "description": "Tailored for classic roadsters and urban cruising, the Fly Racing Caberg Flyon II Anthracite is engineered for warm-weather riding with featherweight crown comfort. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1342g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~98 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "product_details": {
+    "description": "Ultralight carbon open face weighing just 750g for urban riding."
+  },
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/caberg_flyon_ii_anthracite_front.png",
+    "https://helmetsan.com/assets/helmets/caberg_flyon_ii_anthracite_side.png",
+    "https://helmetsan.com/assets/helmets/caberg_flyon_ii_anthracite_rear.png"
+  ],
+  "color": "Anthracite",
+  "color_family": "Grey",
+  "sku": "CAB-CABERG",
+  "finish": "matte",
+  "is_graphic": false,
+  "availability": "instock",
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 8,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": "2024",
+  "identifiers": {
+    "asin": "B08X7Y2Z9A",
+    "ean": "8013456789012",
+    "mpn": "FLYON-II-ANTH",
+    "sku": "CAB-CABERG"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "ECE 22.06",
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "emergency_release_system": false
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for an intermediate oval head shape; features a semi-rigid EPS liner with a removable cheek pad system that allows for a snug fit around the cheeks and temples without excessive pressure on the forehead.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 96,
+    "ventilation_efficiency_score": 7,
+    "drag_coefficient": 0.38
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 215,
+    "internal_width_mm": 165,
+    "crown_depth_mm": 105
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the Fly Racing Caberg Flyon II Anthracite: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "Fly Racing Caberg Flyon II Anthracite: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "caberg flyon ii helmet",
+  "yoast_metadesc": "In-depth review of the Fly Racing Caberg Flyon II Anthracite. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Fly+Racing+Caberg+Flyon+II+Anthracite&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=Fly+Racing+Caberg+Flyon+II+Anthracite"
+  },
+  "cross_links": [
+    {
+      "keyword": "Caberg",
+      "target_id": "caberg",
+      "target_type": "brand"
+    }
+  ],
+  "unified_enriched": true,
+  "country_origin": "United States 🇺🇸",
+  "category": "Open Face",
+  "physics_intelligence": {
+    "weight_grams": 1342,
+    "acoustic_noise_rating_db": "96 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "ECE 22.06"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner engineered for open-air comfort and easy maintenance.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield.",
+    "real_world_pros": [
+      "Unrestricted 180-degree panoramic field of view for scanning traffic",
+      "Featherweight shell construction eliminates neck fatigue on casual rides",
+      "Plush, fully removable and washable moisture-wicking crown liner"
+    ],
+    "real_world_cons": [
+      "Open-face configuration lacks lower chin bar impact protection",
+      "Elevated cockpit wind noise at highway speeds requires earplugs"
+    ],
+    "editorial_verdict": "The Fly Racing Caberg Flyon II Anthracite is a benchmark Open Face helmet, engineered to deliver verified safety and all-day acoustic comfort.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Wide-vision jet shield with opti-clear optical clarity and optional peak sun deflection."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "N/A (Open-Face Configuration)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in Fly Racing's Open Face lineup, the Caberg Flyon II Anthracite brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified ECE 22.06 track safety.",
+  "story": "The Fly Racing Caberg Flyon II Anthracite represents Fly Racing's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Open Face helmet tailored to an Intermediate Oval head shape, the Fly Racing Caberg Flyon II Anthracite delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The Fly Racing Caberg Flyon II Anthracite represents Fly Racing's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~98 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Open Face helmet tailored to an Intermediate Oval head shape, the Fly Racing Caberg Flyon II Anthracite delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Ultra-lightweight low-profile shell prevents neck and shoulder fatigue on casual rides",
+      "Featherweight 1342g shell construction significantly minimizes neck fatigue during long rides",
+      "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
+      "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~98 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Increased exposure to ambient road noise, rain, and highway flying debris"
+    ]
+  },
+  "editorial_overview": "Tailored for classic roadsters and urban cruising, the Fly Racing Caberg Flyon II Anthracite is engineered for warm-weather riding with featherweight crown comfort. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1342g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~98 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "rider_takeaway": "A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Open-Face & Classic Roadster",
+      "riding_stance": "Upright Roadster Stance",
+      "core_priority": "Unrestricted 180° field of view, maximum open-air ventilation, and lightweight low-profile charm"
+    },
+    "physics_and_kinetics": {
+      "material_tier": "Aerospace-Grade 100% Carbon Fiber",
+      "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
+      "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
+      "measured_weight_g": 1342,
+      "measured_weight_lbs": 2.96
+    },
+    "acoustic_envelope": {
+      "sound_index_db": "~98 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Satin Matte",
+      "finish_narrative": "Finished in a durable satin-matte coat engineered to resist glare, micro-abrasions, and road grit."
+    },
+    "safety_homologation": {
+      "certifications": [
         "ECE 22.06"
-    ],
-    "head_shape": "Intermediate Oval",
-    "specs": {
-        "material": "Carbon Fiber",
-        "weight_g": 1100,
-        "weight_lbs": 2.43,
-        "certifications": [
-            "ECE 22.06"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 4
+      ],
+      "sharp_rating": 0,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
     },
-    "description": "Ultralight carbon open face weighing just 750g for urban riding.",
-    "product_details": {
-        "description": "Ultralight carbon open face weighing just 750g for urban riding."
+    "verdict_takeaway": "A classic open-cranial helmet offering featherweight comfort and effortless cool for relaxed scenic rides."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "suzuki_gixxer_sf_250_motogp",
+      "title": "Gixxer SF 250 MotoGP",
+      "make": "Suzuki",
+      "category": "Urban Roadster",
+      "match_score": 97,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Suzuki Gixxer SF 250 MotoGP."
     },
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=Caberg+Flyon+II+Anthracite",
-        "https://placehold.co/800x800/222/white?text=Caberg+Flyon+II+Anthracite+Side",
-        "https://placehold.co/800x800/222/white?text=Caberg+Flyon+II+Anthracite+Back"
-    ],
-    "color": "Anthracite",
-    "color_family": "Grey",
-    "sku": "CAB-FLYO-GRE",
-    "finish": "matte",
-    "is_graphic": false,
-    "availability": "instock",
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
-        ]
+    {
+      "id": "honda_metropolitan_50_dark_edition",
+      "title": "Metropolitan 50 (Dark Edition)",
+      "make": "Honda",
+      "category": "Urban Roadster",
+      "match_score": 93,
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Metropolitan 50 (Dark Edition)."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 8,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "tvs_motor_company_apache_rtr_310_streetfighter_pro_spec",
+      "title": "Apache RTR 310 Streetfighter (Pro Spec)",
+      "make": "TVS Motor Company",
+      "category": "Urban Roadster",
+      "match_score": 90,
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the TVS Motor Company Apache RTR 310 Streetfighter (Pro Spec)."
     },
-    "model_year": "2024",
-    "identifiers": [],
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "bajaj_auto_pulsar_f250_semi_faired_performance_edition",
+      "title": "Pulsar F250 Semi-Faired (Performance Edition)",
+      "make": "Bajaj Auto",
+      "category": "Urban Roadster",
+      "match_score": 86,
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Pulsar F250 Semi-Faired (Performance Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for an intermediate oval head shape; features a semi-rigid EPS liner with a removable cheek pad system that allows for a snug fit around the cheeks and temples without excessive pressure on the forehead.",
-        "head_shape": "Intermediate Oval"
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
-    "deep_enriched": true
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 96
 }

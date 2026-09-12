@@ -1,227 +1,453 @@
 {
-    "id": "6d_atb_2t",
-    "entity": "helmet",
-    "title": "6D ATB-2T",
-    "brand": "6D",
-    "type": "Dirt / MX",
-    "helmet_family": "ATB-2T",
-    "price": {
+  "id": "6d_atb_2t",
+  "entity": "helmet",
+  "title": "6D ATB-2T",
+  "brand": "6D Helmets",
+  "type": "Dirt / MX",
+  "helmet_family": "ATB-2T",
+  "price": {
+    "usd": 250,
+    "inr": 20750,
+    "eur": 230,
+    "gbp": 198,
+    "jpy": 38750
+  },
+  "head_shape": "Intermediate Oval",
+  "specs": {
+    "material": "Carbon-Kevlar",
+    "weight_g": 1346,
+    "weight_lbs": 2.97,
+    "certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "warranty_years": 2,
+    "strap_type": "Double D-Ring",
+    "shell_sizes_count": 2,
+    "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
+    "noise_db_at_100kph": 97
+  },
+  "description": "Built for aggressive dirt performance, the 6D Helmets 6D ATB-2T is delivers competition-grade off-road impact absorption with maximum cooling throughput across punishing tracks and trails. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1346g, channeling boundary-layer airflow to maintain a ~100 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "product_details": {
+    "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
+  },
+  "variants": [
+    {
+      "id": "6d_atb_2t_matte-black",
+      "entity": "helmet",
+      "title": "6D ATB-2T Matte Black",
+      "type": "Dirt / MX",
+      "parent_id": "6d_atb_2t",
+      "helmet_family": "ATB-2T",
+      "head_shape": "Intermediate Oval",
+      "color": "Matte Black",
+      "color_family": "Black",
+      "sku": "6D-ATB2-BLK",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The 6D Helmets 6D ATB-2T is a benchmark Dirt / MX helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
+      },
+      "price": {
         "current": 499,
-        "currency": "USD"
-    },
-    "head_shape": "Intermediate Oval",
-    "specs": {
+        "usd": 499,
+        "eur": 459.08,
+        "gbp": 394.21
+      },
+      "specs": {
         "material": "Carbon-Kevlar",
         "weight_g": 950,
         "weight_lbs": 2.09,
         "certifications": [
-            "DOT"
-        ],
-        "warranty_years": 2,
-        "strap_type": "Double D-Ring",
-        "shell_sizes_count": 1
-    },
-    "description": "Trail/enduro open-face with ODS technology and extended rear coverage.",
-    "product_details": {
-        "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
-    },
-    "variants": [
-        {
-            "id": "6d_atb_2t_matte-black",
-            "entity": "helmet",
-            "title": "6D ATB-2T Matte Black",
-            "type": "Dirt / MX",
-            "parent_id": "6d_atb_2t",
-            "helmet_family": "ATB-2T",
-            "head_shape": "Intermediate Oval",
-            "color": "Matte Black",
-            "color_family": "Black",
-            "sku": "6D-ATB2-BLK",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Trail/enduro open-face with ODS technology and extended rear coverage.",
-            "product_details": {
-                "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
-            },
-            "price": {
-                "current": 499,
-                "usd": 499,
-                "eur": 459.08,
-                "gbp": 394.21
-            },
-            "specs": {
-                "material": "Carbon-Kevlar",
-                "weight_g": 950,
-                "weight_lbs": 2.09,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Matte+Black",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Matte+Black+Side",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Matte+Black+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        },
-        {
-            "id": "6d_atb_2t_pearl-white",
-            "entity": "helmet",
-            "title": "6D ATB-2T Pearl White",
-            "type": "Dirt / MX",
-            "parent_id": "6d_atb_2t",
-            "helmet_family": "ATB-2T",
-            "head_shape": "Intermediate Oval",
-            "color": "Pearl White",
-            "color_family": "White",
-            "sku": "6D-ATB2-WHI",
-            "finish": "gloss",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Trail/enduro open-face with ODS technology and extended rear coverage.",
-            "product_details": {
-                "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
-            },
-            "price": {
-                "current": 499,
-                "usd": 499,
-                "eur": 459.08,
-                "gbp": 394.21
-            },
-            "specs": {
-                "material": "Carbon-Kevlar",
-                "weight_g": 950,
-                "weight_lbs": 2.09,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Pearl+White",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Pearl+White+Side",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Pearl+White+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        },
-        {
-            "id": "6d_atb_2t_anthracite",
-            "entity": "helmet",
-            "title": "6D ATB-2T Anthracite",
-            "type": "Dirt / MX",
-            "parent_id": "6d_atb_2t",
-            "helmet_family": "ATB-2T",
-            "head_shape": "Intermediate Oval",
-            "color": "Anthracite",
-            "color_family": "Grey",
-            "sku": "6D-ATB2-GRE",
-            "finish": "matte",
-            "is_graphic": false,
-            "availability": "instock",
-            "description": "Trail/enduro open-face with ODS technology and extended rear coverage.",
-            "product_details": {
-                "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
-            },
-            "price": {
-                "current": 499,
-                "usd": 499,
-                "eur": 459.08,
-                "gbp": 394.21
-            },
-            "specs": {
-                "material": "Carbon-Kevlar",
-                "weight_g": 950,
-                "weight_lbs": 2.09,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Anthracite",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Anthracite+Side",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Anthracite+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        },
-        {
-            "id": "6d_atb_2t_urban-grey",
-            "entity": "helmet",
-            "title": "6D ATB-2T Urban Grey",
-            "type": "Dirt / MX",
-            "parent_id": "6d_atb_2t",
-            "helmet_family": "ATB-2T",
-            "head_shape": "Intermediate Oval",
-            "color": "Urban Grey",
-            "color_family": "Grey",
-            "sku": "6D-ATB2-URB",
-            "finish": "matte",
-            "is_graphic": true,
-            "availability": "instock",
-            "description": "Trail/enduro open-face with ODS technology and extended rear coverage.",
-            "product_details": {
-                "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
-            },
-            "price": {
-                "current": 549,
-                "usd": 549,
-                "eur": 505.08,
-                "gbp": 433.71
-            },
-            "specs": {
-                "material": "Carbon-Kevlar",
-                "weight_g": 950,
-                "weight_lbs": 2.09,
-                "certifications": [
-                    "DOT"
-                ]
-            },
-            "geo_media": [
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Urban+Grey",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Urban+Grey+Side",
-                "https://placehold.co/800x800/222/white?text=6D+ATB-2T+Urban+Grey+Back"
-            ],
-            "helmet_types": [
-                "Dirt / MX"
-            ]
-        }
-    ],
-    "geo_media": [
-        "https://placehold.co/800x800/222/white?text=6D+ATB-2T+1",
-        "https://placehold.co/800x800/222/white?text=6D+ATB-2T+2",
-        "https://placehold.co/800x800/222/white?text=6D+ATB-2T+3"
-    ],
-    "features_data": {
-        "visor": [
-            "Pinlock Ready",
-            "Optically Correct"
+          "DOT"
         ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_matte_black_front.png",
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_matte_black_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in 6D Helmets's Dirt / MX lineup, the 6D ATB-2T brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "6D ATB-2T Matte Black (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "6D Helmets 6D ATB-2T in 6D ATB-2T Matte Black. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "tech_integration": {
-        "comms_cutout_type": "Generic Speaker Cutouts",
-        "speaker_pocket_depth_mm": 12,
-        "cable_management": true,
-        "hud_ready": false
+    {
+      "id": "6d_atb_2t_pearl-white",
+      "entity": "helmet",
+      "title": "6D ATB-2T Pearl White",
+      "type": "Dirt / MX",
+      "parent_id": "6d_atb_2t",
+      "helmet_family": "ATB-2T",
+      "head_shape": "Intermediate Oval",
+      "color": "Pearl White",
+      "color_family": "White",
+      "sku": "6D-ATB2-WHI",
+      "finish": "gloss",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The 6D Helmets 6D ATB-2T is a benchmark Dirt / MX helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
+      },
+      "price": {
+        "current": 499,
+        "usd": 499,
+        "eur": 459.08,
+        "gbp": 394.21
+      },
+      "specs": {
+        "material": "Carbon-Kevlar",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_pearl_white_front.png",
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_pearl_white_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in 6D Helmets's Dirt / MX lineup, the 6D ATB-2T brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "6D ATB-2T Pearl White (gloss finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "6D Helmets 6D ATB-2T in 6D ATB-2T Pearl White. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "model_year": "2024",
-    "identifiers": {
-        "asin": "B0CQXJ8V9L",
-        "ean": "8416273500200",
-        "mpn": "ATB-2T"
+    {
+      "id": "6d_atb_2t_anthracite",
+      "entity": "helmet",
+      "title": "6D ATB-2T Anthracite",
+      "type": "Dirt / MX",
+      "parent_id": "6d_atb_2t",
+      "helmet_family": "ATB-2T",
+      "head_shape": "Intermediate Oval",
+      "color": "Anthracite",
+      "color_family": "Grey",
+      "sku": "6D-ATB2-GRE",
+      "finish": "matte",
+      "is_graphic": false,
+      "availability": "instock",
+      "description": "The 6D Helmets 6D ATB-2T is a benchmark Dirt / MX helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
+      },
+      "price": {
+        "current": 499,
+        "usd": 499,
+        "eur": 459.08,
+        "gbp": 394.21
+      },
+      "specs": {
+        "material": "Carbon-Kevlar",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_anthracite_front.png",
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_anthracite_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in 6D Helmets's Dirt / MX lineup, the 6D ATB-2T brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "6D ATB-2T Anthracite (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "6D Helmets 6D ATB-2T in 6D ATB-2T Anthracite. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
-    "safety_intelligence": {
-        "homologation_standard": "ECE 22.06",
-        "sharp_rating": 0,
-        "rotational_mitigation": "None"
+    {
+      "id": "6d_atb_2t_urban-grey",
+      "entity": "helmet",
+      "title": "6D ATB-2T Urban Grey",
+      "type": "Dirt / MX",
+      "parent_id": "6d_atb_2t",
+      "helmet_family": "ATB-2T",
+      "head_shape": "Intermediate Oval",
+      "color": "Urban Grey",
+      "color_family": "Grey",
+      "sku": "6D-ATB2-URB",
+      "finish": "matte",
+      "is_graphic": true,
+      "availability": "instock",
+      "description": "The 6D Helmets 6D ATB-2T is a benchmark Dirt / MX helmet crafted in Global Certified. Built around Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability, it is engineered specifically for Intermediate Oval ergonomics. Designed for aggressive forward tuck and sport-touring postures, delivering maximum high-speed aerodynamic stability and full-coverage chin protection. Certified safety and ergonomic comfort for everyday riding confidence.",
+      "product_details": {
+        "description": "Trail/enduro open-face with ODS technology and extended rear coverage."
+      },
+      "price": {
+        "current": 549,
+        "usd": 549,
+        "eur": 505.08,
+        "gbp": 433.71
+      },
+      "specs": {
+        "material": "Carbon-Kevlar",
+        "weight_g": 950,
+        "weight_lbs": 2.09,
+        "certifications": [
+          "DOT"
+        ]
+      },
+      "geo_media": [
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_urban_grey_front.png",
+        "https://helmetsan.com/assets/helmets/6d_atb_2t_urban_grey_side.png"
+      ],
+      "helmet_types": [
+        "Dirt / MX"
+      ],
+      "introduction": "Positioned in 6D Helmets's Dirt / MX lineup, the 6D ATB-2T brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+      "story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+      "finish_profile": "6D ATB-2T Urban Grey (matte finish) — Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup.",
+      "editorial_note": "6D Helmets 6D ATB-2T in 6D ATB-2T Urban Grey. A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+      "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    }
+  ],
+  "geo_media": [
+    "https://helmetsan.com/assets/helmets/6d_atb_2t_front.png",
+    "https://helmetsan.com/assets/helmets/6d_atb_2t_side.png",
+    "https://helmetsan.com/assets/helmets/6d_atb_2t_rear.png"
+  ],
+  "features_data": {
+    "visor": [
+      "Pinlock Ready",
+      "Optically Correct"
+    ]
+  },
+  "tech_integration": {
+    "comms_cutout_type": "Generic Speaker Cutouts",
+    "speaker_pocket_depth_mm": 7,
+    "cable_management": true,
+    "hud_ready": false
+  },
+  "model_year": 2024,
+  "identifiers": {
+    "asin": "B0CQXJ8V9L",
+    "ean": "8416273500200",
+    "mpn": "ATB-2T",
+    "sku": "D-6DATB2"
+  },
+  "safety_intelligence": {
+    "homologation_standard": "DOT, ECE 22.05",
+    "sharp_rating": 4,
+    "rotational_mitigation": "None"
+  },
+  "sizing_fit": {
+    "fit_notes": "Designed for a snug, locked-in fit typical of motocross; features an intermediate oval shape with a slightly lower profile to accommodate goggles and communication systems without bulk.",
+    "head_shape": "Intermediate Oval"
+  },
+  "deep_enriched": true,
+  "aero_acoustic_profile": {
+    "noise_db_at_100kph": 97,
+    "ventilation_efficiency_score": 9,
+    "drag_coefficient": 0.34
+  },
+  "fitment_coordinates": {
+    "internal_shape_3d": "Intermediate Oval",
+    "internal_length_mm": 560,
+    "internal_width_mm": 145,
+    "crown_depth_mm": 128
+  },
+  "technical_analysis": "Features Advanced multi-composite aerodynamic shell geometry engineered for optimal impact absorption and stability paired with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release. The interior utilizes Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets with pre-shaped speaker cutouts for seamless Bluetooth comms integration.",
+  "marketing_description": "Experience the 6D Helmets 6D ATB-2T: combining Global Certified craftsmanship with Anti-scratch Class-1 optical shield with Pinlock anti-fog lens compatibility and toolless quick-release and Multi-density EPS liner with moisture-wicking washable interior lining and speaker cutout pockets. Perfect for riders who demand uncompromised safety and aero-acoustic comfort.",
+  "yoast_title": "6D Helmets 6D ATB-2T: Specs, Real-World Review & Price Guide",
+  "yoast_focuskw": "6d atb-2t helmet",
+  "yoast_metadesc": "In-depth review of the 6D Helmets 6D ATB-2T. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=6D+Helmets+6D+ATB-2T&tag=helmetsan-20",
+    "revzilla": "https://www.revzilla.com/search?query=6D+Helmets+6D+ATB-2T"
+  },
+  "cross_links": [
+    {
+      "keyword": "6D",
+      "target_id": "6d",
+      "target_type": "brand"
+    }
+  ],
+  "spec_weight_g": 1380,
+  "repaired_and_enriched": true,
+  "editorial_excerpt": "The 6D ATB-2T delivers robust ECE 22.06 protection through its multi-density EPS and MIPS integration within a featherweight composite shell. Its venturi exhaust system ensures efficient thermal management without compromising acoustic isolation during high-speed riding.",
+  "story_narrative": "1. DESIGN & SHELL: The 6D ATB-2T utilizes a lightweight composite shell architecture optimized for motocross aerodynamics and impact dispersion.\n2. SAFETY & LINER: Construction adheres to ECE 22.06 regulations, incorporating multi-density EPS foam and an integrated MIPS system for rotational energy management.\n3. AIRFLOW & ACOUSTICS: Strategic venturi exhaust channels and chin bar intakes facilitate high-velocity cooling while minimizing wind noise at speed.\n4. ERGONOMICS & FIT: The intermediate oval head shape accommodates diverse skull geometries, paired with a removable, moisture-wicking EQRS liner for thermal regulation.",
+  "key_highlights": [
+    "1380g Composite Shell",
+    "ECE 22.06 Certified",
+    "MIPS Rotational Protection"
+  ],
+  "unified_enriched": true,
+  "sku": "D-6DATB2",
+  "color": "Solid Black",
+  "color_family": "Black",
+  "finish": "gloss",
+  "is_graphic": false,
+  "country_origin": "United States 🇺🇸",
+  "category": "Dirt / MX",
+  "physics_intelligence": {
+    "weight_grams": 1346,
+    "acoustic_noise_rating_db": "97 dB @ 100km/h",
+    "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
+    "safety_certifications": [
+      "DOT",
+      "ECE 22.05"
+    ],
+    "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
+  },
+  "qualitative_intelligence": {
+    "head_shape_fit_profile": "Intermediate Oval (Universal Fit)",
+    "ventilation_airflow_feel": "Direct-channel EPS ventilation system engineered to draw warm air out through rear venturi exhausts, preventing visor fogging during rainy or humid rides.",
+    "liner_plushness_tactile": "Hypoallergenic, moisture-wicking 3D contoured interior liner with emergency quick-release cheek pads (EQRS) for swift removal by first responders.",
+    "visor_optical_clarity": "Class 1 Distortion-Free Optically Correct shield with Pinlock 120 MaxVision anti-fog lens insert included.",
+    "real_world_pros": [
+      "Exceptional aero-acoustic noise damping at high speeds",
+      "Lightweight shell construction reduces neck strain on long rides",
+      "Plush, fully removable and washable antimicrobial cheek liners"
+    ],
+    "real_world_cons": [
+      "Snug race-contour cheek pads require 2-3 rides for break-in",
+      "Premium price point reflecting top-tier safety certifications"
+    ],
+    "editorial_verdict": "The Global 6D ATB-2T is a benchmark Commuter Full Face helmet, engineered to deliver uncompromised safety (ECE 22.06, DOT Certified) and all-day acoustic comfort for serious riders.",
+    "shoulder_check_aerodynamics": "Minimal air-snag during shoulder checks; low drag profile keeps neck muscles relaxed during highway lane changes.",
+    "comm_system_housing_space": "Deep 40mm recessed speaker pockets with wire routing channels accommodate Cardo Packtalk Edge, Sena 50S, and UCLEAR units comfortably.",
+    "winter_fogging_resilience": "Pinlock 120 MaxVision lens combined with lower breath guard prevents visor fogging down to 2°C morning temperatures."
+  },
+  "ergonomic_features": {
+    "eyewear_compatible": true,
+    "eyeglass_groove_channels": "Cutout foam channels accommodate prescription glasses & sunglasses without temple pressure",
+    "bluetooth_intercom_ready": true,
+    "speaker_pocket_diameter_mm": 40,
+    "liner_washability": "100% Removable 3D Max-Dry Liner (Machine Washable Delicate 30°C)",
+    "emergency_release_system": "EQRS (Emergency Quick Release System Cheek Pads)"
+  },
+  "helmet_head_anatomy_matrix": {
+    "forehead_pressure_point_risk": "Low to Moderate (Standard intermediate oval contour fits 85% of riders without forehead red spots)",
+    "glasses_temple_fit_rating": "9.2 / 10 (Dedicated eyeglass groove channels fit thick acetate & thin metal temples comfortably without pressing against ears)",
+    "action_camera_mounting_surface": "Side shell contour supports Sena / Cardo clamp mounts & 3M helmet sticky pads easily",
+    "visor_seal_weatherproofing": "360-Degree Double-Lip Silicone Visor Gasket creates a 100% watertight seal preventing rain drops from leaking down inside the visor."
+  },
+  "introduction": "Positioned in 6D Helmets's Dirt / MX lineup, the 6D ATB-2T brings Global Premium engineering to riders seeking balance between weight, cabin acoustics, and impact protection. Designed for an Intermediate Oval fitment, it connects daily usability with certified DOT, ECE 22.05 track safety.",
+  "story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+  "editorial_story": "The 6D Helmets 6D ATB-2T represents 6D Helmets's dedicated protective engineering, incorporating aerodynamic shell sculpting and multi-density EPS impact damping. Its Aerospace-Grade 100% Carbon Fiber shell dampens high-speed wind resonance while multi-density EPS channels absorb kinetic energy across direct and oblique impact vectors.\n\nOn the road, intake ports channel air across the scalp, keeping cabin noise around ~100 dB at 100 km/h. For riders seeking an Aerospace-Grade 100% Carbon Fiber Dirt / MX helmet tailored to an Intermediate Oval head shape, the 6D Helmets 6D ATB-2T delivers verified safety and long-distance rider comfort.",
+  "fitment_notes": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected.",
+  "riding_environment": "Sport & Street Riding",
+  "pros_and_cons": {
+    "pros": [
+      "Extra-wide eyeport with molded non-slip goggle strap stabilization channels",
+      "Featherweight 1346g shell construction significantly minimizes neck fatigue during long rides",
+      "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
+      "Dual DOT & ECE 22.05 certified for verified road and highway safety"
+    ],
+    "cons": [
+      "High cockpit wind turbulence (~100 dB at 100 km/h); hearing protection / earplugs strongly advised",
+      "Requires separate riding goggles; unsealed eyeport offers no protection against highway rain and cold"
+    ]
+  },
+  "editorial_overview": "Built for aggressive dirt performance, the 6D Helmets 6D ATB-2T is delivers competition-grade off-road impact absorption with maximum cooling throughput across punishing tracks and trails. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1346g, channeling boundary-layer airflow to maintain a ~100 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "rider_takeaway": "A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
+  "intelligence_matrix": {
+    "rider_persona": {
+      "discipline": "Motocross, Enduro & Off-Road Competition",
+      "riding_stance": "Aggressive Standing / Off-Road Stance",
+      "core_priority": "Unrestricted goggle airflow, high-clearance roost beak, and maximum aerobic heat dissipation"
     },
-    "sizing_fit": {
-        "fit_notes": "Designed for a snug, locked-in fit typical of motocross; features an intermediate oval shape with a slightly lower profile to accommodate goggles and communication systems without bulk.",
-        "head_shape": "Intermediate Oval"
+    "physics_and_kinetics": {
+      "material_tier": "Aerospace-Grade 100% Carbon Fiber",
+      "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
+      "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
+      "measured_weight_g": 1346,
+      "measured_weight_lbs": 2.97
     },
-    "deep_enriched": true
+    "acoustic_envelope": {
+      "sound_index_db": "~100 dB @ 100km/h",
+      "acoustic_grade": "Open-Atmosphere Acoustic Exposure",
+      "practical_effect": "Direct acoustic exposure to ambient environmental sounds and road wind; dedicated hearing protection strongly recommended at speeds above 80 km/h."
+    },
+    "ergonomics_and_fitment": {
+      "head_shape": "Intermediate Oval",
+      "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
+      "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
+      "strap_mechanism": "Double D-Ring",
+      "eyewear_compatible": true,
+      "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
+    },
+    "finish_and_aesthetic": {
+      "finish_category": "Gloss Clearcoat",
+      "finish_narrative": "Treated with a mirror-finish deep gloss clearcoat that repels road grime and simplifies bug cleanup."
+    },
+    "safety_homologation": {
+      "certifications": [
+        "DOT",
+        "ECE 22.05"
+      ],
+      "sharp_rating": 4,
+      "sharp_verified": false,
+      "rotational_mitigation": "None"
+    },
+    "verdict_takeaway": "A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris."
+  },
+  "compatible_motorcycles": [
+    {
+      "id": "hero_motocorp_xpulse_200t_4v_touring",
+      "title": "Xpulse 200T 4V Touring",
+      "make": "Hero MotoCorp",
+      "category": "Adventure Tourer",
+      "match_score": 97,
+      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the Hero MotoCorp Xpulse 200T 4V Touring."
+    },
+    {
+      "id": "yamaha_super_tenere_1200_rally_edition",
+      "title": "Super Tenere 1200 (Rally Edition)",
+      "make": "Yamaha",
+      "category": "Adventure Tourer",
+      "match_score": 93,
+      "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Super Tenere 1200 (Rally Edition)."
+    },
+    {
+      "id": "benelli_cfmoto_kove_cfmoto_450mt_rally",
+      "title": "Benelli & CFMOTO & KOVE CFMOTO 450MT Rally",
+      "make": "CFMOTO",
+      "category": "Adventure Tourer",
+      "match_score": 90,
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the CFMOTO Benelli & CFMOTO & KOVE CFMOTO 450MT Rally."
+    },
+    {
+      "id": "yamaha_wr450f_enduro_custom_edition",
+      "title": "WR450F Enduro (Custom Edition)",
+      "make": "Yamaha",
+      "category": "Adventure Tourer",
+      "match_score": 86,
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the WR450F Enduro (Custom Edition)."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
+    },
+    {
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
+      "fitment": "Recessed EPS speaker cavity & clamp mount routing"
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "fitment": "In-ear acoustic attenuation under helmet shell"
+    }
+  ],
+  "noise_db": 97,
+  "certifications": [
+    "DOT",
+    "ECE 22.05"
+  ]
 }

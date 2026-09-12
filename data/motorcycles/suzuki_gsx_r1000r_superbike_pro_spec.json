@@ -1,0 +1,129 @@
+{
+  "id": "suzuki_gsx_r1000r_superbike_pro_spec",
+  "entity": "motorcycle",
+  "title": "GSX-R1000R Superbike (Pro Spec)",
+  "brand": "Suzuki",
+  "country_origin": "Japan 🇯🇵",
+  "category": "Adventure Tourer",
+  "displacement_cc": 1000,
+  "power_hp": 154,
+  "torque_nm": 123,
+  "curb_weight_kg": 228,
+  "price": {
+    "usd": 18950,
+    "inr": 1572850,
+    "eur": 17434,
+    "gbp": 14971,
+    "jpy": 2937250
+  },
+  "recommended_helmet_types": [
+    "Adventure / Dual Sport",
+    "Modular"
+  ],
+  "riding_position": "Aggressive Forward Tuck",
+  "description": "Representing Suzuki's prowess in the Adventure Tourer class, the Suzuki GSX-R1000R Superbike (Pro Spec) is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1000cc powerplant pumps out 154 HP and 123 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a commanding 855mm perch delivering excellent ground clearance and expansive sightlines and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "yoast_title": "Suzuki GSX-R1000R Superbike (Pro Spec): Specs, Price & Recommended Helmets",
+  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Suzuki GSX-R1000R Superbike (Pro Spec).",
+  "physics_intelligence": {
+    "aerodynamic_drag_cd": 0.31,
+    "max_lean_angle_deg": 56,
+    "wind_protection_rating": "9.2 / 10",
+    "traffic_heat_radiation": "High",
+    "vibration_smoothness_score": "8.8 / 10"
+  },
+  "qualitative_intelligence": {
+    "visor_optics_recommendation": "Iridium Dark Smoke / Photochromic Transition"
+  },
+  "seat_height_mm": 855,
+  "fuel_capacity_l": 19.5,
+  "top_speed_kmh": 299,
+  "audit_status": "Synthetic Trim (Linked)",
+  "audit_score": 80,
+  "audit_detail": "Trim variant linked to base model [suzuki_gsx_r1000r_superbike] | Partitioned to Node A (M4 Pro Master) | Specs verified within boundary",
+  "_updated_at": "2026-09-05T09:26:53Z",
+  "parent_base_id": "suzuki_gsx_r1000r_superbike",
+  "trim_type": "pro_spec",
+  "_audited_by_node": "node_a",
+  "editorial_overview": "Representing Suzuki's prowess in the Adventure Tourer class, the Suzuki GSX-R1000R Superbike (Pro Spec) is tuned for uncompromising circuit performance with laser-guided cornering stability. A 1000cc powerplant pumps out 154 HP and 123 Nm of torque, striking an optimal balance between fuel economy and spirited passing power. With a commanding 855mm perch delivering excellent ground clearance and expansive sightlines and a comfortable Aggressive Forward Tuck layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway.",
+  "rider_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding.",
+  "intelligence_matrix": {
+    "mission_and_persona": {
+      "category": "Adventure Tourer",
+      "riding_stance": "Aggressive Full Forward Tuck",
+      "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
+    },
+    "powertrain_and_chassis": {
+      "displacement": "1000cc",
+      "power_hp": 154,
+      "torque_nm": 123,
+      "curb_weight_kg": 228,
+      "power_to_weight": "67.5 HP/100kg"
+    },
+    "ergonomics_and_cockpit": {
+      "seat_height_mm": 855,
+      "inseam_confidence": "Commanding Tall Perch (>825mm)",
+      "riding_position": "Aggressive Forward Tuck",
+      "fuel_capacity_l": 19.5,
+      "estimated_range_km": "~546 km"
+    },
+    "recommended_gear": {
+      "recommended_helmets": [
+        "Adventure / Dual Sport",
+        "Modular"
+      ],
+      "riding_gear_style": "Armored textile / leather jacket, gauntlet gloves, and reinforced riding boots"
+    },
+    "verdict_takeaway": "A razor-sharp circuit weapon that demands respect and rewards precise, aggressive riding."
+  },
+  "compatible_helmets": [
+    {
+      "id": "arai_corsair_x_black-frost",
+      "title": "Corsair-X Black Frost",
+      "brand": "Arai",
+      "type": "Track / Race",
+      "match_score": 98,
+      "match_reason": "Aerodynamic spoiler stabilizes rider head posture during full-throttle chin-on-tank tucks on the Suzuki GSX-R1000R Superbike (Pro Spec)."
+    },
+    {
+      "id": "shark_race_r_pro_gp_tech-tc-2",
+      "title": "Race-R Pro GP Tech TC-2",
+      "brand": "Shark",
+      "type": "Track / Race",
+      "match_score": 94,
+      "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the GSX-R1000R Superbike (Pro Spec)."
+    },
+    {
+      "id": "shoei_x_fifteen_marquez-7-tc-1",
+      "title": "X-Fifteen Marquez 7 TC-1",
+      "brand": "Shoei",
+      "type": "Track / Race",
+      "match_score": 91,
+      "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Suzuki GSX-R1000R Superbike (Pro Spec)."
+    },
+    {
+      "id": "hjc_cs_15_grey",
+      "title": "CS-15 Grey",
+      "brand": "HJC",
+      "type": "Full Face",
+      "match_score": 87,
+      "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for GSX-R1000R Superbike (Pro Spec) speeds."
+    }
+  ],
+  "compatible_accessories": [
+    {
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
+      "reason": "Dynamic Mesh communication and GPS audio tuned for high-speed sport riding on the Suzuki GSX-R1000R Superbike (Pro Spec)."
+    },
+    {
+      "id": "hearing-protection-earplugs",
+      "title": "NoNoise Motorsport Filtered Earplugs",
+      "reason": "Filters out damaging 24dB aerodynamic cockpit wind roar while keeping the Suzuki engine note audible."
+    },
+    {
+      "id": "helmet-cam-mount",
+      "title": "GoPro Chin Mount Kit",
+      "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
+    }
+  ]
+}
