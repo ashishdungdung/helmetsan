@@ -10,15 +10,46 @@
  */
 
 $localConfig = @include __DIR__ . '/local_config.php';
-$baseUrl     = $localConfig['lm_studio_base_url'] ?? 'http://127.0.0.1:1234/v1';
+$baseUrl     = $localConfig['node_a']['base_url'] ?? $localConfig['lm_studio_base_url'] ?? 'http://127.0.0.1:1234/v1';
 $apiUrl      = rtrim($baseUrl, '/') . '/chat/completions';
-$model       = $localConfig['lm_studio_model'] ?? 'qwen/qwen3.5-9b';
+$model       = $localConfig['node_a']['deep_model'] ?? $localConfig['lm_studio_model'] ?? 'google/gemma-4-12b-qat';
+$defaultConc = $localConfig['node_a']['concurrency'] ?? $localConfig['concurrency'] ?? 2;
+$maxTokens   = $localConfig['node_a']['max_tokens'] ?? $localConfig['max_tokens'] ?? 1500;
 
 $options = getopt("", ["limit:", "concurrency:", "force", "dry-run"]);
 $limit       = isset($options['limit']) ? (int)$options['limit'] : 2500;
-$concurrency = isset($options['concurrency']) ? (int)$options['concurrency'] : 4;
+$concurrency = isset($options['concurrency']) ? (int)$options['concurrency'] : $defaultConc;
 $isForce     = isset($options['force']);
 $isDryRun    = isset($options['dry-run']);
+
+if (!$isDryRun) {
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    @curl_close($ch);
+
+    if ($httpCode === 0) {
+        $queueDir = dirname(__DIR__) . '/data/tasks/queue';
+        if (!is_dir($queueDir)) {
+            mkdir($queueDir, 0755, true);
+        }
+        $queueFile = $queueDir . '/enrich_' . date('Ymd_His') . '.json';
+        file_put_contents($queueFile, json_encode([
+            'action'      => 'local_llm_fix_and_enrich',
+            'queued_at'   => date('c'),
+            'reason'      => 'LM Studio unreachable at ' . $apiUrl,
+            'resume_args' => $_SERVER['argv'] ?? [],
+        ], JSON_PRETTY_PRINT));
+
+        echo "\n🛑 LOCAL AI (LM Studio) is OFFLINE.\n";
+        echo "   Queued task → " . basename($queueFile) . "\n";
+        echo "   Run this script again once LM Studio is running.\n";
+        echo "   ⚠️  Zero cloud tokens burned.\n";
+        exit(0);
+    }
+}
 
 $dataDir = dirname(__DIR__) . '/data/helmets';
 $files   = glob($dataDir . '/*.json');
@@ -143,7 +174,7 @@ foreach ($chunks as $chunkIndex => $chunk) {
                 ['role' => 'user', 'content' => $prompt]
             ],
             'temperature' => 0.1,
-            'max_tokens' => 500
+            'max_tokens' => $maxTokens
         ]));
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_setopt($ch, CURLOPT_TIMEOUT, 90);
@@ -338,5 +369,7 @@ function applyFixesAndPersist($file, $aiData) {
 
     $data['repaired_and_enriched'] = true;
 
-    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    $tmp = $file . '.tmp.' . uniqid('', true);
+    file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    rename($tmp, $file);
 }
