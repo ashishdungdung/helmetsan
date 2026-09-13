@@ -1,0 +1,16 @@
+{
+  "php-syntax-check": {
+    "PostToolUse": [
+      {
+        "matcher": "replace_file_content|write_to_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "php -l $TARGET_FILE",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

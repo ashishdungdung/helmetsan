@@ -206,3 +206,47 @@ wp --path=/var/www/helmetsan.com/public helmetsan alerts test --title="Ping" --m
 ```
 
 Alerts fire on sync errors, ingestion failures, and (if enabled) health warnings. Slack is retried once on 5xx/429.
+
+---
+
+## Production Deployment Runbook (`deploy.sh`)
+
+The unified deploy script builds fresh minified CSS from source, syncs plugin and theme via rsync, updates ads.txt/llms.txt, flushes server caches, and performs health checks.
+
+```bash
+# Full deploy (theme + plugin) — takes ~30s
+bash deploy.sh
+
+# Theme-only deploy (faster, use after CSS/template changes)
+bash deploy.sh --theme-only
+
+# Plugin-only deploy (use after helmetsan-core PHP changes)
+bash deploy.sh --plugin-only
+```
+
+### Manual Cache Clear (Emergency / Verification)
+If you ever need to manually purge all cache layers on production:
+```bash
+# 1. Nginx FastCGI Microcache
+ssh root@31.70.136.154 "rm -rf /var/cache/nginx/microcache/* && nginx -s reload"
+
+# 2. WordPress Object Cache & Transients
+ssh root@31.70.136.154 "wp --path=/var/www/helmetsan.com/public --allow-root cache flush && wp --path=/var/www/helmetsan.com/public --allow-root transient delete --all"
+```
+
+---
+
+## Historical Production Gotchas & Root Causes
+
+| Gotcha | Root Cause | Fix / Invariant |
+|:---|:---|:---|
+| **Theme/CSS reverts after deploy** | `dist/` zips were stale. Old scripts used pre-built artifacts. | `bash deploy.sh` compiles fresh CSS from source every time. Never run legacy `scp dist/*.zip`. |
+| **Active filter chips not showing** | `$active_chips` typo — correct variable is `$activeChips`. | Variable is `$activeChips` in `archive-helmet.php`. |
+| **Homepage shows German/Chinese** | Polylang browser-language detection was enabled, Nginx cached the 302 redirect. | Set `browser => 0` in Polylang options. Never re-enable browser-language detection. |
+| **Child theme assets return 404** | `get_template_directory_uri()` returns parent theme path. | Always use `get_stylesheet_directory_uri()` for child theme assets. |
+| **OPcache serves old PHP after deploy** | Nginx reload doesn't flush PHP-FPM OPcache. | `deploy.sh` runs `wp cache flush` which triggers OPcache reset via WP. |
+| **Homepage returns 404** | `show_on_front` was set to `page` pointing to a deleted `page_on_front` post ID. | Set `show_on_front => posts` so WordPress renders `front-page.php`. |
+| **GSC API 403 on Sitemaps/Inspection** | Service account was given "Full" instead of "Owner" permission in GSC. | Set Service Account permission to "Owner" in Google Search Console Settings. |
+| **AdSense "Low Value Content" penalty** | Indexing thousands of thin child SKU variants (`post_parent > 0`) or stub CPTs. | Child SKUs must be `noindex, follow` + canonical to parent via `AutoSeoObserver.php`. |
+| **Amazon Out-of-Region 404 Dogs** | US ASINs do not exist in foreign catalogs (e.g. `amazon.com.au`). | `RevenueService` degrades to search query (`/s?k={title}&tag={tag}`) if ASIN parity fails. |
+

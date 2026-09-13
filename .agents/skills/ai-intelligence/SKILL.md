@@ -1,3 +1,8 @@
+---
+name: ai-intelligence
+description: Manage Helmetsan AI pipelines, FillMissingService, semantic integrity, and Vision AI.
+---
+
 # Skill: AI Enrichment & Intelligence
 
 A specialized instruction set for the agent to manage Helmetsan's AI pipelines, focusing on **Semantic Integrity**, **Vision AI**, and **Local LLM Efficiency**.

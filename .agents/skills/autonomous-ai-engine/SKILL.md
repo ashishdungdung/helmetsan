@@ -1,3 +1,8 @@
+---
+name: autonomous-ai-engine
+description: Autonomous Multi-AI orchestration between IDE AI, Local LM Studio (gemma-4-12b-qat on port 1234), and Server AI.
+---
+
 # Skill: Autonomous Multi-AI Engine
 
 Integrated instruction set for navigating the **IDE**, **Local**, and **Server** AI layers to build and maintain the Helmetsan project.

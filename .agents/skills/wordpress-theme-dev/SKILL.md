@@ -1,3 +1,8 @@
+---
+name: wordpress-theme-dev
+description: Guidelines for GeneratePress child theme development, CSS bundle pipeline, and UI cards.
+---
+
 # Skill: Advanced WordPress Theme Development
 
 A specialized instruction set for building modern, high-speed, hook-driven WordPress themes with the **"Midnight & Electric"** design language.
