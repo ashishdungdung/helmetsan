@@ -73,8 +73,15 @@ final class Validator
         if (isset($data['price']) && ! is_array($data['price'])) {
             $errors[] = 'price must be an object if set';
         }
-        if (isset($data['price']) && is_array($data['price']) && array_key_exists('current', $data['price']) && $data['price']['current'] !== null && ! is_numeric($data['price']['current'])) {
-            $errors[] = 'price.current must be numeric';
+        // P1 Fix: validate price.usd (the real schema key) not the phantom price.current.
+        if (isset($data['price']) && is_array($data['price'])) {
+            if (array_key_exists('usd', $data['price']) && $data['price']['usd'] !== null && ! is_numeric($data['price']['usd'])) {
+                $errors[] = 'price.usd must be numeric';
+            }
+            // Stale flat key — should have been removed by migrate script.
+            if (array_key_exists('price_usd', $data)) {
+                $errors[] = 'Stale price_usd flat key found; remove it (price.usd is the canonical field)';
+            }
         }
 
         if (isset($data['parent_id']) && ! is_string($data['parent_id'])) {
@@ -122,17 +129,26 @@ final class Validator
             }
         }
 
-        if (isset($data['price']['current']) && is_numeric($data['price']['current'])) {
-            $current = (float) $data['price']['current'];
-            if ($current < 0) {
-                $errors[] = 'price.current must be >= 0';
+        // P1 Fix: validate price.usd (real schema) not phantom price.current.
+        if (isset($data['price']['usd']) && is_numeric($data['price']['usd'])) {
+            if ((float) $data['price']['usd'] < 0) {
+                $errors[] = 'price.usd must be >= 0';
             }
         }
 
-        // --- NEW: Safety Standard Semantic Logic (ECE 22.06 vs 22.05) ---
+        // P2: Warn if price.aed is missing — UAE Amazon Associates is now active.
+        if ($entity === 'helmet' && isset($data['price']) && is_array($data['price'])) {
+            if (! array_key_exists('aed', $data['price'])) {
+                $warnings[] = 'Missing price.aed — required for Amazon.ae UAE affiliate (vtete0c-21)';
+            }
+        }
+
+        // --- Safety Standard Semantic Logic (ECE 22.06 weight) ---
         if ($entity === 'helmet' && isset($data['specs']['certifications']) && is_array($data['specs']['certifications'])) {
-            $certs = array_map('strtolower', $data['specs']['certifications']);
-            $is2206 = false;
+            $certs      = array_map('strtolower', $data['specs']['certifications']);
+            $helmetType = strtolower((string) ($data['type'] ?? ''));
+            $is2206     = false;
+
             foreach ($certs as $c) {
                 if (str_contains($c, '22.06') || str_contains($c, '2206')) {
                     $is2206 = true;
@@ -141,16 +157,52 @@ final class Validator
             }
 
             if ($is2206 && isset($data['specs']['weight_g']) && is_int($data['specs']['weight_g'])) {
-                // ECE 22.06 helmets are generally heavier due to stricter rotation/impact tests.
-                // Full face 22.06 rarely goes below 1350g unless it's pure Carbon.
-                $weight = $data['specs']['weight_g'];
-                $isCarbon = false;
-                if (isset($data['specs']['shell_material']) && str_contains(strtolower((string)$data['specs']['shell_material']), 'carbon')) {
-                    $isCarbon = true;
-                }
+                $weight   = $data['specs']['weight_g'];
+                $isCarbon = isset($data['specs']['shell_material'])
+                    && str_contains(strtolower((string) $data['specs']['shell_material']), 'carbon');
 
                 if ($weight < 1250 && ! $isCarbon) {
                     $warnings[] = 'Potentially unrealistic weight for ECE 22.06 non-carbon helmet: ' . $weight . 'g';
+                }
+            }
+
+            // --- P2: Cert × Helmet-Type Impossibility Rules ---
+            // These combinations are physically/legally impossible and indicate AI hallucination.
+
+            $isOffRoad = str_contains($helmetType, 'dirt')
+                || str_contains($helmetType, 'mx')
+                || str_contains($helmetType, 'off-road')
+                || str_contains($helmetType, 'motocross')
+                || str_contains($helmetType, 'enduro');
+
+            $isOpenFace = str_contains($helmetType, 'half')
+                || str_contains($helmetType, 'open face')
+                || str_contains($helmetType, '3/4')
+                || str_contains($helmetType, 'skull cap');
+
+            foreach ($certs as $cert) {
+                // SHARP is a UK road-helmet-only rating programme.
+                // Off-road helmets are never submitted and cannot carry SHARP ratings.
+                if (str_contains($cert, 'sharp') && $isOffRoad) {
+                    $warnings[] = 'Impossible certification: SHARP is road-only and cannot apply to off-road/MX helmet type "' . $data['type'] . '"';
+                }
+
+                // ECE 22.06 (and 22.05) requires a chin-bar impact test.
+                // Half-face / open-face helmets physically cannot pass it.
+                if ((str_contains($cert, '22.06') || str_contains($cert, '22.05')) && $isOpenFace) {
+                    $warnings[] = 'Impossible certification: ECE 22.x requires chin-bar impact test; cannot apply to open-face/half helmet type "' . $data['type'] . '"';
+                }
+
+                // ECE 22.05 / 22.06 are road-only standards.
+                // Dirt / MX helmets go through different protocols (not ECE road standards).
+                if ((str_contains($cert, '22.06') || str_contains($cert, '22.05')) && $isOffRoad) {
+                    $warnings[] = 'Suspicious certification: ECE 22.x is a road standard; MX/dirt helmet type "' . $data['type'] . '" typically uses different protocols';
+                }
+
+                // FIM homologation is for closed-circuit motorsport racing only.
+                // It cannot appear on commuter, touring, or open-face helmets.
+                if (str_contains($cert, 'fim') && $isOpenFace) {
+                    $warnings[] = 'Impossible certification: FIM homologation is closed-circuit racing only; cannot apply to open-face/half helmet type "' . $data['type'] . '"';
                 }
             }
         }
