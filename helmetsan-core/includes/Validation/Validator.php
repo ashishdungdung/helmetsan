@@ -111,6 +111,7 @@ final class Validator
     public function validateLogic(array $data): array
     {
         $errors   = [];
+        $warnings = [];
         $rawEntity = isset($data['entity']) ? (string) $data['entity'] : '';
         $entity    = function_exists('sanitize_key') ? sanitize_key($rawEntity) : strtolower((string) preg_replace('/[^a-z0-9_\-]/', '', $rawEntity));
 
@@ -180,6 +181,10 @@ final class Validator
                 || str_contains($helmetType, '3/4')
                 || str_contains($helmetType, 'skull cap');
 
+            $isSkullCap = str_contains($helmetType, 'skull cap')
+                || str_contains($helmetType, 'beanie')
+                || str_contains($helmetType, 'novelty');
+
             foreach ($certs as $cert) {
                 // SHARP is a UK road-helmet-only rating programme.
                 // Off-road helmets are never submitted and cannot carry SHARP ratings.
@@ -187,10 +192,10 @@ final class Validator
                     $warnings[] = 'Impossible certification: SHARP is road-only and cannot apply to off-road/MX helmet type "' . $data['type'] . '"';
                 }
 
-                // ECE 22.06 (and 22.05) requires a chin-bar impact test.
-                // Half-face / open-face helmets physically cannot pass it.
-                if ((str_contains($cert, '22.06') || str_contains($cert, '22.05')) && $isOpenFace) {
-                    $warnings[] = 'Impossible certification: ECE 22.x requires chin-bar impact test; cannot apply to open-face/half helmet type "' . $data['type'] . '"';
+                // ECE 22.06 (and 22.05) cannot be met by novelty / skull cap helmets without side/ear coverage.
+                // (Note: Standard open-face / 3/4 helmets ARE legitimately homologated under UNECE R22 classification "J").
+                if ((str_contains($cert, '22.06') || str_contains($cert, '22.05')) && $isSkullCap) {
+                    $warnings[] = 'Impossible certification: ECE 22.x requires lateral impact coverage; cannot apply to novelty/skull cap helmet type "' . $data['type'] . '"';
                 }
 
                 // ECE 22.05 / 22.06 are road-only standards.

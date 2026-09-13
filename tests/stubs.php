@@ -372,6 +372,10 @@ namespace {
             public function get(string $var, $default = '') {
                 return $this->query_vars[$var] ?? $default;
             }
+
+            public function set(string $var, mixed $value): void {
+                $this->query_vars[$var] = $value;
+            }
         }
     }
     if (! function_exists('wp_reset_postdata')) {

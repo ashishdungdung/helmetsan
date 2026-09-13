@@ -476,6 +476,7 @@ final class Plugin
         $this->feedTask->register();
         $this->revenueDashboard->register();
         add_action('pre_get_posts', [$this->search, 'interceptMainQuery']);
+        add_action('pre_get_posts', [$this, 'enforceHelmetQueryParentGuard']);
 
         // Register custom cron interval
         add_filter('cron_schedules', [$this->feedTask, 'addInterval']);
@@ -835,5 +836,38 @@ final class Plugin
         }
 
         return $registry;
+    }
+
+    /**
+     * Defense-in-depth: enforce post_parent = 0 on all frontend helmet queries
+     * unless an explicit parent constraint (parent ID, parent__in, parent__not_in) is already set.
+     */
+    public function enforceHelmetQueryParentGuard(\WP_Query $query): void
+    {
+        if (is_admin()) {
+            return;
+        }
+
+        $postType = $query->get('post_type');
+        $isHelmet = ($postType === 'helmet')
+            || (is_array($postType) && in_array('helmet', $postType, true));
+
+        if (! $isHelmet) {
+            return;
+        }
+
+        // If post_parent was explicitly provided (e.g. integer, numeric string, or 0), do not override.
+        $parent = $query->get('post_parent');
+        if ($parent !== '' && $parent !== null) {
+            return;
+        }
+
+        // If parent set arrays are provided, do not override.
+        if (! empty($query->get('post_parent__in')) || ! empty($query->get('post_parent__not_in'))) {
+            return;
+        }
+
+        // Guard against returning internal child variants across frontend queries
+        $query->set('post_parent', 0);
     }
 }
