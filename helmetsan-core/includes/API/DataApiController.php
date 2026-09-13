@@ -434,6 +434,7 @@ final class DataApiController
         if ($numericIds !== []) {
             $helmets = get_posts([
                 'post_type'   => 'helmet',
+                'post_parent' => 0,
                 'post__in'    => $numericIds,
                 'numberposts' => 4,
                 'orderby'     => 'post__in',
@@ -442,6 +443,7 @@ final class DataApiController
         if ($helmets === [] && $slugsOrIds !== []) {
             $helmets = get_posts([
                 'post_type'     => 'helmet',
+                'post_parent'   => 0,
                 'post_name__in' => $slugsOrIds,
                 'numberposts'   => 4,
             ]);
