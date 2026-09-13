@@ -15,6 +15,7 @@ if (isset($_GET['ids']) && !empty($_GET['ids'])) {
     if ($numericIds !== []) {
         $helmets = get_posts([
             'post_type'   => 'helmet',
+            'post_parent' => 0,
             'post__in'    => $numericIds,
             'numberposts' => 4,
             'orderby'     => 'post__in',
@@ -25,6 +26,7 @@ if (isset($_GET['ids']) && !empty($_GET['ids'])) {
     if ($helmets === [] && $raw !== []) {
         $helmets = get_posts([
             'post_type'     => 'helmet',
+            'post_parent'   => 0,
             'post_name__in' => $raw,
             'numberposts'   => 4,
         ]);

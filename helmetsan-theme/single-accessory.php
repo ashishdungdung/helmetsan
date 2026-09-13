@@ -377,6 +377,7 @@ if (have_posts()) {
             $hasCompatibleHelmets = !empty($helmetIdsArray);
             $helmetsQuery = $hasCompatibleHelmets ? new WP_Query([
                 'post_type' => 'helmet',
+                'post_parent' => 0,
                 'post_name__in' => $helmetIdsArray,
                 'posts_per_page' => -1,
             ]) : null;

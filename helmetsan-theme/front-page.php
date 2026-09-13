@@ -134,6 +134,7 @@ $compareUrl     = helmetsan_url('/comparison/');
             // Query top helmets from real catalog in active language
             $picks_args = [
                 'post_type'      => 'helmet',
+                'post_parent'    => 0,
                 'post_status'    => 'publish',
                 'posts_per_page' => 4,
                 'orderby'        => 'modified',
