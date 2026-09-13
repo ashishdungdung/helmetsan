@@ -42,7 +42,8 @@ if (!is_dir(HS_CORRECTIONS_DIR)) {
     mkdir(HS_CORRECTIONS_DIR, 0755, true);
 }
 
-// Fallback logic: Check if local AI is actually reachable
+// P0 FIX: Strict offline policy — NEVER fall back to cloud on bulk tasks.
+// If LM Studio is unreachable, queue remaining work and exit cleanly.
 if ($aiMode === 'local') {
     $ch = curl_init(HS_LM_STUDIO_URL);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -50,10 +51,25 @@ if ($aiMode === 'local') {
     curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-    
+
     if ($httpCode === 0) {
-        error_log("  ! LOCAL AI (LM Studio) unreachable. Falling back to SERVER mode...");
-        $aiMode = 'server';
+        $queueDir  = HS_DATA_DIR . '/tasks/queue';
+        if (!is_dir($queueDir)) {
+            mkdir($queueDir, 0755, true);
+        }
+        $queueFile = $queueDir . '/sweep_' . date('Ymd_His') . '.json';
+        file_put_contents($queueFile, json_encode([
+            'action'    => 'sweep_helmets',
+            'queued_at' => date('c'),
+            'reason'    => 'LM Studio unreachable at ' . HS_LM_STUDIO_URL,
+            'resume_args' => $_SERVER['argv'] ?? [],
+        ], JSON_PRETTY_PRINT));
+
+        echo "\n🛑 LOCAL AI (LM Studio) is OFFLINE.\n";
+        echo "   Queued task → " . basename($queueFile) . "\n";
+        echo "   Run this script again once LM Studio is running.\n";
+        echo "   ⚠️  NOT falling back to cloud. Zero tokens burned.\n";
+        exit(0);
     }
 }
 
@@ -90,6 +106,16 @@ while ($healedCount < PILOT_LIMIT && !empty($anomalies)) {
 }
 
 echo "\n--- Sweep Completed. Total Healed: $healedCount ---\n";
+
+// Auto-rebuild RAM index if any files were modified, so analytics stay current.
+if ($healedCount > 0) {
+    $indexScript = dirname(__DIR__) . '/scripts/build_in_memory_catalog_index.py';
+    if (file_exists($indexScript)) {
+        echo "🔄 Rebuilding RAM index ($healedCount changes)...\n";
+        passthru('python3 ' . escapeshellarg($indexScript));
+        echo "✅ RAM index rebuilt.\n";
+    }
+}
 
 /**
  * IDE Assisted Healing (Console Prompts)
@@ -369,14 +395,21 @@ function apply_patch(array $item, ?string $patchRaw): bool {
     @unlink($tmp);
     
     if ($res && $res['ok'] && empty($res['warnings'])) {
-        file_put_contents($item['file'], $healedRaw);
+        // P0 FIX: Atomic write — prevents half-written JSON on kill/OOM.
+        $atomicTmp = $item['file'] . '.atomic_tmp';
+        file_put_contents($atomicTmp, $healedRaw, LOCK_EX);
+        rename($atomicTmp, $item['file']);
         echo "    [FIXED] " . basename($item['file']) . " (Auto-Committed)\n";
         
         // Log to database
         log_to_db($item, $patchRaw, $original, true);
         return true;
     } else {
-        file_put_contents(HS_CORRECTIONS_DIR . '/' . basename($item['file']), $healedRaw);
+        // Atomic write to corrections dir (staged, not auto-committed).
+        $corrTarget = HS_CORRECTIONS_DIR . '/' . basename($item['file']);
+        $corrTmp    = $corrTarget . '.atomic_tmp';
+        file_put_contents($corrTmp, $healedRaw, LOCK_EX);
+        rename($corrTmp, $corrTarget);
         echo "    [STAGED] " . basename($item['file']) . " (Imperfect fix, manually review corrections/)\n";
         
         // Log as staged

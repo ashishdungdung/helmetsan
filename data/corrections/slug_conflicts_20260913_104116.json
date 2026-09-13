@@ -1,0 +1,114 @@
+{
+    "generated_at": "2026-09-13T10:41:16+00:00",
+    "catalog": "helmets",
+    "total_groups": 16,
+    "conflicts": [
+        {
+            "canonical": "alpinestars_sm5_course-blue.json",
+            "stale": "alpinestars_sm5_course_blue.json",
+            "conflicts": [
+                "type: \"Dirt \/ MX\" vs \"Full Face\"",
+                "title: \"SM5 Course Blue\" vs \"SM-5 Course Blue\""
+            ]
+        },
+        {
+            "canonical": "alpinestars_sm5_matte-black.json",
+            "stale": "alpinestars_sm5_matte_black.json",
+            "conflicts": [
+                "type: \"Dirt \/ MX\" vs \"Full Face\""
+            ]
+        },
+        {
+            "canonical": "alpinestars_sm5_pearl-white.json",
+            "stale": "alpinestars_sm5_pearl_white.json",
+            "conflicts": [
+                "type: \"Dirt \/ MX\" vs \"Full Face\"",
+                "title: \"SM5 Pearl White\" vs \"SM-5 Pearl White\""
+            ]
+        },
+        {
+            "canonical": "alpinestars_sm5_racer-tc-2.json",
+            "stale": "alpinestars_sm5_racer_tc_2.json",
+            "conflicts": [
+                "type: \"Dirt \/ MX\" vs \"Full Face\""
+            ]
+        },
+        {
+            "canonical": "ruroc_atlas_4_0_track_tech-tc-3.json",
+            "stale": "ruroc_atlas_4_0_track_tech_tc_3.json",
+            "conflicts": [
+                "type: \"Track \/ Race\" vs \"Full Face\"",
+                "title: \"Atlas 4.0 Track Tech TC-3\" vs \"Atlas 4.0 Track Tech-TC-3\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_1400_air_hi-viz-yellow.json",
+            "stale": "scorpion_exo_1400_air_hi_viz_yellow.json",
+            "conflicts": [
+                "title: \"-1400 Air Hi-Viz Yellow\" vs \"Scorpion scorpion_exo_1400_air_hi-viz-yellow\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_combat_ii_camo-blue.json",
+            "stale": "scorpion_exo_combat_ii_camo_blue.json",
+            "conflicts": [
+                "title: \"-Combat II Camo Blue\" vs \"Scorpion scorpion_exo_combat_ii_camo-blue\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_gt930_silver-metallic.json",
+            "stale": "scorpion_exo_gt930_silver_metallic.json",
+            "conflicts": [
+                "type: \"Modular\" vs \"Full Face\"",
+                "title: \"-GT930 Silver Metallic\" vs \"Scorpion Exo GT930 Silver Metallic\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_gt930_track-grey.json",
+            "stale": "scorpion_exo_gt930_track_grey.json",
+            "conflicts": [
+                "type: \"Modular\" vs \"Full Face\"",
+                "title: \"-GT930 Track Grey\" vs \"Scorpion scorpion_exo_gt930_track-grey\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_r1_air_vortex-tc-3.json",
+            "stale": "scorpion_exo_r1_air_vortex_tc_3.json",
+            "conflicts": [
+                "type: \"Track \/ Race\" vs \"Full Face\"",
+                "title: \"-R1 Air Vortex TC-3\" vs \"Scorpion scorpion_exo_r1_air_vortex-tc-3\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_r420_course-tc-5.json",
+            "stale": "scorpion_exo_r420_course_tc_5.json",
+            "conflicts": [
+                "title: \"-R420 Course TC-5\" vs \"Scorpion scorpion_exo_r420_course-tc-5\""
+            ]
+        },
+        {
+            "canonical": "scorpion_exo_r420_raptor-tc-2.json",
+            "stale": "scorpion_exo_r420_raptor_tc_2.json",
+            "conflicts": [
+                "title: \"-R420 Raptor TC-2\" vs \"Scorpion Exo R420 RAPTOR-TC-2\""
+            ]
+        },
+        {
+            "canonical": "shark_evo_one_2_course-red.json",
+            "stale": "shark_evo_one_2_course_red.json",
+            "conflicts": [
+                "type: \"Modular\" vs \"Full Face\"",
+                "title: \"Evo-One 2 Course Red\" vs \"Evo One 2 Course Red\""
+            ]
+        },
+        {
+            "canonical": "shark_race_r_pro_gp_vortex-tc-2.json",
+            "stale": "shark_race_r_pro_gp_vortex_tc_2.json",
+            "conflicts": [
+                "type: \"Track \/ Race\" vs \"Full Face\"",
+                "title: \"Race-R Pro GP Vortex TC-2\" vs \"Race R Pro GP Vortex TC-2\""
+            ]
+        }
+    ],
+    "instruction": "Review each conflict. Determine the correct value from manufacturer spec sheet. Delete the stale file after resolving."
+}

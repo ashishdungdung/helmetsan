@@ -632,5 +632,8 @@ function applyEnrichment($type, $file, $enriched) {
     }
 
     $data['unified_enriched'] = true;
-    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    // P0 FIX: Atomic write — prevents half-written JSON if process is killed mid-write.
+    $atomicTmp = $file . '.atomic_tmp';
+    file_put_contents($atomicTmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), LOCK_EX);
+    rename($atomicTmp, $file);
 }
