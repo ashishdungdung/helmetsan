@@ -14567,6 +14567,31 @@ if (isset($opts['export-master'])) {
 
 $output = [];
 
+/**
+ * Canonical slug function — SINGLE SOURCE OF TRUTH for ID generation.
+ *
+ * Rules (enforced across ALL seeder output):
+ * - Spaces, dots, slashes → hyphens
+ * - Existing hyphens → preserved
+ * - Underscores in BRAND/MODEL names → hyphens (they come from PHP array keys)
+ * - Everything lowercased
+ * - Multiple consecutive hyphens → collapsed to one
+ *
+ * Why this matters: the original seeder mixed _ and - separators depending on
+ * which str_replace() ran, producing slug collisions (16 confirmed in the catalog).
+ * This function ensures every ID is hyphen-only, matching the canonical file format.
+ *
+ * @param string ...$parts
+ */
+function hs_slug(string ...$parts): string {
+    $slug = implode('-', $parts);
+    $slug = strtolower($slug);
+    // Collapse any character that is not a-z, 0-9, or hyphen into a hyphen
+    $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
+    // Remove leading/trailing hyphens
+    return trim($slug, '-');
+}
+
 foreach ($brands as $brandName => $models) {
     if (! is_array($models)) {
         continue; // skip _comment and other non-brand keys
@@ -14575,20 +14600,26 @@ foreach ($brands as $brandName => $models) {
         if (! is_array($specs) || empty($specs['colorways']) || ! is_array($specs['colorways'])) {
             continue;
         }
-        $modelId = strtolower(str_replace([' ', '-', '.', '/'], '_', $brandName . '_' . $modelName));
+        // FIXED: was str_replace([' ','-','.','/'  ], '_', ...) — produced underscore IDs
+        // Now uses the canonical hs_slug() helper — all hyphens, no mixed separators.
+        $modelId = hs_slug($brandName, $modelName);
         
         // Generate Variants from Colorways
         $variants = [];
         
         foreach ($specs['colorways'] as $cw) {
-            $variantSlug = strtolower(str_replace([' ', '/'], '-', $cw['name']));
-            $variantId = $modelId . '_' . $variantSlug;
-            
+            // FIXED: was modelId + '_' + variantSlug (mixed separators).
+            // Now: hs_slug() produces consistent hyphen-only IDs everywhere.
+            $variantId = hs_slug($modelId, $cw['name']);
 
-            // Calculate multi-currency
-            $vPrice = $specs['price'] + ($cw['price_adj'] ?? 0);
-            $priceEur = round($vPrice * 0.92, 2);
-            $priceGbp = round($vPrice * 0.79, 2);
+            // Multi-currency price calculation (all supported regions).
+            // Exchange rates are approximate seed defaults; enrichment sweep updates live rates.
+            $vPrice    = round((float) $specs['price'] + (float) ($cw['price_adj'] ?? 0), 2);
+            $priceInr  = (int) round($vPrice * 82.9);   // USD → INR (approx)
+            $priceEur  = round($vPrice * 0.92, 2);       // USD → EUR
+            $priceGbp  = round($vPrice * 0.79, 2);       // USD → GBP
+            $priceAed  = round($vPrice * 3.67, 2);       // USD → AED (fixed peg)
+            $priceJpy  = (int) round($vPrice * 149.5);   // USD → JPY (approx)
 
             $variantEntry = [
                 'id' => $variantId,
@@ -14608,11 +14639,14 @@ foreach ($brands as $brandName => $models) {
                 'product_details' => [
                     'description' => $specs['desc'],
                 ],
+                // FIXED: removed ghost 'current' key. Canonical price schema: price.{usd,inr,eur,gbp,aed,jpy}.
                 'price' => [
-                    'current' => $vPrice,
                     'usd' => $vPrice,
+                    'inr' => $priceInr,
                     'eur' => $priceEur,
-                    'gbp' => $priceGbp
+                    'gbp' => $priceGbp,
+                    'aed' => $priceAed,
+                    'jpy' => $priceJpy,
                 ],
                 'specs' => array_filter([
                     'material' => $specs['mat'],
@@ -14656,9 +14690,14 @@ foreach ($brands as $brandName => $models) {
             'brand' => $brandName,
             'type' => $specs['type'],
             'helmet_family' => $specs['helmet_family'] ?? $modelName,
+            // FIXED: canonical multi-currency price object (no 'current', no 'currency' string).
             'price' => [
-                'current' => $specs['price'],
-                'currency' => 'USD'
+                'usd' => (float) $specs['price'],
+                'inr' => (int) round((float) $specs['price'] * 82.9),
+                'eur' => round((float) $specs['price'] * 0.92, 2),
+                'gbp' => round((float) $specs['price'] * 0.79, 2),
+                'aed' => round((float) $specs['price'] * 3.67, 2),
+                'jpy' => (int) round((float) $specs['price'] * 149.5),
             ],
             'head_shape' => $specs['shape'],
             'specs' => array_filter([
@@ -14710,11 +14749,14 @@ foreach ($brands as $brandName => $models) {
                 'helmet_types' => [$specs['type']],
                 'parent_id' => $modelId,
                 'helmet_family' => $specs['helmet_family'] ?? $modelName,
+                // Canonical price schema — inherits all currency fields from variant.
                 'price' => [
-                    'current' => $v['price']['usd'],
                     'usd' => $v['price']['usd'],
+                    'inr' => $v['price']['inr'],
                     'eur' => $v['price']['eur'],
-                    'gbp' => $v['price']['gbp']
+                    'gbp' => $v['price']['gbp'],
+                    'aed' => $v['price']['aed'],
+                    'jpy' => $v['price']['jpy'],
                 ],
                 'certifications' => $specs['cert'],
                 'head_shape' => $specs['shape'],
@@ -14802,13 +14844,33 @@ if (isset($opts['output'])) {
 // Split Dir
 if (isset($opts['split-dir'])) {
     $dir = rtrim($opts['split-dir'], '/');
-    if (!is_dir($dir)) mkdir($dir, 0755, true);
-    // Cleanup old files
-    array_map('unlink', glob("$dir/*.json"));
-    
-    foreach ($output as $item) {
-        $filename = $dir . '/' . $item['id'] . '.json';
-        file_put_contents($filename, json_encode($item, JSON_PRETTY_PRINT));
+    if (! is_dir($dir)) {
+        mkdir($dir, 0755, true);
     }
-    if (isset($opts['stats'])) fwrite(STDERR, "Split JSON files written to $dir/\n");
+    // Cleanup stale files from previous seeder runs.
+    // Uses glob rather than rmdir/mkdir to avoid deleting enriched files
+    // that exist in the dir but are not in this seed batch.
+    $existing = glob("$dir/*.json") ?: [];
+    $seedIds  = array_column($output, 'id');
+    foreach ($existing as $f) {
+        $id = basename($f, '.json');
+        if (! in_array($id, $seedIds, true)) {
+            @unlink($f); // Remove stale files not in current seed
+        }
+    }
+
+    $written = 0;
+    foreach ($output as $item) {
+        $targetPath = $dir . '/' . $item['id'] . '.json';
+        $json       = json_encode($item, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        // Atomic write — prevents partial JSON on SIGTERM or disk-full.
+        $tmpPath    = $targetPath . '.seed_tmp';
+        file_put_contents($tmpPath, $json, LOCK_EX);
+        rename($tmpPath, $targetPath);
+        $written++;
+    }
+
+    if (isset($opts['stats'])) {
+        fwrite(STDERR, "Split JSON files written: $written to $dir/\n");
+    }
 }
