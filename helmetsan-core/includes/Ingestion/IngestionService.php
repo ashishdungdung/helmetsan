@@ -636,10 +636,10 @@ final class IngestionService
         }
 
         if (isset($data['price']) && is_array($data['price'])) {
-            if (isset($data['price']['current'])) {
-                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
-            } elseif (isset($data['price']['usd'])) {
+            if (isset($data['price']['usd'])) {
                 update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['usd']);
+            } elseif (isset($data['price']['current'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
             }
         }
 
@@ -890,7 +890,14 @@ final class IngestionService
         if (isset($data['price_range']) && is_string($data['price_range']) && $data['price_range'] !== '') {
             wp_set_object_terms($resolvedPostId, sanitize_text_field($data['price_range']), 'price_range', false);
         } else {
-            $priceUsd = isset($data['price']['usd']) ? (float) $data['price']['usd'] : (isset($data['price']['current']) ? (float) $data['price']['current'] : (isset($data['price_usd']) ? (float) $data['price_usd'] : null));
+            $priceUsd = null;
+            if (isset($data['price']['usd']) && is_numeric($data['price']['usd'])) {
+                $priceUsd = (float) $data['price']['usd'];
+            } elseif (isset($data['price']['current']) && is_numeric($data['price']['current'])) {
+                $priceUsd = (float) $data['price']['current'];
+            } elseif (isset($data['price_usd']) && is_numeric($data['price_usd'])) {
+                $priceUsd = (float) $data['price_usd'];
+            }
             if ($priceUsd !== null && $priceUsd >= 0) {
                 $bucket = $priceUsd < 100 ? 'budget' : ($priceUsd < 300 ? 'mid-range' : ($priceUsd < 600 ? 'premium' : 'luxury'));
                 wp_set_object_terms($resolvedPostId, $bucket, 'price_range', false);
@@ -903,14 +910,16 @@ final class IngestionService
             if (isset($data['price']['eur'])) update_post_meta($resolvedPostId, 'price_eur', (string) $data['price']['eur']);
             if (isset($data['price']['gbp'])) update_post_meta($resolvedPostId, 'price_gbp', (string) $data['price']['gbp']);
             if (isset($data['price']['inr'])) update_post_meta($resolvedPostId, 'price_inr', (string) $data['price']['inr']);
+            if (isset($data['price']['aed'])) update_post_meta($resolvedPostId, 'price_aed', (string) $data['price']['aed']);
+            if (isset($data['price']['jpy'])) update_post_meta($resolvedPostId, 'price_jpy', (string) $data['price']['jpy']);
             if (isset($data['price']['mrp'])) update_post_meta($resolvedPostId, 'price_mrp', (string) $data['price']['mrp']);
             if (isset($data['price']['mrp_inr'])) update_post_meta($resolvedPostId, 'price_mrp_inr', (string) $data['price']['mrp_inr']);
 
-            // Backwards compatibility for 'current'
-            if (isset($data['price']['current'])) {
-                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
-            } elseif (isset($data['price']['usd'])) {
+            // Backwards compatibility for retail USD
+            if (isset($data['price']['usd'])) {
                 update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['usd']);
+            } elseif (isset($data['price']['current'])) {
+                update_post_meta($resolvedPostId, 'price_retail_usd', (string) $data['price']['current']);
             }
         } elseif (isset($data['price_usd']) && $data['price_usd'] !== '') {
             $val = (string) $data['price_usd'];
