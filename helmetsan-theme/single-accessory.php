@@ -41,9 +41,12 @@ if (have_posts()) {
 
         $priceDisplay = '—';
         $currency = '';
-        if (is_array($price) && isset($price['current'])) {
-            $priceDisplay = is_numeric($price['current']) ? number_format_i18n((float) $price['current']) : (string) $price['current'];
-            $currency = (string) ($price['currency'] ?? '');
+        if (is_array($price)) {
+            $rawPrice = $price['usd'] ?? $price['current'] ?? null;
+            if ($rawPrice !== null) {
+                $priceDisplay = is_numeric($rawPrice) ? number_format_i18n((float) $rawPrice) : (string) $rawPrice;
+                $currency = (string) ($price['currency'] ?? 'USD');
+            }
         }
         $compatCount = count($helmetTypes);
         $accessoriesUrl = helmetsan_url('/accessories/');

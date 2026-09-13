@@ -571,7 +571,7 @@ final class Plugin
             $candidatePrefix = implode('-', array_slice($latinParts, 0, min(3, count($latinParts))));
             global $wpdb;
             $match = $wpdb->get_var($wpdb->prepare(
-                "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' AND post_name LIKE %s ORDER BY ID DESC LIMIT 1",
+                "SELECT post_name FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_parent = 0 AND post_status = 'publish' AND post_name LIKE %s ORDER BY ID DESC LIMIT 1",
                 $candidatePrefix . '%'
             ));
             if ($match) {

@@ -29,10 +29,10 @@ $helmetTypes = is_string($helmetTypesJson) && $helmetTypesJson !== '' ? json_dec
 
 $priceCurrent = null;
 if (is_array($price)) {
-    if (isset($price['current']) && is_numeric($price['current'])) {
-        $priceCurrent = (float) $price['current'];
-    } elseif (isset($price['usd']) && is_numeric($price['usd'])) {
+    if (isset($price['usd']) && is_numeric($price['usd'])) {
         $priceCurrent = (float) $price['usd'];
+    } elseif (isset($price['current']) && is_numeric($price['current'])) {
+        $priceCurrent = (float) $price['current'];
     }
 }
 

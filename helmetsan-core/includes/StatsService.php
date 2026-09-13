@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Helmetsan Canonical Stats & Entity Service
  * 
@@ -15,9 +17,9 @@ class Helmetsan_StatsService {
     /**
      * Get canonical statistics across all catalog entities.
      * 
-     * @return array
+     * @return array<string, mixed>
      */
-    public static function get_catalog_stats() {
+    public static function get_catalog_stats(): array {
         $transient_key = 'helmetsan_canonical_catalog_stats';
         $cached = get_transient($transient_key);
         if ($cached !== false && is_array($cached)) {
@@ -28,8 +30,9 @@ class Helmetsan_StatsService {
             ? (string) HELMETSAN_DATA_DIR
             : (defined('HELMETSAN_CORE_DIR') ? dirname(HELMETSAN_CORE_DIR) . '/data' : dirname(__DIR__, 2) . '/data');
 
-        // Count Helmets — use max of WP posts and JSON files for canonical count
-        $helmet_wp = wp_count_posts('helmet')->publish ?? 0;
+        // Count Helmets — count top-level published helmets (excluding child variants)
+        global $wpdb;
+        $helmet_wp = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_parent = 0 AND post_status = 'publish'");
         $helmet_files = is_dir($dataDir . '/helmets') ? glob($dataDir . '/helmets/*.json') : [];
         $helmet_json = $helmet_files ? count($helmet_files) : 0;
         $helmet_count = max($helmet_wp, $helmet_json);

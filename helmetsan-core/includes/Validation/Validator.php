@@ -111,8 +111,8 @@ final class Validator
     public function validateLogic(array $data): array
     {
         $errors   = [];
-        $warnings = [];
-        $entity   = isset($data['entity']) ? sanitize_key((string) $data['entity']) : '';
+        $rawEntity = isset($data['entity']) ? (string) $data['entity'] : '';
+        $entity    = function_exists('sanitize_key') ? sanitize_key($rawEntity) : strtolower((string) preg_replace('/[^a-z0-9_\-]/', '', $rawEntity));
 
         if (isset($data['specs']['weight_g']) && is_int($data['specs']['weight_g'])) {
             $weight = $data['specs']['weight_g'];

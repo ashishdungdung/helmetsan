@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Helmetsan Transparent Intelligence Score Calculation Engine
  * 
@@ -25,10 +27,11 @@ class Helmetsan_ScoreEngine {
      * @return array
      */
     public static function calculate_score($helmetData) {
-        $specs  = $helmetData['specs'] ?? [];
-        $safety = $helmetData['safety_intelligence'] ?? [];
-        $price  = $helmetData['price']['current'] ?? 350;
-        $weight = $specs['weight_g'] ?? ($helmetData['spec_weight_g'] ?? 1450);
+        $specs    = $helmetData['specs'] ?? [];
+        $safety   = $helmetData['safety_intelligence'] ?? [];
+        $priceRaw = $helmetData['price']['usd'] ?? $helmetData['price']['current'] ?? $helmetData['price_usd'] ?? 350;
+        $price    = is_numeric($priceRaw) ? (float) $priceRaw : 350.0;
+        $weight   = $specs['weight_g'] ?? ($helmetData['spec_weight_g'] ?? 1450);
 
         // 1. Safety Score (0-100)
         $safetyScore = 75; // Baseline DOT

@@ -1319,6 +1319,7 @@ final class Admin
                      WHERE tt.taxonomy = 'language'
                        AND p.post_status = 'publish'
                        AND p.post_type = 'helmet'
+                       AND p.post_parent = 0
                      GROUP BY t.slug";
         $helmetLangCounts = [];
         $langRows = $wpdb->get_results($transSql, ARRAY_A);
@@ -1586,6 +1587,7 @@ final class Admin
                 FROM {$wpdb->postmeta} pm 
                 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id 
                 WHERE p.post_type = 'helmet' 
+                  AND p.post_parent = 0
                   AND p.post_status = 'publish' 
                   AND pm.meta_key = 'rel_brand' 
                   AND pm.meta_value != '' 
@@ -1597,6 +1599,7 @@ final class Admin
                 INNER JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id 
                 INNER JOIN {$wpdb->posts} p ON p.ID = tr.object_id 
                 WHERE p.post_type = 'helmet' 
+                  AND p.post_parent = 0
                   AND p.post_status = 'publish' 
                   AND tt.taxonomy = 'certification'
             ");
