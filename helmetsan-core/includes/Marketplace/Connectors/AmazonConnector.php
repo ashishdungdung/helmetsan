@@ -407,7 +407,7 @@ final class AmazonConnector implements MarketplaceConnectorInterface
             $mrp = (float) $regularPrice['Amount'];
         }
 
-        $tag = $this->config['affiliate_tag'] ?? 'vtete-20';
+        $tag = $this->resolveAffiliateTag($cc);
         $productUrl   = 'https://www.' . $region['domain'] . '/dp/' . $asin;
         $affiliateUrl = $productUrl . '?tag=' . rawurlencode($tag);
 
@@ -433,6 +433,33 @@ final class AmazonConnector implements MarketplaceConnectorInterface
             capturedAt:    gmdate('c'),
             extra:         ['asin' => $asin],
         );
+    }
+
+    /**
+     * Resolve affiliate tag for a given country code.
+     */
+    private function resolveAffiliateTag(string $cc): string
+    {
+        $code = strtolower($cc);
+        $altCode = $code === 'gb' ? 'uk' : ($code === 'uk' ? 'gb' : $code);
+
+        if (!empty($this->config['amazon_tag_' . $code])) {
+            return (string) $this->config['amazon_tag_' . $code];
+        }
+        if (!empty($this->config['amazon_tag_' . $altCode])) {
+            return (string) $this->config['amazon_tag_' . $altCode];
+        }
+        if (!empty($this->config['tag_' . $code])) {
+            return (string) $this->config['tag_' . $code];
+        }
+
+        return match ($code) {
+            'ae', 'sa'       => 'vtete0c-21',
+            'jp'             => 'vtete-22',
+            'uk', 'gb', 'ie' => 'vtete-21',
+            'in'             => 'virginiatete-21',
+            default          => (string) ($this->config['affiliate_tag'] ?? 'vtete-20'),
+        };
     }
 
     /**
