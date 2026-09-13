@@ -147,6 +147,7 @@ final class WooBridgeService
         $limit = max(1, $limit);
         $ids = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => ['publish', 'draft', 'private'],
             'posts_per_page' => $limit,
             'fields' => 'ids',

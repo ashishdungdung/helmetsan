@@ -152,7 +152,7 @@ final class DatabaseManager
         $table = $wpdb->prefix . 'helmetsan_product_index';
         $post = get_post($postId);
 
-        if (!$post || !in_array($post->post_type, ['helmet', 'accessory'], true) || $post->post_status !== 'publish') {
+        if (!$post || !in_array($post->post_type, ['helmet', 'accessory'], true) || $post->post_status !== 'publish' || (int) $post->post_parent > 0) {
             $wpdb->delete($table, ['post_id' => $postId]);
             return;
         }

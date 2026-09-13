@@ -336,10 +336,11 @@ final class BrandService
             $count = (int) $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(*) FROM {$wpdb->postmeta} pm
                  INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-                 WHERE pm.meta_key = 'rel_brand'
-                   AND pm.meta_value = %d
-                   AND p.post_type = 'helmet'
-                   AND p.post_status IN ('publish','draft','pending','private')",
+                  WHERE pm.meta_key = 'rel_brand'
+                    AND pm.meta_value = %d
+                    AND p.post_type = 'helmet'
+                    AND p.post_parent = 0
+                    AND p.post_status IN ('publish','draft','pending','private')",
                 $brand->ID
             ));
 

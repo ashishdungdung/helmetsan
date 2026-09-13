@@ -1308,6 +1308,7 @@ final class SchemaService
     {
         $query = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => max(1, $limit),
             'offset'         => max(0, $offset),

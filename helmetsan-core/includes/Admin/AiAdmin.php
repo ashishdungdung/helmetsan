@@ -1441,6 +1441,7 @@ final class AiAdmin
         // 1. Conversion Gaps Audit
         $query = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'posts_per_page' => 10,
             'meta_query'     => [
                 'relation' => 'OR',

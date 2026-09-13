@@ -60,6 +60,7 @@ final class SearchService
     {
         $args = [
             'post_type'      => $parsed['post_type'],
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => 18,
             'paged'          => (int) ($parsed['paged'] ?? 1),

@@ -381,6 +381,7 @@ final class Admin
     {
         $posts = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => 'publish',
             'posts_per_page' => max(1, $limit * 2),
             'meta_query' => [
@@ -427,6 +428,7 @@ final class Admin
     {
         $posts = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => 'publish',
             'posts_per_page' => max(1, $limit * 2),
             'meta_query' => [
@@ -2047,6 +2049,7 @@ final class Admin
         echo '<h3>Linked Helmets</h3>';
         $linked = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => ['publish', 'draft', 'private'],
             'posts_per_page' => 20,
             'meta_query' => [
@@ -2202,6 +2205,7 @@ final class Admin
     {
         $posts = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => ['publish', 'draft', 'private', 'pending'],
             'posts_per_page' => -1,
             'fields' => 'ids',
@@ -2271,6 +2275,7 @@ final class Admin
     {
         $posts = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => ['publish', 'draft', 'private', 'pending'],
             'posts_per_page' => -1,
             'fields' => 'ids',

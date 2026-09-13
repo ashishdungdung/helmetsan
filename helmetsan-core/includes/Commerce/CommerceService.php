@@ -308,6 +308,7 @@ final class CommerceService
 
         $posts = get_posts([
             'post_type' => 'helmet',
+            'post_parent' => 0,
             'post_status' => 'any',
             'numberposts' => 1,
             'meta_key' => '_helmet_unique_id',

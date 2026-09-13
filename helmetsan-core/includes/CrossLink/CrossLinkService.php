@@ -244,6 +244,7 @@ final class CrossLinkService
     {
         $q = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => $limit,
             'fields'         => 'ids',
@@ -266,6 +267,7 @@ final class CrossLinkService
     {
         $q = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => $limit,
             'fields'         => 'ids',
@@ -287,6 +289,7 @@ final class CrossLinkService
     {
         $q = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => $limit,
             'fields'         => 'ids',

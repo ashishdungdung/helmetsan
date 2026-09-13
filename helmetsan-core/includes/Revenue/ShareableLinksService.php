@@ -70,6 +70,7 @@ final class ShareableLinksService
     {
         $helmets = get_posts([
             'post_type'     => 'helmet',
+            'post_parent'   => 0,
             'post_name__in' => [$slugA, $slugB],
             'numberposts'   => 2,
             'post_status'   => 'publish',
@@ -141,6 +142,7 @@ final class ShareableLinksService
         $posts = get_posts([
             'name'           => $slug,
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'posts_per_page' => 1,
             'post_status'    => 'publish',
             'lang'           => '',

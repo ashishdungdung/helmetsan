@@ -223,6 +223,7 @@ final class SitemapEnhancer
     {
         $helmetQuery = new WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => -1,
             'orderby'        => 'date',
@@ -303,6 +304,7 @@ final class SitemapEnhancer
                      FROM {$wpdb->posts} p
                      INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
                      WHERE p.post_type = 'helmet'
+                       AND p.post_parent = 0
                        AND p.post_status = 'publish'
                        AND pm.meta_key IN ('brand', 'rel_brand')
                        AND pm.meta_value = %d
@@ -332,6 +334,7 @@ final class SitemapEnhancer
     {
         $query = new WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => 50,
             'orderby'        => 'date',

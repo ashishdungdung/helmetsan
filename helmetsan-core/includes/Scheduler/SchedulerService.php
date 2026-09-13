@@ -507,6 +507,7 @@ final class SchedulerService
             // Fetch IDs that need enrichment
             $query = new \WP_Query([
                 'post_type'      => 'helmet',
+                'post_parent'    => 0,
                 'post_status'    => 'publish',
                 'posts_per_page' => $limit,
                 'orderby'        => 'ID',

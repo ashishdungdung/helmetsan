@@ -400,6 +400,7 @@ final class RevenueService
             $helmets = get_posts([
                 'name'           => $slug,
                 'post_type'      => 'helmet',
+                'post_parent'    => 0,
                 'posts_per_page' => 1,
                 'post_status'    => 'any',
                 'lang'           => '',

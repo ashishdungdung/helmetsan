@@ -2944,6 +2944,7 @@ final class Commands
                 // Try SKU lookup
                 $posts = get_posts([
                     'post_type' => 'helmet',
+                    'post_parent' => 0,
                     'meta_key' => 'sku',
                     'meta_value' => $id,
                     'posts_per_page' => 1,
@@ -2977,7 +2978,7 @@ final class Commands
         $days = isset($assoc['days']) ? (int)$assoc['days'] : 90;
         $helmetId = isset($assoc['helmet-id']) ? (int)$assoc['helmet-id'] : 0;
 
-        $helmets = $helmetId > 0 ? [$helmetId] : get_posts(['post_type' => 'helmet', 'posts_per_page' => -1, 'fields' => 'ids']);
+        $helmets = $helmetId > 0 ? [$helmetId] : get_posts(['post_type' => 'helmet', 'post_parent' => 0, 'posts_per_page' => -1, 'fields' => 'ids']);
 
         $count = 0;
         foreach ($helmets as $id) {
@@ -3500,6 +3501,7 @@ final class Commands
         $force = isset($assoc['force']);
         $helmets = get_posts([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'any',
             'posts_per_page' => -1,
             'fields'         => 'ids',
@@ -3580,6 +3582,7 @@ final class Commands
         $types = ['helmet', 'accessory'];
         $posts = get_posts([
             'post_type'      => $types,
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => -1,
             'fields'         => 'ids',
@@ -3652,6 +3655,7 @@ final class Commands
             // Look up the helmet post by its external ID stored in meta
             $lookup = new \WP_Query([
                 'post_type'      => 'helmet',
+                'post_parent'    => 0,
                 'post_status'    => 'any',
                 'posts_per_page' => 1,
                 'meta_key'       => 'external_id',
@@ -3745,6 +3749,7 @@ final class Commands
         $limit = isset($assoc['limit']) ? (int)$assoc['limit'] : -1;
         $query = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'posts_per_page' => $limit,
             'fields'         => 'ids',
         ]);

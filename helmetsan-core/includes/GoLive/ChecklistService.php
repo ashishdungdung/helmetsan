@@ -173,6 +173,7 @@ final class ChecklistService
     {
         $posts = get_posts([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'publish',
             'posts_per_page' => 20,
             'orderby'        => 'ID',

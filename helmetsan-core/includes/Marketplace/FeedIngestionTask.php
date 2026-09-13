@@ -211,6 +211,7 @@ final class FeedIngestionTask
         // WP_Query exact title match (get_page_by_title deprecated in WP 6.2)
         $query = new \WP_Query([
             'post_type'      => 'helmet',
+            'post_parent'    => 0,
             'post_status'    => 'any',
             'title'          => $name,
             'posts_per_page' => 1,
