@@ -12,7 +12,7 @@
 $rootDir     = dirname(__DIR__);
 $helmetFiles = glob($rootDir . '/data/helmets/*.json') ?: [];
 
-$targetId = $argv[1] ?? 'shoei_rf_1400_matte-black';
+$targetId = $argv[1] ?? 'shoei-rf-1400-matte-black'; // canonical hyphen slug
 
 $startTime = microtime(true);
 
@@ -48,7 +48,7 @@ $scores = [];
 $tCat    = strtolower($target['type'] ?? '');
 $tWeight = (int)($target['specs']['weight_g'] ?? 1450);
 $tShape  = strtolower($target['head_shape'] ?? 'intermediate oval');
-$tPrice  = (float)($target['price']['current'] ?? 300);
+$tPrice  = (float)($target['price']['usd'] ?? $target['price']['current'] ?? 300);
 $tBrand  = strtolower($target['brand'] ?? '');
 
 foreach ($helmets as $id => $h) {
@@ -71,7 +71,7 @@ foreach ($helmets as $id => $h) {
     $score += $wScore;
 
     // 4. Price Tier Proximity (Max +15 pts)
-    $p = (float)($h['price']['current'] ?? 300);
+    $p = (float)($h['price']['usd'] ?? $h['price']['current'] ?? 300);
     $pDiff = abs($p - $tPrice);
     $pScore = max(0, 15 - ($pDiff / 25));
     $score += $pScore;
@@ -96,7 +96,8 @@ foreach ($top5 as $id => $score) {
     $brand = $item['brand'];
     $w     = $item['specs']['weight_g'] ?? 'N/A';
     $std   = $item['safety_intelligence']['homologation_standard'] ?? 'ECE 22.06';
-    $p     = isset($item['price']['current']) ? '$' . number_format((float)$item['price']['current'], 2) : 'N/A';
+    $p = isset($item['price']['usd']) ? '$' . number_format((float)$item['price']['usd'], 2)
+         : (isset($item['price']['current']) ? '$' . number_format((float)$item['price']['current'], 2) : 'N/A');
     $matchPct = round(($score / 105) * 100, 1);
 
     echo sprintf(" #%d. %-35s | Match: %5.1f%% | Brand: %-10s | Weight: %5sg | Price: %7s | %s\n",

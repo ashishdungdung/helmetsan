@@ -69,3 +69,7 @@ secrets/
 scripts/local_config.php
 scripts/*.pid
 scripts/*_state.json
+
+# Task queue files (auto-generated when LM Studio is offline — local only)
+data/tasks/queue/*.json
+!data/tasks/queue/.gitkeep

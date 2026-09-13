@@ -811,10 +811,14 @@ final class RevenueService
                 }
                 $tagKey = 'amazon_tag_' . $cCode;
                 $tag = ! empty($revConfig[$tagKey]) ? (string) $revConfig[$tagKey] : match ($targetMp) {
-                    'amazon-in' => (string) ($revConfig['amazon_tag_in'] ?? 'virginiatete-21'),
+                    'amazon-in'                            => (string) ($revConfig['amazon_tag_in'] ?? 'virginiatete-21'),
                     'amazon-uk', 'amazon-gb', 'amazon-ie' => (string) ($revConfig['amazon_tag_uk'] ?? 'vtete-21'),
-                    'amazon-jp' => (string) ($revConfig['amazon_tag_jp'] ?? 'vtete-22'),
-                    default     => (string) ($revConfig['amazon_tag'] ?? 'vtete-20'),
+                    'amazon-jp'                            => (string) ($revConfig['amazon_tag_jp'] ?? 'vtete-22'),
+                    // Fix: AE was falling to default (vtete-20 US tag). vtete0c-21 is the UAE Associates ID.
+                    'amazon-ae'                            => (string) ($revConfig['amazon_tag_ae'] ?? 'vtete0c-21'),
+                    'amazon-sa'                            => (string) ($revConfig['amazon_tag_sa'] ?? 'vtete0c-21'),
+                    'amazon-sg'                            => (string) ($revConfig['amazon_tag_sg'] ?? 'vtete-20'),
+                    default                                => (string) ($revConfig['amazon_tag'] ?? 'vtete-20'),
                 };
                 $queryParams['tag'] = $tag;
 
