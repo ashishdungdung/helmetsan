@@ -4,6 +4,7 @@ Helmetsan Deep-Dive Quality, SEO & AdSense Compliance Auditor
 Runs automated inspections across GSC API, HTTP headers, robots directives, schema, and page content.
 """
 
+import os
 import urllib.request
 import json
 import subprocess
@@ -18,7 +19,7 @@ URLS_TO_TEST = [
     ("Affiliate Disclosure", "https://helmetsan.com/legal/affiliate-disclosure/"),
     ("Blog / Guides Hub", "https://helmetsan.com/blog/"),
     ("Guide: ECE 22.06 vs DOT", "https://helmetsan.com/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/"),
-    ("Guide: Quietest Helmets", "https://helmetsan.com/quietest-motorcycle-helmets-wind-noise-tested/"),
+    ("Guide: Quietest Helmets", "https://helmetsan.com/quietest-motorcycle-helmets-highway-commuting/"),
     
     # Parent Helmets (Indexable)
     ("Helmet Parent: Shoei RF-1400", "https://helmetsan.com/helmets/shoei-rf-1400/"),
@@ -28,11 +29,14 @@ URLS_TO_TEST = [
     # Brand Profiles (Indexable)
     ("Brand: Shoei", "https://helmetsan.com/brands/shoei/"),
     ("Brand: Arai", "https://helmetsan.com/brands/arai/"),
+
+    # Comparison Matrix & Recommendation Hub (Indexable)
+    ("Comparison Hub", "https://helmetsan.com/comparison/"),
+    ("Head-to-Head Comparison", "https://helmetsan.com/comparison/?ids=arai-corsair-x-2,shoei-rf-1400"),
     
     # Excluded CPTs & Variants (Should be NOINDEX)
     ("Child Variant SKU", "https://helmetsan.com/helmets/krios-pro-matte-black-lg/"),
     ("Dealer CPT (Excluded)", "https://helmetsan.com/dealers/moto-central-delhi/"),
-    ("Distributor CPT (Excluded)", "https://helmetsan.com/distributors/parts-europe/"),
 ]
 
 def audit_url(name, url):
@@ -90,6 +94,7 @@ for name, url in URLS_TO_TEST:
     status_icon = "✅" if r["status"] == 200 else "❌"
     print(f"{status_icon} {name.ljust(30)} | HTTP {r['status']} | Words: {r['words']} | Robots: {r['meta_robots']} | X-Robots: {r['x_robots']}")
 
+os.makedirs("scratch", exist_ok=True)
 with open("scratch/audit_results.json", "w") as fp:
     json.dump(results, fp, indent=2)
 

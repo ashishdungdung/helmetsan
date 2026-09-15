@@ -673,42 +673,42 @@ class HelmetIntelligenceMatrix:
         verb_choice = discipline["verbs"][hash_seed % len(discipline["verbs"])]
         style_idx = hash_seed % 3
 
-        # --- SENTENCE 1: The Rider Persona & Mission Hook ---
+        # --- SENTENCE 1: The Rider Persona & Mission Hook (100% Grammatically Guarded) ---
         if disc_key == "track":
             if style_idx == 0:
-                s1 = f"The {full_name} is {verb_choice}, purpose-built for riders demanding uncompromising high-speed aerodynamic stability and track-certified protection."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, purpose-built for riders demanding uncompromising high-speed aerodynamic stability and track-certified protection."
             elif style_idx == 1:
-                s1 = f"Born for the apex and high-speed straightaways, the {full_name} is {verb_choice}."
+                s1 = f"Born for the apex and high-speed straightaways, {format_verb_clause(f'the {full_name}', verb_choice)}."
             else:
-                s1 = f"Serving closed-circuit and supersport riders, the {full_name} is {verb_choice}."
+                s1 = f"Serving closed-circuit and supersport riders, {format_verb_clause(f'the {full_name}', verb_choice)}."
         elif disc_key == "touring":
             if style_idx == 0:
-                s1 = f"Designed for high-mileage highway touring and demanding daily commutes, the {full_name} is {verb_choice}."
+                s1 = f"Designed for high-mileage highway touring and demanding daily commutes, {format_verb_clause(f'the {full_name}', verb_choice)}."
             elif style_idx == 1:
-                s1 = f"The {full_name} is {verb_choice}, shielding distance riders across varying weather and long highway transitions."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, shielding distance riders across varying weather and long highway transitions."
             else:
-                s1 = f"Purpose-built for long-distance touring, the {full_name} is {verb_choice} to minimize neck fatigue on cross-country treks."
+                s1 = f"Purpose-built for long-distance touring, {format_verb_clause(f'the {full_name}', verb_choice)} to minimize neck fatigue on cross-country treks."
         elif disc_key == "modular":
             if style_idx == 0:
                 s1 = format_verb_clause(f"The {full_name}", verb_choice) + ", delivering flip-up versatility for city stops and sealed protection at speed."
             elif style_idx == 1:
-                s1 = f"Engineered for adaptable touring, the {full_name} is {verb_choice} across highway and urban riding."
+                s1 = f"Engineered for adaptable touring, {format_verb_clause(f'the {full_name}', verb_choice)} across highway and urban riding."
             else:
-                s1 = f"The {full_name} is {verb_choice}, pairing a quick-flip chin bar with certified impact protection."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, pairing a quick-flip chin bar with certified impact protection."
         elif disc_key == "adv":
             if style_idx == 0:
-                s1 = f"The {full_name} is {verb_choice}, bridging highway aero efficiency with rugged off-road ventilation."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, bridging highway aero efficiency with rugged off-road ventilation."
             elif style_idx == 1:
-                s1 = f"Tuned for all-terrain exploration, the {full_name} is {verb_choice} across highway asphalt and backcountry gravel."
+                s1 = f"Tuned for all-terrain exploration, {format_verb_clause(f'the {full_name}', verb_choice)} across highway asphalt and backcountry gravel."
             else:
-                s1 = f"The {full_name} is {verb_choice}, pairing peak visor aerodynamic stability with high-flow dust filtration."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, pairing peak visor aerodynamic stability with high-flow dust filtration."
         elif disc_key == "dirt_mx":
             if style_idx == 0:
-                s1 = f"The {full_name} is {verb_choice}, pairing extreme cooling throughput with competition-grade roost protection."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, pairing extreme cooling throughput with competition-grade roost protection."
             elif style_idx == 1:
-                s1 = f"Built for aggressive dirt performance, the {full_name} is {verb_choice} across punishing tracks and trails."
+                s1 = f"Built for aggressive dirt performance, {format_verb_clause(f'the {full_name}', verb_choice)} across punishing tracks and trails."
             else:
-                s1 = f"The {full_name} is {verb_choice}, delivering lightweight balance and wide-vision goggle accommodation."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, delivering lightweight balance and wide-vision goggle accommodation."
         elif disc_key == "open_face":
             if style_idx == 0:
                 s1 = format_verb_clause(f"The {full_name}", verb_choice) + ", pairing 180-degree panoramic sightlines with certified cranial protection."
@@ -723,11 +723,11 @@ class HelmetIntelligenceMatrix:
                 s1 = f"Tailored for custom cruisers and classic roadsters, {format_verb_clause(f'the {full_name}', verb_choice)}."
         else: # commuter, sport
             if style_idx == 0:
-                s1 = f"The {full_name} is {verb_choice}, pairing agile street ergonomics with certified multi-impact protection."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, pairing agile street ergonomics with certified multi-impact protection."
             elif style_idx == 1:
-                s1 = f"Optimized for spirited canyon carvers and urban commuters alike, the {full_name} is {verb_choice}."
+                s1 = f"Optimized for spirited canyon carvers and urban commuters alike, {format_verb_clause(f'the {full_name}', verb_choice)}."
             else:
-                s1 = f"The {full_name} is {verb_choice}, delivering responsive balance and confident road feel."
+                s1 = f"{format_verb_clause(f'The {full_name}', verb_choice)}, delivering responsive balance and confident road feel."
 
         # --- SENTENCE 2: The Engineering & Physics Specs (Realistic & Spec-Driven) ---
         weight_note = f"a featherweight {weight_g}g" if weight_g < 1360 else (f"a solid {weight_g}g" if weight_g > 1650 else f"{weight_g}g")

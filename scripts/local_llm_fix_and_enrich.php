@@ -15,8 +15,29 @@ $apiUrl      = rtrim($baseUrl, '/') . '/chat/completions';
 $model       = $localConfig['node_a']['deep_model'] ?? $localConfig['lm_studio_model'] ?? 'google/gemma-4-12b-qat';
 $defaultConc = $localConfig['node_a']['concurrency'] ?? $localConfig['concurrency'] ?? 2;
 $maxTokens   = $localConfig['node_a']['max_tokens'] ?? $localConfig['max_tokens'] ?? 1500;
+$apiKey      = '';
 
-$options = getopt("", ["limit:", "concurrency:", "force", "dry-run"]);
+$options = getopt("", ["limit:", "concurrency:", "force", "dry-run", "model:", "gateway:"]);
+if (!empty($options['model'])) {
+    $model = (string) $options['model'];
+}
+
+$isExperiential = (!empty($options['gateway']) && $options['gateway'] === 'experiential')
+    || (isset($localConfig['gateway']) && $localConfig['gateway'] === 'experiential')
+    || str_contains($baseUrl, 'experientiallabs.ai')
+    || str_starts_with($model, 'gpt-5.')
+    || $model === 'gpt-5.6-luna';
+
+if ($isExperiential) {
+    $baseUrl = 'https://api.experientiallabs.ai/v1';
+    $apiUrl  = $baseUrl . '/chat/completions';
+    $envKey  = getenv('EXPLABS_API_KEY');
+    if ($envKey === false || trim((string) $envKey) === '') {
+        die("❌ EXPLABS_API_KEY environment variable is not set. Please create one under Settings -> API Keys and export it.\n");
+    }
+    $apiKey = trim((string) $envKey);
+}
+
 $limit       = isset($options['limit']) ? (int)$options['limit'] : 2500;
 $concurrency = isset($options['concurrency']) ? (int)$options['concurrency'] : $defaultConc;
 $isForce     = isset($options['force']);
@@ -25,7 +46,10 @@ $isDryRun    = isset($options['dry-run']);
 if (!$isDryRun) {
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+    if (!empty($apiKey)) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $apiKey]);
+    }
     curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     @curl_close($ch);
@@ -176,7 +200,11 @@ foreach ($chunks as $chunkIndex => $chunk) {
             'temperature' => 0.1,
             'max_tokens' => $maxTokens
         ]));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        $headers = ['Content-Type: application/json'];
+        if (!empty($apiKey)) {
+            $headers[] = 'Authorization: Bearer ' . $apiKey;
+        }
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_TIMEOUT, 90);
 
         curl_multi_add_handle($mh, $ch);

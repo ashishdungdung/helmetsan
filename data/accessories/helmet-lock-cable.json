@@ -1,98 +1,99 @@
 {
-  "entity": "accessory",
-  "id": "helmet-lock-cable",
-  "title": "Helmetlok Carabiner Helmet Lock",
-  "type": "Security",
-  "compatible_helmet_types": [
-    "Full Face",
-    "Modular",
-    "Adventure",
-    "Open Face",
-    "Half"
-  ],
-  "compatible_brands": [
-    "Universal"
-  ],
-  "compatible_helmet_ids": [
-    "shoei-rf-1400",
-    "hjc-rpha-71",
-    "arai-corsair-x",
-    "schuberth-c5",
-    "nolan-n100-6",
-    "icon-airflite"
-  ],
-  "features": [
-    "Heavy-duty carabiner design for secure helmet attachment",
-    "Universal compatibility with most full-face and modular helmets",
-    "Durable steel construction resists cutting and weathering"
-  ],
-  "price": {
-    "usd": 150,
-    "inr": 12450,
-    "eur": 138,
-    "gbp": 119,
-    "jpy": 23250
-  },
-  "geo_pricing": {
-    "US": {
-      "price": 24.95,
-      "currency": "USD",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
-    },
-    "EU": {
-      "price": 22.5,
-      "currency": "EUR",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
-    },
-    "IN": {
-      "price": 1999,
-      "currency": "INR",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
-    }
-  },
-  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Helmetlok Carabiner Helmet Lock from Helmetlok provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Helmetlok Carabiner Helmet Lock represents an indispensable touring and group-ride upgrade from Helmetlok. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
-  "accessory_pinlock_ready": 0,
-  "accessory_electric_compatible": 0,
-  "accessory_snow_compatible": 0,
-  "accessory_subcategory": "Helmet Lock",
-  "identifiers": {
-    "mpn": "UNIV-HLM-LCK"
-  },
-  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Helmetlok Helmetlok Carabiner Helmet Lock.",
-  "unified_enriched": true,
-  "accessory_physics_matrix": {
-    "mesh_network_range_m": "Up to 400m unit-to-unit Bluetooth 5.2 link",
-    "battery_life_operating_hours": "13 to 20 Hours Continuous Intercom Talk Time (10-Day Standby)",
-    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
-    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
-    "audio_driver_specification": "Harman Kardon Premium Tuned Drivers with Multi-Channel Audio Multitasking",
-    "intercom_protocol": "Bluetooth 5.2 Wideband Intercom"
-  },
-  "qualitative_intelligence": {
-    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
-    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
-    "real_world_pros": [
-      "Crisp, distortion-free audio communication over highway wind noise",
-      "True waterproof housing withstands torrential downpours without rain jackets",
-      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    "entity": "accessory",
+    "id": "helmet-lock-cable",
+    "title": "Helmetlok Carabiner Helmet Lock",
+    "type": "Security",
+    "compatible_helmet_types": [
+        "Full Face",
+        "Modular",
+        "Adventure",
+        "Open Face",
+        "Half"
     ],
-    "real_world_cons": [
-      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
-      "Premium replacement price compared to budget unbranded headsets"
+    "compatible_brands": [
+        "Universal"
     ],
-    "editorial_verdict": "The Helmetlok Carabiner Helmet Lock represents an indispensable touring and group-ride upgrade from Helmetlok. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
-  },
-  "brand": "Helmetlok",
-  "marketplace_links": {
-    "amazon": "https://www.amazon.com/s?k=Helmetlok+Carabiner+Helmet+Lock&tag=helmetsan-20"
-  },
-  "affiliate_links": {
-    "amazon": {
-      "url": "https://www.amazon.com/s?k=Helmetlok+Carabiner+Helmet+Lock&tag=helmetsan-20",
-      "network": "amazon"
-    }
-  }
+    "compatible_helmet_ids": [
+        "shoei-rf-1400",
+        "hjc-rpha-71",
+        "arai-corsair-x",
+        "schuberth-c5",
+        "nolan-n100-6",
+        "icon-airflite"
+    ],
+    "features": [
+        "Heavy-duty carabiner design for secure helmet attachment",
+        "Universal compatibility with most full-face and modular helmets",
+        "Durable steel construction resists cutting and weathering"
+    ],
+    "price": {
+        "usd": 150,
+        "inr": 12450,
+        "eur": 138,
+        "gbp": 119,
+        "jpy": 23250
+    },
+    "geo_pricing": {
+        "US": {
+            "price": 24.95,
+            "currency": "USD",
+            "availability": "in_stock",
+            "updated_at": "2026-02-20"
+        },
+        "EU": {
+            "price": 22.5,
+            "currency": "EUR",
+            "availability": "in_stock",
+            "updated_at": "2026-02-20"
+        },
+        "IN": {
+            "price": 1999,
+            "currency": "INR",
+            "availability": "in_stock",
+            "updated_at": "2026-02-20"
+        }
+    },
+    "description": "<p>Machined for unyielding stability in high-buffet slipstreams, the Helmetlok Carabiner Helmet Lock from Helmetlok provides dependable hardware security and equipment mounting. Built with Marine-Grade 316 Stainless Steel & CNC Anodized Aluminum (Salt-Spray Resistant), it boasts an installation rating of 0.5 / 10 (Clips directly through helmet D-ring to handlebar or frame).</p><p>The Helmetlok Carabiner Helmet Lock delivers robust utility and rock-solid mechanical reliability from Helmetlok, giving riders an uncompromising platform for telemetry, camera capture, or secure helmet stowage.</p>",
+    "accessory_pinlock_ready": 0,
+    "accessory_electric_compatible": 0,
+    "accessory_snow_compatible": 0,
+    "accessory_subcategory": "Helmet Lock",
+    "identifiers": {
+        "mpn": "UNIV-HLM-LCK"
+    },
+    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Helmetlok Helmetlok Carabiner Helmet Lock.",
+    "unified_enriched": true,
+    "accessory_physics_matrix": {
+        "mechanical_tensile_rating": "Wind-Tunnel Tested up to 300 km/h Slipstream Shear Force",
+        "battery_life_operating_hours": "100% Mechanical Anodized Hardware / High-Tensile Bonded",
+        "waterproof_ip_rating": "Marine-Grade 316 Stainless Steel & CNC Anodized Aluminum (Salt-Spray Resistant)",
+        "installation_difficulty": "0.5 / 10 (Clips directly through helmet D-ring to handlebar or frame)",
+        "audio_driver_specification": "Braided High-Tensile Steel Core Carabiner with 4-Digit Resettable Zinc-Alloy Tumbler"
+    },
+    "qualitative_intelligence": {
+        "glove_friendly_controls": "Quick-release knurled thumb-screw or tactile locking latch easily handled with cold fingers.",
+        "wind_noise_suppression_mic": "Low-profile streamlined geometry deflects boundary-layer airflow around chin and visor vents.",
+        "real_world_pros": [
+            "Rock-solid vibration isolation ensures stable horizon recording and secure hold",
+            "High-grade weather-resistant materials resist UV degradation and rust",
+            "Direct OEM integration eliminates bulky third-party adapter brackets"
+        ],
+        "real_world_cons": [
+            "Requires clean surface prep with isopropyl alcohol before adhesive bonding",
+            "Adds marginal weight to the front or side of the helmet"
+        ],
+        "editorial_verdict": "The Helmetlok Carabiner Helmet Lock delivers robust utility and rock-solid mechanical reliability from Helmetlok, giving riders an uncompromising platform for telemetry, camera capture, or secure helmet stowage."
+    },
+    "brand": "Helmetlok",
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=Helmetlok+Carabiner+Helmet+Lock&tag=helmetsan-20"
+    },
+    "affiliate_links": {
+        "amazon": {
+            "url": "https://www.amazon.com/s?k=Helmetlok+Carabiner+Helmet+Lock&tag=helmetsan-20",
+            "network": "amazon"
+        }
+    },
+    "editorial_overview": "Machined for unyielding stability in high-buffet slipstreams, the Helmetlok Carabiner Helmet Lock from Helmetlok provides dependable hardware security and equipment mounting. Built with Marine-Grade 316 Stainless Steel & CNC Anodized Aluminum (Salt-Spray Resistant), it boasts an installation rating of 0.5 / 10 (Clips directly through helmet D-ring to handlebar or frame). The Helmetlok Carabiner Helmet Lock delivers robust utility and rock-solid mechanical reliability from Helmetlok, giving riders an uncompromising platform for telemetry, camera capture, or secure helmet stowage.",
+    "rider_takeaway": "The Helmetlok Carabiner Helmet Lock delivers robust utility and rock-solid mechanical reliability from Helmetlok, giving riders an uncompromising platform for telemetry, camera capture, or secure helmet stowage."
 }

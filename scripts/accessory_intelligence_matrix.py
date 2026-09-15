@@ -320,10 +320,12 @@ def generate_editorial_overview(title: str, brand: str, cat: str, qual: Dict[str
     }
 
     hook = lead_hooks.get(cat, f"The {title} from {brand} is a purpose-built riding accessory designed to enhance rider safety, convenience, and day-to-day usability.")
-    detail = f"Built with {phys.get('waterproof_ip_rating', 'weatherproof construction')}, it boasts an installation rating of {phys.get('installation_difficulty', 'low')}."
+    detail = f"Built with {phys.get('waterproof_ip_rating', 'weatherproof construction')}, it boasts an installation rating of {phys.get('installation_difficulty', 'straightforward OEM fitment')}."
     verdict = qual.get("editorial_verdict", "")
 
-    return f"<p>{hook} {detail}</p><p>{verdict}</p>"
+    clean_overview = f"{hook} {detail} {verdict}".strip()
+    html_overview = f"<p>{hook} {detail}</p><p>{verdict}</p>"
+    return clean_overview, html_overview
 
 def synthesize_accessory(data: Dict[str, Any]) -> Dict[str, Any]:
     brand, title = extract_brand_title(data)
@@ -331,12 +333,14 @@ def synthesize_accessory(data: Dict[str, Any]) -> Dict[str, Any]:
 
     phys = generate_accessory_physics(data, cat, brand, title)
     qual = generate_qualitative_intelligence(data, cat, brand, title)
-    overview = generate_editorial_overview(title, brand, cat, qual, phys)
+    clean_overview, html_overview = generate_editorial_overview(title, brand, cat, qual, phys)
 
     data["brand"] = brand
     data["accessory_physics_matrix"] = phys
     data["qualitative_intelligence"] = qual
-    data["description"] = overview
+    data["description"] = html_overview
+    data["editorial_overview"] = clean_overview
+    data["rider_takeaway"] = qual.get("editorial_verdict", clean_overview)
     data["unified_enriched"] = True
 
     # Polish yoast metadesc

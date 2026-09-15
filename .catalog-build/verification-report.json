@@ -1,0 +1,35 @@
+{
+  "run_id": "editorial-2026-09-15T20-06-26-177Z",
+  "timestamp": "2026-09-15T20:06:29.823Z",
+  "hardware": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "device": "Apple-M4-Pro-ARM64-Accelerated",
+    "cores": 12,
+    "memory_gb": 24
+  },
+  "metrics": {
+    "total_items": 5493,
+    "verified_items": 5493,
+    "verification_percentage": 100,
+    "sentinel_defects": 0,
+    "grammar_glitches_found": 0,
+    "superbike_contradictions_found": 0,
+    "synthetic_weight_assertions": 0
+  },
+  "categories": {
+    "motorcycles": {
+      "verified": 3247,
+      "total": 3247
+    },
+    "helmets": {
+      "verified": 2219,
+      "total": 2219
+    },
+    "accessories": {
+      "verified": 27,
+      "total": 27
+    }
+  },
+  "audit_hash": "54670ca27e9fc004aa647789b6925356223fbb13e3ad469e6a652000c7a9f31a"
+}

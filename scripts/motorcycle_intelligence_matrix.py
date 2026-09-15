@@ -131,32 +131,61 @@ class MotorcycleIntelligenceMatrix:
         nm_str = f"{nm} Nm of torque" if nm > 0 else "instant linear torque"
         weight_str = f"a curb weight of {weight_kg} kg" if weight_kg > 0 else "a balanced lightweight chassis"
 
-        # --- SENTENCE 1: Mission & Category Hook ---
-        if style_idx == 0:
-            s1 = f"The {full_name} is {verb}, positioned in the {category} segment for riders demanding engaging everyday dynamics."
-        elif style_idx == 1:
-            s1 = f"Engineered for riders seeking confident performance and refined dynamics, the {full_name} is {verb}."
+        # Helper for grammatical verb attachment
+        def format_verb_clause(subject: str, v: str) -> str:
+            if any(v.startswith(w) for w in ["engineered", "built", "crafted", "tuned", "purpose-built", "tailored", "born"]):
+                return f"{subject} is {v}"
+            return f"{subject} {v}"
+
+        # Synthetic weight detection (108/110 kg placeholder check on >250cc)
+        is_synthetic_weight = weight_kg in [108, 110] and (cc > 250 or cc == 0)
+        if is_synthetic_weight or weight_kg <= 0:
+            weight_str = "its responsive chassis architecture"
         else:
-            s1 = f"Representing {brand}'s prowess in the {category} class, the {full_name} is {verb}."
+            weight_str = f"a curb weight of {weight_kg} kg"
+
+        # --- SENTENCE 1: Mission & Category Hook (6 dynamic, non-tautological openers) ---
+        op_idx = h_seed % 6
+        if op_idx == 0:
+            s1 = f"{format_verb_clause(f'The {full_name}', verb)}, occupying a prominent position in the {category} segment."
+        elif op_idx == 1:
+            s1 = f"Representing {brand}'s engineering ethos in the {category} class, {format_verb_clause(f'the {full_name}', verb)}."
+        elif op_idx == 2:
+            s1 = f"Positioned for riders seeking dedicated {category} capability, {format_verb_clause(f'the {full_name}', verb)}."
+        elif op_idx == 3:
+            s1 = f"Within the {category} segment, {format_verb_clause(f'the {full_name}', verb)}."
+        elif op_idx == 4:
+            s1 = f"Tailored for {cat_profile['terrain'].split(',')[0].strip()}, {format_verb_clause(f'the {full_name}', verb)}."
+        else:
+            s1 = f"{format_verb_clause(f'The {full_name}', verb)} for riders demanding purposeful real-world performance."
 
         # --- SENTENCE 2: Powertrain & Kinetic Dynamics ---
         if cc > 0 and hp > 0:
             if style_idx == 0:
                 s2 = f"Powered by a {cc_str} engine generating {hp_str} and {nm_str} against {weight_str}, it delivers predictable, roll-on throttle response across its usable powerband."
             elif style_idx == 1:
-                s2 = f"At its heart lies a {cc_str} powertrain delivering {hp_str} and {nm_str}, tuned to translate its {weight_kg} kg mass into punchy mid-range acceleration."
+                s2 = f"At its heart lies a {cc_str} powertrain delivering {hp_str} and {nm_str}, tuned to translate its chassis dynamics into punchy mid-range acceleration."
             else:
                 s2 = f"A {cc_str} powerplant pumps out {hp_str} and {nm_str}, striking an optimal balance between fuel economy and spirited passing power."
         else:
             s2 = f"Its tuned powertrain delivers immediate, tractable torque against {weight_str}, ensuring responsive roll-on acceleration in demanding road conditions."
 
-        # --- SENTENCE 3: Ergonomics & Living-With-It ---
-        if style_idx == 0:
-            s3 = f"The cockpit is configured with an {riding_pos} riding stance and {seat_desc}, making daily city navigation as intuitive as weekend backroad escapes."
-        elif style_idx == 1:
-            s3 = f"Riders are greeted by an ergonomic {riding_pos} posture paired with {seat_desc}, backed by a {fuel_l}L fuel tank for extended saddle stints."
+        # --- SENTENCE 3: Ergonomics & Living-With-It (Strict Superbike Ergonomic Guard) ---
+        is_superbike = (cat_key == "superbike") or any(w in riding_pos.lower() for w in ["aggressive", "forward tuck", "supersport", "racer"])
+        if is_superbike:
+            if style_idx == 0:
+                s3 = f"The cockpit is configured with an {riding_pos} stance and {seat_desc}, prioritizing aerodynamic tuck and front-end circuit precision over casual urban commuting."
+            elif style_idx == 1:
+                s3 = f"An aggressive {riding_pos} layout places rider weight decisively over the front axle with {seat_desc}, maximizing cornering feedback at apex speeds."
+            else:
+                s3 = f"Focused on closed-course control and sporting precision, its {riding_pos} posture pairs with {seat_desc} to optimize high-speed aerodynamic stability."
         else:
-            s3 = f"With {seat_desc} and a comfortable {riding_pos} layout, it offers fatigue-free ergonomics whether carving traffic or cruising the open highway."
+            if style_idx == 0:
+                s3 = f"The cockpit is configured with an {riding_pos} riding stance and {seat_desc}, making daily city navigation as intuitive as weekend backroad escapes."
+            elif style_idx == 1:
+                s3 = f"Riders are greeted by an ergonomic {riding_pos} posture paired with {seat_desc}, backed by a {fuel_l}L fuel tank for extended saddle stints."
+            else:
+                s3 = f"With {seat_desc} and a balanced {riding_pos} layout, it maintains ergonomic composure across extended highway and city riding."
 
         editorial_overview = f"{s1} {s2} {s3}"
 

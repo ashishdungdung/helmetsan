@@ -13,8 +13,29 @@ $localConfig = @include __DIR__ . '/local_config.php';
 $baseUrl     = $localConfig['lm_studio_base_url'] ?? 'http://127.0.0.1:1234/v1';
 $apiUrl      = rtrim($baseUrl, '/') . '/chat/completions';
 $model       = $localConfig['lm_studio_model'] ?? 'qwen/qwen3.5-9b';
+$apiKey      = '';
 
-$options = getopt("", ["sample:", "output:"]);
+$options = getopt("", ["sample:", "output:", "model:", "gateway:"]);
+if (!empty($options['model'])) {
+    $model = (string) $options['model'];
+}
+
+$isExperiential = (!empty($options['gateway']) && $options['gateway'] === 'experiential')
+    || (isset($localConfig['gateway']) && $localConfig['gateway'] === 'experiential')
+    || str_contains($baseUrl, 'experientiallabs.ai')
+    || str_starts_with($model, 'gpt-5.')
+    || $model === 'gpt-5.6-luna';
+
+if ($isExperiential) {
+    $baseUrl = 'https://api.experientiallabs.ai/v1';
+    $apiUrl  = $baseUrl . '/chat/completions';
+    $envKey  = getenv('EXPLABS_API_KEY');
+    if ($envKey === false || trim((string) $envKey) === '') {
+        die("❌ EXPLABS_API_KEY environment variable is not set. Please create one under Settings -> API Keys and export it.\n");
+    }
+    $apiKey = trim((string) $envKey);
+}
+
 $sampleLimit = isset($options['sample']) ? (int)$options['sample'] : 20;
 $outputFile  = isset($options['output']) ? $options['output'] : dirname(__DIR__) . '/logs/local_llm_deep_audit_report.md';
 
@@ -153,7 +174,11 @@ Respond strictly as JSON with keys:
         'temperature' => 0.1,
         'max_tokens' => 350
     ]));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+    $headers = ['Content-Type: application/json'];
+    if (!empty($apiKey)) {
+        $headers[] = 'Authorization: Bearer ' . $apiKey;
+    }
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_TIMEOUT, 60);
 
     $response = curl_exec($ch);
