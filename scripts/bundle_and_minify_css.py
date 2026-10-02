@@ -19,6 +19,35 @@ FILES_TO_BUNDLE = [
     os.path.join(CSS_DIR, "pages.css"),
 ]
 
+def _collapse_commas(css: str) -> str:
+    """Drop whitespace after commas, skipping quoted strings (content/url)."""
+    out: list[str] = []
+    i, n, quote = 0, len(css), None
+    while i < n:
+        ch = css[i]
+        if quote:
+            out.append(ch)
+            if ch == "\\" and i + 1 < n:
+                out.append(css[i + 1])
+                i += 2
+                continue
+            if ch == quote:
+                quote = None
+            i += 1
+            continue
+        if ch in "\"'":
+            quote = ch
+        elif ch == ",":
+            out.append(ch)
+            i += 1
+            while i < n and css[i] in " \t\n":
+                i += 1
+            continue
+        out.append(ch)
+        i += 1
+    return "".join(out)
+
+
 def minify_css(css: str) -> str:
     # Strip comments
     css = re.sub(r"/\*.*?\*/", "", css, flags=re.DOTALL)
@@ -28,6 +57,11 @@ def minify_css(css: str) -> str:
     css = re.sub(r"\s*([:;{}])\s*", r"\1", css)
     # Remove trailing semicolons
     css = re.sub(r";}", "}", css)
+    # #ffffff -> #fff (8-digit hex is left alone: \b fails between digit pairs)
+    css = re.sub(r"#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3\b", r"#\1\2\3", css)
+    # "! important" -> "!important" and "a, b" -> "a,b"
+    css = re.sub(r"\s*!important", "!important", css)
+    css = _collapse_commas(css)
     return css.strip()
 
 def build_bundle():
