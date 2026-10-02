@@ -26,18 +26,29 @@ final class SitemapEnhancer
     {
         add_action('init', [$this, 'addRewriteRules']);
         add_filter('query_vars', [$this, 'registerQueryVars']);
+        add_filter('redirect_canonical', [$this, 'preventSitemapRedirect'], 10, 2);
         add_action('template_redirect', [$this, 'handleSitemapRequest']);
         add_filter('wpseo_sitemap_index', [$this, 'filterYoastSitemapIndex']);
 
         add_action('save_post_helmet', [$this, 'invalidateCache']);
         add_action('save_post_brand', [$this, 'invalidateCache']);
+        add_action('save_post_motorcycle', [$this, 'invalidateCache']);
     }
 
     public function addRewriteRules(): void
     {
-        add_rewrite_rule('^sitemap-brands\.xml$', 'index.php?' . self::QUERY_VAR . '=brands', 'top');
-        add_rewrite_rule('^sitemap-comparisons\.xml$', 'index.php?' . self::QUERY_VAR . '=comparisons', 'top');
-        add_rewrite_rule('^sitemap-helmets-images\.xml$', 'index.php?' . self::QUERY_VAR . '=images', 'top');
+        add_rewrite_rule('^sitemap-brands\.xml/?$', 'index.php?' . self::QUERY_VAR . '=brands', 'top');
+        add_rewrite_rule('^sitemap-comparisons\.xml/?$', 'index.php?' . self::QUERY_VAR . '=comparisons', 'top');
+        add_rewrite_rule('^sitemap-helmets-images\.xml/?$', 'index.php?' . self::QUERY_VAR . '=images', 'top');
+        add_rewrite_rule('^sitemap-motorcycles\.xml/?$', 'index.php?' . self::QUERY_VAR . '=motorcycles', 'top');
+    }
+
+    public function preventSitemapRedirect(mixed $redirectUrl, string $requestedUrl): mixed
+    {
+        if (preg_match('#sitemap[a-z0-9_-]*\.xml#i', $requestedUrl)) {
+            return false;
+        }
+        return $redirectUrl;
     }
 
     /**
@@ -60,7 +71,7 @@ final class SitemapEnhancer
             return;
         }
 
-        $allowed = ['brands', 'comparisons', 'images'];
+        $allowed = ['brands', 'comparisons', 'images', 'motorcycles'];
         if (! in_array($type, $allowed, true)) {
             return;
         }
@@ -68,7 +79,6 @@ final class SitemapEnhancer
         if (! headers_sent()) {
             status_header(200);
             header('Content-Type: application/xml; charset=utf-8');
-            header('X-Robots-Tag: noindex, follow', true);
         }
 
         echo $this->getSitemapXml($type);
@@ -84,6 +94,7 @@ final class SitemapEnhancer
             home_url('/sitemap-brands.xml'),
             home_url('/sitemap-comparisons.xml'),
             home_url('/sitemap-helmets-images.xml'),
+            home_url('/sitemap-motorcycles.xml'),
         ];
 
         $extra = '';
@@ -106,6 +117,7 @@ final class SitemapEnhancer
             ObjectCacheService::delete('sitemap_brands', ObjectCacheService::GROUP_SCHEMA);
             ObjectCacheService::delete('sitemap_comparisons', ObjectCacheService::GROUP_SCHEMA);
             ObjectCacheService::delete('sitemap_images', ObjectCacheService::GROUP_SCHEMA);
+            ObjectCacheService::delete('sitemap_motorcycles', ObjectCacheService::GROUP_SCHEMA);
         }
     }
 
@@ -133,6 +145,7 @@ final class SitemapEnhancer
             'brands'      => $this->buildBrandsSitemap(),
             'comparisons' => $this->buildComparisonsSitemap(),
             'images'      => $this->buildImagesSitemap(),
+            'motorcycles' => $this->buildMotorcyclesSitemap(),
             default       => '',
         };
     }
@@ -152,7 +165,8 @@ final class SitemapEnhancer
         ]);
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";
+        $xml .= '        xmlns:xhtml="http://www.w3.org/1999/xhtml">' . "\n";
 
         if (! empty($brandQuery->posts)) {
             foreach ($brandQuery->posts as $brandPost) {
@@ -172,6 +186,17 @@ final class SitemapEnhancer
                 $xml .= "\t\t<lastmod>" . esc_xml($lastmod) . "</lastmod>\n";
                 $xml .= "\t\t<changefreq>weekly</changefreq>\n";
                 $xml .= "\t\t<priority>0.8</priority>\n";
+
+                if (function_exists('pll_get_post_translations')) {
+                    $translations = (array) pll_get_post_translations($brandPost->ID);
+                    foreach ($translations as $lang => $transId) {
+                        $transUrl = (string) get_permalink((int) $transId);
+                        if ($transUrl !== '') {
+                            $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr((string) $lang) . "\" href=\"" . esc_url($transUrl) . "\"/>\n";
+                        }
+                    }
+                }
+
                 $xml .= "\t</url>\n";
             }
         }
@@ -474,6 +499,54 @@ final class SitemapEnhancer
         }
 
         return $images;
+    }
+
+    /**
+     * Build sitemap-motorcycles.xml
+     * Profiles for quality motorcycle models with valid make, engine, and ergonomics.
+     */
+    public function buildMotorcyclesSitemap(): string
+    {
+        $motorcycleQuery = new WP_Query([
+            'post_type'      => 'motorcycle',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
+        ]);
+
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+        if (! empty($motorcycleQuery->posts)) {
+            foreach ($motorcycleQuery->posts as $motoPost) {
+                if (! $motoPost instanceof WP_Post) {
+                    continue;
+                }
+
+                if (! AutoSeoObserver::isQualityMotorcycle($motoPost)) {
+                    continue;
+                }
+
+                $motoUrl = (string) get_permalink($motoPost->ID);
+                if ($motoUrl === '') {
+                    continue;
+                }
+
+                $lastmod = $this->formatW3cDate($motoPost->post_modified_gmt ?: $motoPost->post_modified);
+
+                $xml .= "\t<url>\n";
+                $xml .= "\t\t<loc>" . esc_url($motoUrl) . "</loc>\n";
+                $xml .= "\t\t<lastmod>" . esc_xml($lastmod) . "</lastmod>\n";
+                $xml .= "\t\t<changefreq>monthly</changefreq>\n";
+                $xml .= "\t\t<priority>0.7</priority>\n";
+                $xml .= "\t</url>\n";
+            }
+        }
+        wp_reset_postdata();
+
+        $xml .= '</urlset>';
+        return $xml;
     }
 
     /**

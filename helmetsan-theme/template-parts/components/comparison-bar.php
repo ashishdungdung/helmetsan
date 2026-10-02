@@ -8,8 +8,8 @@
     <div class="hs-container hs-flex hs-items-center hs-justify-between">
         <div class="hs-flex hs-items-center hs-gap-4">
             <div class="hs-flex hs-items-center hs-gap-2">
-                <span class="hs-badge hs-badge-accent">COMPARE</span>
-                <span id="hsCompareCount" class="hs-font-bold hs-text-sm">0 helmets selected</span>
+                <span class="hs-badge hs-badge-accent"><?php esc_html_e('COMPARE', 'helmetsan-theme'); ?></span>
+                <span id="hsCompareCount" class="hs-font-bold hs-text-sm"><?php esc_html_e('0 helmets selected', 'helmetsan-theme'); ?></span>
             </div>
             <div id="hsCompareChips" class="hs-hidden md:hs-flex hs-items-center hs-gap-2">
                 <!-- Selected helmet chips injected dynamically via comparison.js -->
@@ -17,8 +17,8 @@
         </div>
 
         <div class="hs-flex hs-items-center hs-gap-3">
-            <button id="hsClearCompare" class="hs-btn hs-btn-ghost hs-btn-sm hs-text-muted hover:hs-text-white">Clear All</button>
-            <a id="hsLaunchCompareBtn" href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="hs-btn hs-btn-primary hs-btn-sm">Compare Now →</a>
+            <button id="hsClearCompare" class="hs-btn hs-btn-ghost hs-btn-sm hs-text-muted hover:hs-text-white"><?php esc_html_e('Clear All', 'helmetsan-theme'); ?></button>
+            <a id="hsLaunchCompareBtn" href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="hs-btn hs-btn-primary hs-btn-sm"><?php esc_html_e('Compare Now →', 'helmetsan-theme'); ?></a>
         </div>
     </div>
 </div>

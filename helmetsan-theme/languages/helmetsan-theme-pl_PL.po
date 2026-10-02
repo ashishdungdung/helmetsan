@@ -1,654 +1,631 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Helmetsan Theme 2.0\n"
-"POT-Creation-Date: 2026-09-06 12:00+0000\n"
-"PO-Revision-Date: 2026-09-06 12:00+0000\n"
-"Last-Translator: Helmetsan\n"
-"Language-Team: Helmetsan\n"
+"Project-Id-Version: Helmetsan Theme 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 12:00+0000\n"
+"PO-Revision-Date: 2026-09-24 12:00+0000\n"
+"Last-Translator: Helmetsan Luna Engine\n"
+"Language-Team: Helmetsan Localization Team\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Home"
-msgstr "Strona główna"
+msgid "$300 – $600"
+msgstr "$300 – $600"
 
-msgid "Helmets"
-msgstr "Kaski"
+msgid "$600+"
+msgstr "$600+"
 
-msgid "Brands"
-msgstr "Marki"
+msgid "%1$d / %2$d Global"
+msgstr "%1$d / %2$d Global"
+
+msgid "%d filters available"
+msgstr "Dostępnych filtrów: %d"
+
+msgid "%d stars"
+msgstr "%d stars"
+
+msgid "%s helmets"
+msgstr "Kaski: %s"
+
+msgid "%s helmets match your requirements"
+msgstr "Liczba kasków spełniających wymagania: %s"
+
+msgid "%s is an international import. Orders via cross-border distributors may be subject to customs clearance and local import taxes upon delivery."
+msgstr "%s to import międzynarodowy. Zamówienia składane za pośrednictwem dystrybutorów transgranicznych mogą podlegać odprawie celnej i lokalnym podatkom importowym przy dostawie."
+
+msgid "%s%% MATCH"
+msgstr "%s%% ZGODNOŚCI"
+
+msgid "%s+ helmets · 100+ brands · compare safety, fit and price"
+msgstr "Ponad %s kasków · ponad 100 marek · porównuj bezpieczeństwo, dopasowanie i cenę"
+
+msgid "&larr; Prev"
+msgstr "&larr; Prev"
+
+msgid "-- Choose Brand --"
+msgstr "-- Wybierz markę --"
+
+msgid "-- Choose Model (Optional) --"
+msgstr "-- Wybierz model (opcjonalnie) --"
+
+msgid "-- Select Brand First --"
+msgstr "-- Najpierw wybierz markę --"
+
+msgid "0 helmets selected"
+msgstr "Wybrano 0 kasków"
+
+msgid "1 Year"
+msgstr "1 rok"
+
+msgid "1. Select your helmet"
+msgstr "1. Wybierz swój kask"
+
+msgid "30 Days"
+msgstr "30 dni"
+
+msgid "90 Days"
+msgstr "90 dni"
+
+msgid "AI Policy"
+msgstr "AI Policy"
+
+msgid "About Helmetsan"
+msgstr "About Helmetsan"
+
+msgid "Accessibility Statement"
+msgstr "Accessibility Statement"
 
 msgid "Accessories"
-msgstr "Akcesoria"
+msgstr "Accessories"
 
-msgid "Motorcycles"
-msgstr "Motocykle"
-
-msgid "Breadcrumb"
-msgstr "Ścieżka nawigacji"
-
-msgid "Catalog"
-msgstr "Katalog"
-
-msgid "Primary Menu"
-msgstr "Menu główne"
-
-msgid "Secondary Menu"
-msgstr "Menu pomocnicze"
-
-msgid "Footer Menu"
-msgstr "Menu w stopce"
-
-msgid "Legal Menu"
-msgstr "Menu prawne"
-
-msgid "Social Menu"
-msgstr "Media społecznościowe"
-
-msgid "Skip to content"
-msgstr "Przejdź do treści"
-
-msgid "Open Search"
-msgstr "Otwórz wyszukiwarkę"
-
-msgid "Page sections"
-msgstr "Sekcje strony"
-
-msgid "Product details"
-msgstr "Szczegóły produktu"
-
-msgid "Quick Verdict"
-msgstr "Szybka ocena"
-
-msgid "Quick Facts"
-msgstr "Kluczowe fakty"
-
-msgid "Safety"
-msgstr "Bezpieczeństwo"
-
-msgid "Fit & Sizing"
-msgstr "Dopasowanie i rozmiary"
-
-msgid "Overview"
-msgstr "Przegląd"
-
-msgid "Specifications"
-msgstr "Specyfikacja techniczna"
-
-msgid "Where to Buy"
-msgstr "Gdzie kupić"
-
-msgid "Where to buy"
-msgstr "Gdzie kupić"
-
-msgid "Reviews"
-msgstr "Opinie i testy"
-
-msgid "Data & Sources"
-msgstr "Dane i źródła"
-
-msgid "Product description"
-msgstr "Opis produktu"
-
-msgid "Part numbers"
-msgstr "Numery katalogowe"
-
-msgid "Sizing & fit"
-msgstr "Rozmiar i dopasowanie"
-
-msgid "Sizing &amp; fit"
-msgstr "Rozmiar i dopasowanie"
-
-msgid "VERIFIED TECHNICAL SPEC"
-msgstr "ZWERYFIKOWANA SPECYFIKACJA TECHNICZNA"
-
-msgid "Verified Data"
-msgstr "Zweryfikowane dane"
-
-msgid "Verification Status"
-msgstr "Status weryfikacji"
-
-msgid "Data Confidence & Verification Provenance"
-msgstr "Poziom zaufania do danych i źródła weryfikacji"
-
-msgid "IMAGE UNAVAILABLE"
-msgstr "ZDJĘCIE NIEDOSTĘPNE"
-
-msgid "Helmetsan does not currently have a verified product image for this model."
-msgstr "Helmetsan nie posiada obecnie zweryfikowanego zdjęcia dla tego modelu."
-
-msgid "Quick Facts at a Glance"
-msgstr "Najważniejsze fakty w skrócie"
-
-msgid "Category"
-msgstr "Kategoria"
-
-msgid "Certifications"
-msgstr "Homologacje"
-
-msgid "Measured Weight"
-msgstr "Waga zmierzona"
-
-msgid "Shell Material"
-msgstr "Materiał skorupy"
-
-msgid "Head Shape Fit"
-msgstr "Kształt głowy"
-
-msgid "Retention System"
-msgstr "System zapięcia"
-
-msgid "Shell Construction"
-msgstr "Shell Construction"
-
-msgid "Outer structural material"
-msgstr "Outer structural material"
-
-msgid "Approximate medium size weight"
-msgstr "Approximate medium size weight"
-
-msgid "Warranty"
-msgstr "Gwarancja"
-
-msgid "Manufacturer coverage duration"
-msgstr "Manufacturer coverage duration"
-
-msgid "Primary Use Case"
-msgstr "Primary Use Case"
-
-msgid "Optimized riding orientation"
-msgstr "Optimized riding orientation"
-
-msgid "Certification"
-msgstr "Certification"
-
-msgid "Certified safety standard"
-msgstr "Certified safety standard"
-
-msgid "Rotational Protection"
-msgstr "Ochrona przed siłami rotacyjnymi"
-
-msgid "Mitigates rotational impact"
-msgstr "Mitigates rotational impact"
-
-msgid "Emergency Release"
-msgstr "Emergency Release"
-
-msgid "Emergency Release System"
-msgstr "System awaryjnego wyjmowania poduszek"
-
-msgid "Cheek pad quick removal"
-msgstr "Cheek pad quick removal"
-
-msgid "Retention Strap"
-msgstr "Retention Strap"
-
-msgid "Chin strap buckle style"
-msgstr "Chin strap buckle style"
-
-msgid "Retention Mechanism"
-msgstr "Mechanizm zapięcia"
-
-msgid "SHARP Impact Rating"
-msgstr "SHARP Impact Rating"
-
-msgid "Verified SHARP UK impact test score"
-msgstr "Verified SHARP UK impact test score"
-
-msgid "Noise Level"
-msgstr "Poziom hałasu"
-
-msgid "Measured wind noise at speed"
-msgstr "Measured wind noise at speed"
-
-msgid "Ventilation"
-msgstr "Ventilation"
-
-msgid "Airflow performance rating"
-msgstr "Airflow performance rating"
-
-msgid "Wind Tunnel Tested"
-msgstr "Wind Tunnel Tested"
-
-msgid "Optimized shell aerodynamics"
-msgstr "Optimized shell aerodynamics"
-
-msgid "Pinlock Anti-Fog"
-msgstr "Pinlock Anti-Fog"
-
-msgid "Anti-fog visor insert"
-msgstr "Anti-fog visor insert"
-
-msgid "Comms Integration"
-msgstr "Comms Integration"
-
-msgid "Intercom cutout availability"
-msgstr "Intercom cutout availability"
-
-msgid "Glasses Friendly"
-msgstr "Glasses Friendly"
-
-msgid "Inner lining eyewear grooves"
-msgstr "Inner lining eyewear grooves"
-
-msgid "Visor System"
-msgstr "Visor System"
-
-msgid "Integrated drop-down sun visor"
-msgstr "Integrated drop-down sun visor"
-
-msgid "Removable Interior"
-msgstr "Wyjmowane wnętrze"
-
-msgid "Washable lining modules"
-msgstr "Washable lining modules"
-
-msgid "SAFETY & CERTIFICATIONS"
-msgstr "BEZPIECZEŃSTWO & HOMOLOGACJE"
-
-msgid "Verified Safety Snapshot"
-msgstr "Podsumowanie bezpieczeństwa"
-
-msgid "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
-msgstr "Zgodność certyfikatów tego kasku z oficjalnymi normami bezpieczeństwa i testami zderzeniowymi."
-
-msgid "Certified Homologation"
-msgstr "Oficjalna homologacja"
-
-msgid "SHARP Impact Score"
-msgstr "Ocena uderzeniowa SHARP"
-
-msgid "Safety Standards"
-msgstr "Safety Standards"
-
-msgid "Safety & Certifications"
-msgstr "Safety & Certifications"
-
-msgid "Safety & Aero-Acoustics HUD"
-msgstr "Safety & Aero-Acoustics HUD"
+msgid "Accessories Tracked"
+msgstr "Śledzone akcesoria"
 
 msgid "Acoustics & Aerodynamics"
-msgstr "Akustyka & aerodynamika"
+msgstr "Acoustics & Aerodynamics"
 
-msgid "Technology & Convenience"
-msgstr "Technology & Convenience"
+msgid "Activate Track Alert"
+msgstr "Activate Track Alert"
 
-msgid "Regional Legality Guidance"
-msgstr "Regional Legality Guidance"
+msgid "Add to Comparison"
+msgstr "Dodaj do porównania"
 
-msgid "Regional Legality & Compliance"
-msgstr "Regional Legality & Compliance"
+msgid "Add to compare"
+msgstr "Add to compare"
 
-msgid "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
-msgstr "Zgodność ze standardami bezpieczeństwa opiera się na oficjalnej dokumentacji producenta i badaniach laboratoryjnych. Przed użyciem zawsze sprawdź oznaczenia homologacyjne na kasku."
-
-msgid "FIT & SIZING"
-msgstr "DOPASOWANIE & ROZMIARY"
-
-msgid "Verified Fit & Sizing Guide"
-msgstr "Zweryfikowany przewodnik po rozmiarach"
-
-msgid "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
-msgstr "Interaktywny kalkulator rozmiaru dopasowany do kształtu głowy i wymiarów producenta."
-
-msgid "Your Head Circumference"
-msgstr "Twój obwód głowy"
-
-msgid "Select Head Shape Profile"
-msgstr "Wybierz kształt głowy"
-
-msgid "Recommended Helmet Size"
-msgstr "Rekomendowany rozmiar kasku"
-
-msgid "Using standardized ECE/DOT baseline metrics."
-msgstr "Na podstawie standardów pomiarowych ECE/DOT."
-
-msgid "How to measure"
-msgstr "Jak zmierzyć obwód głowy"
-
-msgid "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
-msgstr "Owiń centymetr krawiecki wokół głowy tuż nad brwiami i uszami. Dociągnij wygodnie, odczytaj wynik i powtórz pomiar dla pewności."
-
-msgid "Interactive Size & Fit Finder"
-msgstr "Interactive Size & Fit Finder"
-
-msgid "Round Oval"
-msgstr "Owalny okrągły"
-
-msgid "Intermediate Oval"
-msgstr "Owalny pośredni"
-
-msgid "Long Oval"
-msgstr "Owalny podłużny"
-
-msgid "Round Oval Shape"
-msgstr "Round Oval Shape"
-
-msgid "Intermediate Oval Shape"
-msgstr "Intermediate Oval Shape"
-
-msgid "Long Oval Shape"
-msgstr "Long Oval Shape"
-
-msgid "Spherical fit: added side volume width, tailored for rounder skull profiles."
-msgstr "Spherical fit: added side volume width, tailored for rounder skull profiles."
-
-msgid "Balanced oval fit: standard ergonomic curvature fitting 80%+ of riders."
-msgstr "Standardowy owal: ergonomiczna krzywizna pasująca na ponad 80% motocyklistów."
-
-msgid "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
-msgstr "Wydłużony owal: zredukowany ucisk boczny, zoptymalizowana przestrzeń przód-tył."
-
-msgid "Product Concept & Specifications"
-msgstr "Product Concept & Specifications"
-
-msgid "Design Concept & Background"
-msgstr "Koncepcja & geneza projektu"
-
-msgid "Key Highlights:"
-msgstr "Kluczowe cechy:"
-
-msgid "Rider Profile & Intended Use"
-msgstr "Profil motocyklisty & przeznaczenie"
-
-msgid "Riding Style"
-msgstr "Styl jazdy"
-
-msgid "Helmet Category"
-msgstr "Helmet Category"
-
-msgid "Internal Fit Shape"
-msgstr "Internal Fit Shape"
-
-msgid "Engineering & Technical Analysis"
-msgstr "Analiza inżynieryjna & techniczna"
-
-msgid "Fit & Shell Structure"
-msgstr "Fit & Shell Structure"
-
-msgid "Not specified"
-msgstr "Nie określono"
-
-msgid "Not verified"
-msgstr "Niezweryfikowane"
-
-msgid "Not tested"
-msgstr "Not tested"
-
-msgid "Not tested by SHARP"
-msgstr "Nietestowany w SHARP"
-
-msgid "EQRS Active"
-msgstr "System EQRS aktywny"
-
-msgid "Yes"
-msgstr "Tak"
-
-msgid "No"
-msgstr "Nie"
-
-msgid "Included"
-msgstr "Included"
-
-msgid "Not included"
-msgstr "Not included"
-
-msgid "Dual Visor System"
-msgstr "Dual Visor System"
-
-msgid "Full Set"
-msgstr "Full Set"
-
-msgid "Years"
-msgstr "Years"
-
-msgid "Modular"
-msgstr "Szczękowy"
-
-msgid "Full Face"
-msgstr "Integralny"
-
-msgid "Open Face"
-msgstr "Otwarty"
-
-msgid "Dual Sport"
-msgstr "Dual Sport"
-
-msgid "Touring"
-msgstr "Turystyka"
-
-msgid "Street"
-msgstr "Szosa"
-
-msgid "Track"
-msgstr "Tor"
+msgid "Add to comparison"
+msgstr "Add to comparison"
 
 msgid "Adventure"
 msgstr "Adventure"
 
-msgid "Double D-Ring"
-msgstr "Zapięcie DD"
+msgid "Adventure / Off-Road"
+msgstr "Adventure / Off-road"
 
-msgid "Micrometric"
-msgstr "Micrometric"
+msgid "Aero-Acoustics"
+msgstr "Aero-Acoustics"
 
-msgid "Carbon"
-msgstr "Carbon"
+msgid "Aero-acoustic profile pending track testing."
+msgstr "Aero-acoustic profile pending track testing."
 
-msgid "Carbon-Aramid-Glass"
-msgstr "Carbon-Aramid-Glass"
+msgid "Affiliate Disclosure"
+msgstr "Affiliate Disclosure"
 
-msgid "Fiberglass"
-msgstr "Włókno szklane"
+msgid "Aggressive street"
+msgstr "Agresywna jazda uliczna"
 
-msgid "Polycarbonate"
-msgstr "Poliwęglan"
+msgid "Airflow & visibility"
+msgstr "Przepływ powietrza i widoczność"
 
-msgid "Product at retailers"
-msgstr "Product at retailers"
+msgid "Airflow performance rating"
+msgstr "Ocena wydajności przepływu powietrza"
 
-msgid "View on retailers"
-msgstr "View on retailers"
+msgid "All Brands"
+msgstr "Wszystkie marki"
 
-msgid "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
-msgstr "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
+msgid "All Helmets"
+msgstr "Wszystkie kaski"
 
-msgid "Price tracking active across international retailers."
-msgstr "Aktywny monitoring cen u międzynarodowych sprzedawców."
+msgid "All matching helmets"
+msgstr "Wszystkie pasujące kaski"
 
-msgid "Set Drop Alert"
-msgstr "Ustaw powiadomienie o obniżce ceny"
+msgid "Anti-fog visor insert"
+msgstr "Wkładka przeciwmgielna do wizjera"
 
-msgid "Online Stores"
-msgstr "Sklepy internetowe"
+msgid "Any Budget"
+msgstr "Dowolny budżet"
 
-msgid "Buy Local"
-msgstr "Kup stacjonarnie"
+msgid "Any Riding Style"
+msgstr "Dowolny styl jazdy"
 
-msgid "Best price"
+msgid "Any Safety"
+msgstr "Dowolny poziom bezpieczeństwa"
+
+msgid "Apply Filters"
+msgstr "Zastosuj filtry"
+
+msgid "Approximate medium size weight"
+msgstr "Przybliżona waga w średnim rozmiarze"
+
+msgid "Authorized Distributor"
+msgstr "Authorized Distributor"
+
+msgid "Availability"
+msgstr "Availability"
+
+msgid "Avg. Standard"
+msgstr "Avg. Standard"
+
+msgid "Avg. Weight"
+msgstr "Avg. Weight"
+
+msgid "Awaiting SHARP Audit"
+msgstr "Awaiting SHARP Audit"
+
+msgid "Balanced (Centered)"
+msgstr "Balanced (Centered)"
+
+msgid "Balanced oval fit: standard ergonomic curvature fitting 80%+ of riders."
+msgstr "Balanced oval fit: standard ergonomic curvature fitting 80%+ of riders."
+
+msgid "Based on %d verified reviews"
+msgstr "Based on %d verified reviews"
+
+msgid "Based on safety, value, weight and rider feedback across our database."
+msgstr "Na podstawie bezpieczeństwa, stosunku jakości do ceny, wagi i opinii motocyklistów z całej naszej bazy danych."
+
+msgid "Based on your motorcycle, riding style, budget and safety requirements."
+msgstr "Na podstawie Twojego motocykla, stylu jazdy, budżetu i wymagań dotyczących bezpieczeństwa."
+
+msgid "Be the first to share your riding experience with this helmet."
+msgstr "Be the first to share your riding experience with this helmet."
+
+msgid "Best Adventure"
+msgstr "Najlepszy Adventure"
+
+msgid "Best For"
+msgstr "Najlepszy do"
+
+msgid "Best Lightweight"
+msgstr "Najlepszy lekki"
+
+msgid "Best Match"
+msgstr "Najlepsze dopasowanie"
+
+msgid "Best Matches"
+msgstr "Najlepsze dopasowania"
+
+msgid "Best Online Price"
+msgstr "Najlepsza cena online"
+
+msgid "Best Overall"
+msgstr "Najlepszy ogólnie"
+
+msgid "Best Price"
 msgstr "Najlepsza cena"
 
-msgid "Check live price"
-msgstr "Check live price"
+msgid "Best Value"
+msgstr "Najlepszy stosunek jakości do ceny"
 
-msgid "View Deal"
-msgstr "Zobacz ofertę"
+msgid "Best helmets for long-distance touring"
+msgstr "Najlepsze kaski na dalekie trasy"
 
-msgid "View Deal →"
-msgstr "View Deal →"
+msgid "Best matches for you"
+msgstr "Najlepsze dopasowania dla Ciebie"
 
-msgid "Price History & Trends"
-msgstr "Price History & Trends"
+msgid "Blog & News"
+msgstr "Blog & News"
 
-msgid "No historical observations recorded yet. Helmetsan will track price trends as observations accumulate."
-msgstr "No historical observations recorded yet. Helmetsan will track price trends as observations accumulate."
+msgid "Bluetooth · Mesh · Audio Kits"
+msgstr "Bluetooth · Mesh · Zestawy audio"
 
-msgid "30 Days"
-msgstr "30 Days"
+msgid "Brand"
+msgstr "Marka"
 
-msgid "90 Days"
-msgstr "90 Days"
+msgid "Brands"
+msgstr "Brands"
 
-msgid "1 Year"
-msgstr "1 Year"
+msgid "Breadcrumb"
+msgstr "Breadcrumb"
+
+msgid "Browse All Accessories →"
+msgstr "Przeglądaj wszystkie akcesoria →"
+
+msgid "Browse All Helmets →"
+msgstr "Przeglądaj wszystkie kaski →"
+
+msgid "Browse Our Catalog"
+msgstr "Przeglądaj nasz katalog"
+
+msgid "Browse all %s+ helmets"
+msgstr "Przeglądaj wszystkie kaski %s+"
+
+msgid "Browse all %s+ helmets →"
+msgstr "Przeglądaj wszystkie kaski %s+ →"
+
+msgid "Browse all accessories"
+msgstr "Przeglądaj wszystkie akcesoria"
+
+msgid "Browse helmets"
+msgstr "Przeglądaj kaski"
+
+msgid "Browse the catalog and click “Compare” on any helmet to add it here. You can compare up to four helmets at once."
+msgstr "Przejrzyj katalog i kliknij „Porównaj” przy dowolnym kasku, aby dodać go tutaj. Możesz porównać jednocześnie maksymalnie cztery kaski."
+
+msgid "Budget"
+msgstr "Budżet"
+
+msgid "Built for riders who demand clarity and compliance."
+msgstr "Built for riders who demand clarity and compliance."
+
+msgid "Buy Local"
+msgstr "Kup lokalnie"
+
+msgid "Buy Now"
+msgstr "Kup teraz"
+
+msgid "Buy on Amazon →"
+msgstr "Kup na Amazonie →"
+
+msgid "Buying Guide"
+msgstr "Poradnik zakupowy"
+
+msgid "COCKPIT & RIDER GEAR"
+msgstr "KOKPIT I WYPOSAŻENIE MOTOCYKLISTY"
+
+msgid "COMPARE"
+msgstr "PORÓWNAJ"
+
+msgid "COMPATIBILITY ENGINE"
+msgstr "SILNIK KOMPATYBILNOŚCI"
+
+msgid "COMPATIBILITY MATRIX"
+msgstr "MACIERZ KOMPATYBILNOŚCI"
+
+msgid "Cache inherited helmet specs and features to reduce database load."
+msgstr "Cache inherited helmet specs and features to reduce database load."
 
 msgid "Call"
 msgstr "Call"
 
-msgid "Website"
-msgstr "Website"
+msgid "Can't decide between two helmets?"
+msgstr "Nie możesz zdecydować się między dwoma kaskami?"
 
-msgid "Directions"
-msgstr "Directions"
+msgid "Care"
+msgstr "Pielęgnacja"
 
-msgid "Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you."
-msgstr "Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you."
+msgid "Catalog"
+msgstr "Catalog"
 
-msgid "Add to compare"
-msgstr "Dodaj do porównania"
+msgid "Categories"
+msgstr "Kategorie"
 
-msgid "Add to comparison"
-msgstr "Dodaj do porównania"
+msgid "Category"
+msgstr "Category"
 
-msgid "Compare"
-msgstr "Porównaj"
+msgid "Certification"
+msgstr "Certyfikacja"
 
-msgid "Compare now"
-msgstr "Porównaj teraz"
+msgid "Certification Documents & References"
+msgstr "Certification Documents & References"
 
-msgid "Comparison bar"
-msgstr "Pasek porównania"
+msgid "Certification standards pending lab verification."
+msgstr "Standardy certyfikacji oczekują na weryfikację laboratoryjną."
 
-msgid "View compare"
-msgstr "Zobacz porównanie"
+msgid "Certifications"
+msgstr "Certifications"
 
-msgid "Remove %s from comparison"
-msgstr "Remove %s from comparison"
+msgid "Certifications & Documents"
+msgstr "Certifications & Documents"
+
+msgid "Certified Homologation"
+msgstr "Certified Homologation"
+
+msgid "Certified safety standard"
+msgstr "Certyfikowana norma bezpieczeństwa"
+
+msgid "Check Deals"
+msgstr "Check Deals"
+
+msgid "Check Price"
+msgstr "Sprawdź cenę"
+
+msgid "Check Price →"
+msgstr "Sprawdź cenę →"
+
+msgid "Check live price"
+msgstr "Sprawdź aktualną cenę"
+
+msgid "Check price"
+msgstr "Sprawdź cenę"
+
+msgid "Check price for %s"
+msgstr "Check price for %s"
+
+msgid "Cheek Pads · Liners · Balaclavas"
+msgstr "Poduszki policzkowe · Wkładki · Kominiarki"
+
+msgid "Cheek pad quick removal"
+msgstr "Szybkie wyjmowanie poduszek policzkowych"
+
+msgid "Chin strap buckle style"
+msgstr "Typ klamry paska pod brodą"
+
+msgid "City & daily use"
+msgstr "Jazda miejska i codzienna"
+
+msgid "City Commuter"
+msgstr "Miejski dojazd do pracy"
+
+msgid "Cleaners · Bags · Storage"
+msgstr "Środki czyszczące · Torby · Przechowywanie"
 
 msgid "Clear"
-msgstr "Wyczyść"
+msgstr "Clear"
 
-msgid "Video Spotlight & Field Reviews"
-msgstr "Video Spotlight & Field Reviews"
+msgid "Clear All"
+msgstr "Wyczyść wszystko"
 
-msgid "Product Video Walkthrough"
-msgstr "Product Video Walkthrough"
+msgid "Clear All Filters →"
+msgstr "Wyczyść wszystkie filtry →"
 
-msgid "User Reviews"
-msgstr "User Reviews"
+msgid "Clear all"
+msgstr "Wyczyść wszystko"
 
-msgid "Write a review"
-msgstr "Write a review"
+msgid "Close modal"
+msgstr "Zamknij okno modalne"
 
-msgid "No reviews yet. Be the first to share your experience with this helmet!"
-msgstr "No reviews yet. Be the first to share your experience with this helmet!"
+msgid "Color/Finish:"
+msgstr "Color/Finish:"
 
-msgid "NO VERIFIED RIDER REVIEWS YET"
-msgstr "NO VERIFIED RIDER REVIEWS YET"
+msgid "Comfort"
+msgstr "Komfort"
 
-msgid "Be the first to share your riding experience with this helmet."
-msgstr "Bądź pierwszym, który podzieli się wrażeniami z jazdy w tym kasku."
+msgid "Comms Integration"
+msgstr "Integracja systemów komunikacji"
 
-msgid "Review Details"
-msgstr "Review Details"
+msgid "Comms Ready"
+msgstr "Comms Ready"
 
-msgid "Share your experience"
-msgstr "Share your experience"
+msgid "Communication"
+msgstr "Komunikacja"
 
-msgid "Submit for Review"
-msgstr "Submit for Review"
+msgid "Commute"
+msgstr "Dojazdy"
 
-msgid "Was this helpful?"
-msgstr "Was this helpful?"
+msgid "Company"
+msgstr "Company"
 
-msgid "Load More Reviews"
-msgstr "Load More Reviews"
+msgid "Compare"
+msgstr "Compare"
 
-msgid "Newest First"
-msgstr "Newest First"
+msgid "Compare All Stores ↓"
+msgstr "Porównaj wszystkie sklepy ↓"
 
-msgid "Most Helpful"
-msgstr "Most Helpful"
+msgid "Compare Helmets →"
+msgstr "Porównaj kaski →"
 
-msgid "Sort Reviews"
-msgstr "Sort Reviews"
+msgid "Compare Now →"
+msgstr "Porównaj teraz →"
 
-msgid "Shop by Type"
-msgstr "Według typu kasku"
+msgid "Compare Safety Standards →"
+msgstr "Porównaj normy bezpieczeństwa →"
 
-msgid "Shop by Brand"
-msgstr "Według marki"
+msgid "Compare now"
+msgstr "Compare now"
 
-msgid "Riding Style & Safety"
-msgstr "Styl jazdy i bezpieczeństwo"
+msgid "Compare safety, fit, features, riding style and price across thousands of helmets."
+msgstr "Porównaj bezpieczeństwo, dopasowanie, funkcje, styl jazdy i cenę tysięcy kasków."
 
-msgid "Features & Style"
-msgstr "Cechy i styl"
+msgid "Compare specs, certifications, weight, and price side by side. Add up to four helmets from the catalog, then use this page to see differences at a glance and choose the right one."
+msgstr "Porównaj obok siebie specyfikację, certyfikaty, wagę i cenę. Dodaj do czterech kasków z katalogu, a następnie zobacz na tej stronie różnice i wybierz właściwy model."
 
-msgid "View All Helmets"
-msgstr "Zobacz wszystkie kaski"
+msgid "Compare them side by side — safety, weight, features and price."
+msgstr "Porównaj je obok siebie — bezpieczeństwo, wagę, funkcje i cenę."
 
-msgid "View All Brands"
-msgstr "Zobacz wszystkie marki"
+msgid "Comparison bar"
+msgstr "Comparison bar"
 
-msgid "View All Motorcycles"
-msgstr "Zobacz wszystkie motocykle"
+msgid "Comparison · 6 min read"
+msgstr "Porównanie · 6 min czytania"
 
-msgid "View All Accessories"
-msgstr "Zobacz wszystkie akcesoria"
+msgid "Compatibility Data"
+msgstr "Dane dotyczące kompatybilności"
 
-msgid "Helmet Accessories"
-msgstr "Akcesoria do kasków"
+msgid "Compatible Accessories"
+msgstr "Compatible Accessories"
 
-msgid "Sale & Closeouts"
-msgstr "Promocje i wyprzedaże"
+msgid "Compatible Gear"
+msgstr "Kompatybilne wyposażenie"
 
-msgid "Mega Menu: Helmets"
-msgstr "Mega Menu: Helmets"
+msgid "Compatible Helmets"
+msgstr "Compatible Helmets"
 
-msgid "Mega Menu: Brands"
-msgstr "Mega Menu: Brands"
+msgid "Cons (comma separated)"
+msgstr "Cons (comma separated)"
 
-msgid "Mega Menu: Accessories"
-msgstr "Mega Menu: Accessories"
+msgid "Cons:"
+msgstr "Cons:"
 
-msgid "Mega Menu: Motorcycles"
-msgstr "Mega Menu: Motorcycles"
-
-msgid "About Helmetsan"
-msgstr "O Helmetsan"
-
-msgid "Privacy Policy"
-msgstr "Polityka prywatności"
-
-msgid "Terms of Use"
-msgstr "Terms of Use"
-
-msgid "Cookie Policy"
-msgstr "Polityka plików cookie"
-
-msgid "Affiliate Disclosure"
-msgstr "Informacja o afiliacji"
-
-msgid "AI Policy"
-msgstr "Polityka AI"
-
-msgid "Accessibility Statement"
-msgstr "Deklaracja dostępności"
+msgid "Contact Page &rarr;"
+msgstr "Contact Page &rarr;"
 
 msgid "Contact Us"
-msgstr "Kontakt"
+msgstr "Contact Us"
 
-msgid "Dealers Directory"
-msgstr "Katalog dealerów"
+msgid "Content Alignment"
+msgstr "Content Alignment"
 
-msgid "Disclaimer"
-msgstr "Zastrzeżenia prawne"
+msgid "Content Max Width (px)"
+msgstr "Content Max Width (px)"
+
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+msgid "Copy link to clipboard"
+msgstr "Kopiuj link do schowka"
 
 msgid "Copyright Notice"
-msgstr "Prawa autorskie"
+msgstr "Copyright Notice"
+
+msgid "Data & Sources"
+msgstr "Dane i źródła"
+
+msgid "Data Confidence & Verification Provenance"
+msgstr "Data Confidence & Verification Provenance"
+
+msgid "Data Notes"
+msgstr "Uwagi dotyczące danych"
+
+msgid "Dealers Directory"
+msgstr "Dealers Directory"
+
+msgid "Design Concept & Background"
+msgstr "Design Concept & Background"
+
+msgid "Detailed specifications and technical profile details for the %s are available in the tables below."
+msgstr "Detailed specifications and technical profile details for the %s are available in the tables below."
+
+msgid "Detected IP"
+msgstr "Wykryty adres IP"
+
+msgid "Directions"
+msgstr "Wskazówki"
+
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+msgid "Discover helmets across %s+ products from %s+ brands."
+msgstr "Odkrywaj kaski spośród ponad %s produktów ponad %s marek."
+
+msgid "Displacement"
+msgstr "Pojemność silnika"
+
+msgid "Display Name"
+msgstr "Display Name"
+
+msgid "Drag and drop to reorder links in footer bottom line."
+msgstr "Drag and drop to reorder links in footer bottom line."
+
+msgid "Dual Visor System"
+msgstr "System podwójnej szyby"
+
+msgid "Dual-sport versatility for road and trail riding."
+msgstr "Wszechstronność dual-sport do jazdy po drogach i szlakach."
+
+msgid "ECE vs DOT: What's the difference?"
+msgstr "ECE a DOT: czym się różnią?"
+
+msgid "EQRS Active"
+msgstr "EQRS Active"
+
+msgid "EQUIPMENT & OPTICS INTELLIGENCE"
+msgstr "INTELIGENCJA W OBSZARZE WYPOSAŻENIA I OPTYKI"
+
+msgid "Electric Heating Compatibility:"
+msgstr "Electric Heating Compatibility:"
+
+msgid "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
+msgstr "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
+
+msgid "Email (private)"
+msgstr "Email (private)"
+
+msgid "Emergency Release"
+msgstr "Awaryjne odblokowanie"
+
+msgid "Emergency Release System"
+msgstr "Emergency Release System"
+
+msgid "Enable Metadata Caching"
+msgstr "Enable Metadata Caching"
+
+msgid "Engineering & Technical Analysis"
+msgstr "Engineering & Technical Analysis"
+
+msgid "Essential cockpit communication, protection, or maintenance accessory."
+msgstr "Niezbędne akcesorium do komunikacji w kokpicie, ochrony lub konserwacji."
+
+msgid "Exclusive Importer"
+msgstr "Exclusive Importer"
+
+msgid "Explore"
+msgstr "Odkrywaj"
+
+msgid "Explore Helmets"
+msgstr "Odkrywaj kaski"
+
+msgid "Extremely Quiet: Superior long-distance sound damping."
+msgstr "Extremely Quiet: Superior long-distance sound damping."
+
+msgid "FIND YOUR HELMET"
+msgstr "ZNAJDŹ SWÓJ KASK"
+
+msgid "FIT & SIZING"
+msgstr "FIT & SIZING"
+
+msgid "Feature"
+msgstr "Funkcja"
+
+msgid "Features"
+msgstr "Funkcje"
+
+msgid "Filter Helmets"
+msgstr "Filtruj kaski"
+
+msgid "Filter brands"
+msgstr "Filtruj marki"
+
+msgid "Filter by Brand"
+msgstr "Filtruj według marki"
+
+msgid "Filter by Features"
+msgstr "Filtruj według funkcji"
+
+msgid "Filter by Helmet Type"
+msgstr "Filtruj według typu kasku"
+
+msgid "Filter by Price"
+msgstr "Filtruj według ceny"
+
+msgid "Filter by Riding Style"
+msgstr "Filtruj według stylu jazdy"
+
+msgid "Filter by Safety Standards"
+msgstr "Filtruj według norm bezpieczeństwa"
+
+msgid "Find Accessories for Your Helmet"
+msgstr "Znajdź akcesoria do swojego kasku"
+
+msgid "Find My Helmet →"
+msgstr "Znajdź mój kask →"
+
+msgid "Find a helmet for your motorcycle"
+msgstr "Znajdź kask do swojego motocykla"
+
+msgid "Find accessories for my helmet →"
+msgstr "Znajdź akcesoria do mojego kasku →"
+
+msgid "Find compatible accessories for your helmet."
+msgstr "Znajdź kompatybilne akcesoria do swojego kasku."
+
+msgid "Find the right accessories for your helmet — from visibility and communication upgrades to comfort, protection and care."
+msgstr "Znajdź odpowiednie akcesoria do swojego kasku — od ulepszeń widoczności i komunikacji po komfort, ochronę i pielęgnację."
+
+msgid "Find the right category"
+msgstr "Znajdź odpowiednią kategorię"
+
+msgid "Find the right helmet for how you ride."
+msgstr "Znajdź kask odpowiedni do Twojego stylu jazdy."
+
+msgid "Fit & Shell Structure"
+msgstr "Fit & Shell Structure"
+
+msgid "Fit & Sizing"
+msgstr "Dopasowanie i rozmiar"
 
 msgid "Footer Column 1"
 msgstr "Footer Column 1"
@@ -659,437 +636,1106 @@ msgstr "Footer Column 2"
 msgid "Footer Column 3"
 msgstr "Footer Column 3"
 
-msgid "Full Face Helmets"
-msgstr "Kaski integralne"
+msgid "Footer Menu"
+msgstr "Footer Menu"
 
-msgid "Modular Helmets"
-msgstr "Kaski szczękowe"
+msgid "Full Face"
+msgstr "Szczękowy"
 
-msgid "Open Face Helmets"
-msgstr "Kaski otwarte"
+msgid "Full Set"
+msgstr "Pełny zestaw"
 
-msgid "Half Helmets"
-msgstr "Kaski orzeszek"
+msgid "Gallery for %s"
+msgstr "Gallery for %s"
 
-msgid "Dirt / Motocross Helmets"
-msgstr "Kaski motocross"
+msgid "Glasses Friendly"
+msgstr "Przystosowany do okularów"
 
-msgid "Adventure / Dual Sport Helmets"
-msgstr "Kaski adventure / dual sport"
-
-msgid "Touring Helmets"
-msgstr "Kaski turystyczne"
-
-msgid "Track / Race Helmets"
-msgstr "Kaski torowe / wyścigowe"
-
-msgid "Youth Helmets"
-msgstr "Kaski dziecięce"
-
-msgid "Snowmobile Helmets"
-msgstr "Kaski na skutery śnieżne"
-
-msgid "Cruiser"
-msgstr "Cruiser"
-
-msgid "Sportbike"
-msgstr "Sportowy"
-
-msgid "Dirt / MX"
-msgstr "Off-road / MX"
-
-msgid "Urban / Commuter"
-msgstr "Miasto / Dojazdy"
-
-msgid "ECE Certified"
-msgstr "Homologacja ECE"
-
-msgid "DOT Approved"
-msgstr "Atest DOT"
-
-msgid "MIPS Technology"
-msgstr "Technologia MIPS"
-
-msgid "Internal Sun Visor"
-msgstr "Blenda przeciwsłoneczna"
-
-msgid "Photochromic"
-msgstr "Wizjer fotochromatyczny"
-
-msgid "Carbon Fiber"
-msgstr "Włókno węglowe (Carbon)"
-
-msgid "Composite"
-msgstr "Kompozyt"
-
-msgid "1 Shell"
-msgstr "1 rozmiar skorupy"
-
-msgid "2 Shells"
-msgstr "2 rozmiary skorupy"
-
-msgid "3 Shells"
-msgstr "3 rozmiary skorupy"
-
-msgid "4+ Shell Sizes"
-msgstr "4+ rozmiary skorupy"
-
-msgid "Face Shields"
-msgstr "Wizjery i szyby"
-
-msgid "Pinlock Inserts"
-msgstr "Wkładki Pinlock"
-
-msgid "Replacement Liners"
-msgstr "Wymienne wyściółki"
-
-msgid "Cheek Pads"
-msgstr "Poduszki policzkowe"
-
-msgid "Bluetooth Systems"
-msgstr "Interkomy Bluetooth"
-
-msgid "Cleaning Kits"
-msgstr "Zestawy do czyszczenia"
-
-msgid "Helmet Bags"
-msgstr "Torby i pokrowce"
-
-msgid "Helmets on Sale"
-msgstr "Kaski w promocji"
-
-msgid "Closeout Helmets"
-msgstr "Wyprzedaż kasków"
-
-msgid "Ventilation Rating"
-msgstr "Wentylacja"
-
-msgid "Comms Ready"
-msgstr "Gotowy na interkom"
-
-msgid "Price Range"
-msgstr "Przedział cenowy"
-
-msgid "Pending"
-msgstr "Oczekuje"
-
-msgid "Integrated"
-msgstr "Zintegrowany"
-
-msgid "Cutout Ready"
-msgstr "Przygotowane miejsce"
-
-msgid "Awaiting SHARP Audit"
-msgstr "Oczekuje na test SHARP"
-
-msgid "Wider fit: optimized lateral ear-to-ear clearance, reduced crown pressure."
-msgstr "Szerszy owal: zwiększona przestrzeń boczna na uszy, mniejszy ucisk na czubek głowy."
-
-msgid "Ideal Disciplines:"
-msgstr "Polecane dyscypliny:"
-
-msgid "Primary Environment:"
-msgstr "Główne środowisko:"
-
-msgid "Commuting & Touring"
-msgstr "Miasto & Turystyka"
-
-msgid "Sport & Track"
-msgstr "Sport & Tor"
-
-msgid "Adventure & Off-Road"
-msgstr "Adventure & Off-road"
-
-msgid "Cruiser & Urban"
-msgstr "Cruiser & Miasto"
-
-msgid "Aero-Acoustics"
-msgstr "Aeroakustyka"
-
-msgid "Aero-acoustic profile pending track testing."
-msgstr "Profil aeroakustyczny w trakcie weryfikacji na torze."
-
-msgid "Extremely Quiet: Superior long-distance sound damping."
-msgstr "Niezwykle cichy: doskonałe tłumienie hałasu na długich trasach."
-
-msgid "Moderate Noise: Typical full-face airflow profile."
-msgstr "Umiarkowany hałas: typowy przepływ powietrza dla kasku integralnego."
-
-msgid "High Aero Noise: Ear protection strongly recommended."
-msgstr "Wysoki poziom hałasu: zalecane stosowanie zatyczek do uszu."
-
-msgid "Ventilation & Climate Control"
-msgstr "Wentylacja & kontrola termiczna"
-
-msgid "High Flow: Dynamic multi-channel active venting."
-msgstr "Maksymalny przepływ: aktywna wentylacja wielokanałowa."
+msgid "Global Helmet Intelligence Platform"
+msgstr "Globalna platforma analizy kasków"
 
 msgid "Good Flow: Standard EPS exhaust ports."
-msgstr "Dobra wentylacja: standardowe kanały wylotowe EPS."
+msgstr "Good Flow: Standard EPS exhaust ports."
 
-msgid "Sealed Shell: Optimized for low noise over high airflow."
-msgstr "Uszczelniona skorupa: zoptymalizowana pod kątem redukcji hałasu."
+msgid "Guides & research"
+msgstr "Poradniki i badania"
 
-msgid "Communications & Audio Integration"
-msgstr "Integracja z interkomem & audio"
+msgid "HELMETSAN QUICK VERDICT"
+msgstr "SZYBKI WERDYKT HELMETSAN"
 
-msgid "Shell & Impact Absorption Architecture"
-msgstr "Konstrukcja skorupy & pochłanianie uderzeń"
+msgid "Head Shape Fit"
+msgstr "Head Shape Fit"
 
-msgid "Detailed Specifications"
-msgstr "Szczegółowa specyfikacja techniczna"
+msgid "Head shape fit profile is unverified."
+msgstr "Profil dopasowania do kształtu głowy nie został zweryfikowany."
 
-msgid "Detailed specifications and technical profile details for the %s are available in the tables below."
-msgstr "Szczegółowa specyfikacja i parametry techniczne dla %s znajdują się w poniższych tabelach."
+msgid "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
+msgstr "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
 
-msgid "General Details"
-msgstr "Informacje ogólne"
+msgid "Helmet Accessories & Optics"
+msgstr "Akcesoria i optyka do kasków"
 
-msgid "Model"
-msgstr "Model"
+msgid "Helmet Catalog"
+msgstr "Katalog kasków"
 
-msgid "Brand"
-msgstr "Marka"
+msgid "Helmet Category"
+msgstr "Helmet Category"
 
-msgid "Manufacturer"
-msgstr "Producent"
+msgid "Helmet Comparison"
+msgstr "Helmet Comparison"
+
+msgid "Helmet Compatibility:"
+msgstr "Helmet Compatibility:"
+
+msgid "Helmet Model"
+msgstr "Model kasku"
 
 msgid "Helmet Type"
 msgstr "Typ kasku"
 
-msgid "Target Audience"
-msgstr "Grupa docelowa"
+msgid "Helmet Types"
+msgstr "Helmet Types"
 
-msgid "Target Riders"
-msgstr "Grupa użytkowników"
+msgid "Helmets"
+msgstr "Helmets"
 
-msgid "Country of Origin"
-msgstr "Kraj produkcji"
+msgid "Helmets Tracked"
+msgstr "Śledzone kaski"
 
-msgid "Weight & Sizing"
-msgstr "Waga & rozmiary"
+msgid "Helmetsan Assessment"
+msgstr "Ocena Helmetsan"
+
+msgid "Helmetsan Decision Support"
+msgstr "Wsparcie decyzyjne Helmetsan"
+
+msgid "Helmetsan Intelligence"
+msgstr "Analiza Helmetsan"
+
+msgid "Helmetsan Layout & Footer"
+msgstr "Helmetsan Layout & Footer"
+
+msgid "Helmetsan Mac Child expects GeneratePress as parent theme."
+msgstr "Helmetsan Mac Child expects GeneratePress as parent theme."
+
+msgid "Helmetsan Performance"
+msgstr "Helmetsan Performance"
+
+msgid "Helmetsan Pick"
+msgstr "Wybór Helmetsan"
+
+msgid "Helmetsan Picks"
+msgstr "Wybory Helmetsan"
+
+msgid "Helmetsan Score"
+msgstr "Wynik Helmetsan"
+
+msgid "Helmetsan Theme works best with Helmetsan Core plugin active."
+msgstr "Helmetsan Theme works best with Helmetsan Core plugin active."
+
+msgid "Helmetsan does not currently have a verified product image for this model."
+msgstr "Helmetsan does not currently have a verified product image for this model."
+
+msgid "Helmetsan enforces field-level verification and multi-source cross-referencing. Unverified values are explicitly flagged rather than estimated."
+msgstr "Helmetsan enforces field-level verification and multi-source cross-referencing. Unverified values are explicitly flagged rather than estimated."
+
+msgid "Helmetsan is a trademark, owned and operated by Ash Digital Services."
+msgstr "Helmetsan is a trademark, owned and operated by Ash Digital Services."
+
+msgid "Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you."
+msgstr "Helmetsan to niezależny silnik bezpieczeństwa i podejmowania decyzji dotyczących motocykli. Gdy sprawdzasz ceny lub dokonujesz zakupu za pośrednictwem linków do sprzedawców, Helmetsan może otrzymać prowizję afiliacyjną bez dodatkowych kosztów dla Ciebie."
+
+msgid "Helmetsan recommendation profile tailored specifically for the %s riding ergonomics, wind screen profile, and velocity characteristics."
+msgstr "Profil rekomendacji Helmetsan dostosowany specjalnie do ergonomii jazdy, profilu szyby i charakterystyki prędkości modelu %s."
+
+msgid "Help Me Choose"
+msgstr "Pomóż mi wybrać"
+
+msgid "High Aero Noise: Ear protection strongly recommended."
+msgstr "High Aero Noise: Ear protection strongly recommended."
+
+msgid "High Flow: Dynamic multi-channel active venting."
+msgstr "High Flow: Dynamic multi-channel active venting."
+
+msgid "Highway"
+msgstr "Autostrada"
+
+msgid "Highway / Touring"
+msgstr "Autostrada / Turystyka"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "How Do You Ride?"
+msgstr "Jak jeździsz?"
+
+msgid "How many stars?"
+msgstr "How many stars?"
+
+msgid "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
+msgstr "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
+
+msgid "How to measure"
+msgstr "How to measure"
+
+msgid "IMAGE UNAVAILABLE"
+msgstr "IMAGE UNAVAILABLE"
+
+msgid "Image Unavailable"
+msgstr "Obraz niedostępny"
+
+msgid "Impact + rotational testing"
+msgstr "Testy uderzeniowe i rotacyjne"
+
+msgid "In stock"
+msgstr "Dostępny"
+
+msgid "Included"
+msgstr "W zestawie"
+
+msgid "Independent UK rating system"
+msgstr "Niezależny brytyjski system ocen"
+
+msgid "Independent performance standard"
+msgstr "Niezależna norma wydajności"
+
+msgid "Inner lining eyewear grooves"
+msgstr "Rowki na okulary w wyściółce wewnętrznej"
+
+msgid "Integrated drop-down sun visor"
+msgstr "Zintegrowana opuszczana osłona przeciwsłoneczna"
+
+msgid "Interactive Size & Fit Finder"
+msgstr "Interactive Size & Fit Finder"
+
+msgid "Intercom cutout availability"
+msgstr "Dostępność wycięcia na interkom"
+
+msgid "Interior & Liner Tech"
+msgstr "Interior & Liner Tech"
+
+msgid "Intermediate Oval"
+msgstr "Intermediate Oval"
+
+msgid "Internal Fit Shape"
+msgstr "Internal Fit Shape"
+
+msgid "International Import & Customs Advisory"
+msgstr "Informacje dotyczące importu międzynarodowego i odprawy celnej"
+
+msgid "Key Factors"
+msgstr "Najważniejsze czynniki"
+
+msgid "Key Highlights:"
+msgstr "Key Highlights:"
+
+msgid "Last Audit Date"
+msgstr "Last Audit Date"
+
+msgid "Left Aligned"
+msgstr "Left Aligned"
+
+msgid "Legal Links Order"
+msgstr "Legal Links Order"
+
+msgid "Legal Menu"
+msgstr "Legal Menu"
+
+msgid "Lightest"
+msgstr "Najlżejszy"
+
+msgid "Load More Reviews"
+msgstr "Load More Reviews"
+
+msgid "Long Oval"
+msgstr "Long Oval"
+
+msgid "Long-distance rides"
+msgstr "Jazda na długich dystansach"
+
+msgid "Low Flow: Minimal venting ports."
+msgstr "Low Flow: Minimal venting ports."
+
+msgid "MFR. product #"
+msgstr "MFR. product #"
+
+msgid "MOTORCYCLE RECOMMENDATION ENGINE"
+msgstr "SILNIK REKOMENDACJI MOTOCYKLOWYCH"
+
+msgid "MSRP"
+msgstr "Sugerowana cena detaliczna producenta"
+
+msgid "Made with %s in India"
+msgstr "Made with %s in India"
+
+msgid "Make your helmet work harder"
+msgstr "Wykorzystaj pełnię możliwości swojego kasku"
+
+msgid "Mandatory racing standard"
+msgstr "Obowiązkowa norma wyścigowa"
+
+msgid "Manufacturer"
+msgstr "Producent"
+
+msgid "Manufacturer Source"
+msgstr "Manufacturer Source"
+
+msgid "Manufacturer coverage duration"
+msgstr "Okres ochrony producenta"
+
+msgid "Market Position"
+msgstr "Market Position"
+
+msgid "Material"
+msgstr "Materiał"
+
+msgid "Maximum coverage"
+msgstr "Maksymalna ochrona"
+
+msgid "Measured Weight"
+msgstr "Measured Weight"
+
+msgid "Measured weight unavailable."
+msgstr "Zmierzona masa niedostępna."
+
+msgid "Measured wind noise at speed"
+msgstr "Zmierzony hałas wiatru przy prędkości"
+
+msgid "Mega Menu: Accessories"
+msgstr "Mega Menu: Accessories"
+
+msgid "Mega Menu: Brands"
+msgstr "Mega Menu: Brands"
+
+msgid "Mega Menu: Helmets"
+msgstr "Mega Menu: Helmets"
+
+msgid "Mega Menu: Motorcycles"
+msgstr "Mega Menu: Motorcycles"
+
+msgid "Mid-Range"
+msgstr "Mid-Range"
+
+msgid "Mitigates rotational impact"
+msgstr "Łagodzi skutki uderzenia rotacyjnego"
+
+msgid "Models Tracked"
+msgstr "Models Tracked"
+
+msgid "Moderate: Balanced road noise levels."
+msgstr "Moderate: Balanced road noise levels."
+
+msgid "Modular"
+msgstr "Modułowy"
+
+msgid "More from %s"
+msgstr "More from %s"
+
+msgid "Most Helpful"
+msgstr "Most Helpful"
+
+msgid "Motorcycle"
+msgstr "Motocykl"
+
+msgid "Motorcycle Helmets"
+msgstr "Kaski motocyklowe"
+
+msgid "Motorcycle Riding"
+msgstr "Jazda motocyklem"
+
+msgid "Motorcycle → Helmet"
+msgstr "Motocykl → Kask"
+
+msgid "Motorcycles"
+msgstr "Motorcycles"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NO VERIFIED RIDER REVIEWS YET"
+msgstr "NO VERIFIED RIDER REVIEWS YET"
+
+msgid "Newest"
+msgstr "Najnowsze"
+
+msgid "Newest First"
+msgstr "Newest First"
+
+msgid "Next &rarr;"
+msgstr "Next &rarr;"
+
+msgid "No"
+msgstr "No"
+
+msgid "No content found matching your search. Try different keywords or browse our catalog."
+msgstr "No content found matching your search. Try different keywords or browse our catalog."
+
+msgid "No content found."
+msgstr "No content found."
+
+msgid "No exact helmet matches found"
+msgstr "Nie znaleziono dokładnie pasujących kasków"
+
+msgid "No helmets found for the selected filters."
+msgstr "No helmets found for the selected filters."
+
+msgid "No helmets selected yet."
+msgstr "Nie wybrano jeszcze żadnych kasków."
+
+msgid "No historical observations recorded yet. Helmetsan will track price trends as observations accumulate."
+msgstr "Nie zarejestrowano jeszcze żadnych obserwacji historycznych. Helmetsan będzie śledzić trendy cenowe w miarę gromadzenia obserwacji."
+
+msgid "No reviews yet. Be the first to share your experience with this helmet!"
+msgstr "No reviews yet. Be the first to share your experience with this helmet!"
+
+msgid "No specific compatible helmets linked. Use compatible types and brands above to filter."
+msgstr "No specific compatible helmets linked. Use compatible types and brands above to filter."
+
+msgid "Noise Level"
+msgstr "Poziom hałasu"
+
+msgid "Not all certifications mean the same thing. Know what protects you."
+msgstr "Nie wszystkie certyfikaty oznaczają to samo. Dowiedz się, co Cię chroni."
+
+msgid "Not included"
+msgstr "Nie uwzględniono"
+
+msgid "Not specified"
+msgstr "Not specified"
+
+msgid "Not tested"
+msgstr "Nie testowano"
+
+msgid "Not tested by SHARP"
+msgstr "Not tested by SHARP"
+
+msgid "Not verified"
+msgstr "Not verified"
+
+msgid "Official Brand Hub"
+msgstr "Official Brand Hub"
+
+msgid "Official Partner"
+msgstr "Oficjalny partner"
+
+msgid "Official Wholesale Importers &amp; Distributors"
+msgstr "Official Wholesale Importers &amp; Distributors"
+
+msgid "One structured database. One place to understand the helmet market."
+msgstr "Jedna uporządkowana baza danych. Jedno miejsce, by zrozumieć rynek kasków."
+
+msgid "Online Stores"
+msgstr "Sklepy internetowe"
+
+msgid "Open Face"
+msgstr "Otwarty"
+
+msgid "Open Search"
+msgstr "Open Search"
+
+msgid "Optimize site speed and database scalability."
+msgstr "Optimize site speed and database scalability."
+
+msgid "Optimized aerodynamic balance and vision field."
+msgstr "Zoptymalizowana równowaga aerodynamiczna i pole widzenia."
+
+msgid "Optimized riding orientation"
+msgstr "Zoptymalizowana orientacja podczas jazdy"
+
+msgid "Optimized shell aerodynamics"
+msgstr "Zoptymalizowana aerodynamika skorupy"
+
+msgid "Other part numbers"
+msgstr "Other part numbers"
+
+msgid "Outer structural material"
+msgstr "Zewnętrzny materiał konstrukcyjny"
+
+msgid "Outstanding performance at a competitive price point."
+msgstr "Wyjątkowe osiągi w konkurencyjnej cenie."
+
+msgid "Overview"
+msgstr "Przegląd"
+
+msgid "Overview and specifications for the %s based on verified manufacturer details:"
+msgstr "Overview and specifications for the %s based on verified manufacturer details:"
+
+msgid "Page %d of %d"
+msgstr "Page %d of %d"
+
+msgid "Page sections"
+msgstr "Sekcje strony"
+
+msgid "Parent Classification:"
+msgstr "Parent Classification:"
+
+msgid "Part numbers"
+msgstr "Part numbers"
+
+msgid "Photo of %s"
+msgstr "Photo of %s"
+
+msgid "Pinlock Anti-Fog"
+msgstr "Pinlock przeciw parowaniu"
+
+msgid "Pinlock Integration:"
+msgstr "Pinlock Integration:"
+
+msgid "Popular Alternative Helmets"
+msgstr "Popularne alternatywne kaski"
+
+msgid "Popular:"
+msgstr "Popularne:"
+
+msgid "Portal"
+msgstr "Portal"
+
+msgid "Premium / Pro"
+msgstr "Premium / Pro"
+
+msgid "Premium construction with strong certification coverage."
+msgstr "Konstrukcja premium z szerokim zakresem certyfikacji."
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Price Drop Alert"
+msgstr "Price Drop Alert"
+
+msgid "Price History & Trends"
+msgstr "Historia i trendy cen"
+
+msgid "Price Range"
+msgstr "Price Range"
+
+msgid "Price: High → Low"
+msgstr "Cena: od najwyższej → do najniższej"
+
+msgid "Price: Low → High"
+msgstr "Cena: od najniższej → do najwyższej"
+
+msgid "Prices, taxes, and local safety standards automatically adapt to your chosen location."
+msgstr "Ceny, podatki i lokalne normy bezpieczeństwa automatycznie dostosowują się do wybranej lokalizacji."
+
+msgid "Primary Menu"
+msgstr "Primary Menu"
+
+msgid "Primary Use Case"
+msgstr "Główne zastosowanie"
+
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+msgid "Product Category:"
+msgstr "Product Category:"
+
+msgid "Product Concept & Specifications"
+msgstr "Product Concept & Specifications"
+
+msgid "Product Video Walkthrough"
+msgstr "Product Video Walkthrough"
+
+msgid "Product at retailers"
+msgstr "Product at retailers"
+
+msgid "Product description"
+msgstr "Product description"
+
+msgid "Product details"
+msgstr "Product details"
+
+msgid "Product style"
+msgstr "Product style"
+
+msgid "Pros (comma separated)"
+msgstr "Pros (comma separated)"
+
+msgid "Pros:"
+msgstr "Pros:"
+
+msgid "Quick Facts"
+msgstr "Najważniejsze informacje"
+
+msgid "Quick Facts at a Glance"
+msgstr "Quick Facts at a Glance"
+
+msgid "Quick Filters"
+msgstr "Szybkie filtry"
+
+msgid "Quick Verdict"
+msgstr "Szybki werdykt"
+
+msgid "Quick filters"
+msgstr "Szybkie filtry"
+
+msgid "Race-focused"
+msgstr "Zorientowany na wyścigi"
+
+msgid "Race-focused protection"
+msgstr "Ochrona zorientowana na wyścigi"
+
+msgid "Real-time price tracking active across international retailers."
+msgstr "Real-time price tracking active across international retailers."
+
+msgid "Recommended Accessories for %s"
+msgstr "Polecane akcesoria dla %s"
+
+msgid "Recommended Cert"
+msgstr "Zalecana certyfikacja"
+
+msgid "Recommended Helmet Size"
+msgstr "Recommended Helmet Size"
+
+msgid "Recommended Helmets for %s"
+msgstr "Polecane kaski dla %s"
+
+msgid "Recommended helmets"
+msgstr "Polecane kaski"
+
+msgid "Reflective · Chin Guards · Vents"
+msgstr "Odblaskowe · Ochraniacze podbródka · Otwory wentylacyjne"
+
+msgid "Regional Distributor"
+msgstr "Regional Distributor"
+
+msgid "Regional Legality & Compliance"
+msgstr "Regional Legality & Compliance"
+
+msgid "Regional Legality Guidance"
+msgstr "Regional Legality Guidance"
+
+msgid "Related videos"
+msgstr "Related videos"
+
+msgid "Relevance"
+msgstr "Trafność"
+
+msgid "Removable Interior"
+msgstr "Wyjmowane wnętrze"
+
+msgid "Remove %s from comparison"
+msgstr "Remove %s from comparison"
+
+msgid "Required:"
+msgstr "Required:"
+
+msgid "Resources"
+msgstr "Resources"
+
+msgid "Retailer"
+msgstr "Sprzedawca"
+
+msgid "Retention Mechanism"
+msgstr "Retention Mechanism"
+
+msgid "Retention Strap"
+msgstr "Pasek mocujący"
+
+msgid "Retention System"
+msgstr "Retention System"
+
+msgid "Review Details"
+msgstr "Review Details"
+
+msgid "Reviews"
+msgstr "Opinie"
+
+msgid "Reviews by Region"
+msgstr "Reviews by Region"
+
+msgid "Rider Profile & Intended Use"
+msgstr "Rider Profile & Intended Use"
+
+msgid "Riders frequently choose these verified models:"
+msgstr "Motocykliści często wybierają te zweryfikowane modele:"
+
+msgid "Riding"
+msgstr "Jazda"
+
+msgid "Riding Style"
+msgstr "Riding Style"
+
+msgid "Riding style"
+msgstr "Styl jazdy"
+
+msgid "Road & trail"
+msgstr "Droga i szlak"
+
+msgid "Road + off-road"
+msgstr "Droga + teren"
+
+msgid "Rotational Protection"
+msgstr "Rotational Protection"
+
+msgid "Round Oval"
+msgstr "Round Oval"
+
+msgid "SAFETY & CERTIFICATIONS"
+msgstr "SAFETY & CERTIFICATIONS"
+
+msgid "SHARP Impact Rating"
+msgstr "Ocena uderzeniowa SHARP"
+
+msgid "SHARP Impact Score"
+msgstr "SHARP Impact Score"
+
+msgid "SHARP impact test results pending."
+msgstr "SHARP impact test results pending."
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Safety"
+msgstr "Bezpieczeństwo"
+
+msgid "Safety & Aero-Acoustics HUD"
+msgstr "Safety & Aero-Acoustics HUD"
+
+msgid "Safety & Certifications"
+msgstr "Safety & Certifications"
+
+msgid "Safety Intelligence"
+msgstr "Analiza bezpieczeństwa"
+
+msgid "Safety Standards"
+msgstr "Safety Standards"
+
+msgid "Safety Testing Agency"
+msgstr "Safety Testing Agency"
+
+msgid "Safety profile available"
+msgstr "Profil bezpieczeństwa dostępny"
+
+msgid "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
+msgstr "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
+
+msgid "Safety · 8 min read"
+msgstr "Bezpieczeństwo · 8 min czytania"
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "Search Helmetsan"
+msgstr "Szukaj w Helmetsan"
+
+msgid "Search Results for: %s"
+msgstr "Search Results for: %s"
+
+msgid "Search brands..."
+msgstr "Szukaj marek..."
+
+msgid "Search country or currency (e.g. India, EUR, ₹)..."
+msgstr "Szukaj kraju lub waluty (np. Indie, EUR, ₹)..."
+
+msgid "Search for:"
+msgstr "Szukaj:"
+
+msgid "Search helmets catalog"
+msgstr "Przeszukaj katalog kasków"
+
+msgid "Search helmets, brands, accessories..."
+msgstr "Szukaj kasków, marek, akcesoriów..."
+
+msgid "Search helmets, brands, motorcycles or requirements..."
+msgstr "Szukaj kasków, marek, motocykli lub wymagań..."
+
+msgid "Search motorcycles"
+msgstr "Szukaj motocykli"
+
+msgid "Search pagination"
+msgstr "Search pagination"
+
+msgid "Search your motorcycle..."
+msgstr "Szukaj swojego motocykla..."
+
+msgid "Secondary Menu"
+msgstr "Secondary Menu"
+
+msgid "Segment"
+msgstr "Segment"
+
+msgid "Select Country & Currency"
+msgstr "Wybierz kraj i walutę"
+
+msgid "Select Country and Currency"
+msgstr "Wybierz kraj i walutę"
+
+msgid "Select Head Shape Profile"
+msgstr "Select Head Shape Profile"
+
+msgid "Select Language"
+msgstr "Select Language"
+
+msgid "Select country and currency"
+msgstr "Wybierz kraj i walutę"
+
+msgid "Select your specific helmet model to view confirmed compatible visors, pinlock inserts, communication headsets, liners, and care gear."
+msgstr "Wybierz konkretny model kasku, aby zobaczyć potwierdzone kompatybilne wizjery, wkładki Pinlock, zestawy komunikacyjne, wyściółki i akcesoria do pielęgnacji."
+
+msgid "Set Drop Alert"
+msgstr "Set Drop Alert"
+
+msgid "Share this comparison"
+msgstr "Udostępnij to porównanie"
+
+msgid "Share your experience"
+msgstr "Share your experience"
+
+msgid "Shell Construction"
+msgstr "Konstrukcja skorupy"
+
+msgid "Shell Material"
+msgstr "Shell Material"
+
+msgid "Shields · Pinlock · Anti-Fog"
+msgstr "Szyby · Pinlock · Anti-Fog"
+
+msgid "Show AI Policy"
+msgstr "Show AI Policy"
+
+msgid "Show Accessibility Statement"
+msgstr "Show Accessibility Statement"
+
+msgid "Show Affiliate Disclosure"
+msgstr "Show Affiliate Disclosure"
+
+msgid "Show Cookie Policy"
+msgstr "Show Cookie Policy"
+
+msgid "Show Disclaimer"
+msgstr "Show Disclaimer"
+
+msgid "Show Matching Helmets →"
+msgstr "Pokaż pasujące kaski →"
+
+msgid "Show Privacy Policy"
+msgstr "Show Privacy Policy"
+
+msgid "Show Required Legal Links"
+msgstr "Show Required Legal Links"
+
+msgid "Show Terms of Use"
+msgstr "Show Terms of Use"
+
+msgid "Show empty fields"
+msgstr "Pokaż puste pola"
+
+msgid "Show “Made with <3 in India”"
+msgstr "Show “Made with <3 in India”"
+
+msgid "Showing %d–%d of %d"
+msgstr "Showing %d–%d of %d"
+
+msgid "Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation."
+msgstr "Katalog kasków stawiający na dobór rozmiaru i bezpieczeństwo, z nawigacją fasetową na urządzeniach mobilnych i komputerach."
+
+msgid "Sizing &amp; fit"
+msgstr "Sizing &amp; fit"
+
+msgid "Sizing Group:"
+msgstr "Sizing Group:"
+
+msgid "Skip to content"
+msgstr "Skip to content"
+
+msgid "Snowmobile/Winter Use:"
+msgstr "Snowmobile/Winter Use:"
+
+msgid "Social Menu"
+msgstr "Social Menu"
+
+msgid "Sort Reviews"
+msgstr "Sort Reviews"
+
+msgid "Sort by:"
+msgstr "Sortuj według:"
+
+msgid "Sort helmets"
+msgstr "Sortuj kaski"
+
+msgid "Specifications"
+msgstr "Specyfikacja"
+
+msgid "Spherical fit: added side volume width, tailored for rounder skull profiles."
+msgstr "Spherical fit: added side volume width, tailored for rounder skull profiles."
+
+msgid "Sport"
+msgstr "Sport"
+
+msgid "Sport · Highway"
+msgstr "Sport · Autostrada"
+
+msgid "Stability & comfort"
+msgstr "Stabilność i komfort"
+
+msgid "Standard"
+msgstr "Norma"
+
+msgid "Still not sure which helmet is right for you?"
+msgstr "Nadal nie wiesz, który kask jest dla Ciebie odpowiedni?"
+
+msgid "Subcategory:"
+msgstr "Subcategory:"
+
+msgid "Submit for Review"
+msgstr "Submit for Review"
+
+msgid "Supply channels, regional warehouses, and B2B contacts authorized to supply %s helmets in the %s region."
+msgstr "Supply channels, regional warehouses, and B2B contacts authorized to supply %s helmets in the %s region."
+
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+msgid "Technology & Convenience"
+msgstr "Technology & Convenience"
+
+msgid "Tell Helmetsan how you ride."
+msgstr "Powiedz Helmetsan, jak jeździsz."
+
+msgid "Tell us what you ride. We'll recommend helmets that match."
+msgstr "Powiedz nam, czym jeździsz. Polecimy Ci pasujące kaski."
+
+msgid "Tell us what you're looking for"
+msgstr "Powiedz nam, czego szukasz"
+
+msgid "Tell us your riding style"
+msgstr "Powiedz nam, jaki jest Twój styl jazdy"
+
+msgid "Terms of Use"
+msgstr "Terms of Use"
+
+msgid "The %s is matched via the Helmetsan Multi-Axial Compatibility Matrix. Pairings account for forward riding tuck, slipstream turbulence over the handlebars, and cockpit acoustic sound dampening."
+msgstr "Model %s jest dopasowywany za pomocą Helmetsan Multi-Axial Compatibility Matrix. Przy doborze uwzględniamy pochyloną do przodu pozycję jazdy, turbulencje strugi powietrza nad kierownicą oraz akustyczne tłumienie dźwięku w kokpicie."
+
+msgid "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
+msgstr "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
+
+msgid "Today's pick"
+msgstr "Today's pick"
+
+msgid "Top Rated"
+msgstr "Najwyżej oceniane"
+
+msgid "Touring"
+msgstr "Turystyka"
+
+msgid "Touring · 10 min read"
+msgstr "Turystyka · 10 min czytania"
+
+msgid "Track"
+msgstr "Tor"
+
+msgid "Track / Race"
+msgstr "Tor / Wyścigi"
+
+msgid "Track / Racing"
+msgstr "Tor / Racing"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "US regulatory standard"
+msgstr "Amerykańska norma regulacyjna"
+
+msgid "Ultra-lightweight shell reduces neck fatigue on long rides."
+msgstr "Ultralekka skorupa zmniejsza zmęczenie karku podczas długich tras."
+
+msgid "Under $300"
+msgstr "Poniżej 300 $"
+
+msgid "Under $500"
+msgstr "Poniżej 500 $"
+
+msgid "Understand helmet safety"
+msgstr "Poznaj zasady bezpieczeństwa kasków"
+
+msgid "Use Detected"
+msgstr "Użyj wykrytego"
+
+msgid "Use {year} and {site_name} placeholders."
+msgstr "Use {year} and {site_name} placeholders."
+
+msgid "User Reviews"
+msgstr "User Reviews"
+
+msgid "Using standardized ECE/DOT baseline metrics."
+msgstr "Using standardized ECE/DOT baseline metrics."
+
+msgid "VERIFIED COCKPIT FIT"
+msgstr "ZWERYFIKOWANE DOPASOWANIE DO KOKPITU"
+
+msgid "VERIFIED TECHNICAL SPEC"
+msgstr "ZWERYFIKOWANA SPECYFIKACJA TECHNICZNA"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Value / Entry"
+msgstr "Value / Entry"
+
+msgid "Various"
+msgstr "Various"
+
+msgid "Ventilation"
+msgstr "Wentylacja"
+
+msgid "Ventilation Flow"
+msgstr "Ventilation Flow"
+
+msgid "Ventilation flow score awaiting CFD test."
+msgstr "Ventilation flow score awaiting CFD test."
+
+msgid "Verification Status"
+msgstr "Verification Status"
+
+msgid "Verified"
+msgstr "Zweryfikowano"
+
+msgid "Verified Data"
+msgstr "Verified Data"
+
+msgid "Verified Fit & Sizing Guide"
+msgstr "Verified Fit & Sizing Guide"
+
+msgid "Verified SHARP UK impact test score"
+msgstr "Zweryfikowany wynik testu uderzeniowego SHARP UK"
+
+msgid "Verified Safety Snapshot"
+msgstr "Verified Safety Snapshot"
+
+msgid "Versatility & touring"
+msgstr "Wszechstronność i turystyka"
+
+msgid "Video Spotlight & Field Reviews"
+msgstr "Video Spotlight & Field Reviews"
+
+msgid "Video content for %s"
+msgstr "Video content for %s"
+
+msgid "View"
+msgstr "View"
+
+msgid "View Accessory →"
+msgstr "Zobacz akcesorium →"
+
+msgid "View Deal →"
+msgstr "Zobacz ofertę →"
+
+msgid "View Helmet Specs →"
+msgstr "Zobacz specyfikację kasku →"
+
+msgid "View Stores"
+msgstr "Zobacz sklepy"
+
+msgid "View compare"
+msgstr "View compare"
+
+msgid "View details for %s"
+msgstr "View details for %s"
+
+msgid "View helmet"
+msgstr "View helmet"
+
+msgid "View helmet →"
+msgstr "Zobacz kask →"
+
+msgid "View on retailers"
+msgstr "View on retailers"
+
+msgid "View on site"
+msgstr "Zobacz na stronie"
+
+msgid "View →"
+msgstr "Zobacz →"
+
+msgid "Visor Features"
+msgstr "Visor Features"
+
+msgid "Visor System"
+msgstr "System wizjera"
+
+msgid "Visors & Optics"
+msgstr "Wizjery i optyka"
+
+msgid "Warehouses:"
+msgstr "Warehouses:"
+
+msgid "Warranty"
+msgstr "Warranty"
+
+msgid "Was this helpful?"
+msgstr "Was this helpful?"
+
+msgid "Washable lining modules"
+msgstr "Moduły wyściółki nadające się do prania"
+
+msgid "We couldn't find a helmet matching all your active filters. Try relaxing one or more parameters or explore our top-rated recommendations below."
+msgstr "Nie udało nam się znaleźć kasku spełniającego wszystkie aktywne filtry. Spróbuj poluzować jeden lub więcej parametrów albo zapoznaj się poniżej z naszymi najwyżej ocenianymi rekomendacjami."
+
+msgid "We track prices on Amazon, Flipkart, FC-Moto, and others. Enter your email and target price below, and we will email you the moment the price drops!"
+msgstr "We track prices on Amazon, Flipkart, FC-Moto, and others. Enter your email and target price below, and we will email you the moment the price drops!"
+
+msgid "We'll show you helmets designed for exactly how you ride."
+msgstr "Pokażemy Ci kaski zaprojektowane dokładnie z myślą o Twoim stylu jazdy."
+
+msgid "Website"
+msgstr "Witryna internetowa"
 
 msgid "Weight"
 msgstr "Waga"
 
-msgid "Weight (grams)"
-msgstr "Waga (gramy)"
+msgid "Weight: Lightest"
+msgstr "Waga: najlżejszy"
 
-msgid "Weight Range"
-msgstr "Przedział wagowy"
+msgid "What does ECE 22.06 actually mean?"
+msgstr "Co właściwie oznacza ECE 22.06?"
 
-msgid "Available Sizes"
-msgstr "Dostępne rozmiary"
+msgid "Where to Buy"
+msgstr "Gdzie kupić"
 
-msgid "Shell Sizes"
-msgstr "Liczba rozmiarów skorupy"
+msgid "Where to buy"
+msgstr "Gdzie kupić"
 
-msgid "Shell Count"
-msgstr "Liczba rozmiarów skorupy"
+msgid "Wide (Centered)"
+msgstr "Wide (Centered)"
 
-msgid "Construction & Materials"
-msgstr "Konstrukcja & materiały"
+msgid "Wind Tunnel Tested"
+msgstr "Przetestowany w tunelu aerodynamicznym"
 
-msgid "Outer Shell"
-msgstr "Skorupa zewnętrzna"
+msgid "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
+msgstr "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
 
-msgid "Liner Material"
-msgstr "Wypełnienie wewnętrzne EPS"
+msgid "Write a review"
+msgstr "Write a review"
 
-msgid "Multi-Density EPS"
-msgstr "EPS o różnej gęstości"
+msgid "Years"
+msgstr "Lata"
 
-msgid "EPS Densities"
-msgstr "Gęstości EPS"
+msgid "Yes"
+msgstr "Yes"
 
-msgid "Visor & Optics"
-msgstr "Wizjer & optyka"
+msgid "Yes (Anti-fog ready)"
+msgstr "Yes (Anti-fog ready)"
 
-msgid "Visor Type"
-msgstr "Typ wizjera"
+msgid "Your Head Circumference"
+msgstr "Your Head Circumference"
 
-msgid "Pinlock Included"
-msgstr "Pinlock w zestawie"
+msgid "selected"
+msgstr "selected"
 
-msgid "Pinlock Ready"
-msgstr "Przystosowany pod Pinlock"
+msgid "🇬🇧 UK"
+msgstr "🇬🇧 UK"
 
-msgid "Sun Visor"
-msgstr "Blenda przeciwsłoneczna"
+msgid "🇺🇸 USA"
+msgstr "🇺🇸 USA"
 
-msgid "Integrated Sun Visor"
-msgstr "Zintegrowana blenda przeciwsłoneczna"
+msgid "🌍 Global"
+msgstr "🌍 Globalnie"
 
-msgid "Optic Class 1"
-msgstr "Klasa optyczna 1"
+msgid "🏁 Track"
+msgstr "🏁 Tor"
 
-msgid "Tear-Off Posts"
-msgstr "Uchwyty na zrywki Tear-Off"
+msgid "🏆 MotoGP"
+msgstr "🏆 MotoGP"
 
-msgid "Quick Release Visor"
-msgstr "Szybki demontaż wizjera"
-
-msgid "Comfort & Interior"
-msgstr "Komfort & wnętrze"
-
-msgid "Lining"
-msgstr "Wyściółka wewnętrzna"
-
-msgid "Washable Interior"
-msgstr "Wnętrze nadające się do prania"
-
-msgid "Eyewear Compatible"
-msgstr "Przystosowany dla osób w okularach"
-
-msgid "Glasses Groove"
-msgstr "Rowek na okulary"
-
-msgid "Chin Curtain"
-msgstr "Kurtyna podbródkowa"
-
-msgid "Breath Deflector"
-msgstr "Deflektor nosa"
-
-msgid "Ventilation & Aerodynamics"
-msgstr "Wentylacja & aerodynamika"
-
-msgid "Ventilation Ports"
-msgstr "Wloty i wyloty powietrza"
-
-msgid "Intake Vents"
-msgstr "Wloty powietrza"
-
-msgid "Exhaust Ports"
-msgstr "Wyloty powietrza"
-
-msgid "Channeling"
-msgstr "Kanały wentylacyjne"
-
-msgid "Rear Spoiler"
-msgstr "Tylny spojler"
-
-msgid "Chin Vent"
-msgstr "Wentylacja szczękowa"
-
-msgid "Forehead Vent"
-msgstr "Wentylacja czołowa"
-
-msgid "Top Vent"
-msgstr "Wentylacja górna"
-
-msgid "Check Deals"
-msgstr "Sprawdź oferty"
-
-msgid "Check Price"
-msgstr "Sprawdź cenę"
-
-msgid "Check price for %s"
-msgstr "Sprawdź cenę dla %s"
-
-msgid "Out of stock"
-msgstr "Brak w magazynie"
-
-msgid "In Stock"
-msgstr "Dostępny"
-
-msgid "Authorized Distributor"
-msgstr "Autoryzowany dystrybutor"
-
-msgid "Exclusive Importer"
-msgstr "Wyłączny importer"
-
-msgid "Availability"
-msgstr "Dostępność"
-
-msgid "Visit Official Website"
-msgstr "Odwiedź oficjalną stronę"
-
-msgid "Compare %d helmets"
-msgstr "Porównaj %d kaski"
-
-msgid "Compare Helmets"
-msgstr "Porównaj kaski"
-
-msgid "Helmet Comparison"
-msgstr "Porównywarka kasków"
-
-msgid "Write a Review"
-msgstr "Napisz opinię"
-
-msgid "Based on %d verified reviews"
-msgstr "Na podstawie %d zweryfikowanych opinii"
-
-msgid "Overall Rating"
-msgstr "Ocena ogólna"
-
-msgid "How many stars?"
-msgstr "Ile gwiazdek przyznajesz?"
-
-msgid "Review title"
-msgstr "Tytuł opinii"
-
-msgid "Display Name"
-msgstr "Wyświetlana nazwa"
-
-msgid "Email (private)"
-msgstr "E-mail (prywatny)"
-
-msgid "Pros (comma separated)"
-msgstr "Zalety (oddzielone przecinkami)"
-
-msgid "Cons (comma separated)"
-msgstr "Wady (oddzielone przecinkami)"
-
-msgid "Your review"
-msgstr "Twoja opinia"
-
-msgid "Submit Review"
-msgstr "Wyślij opinię"
-
-msgid "Verified Owner"
-msgstr "Zweryfikowany właściciel"
-
-msgid "Pros:"
-msgstr "Zalety:"
-
-msgid "Cons:"
-msgstr "Wady:"
-
-msgid "Motocross"
-msgstr "Motocross"
-
-msgid "Half Helmet"
-msgstr "Orzeszek"
-
-msgid "Micrometric Ratchet"
-msgstr "Zapięcie mikrometryczne"
-
-msgid "Quick Release"
-msgstr "Szybkie zapięcie"
-
-msgid "Fidlock Magnetic"
-msgstr "Zapięcie magnetyczne Fidlock"
-
-msgid "Round-oval"
-msgstr "Owalny okrągły"
-
-msgid "Intermediate-oval"
-msgstr "Owalny pośredni"
-
-msgid "Long-oval"
-msgstr "Owalny podłużny"
-
-msgid "Terms of Service"
-msgstr "Regulamin serwisu"
-
-msgid "Built for riders who demand clarity and compliance."
-msgstr "Stworzone dla motocyklistów ceniących precyzję techniczną i bezpieczeństwo."
-
-msgid "Helmetsan is a trademark, owned and operated by Ash Digital Services."
-msgstr "Helmetsan jest znakiem towarowym należącym do Ash Digital Services."
-
-msgid "Helmetsan enforces field-level verification and multi-source cross-referencing. Unverified values are explicitly flagged rather than estimated."
-msgstr "Helmetsan stosuje ścisłą weryfikację parametrów w wielu źródłach. Wartości niepotwierdzone są wyraźnie oznaczane, a nie szacowane."
-
-msgid "Contact Page &rarr;"
-msgstr "Strona kontaktowa &rarr;"
+msgid "💡 Riding Profile & Aerodynamic Recommendation"
+msgstr "💡 Profil jazdy i rekomendacja aerodynamiczna"

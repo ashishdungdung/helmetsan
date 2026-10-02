@@ -1,4 +1,6 @@
 <?php
+
+ini_set('memory_limit', '512M');
 /**
  * Helmetsan High-Speed In-Memory Similarity & Recommendation Engine
  * 

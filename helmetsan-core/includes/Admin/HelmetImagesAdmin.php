@@ -6,9 +6,10 @@ namespace Helmetsan\Core\Admin;
 
 use Helmetsan\Core\AI\AiService;
 use Helmetsan\Core\Media\HelmetImageEnrichmentService;
+use Helmetsan\Core\Media\HelmetImageManager;
 
 /**
- * Admin UI for matching catalog helmets to product images (AI, RevZilla, EAN) and importing via Media Engine.
+ * Admin UI for Helmetsan 5-Shot Studio Gallery & Image Enrichment
  */
 final class HelmetImagesAdmin
 {
@@ -17,7 +18,8 @@ final class HelmetImagesAdmin
 
     public function __construct(
         private readonly HelmetImageEnrichmentService $enrichment,
-        private readonly AiService $aiService
+        private readonly AiService $aiService,
+        private readonly ?HelmetImageManager $imageManager = null
     ) {
     }
 
@@ -42,30 +44,21 @@ final class HelmetImagesAdmin
 
     public function enqueueStyles(string $hook): void
     {
-        if ($hook !== 'helmetsan_page_helmetsan-helmet-images') {
+        if (!str_contains($hook, 'helmetsan-helmet-images')) {
             return;
         }
-        $slug = 'helmetsan-helmet-images-admin';
-        wp_register_style($slug, '', [], HELMETSAN_CORE_VERSION);
-        wp_add_inline_style($slug, $this->inlineStyles());
-        wp_enqueue_style($slug);
-    }
 
-    private function inlineStyles(): string
-    {
-        return '
-            .helmetsan-helmet-images-wrap { max-width: 720px; }
-            .helmetsan-helmet-images-wrap .hs-panel { margin-bottom: 1.25rem; }
-            .helmetsan-helmet-images-priority { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #0284c7; padding: 1rem 1.25rem; margin-bottom: 1.25rem; border-radius: 0 8px 8px 0; }
-            .helmetsan-helmet-images-priority strong { color: #0369a1; }
-            .helmetsan-helmet-images-options { display: grid; gap: 0.75rem; }
-            .helmetsan-helmet-images-options label { display: flex; align-items: center; gap: 0.5rem; }
-            .helmetsan-helmet-images-options label input[type="checkbox"] { margin: 0; }
-            .helmetsan-helmet-images-result { margin-top: 1rem; padding: 1rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }
-            .helmetsan-helmet-images-result.success { border-color: #86efac; background: #f0fdf4; }
-            .helmetsan-helmet-images-result .result-row { display: flex; gap: 1.5rem; margin: 0.25rem 0; }
-            .helmetsan-helmet-images-result .result-label { font-weight: 600; color: #475569; min-width: 5rem; }
-        ';
+        $cssUrl = plugins_url('assets/css/helmet-studio-admin.css', dirname(__DIR__));
+        $jsUrl = plugins_url('assets/js/helmet-studio-admin.js', dirname(__DIR__));
+
+        wp_enqueue_style('helmetsan-studio-admin-css', $cssUrl, [], defined('HELMETSAN_CORE_VERSION') ? HELMETSAN_CORE_VERSION : '1.0.0');
+        wp_enqueue_script('helmetsan-studio-admin-js', $jsUrl, [], defined('HELMETSAN_CORE_VERSION') ? HELMETSAN_CORE_VERSION : '1.0.0', true);
+
+        wp_localize_script('helmetsan-studio-admin-js', 'HELMETSAN_STUDIO', [
+            'restUrl' => esc_url_raw(rest_url('helmetsan/v1')),
+            'nonce' => wp_create_nonce('wp_rest'),
+            'canonicalShots' => HelmetImageManager::CANONICAL_SHOTS,
+        ]);
     }
 
     public function handleRun(): void
@@ -83,15 +76,6 @@ final class HelmetImagesAdmin
         $useRevZilla    = isset($_POST['use_revzilla']);
         $useEan         = isset($_POST['use_ean']);
         $dryRun         = isset($_POST['dry_run']);
-
-        $aiRequired = $useAi && ! $this->aiService->hasAnyConfiguredProvider();
-        if ($aiRequired) {
-            set_transient(self::RESULT_TRANSIENT, [
-                'error' => __('AI is enabled but no provider is configured. Go to Helmetsan → AI to add an API key and model.', 'helmetsan-core'),
-            ], self::RESULT_TTL);
-            wp_safe_redirect(admin_url('admin.php?page=helmetsan-helmet-images&done=1'));
-            exit;
-        }
 
         $stats = $this->enrichment->run(
             $limit,
@@ -111,7 +95,8 @@ final class HelmetImagesAdmin
             'use_revzilla' => $useRevZilla,
             'use_ean' => $useEan,
         ]), self::RESULT_TTL);
-        wp_safe_redirect(admin_url('admin.php?page=helmetsan-helmet-images&done=1'));
+
+        wp_safe_redirect(admin_url('admin.php?page=helmetsan-helmet-images&tab=importer&done=1'));
         exit;
     }
 
@@ -121,74 +106,264 @@ final class HelmetImagesAdmin
             wp_die(esc_html__('You do not have permission.', 'helmetsan-core'));
         }
 
+        $currentTab = sanitize_key($_GET['tab'] ?? 'studio');
+
+        echo '<div class="wrap helmetsan-wrap helmetsan-helmet-images-wrap">';
+        
+        // Studio Header
+        echo '<div class="hs-studio-header">';
+        echo '<div>';
+        echo '<h1>' . esc_html__('Helmetsan Helmet Image Studio & Gallery', 'helmetsan-core') . '</h1>';
+        echo '<p>' . esc_html__('Multi-model photography suite powered by NVIDIA NIM FLUX.1 (Photoreal generation) and Moonshot AI Kimi-K3 (Visual quality and safety inspection) with 64-bit pHash deduplication.', 'helmetsan-core') . '</p>';
+        echo '</div>';
+        echo '</div>';
+
+        // Tab Navigation
+        echo '<div class="hs-tabs-nav">';
+        $studioClass = $currentTab === 'studio' ? 'hs-tab-link active' : 'hs-tab-link';
+        $importerClass = $currentTab === 'importer' ? 'hs-tab-link active' : 'hs-tab-link';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-helmet-images&tab=studio')) . '" class="' . esc_attr($studioClass) . '">' . esc_html__('📸 5-Shot Studio Cockpit', 'helmetsan-core') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=helmetsan-helmet-images&tab=importer')) . '" class="' . esc_attr($importerClass) . '">' . esc_html__('🌐 External Importer (RevZilla / EAN)', 'helmetsan-core') . '</a>';
+        echo '</div>';
+
+        if ($currentTab === 'studio') {
+            $this->renderStudioTab();
+        } else {
+            $this->renderImporterTab();
+        }
+
+        echo '</div>';
+    }
+
+    private function renderStudioTab(): void
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . HelmetImageManager::TABLE_NAME;
+
+        $totalHelmets = (int) wp_count_posts('helmet')->publish;
+        $totalImages = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$table}");
+        $verifiedCount = (int) $wpdb->get_var("SELECT COUNT(*) FROM {$table} WHERE validation_status IN ('approved', 'published', 'verified', 'audit_passed')");
+
+        echo '<div class="hs-stat-grid">';
+        echo '<div class="hs-stat-card"><div class="desc">' . esc_html__('Total Helmets', 'helmetsan-core') . '</div><div class="val">' . esc_html((string) $totalHelmets) . '</div></div>';
+        echo '<div class="hs-stat-card"><div class="desc">' . esc_html__('Target 5-Shots', 'helmetsan-core') . '</div><div class="val">' . esc_html((string) ($totalHelmets * 5)) . '</div></div>';
+        echo '<div class="hs-stat-card"><div class="desc">' . esc_html__('Generated Images', 'helmetsan-core') . '</div><div class="val">' . esc_html((string) $totalImages) . '</div></div>';
+        echo '<div class="hs-stat-card"><div class="desc">' . esc_html__('Kimi-K3 Verified', 'helmetsan-core') . '</div><div class="val" style="color:#16a34a;">' . esc_html((string) $verifiedCount) . '</div></div>';
+        echo '</div>';
+
+        echo '<div class="hs-priority-banner">';
+        echo '<strong>' . esc_html__('Canonical 5-Shot Photography Protocol (FLUX.1 + Moonshot AI Kimi-K3)', 'helmetsan-core') . '</strong><br />';
+        echo esc_html__('Every catalog helmet requires 5 standardized technical angles: 1) 3/4 Front Isometric Hero, 2) Lateral Side Profile, 3) Rear Exhaust & Diffuser, 4) Macro Interior & Retention System, 5) Motorcycle Cockpit Pairing. All images are rendered at 1024px, optimized into responsive WebP (1920 hero, 1024 gallery, 480 thumb), deduplicated via 64-bit difference pHash, and visually audited by Kimi-K3.', 'helmetsan-core');
+        echo '</div>';
+
+        // Table Controls: Filter buttons & search box
+        echo '<div class="hs-table-controls">';
+        echo '<div class="hs-filter-group">';
+        echo '<button type="button" class="hs-filter-btn active" data-filter="all">' . esc_html__('All Helmets', 'helmetsan-core') . '</button>';
+        echo '<button type="button" class="hs-filter-btn" data-filter="incomplete">' . esc_html__('⚠️ Missing Shots (< 5)', 'helmetsan-core') . '</button>';
+        echo '<button type="button" class="hs-filter-btn" data-filter="complete">' . esc_html__('✓ Complete 5-Shot', 'helmetsan-core') . '</button>';
+        echo '<button type="button" class="hs-filter-btn" data-filter="audited">' . esc_html__('🔍 Kimi Audited', 'helmetsan-core') . '</button>';
+        echo '</div>';
+        echo '<div>';
+        echo '<input type="text" id="hs-search-helmets" class="hs-search-box" placeholder="' . esc_attr__('Search helmet model or ID...', 'helmetsan-core') . '" />';
+        echo '</div>';
+        echo '</div>';
+
+        // Query catalog helmets
+        $helmets = get_posts([
+            'post_type' => 'helmet',
+            'posts_per_page' => 25,
+            'post_status' => 'publish',
+        ]);
+
+        echo '<div class="hs-studio-table">';
+        echo '<table class="wp-list-table widefat fixed striped">';
+        echo '<thead><tr>';
+        echo '<th style="width:260px;">' . esc_html__('Helmet Model', 'helmetsan-core') . '</th>';
+        echo '<th>' . esc_html__('5-Shot Studio Coverage', 'helmetsan-core') . '</th>';
+        echo '<th style="width:90px;text-align:center;">' . esc_html__('Primary', 'helmetsan-core') . '</th>';
+        echo '<th style="width:130px;">' . esc_html__('Audit Status', 'helmetsan-core') . '</th>';
+        echo '<th style="width:170px;">' . esc_html__('Actions', 'helmetsan-core') . '</th>';
+        echo '</tr></thead><tbody>';
+
+        if (empty($helmets)) {
+            echo '<tr><td colspan="5">' . esc_html__('No helmets found in catalog.', 'helmetsan-core') . '</td></tr>';
+        } else {
+            foreach ($helmets as $h) {
+                $helmetId = (string) $h->ID;
+                $coverage = $this->imageManager ? $this->imageManager->getCoverageForHelmet($helmetId) : ['approved' => 0, 'missing' => array_keys(HelmetImageManager::CANONICAL_SHOTS)];
+                $heroThumb = get_the_post_thumbnail_url($h->ID, 'thumbnail') ?: '';
+                $approvedCount = $coverage['approved'] ?? 0;
+                $isAudited = $approvedCount > 0;
+
+                // Extract brand
+                $brandTerms = get_the_terms($h->ID, 'helmet_brand');
+                $brandName = (!empty($brandTerms) && is_array($brandTerms)) ? $brandTerms[0]->name : 'Helmetsan';
+                $shellMaterial = (string) get_post_meta($h->ID, 'spec_shell_material', true);
+
+                echo '<tr class="hs-helmet-row" data-id="' . esc_attr($helmetId) . '" data-title="' . esc_attr($h->post_title) . '" data-approved="' . esc_attr((string) $approvedCount) . '" data-audited="' . ($isAudited ? 'true' : 'false') . '">';
+                echo '<td><strong><a href="' . esc_url(get_edit_post_link($h->ID)) . '">' . esc_html($h->post_title) . '</a></strong><br /><span class="description">' . esc_html($brandName) . ' • ID: ' . esc_html($helmetId) . '</span></td>';
+                
+                // 5 Shots display
+                echo '<td>';
+                $shotTypes = [
+                    HelmetImageManager::SHOT_FRONT_HERO => 'Front Hero',
+                    HelmetImageManager::SHOT_SIDE_PROFILE => 'Side Profile',
+                    HelmetImageManager::SHOT_REAR_EXHAUST => 'Rear Exhaust',
+                    HelmetImageManager::SHOT_INTERIOR_MACRO => 'Interior Macro',
+                    HelmetImageManager::SHOT_COCKPIT_CONTEXT => 'Cockpit Context',
+                ];
+                foreach ($shotTypes as $st => $label) {
+                    $isDone = !in_array($st, $coverage['missing'] ?? [], true);
+                    $pillClass = $isDone ? 'hs-shot-pill hs-pill-green' : 'hs-shot-pill hs-pill-gray';
+                    echo '<span class="' . esc_attr($pillClass) . '">' . ($isDone ? '✓ ' : '') . esc_html($label) . '</span>';
+                }
+                echo '</td>';
+
+                // Primary Thumbnail
+                echo '<td style="text-align:center;">';
+                if ($heroThumb) {
+                    echo '<img src="' . esc_url($heroThumb) . '" style="width:42px;height:42px;object-fit:cover;border-radius:6px;border:1px solid #cbd5e1;" />';
+                } else {
+                    echo '<span class="description" style="font-size:0.75rem;">None</span>';
+                }
+                echo '</td>';
+
+                // Audit Status
+                echo '<td>';
+                if ($approvedCount === 5) {
+                    echo '<span style="color:#16a34a;font-weight:700;">✓ 5/5 Verified</span>';
+                } else {
+                    echo '<span style="color:#d97706;font-weight:600;">' . esc_html((string) $approvedCount) . '/5 Shots</span>';
+                }
+                echo '</td>';
+
+                // Actions
+                echo '<td>';
+                echo '<button type="button" class="button button-small button-primary hs-open-studio-btn" data-helmet-id="' . esc_attr($helmetId) . '" data-title="' . esc_attr($h->post_title) . '" data-brand="' . esc_attr($brandName) . '" data-shell="' . esc_attr($shellMaterial) . '">';
+                echo '📸 ' . esc_html__('Open Studio', 'helmetsan-core');
+                echo '</button> ';
+                echo '<a href="' . esc_url(get_edit_post_link($h->ID)) . '" class="button button-small">' . esc_html__('Edit Post', 'helmetsan-core') . '</a>';
+                echo '</td>';
+                echo '</tr>';
+            }
+        }
+
+        echo '</tbody></table></div>';
+
+        // -------------------------------------------------------------
+        // Studio Cockpit Modal Markup
+        // -------------------------------------------------------------
+        echo '<div id="hs-studio-modal" class="hs-modal-backdrop hidden">';
+        echo '<div class="hs-modal-window">';
+        
+        echo '<div class="hs-modal-header">';
+        echo '<div>';
+        echo '<h2 id="hs-modal-helmet-title">Helmet Title</h2>';
+        echo '<span id="hs-modal-helmet-subtitle" style="font-size:0.85rem;color:#94a3b8;">Brand • ID: 123</span>';
+        echo '</div>';
+        echo '<button type="button" class="hs-modal-close" aria-label="Close">&times;</button>';
+        echo '</div>';
+
+        echo '<div class="hs-modal-body">';
+        
+        // Progress & Batch Swarm Bar
+        echo '<div class="hs-modal-coverage-bar">';
+        echo '<div><strong>' . esc_html__('5-Shot Studio Coverage:', 'helmetsan-core') . '</strong> <span id="hs-coverage-progress-label">0/5 Shots</span></div>';
+        echo '<div class="hs-progress-track"><div id="hs-coverage-progress-fill" class="hs-progress-fill"></div></div>';
+        echo '<button type="button" id="hs-btn-generate-all-missing" class="button button-primary button-hero" style="font-size:0.9rem;">⚡ ' . esc_html__('Generate All Missing 5 Shots', 'helmetsan-core') . '</button>';
+        echo '</div>';
+
+        // 5-Shot Grid
+        echo '<div id="hs-shots-container" class="hs-shots-grid">';
+        echo '</div>';
+
+        // Live Console Logger
+        echo '<div style="margin-top:1rem;">';
+        echo '<strong style="font-size:0.85rem;color:#334155;">' . esc_html__('Live Swarm Activity Console (NVIDIA NIM & Moonshot AI Kimi-K3):', 'helmetsan-core') . '</strong>';
+        echo '<div id="hs-studio-console" class="hs-activity-console">';
+        echo '<div class="log-line"><span class="log-time">[Init]</span> Studio ready.</div>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '</div>'; // .hs-modal-body
+        echo '</div>'; // .hs-modal-window
+        echo '</div>'; // #hs-studio-modal
+
+        // -------------------------------------------------------------
+        // Kimi-K3 Quality Audit Modal Markup
+        // -------------------------------------------------------------
+        echo '<div id="hs-audit-modal" class="hs-modal-backdrop hidden">';
+        echo '<div class="hs-modal-window hs-audit-modal-window">';
+        
+        echo '<div class="hs-modal-header">';
+        echo '<h2>🔍 ' . esc_html__('Moonshot AI Kimi-K3 Visual Quality Audit', 'helmetsan-core') . '</h2>';
+        echo '<button type="button" class="hs-modal-close" aria-label="Close">&times;</button>';
+        echo '</div>';
+
+        echo '<div class="hs-modal-body">';
+        
+        echo '<div class="hs-audit-score-card">';
+        echo '<div id="hs-audit-gauge" class="hs-audit-gauge hs-gauge-pass">95</div>';
+        echo '<div>';
+        echo '<h3 id="hs-audit-decision-text" style="margin:0 0 0.25rem;font-size:1.1rem;color:#0f172a;">APPROVED</h3>';
+        echo '<p style="margin:0;color:#64748b;font-size:0.85rem;">Inspected via Moonshot AI Kimi-K3 Multimodal Vision on NVIDIA NIM.</p>';
+        echo '</div>';
+        echo '</div>';
+
+        echo '<h4 style="margin:0 0 0.5rem;font-size:0.9rem;">' . esc_html__('Photorealism & Safety Geometry Checklist:', 'helmetsan-core') . '</h4>';
+        echo '<ul id="hs-audit-checks-list" class="hs-audit-checks-list"></ul>';
+
+        echo '<div style="background:#fff;padding:1rem;border-radius:8px;border:1px solid #e2e8f0;">';
+        echo '<strong>' . esc_html__('Auditor Recommendations:', 'helmetsan-core') . '</strong>';
+        echo '<p id="hs-audit-recommendations" style="margin:0.35rem 0 0;font-size:0.85rem;color:#475569;"></p>';
+        echo '</div>';
+
+        echo '<p style="text-align:right;margin-top:1.25rem;margin-bottom:0;">';
+        echo '<button type="button" class="button hs-close-modal-trigger">' . esc_html__('Close Audit Report', 'helmetsan-core') . '</button>';
+        echo '</p>';
+
+        echo '</div>'; // .hs-modal-body
+        echo '</div>'; // .hs-modal-window
+        echo '</div>'; // #hs-audit-modal
+    }
+
+    private function renderImporterTab(): void
+    {
         $result = get_transient(self::RESULT_TRANSIENT);
         $done   = isset($_GET['done']) && (int) $_GET['done'] === 1;
         if ($done && is_array($result)) {
             delete_transient(self::RESULT_TRANSIENT);
         }
 
-        echo '<div class="wrap helmetsan-wrap helmetsan-helmet-images-wrap">';
-        echo '<h1>' . esc_html__('Helmet images', 'helmetsan-core') . '</h1>';
-        echo '<p class="description">' . esc_html__('Match your catalog helmets to product images and import them as featured images. Images are fetched from AI (recommended), RevZilla product pages, or EAN/GTIN lookup, then saved to the Media Library.', 'helmetsan-core') . '</p>';
-
-        echo '<div class="helmetsan-helmet-images-priority">';
-        echo '<strong>' . esc_html__('Priority: AI', 'helmetsan-core') . '</strong> ';
-        echo esc_html__('When a helmet has no barcode or RevZilla link, enable "Use AI" so the model can suggest an EAN, a RevZilla product URL, or a direct image URL. AI-resolved RevZilla links are stored for future runs. Configure at least one provider under Helmetsan → AI.', 'helmetsan-core');
-        echo '</div>';
-
-        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" class="hs-panel">';
+        echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" class="hs-panel" style="background:#fff;padding:1.25rem;border-radius:8px;border:1px solid #e2e8f0;">';
         echo '<input type="hidden" name="action" value="helmetsan_helmet_images_run" />';
         wp_nonce_field('helmetsan_helmet_images_run', '_wpnonce', true, true);
 
-        echo '<h2 class="title" style="margin-top:0;">' . esc_html__('Image sources', 'helmetsan-core') . '</h2>';
+        echo '<h2 class="title" style="margin-top:0;">' . esc_html__('External Image Sources', 'helmetsan-core') . '</h2>';
         echo '<div class="helmetsan-helmet-images-options">';
-        $aiConfigured = $this->aiService->hasAnyConfiguredProvider();
-        echo '<label><input type="checkbox" name="use_ai" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use AI', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Resolve EAN or image URL when helmet has no barcode or link (recommended).', 'helmetsan-core') . '</span></label>';
-        if (! $aiConfigured) {
-            echo '<p class="description" style="margin-left: 1.5rem; color: #b45309;">' . esc_html__('No AI provider configured. Go to Helmetsan → AI to add an API key.', 'helmetsan-core') . '</p>';
-        }
-        echo '<label><input type="checkbox" name="use_revzilla" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use RevZilla', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Fetch image from RevZilla product page. Uses stored link when present; when "Use AI" is also on, AI can find the RevZilla URL for the helmet and save it for next time.', 'helmetsan-core') . '</span></label>';
-        echo '<label><input type="checkbox" name="use_ean" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use EAN / GTIN lookup', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Fetch image from EAN-DB or eandata when helmet has barcode in meta.', 'helmetsan-core') . '</span></label>';
+        echo '<label><input type="checkbox" name="use_ai" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use AI', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Resolve EAN or image URL when helmet has no barcode or link.', 'helmetsan-core') . '</span></label>';
+        echo '<label><input type="checkbox" name="use_revzilla" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use RevZilla', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Fetch image from RevZilla product page.', 'helmetsan-core') . '</span></label>';
+        echo '<label><input type="checkbox" name="use_ean" value="1" ' . checked(true, true, false) . ' /> ' . esc_html__('Use EAN / GTIN lookup', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Fetch image from EAN-DB or eandata.', 'helmetsan-core') . '</span></label>';
         echo '</div>';
 
-        echo '<h2 class="title" style="margin-top: 1.25rem;">' . esc_html__('Scope', 'helmetsan-core') . '</h2>';
+        echo '<h2 class="title" style="margin-top: 1.25rem;">' . esc_html__('Scope & Limits', 'helmetsan-core') . '</h2>';
         echo '<div class="helmetsan-helmet-images-options">';
-        echo '<label><input type="checkbox" name="all_helmets" value="1" ' . checked(false, true, false) . ' /> ' . esc_html__('Process all helmets', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('If unchecked, only helmets without a featured image are processed.', 'helmetsan-core') . '</span></label>';
-        echo '<p><label>' . esc_html__('Limit', 'helmetsan-core') . ' <input type="number" name="limit" value="50" min="1" max="500" step="1" class="small-text" /> ' . esc_html__('helmets per run (0 = no limit).', 'helmetsan-core') . '</label></p>';
+        echo '<label><input type="checkbox" name="all_helmets" value="1" /> ' . esc_html__('Process all helmets', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('If unchecked, only helmets without a featured image are processed.', 'helmetsan-core') . '</span></label>';
+        echo '<p><label>' . esc_html__('Limit', 'helmetsan-core') . ' <input type="number" name="limit" value="50" min="1" max="500" class="small-text" /> ' . esc_html__('helmets per run.', 'helmetsan-core') . '</label></p>';
+        echo '<label><input type="checkbox" name="dry_run" value="1" /> ' . esc_html__('Dry run', 'helmetsan-core') . '</label>';
         echo '</div>';
 
-        echo '<h2 class="title" style="margin-top: 1.25rem;">' . esc_html__('Run', 'helmetsan-core') . '</h2>';
-        echo '<div class="helmetsan-helmet-images-options">';
-        echo '<label><input type="checkbox" name="dry_run" value="1" /> ' . esc_html__('Dry run', 'helmetsan-core') . ' <span class="description">— ' . esc_html__('Report what would be done without importing or setting thumbnails.', 'helmetsan-core') . '</span></label>';
-        echo '</div>';
         echo '<p class="submit" style="margin-top: 1rem; margin-bottom: 0;">';
-        echo '<input type="submit" class="button button-primary button-hero" value="' . esc_attr__('Run enrichment', 'helmetsan-core') . '" />';
+        echo '<input type="submit" class="button button-primary button-hero" value="' . esc_attr__('Run Enrichment', 'helmetsan-core') . '" />';
         echo '</p>';
         echo '</form>';
 
         if ($done && is_array($result)) {
-            if (! empty($result['error'])) {
-                echo '<div class="helmetsan-helmet-images-result notice notice-error" style="margin-top:1rem;"><p>' . esc_html($result['error']) . '</p></div>';
-            } else {
-                $dryRun = ! empty($result['dry_run']);
-                echo '<div class="helmetsan-helmet-images-result success" style="margin-top:1rem;">';
-                echo '<p><strong>' . ($dryRun ? esc_html__('Dry run result', 'helmetsan-core') : esc_html__('Last run result', 'helmetsan-core')) . '</strong></p>';
-                echo '<div class="result-row"><span class="result-label">' . esc_html__('Processed', 'helmetsan-core') . '</span> ' . (int) ($result['processed'] ?? 0) . '</div>';
-                echo '<div class="result-row"><span class="result-label">' . esc_html__('Filled', 'helmetsan-core') . '</span> ' . (int) ($result['filled'] ?? 0) . '</div>';
-                echo '<div class="result-row"><span class="result-label">' . esc_html__('Skipped', 'helmetsan-core') . '</span> ' . (int) ($result['skipped'] ?? 0) . '</div>';
-                echo '<div class="result-row"><span class="result-label">' . esc_html__('Errors', 'helmetsan-core') . '</span> ' . (int) ($result['errors'] ?? 0) . '</div>';
-                echo '</div>';
-            }
+            echo '<div class="notice notice-success" style="margin-top:1rem;padding:1rem;">';
+            echo '<p><strong>' . esc_html__('Enrichment Complete', 'helmetsan-core') . '</strong></p>';
+            echo '<div>Processed: ' . (int) ($result['processed'] ?? 0) . ' | Filled: ' . (int) ($result['filled'] ?? 0) . '</div>';
+            echo '</div>';
         }
-
-        echo '<div class="hs-panel" style="margin-top: 1.5rem;">';
-        echo '<h2 class="title" style="margin-top:0;">' . esc_html__('CLI', 'helmetsan-core') . '</h2>';
-        echo '<p class="description">' . esc_html__('Same enrichment from the command line:', 'helmetsan-core') . '</p>';
-        echo '<pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:8px;overflow:auto;"><code>wp helmetsan helmet-images --limit=50
-wp helmetsan helmet-images --limit=100 --use-ai --verbose
-wp helmetsan helmet-images --all --use-ai --dry-run</code></pre>';
-        echo '</div>';
-
-        echo '</div>';
     }
 }

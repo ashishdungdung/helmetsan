@@ -19,8 +19,23 @@ final class SchemaService
         private readonly ReviewService $reviewService
     ) {}
 
+    public function isYoastActive(): bool
+    {
+        return defined('WPSEO_VERSION');
+    }
+
     public function register(): void
     {
+        if ($this->isYoastActive()) {
+            // Single-Graph Doctrine: Inject Helmetsan Product, Offer, Rating, and FAQ
+            // nodes directly into Yoast SEO's unified @graph, suppressing standalone
+            // duplicate tags for WebSite, Organization, BreadcrumbList, and Product.
+            $adapter = new YoastSchemaAdapter($this);
+            $adapter->register();
+            return;
+        }
+
+        // Autonomous fallback when Yoast SEO is inactive
         add_action('wp_head', [$this, 'printProductSchema'], 30);
         add_action('wp_head', [$this, 'printBreadcrumbListSchema'], 31);
         add_action('wp_head', [$this, 'printWebSiteSchema'], 32);
@@ -95,6 +110,17 @@ final class SchemaService
         $offerCurrency = ! empty($offerMeta['currency']) ? (string) $offerMeta['currency'] : $currency;
         $validUntil = $this->resolvePriceValidUntil($offerMeta);
 
+        $applicableCountry = match ($offerCurrency) {
+            'GBP'   => 'GB',
+            'EUR'   => 'DE',
+            'INR'   => 'IN',
+            'CAD'   => 'CA',
+            'AUD'   => 'AU',
+            'JPY'   => 'JP',
+            'AED'   => 'AE',
+            default => 'US',
+        };
+
         $offer = [
             '@type'          => 'Offer',
             'priceCurrency'  => $offerCurrency,
@@ -127,7 +153,7 @@ final class SchemaService
             ],
             'hasMerchantReturnPolicy' => [
                 '@type' => 'MerchantReturnPolicy',
-                'applicableCountry' => 'US',
+                'applicableCountry' => $applicableCountry,
                 'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
                 'merchantReturnDays' => 30,
                 'returnMethod' => 'https://schema.org/ReturnByMail',
@@ -187,11 +213,13 @@ final class SchemaService
         $bestOffer = $bestOfferRaw !== '' ? json_decode($bestOfferRaw, true) : null;
         $bestOffer = is_array($bestOffer) ? $bestOffer : [];
 
+        $canonicalUrl = (string) get_permalink($postId);
         $schema = [
             '@context'    => 'https://schema.org',
             '@type'       => 'Product',
+            '@id'         => $canonicalUrl . '#product',
             'name'        => (string) $post->post_title,
-            'url'         => get_permalink($postId),
+            'url'         => $canonicalUrl,
             'description' => wp_strip_all_tags((string) get_the_excerpt($postId)),
         ];
 
@@ -206,13 +234,64 @@ final class SchemaService
             ];
         }
 
+        // Canonical Identifiers (Google Merchant Center & Schema.org strict compliance)
+        $sku = (string) get_post_meta($lookupId, 'sku', true);
+        if ($sku === '') {
+            $sku = 'HSN-HLM-' . str_pad((string) $lookupId, 5, '0', STR_PAD_LEFT);
+        }
+        $schema['sku'] = $sku;
+
+        $ean = (string) get_post_meta($lookupId, 'ean', true);
+        if ($ean === '') {
+            $ean = (string) get_post_meta($lookupId, 'gtin', true);
+        }
+        if ($ean !== '' && $this->validateEan13Checksum($ean)) {
+            $schema['gtin13'] = $ean;
+        }
+
+        $mpn = (string) get_post_meta($lookupId, 'mpn', true);
+        if ($mpn !== '') {
+            $schema['mpn'] = $mpn;
+        }
+
+        $family = (string) get_post_meta($lookupId, 'helmet_family', true);
+        if ($family !== '') {
+            $schema['model'] = $family;
+        }
+        $schema['category'] = 'Motorcycle Helmet';
+
+        // Add hasVariant if variants exist
+        $variantsJson = (string) get_post_meta($lookupId, 'variants_json', true);
+        $variantsList = json_decode($variantsJson, true);
+        if (is_array($variantsList) && $variantsList !== []) {
+            $hasVariant = [];
+            foreach (array_slice($variantsList, 0, 5) as $v) {
+                $vColor = $v['color'] ?? '';
+                $vTitle = $v['title'] ?? ((string) $post->post_title . ' - ' . $vColor);
+                $vSku = $v['sku'] ?? ($sku . '-' . strtoupper(sanitize_title($vColor ?: 'VAR')));
+                $hasVariant[] = [
+                    '@type'       => 'Product',
+                    'name'        => $vTitle,
+                    'sku'         => $vSku,
+                    'color'       => $vColor,
+                    'isVariantOf' => [
+                        '@type' => 'ProductModel',
+                        'name'  => (string) $post->post_title,
+                    ],
+                ];
+            }
+            if ($hasVariant !== []) {
+                $schema['hasVariant'] = $hasVariant;
+            }
+        }
+
         $geoPriceActive = false;
-        if (function_exists('helmetsan_core')) {
+        if (function_exists('helmetsan_core') && helmetsan_core() !== null && method_exists(helmetsan_core(), 'config')) {
             $perf = helmetsan_core()->config()->performanceConfig();
             $geoPriceActive = !empty($perf['enable_geoip_pricing']);
         }
 
-        if ($geoPriceActive && function_exists('helmetsan_core')) {
+        if ($geoPriceActive && function_exists('helmetsan_core') && helmetsan_core() !== null && method_exists(helmetsan_core(), 'price')) {
             $best = helmetsan_core()->price()->getBestPrice($postId);
             if ($best !== null) {
                 $offerPrice = $best->price;
@@ -238,18 +317,20 @@ final class SchemaService
         $this->appendAggregateRatingAndReviews($schema, $lookupId);
 
         $additionalProps = [];
-        if (is_numeric((string) $weight)) {
+        if (is_numeric((string) $weight) && (int) $weight > 0) {
             $additionalProps[] = [
-                '@type' => 'PropertyValue',
-                'name'  => 'Weight',
-                'value' => (int) $weight . ' g',
+                '@type'    => 'PropertyValue',
+                'name'     => 'Weight',
+                'value'    => (int) $weight,
+                'unitCode' => 'GRM',
             ];
         }
         if (is_numeric((string) $sharpRating) && (int) $sharpRating > 0) {
             $additionalProps[] = [
-                '@type' => 'PropertyValue',
-                'name'  => 'SHARP safety rating',
-                'value' => (string) $sharpRating,
+                '@type'    => 'PropertyValue',
+                'name'     => 'SHARP Safety Rating',
+                'value'    => (int) $sharpRating,
+                'unitText' => 'Stars',
             ];
         }
         $material = (string) get_post_meta($lookupId, 'spec_material', true);
@@ -268,19 +349,35 @@ final class SchemaService
                 'value' => $headShape,
             ];
         }
-        $acousticDb = (string) get_post_meta($lookupId, 'spec_acoustic_db', true);
-        if ($acousticDb !== '') {
+        $acousticDb = get_post_meta($lookupId, 'spec_acoustic_db', true);
+        if (is_numeric((string) $acousticDb) && (int) $acousticDb > 0) {
             $additionalProps[] = [
-                '@type' => 'PropertyValue',
-                'name'  => 'Acoustic Sound Isolation',
-                'value' => $acousticDb,
+                '@type'                     => 'PropertyValue',
+                'name'                      => 'Acoustic Sound Level',
+                'value'                     => (int) $acousticDb,
+                'unitText'                  => 'dB(A)',
+                'disambiguatingDescription' => 'Wind tunnel acoustic noise dampening at 100 km/h reference velocity (ISO 5128)',
             ];
         }
+
+        // Safety Certifications (ECE 22.06, DOT, FIM, Snell)
+        $certsMeta = get_post_meta($lookupId, 'certifications', true);
+        if (!empty($certsMeta)) {
+            $certsArr = is_array($certsMeta) ? $certsMeta : array_filter(array_map('trim', explode(',', (string) $certsMeta)));
+            foreach (array_unique($certsArr) as $cVal) {
+                $additionalProps[] = [
+                    '@type' => 'PropertyValue',
+                    'name'  => 'Safety Certification',
+                    'value' => $cVal,
+                ];
+            }
+        }
+
         if ($additionalProps !== []) {
             $schema['additionalProperty'] = $additionalProps;
         }
 
-        // Cross-entity compatibility relations
+        // Cross-entity compatibility relations (Helmet ⇄ Motorcycles ⇄ Accessories)
         $entityId = (string) get_post_meta($lookupId, '_helmet_unique_id', true);
         if ($entityId === '') {
             $entityId = (string) $post->post_name;
@@ -289,16 +386,26 @@ final class SchemaService
             $compat = \Helmetsan_CompatibilityEngine::get_entity_compatibility('helmet', $entityId);
             $related = [];
             foreach (array_slice($compat['recommended_motorcycles'] ?? [], 0, 3) as $bm) {
+                $mId = (string) ($bm['id'] ?? '');
+                $motoPost = is_numeric($mId) ? get_post((int)$mId) : get_page_by_path($mId, OBJECT, 'motorcycle');
+                $motoUrl = $motoPost instanceof \WP_Post ? get_permalink($motoPost) : home_url('/motorcycles/' . sanitize_title($mId) . '/');
                 $related[] = [
-                    '@type' => 'Motorcycle',
-                    'name'  => $bm['title'] ?? '',
+                    '@type'                     => 'Motorcycle',
+                    '@id'                       => $motoUrl . '#motorcycle',
+                    'name'                      => $bm['title'] ?? '',
+                    'url'                       => $motoUrl,
                     'disambiguatingDescription' => $bm['match_reason'] ?? 'Complementary riding posture match'
                 ];
             }
             foreach (array_slice($compat['compatible_accessories'] ?? [], 0, 2) as $ac) {
+                $aId = (string) ($ac['id'] ?? '');
+                $accPost = is_numeric($aId) ? get_post((int)$aId) : get_page_by_path($aId, OBJECT, 'accessory');
+                $accUrl = $accPost instanceof \WP_Post ? get_permalink($accPost) : home_url('/accessories/' . sanitize_title($aId) . '/');
                 $related[] = [
-                    '@type' => 'Product',
-                    'name'  => $ac['title'] ?? '',
+                    '@type'                     => 'Product',
+                    '@id'                       => $accUrl . '#product',
+                    'name'                      => $ac['title'] ?? '',
+                    'url'                       => $accUrl,
                     'disambiguatingDescription' => $ac['fitment'] ?? 'Verified accessory fitment'
                 ];
             }
@@ -644,12 +751,12 @@ final class SchemaService
         $schema['category'] = $subcategory !== '' ? $subcategory : ($accType !== '' ? $accType : 'Motorcycle Helmet Accessories');
 
         $geoPriceActive = false;
-        if (function_exists('helmetsan_core')) {
+        if (function_exists('helmetsan_core') && helmetsan_core() !== null && method_exists(helmetsan_core(), 'config')) {
             $perf = helmetsan_core()->config()->performanceConfig();
             $geoPriceActive = !empty($perf['enable_geoip_pricing']);
         }
 
-        if ($geoPriceActive && $price > 0 && function_exists('helmetsan_core')) {
+        if ($geoPriceActive && $price > 0 && function_exists('helmetsan_core') && helmetsan_core() !== null && method_exists(helmetsan_core(), 'geo') && method_exists(helmetsan_core(), 'exchangeRates')) {
             $visitorCurrency = helmetsan_core()->geo()->getCurrency();
             $price = helmetsan_core()->exchangeRates()->convert($price, $currency, $visitorCurrency);
             $price = helmetsan_core()->exchangeRates()->applyVat($price, helmetsan_core()->geo()->getCountry());
@@ -779,11 +886,13 @@ final class SchemaService
         $category = (string) get_post_meta($lookupId, 'motorcycle_category', true);
         $fuelCap = (float) get_post_meta($lookupId, 'motorcycle_fuel_capacity_l', true);
 
+        $canonicalUrl = (string) get_permalink($postId);
         $schema = [
             '@context'    => 'https://schema.org',
             '@type'       => ['Vehicle', 'Motorcycle'],
+            '@id'         => $canonicalUrl . '#motorcycle',
             'name'        => (string) $post->post_title,
-            'url'         => get_permalink($postId),
+            'url'         => $canonicalUrl,
             'description' => wp_strip_all_tags((string) get_the_excerpt($postId)),
             'seatingCapacity' => 2,
         ];
@@ -873,16 +982,26 @@ final class SchemaService
             $compat = \Helmetsan_CompatibilityEngine::get_entity_compatibility('motorcycle', $entityId);
             $related = [];
             foreach (array_slice($compat['recommended_helmets'] ?? [], 0, 4) as $rh) {
+                $hId = (string) ($rh['id'] ?? '');
+                $hPost = is_numeric($hId) ? get_post((int)$hId) : get_page_by_path($hId, OBJECT, 'helmet');
+                $hUrl = $hPost instanceof \WP_Post ? get_permalink($hPost) : home_url('/helmets/' . sanitize_title($hId) . '/');
                 $related[] = [
-                    '@type' => 'Product',
-                    'name'  => $rh['title'] ?? '',
+                    '@type'                     => 'Product',
+                    '@id'                       => $hUrl . '#product',
+                    'name'                      => $rh['title'] ?? '',
+                    'url'                       => $hUrl,
                     'disambiguatingDescription' => $rh['match_reason'] ?? 'Recommended aerodynamic helmet pairing'
                 ];
             }
             foreach (array_slice($compat['recommended_accessories'] ?? [], 0, 3) as $ra) {
+                $aId = (string) ($ra['id'] ?? '');
+                $accPost = is_numeric($aId) ? get_post((int)$aId) : get_page_by_path($aId, OBJECT, 'accessory');
+                $accUrl = $accPost instanceof \WP_Post ? get_permalink($accPost) : home_url('/accessories/' . sanitize_title($aId) . '/');
                 $related[] = [
-                    '@type' => 'Product',
-                    'name'  => $ra['title'] ?? '',
+                    '@type'                     => 'Product',
+                    '@id'                       => $accUrl . '#product',
+                    'name'                      => $ra['title'] ?? '',
+                    'url'                       => $accUrl,
                     'disambiguatingDescription' => $ra['reason'] ?? 'Recommended motorcycle cockpit gear'
                 ];
             }
@@ -1366,5 +1485,20 @@ final class SchemaService
             'limit'   => $limit,
             'offset'  => $offset,
         ];
+    }
+
+    /**
+     * Validate EAN-13 barcode using official Modulo-10 checksum algorithm.
+     */
+    public function validateEan13Checksum(string $barcode): bool
+    {
+        if (!preg_match('/^\d{13}$/', $barcode)) {
+            return false;
+        }
+        $sum = 0;
+        for ($i = 0; $i < 12; $i++) {
+            $sum += (int) $barcode[$i] * ($i % 2 === 0 ? 1 : 3);
+        }
+        return (10 - ($sum % 10)) % 10 === (int) $barcode[12];
     }
 }

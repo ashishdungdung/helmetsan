@@ -166,16 +166,37 @@ final class RevenueServiceTest extends TestCase
     {
         $robots = $this->service->filterRobotsTxt('', true);
 
+        // 1. GEO & AI Agents
         $this->assertStringContainsString('User-agent: GPTBot', $robots);
+        $this->assertStringContainsString('User-agent: Claude-SearchBot', $robots);
         $this->assertStringContainsString('User-agent: ClaudeBot', $robots);
         $this->assertStringContainsString('User-agent: PerplexityBot', $robots);
+        $this->assertStringContainsString('User-agent: MistralBot', $robots);
+        $this->assertStringContainsString('User-agent: DeepSeekBot', $robots);
+
+        // 2. Search Engines & Rich Snippets
+        $this->assertStringContainsString('User-agent: Googlebot', $robots);
+        $this->assertStringContainsString('User-agent: Google-InspectionTool', $robots);
+        $this->assertStringContainsString('User-agent: Bingbot', $robots);
+
+        // 3. Shopping Aggregators
+        $this->assertStringContainsString('User-agent: Google-Shopping', $robots);
+        $this->assertStringContainsString('User-agent: KlarnaBot', $robots);
+        $this->assertStringContainsString('User-agent: idealo', $robots);
+
+        // 4. SEO & Market Health Auditing (Rate-limited)
+        $this->assertStringContainsString('User-agent: AhrefsBot', $robots);
+        $this->assertStringContainsString('User-agent: SemrushBot', $robots);
+        $this->assertStringContainsString('Crawl-delay: 1', $robots);
+
+        // 5. Allowed Routes & Sitemaps
         $this->assertStringContainsString('Allow: /helmets/*/', $robots);
         $this->assertStringContainsString('Allow: /comparison/', $robots);
         $this->assertStringContainsString('Allow: /brands/*/', $robots);
-        $this->assertStringContainsString('Crawl-delay: 0', $robots);
         $this->assertStringContainsString('sitemap-brands.xml', $robots);
         $this->assertStringContainsString('sitemap-comparisons.xml', $robots);
         $this->assertStringContainsString('sitemap-helmets-images.xml', $robots);
+        $this->assertStringContainsString('post-sitemap.xml', $robots);
     }
 
     public function testClassifyChannelCategorizesTrafficOriginsCorrectly(): void

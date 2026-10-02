@@ -18,6 +18,8 @@ final class ObjectCacheService
     public const GROUP_ALTERNATIVES = 'hs_alternatives';
     public const GROUP_PRICE        = 'hs_price';
     public const GROUP_MD_PAYLOAD   = 'hs_md_payload';
+    public const GROUP_MOTORCYCLE   = 'hs_motorcycle';
+    public const GROUP_DEALERS      = 'hs_dealers';
 
     /**
      * Default TTL configurations per group (in seconds).
@@ -30,6 +32,8 @@ final class ObjectCacheService
         self::GROUP_ALTERNATIVES => 86400,            // 24 hours
         self::GROUP_PRICE        => 3600,             // 1 hour
         self::GROUP_MD_PAYLOAD   => 3600,             // 1 hour
+        self::GROUP_MOTORCYCLE   => 7200,             // 2 hours
+        self::GROUP_DEALERS      => 14400,            // 4 hours
     ];
 
     /**
@@ -64,6 +68,7 @@ final class ObjectCacheService
         add_action('save_post_helmet', [self::class, 'onProductSaved'], 10, 1);
         add_action('save_post_accessory', [self::class, 'onProductSaved'], 10, 1);
         add_action('save_post_motorcycle', [self::class, 'onProductSaved'], 10, 1);
+        add_action('save_post_dealer', [self::class, 'onDealerSaved'], 10, 1);
         add_action('wp_trash_post', [self::class, 'onProductDeleted'], 10, 1);
         add_action('before_delete_post', [self::class, 'onProductDeleted'], 10, 1);
 
@@ -286,6 +291,7 @@ final class ObjectCacheService
         self::invalidateGroup(self::GROUP_ALTERNATIVES);
         self::invalidateGroup(self::GROUP_CROSSLINK);
         self::invalidateGroup(self::GROUP_MD_PAYLOAD);
+        self::invalidateGroup(self::GROUP_MOTORCYCLE);
     }
 
     /**
@@ -298,12 +304,21 @@ final class ObjectCacheService
         self::invalidateGroup(self::GROUP_ALTERNATIVES);
         self::invalidateGroup(self::GROUP_CROSSLINK);
         self::invalidateGroup(self::GROUP_MD_PAYLOAD);
+        self::invalidateGroup(self::GROUP_MOTORCYCLE);
+    }
+
+    /**
+     * Invalidation handler for dealer post saves.
+     */
+    public static function onDealerSaved(): void
+    {
+        self::invalidateGroup(self::GROUP_DEALERS);
     }
 
     /**
      * Invalidation handler for taxonomy changes.
      */
-    public static function onTaxonomyChanged(): void
+    public static function onTaxonomyChanged(int $termId = 0, int $ttId = 0, string $taxonomy = '', mixed $deletedTerm = null): void
     {
         self::invalidateGroup(self::GROUP_TAXONOMY);
         self::invalidateGroup(self::GROUP_SEARCH);
@@ -312,7 +327,7 @@ final class ObjectCacheService
     /**
      * Invalidation handler for brand post saves.
      */
-    public static function onBrandSaved(): void
+    public static function onBrandSaved(int|\WP_Post $post = 0): void
     {
         self::invalidateGroup(self::GROUP_TAXONOMY);
         self::invalidateGroup(self::GROUP_SEARCH);

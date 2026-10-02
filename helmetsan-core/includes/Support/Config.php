@@ -46,6 +46,8 @@ final class Config
                 'openai' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-4o-mini', 'tier' => 'premium'],
                 'anthropic' => ['enabled' => false, 'api_key' => '', 'model' => 'claude-sonnet-4-20250514', 'tier' => 'premium'],
                 'perplexity' => ['enabled' => false, 'api_key' => '', 'model' => 'sonar', 'tier' => 'premium'],
+                'experiential' => ['enabled' => false, 'api_key' => '', 'model' => 'gpt-5.6-luna', 'base_url' => 'https://api.experientiallabs.ai/v1', 'tier' => 'premium'],
+                'nvidia_nim' => ['enabled' => true, 'api_key' => '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', 'model' => 'moonshotai/kimi-k3', 'base_url' => 'https://integrate.api.nvidia.com/v1', 'tier' => 'cloud_free'],
             ],
             'default_free' => 'groq',
             'default_premium' => 'openai',

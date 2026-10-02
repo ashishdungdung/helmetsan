@@ -62,16 +62,16 @@ if ($rawScore > 0 && $rawScore !== 85) {
 $badgeLabel = '';
 $badgeClass = '';
 if ($hasVerifiedScore && $score >= 90) {
-    $badgeLabel = 'Best Match';
+    $badgeLabel = __('Best Match', 'helmetsan-theme');
     $badgeClass = 'best-match';
 } elseif ($priceNum > 0 && $priceNum <= 350 && $hasVerifiedScore && $score >= 82) {
-    $badgeLabel = 'Best Value';
+    $badgeLabel = __('Best Value', 'helmetsan-theme');
     $badgeClass = 'best-value';
 } elseif ((int) $weightG > 0 && (int) $weightG <= 1380) {
-    $badgeLabel = 'Lightest';
+    $badgeLabel = __('Lightest', 'helmetsan-theme');
     $badgeClass = 'lightest';
 } elseif ($priceNum >= 750) {
-    $badgeLabel = 'Helmetsan Pick';
+    $badgeLabel = __('Helmetsan Pick', 'helmetsan-theme');
     $badgeClass = 'pick';
 }
 
@@ -79,7 +79,7 @@ if ($hasVerifiedScore && $score >= 90) {
 $certList = array_filter(array_map('trim', explode(',', (string) $certs)));
 
 // Riding style text formatting
-$ridingText = $useCase !== '' ? ucwords(str_replace('-', ' ', $useCase)) : 'Sport · Highway';
+$ridingText = $useCase !== '' ? __(ucwords(str_replace('-', ' ', $useCase)), 'helmetsan-theme') : __('Sport · Highway', 'helmetsan-theme');
 ?>
 <article <?php post_class('helmet-card helmet-card--editorial hs-panel'); ?>
     itemscope itemtype="https://schema.org/Product"
@@ -101,27 +101,33 @@ $ridingText = $useCase !== '' ? ucwords(str_replace('-', ' ', $useCase)) : 'Spor
                 </span>
             <?php endif; ?>
 
-            <?php if ($imgUrl !== '') : ?>
-                <div class="helmet-card__image-wrapper">
-                    <div class="helmet-card__image" itemprop="image">
-                        <img src="<?php echo esc_url($imgUrl); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" decoding="async" onerror="this.onerror=null;var p=this.closest('.helmet-card__image-wrapper');if(p){p.className='helmet-card__image-wrapper helmet-card__image-wrapper--no-image';p.innerHTML='<div class=\'helmet-card__no-image-box\'><svg width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\' ry=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><span>Image in Cataloging</span></div>';}" />
+        <?php
+        $cardTypeTerms = get_the_terms($helmetId, 'helmet_type');
+        $cardTypeSlug = (is_array($cardTypeTerms) && !empty($cardTypeTerms)) ? $cardTypeTerms[0]->slug : 'full-face';
+        ?>
+        <?php if ($imgUrl !== '') : ?>
+            <div class="helmet-card__image-wrapper">
+                <div class="helmet-card__image" itemprop="image">
+                    <img src="<?php echo esc_url($imgUrl); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" decoding="async" onerror="this.onerror=null;var p=this.closest('.helmet-card__image-wrapper');if(p){var f=p.querySelector('.hs-card-cad-fallback');if(f){this.style.display='none';f.style.display='flex';}}" />
+                    <div class="hs-card-cad-fallback" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
+                        <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($cardTypeSlug, '#00d2be', 'hs-card-cad-fallback') : ''; ?>
                     </div>
                 </div>
-            <?php else : ?>
-                <div class="helmet-card__image-wrapper helmet-card__image-wrapper--no-image">
-                    <div class="helmet-card__no-image-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        <span>Image Unavailable</span>
-                    </div>
+            </div>
+        <?php else : ?>
+            <div class="helmet-card__image-wrapper helmet-card__image-wrapper--cad">
+                <div class="hs-card-cad-fallback" style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;">
+                    <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($cardTypeSlug, '#00d2be', 'hs-card-cad-fallback') : ''; ?>
                 </div>
-            <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
             <!-- Subtle Compare Checkbox Overlay (Top Right) -->
             <button type="button"
                     class="js-add-to-compare helmet-card__compare-overlay"
                     data-id="<?php echo esc_attr((string) $helmetId); ?>"
                     data-title="<?php echo esc_attr(get_the_title()); ?>"
-                    aria-label="Add to compare">
+                    aria-label="<?php esc_attr_e('Add to compare', 'helmetsan-theme'); ?>">
                 <span>＋</span>
             </button>
         </div>
@@ -142,11 +148,11 @@ $ridingText = $useCase !== '' ? ucwords(str_replace('-', ' ', $useCase)) : 'Spor
             <?php if ($hasVerifiedScore) : ?>
                 <div class="helmet-card__score-block">
                     <span class="helmet-card__score-big"><?php echo (int) $score; ?></span>
-                    <span class="helmet-card__score-sub">Helmetsan Score</span>
+                    <span class="helmet-card__score-sub"><?php esc_html_e('Helmetsan Score', 'helmetsan-theme'); ?></span>
                 </div>
             <?php else : ?>
                 <div class="helmet-card__score-block helmet-card__score-block--unrated">
-                    <span class="helmet-card__score-unrated">Safety profile available</span>
+                    <span class="helmet-card__score-unrated"><?php esc_html_e('Safety profile available', 'helmetsan-theme'); ?></span>
                 </div>
             <?php endif; ?>
 
@@ -170,7 +176,7 @@ $ridingText = $useCase !== '' ? ucwords(str_replace('-', ' ', $useCase)) : 'Spor
 
             <!-- Subtle View Link -->
             <div class="helmet-card__view-link">
-                View helmet →
+                <?php esc_html_e('View helmet →', 'helmetsan-theme'); ?>
             </div>
         </div>
     </a>

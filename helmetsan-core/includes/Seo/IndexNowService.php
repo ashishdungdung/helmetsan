@@ -18,6 +18,8 @@ final class IndexNowService
         add_action('save_post_helmet', [$this, 'onPostSave'], 20, 2);
         add_action('save_post_post', [$this, 'onPostSave'], 20, 2);
         add_action('save_post_accessory', [$this, 'onPostSave'], 20, 2);
+        add_action('save_post_brand', [$this, 'onPostSave'], 20, 2);
+        add_action('save_post_motorcycle', [$this, 'onPostSave'], 20, 2);
     }
 
     public function onPostSave(int $postId, \WP_Post $post): void

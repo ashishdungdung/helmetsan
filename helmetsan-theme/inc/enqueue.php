@@ -96,9 +96,9 @@ function helmetsan_theme_enqueue_assets(): void
         );
     }
 
-    $fontUrl = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+    $fontUrl = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
     if (function_exists('helmetsan_is_china_visitor') && helmetsan_is_china_visitor()) {
-        $fontUrl = 'https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&display=swap';
+        $fontUrl = 'https://fonts.loli.net/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
     }
 
     wp_enqueue_style(
@@ -342,40 +342,52 @@ function helmetsan_theme_enqueue_assets(): void
             ['strategy' => 'defer', 'in_footer' => true]
         );
 
-        // Fetch coordinates and logo paths for all active dealers
-        $dealerData = [];
-        $query = new WP_Query([
-            'post_type'      => 'dealer',
-            'post_status'    => 'publish',
-            'posts_per_page' => -1,
-        ]);
+        // Fetch coordinates and logo paths for active dealers (cached in transient to prevent TTFB spikes)
+        $dealerData = get_transient('helmetsan_dealers_locator_data');
+        if ($dealerData === false || ! is_array($dealerData)) {
+            $dealerData = [];
+            $dealerPosts = get_posts([
+                'post_type'              => 'dealer',
+                'post_status'            => 'publish',
+                'posts_per_page'         => 300,
+                'no_found_rows'          => true,
+                'update_post_term_cache' => false,
+            ]);
 
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
-                $id = get_the_ID();
+            foreach ($dealerPosts as $postObj) {
+                $id = $postObj->ID;
                 $geo = json_decode((string) get_post_meta($id, 'dealer_geo_json', true), true);
                 if (is_array($geo) && isset($geo['lat'], $geo['lng'])) {
                     $dealerData[] = [
-                        'title'     => get_the_title(),
-                        'lat'       => $geo['lat'],
-                        'lng'       => $geo['lng'],
-                        'address'   => get_post_meta($id, 'dealer_address', true),
-                        'phone'     => get_post_meta($id, 'dealer_phone', true),
-                        'link'      => get_permalink($id),
-                        'logo'      => helmetsan_get_logo_url($id),
-                        'brands'    => json_decode((string) get_post_meta($id, 'dealer_brands_json', true), true) ?: [],
+                        'title'         => get_the_title($id),
+                        'lat'           => $geo['lat'],
+                        'lng'           => $geo['lng'],
+                        'address'       => get_post_meta($id, 'dealer_address', true),
+                        'phone'         => get_post_meta($id, 'dealer_phone', true),
+                        'link'          => get_permalink($id),
+                        'logo'          => helmetsan_get_logo_url($id),
+                        'brands'        => json_decode((string) get_post_meta($id, 'dealer_brands_json', true), true) ?: [],
                         'online_store'  => get_post_meta($id, 'dealer_online_store', true) === '1',
                         'offline_store' => get_post_meta($id, 'dealer_offline_store', true) === '1',
                     ];
                 }
             }
-            wp_reset_postdata();
+            set_transient('helmetsan_dealers_locator_data', $dealerData, 12 * HOUR_IN_SECONDS);
         }
 
         wp_localize_script('helmetsan-locator', 'hsDealers', $dealerData);
     }
 }
+
+// Invalidate dealer locator cache when a dealer post is updated or deleted
+add_action('save_post_dealer', static function (): void {
+    delete_transient('helmetsan_dealers_locator_data');
+});
+add_action('deleted_post', static function (int $postId): void {
+    if (get_post_type($postId) === 'dealer') {
+        delete_transient('helmetsan_dealers_locator_data');
+    }
+});
 
 function helmetsan_theme_asset_version(string $relativePath): string
 {

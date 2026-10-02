@@ -18,9 +18,9 @@ final class Registrar
         add_filter('pll_get_post_types', [$this, 'filterPolylangPostTypes'], 10, 2);
         add_filter('pll_get_taxonomies', [$this, 'filterPolylangTaxonomies'], 10, 2);
         add_action('init', function() {
-            if (!get_option('helmetsan_rules_flushed_v4')) {
+            if (!get_option('helmetsan_rules_flushed_v5')) {
                 flush_rewrite_rules();
-                update_option('helmetsan_rules_flushed_v4', true);
+                update_option('helmetsan_rules_flushed_v5', true);
             }
         }, 99);
     }
@@ -286,6 +286,28 @@ final class Registrar
             'show_admin_column' => true,
             'rewrite'           => ['slug' => 'distributor-category', 'with_front' => false],
         ]);
+
+        // --- Motorcycle Segment ---
+        register_taxonomy('motorcycle_segment', ['motorcycle'], [
+            'label'             => 'Motorcycle Segments',
+            'labels'            => $this->taxonomyLabels('Motorcycle Segment', 'Motorcycle Segments'),
+            'public'            => true,
+            'show_in_rest'      => true,
+            'hierarchical'      => true,
+            'show_admin_column' => true,
+            'rewrite'           => ['slug' => 'motorcycle-segment', 'with_front' => false],
+        ]);
+
+        // --- Motorcycle Manufacturer / Make ---
+        register_taxonomy('motorcycle_make', ['motorcycle'], [
+            'label'             => 'Motorcycle Makes',
+            'labels'            => $this->taxonomyLabels('Motorcycle Make', 'Motorcycle Makes'),
+            'public'            => true,
+            'show_in_rest'      => true,
+            'hierarchical'      => false,
+            'show_admin_column' => true,
+            'rewrite'           => ['slug' => 'motorcycle-make', 'with_front' => false],
+        ]);
     }
 
     /**
@@ -353,6 +375,8 @@ final class Registrar
             'head_shape',
             'accessory_category',
             'motorcycle_category',
+            'motorcycle_segment',
+            'motorcycle_make',
         ];
 
         foreach ($ourTaxonomies as $taxonomy) {

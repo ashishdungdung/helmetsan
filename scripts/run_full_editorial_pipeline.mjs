@@ -32,7 +32,23 @@ const ROOT_DIR = path.dirname(WEB_DIR);
 const PYTHON_BIN = "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3";
 const MISSION_CONTROL_URL = "http://127.0.0.1:3005";
 const LUNA_GATEWAY_URL = "https://api.experientiallabs.ai/v1/chat/completions";
-const LUNA_API_KEY = "xpl_347a690bbbf034a8340fcd0cd3ee91b5ec0147e1";
+
+function loadVaultKey(keyName) {
+  if (process.env[keyName]) return process.env[keyName].trim();
+  const vaultPath = path.join(process.env.HOME || '/Users/anumac', '.config', 'antigravity', 'ai_mesh.env');
+  if (fs.existsSync(vaultPath)) {
+    const lines = fs.readFileSync(vaultPath, 'utf8').split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed.startsWith(`${keyName}=`)) {
+        return trimmed.slice(`${keyName}=`.length).trim();
+      }
+    }
+  }
+  return '';
+}
+
+const LUNA_API_KEY = loadVaultKey("EXPLABS_API_KEY");
 
 // Telemetry helper
 async function emitTelemetry(event) {
@@ -190,10 +206,12 @@ ${JSON.stringify(matching.data, null, 2)}`;
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${LUNA_API_KEY}`
+            'Authorization': `Bearer ${LUNA_API_KEY}`,
+            'X-Prompt-Cache-Key': 'helmetsan:editorial:v1.0'
           },
           body: JSON.stringify({
-            model: 'gpt-5.6-luna',
+            model: 'gpt-6-luna',
+            prompt_cache_key: 'helmetsan:editorial:v1.0',
             messages: [{ role: 'user', content: prompt }],
             temperature: 0.1,
             max_tokens: 500

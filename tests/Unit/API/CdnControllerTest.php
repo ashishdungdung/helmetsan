@@ -23,7 +23,7 @@ final class CdnControllerTest extends TestCase
     {
         $exchangeRatesMock = new class {
             public function getRates(): array {
-                return ['USD' => 1.0, 'EUR' => 0.92, 'INR' => 83.5];
+                return ['USD' => 1.0, 'EUR' => 0.92, 'INR' => 86.5];
             }
         };
         $geoMock = new class {

@@ -196,7 +196,7 @@
 </div>
 <main id="main-content" class="site-main">
     <?php
-    if (! is_front_page() && function_exists('helmetsan_breadcrumb')) :
+    if (! is_front_page() && ! is_singular('helmet') && ! is_singular('motorcycle') && function_exists('helmetsan_breadcrumb')) :
         $bcItems = helmetsan_breadcrumb(false);
         if (is_array($bcItems) && count($bcItems) > 1) :
             ?>

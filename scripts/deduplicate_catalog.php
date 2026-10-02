@@ -16,6 +16,8 @@
 
 declare(strict_types=1);
 
+ini_set('memory_limit', '512M');
+
 define('PROJECT_ROOT', dirname(__DIR__));
 
 $opts     = getopt('', ['dry-run', 'catalog:']);

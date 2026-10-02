@@ -26,6 +26,11 @@ class ImageAnalysisService
         // For simplicity in this implementation, we attempt to use OpenAI or Gemini specifically
         // because they support Vision APIs and we can craft a bespoke request for them here.
 
+        $experiential = $this->registry->get('experiential');
+        if ($experiential && $experiential->isConfigured()) {
+            return $this->callOpenAiVision($experiential, $imageUrl, $knownContext);
+        }
+
         $openAi = $this->registry->get('openai');
         if ($openAi && $openAi->isConfigured()) {
             return $this->callOpenAiVision($openAi, $imageUrl, $knownContext);
@@ -44,12 +49,7 @@ class ImageAnalysisService
 
     private function callOpenAiVision(ProviderInterface $provider, string $imageUrl, string $knownContext): ?array
     {
-        // We know it's OpenAIProvider, but we might not have public access to the apiKey property.
-        // Let's re-fetch it from the plugin settings to be safe.
-        $settings = get_option(\Helmetsan\Core\Support\Config::OPTION_AI, []);
-        $apiKey = $settings['providers']['openai']['api_key'] ?? '';
-
-        if (empty($apiKey)) {
+        if (! $provider->isConfigured()) {
             return null;
         }
 
@@ -59,31 +59,36 @@ class ImageAnalysisService
         }
         $prompt .= " Determine if this image is actually a relevant picture of the product (helmet or riding accessory). If it is a size chart, promotional banner, random logo, or completely unrelated item, it is NOT relevant. Set the 'is_relevant' boolean accordingly. If relevant, determine the type of photo (e.g., 'front-view', 'side-view', 'angled', 'interior', 'visor-close-up', 'lifestyle'). Also output a semantic filename slug (lowercase, hyphenated, no extension). Return ONLY valid JSON in the exact format: { \"is_relevant\": true, \"photo_type\": \"front-view\", \"model_name\": \"identified-model\", \"suggested_filename\": \"model-front-view\" }";
 
-        $body = [
-            'model' => 'gpt-4o-mini',
-            'messages' => [
-                [
-                    'role' => 'user',
-                    'content' => [
-                        ['type' => 'text', 'text' => $prompt],
-                        [
-                            'type' => 'image_url',
-                            'image_url' => [
-                                'url' => $imageUrl,
-                            ],
+        $messages = [
+            [
+                'role' => 'user',
+                'content' => [
+                    ['type' => 'text', 'text' => $prompt],
+                    [
+                        'type' => 'image_url',
+                        'image_url' => [
+                            'url' => $imageUrl,
                         ],
                     ],
-                ]
-            ],
-            'max_tokens' => 300
+                ],
+            ]
         ];
 
-        $response = wp_remote_post('https://api.openai.com/v1/chat/completions', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $apiKey,
-                'Content-Type'  => 'application/json',
-            ],
-            'body'    => json_encode($body),
+        $req = null;
+        if (method_exists($provider, 'prepareRequest')) {
+            $req = $provider->prepareRequest($prompt, [
+                'messages'   => $messages,
+                'max_tokens' => 300,
+            ]);
+        }
+
+        if ($req === null || empty($req['url']) || empty($req['headers'])) {
+            return null;
+        }
+
+        $response = wp_remote_post($req['url'], [
+            'headers' => $req['headers'],
+            'body'    => $req['body'],
             'timeout' => 30,
         ]);
 

@@ -30,7 +30,11 @@ switch ($action) {
         $limit = max(1, min(100, (int)($inputData['limit'] ?? 25)));
         $excludeIds = array_map('intval', $inputData['exclude_ids'] ?? []);
         $postId = (int)($inputData['post_id'] ?? 0);
-        handle_fetch_candidates($lang, $limit, $excludeIds, $postId);
+        $order = strtoupper($inputData['order'] ?? 'ASC');
+        $shardId = max(0, (int)($inputData['shard_id'] ?? 0));
+        $numShards = max(1, (int)($inputData['num_shards'] ?? 1));
+        $offset = max(0, (int)($inputData['offset'] ?? 0));
+        handle_fetch_candidates($lang, $limit, $excludeIds, $postId, $order, $shardId, $numShards, $offset);
         break;
 
     case 'save_batch':
@@ -85,7 +89,7 @@ function handle_stats() {
 /**
  * Fetch candidate helmets missing translation in target language
  */
-function handle_fetch_candidates($lang, $limit, $excludeIds = [], $targetPostId = 0) {
+function handle_fetch_candidates($lang, $limit, $excludeIds = [], $targetPostId = 0, $order = 'ASC', $shardId = 0, $numShards = 1, $offset = 0) {
     global $wpdb;
     
     $limitVal = max(1, min(100, intval($limit)));
@@ -99,6 +103,21 @@ function handle_fetch_candidates($lang, $limit, $excludeIds = [], $targetPostId 
             WHERE p.ID = %d AND p.post_type = 'helmet'
         ", $targetPostId));
     } else {
+        $shardSql = "";
+        if ($numShards > 1) {
+            $shardSql = $wpdb->prepare(" AND (p.ID %% %d) = %d", $numShards, $shardId);
+        }
+        
+        $orderSql = ($order === 'DESC') ? "ORDER BY p.ID DESC" : "ORDER BY p.ID ASC";
+        if ($order === 'RAND') {
+            $orderSql = "ORDER BY RAND()";
+        }
+        
+        $offsetSql = "";
+        if ($offset > 0) {
+            $offsetSql = $wpdb->prepare(" OFFSET %d", $offset);
+        }
+
         $sql = "
             SELECT p.ID, p.post_title, p.post_name, p.post_content, p.post_excerpt
             FROM {$wpdb->posts} p
@@ -109,7 +128,9 @@ function handle_fetch_candidates($lang, $limit, $excludeIds = [], $targetPostId 
               AND p.post_status = 'publish'
               AND tt.taxonomy = 'language'
               AND t.slug = 'en'
-            ORDER BY p.ID ASC
+              {$shardSql}
+            {$orderSql}
+            {$offsetSql}
         ";
         $posts = $wpdb->get_results($sql);
     }
@@ -168,11 +189,20 @@ function handle_save_batch($items) {
         return;
     }
     
+    // Acquire system-wide exclusive lock across all CLI instances to prevent InnoDB deadlocks
+    $lockFp = fopen('/tmp/helmetsan_bridge_save.lock', 'c+');
+    if ($lockFp) {
+        flock($lockFp, LOCK_EX);
+    }
+    
     if (function_exists('wp_defer_term_counting')) {
         wp_defer_term_counting(true);
     }
     if (function_exists('wp_defer_comment_counting')) {
         wp_defer_comment_counting(true);
+    }
+    if (function_exists('wp_suspend_cache_invalidation')) {
+        wp_suspend_cache_invalidation(true);
     }
     
     $results = [];
@@ -204,46 +234,98 @@ function handle_save_batch($items) {
                 continue;
             }
             
+            $nowLocal = current_time('mysql');
+            $nowGmt   = current_time('mysql', 1);
+
+            $computedSlug = $slug;
+            if (empty($computedSlug)) {
+                $computedSlug = sanitize_title($title);
+            }
+            if (empty($computedSlug)) {
+                $computedSlug = "helmet-{$enId}-{$lang}";
+            }
+
             $existingId = function_exists('pll_get_post') ? (int)pll_get_post($enId, $lang) : 0;
             
-            $postData = [
-                'post_type'    => 'helmet',
-                'post_title'   => $title,
-                'post_name'    => $slug ?: "helmet-{$enId}-{$lang}",
-                'post_content' => $content,
-                'post_excerpt' => $excerpt,
-                'post_status'  => 'publish'
-            ];
-            
             if ($existingId > 0) {
-                $postData['ID'] = $existingId;
-                $newId = wp_update_post($postData);
+                $newId = $existingId;
+                $wpdb->update(
+                    $wpdb->posts,
+                    [
+                        'post_title'        => $title,
+                        'post_content'      => $content,
+                        'post_excerpt'      => $excerpt,
+                        'post_name'         => $computedSlug,
+                        'post_modified'     => $nowLocal,
+                        'post_modified_gmt' => $nowGmt,
+                    ],
+                    ['ID' => $newId],
+                    ['%s', '%s', '%s', '%s', '%s', '%s'],
+                    ['%d']
+                );
             } else {
-                $newId = wp_insert_post($postData);
-            }
-            
-            if (is_wp_error($newId) || !$newId) {
-                $hasFatalBatchError = true;
-                $results[] = [
-                    'en_id' => $enId,
-                    'success' => false,
-                    'error' => is_wp_error($newId) ? $newId->get_error_message() : 'wp_insert_post failed'
+                // High-speed direct SQL insert bypassing 2,600ms wp_insert_post overhead
+                $postData = [
+                    'post_author'           => 1,
+                    'post_date'             => $nowLocal,
+                    'post_date_gmt'         => $nowGmt,
+                    'post_content'          => $content,
+                    'post_title'            => $title,
+                    'post_excerpt'          => $excerpt,
+                    'post_status'           => 'publish',
+                    'comment_status'        => 'closed',
+                    'ping_status'           => 'closed',
+                    'post_password'         => '',
+                    'post_name'             => $computedSlug,
+                    'to_ping'               => '',
+                    'pinged'                => '',
+                    'post_modified'         => $nowLocal,
+                    'post_modified_gmt'     => $nowGmt,
+                    'post_content_filtered' => '',
+                    'post_parent'           => 0,
+                    'guid'                  => '',
+                    'menu_order'            => 0,
+                    'post_type'             => 'helmet',
+                    'post_mime_type'        => '',
+                    'comment_count'         => 0,
                 ];
-                break;
+
+                $inserted = $wpdb->insert($wpdb->posts, $postData);
+                if (false === $inserted) {
+                    $hasFatalBatchError = true;
+                    $results[] = [
+                        'en_id' => $enId,
+                        'success' => false,
+                        'error' => 'wpdb->insert failed: ' . $wpdb->last_error
+                    ];
+                    break;
+                }
+                $newId = (int)$wpdb->insert_id;
+
+                // Set stable canonical GUID
+                $wpdb->update(
+                    $wpdb->posts,
+                    ['guid' => home_url('/?post_type=helmet&p=' . $newId)],
+                    ['ID' => $newId],
+                    ['%s'],
+                    ['%d']
+                );
             }
             
-            // Polylang assignment & bi-directional linking
+            // Polylang assignment & atomic bi-directional linking
             if (function_exists('pll_set_post_language')) {
                 pll_set_post_language($newId, $lang);
             }
             if (function_exists('pll_get_post_translations') && function_exists('pll_save_post_translations')) {
-                $translations = pll_get_post_translations($enId);
-                $translations['en'] = $enId;
-                $translations[$lang] = $newId;
+                $existing = pll_get_post_translations($enId) ?: [];
+                $translations = array_merge($existing, ['en' => $enId, $lang => $newId]);
                 pll_save_post_translations($translations);
             }
             
-            // Copy base metadata from master English post (skipping internal edit locks & slug history)
+            // Copy base metadata and localized data using high-speed bulk SQL insert
+            $metaRows = [];
+            $metaValues = [];
+
             $meta = get_post_meta($enId);
             $skipMetaKeys = array_flip([
                 '_edit_lock', '_edit_last', '_wp_old_slug', '_wp_old_date', '_pingme', '_encloseme'
@@ -253,7 +335,6 @@ function handle_save_batch($items) {
                 if (isset($skipMetaKeys[$k])) {
                     continue;
                 }
-                // Skip fields that are populated with localized data below to avoid redundant DB writes
                 if ($k === 'marketing_description' && !empty($marketing)) continue;
                 if ($k === 'technical_analysis' && !empty($tech)) continue;
                 if ($k === 'features_json' && !empty($features)) continue;
@@ -266,28 +347,55 @@ function handle_save_batch($items) {
                             continue;
                         }
                     }
-                    update_post_meta($newId, $k, maybe_unserialize($v));
+                    $metaRows[] = "(%d, %s, %s)";
+                    $metaValues[] = $newId;
+                    $metaValues[] = $k;
+                    $metaValues[] = is_string($v) ? $v : maybe_serialize($v);
                 }
             }
-            
-            // Save translated localized metadata
+
+            // Append localized fields
             if (!empty($marketing)) {
-                update_post_meta($newId, 'marketing_description', $marketing);
+                $metaRows[] = "(%d, %s, %s)";
+                $metaValues[] = $newId;
+                $metaValues[] = 'marketing_description';
+                $metaValues[] = $marketing;
             }
             if (!empty($tech)) {
-                update_post_meta($newId, 'technical_analysis', $tech);
+                $metaRows[] = "(%d, %s, %s)";
+                $metaValues[] = $newId;
+                $metaValues[] = 'technical_analysis';
+                $metaValues[] = $tech;
             }
             if (!empty($features)) {
-                update_post_meta($newId, 'features_json', json_encode($features, JSON_UNESCAPED_UNICODE));
+                $metaRows[] = "(%d, %s, %s)";
+                $metaValues[] = $newId;
+                $metaValues[] = 'features_json';
+                $metaValues[] = json_encode($features, JSON_UNESCAPED_UNICODE);
             }
             if (!empty($sizingFit)) {
-                update_post_meta($newId, 'sizing_fit_json', json_encode($sizingFit, JSON_UNESCAPED_UNICODE));
+                $metaRows[] = "(%d, %s, %s)";
+                $metaValues[] = $newId;
+                $metaValues[] = 'sizing_fit_json';
+                $metaValues[] = json_encode($sizingFit, JSON_UNESCAPED_UNICODE);
             }
             if (!empty($excerpt)) {
-                update_post_meta($newId, '_yoast_wpseo_metadesc', $excerpt);
+                $metaRows[] = "(%d, %s, %s)";
+                $metaValues[] = $newId;
+                $metaValues[] = '_yoast_wpseo_metadesc';
+                $metaValues[] = $excerpt;
+            }
+
+            if ($existingId > 0) {
+                $wpdb->delete($wpdb->postmeta, ['post_id' => $newId]);
+            }
+
+            if (!empty($metaRows)) {
+                $bulkSql = "INSERT INTO {$wpdb->postmeta} (post_id, meta_key, meta_value) VALUES " . implode(',', $metaRows);
+                $wpdb->query($wpdb->prepare($bulkSql, $metaValues));
             }
             
-            // Copy taxonomies with Polylang mapping
+            // Copy taxonomies with Polylang mapping (fast under deferred term counting)
             foreach ($taxonomies as $tax) {
                 if ($tax === 'language' || $tax === 'post_translations') continue;
                 $terms = wp_get_object_terms($enId, $tax, ['fields' => 'ids']);
@@ -300,12 +408,22 @@ function handle_save_batch($items) {
                     wp_set_object_terms($newId, $targetTerms, $tax);
                 }
             }
+
+            // Invalidate post caches and prime metadata cache
+            clean_post_cache($newId);
+            if (function_exists('wp_cache_delete')) {
+                wp_cache_delete($newId, 'post_meta');
+            }
+            if (function_exists('update_meta_cache')) {
+                update_meta_cache('post', [$newId]);
+            }
             
             $results[] = [
                 'en_id' => $enId,
                 'new_id' => $newId,
                 'title' => $title,
                 'permalink' => get_permalink($newId),
+                'status' => ($existingId > 0) ? 'updated' : 'created',
                 'success' => true
             ];
         }
@@ -326,11 +444,18 @@ function handle_save_batch($items) {
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);
         return;
     } finally {
+        if (function_exists('wp_suspend_cache_invalidation')) {
+            wp_suspend_cache_invalidation(false);
+        }
         if (function_exists('wp_defer_term_counting')) {
             wp_defer_term_counting(false);
         }
         if (function_exists('wp_defer_comment_counting')) {
             wp_defer_comment_counting(false);
+        }
+        if (!empty($lockFp)) {
+            flock($lockFp, LOCK_UN);
+            fclose($lockFp);
         }
     }
     

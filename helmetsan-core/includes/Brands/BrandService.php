@@ -87,7 +87,7 @@ final class BrandService
             return ['ok' => true, 'action' => 'dry-run', 'post_id' => $existingId, 'external_id' => $idRaw];
         }
 
-        $slug = $externalId !== '' ? sanitize_title(str_replace('_', '-', $externalId)) : sanitize_title($title);
+        $slug = $idRaw !== '' ? sanitize_title(str_replace('_', '-', $idRaw)) : sanitize_title($title);
         $postArgs = [
             'post_type'   => 'brand',
             'post_title'  => $title,

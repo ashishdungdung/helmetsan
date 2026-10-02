@@ -1,8 +1,10 @@
 <?php
+
+ini_set('memory_limit', '512M');
 /**
  * Helmetsan In-Memory Analytical Engine
  * 
- * Loads all 2,235 helmet JSONs, 57 brand JSONs, and 27 accessory JSONs directly into RAM.
+ * Loads all 2,218 helmet JSONs, 60 brand JSONs, and 26 accessory JSONs directly into RAM.
  * Performs high-speed in-memory multi-dimensional statistical analysis:
  * - Homologation Distribution by Origin Country
  * - Category Weight Benchmarks (Mean / Min / Max / Outliers)
@@ -134,24 +136,106 @@ echo "   - HUD Hardware Ready         : {$techStats['hud_ready']} helmets HUD co
 echo "\n--------------------------------------------------------\n";
 echo "🔗 IN-MEMORY ANALYSIS 4: Fitment Compatibility Graph\n";
 echo "--------------------------------------------------------\n";
+
+$typeAlias = static function (string $t): string {
+    $t = strtolower(trim($t));
+    return match ($t) {
+        'motocross', 'dirt / motocross', 'dirt/mx', 'off-road', 'off road', 'mx', 'dirt' => 'dirt / mx',
+        'race', 'track', 'track / race', 'track / circuit', 'circuit' => 'track / race',
+        'adventure', 'dual sport', 'dual-sport', 'adventure / dual-sport' => 'adventure / dual sport',
+        'modular full face', 'flip-up', 'flip up' => 'modular',
+        'jet', 'open-face', 'open face' => 'open face',
+        'shorty', 'half helmet' => 'half',
+        'touring full face' => 'full face',
+        default => $t,
+    };
+};
+
+$isUniversalBrand = static function (string $b): bool {
+    $b = strtolower(trim($b));
+    return $b === 'universal' || $b === 'all' || $b === 'all brands';
+};
+
+// Normalize slug for id pins: catalog uses underscores, pins often use hyphens.
+$slugKey = static function (string $id): string {
+    return strtolower(trim(str_replace(['-', ' '], '_', $id)));
+};
+
 $fitmentGraph = [];
 foreach ($RAM['accessories'] as $accId => $acc) {
     $cBrands = $acc['compatible_brands'] ?? [];
-    if (empty($cBrands)) {
-        $rawComp = $acc['compatible_brands_json'] ?? null;
-        $cBrands = is_string($rawComp) ? json_decode($rawComp, true) : (is_array($rawComp) ? $rawComp : []);
+    if (!is_array($cBrands)) {
+        $cBrands = [];
+    }
+    $cTypes = [];
+    foreach (($acc['compatible_helmet_types'] ?? []) as $t) {
+        $alias = $typeAlias((string) $t);
+        if ($alias !== '' && $alias !== 'all') {
+            $cTypes[$alias] = true;
+        }
+    }
+    $cTypes = array_keys($cTypes);
+
+    // compatible_helmet_ids are known-good pins (verified fits), NOT a hard
+    // allow-list. They only act as a filter when they are the sole constraint.
+    $cIds = [];
+    foreach (($acc['compatible_helmet_ids'] ?? []) as $id) {
+        $k = $slugKey((string) $id);
+        if ($k !== '') {
+            $cIds[$k] = true;
+        }
+    }
+
+    $namedBrands = [];
+    $explicitUniversal = false;
+    foreach ($cBrands as $b) {
+        if ($isUniversalBrand((string) $b)) {
+            $explicitUniversal = true;
+            continue;
+        }
+        $namedBrands[] = strtolower(trim((string) $b));
+    }
+    // Universal only when there is NO named brand constraint.
+    // [Universal, Shoei, Arai] is marketing fluff — real constraint is the named brands.
+    // Explicit Universal + empty types wins even when example id pins are present.
+    $universal = $explicitUniversal && $namedBrands === [];
+    if ($universal && $cTypes === []) {
+        $idsOnly = false;
+    } else {
+        $idsOnly = ($namedBrands === [] && $cTypes === [] && $cIds !== [] && !$universal);
+    }
+    if ($namedBrands === [] && $cTypes === [] && $cIds === []) {
+        $universal = true;
+        $idsOnly = false;
     }
 
     $matchCount = 0;
     foreach ($RAM['helmets'] as $hId => $h) {
-        $hBrand = $h['brand'] ?? '';
-        if (in_array($hBrand, $cBrands, true)) {
+        $hBrand = strtolower(trim((string) ($h['brand'] ?? '')));
+        $hType  = $typeAlias((string) ($h['type'] ?? ''));
+        $hKey   = $slugKey((string) $hId);
+
+        $brandOk = $universal || in_array($hBrand, $namedBrands, true);
+        $typeOk  = $cTypes === [] || in_array($hType, $cTypes, true);
+        $idOk    = !$idsOnly || isset($cIds[$hKey]);
+        if ($brandOk && $typeOk && $idOk) {
             $matchCount++;
         }
     }
     $title = $acc['title'] ?? $accId;
     $cat   = $acc['accessory_parent_category'] ?? $acc['type'] ?? 'General';
-    $brandStr = !empty($cBrands) ? implode(', ', $cBrands) : 'Universal / All Brands';
+    if ($universal) {
+        $brandStr = 'Universal';
+    } elseif ($idsOnly) {
+        $brandStr = 'pinned ids';
+    } else {
+        $brandStr = $namedBrands !== []
+            ? implode(', ', array_map(static fn ($b) => ucfirst($b), $namedBrands))
+            : 'by type';
+        if ($cTypes !== []) {
+            $brandStr .= ' +types';
+        }
+    }
     echo sprintf("   %-42s | %-16s | Fits: %-22s | %4d helmets\n", substr($title, 0, 42), substr($cat, 0, 16), substr($brandStr, 0, 22), $matchCount);
 }
 

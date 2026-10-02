@@ -68,6 +68,9 @@ namespace {
     if (! function_exists('get_permalink')) {
         function get_permalink($post = 0, $leavename = false) {
             $id = $post instanceof WP_Post ? $post->ID : (int) $post;
+            if (isset($GLOBALS['wp_mock_permalinks'][$id])) {
+                return $GLOBALS['wp_mock_permalinks'][$id];
+            }
             return 'https://helmetsan.com/?p=' . $id;
         }
     }
@@ -447,6 +450,158 @@ namespace {
             $id = $post instanceof WP_Post ? $post->ID : (int) $post;
             return 'https://helmetsan.com/wp-admin/post.php?post=' . $id . '&action=edit';
         }
+    }
+    if (! function_exists('wp_remote_post')) {
+        function wp_remote_post(string $url, array $args = []) {
+            $ch = curl_init($url);
+            $headers = [];
+            foreach ($args['headers'] ?? [] as $k => $v) {
+                $headers[] = "$k: $v";
+            }
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            if (isset($args['body'])) {
+                curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($args['body']) ? json_encode($args['body']) : $args['body']);
+            }
+            if ($headers) {
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            }
+            curl_setopt($ch, CURLOPT_TIMEOUT, $args['timeout'] ?? 30);
+            $body = curl_exec($ch);
+            $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $err = curl_error($ch);
+            unset($ch);
+            if ($body === false) {
+                return new WP_Error('http_request_failed', $err);
+            }
+            return [
+                'response' => ['code' => $code],
+                'body' => $body,
+            ];
+        }
+    }
+    if (! function_exists('wp_remote_retrieve_response_code')) {
+        function wp_remote_retrieve_response_code($response): int {
+            return is_array($response) ? (int) ($response['response']['code'] ?? 0) : 0;
+        }
+    }
+    if (! function_exists('wp_remote_retrieve_body')) {
+        function wp_remote_retrieve_body($response): string {
+            return is_array($response) ? (string) ($response['body'] ?? '') : '';
+        }
+    }
+    if (! function_exists('is_singular')) {
+        function is_singular($post_types = ''): bool {
+            $current = $GLOBALS['wp_mock_singular_post_type'] ?? null;
+            if ($current === null) return false;
+            if (empty($post_types)) return true;
+            if (is_array($post_types)) return in_array($current, $post_types, true);
+            return $current === $post_types;
+        }
+    }
+    if (! function_exists('is_page')) {
+        function is_page($page = ''): bool {
+            return $GLOBALS['wp_mock_is_page'] ?? false;
+        }
+    }
+    if (! function_exists('is_archive')) {
+        function is_archive(): bool {
+            return $GLOBALS['wp_mock_is_archive'] ?? false;
+        }
+    }
+    if (! function_exists('is_search')) {
+        function is_search(): bool {
+            return $GLOBALS['wp_mock_is_search'] ?? false;
+        }
+    }
+    if (! function_exists('is_tax')) {
+        function is_tax($taxonomy = '', $term = ''): bool {
+            return $GLOBALS['wp_mock_is_tax'] ?? false;
+        }
+    }
+    if (! function_exists('is_category')) {
+        function is_category($category = ''): bool {
+            return $GLOBALS['wp_mock_is_category'] ?? false;
+        }
+    }
+    if (! function_exists('is_tag')) {
+        function is_tag($tag = ''): bool {
+            return $GLOBALS['wp_mock_is_tag'] ?? false;
+        }
+    }
+    if (! function_exists('is_post_type_archive')) {
+        function is_post_type_archive($post_types = ''): bool {
+            return $GLOBALS['wp_mock_is_post_type_archive'] ?? false;
+        }
+    }
+    if (! function_exists('is_single')) {
+        function is_single($post = ''): bool {
+            return $GLOBALS['wp_mock_is_single'] ?? false;
+        }
+    }
+    if (! function_exists('sanitize_text_field')) {
+        function sanitize_text_field(string $str): string {
+            return trim(strip_tags($str));
+        }
+    }
+    if (! function_exists('get_queried_object_id')) {
+        function get_queried_object_id(): int {
+            return (int) ($GLOBALS['wp_mock_queried_object_id'] ?? 0);
+        }
+    }
+    if (! function_exists('get_queried_object')) {
+        function get_queried_object() {
+            $id = (int) ($GLOBALS['wp_mock_queried_object_id'] ?? 0);
+            return $GLOBALS['wp_mock_queried_object'] ?? ($id > 0 ? ($GLOBALS['wp_mock_posts'][$id] ?? null) : null);
+        }
+    }
+    if (! function_exists('has_post_thumbnail')) {
+        function has_post_thumbnail($post = null): bool {
+            $id = $post instanceof WP_Post ? $post->ID : (int) $post;
+            return !empty($GLOBALS['wp_mock_has_thumbnail'][$id]);
+        }
+    }
+    if (! function_exists('wp_strip_all_tags')) {
+        function wp_strip_all_tags(string $text, bool $remove_breaks = false): string {
+            $text = strip_tags($text);
+            if ($remove_breaks) {
+                $text = preg_replace('/[\r\n\t ]+/', ' ', $text);
+            }
+            return trim($text);
+        }
+    }
+    if (! function_exists('wp_is_post_revision')) {
+        function wp_is_post_revision($post): int|bool {
+            return false;
+        }
+    }
+    if (! function_exists('wp_is_post_autosave')) {
+        function wp_is_post_autosave($post): int|bool {
+            return false;
+        }
+    }
+    if (! function_exists('get_the_excerpt')) {
+        function get_the_excerpt($post = null): string {
+            $p = get_post($post);
+            return $p instanceof WP_Post ? ($p->post_excerpt ?: $p->post_title) : '';
+        }
+    }
+    if (! isset($GLOBALS['wpdb'])) {
+        $GLOBALS['wpdb'] = new class {
+            public string $prefix = 'wp_';
+            public function prepare(string $query, ...$args): string {
+                return $query;
+            }
+            public function get_results(string $query, $output = 'OBJECT'): array {
+                return [];
+            }
+            public function get_var(string $query): ?string {
+                return null;
+            }
+            public function get_row(string $query, $output = 'OBJECT') {
+                return null;
+            }
+        };
     }
 }
 

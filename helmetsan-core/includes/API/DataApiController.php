@@ -630,13 +630,71 @@ final class DataApiController
         // Resolve master post ID for pricing (Polylang)
         $lookupId = $this->resolveMasterId($postId);
 
-        // Metadata
         $metadata = $this->buildMetadata($post);
 
-        // Specifications (uses theme helper)
-        $specs = [];
-        if (function_exists('helmetsan_get_technical_profile')) {
-            $specs = helmetsan_get_technical_profile($lookupId);
+        // Helmet specifications from post meta
+        $specs = [
+            'brand'                 => (string) (get_post_meta($lookupId, 'brand_name', true) ?: $metadata['brand'] ?: 'N/A'),
+            'helmet_family'         => (string) (get_post_meta($lookupId, 'helmet_family', true) ?: 'N/A'),
+            'material'              => (string) (get_post_meta($lookupId, 'spec_material', true) ?: get_post_meta($lookupId, 'material', true) ?: 'N/A'),
+            'weight_g'              => (int) (get_post_meta($lookupId, 'spec_weight_g', true) ?: get_post_meta($lookupId, 'weight_g', true) ?: 0),
+            'weight_lbs'            => (string) (get_post_meta($lookupId, 'spec_weight_lbs', true) ?: get_post_meta($lookupId, 'weight_lbs', true) ?: ''),
+            'homologation_standard' => (string) (get_post_meta($lookupId, 'homologation_standard', true) ?: get_post_meta($lookupId, 'certifications_csv', true) ?: 'N/A'),
+            'sharp_rating'          => (string) (get_post_meta($lookupId, 'sharp_rating', true) ?: ''),
+            'rotational_tech'       => (string) (get_post_meta($lookupId, 'rotational_tech', true) ?: 'N/A'),
+            'strap_type'            => (string) (get_post_meta($lookupId, 'strap_type', true) ?: 'N/A'),
+            'noise_db_at_100kph'    => (int) (get_post_meta($lookupId, 'noise_db_at_100kph', true) ?: get_post_meta($lookupId, 'spec_noise_db', true) ?: 0),
+            'comms_ready'           => (string) (get_post_meta($lookupId, 'comms_ready', true) ?: 'N/A'),
+            'head_shape'            => (string) (get_post_meta($lookupId, 'head_shape', true) ?: 'N/A'),
+        ];
+
+        // Identifiers (Canonical SKU, EAN-13, MPN, 22-region routes)
+        $sku = (string) get_post_meta($lookupId, 'sku', true);
+        if ($sku === '') {
+            $sku = 'HSN-HLM-' . str_pad((string) $lookupId, 5, '0', STR_PAD_LEFT);
+        }
+        $ean = (string) get_post_meta($lookupId, 'ean', true);
+        if ($ean === '') {
+            $ean = (string) get_post_meta($lookupId, 'gtin', true);
+        }
+        $mpn = (string) get_post_meta($lookupId, 'mpn', true);
+        $asinUs = (string) get_post_meta($lookupId, 'affiliate_asin', true);
+        $asinStatus = (string) get_post_meta($lookupId, 'asin_status', true);
+        if ($asinStatus === '') {
+            $asinStatus = $asinUs !== '' ? 'verified' : 'missing';
+        }
+
+        $identJson = (string) get_post_meta($lookupId, 'identifiers_json', true);
+        $identData = json_decode($identJson, true);
+        $identData = is_array($identData) ? $identData : [];
+
+        $identifiers = [
+            'sku'         => $sku,
+            'ean13'       => $ean,
+            'mpn'         => $mpn,
+            'asin_us'     => $asinUs,
+            'asin_status' => $asinStatus,
+            'regions_covered' => 22,
+            'amazon'      => $identData['amazon'] ?? [
+                'us' => ['asin' => $asinUs, 'status' => $asinStatus],
+            ],
+        ];
+
+        // Variants
+        $variantsJson = (string) get_post_meta($lookupId, 'variants_json', true);
+        $variants = json_decode($variantsJson, true);
+        $variants = is_array($variants) ? $variants : [];
+
+        // Compatible Motorcycles from pre-materialized links
+        $internalLinksJson = (string) get_post_meta($lookupId, 'outgoing_internal_links_json', true);
+        $links = json_decode($internalLinksJson, true);
+        $compatibleBikes = [];
+        if (is_array($links)) {
+            foreach ($links as $link) {
+                if (($link['reason'] ?? '') === 'motorcycle_fitment' || ($link['reason'] ?? '') === 'helmet_fitment') {
+                    $compatibleBikes[] = $link;
+                }
+            }
         }
 
         // Pricing (geo-aware)
@@ -646,15 +704,18 @@ final class DataApiController
         $reviews = $this->buildReviews($lookupId);
 
         return [
-            '@context'     => 'https://schema.org',
-            '@type'        => 'Product',
-            'api_version'  => '1.0',
-            'generated_at' => gmdate('c'),
-            'post_type'    => 'helmet',
-            'metadata'     => $metadata,
-            'specifications' => $specs,
-            'pricing'      => $pricing,
-            'reviews'      => $reviews,
+            '@context'         => 'https://schema.org',
+            '@type'            => 'Product',
+            'api_version'      => '2.0',
+            'generated_at'     => gmdate('c'),
+            'post_type'        => 'helmet',
+            'metadata'         => $metadata,
+            'identifiers'      => $identifiers,
+            'specifications'   => $specs,
+            'variants'         => $variants,
+            'compatible_motorcycles' => $compatibleBikes,
+            'pricing'          => $pricing,
+            'reviews'          => $reviews,
         ];
     }
 

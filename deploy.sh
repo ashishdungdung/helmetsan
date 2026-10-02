@@ -84,17 +84,16 @@ echo "📂 Remote Path: $REMOTE_WP_PATH"
 echo "   Component Plan: [Theme: $DEPLOY_THEME | Plugin: $DEPLOY_PLUGIN | Data: $DEPLOY_DATA]"
 echo ""
 
-# SSH Multiplexing socket setup
-SOCKET_PATH="/tmp/hs-deploy-ssh-${USER}@${HOST}"
-SSH_OPTS="-o ControlMaster=auto -o ControlPath=${SOCKET_PATH} -o ControlPersist=5m -o StrictHostKeyChecking=no"
+# SSH connection options
+SSH_OPTS="-o ControlMaster=no -o ControlPath=none -o StrictHostKeyChecking=no"
 
 if [ -n "$PASSWORD" ]; then
     SSHPASS="sshpass -p $PASSWORD"
 fi
 
-# Test/bootstrap connection
-echo "⚡ Establishing secure SSH connection to ${HOST}..."
-$SSHPASS ssh $SSH_OPTS -fN "${USER}@${HOST}" || true
+# Test connection
+echo "⚡ Testing secure SSH connection to ${HOST}..."
+$SSHPASS ssh $SSH_OPTS "${USER}@${HOST}" "true" || true
 
 RSYNC_EXCLUDES=(
     --exclude=".git*"
@@ -187,11 +186,12 @@ $SSHPASS ssh $SSH_OPTS "${USER}@${HOST}" << 'REMOTE_COMMANDS'
     fi
     systemctl reload nginx 2>/dev/null || nginx -s reload 2>/dev/null && echo "   ✅ Nginx cache purged & service reloaded" || true
 
-    # WordPress transients and object cache
+    # WordPress transients, rewrite rules, and object cache
     if command -v wp >/dev/null 2>&1; then
         wp --path="$REMOTE_WP_PATH" --allow-root cache flush 2>/dev/null | grep -v Deprecated || true
+        wp --path="$REMOTE_WP_PATH" --allow-root rewrite flush 2>/dev/null || true
         wp --path="$REMOTE_WP_PATH" --allow-root transient delete --all 2>/dev/null | grep -E "Success|No transients" || true
-        echo "   ✅ WordPress cache & transients flushed"
+        echo "   ✅ WordPress cache, rewrite rules & transients flushed"
     fi
 REMOTE_COMMANDS
 

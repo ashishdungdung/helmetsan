@@ -42,8 +42,9 @@ final class GoogleSearchConsoleService
             $candidatePaths[] = $coreDir . 'keys/google-service-account.json';
         }
 
-        $rootDir = dirname(__DIR__, 2);
+        $rootDir = dirname(__DIR__, 3);
         $candidatePaths[] = $rootDir . '/secrets/ash-site-502901-cd0bf333dc7c.json';
+        $candidatePaths[] = dirname(__DIR__, 2) . '/secrets/ash-site-502901-cd0bf333dc7c.json';
 
         foreach ($candidatePaths as $path) {
             if (file_exists($path)) {
@@ -351,6 +352,7 @@ final class GoogleSearchConsoleService
             $path = parse_url($rawUrl, PHP_URL_PATH) ?: '/';
 
             $pages[] = [
+                'page'        => $rawUrl,
                 'url'         => $rawUrl,
                 'path'        => $path,
                 'clicks'      => (int) ($r['clicks'] ?? 0),
@@ -500,6 +502,7 @@ final class GoogleSearchConsoleService
      */
     private function makeRequest(string $method, string $url, string $token, array $body = []): array
     {
+        $encoded = '';
         $headers = [
             'Authorization' => 'Bearer ' . $token,
             'Content-Type'  => 'application/json',

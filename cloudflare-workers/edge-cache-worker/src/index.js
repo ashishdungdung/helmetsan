@@ -205,8 +205,17 @@ export default {
 
             // Cache successful 200 responses for HTML, JSON, CSS, JS, and images
             if (originResponse.status === 200) {
+                const originCC = (originResponse.headers.get('Cache-Control') || '').toLowerCase();
+                // RFC 7234: Respect origin caching directives (never cache private, no-store, no-cache responses)
+                const originProhibitsEdgeCache = (
+                    originCC.includes('private') ||
+                    originCC.includes('no-store') ||
+                    originCC.includes('no-cache') ||
+                    originCC.includes('max-age=0')
+                );
+
                 const contentType = originResponse.headers.get('Content-Type') || '';
-                const isCacheable = (
+                const isCacheable = !originProhibitsEdgeCache && (
                     contentType.includes('text/html') ||
                     contentType.includes('application/json') ||
                     contentType.includes('text/css') ||

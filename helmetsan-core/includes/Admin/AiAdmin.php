@@ -1226,6 +1226,7 @@ final class AiAdmin
             'openai' => 'OpenAI (ChatGPT)',
             'anthropic' => 'Anthropic (Claude)',
             'perplexity' => 'Perplexity',
+            'experiential' => 'Experiential Labs Gateway',
             'cloudflare' => 'Cloudflare Workers AI',
             default => $id,
         };
@@ -1247,6 +1248,7 @@ final class AiAdmin
             'openai' => 'Highest quality when cost justified',
             'anthropic' => 'Nuanced copy, long context',
             'perplexity' => 'Research-style queries',
+            'experiential' => 'Multi-model router (OpenAI, Claude, Qwen, DeepSeek) with budget controls',
             default => '—',
         };
     }

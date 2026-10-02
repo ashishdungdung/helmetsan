@@ -165,63 +165,217 @@ class Helmetsan_CompatibilityEngine {
     }
 
     /**
-     * Match a Motorcycle to compatible Helmets dynamically based on segment, speed, and aero.
+     * Match a Motorcycle to compatible Helmets dynamically using the 4-Axial Aerodynamic Formula:
+     * MatchScore = 0.35 * S_posture + 0.25 * S_windshield + 0.25 * S_acoustics + 0.15 * S_safety
+     *
+     * Evaluates riding tuck angles (30°–90°), windscreen deflection turbulence,
+     * cockpit acoustic decibel dampening (<85 dB), and safety certification baselines.
+     *
+     * @param array $bike Motorcycle specs (category, top_speed_kmh, windshield_type, riding_posture_deg)
+     * @param array $helmets List of candidate helmets
+     * @param int $limit Max results to return
+     * @return array Ranked recommendations with sub-scores and aero telemetry
      */
     public static function match_motorcycle_to_helmets(array $bike, array $helmets, int $limit = 6): array {
         $category = (string) ($bike['category'] ?? 'Urban Roadster');
-        $topSpeed = (int) ($bike['top_speed_kmh'] ?? 120);
+        $topSpeed = (int) ($bike['top_speed_kmh'] ?? 140);
+        $windshield = (string) ($bike['windshield_type'] ?? '');
+
+        // 1. Determine Bike Ergonomic Tuck Angle & Aero Profile
+        $tuckAngle = 75; // default neutral upright (degrees from horizontal)
+        $windProfile = 'direct_laminar';
+
+        if (preg_match('/(superbike|sportbike|supersport|track|race)/i', $category)) {
+            $tuckAngle = 35;
+            $windProfile = !empty($windshield) ? 'short_sport_turbulent' : 'high_velocity_laminar';
+        } elseif (preg_match('/(adventure|adv|dual[- ]?sport|enduro)/i', $category)) {
+            $tuckAngle = 90;
+            $windProfile = 'tall_adv_vortex';
+        } elseif (preg_match('/(tourer|touring|bagger|sport[- ]?touring)/i', $category)) {
+            $tuckAngle = 75;
+            $windProfile = 'tall_touring_bubble';
+        } elseif (preg_match('/(cruiser|chopper|bobber)/i', $category)) {
+            $tuckAngle = 90;
+            $windProfile = 'low_speed_buffeting';
+        } else { // Naked, Street, Roadster, Scrambler
+            $tuckAngle = 80;
+            $windProfile = 'naked_chest_pressure';
+        }
 
         $results = [];
+
         foreach ($helmets as $h) {
             $hType = (string) ($h['helmet_type'] ?? $h['type'] ?? 'Full Face');
-            $score = 70;
+            $hTitle = (string) ($h['title'] ?? '');
+            $certs = (array) ($h['certifications'] ?? []);
+            $sharp = (int) ($h['sharp_rating'] ?? 0);
+            $acousticDb = (int) ($h['spec_acoustic_db'] ?? $h['noise_db_at_100kph'] ?? 0);
+
             $reasons = [];
 
-            // Segment Posture Correlation
-            if (stripos($category, 'Superbike') !== false || stripos($category, 'Sportbike') !== false) {
-                if ($hType === 'Track / Race' || $hType === 'Full Face') {
-                    $score += 25;
-                    $reasons[] = 'Optimized for full-tuck forward vision and high-velocity aero stability.';
+            // ─── AXIS 1: S_posture (Riding Tuck Angle Match - 35%) ───
+            $sPosture = 70;
+            if ($tuckAngle <= 45) { // Full aggressive tuck (Supersport 30°-45°)
+                if (stripos($hType, 'Track') !== false || stripos($hType, 'Race') !== false) {
+                    $sPosture = 98;
+                    $reasons[] = 'Aerodynamic rear spoiler and high-camber upper eyeport engineered for aggressive 35° racing tuck vision.';
+                } elseif (stripos($hType, 'Full Face') !== false) {
+                    $sPosture = 86;
+                    $reasons[] = 'Balanced full-face aero profile supports forward canted riding posture.';
+                } elseif (stripos($hType, 'Modular') !== false) {
+                    $sPosture = 50;
+                    $reasons[] = 'Modular pivot mechanism creates forward drag when ridden in a steep sports tuck.';
                 } else {
-                    $score -= 30;
+                    $sPosture = 35;
                 }
-            } elseif (stripos($category, 'Adventure') !== false) {
+            } elseif ($tuckAngle >= 85) { // Upright 85°-90° (Adventure / Cruiser / Commuter)
                 if (stripos($hType, 'Adventure') !== false || stripos($hType, 'Dual Sport') !== false) {
-                    $score += 25;
-                    $reasons[] = 'Aerodynamic sun-peak and wide eyeport accommodate off-road terrain and goggle fitment.';
-                } elseif ($hType === 'Modular' || $hType === 'Full Face') {
-                    $score += 15;
-                    $reasons[] = 'Comfortable upright touring dynamics and sound isolation.';
+                    $sPosture = 98;
+                    $reasons[] = 'Aerodynamic sun-peak and wide eyeport accommodate upright off-road stance and goggle integration.';
+                } elseif (stripos($hType, 'Modular') !== false) {
+                    $sPosture = 94;
+                    $reasons[] = 'Upright chin-bar balance reduces neck fatigue during long seated stretches.';
+                } elseif (stripos($hType, 'Full Face') !== false) {
+                    $sPosture = 84;
+                    $reasons[] = 'Versatile full-face shell profile maintains low chin lift in upright air.';
+                } else {
+                    $sPosture = 75;
                 }
-            } elseif (stripos($category, 'Tourer') !== false) {
-                if ($hType === 'Modular' || $hType === 'Touring' || $hType === 'Full Face') {
-                    $score += 25;
-                    $reasons[] = 'All-day acoustic insulation and drop-down sun visor convenience for cross-country routes.';
+            } else { // Standard / Sport-Touring / Naked (60°-80°)
+                if (stripos($hType, 'Full Face') !== false) {
+                    $sPosture = 95;
+                    $reasons[] = 'Neutral aerodynamic balance prevents neck buffeting across variable 75° road postures.';
+                } elseif (stripos($hType, 'Modular') !== false) {
+                    $sPosture = 92;
+                    $reasons[] = 'Comfort-focused modular shell optimal for active sport-touring ergonomics.';
+                } elseif (stripos($hType, 'Track') !== false) {
+                    $sPosture = 80;
+                    $reasons[] = 'Track-focused field of view slightly compromises peripheral vision on upright street rides.';
+                } else {
+                    $sPosture = 70;
+                }
+            }
+
+            // ─── AXIS 2: S_windshield (Deflection Turbulence - 25%) ───
+            $sWindshield = 75;
+            if ($windProfile === 'naked_chest_pressure' || $windProfile === 'high_velocity_laminar') {
+                // Direct clean laminar flow onto helmet
+                if (stripos($hType, 'Full Face') !== false || stripos($hType, 'Track') !== false) {
+                    $sWindshield = 95;
+                    $reasons[] = 'Sculpted chin bar and boundary-layer vortex generators cleanly slice undisturbed oncoming airflow.';
+                } elseif (stripos($hType, 'Adventure') !== false) {
+                    $sWindshield = 65;
+                    $reasons[] = 'Sun peak creates aerodynamic uplift in unshielded high-speed highway wind.';
+                } else {
+                    $sWindshield = 80;
+                }
+            } elseif ($windProfile === 'tall_adv_vortex' || $windProfile === 'tall_touring_bubble') {
+                // Rider sits in windshield bubble, turbulence hits top vent
+                if (stripos($hType, 'Modular') !== false || stripos($hType, 'Touring') !== false) {
+                    $sWindshield = 96;
+                    $reasons[] = 'Acoustic visor seal and top cowl ventilation maximize airflow inside windscreen dead-air pockets.';
+                } elseif (stripos($hType, 'Adventure') !== false) {
+                    $sWindshield = 90;
+                    $reasons[] = 'High windscreen shields the visor while channeling air smoothly over the aero peak.';
+                } else {
+                    $sWindshield = 82;
+                }
+            } else { // Short sport screen turbulent shear layer
+                if (stripos($hType, 'Track') !== false || stripos($hType, 'Full Face') !== false) {
+                    $sWindshield = 94;
+                    $reasons[] = 'Rigid shield locking mechanism resists vibration and whistling from windscreen boundary-layer turbulence.';
+                } else {
+                    $sWindshield = 75;
+                }
+            }
+
+            // ─── AXIS 3: S_acoustics (Decibel Noise Dampening - 25%) ───
+            $sAcoustics = 75;
+            if ($acousticDb > 0) {
+                if ($acousticDb <= 84) {
+                    $sAcoustics = 98;
+                    $reasons[] = sprintf('Exceptional acoustic isolation (%d dB) dampens high-speed wind fatigue.', $acousticDb);
+                } elseif ($acousticDb <= 88) {
+                    $sAcoustics = 90;
+                    $reasons[] = sprintf('Controlled sound pressure (%d dB) suitable for all-day highway transit.', $acousticDb);
+                } elseif ($acousticDb <= 94) {
+                    $sAcoustics = 78;
+                } else {
+                    $sAcoustics = 65;
+                    $reasons[] = 'High-flow ventilation design increases internal decibel levels (>95 dB); ear protection recommended.';
                 }
             } else {
-                if ($hType === 'Full Face' || $hType === 'Modular') {
-                    $score += 20;
-                    $reasons[] = 'Versatile protection profile for daily urban and canyon riding.';
+                // Heuristic estimation based on helmet segment & chin curtain
+                if (stripos($hType, 'Modular') !== false || stripos($hType, 'Touring') !== false) {
+                    $sAcoustics = 92;
+                } elseif (stripos($hType, 'Full Face') !== false) {
+                    $sAcoustics = 85;
+                } elseif (stripos($hType, 'Track') !== false) {
+                    $sAcoustics = 72; // Race helmets favor airflow over noise reduction
+                } else {
+                    $sAcoustics = 68;
                 }
             }
 
-            // Speed & Homologation Checks
-            if ($topSpeed >= 200) {
-                $certs = $h['certifications'] ?? [];
-                if (in_array('ECE 22.06', $certs, true) || in_array('FIM', $certs, true)) {
-                    $score += 5;
-                    $reasons[] = 'Certified to high-energy impact standards exceeding 200 km/h requirements.';
+            // ─── AXIS 4: S_safety (Certification Baseline & Speed - 15%) ───
+            $sSafety = 75;
+            $hasECE2206 = in_array('ECE 22.06', $certs, true);
+            $hasFIM = in_array('FIM', $certs, true) || in_array('FIM Racing', $certs, true) || in_array('FIM FRHPhe-01', $certs, true);
+
+            if ($topSpeed >= 200 || $tuckAngle <= 45) {
+                if ($hasFIM) {
+                    $sSafety = 100;
+                    $reasons[] = 'FIM racing homologated for multi-angle oblique impact protection at hyper-sport speeds.';
+                } elseif ($hasECE2206) {
+                    $sSafety = 94;
+                    if ($sharp >= 4) {
+                        $sSafety = 98;
+                        $reasons[] = sprintf('ECE 22.06 certified with %d-star SHARP safety rating exceeding 200 km/h requirements.', $sharp);
+                    } else {
+                        $reasons[] = 'ECE 22.06 certified to rigorous high-velocity and rotational impact protocols.';
+                    }
+                } else {
+                    $sSafety = 65;
+                }
+            } else {
+                if ($hasECE2206) {
+                    $sSafety = 95;
+                } elseif ($sharp >= 4) {
+                    $sSafety = 90;
+                } else {
+                    $sSafety = 80;
                 }
             }
 
-            $score = min(99, max(40, $score));
+            // ─── MULTI-AXIAL COMPOSITE FORMULA ───
+            // MatchScore = 0.35 * S_posture + 0.25 * S_windshield + 0.25 * S_acoustics + 0.15 * S_safety
+            $sPostureClamped    = min(100, max(0, $sPosture));
+            $sWindshieldClamped = min(100, max(0, $sWindshield));
+            $sAcousticsClamped  = min(100, max(0, $sAcoustics));
+            $sSafetyClamped     = min(100, max(0, $sSafety));
+
+            $compositeScore = (0.35 * $sPostureClamped)
+                            + (0.25 * $sWindshieldClamped)
+                            + (0.25 * $sAcousticsClamped)
+                            + (0.15 * $sSafetyClamped);
+
+            $finalScore = (int) round(min(99, max(40, $compositeScore)));
+
             $results[] = [
-                'id'           => $h['id'] ?? '',
-                'title'        => $h['title'] ?? '',
-                'brand'        => $h['brand'] ?? '',
-                'type'         => $hType,
-                'match_score'  => $score,
-                'match_reason' => implode(' ', $reasons) ?: 'Compatible all-round protection profile.'
+                'id'                 => $h['id'] ?? '',
+                'title'              => $h['title'] ?? '',
+                'brand'              => $h['brand'] ?? '',
+                'type'               => $hType,
+                'match_score'        => $finalScore,
+                'sub_scores'         => [
+                    'posture'    => $sPostureClamped,
+                    'windshield' => $sWindshieldClamped,
+                    'acoustics'  => $sAcousticsClamped,
+                    'safety'     => $sSafetyClamped,
+                ],
+                'tuck_angle_deg'     => $tuckAngle,
+                'deflection_profile' => $windProfile,
+                'match_reason'       => implode(' ', array_unique($reasons)) ?: 'Compliant aerodynamic and posture profile for this motorcycle category.'
             ];
         }
 

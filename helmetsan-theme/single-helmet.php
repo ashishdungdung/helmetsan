@@ -45,12 +45,21 @@ if (have_posts()) {
         $useCase = helmetsan_get_use_case($helmetId);
         $priceRange = helmetsan_get_price_range($helmetId);
         $featuresJson = (string) get_post_meta($helmetId, 'features_json', true);
-        $featuresArr = json_decode($featuresJson, true);
         $helmetTypeLabel = '';
+        $helmetTypeSlug = 'full-face';
         $helmetTypeTermsRaw = get_the_terms($helmetId, 'helmet_type');
         if (is_array($helmetTypeTermsRaw) && !empty($helmetTypeTermsRaw)) {
             $helmetTypeLabel = $helmetTypeTermsRaw[0]->name;
+            $helmetTypeSlug = $helmetTypeTermsRaw[0]->slug;
         }
+
+        $profile = helmetsan_get_technical_profile($helmetId);
+
+        // Brand details loaded early for story & cards
+        $brandMotto = $brandId > 0 ? trim((string) get_post_meta($brandId, 'brand_motto', true)) : '';
+        $brandStory = $brandId > 0 ? (string) get_post_meta($brandId, 'brand_story', true) : '';
+        $brandOrigin = $brandId > 0 ? (string) get_post_meta($brandId, 'brand_origin_country', true) : '';
+
         // Variant-specific fields
         $sku = (string) get_post_meta($helmetId, 'sku', true);
         $finish = (string) get_post_meta($helmetId, 'finish', true);
@@ -117,31 +126,6 @@ if (have_posts()) {
             ]);
         }
 
-        if (wp_is_mobile()) {
-            get_template_part(
-                'template-parts/helmet',
-                'mobile-pdp',
-                [
-                    'helmet_id' => $helmetId,
-                    'brand_id' => $brandId,
-                    'brand_name' => $brandName,
-                    'weight' => $weight,
-                    'weight_lbs' => $weightLbs,
-                    'shell' => $shell,
-                    'price' => $price,
-                    'certs' => $certs,
-                    'head_shape' => $headShape,
-                    'helmet_family' => $helmetFamily,
-                    'product_details' => is_array($productDetails) ? $productDetails : [],
-                    'variants' => is_array($variants) ? $variants : [],
-                    'sizing_fit' => is_array($sizingFit) ? $sizingFit : [],
-                    'related_videos' => is_array($relatedVideos) ? $relatedVideos : [],
-                    'related_accessories' => is_array($relatedAccessories) ? $relatedAccessories : [],
-                    'related_helmets' => is_array($related) ? $related : [],
-                ]
-            );
-            continue;
-        }
         ?>
         <article <?php post_class('helmet-single helmet-single--pdp'); ?>>
             <?php
@@ -172,7 +156,10 @@ if (have_posts()) {
                                             <?php if ($item['type'] === 'video') : ?>
                                                 <div class="hs-responsive-embed"><?php echo $item['embed']; ?></div>
                                             <?php else : ?>
-                                                <img src="<?php echo esc_url($item['url']); ?>" alt="<?php echo esc_attr($item['alt'] ?? ''); ?>" loading="eager">
+                                                <img src="<?php echo esc_url($item['url']); ?>" alt="<?php echo esc_attr(!empty($item['alt']) ? $item['alt'] : get_the_title()); ?>" loading="eager" onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='flex';}">
+                                                <div class="hs-helmet-cad-fallback-wrap" style="display:none;width:100%;min-height:300px;align-items:center;justify-content:center;">
+                                                    <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($helmetTypeSlug, '#00d2be') : ''; ?>
+                                                </div>
                                             <?php endif; ?>
                                         </div>
                                     <?php endforeach; ?>
@@ -181,12 +168,17 @@ if (have_posts()) {
                         </div>
                     <?php else : ?>
                         <div class="helmet-single__media-placeholder hs-panel">
-                            <div class="helmet-single__placeholder-icon" aria-hidden="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"/><path d="M6 12h12"/><path d="M12 12v8"/><path d="M8 12v4"/><path d="M16 12v4"/></svg>
+                            <div class="hs-helmet-blueprint-cad-hero" style="width:100%;display:flex;flex-direction:column;align-items:center;padding:1.5rem 0;">
+                                <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($helmetTypeSlug, '#00d2be') : ''; ?>
+                                <div class="hs-cad-blueprint-meta" style="text-align:center;margin-top:1rem;">
+                                    <span style="display:inline-block;padding:0.25rem 0.75rem;background:rgba(0,210,190,0.12);border:1px solid rgba(0,210,190,0.3);border-radius:999px;font-size:0.75rem;font-weight:700;color:#00d2be;letter-spacing:0.06em;text-transform:uppercase;">
+                                        <?php esc_html_e('CAD ARCHITECTURE BLUEPRINT', 'helmetsan-theme'); ?>
+                                    </span>
+                                    <p style="margin:0.5rem 0 0 0;font-size:0.8rem;color:#94a3b8;">
+                                        <?php esc_html_e('Empirical Geometry Profile · Verified Laboratory Cataloging', 'helmetsan-theme'); ?>
+                                    </p>
+                                </div>
                             </div>
-                            <p class="helmet-single__placeholder-text"><?php esc_html_e('IMAGE UNAVAILABLE', 'helmetsan-theme'); ?></p>
-                            <p class="helmet-single__placeholder-hint"><?php esc_html_e('Helmetsan does not currently have a verified product image for this model.', 'helmetsan-theme'); ?></p>
-                            <a href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="hs-btn hs-btn--primary js-add-to-compare" data-id="<?php echo esc_attr((string) $helmetId); ?>"><?php esc_html_e('Add to compare', 'helmetsan-theme'); ?></a>
                         </div>
                     <?php endif; ?>
                     <div class="helmet-single__media-actions">
@@ -490,23 +482,11 @@ if (have_posts()) {
             $hasSizeChart = $hasSizingContent && isset($sizingFit['size_translation']) && is_array($sizingFit['size_translation']) && $sizingFit['size_translation'] !== [];
             $hasAnySizing = $hasSizingContent || (is_array($fitCoords) && $fitCoords !== []);
             ?>
-            <nav class="helmet-single__on-page-nav hs-panel" aria-label="<?php esc_attr_e('Product details', 'helmetsan-theme'); ?>">
-                <ul class="helmet-single__tab-list" role="list">
-                    <li><a href="#helmet-product-description" class="helmet-single__tab-link"><?php esc_html_e('Product description', 'helmetsan-theme'); ?></a></li>
-                    <?php if ($hasPartNumbersContent) : ?><li><a href="#helmet-part-numbers" class="helmet-single__tab-link"><?php esc_html_e('Part numbers', 'helmetsan-theme'); ?></a></li><?php endif; ?>
-                    <?php if ($hasAnySizing) : ?><li><a href="#helmet-sizing-fit" class="helmet-single__tab-link"><?php esc_html_e('Sizing &amp; fit', 'helmetsan-theme'); ?></a></li><?php endif; ?>
-                </ul>
-            </nav>
 
             <!-- Immersive Design Story & Interactive HUD Explorer -->
             <?php
             $descContent = helmetsan_get_description($helmetId);
             $profile = helmetsan_get_technical_profile($helmetId);
-            
-            // Brand details
-            $brandMotto = get_post_meta($brandId, 'brand_motto', true);
-            $brandStory = get_post_meta($brandId, 'brand_story', true);
-            $brandOrigin = get_post_meta($brandId, 'brand_origin_country', true);
 
             // Extract factual data points only — no fabricated scores or percentages
             $noiseStr = $profile['noise_db'] ?? '';
@@ -880,7 +860,7 @@ if (have_posts()) {
             }
             // For India: show Flipkart row when enabled even if no stored link (redirect will use search URL)
             if ($visitorSuffix === 'in' && $revenueService && $revenueService->hasFlipkartEnabled() && !isset($geoRelevantLinks['flipkart-in'])) {
-                $geoRelevantLinks['flipkart-in'] = ['url' => '', 'network' => 'flipkart'];
+                $geoRelevantLinks['flipkart-in'] = ['url' => '', 'network' => 'flipkart', 'label' => 'Flipkart'];
             }
             // Fallback: if no geo-specific Amazon link was matched, use generic Amazon link for visitor's region
             $targetAmazonMp = 'amazon-' . $visitorSuffix;

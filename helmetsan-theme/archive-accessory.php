@@ -375,31 +375,31 @@ if ($selectedHelmetObj instanceof WP_Post && !empty($brandHelmets)) {
 
 <section class="hs-section hs-section--archive-wide hs-accessories-hub">
     <!-- 1. HERO SECTION (§1) -->
-    <header class="hs-accessories-hero">
+    <header class="hs-accessories-hero hs-accessories-hub__hero">
         <div class="hs-accessories-hero__content">
-            <span class="hs-eyebrow">EQUIPMENT & OPTICS INTELLIGENCE</span>
-            <h1 class="hs-accessories-hero__title">Helmet Accessories & Optics</h1>
+            <span class="hs-eyebrow"><?php hs_e('EQUIPMENT & OPTICS INTELLIGENCE'); ?></span>
+            <h1 class="hs-accessories-hero__title"><?php hs_e('Helmet Accessories & Optics'); ?></h1>
             <p class="hs-accessories-hero__subtitle">
-                Find the right accessories for your helmet — from visibility and communication upgrades to comfort, protection and care.
+                <?php hs_e('Find the right accessories for your helmet — from visibility and communication upgrades to comfort, protection and care.'); ?>
             </p>
             
             <div class="hs-accessories-hero__actions">
-                <a href="#accessory-finder" class="hs-btn hs-btn--primary">Find accessories for my helmet →</a>
-                <a href="#accessories-catalog" class="hs-btn hs-btn--secondary">Browse all accessories</a>
+                <a href="#accessory-finder" class="hs-btn hs-btn--primary"><?php hs_e('Find accessories for my helmet →'); ?></a>
+                <a href="#accessories-catalog" class="hs-btn hs-btn--secondary"><?php hs_e('Browse all accessories'); ?></a>
             </div>
 
             <div class="hs-accessories-hero__stats">
                 <div class="hs-accessories-stat">
-                    <span class="hs-accessories-stat__num"><?php echo number_format($total_accessories); ?></span>
-                    <span class="hs-accessories-stat__lbl">Accessories Tracked</span>
+                    <span class="hs-accessories-stat__num"><?php echo number_format_i18n($total_accessories); ?></span>
+                    <span class="hs-accessories-stat__lbl"><?php hs_e('Accessories Tracked'); ?></span>
                 </div>
                 <div class="hs-accessories-stat">
                     <span class="hs-accessories-stat__num"><?php echo (int) $active_cats_count; ?></span>
-                    <span class="hs-accessories-stat__lbl">Categories</span>
+                    <span class="hs-accessories-stat__lbl"><?php hs_e('Categories'); ?></span>
                 </div>
                 <div class="hs-accessories-stat">
-                    <span class="hs-accessories-stat__num">Verified</span>
-                    <span class="hs-accessories-stat__lbl">Compatibility Data</span>
+                    <span class="hs-accessories-stat__num"><?php hs_e('Verified'); ?></span>
+                    <span class="hs-accessories-stat__lbl"><?php hs_e('Compatibility Data'); ?></span>
                 </div>
             </div>
         </div>
@@ -408,10 +408,10 @@ if ($selectedHelmetObj instanceof WP_Post && !empty($brandHelmets)) {
     <!-- 2. ACCESSORY FINDER — MY HELMET COMPATIBILITY ENGINE (§2, §3, §4) -->
     <section id="accessory-finder" class="hs-accessory-finder hs-panel">
         <div class="hs-accessory-finder__header">
-            <span class="hs-eyebrow" style="color: var(--hs-accent);">COMPATIBILITY ENGINE</span>
-            <h2 class="hs-accessory-finder__title">Find Accessories for Your Helmet</h2>
+            <span class="hs-eyebrow" style="color: var(--hs-accent);"><?php hs_e('COMPATIBILITY ENGINE'); ?></span>
+            <h2 class="hs-accessory-finder__title"><?php hs_e('Find Accessories for Your Helmet'); ?></h2>
             <p class="hs-accessory-finder__desc">
-                Select your specific helmet model to view confirmed compatible visors, pinlock inserts, communication headsets, liners, and care gear.
+                <?php hs_e('Select your specific helmet model to view confirmed compatible visors, pinlock inserts, communication headsets, liners, and care gear.'); ?>
             </p>
         </div>
 
@@ -419,12 +419,12 @@ if ($selectedHelmetObj instanceof WP_Post && !empty($brandHelmets)) {
             <div class="hs-accessory-finder__grid">
                 <!-- Field 1: Cascading Brand & Model Selector -->
                 <div class="hs-finder-field">
-                    <label class="hs-finder-label">1. Select your helmet</label>
+                    <label class="hs-finder-label"><?php hs_e('1. Select your helmet'); ?></label>
                     <div style="display: flex; flex-direction: column; gap: 0.65rem;">
                         <div>
-                            <label for="finder-brand" style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Brand</label>
+                            <label for="finder-brand" style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;"><?php hs_e('Brand'); ?></label>
                             <select name="brand_id" id="finder-brand" class="hs-finder-select">
-                                <option value="">-- Choose Brand --</option>
+                                <option value=""><?php hs_e('-- Choose Brand --'); ?></option>
                                 <?php foreach ($brandPosts as $bPost) : ?>
                                     <option value="<?php echo (int) $bPost->ID; ?>" <?php selected($selectedBrandId, $bPost->ID); ?>>
                                         <?php echo esc_html($bPost->post_title); ?>
@@ -433,9 +433,9 @@ if ($selectedHelmetObj instanceof WP_Post && !empty($brandHelmets)) {
                             </select>
                         </div>
                         <div>
-                            <label for="finder-helmet" style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Helmet Model</label>
+                            <label for="finder-helmet" style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;"><?php hs_e('Helmet Model'); ?></label>
                             <select name="helmet_id" id="finder-helmet" class="hs-finder-select" <?php disabled(empty($brandHelmets) && $selectedBrandId === 0); ?>>
-                                <option value=""><?php echo $selectedBrandId > 0 ? '-- Choose Model (Optional) --' : '-- Select Brand First --'; ?></option>
+                                <option value=""><?php echo $selectedBrandId > 0 ? esc_html(hs_t('-- Choose Model (Optional) --')) : esc_html(hs_t('-- Select Brand First --')); ?></option>
                                 <?php if (!empty($brandHelmets)) : ?>
                                     <?php foreach ($brandHelmets as $hPost) : ?>
                                         <option value="<?php echo (int) $hPost->ID; ?>" <?php selected($selectedHelmetId, $hPost->ID); ?>>

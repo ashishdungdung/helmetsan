@@ -40,8 +40,8 @@ export default {
             return handlePurgeRequest(request, env, url);
         }
 
-        // Only process GET requests
-        if (request.method !== 'GET') {
+        // Only process safe GET and HEAD requests
+        if (request.method !== 'GET' && request.method !== 'HEAD') {
             return fetch(request);
         }
 

@@ -77,12 +77,94 @@ final class IngestionService
      */
     public function listJsonFiles(string $path): array
     {
-        return $this->repository->listJsonFiles($path);
+        $files = $this->repository->listJsonFiles($path);
+        return $this->sortFilesDeterministically($files);
+    }
+
+    /**
+     * Sort files deterministically: base models (parent files without variant suffixes,
+     * or files where parent_id is empty) are processed before child variant files.
+     * Within each group, sort alphabetically.
+     *
+     * @param array<int, string> $files
+     * @return list<string>
+     */
+    public function sortFilesDeterministically(array $files): array
+    {
+        if (count($files) <= 1) {
+            return array_values($files);
+        }
+
+        $parents  = [];
+        $children = [];
+
+        $variantSuffixes = [
+            '_adventure_spec',
+            '_apex_spec',
+            '_circuit_spec',
+            '_classic_heritage',
+            '_custom_edition',
+            '_dark_edition',
+            '_enduro_spec',
+            '_explorer_pack',
+            '_performance_edition',
+            '_pro_spec',
+            '_race_replica',
+            '_rally_edition',
+            '_special_edition',
+            '_sport_black',
+            '_stealth_edition',
+            '_touring_pack',
+            '_track_edition',
+            '_urban_carbon',
+            '_urban_commuter',
+            '_chrome_edition',
+        ];
+
+        foreach ($files as $file) {
+            if ($this->isChildVariantFile($file, $variantSuffixes)) {
+                $children[] = $file;
+            } else {
+                $parents[] = $file;
+            }
+        }
+
+        sort($parents, SORT_STRING);
+        sort($children, SORT_STRING);
+
+        return array_values(array_merge($parents, $children));
+    }
+
+    /**
+     * Determine if a file is a child variant (e.g. helmet variant with parent_id or motorcycle with variant suffix).
+     *
+     * @param list<string> $variantSuffixes
+     */
+    private function isChildVariantFile(string $file, array $variantSuffixes): bool
+    {
+        if (is_file($file)) {
+            $raw = @file_get_contents($file);
+            if ($raw !== false && $raw !== '') {
+                $data = json_decode($raw, true);
+                if (is_array($data) && ! empty($data['parent_id'])) {
+                    return true;
+                }
+            }
+        }
+
+        $stem = basename($file, '.json');
+        foreach ($variantSuffixes as $suffix) {
+            if (str_ends_with($stem, $suffix)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function ingestPath(string $path, int $batchSize = 100, ?int $limit = null, bool $dryRun = false, int $offset = 0, bool $force = false): array
     {
-        $files = $this->repository->listJsonFiles($path);
+        $files = $this->listJsonFiles($path);
         if ($offset > 0 || $limit !== null) {
             $files = array_slice($files, $offset, $limit ?? count($files));
         }
@@ -176,12 +258,15 @@ final class IngestionService
         $this->suppressYoastIndexablesDuringBulkIngest(true);
 
         try {
+            // De-duplicate file list to avoid accidental re-processing.
+            $files = array_values(array_unique($files));
+
+            // Enforce deterministic sorting: parent/base models before child variant files.
+            $files = $this->sortFilesDeterministically($files);
+
             if ($limit !== null && $limit > 0) {
                 $files = array_slice($files, 0, $limit);
             }
-
-            // De-duplicate file list to avoid accidental re-processing.
-            $files = array_values(array_unique($files));
 
             $batchSize = max(1, $batchSize);
             $batches   = array_chunk($files, $batchSize);
@@ -196,6 +281,8 @@ final class IngestionService
             wp_suspend_cache_addition(true);
             remove_all_actions('save_post_helmet');
             remove_all_actions('save_post_accessory');
+            remove_all_actions('save_post_motorcycle');
+            remove_all_actions('save_post_brand');
 
             foreach ($batches as $index => $batch) {
                 $this->logger->info('Processing batch ' . (string) ($index + 1) . ' with ' . (string) count($batch) . ' files. Force: ' . ($force ? 'YES' : 'NO'));
@@ -286,7 +373,8 @@ final class IngestionService
                     }
 
                     $payloadHash = hash('sha256', is_string($encoded) ? $encoded : serialize($data));
-                    $postId      = $this->findHelmetPostId((string) $data['id']);
+                    $postLang    = isset($data['language']) && is_string($data['language']) ? sanitize_key($data['language']) : 'en';
+                    $postId      = $this->findHelmetPostId((string) $data['id'], $postLang);
                     $existingHash = $postId > 0 ? (string) get_post_meta($postId, '_source_hash', true) : '';
 
                     $hasType = $postId > 0 && (
@@ -356,6 +444,13 @@ final class IngestionService
                     $fail    += (int) ($upsert['child_failed'] ?? 0);
                     $ok      += (int) ($upsert['child_created'] ?? 0) + (int) ($upsert['child_updated'] ?? 0);
                 }
+
+                // Free memory and query history between batches
+                global $wpdb;
+                $wpdb->queries = [];
+                if (function_exists('gc_collect_cycles')) {
+                    gc_collect_cycles();
+                }
             }
 
             return [
@@ -379,6 +474,16 @@ final class IngestionService
             $this->releaseLock();
             global $wpdb;
             $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_hs_search_ajax_%' OR option_name LIKE '_transient_timeout_hs_search_ajax_%'");
+
+            // Explicitly refresh motorcycle taxonomy counts so hub facets are instantly accurate
+            $segTerms = get_terms(['taxonomy' => 'motorcycle_segment', 'fields' => 'ids', 'hide_empty' => false]);
+            if (! is_wp_error($segTerms) && ! empty($segTerms)) {
+                wp_update_term_count_now($segTerms, 'motorcycle_segment');
+            }
+            $makeTerms = get_terms(['taxonomy' => 'motorcycle_make', 'fields' => 'ids', 'hide_empty' => false]);
+            if (! is_wp_error($makeTerms) && ! empty($makeTerms)) {
+                wp_update_term_count_now($makeTerms, 'motorcycle_make');
+            }
         }
     }
 
@@ -459,23 +564,98 @@ final class IngestionService
         return ['status' => 'ok', 'action' => $action, 'post_id' => (int) ($result['post_id'] ?? 0)];
     }
 
-    private function findHelmetPostId(string $externalId): int
+    /**
+     * Resolve an existing helmet post by external catalog id.
+     *
+     * Identity is (_helmet_unique_id, language). Do NOT constrain post_parent here:
+     * colourway/child SKUs live under a parent, and forcing post_parent = 0 made every
+     * re-ingest miss the child and insert a fresh duplicate (one copy per language per run).
+     * Do not pick an arbitrary language copy either — the payload carries its own language
+     * and must update that post only.
+     */
+    private function findHelmetPostId(string $externalId, string $language = ''): int
     {
-        $posts = get_posts([
+        if ($externalId === '') {
+            return 0;
+        }
+
+        $args = [
             'post_type'   => 'helmet',
-            'post_parent' => 0,
             'post_status' => 'any',
             'numberposts' => 1,
             'meta_key'    => '_helmet_unique_id',
             'meta_value'  => $externalId,
             'fields'      => 'ids',
-        ]);
+            'orderby'     => 'ID',
+            'order'       => 'ASC',
+        ];
 
-        if (! is_array($posts) || $posts === []) {
-            return 0;
+        if ($language !== '' && function_exists('pll_get_post_language')) {
+            $args['lang'] = $language;
         }
 
-        return (int) $posts[0];
+        $posts = get_posts($args);
+
+        if (is_array($posts) && $posts !== []) {
+            return (int) $posts[0];
+        }
+
+        // Fallback: match any language copy so we never mint a second post for the same SKU
+        // when the language term is missing or lagging behind the write.
+        if ($language !== '') {
+            unset($args['lang']);
+            $any = get_posts($args);
+            if (is_array($any) && $any !== []) {
+                return (int) $any[0];
+            }
+        }
+
+        return 0;
+    }
+
+    /**
+     * Build a human-readable product title.
+     *
+     * The catalog slug is never a title. When the source record has no title we derive one
+     * from the id rather than printing the raw identifier (this rendered "agv_pista_rp_r"
+     * as the H1 of live PDPs).
+     */
+    public static function humanizeTitle(string $raw, string $brand = ''): string
+    {
+        $title = trim($raw);
+        if ($title === '') {
+            return '';
+        }
+
+        // Already human if it contains a space or a capitalised model code (ATB-2T, EXO-1400).
+        if (! preg_match('/^[a-z0-9]+([_-][a-z0-9-]+)+$/', $title)) {
+            return $title;
+        }
+
+        $words = preg_split('/[_-]+/', strtolower($title)) ?: [];
+        $brandTrim = [];
+        foreach ($words as $w) {
+            $brandTrim[] = preg_match('/^[a-z]{1,3}\d{1,4}[a-z0-9-]*$/', $w) ? strtoupper($w) : ucfirst($w);
+        }
+        $human = trim(implode(' ', $brandTrim));
+
+        // Drop a duplicated leading brand token ("Agv Agv Pista" -> "Agv Pista").
+        $b = trim($brand);
+        if ($b !== '') {
+            $prefix = $b . ' ';
+            if (stripos($human, $prefix . $b . ' ') === 0) {
+                $human = $b . ' ' . substr($human, strlen($prefix . $b . ' '));
+            } elseif (stripos($human, $b . ' ') === 0 && self::looksLikeSlug($raw)) {
+                $human = trim(substr($human, strlen($b . ' ')));
+            }
+        }
+
+        return $human;
+    }
+
+    private static function looksLikeSlug(string $value): bool
+    {
+        return (bool) preg_match('/^[a-z0-9]+([_-][a-z0-9-]+)+$/', $value);
     }
 
     /**
@@ -484,13 +664,15 @@ final class IngestionService
      */
     private function upsertHelmet(array $data, string $sourceFile, string $hash, int $postId): array
     {
-        $title = isset($data['title']) && is_string($data['title']) && $data['title'] !== ''
+        $brandName = isset($data['brand']) && is_string($data['brand']) ? trim($data['brand']) : '';
+
+        // Title is human copy, never the catalog id. Fall back to a derived title, not the slug.
+        $title = isset($data['title']) && is_string($data['title']) && trim($data['title']) !== ''
             ? $data['title']
-            : (string) $data['id'];
+            : self::humanizeTitle((string) $data['id'], $brandName);
+        $title = self::humanizeTitle($title, $brandName);
 
         // Guard: strip duplicate brand prefix (e.g. "Shark Shark Race R Pro" → "Shark Race R Pro").
-        // This happens when the model name itself already starts with the brand name.
-        $brandName = isset($data['brand']) && is_string($data['brand']) ? trim($data['brand']) : '';
         if ($brandName !== '' && stripos($title, $brandName . ' ' . $brandName . ' ') === 0) {
             $title = $brandName . ' ' . ltrim(substr($title, strlen($brandName . ' ' . $brandName . ' ')));
         }
@@ -658,6 +840,9 @@ final class IngestionService
         // Product identifiers: from identifiers block and legacy fields (for search and marketplace matching)
         $idKeys = ['ean', 'upc', 'gtin', 'sku', 'mpn', 'fsn'];
         $identifiers = isset($data['identifiers']) && is_array($data['identifiers']) ? $data['identifiers'] : [];
+        if ($identifiers !== []) {
+            update_post_meta($resolvedPostId, 'identifiers_json', wp_json_encode($identifiers, JSON_UNESCAPED_SLASHES));
+        }
         foreach ($idKeys as $key) {
             $val = isset($identifiers[$key]) ? trim((string) $identifiers[$key]) : '';
             if ($val !== '') {
@@ -773,8 +958,10 @@ final class IngestionService
             update_post_meta($resolvedPostId, 'technical_analysis', sanitize_textarea_field($data['technical_analysis']));
         }
 
-        if (isset($data['marketing_description']) && is_string($data['marketing_description'])) {
-            update_post_meta($resolvedPostId, 'marketing_description', sanitize_textarea_field($data['marketing_description']));
+        $editorialDesc = (string) ($data['editorial_overview'] ?? $data['description'] ?? $data['marketing_description'] ?? '');
+        if ($editorialDesc !== '') {
+            update_post_meta($resolvedPostId, 'marketing_description', sanitize_textarea_field($editorialDesc));
+            update_post_meta($resolvedPostId, 'editorial_overview', sanitize_textarea_field($editorialDesc));
         }
 
         if (isset($data['pros_and_cons']) && is_array($data['pros_and_cons'])) {
@@ -937,8 +1124,9 @@ final class IngestionService
                     update_post_meta($resolvedPostId, 'price_usd', (string) $rawPrice);
                     update_post_meta($resolvedPostId, 'price_retail_usd', (string) $rawPrice);
                 } elseif ($rawCurrency === 'INR') {
-                    // Crude fallback conversion for INR to USD (~83 INR/USD)
-                    $usdEstimate = round($rawPrice / 83.0, 2);
+                    // Fallback conversion for INR to USD. Keep in step with
+                    // ExchangeRateService::FALLBACK_RATES['INR'] (86.5).
+                    $usdEstimate = round($rawPrice / 86.5, 2);
                     update_post_meta($resolvedPostId, 'price_usd', (string) $usdEstimate);
                     update_post_meta($resolvedPostId, 'price_retail_usd', (string) $usdEstimate);
                 } elseif ($rawCurrency === 'EUR') {
@@ -1021,7 +1209,8 @@ final class IngestionService
                 }
 
                 $childHash = hash('sha256', serialize($child));
-                $childId = $this->findHelmetPostId((string) $child['id']);
+                $childLang = isset($child['language']) && is_string($child['language']) ? sanitize_key($child['language']) : '';
+                $childId = $this->findHelmetPostId((string) $child['id'], $childLang);
                 $childExternalId = isset($child['id']) ? (string) $child['id'] : '';
 
                 $childResult = $this->upsertHelmet($child, $sourceFile, $childHash, $childId);

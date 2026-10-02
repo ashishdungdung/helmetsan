@@ -17,7 +17,10 @@ final class HelmetDataSanityTest extends TestCase
 
         $output = [];
         $exitCode = 0;
-        exec(sprintf('python3 %s 2>&1', escapeshellarg($script)), $output, $exitCode);
+        $python = file_exists('/Library/Developer/CommandLineTools/usr/bin/python3')
+            ? '/Library/Developer/CommandLineTools/usr/bin/python3'
+            : 'python3';
+        exec(sprintf('%s %s 2>&1', escapeshellarg($python), escapeshellarg($script)), $output, $exitCode);
 
         $outputText = implode("\n", $output);
         $this->assertSame(0, $exitCode, 'Linter failed with errors: ' . $outputText);

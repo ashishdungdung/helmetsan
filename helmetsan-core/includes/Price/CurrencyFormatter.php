@@ -32,7 +32,9 @@ final class CurrencyFormatter
         'MAD' => ['symbol' => ' MAD', 'position' => 'after',  'decimals' => 2, 'thousands' => ' ', 'decimal' => ','],
         'GHS' => ['symbol' => 'GH₵',  'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
         'UGX' => ['symbol' => 'USh ', 'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'TZS' => ['symbol' => 'TSh ', 'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
+        'CNY' => ['symbol' => '¥',    'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
+        'COP' => ['symbol' => 'COL$', 'position' => 'before', 'decimals' => 0, 'thousands' => '.', 'decimal' => ','],
+        'ARS' => ['symbol' => '$',    'position' => 'before', 'decimals' => 2, 'thousands' => '.', 'decimal' => ','],
     ];
 
     /**

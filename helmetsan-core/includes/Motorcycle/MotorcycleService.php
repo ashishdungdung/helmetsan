@@ -128,10 +128,12 @@ final class MotorcycleService
             $existingId = $this->findByExternalId($externalId);
         }
         if ($existingId <= 0) {
-            $existing = get_page_by_path(sanitize_title($title), OBJECT, 'motorcycle');
-            if ($existing instanceof WP_Post) {
-                $existingId = (int) $existing->ID;
-            }
+            global $wpdb;
+            $slug = sanitize_title($title);
+            $existingId = (int) $wpdb->get_var($wpdb->prepare(
+                "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'motorcycle' AND post_status != 'trash' LIMIT 1",
+                $slug
+            ));
         }
 
         $hashPayload = wp_json_encode($data);
@@ -218,6 +220,13 @@ final class MotorcycleService
 
         $this->setJsonMeta($postId, 'recommended_helmet_types_json', $data['recommended_helmet_types'] ?? null);
 
+        if ($segment !== '') {
+            wp_set_object_terms($postId, [$segment], 'motorcycle_segment', false);
+        }
+        if ($make !== '') {
+            wp_set_object_terms($postId, [$make], 'motorcycle_make', false);
+        }
+
         if (isset($data['regions']) && is_array($data['regions'])) {
             $terms = array_filter(array_map(
                 static fn($item): string => sanitize_text_field((string) $item),
@@ -242,21 +251,78 @@ final class MotorcycleService
         }
     }
 
-    private function findByExternalId(string $externalId): int
-    {
-        $posts = get_posts([
-            'post_type'   => 'motorcycle',
-            'post_status' => 'any',
-            'numberposts' => 1,
-            'meta_key'    => '_motorcycle_unique_id',
-            'meta_value'  => $externalId,
-            'fields'      => 'ids',
-        ]);
+    /** @var array<string,int> */
+    private static array $lookupCache = [];
 
-        if (! is_array($posts) || $posts === []) {
+    /**
+     * Pre-warm lookup cache for a batch of external IDs to eliminate N SQL queries during bulk ingest.
+     *
+     * @param list<string> $externalIds
+     */
+    public function warmLookupCache(array $externalIds): void
+    {
+        global $wpdb;
+        $slugs = [];
+        $map = [];
+        foreach ($externalIds as $eid) {
+            $eid = trim((string) $eid);
+            if ($eid === '' || array_key_exists($eid, self::$lookupCache)) {
+                continue;
+            }
+            $slug = sanitize_title($eid);
+            $slugs[] = $slug;
+            $map[$slug] = $eid;
+        }
+        if ($slugs === []) {
+            return;
+        }
+        $placeholders = implode(',', array_fill(0, count($slugs), '%s'));
+        $sql = $wpdb->prepare(
+            "SELECT ID, post_name FROM {$wpdb->posts} WHERE post_type = 'motorcycle' AND post_name IN ($placeholders) AND post_status NOT IN ('trash', 'auto-draft')",
+            ...$slugs
+        );
+        $results = $wpdb->get_results($sql, ARRAY_A);
+        if (is_array($results)) {
+            foreach ($results as $row) {
+                $pName = (string) ($row['post_name'] ?? '');
+                if (isset($map[$pName])) {
+                    self::$lookupCache[$map[$pName]] = (int) $row['ID'];
+                }
+            }
+        }
+    }
+
+    public function findByExternalId(string $externalId): int
+    {
+        $externalId = trim($externalId);
+        if ($externalId === '') {
             return 0;
         }
 
-        return (int) $posts[0];
+        if (array_key_exists($externalId, self::$lookupCache)) {
+            return self::$lookupCache[$externalId];
+        }
+
+        global $wpdb;
+        $slug = sanitize_title($externalId);
+
+        // 1. Primary path: indexed post_name on wp_posts
+        $id = (int) $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'motorcycle' AND post_name = %s AND post_status NOT IN ('trash', 'auto-draft') ORDER BY ID ASC LIMIT 1",
+            $slug
+        ));
+
+        // 2. Compatibility path for legacy items created before slug unification
+        if ($id <= 0) {
+            $id = (int) $wpdb->get_var($wpdb->prepare(
+                "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_motorcycle_unique_id' AND meta_value = %s ORDER BY post_id ASC LIMIT 1",
+                $externalId
+            ));
+        }
+
+        // Cache both hits and misses to prevent repeating redundant scans
+        self::$lookupCache[$externalId] = $id;
+
+        return $id;
     }
 }

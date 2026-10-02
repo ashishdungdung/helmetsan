@@ -21,20 +21,25 @@ import urllib.error
 import time
 
 DEFAULT_BASE_URL = "https://api.experientiallabs.ai/v1"
-DEFAULT_MODEL = "gpt-5.6-luna"
+DEFAULT_MODEL = "gpt-6-luna"
 
 def get_api_key():
     key = os.environ.get("EXPLABS_API_KEY", "").strip()
     if not key:
-        # Fallback to local config or standard key if set
-        key = "xpl_347a690bbbf034a8340fcd0cd3ee91b5ec0147e1"
+        vault_path = os.path.expanduser("~/.config/antigravity/ai_mesh.env")
+        if os.path.exists(vault_path):
+            with open(vault_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    trimmed = line.strip()
+                    if trimmed.startswith("EXPLABS_API_KEY="):
+                        key = trimmed[len("EXPLABS_API_KEY="):].strip()
+                        break
     if not key:
-        print("❌ Error: EXPLABS_API_KEY environment variable is not set.")
-        print("Please create one under Settings -> API Keys and export it.")
+        print("❌ Error: EXPLABS_API_KEY environment variable is not set in environment or ~/.config/antigravity/ai_mesh.env.")
         sys.exit(1)
     return key
 
-def dispatch_completion(prompt, model=DEFAULT_MODEL, system_prompt=None, max_tokens=4000, temperature=0.7, json_mode=False):
+def dispatch_completion(prompt, model=DEFAULT_MODEL, system_prompt=None, max_tokens=4000, temperature=0.7, json_mode=False, prompt_cache_key=None):
     api_key = get_api_key()
     endpoint = f"{DEFAULT_BASE_URL}/chat/completions"
 
@@ -49,21 +54,28 @@ def dispatch_completion(prompt, model=DEFAULT_MODEL, system_prompt=None, max_tok
         "max_tokens": max_tokens
     }
 
-    # Experiential Labs reasoning models (like gpt-5.6-luna) drop temperature
+    if prompt_cache_key:
+        payload["prompt_cache_key"] = prompt_cache_key
+
+    # Experiential Labs reasoning models (like gpt-6-luna) drop temperature
     if "luna" not in model.lower():
         payload["temperature"] = temperature
 
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
 
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    if prompt_cache_key:
+        headers["X-Prompt-Cache-Key"] = prompt_cache_key
+
     data_bytes = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         endpoint,
         data=data_bytes,
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        },
+        headers=headers,
         method="POST"
     )
 

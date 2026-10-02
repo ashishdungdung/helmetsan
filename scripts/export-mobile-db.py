@@ -58,6 +58,10 @@ def init_database(conn):
         price_eur REAL DEFAULT 0,
         price_gbp REAL DEFAULT 0,
         price_jpy REAL DEFAULT 0,
+        asin_us TEXT,
+        asin_status TEXT,
+        sku TEXT,
+        ean TEXT,
         description TEXT,
         variants_count INTEGER DEFAULT 0,
         raw_json TEXT
@@ -77,6 +81,8 @@ def init_database(conn):
         availability TEXT,
         price_usd REAL,
         price_inr REAL,
+        asin_us TEXT,
+        search_query TEXT,
         FOREIGN KEY (helmet_id) REFERENCES helmets (id) ON DELETE CASCADE
     );
     """)
@@ -260,12 +266,20 @@ def compile_catalog():
                 variants = h.get("variants") or []
                 slug = h.get("slug") or h_id.replace("_", "-")
                 
+                ident = h.get("identifiers") or {}
+                amazon_us = ident.get("amazon", {}).get("us") or {}
+                asin_us = amazon_us.get("asin")
+                asin_status = amazon_us.get("status") or "missing"
+                sku = ident.get("sku") or h.get("sku") or ""
+                ean = ident.get("ean") or ident.get("gtin") or ""
+                
                 brand_counts[brand] = brand_counts.get(brand, 0) + 1
                 
                 helmets_batch.append((
                     h_id, slug, title, brand, h_type, family, head_shape,
                     material, strap, weight_g, weight_lbs, certs_str,
                     p_usd, p_inr, p_eur, p_gbp, p_jpy,
+                    asin_us, asin_status, sku, ean,
                     desc, len(variants), json.dumps(h)
                 ))
                 
@@ -278,16 +292,22 @@ def compile_catalog():
                     v_title = v.get("title") or ""
                     v_color = v.get("color") or ""
                     v_color_family = v.get("color_family") or ""
-                    v_sku = v.get("sku") or ""
                     v_finish = v.get("finish") or ""
                     v_avail = v.get("availability") or "instock"
                     v_prices = v.get("price") or prices
                     v_usd = float(v_prices.get("usd") or p_usd)
                     v_inr = float(v_prices.get("inr") or p_inr)
                     
+                    v_ident = v.get("identifiers") or {}
+                    v_amazon_us = v_ident.get("amazon", {}).get("us") or {}
+                    v_asin_us = v_amazon_us.get("asin") or v.get("asin")
+                    v_sku = v.get("sku") or v_ident.get("sku") or ""
+                    v_search_query = v_amazon_us.get("search_fallback") or f"{brand} {title} {v_color}".strip()
+                    
                     variants_batch.append((
                         v_id, h_id, v_title, v_color, v_color_family,
-                        v_sku, v_finish, v_avail, v_usd, v_inr
+                        v_sku, v_finish, v_avail, v_usd, v_inr,
+                        v_asin_us, v_search_query
                     ))
         except Exception as e:
             continue
@@ -297,8 +317,9 @@ def compile_catalog():
         id, slug, title, brand, helmet_type, helmet_family, head_shape,
         material, strap_type, weight_g, weight_lbs, certifications,
         price_usd, price_inr, price_eur, price_gbp, price_jpy,
+        asin_us, asin_status, sku, ean,
         description, variants_count, raw_json
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, helmets_batch)
     
     cursor.executemany("""
@@ -310,8 +331,9 @@ def compile_catalog():
         cursor.executemany("""
         INSERT OR REPLACE INTO variants (
             id, helmet_id, title, color, color_family,
-            sku, finish, availability, price_usd, price_inr
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            sku, finish, availability, price_usd, price_inr,
+            asin_us, search_query
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, variants_batch)
         
     # Ingest Motorcycles

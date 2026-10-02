@@ -24,28 +24,28 @@ $compareUrl     = helmetsan_url('/comparison/');
 <!-- §1 HERO / HELMET FINDER -->
 <section class="hs-home-hero">
     <div class="hs-home-section__inner">
-        <div class="hs-home-hero__badge">Global Helmet Intelligence Platform</div>
-        <h1 class="hs-home-hero__title">Find the right helmet for how you ride.</h1>
-        <p class="hs-home-hero__subtitle">Compare safety, fit, features, riding style and price across thousands of helmets.</p>
+        <div class="hs-home-hero__badge"><?php hs_e('Global Helmet Intelligence Platform'); ?></div>
+        <h1 class="hs-home-hero__title"><?php hs_e('Find the right helmet for how you ride.'); ?></h1>
+        <p class="hs-home-hero__subtitle"><?php hs_e('Compare safety, fit, features, riding style and price across thousands of helmets.'); ?></p>
 
         <form role="search" method="get" class="hs-home-hero__search-form" action="<?php echo esc_url(helmetsan_url('/')); ?>">
-            <input type="search" name="s" class="hs-home-hero__search-input" placeholder="Search helmets, brands, motorcycles or requirements..." aria-label="Search Helmetsan" />
-            <button type="submit" class="hs-home-hero__search-btn">Search</button>
+            <input type="search" name="s" class="hs-home-hero__search-input" placeholder="<?php hs_attr_e('Search helmets, brands, motorcycles or requirements...'); ?>" aria-label="<?php hs_attr_e('Search Helmetsan'); ?>" />
+            <button type="submit" class="hs-home-hero__search-btn"><?php hs_e('Search'); ?></button>
         </form>
 
         <div class="hs-home-hero__actions">
-            <a href="#hs-home-intent" class="hs-home-hero__cta-primary">Find My Helmet →</a>
-            <a href="<?php echo esc_url($helmetsUrl); ?>" class="hs-home-hero__cta-secondary">Browse all <?php echo number_format($stats['helmets']); ?>+ helmets</a>
+            <a href="#hs-home-intent" class="hs-home-hero__cta-primary"><?php hs_e('Find My Helmet →'); ?></a>
+            <a href="<?php echo esc_url($helmetsUrl); ?>" class="hs-home-hero__cta-secondary"><?php printf(esc_html(hs_t('Browse all %s+ helmets')), number_format_i18n($stats['helmets'])); ?></a>
         </div>
 
         <div class="hs-home-hero__chips">
-            <span class="hs-home-hero__chip-label">Popular:</span>
+            <span class="hs-home-hero__chip-label"><?php hs_e('Popular:'); ?></span>
             <a href="<?php echo esc_url(helmetsan_url('/?s=ECE+22.06')); ?>" class="hs-home-hero__chip">ECE 22.06</a>
             <a href="<?php echo esc_url(helmetsan_url('/?s=Himalayan+450')); ?>" class="hs-home-hero__chip">Himalayan 450</a>
             <a href="<?php echo esc_url(helmetsan_url('/?s=Arai')); ?>" class="hs-home-hero__chip">Arai</a>
             <a href="<?php echo esc_url(helmetsan_url('/?s=Shoei')); ?>" class="hs-home-hero__chip">Shoei</a>
-            <a href="<?php echo esc_url(helmetsan_url('/helmet-type/adventure-dual-sport/')); ?>" class="hs-home-hero__chip">Adventure</a>
-            <a href="<?php echo esc_url(helmetsan_url('/?s=under+500')); ?>" class="hs-home-hero__chip">Under $500</a>
+            <a href="<?php echo esc_url(helmetsan_url('/helmet-type/adventure-dual-sport/')); ?>" class="hs-home-hero__chip"><?php hs_e('Adventure'); ?></a>
+            <a href="<?php echo esc_url(helmetsan_url('/?s=under+500')); ?>" class="hs-home-hero__chip"><?php hs_e('Under $500'); ?></a>
         </div>
     </div>
 </section>
@@ -55,41 +55,41 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section id="hs-home-intent" class="hs-home-intent">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">How Do You Ride?</span>
-            <h2 class="hs-home-section__title">Tell us your riding style</h2>
-            <p class="hs-home-section__subtitle">We'll show you helmets designed for exactly how you ride.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('How Do You Ride?'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Tell us your riding style'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e("We'll show you helmets designed for exactly how you ride."); ?></p>
         </div>
 
         <div class="hs-home-intent__grid">
             <a href="<?php echo esc_url(helmetsan_url('/use-case/commuting/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🏙️</span>
-                <span class="hs-home-intent__label">Commute</span>
-                <span class="hs-home-intent__desc">City &amp; daily use</span>
+                <span class="hs-home-intent__label"><?php hs_e('Commute'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('City & daily use'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/full-face/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🛣️</span>
-                <span class="hs-home-intent__label">Highway</span>
-                <span class="hs-home-intent__desc">Stability &amp; comfort</span>
+                <span class="hs-home-intent__label"><?php hs_e('Highway'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('Stability & comfort'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/touring/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🧳</span>
-                <span class="hs-home-intent__label">Touring</span>
-                <span class="hs-home-intent__desc">Long-distance rides</span>
+                <span class="hs-home-intent__label"><?php hs_e('Touring'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('Long-distance rides'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/adventure-dual-sport/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🏕️</span>
-                <span class="hs-home-intent__label">Adventure</span>
-                <span class="hs-home-intent__desc">Road &amp; trail</span>
+                <span class="hs-home-intent__label"><?php hs_e('Adventure'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('Road & trail'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/use-case/sport/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🏁</span>
-                <span class="hs-home-intent__label">Sport</span>
-                <span class="hs-home-intent__desc">Aggressive street</span>
+                <span class="hs-home-intent__label"><?php hs_e('Sport'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('Aggressive street'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/track-race/')); ?>" class="hs-home-intent__card">
                 <span class="hs-home-intent__icon">🏎️</span>
-                <span class="hs-home-intent__label">Track</span>
-                <span class="hs-home-intent__desc">Race-focused</span>
+                <span class="hs-home-intent__label"><?php hs_e('Track'); ?></span>
+                <span class="hs-home-intent__desc"><?php hs_e('Race-focused'); ?></span>
             </a>
         </div>
     </div>
@@ -100,23 +100,23 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-stats">
     <div class="hs-home-stats__grid">
         <div class="hs-home-stats__item">
-            <span class="hs-home-stats__number"><?php echo number_format($stats['helmets']); ?>+</span>
-            <span class="hs-home-stats__label">Helmets Tracked</span>
+            <span class="hs-home-stats__number"><?php echo number_format_i18n($stats['helmets']); ?>+</span>
+            <span class="hs-home-stats__label"><?php hs_e('Helmets Tracked'); ?></span>
         </div>
         <div class="hs-home-stats__item">
-            <span class="hs-home-stats__number"><?php echo number_format($stats['brands']); ?>+</span>
-            <span class="hs-home-stats__label">Brands</span>
+            <span class="hs-home-stats__number"><?php echo number_format_i18n($stats['brands']); ?>+</span>
+            <span class="hs-home-stats__label"><?php hs_e('Brands'); ?></span>
         </div>
         <div class="hs-home-stats__item">
-            <span class="hs-home-stats__number"><?php echo number_format($stats['accessories']); ?>+</span>
-            <span class="hs-home-stats__label">Accessories</span>
+            <span class="hs-home-stats__number"><?php echo number_format_i18n($stats['accessories']); ?>+</span>
+            <span class="hs-home-stats__label"><?php hs_e('Accessories'); ?></span>
         </div>
         <div class="hs-home-stats__item">
             <span class="hs-home-stats__number"><?php echo (int) $stats['standards']; ?></span>
-            <span class="hs-home-stats__label">Safety Standards</span>
+            <span class="hs-home-stats__label"><?php hs_e('Safety Standards'); ?></span>
         </div>
     </div>
-    <p class="hs-home-stats__tagline">One structured database. One place to understand the helmet market.</p>
+    <p class="hs-home-stats__tagline"><?php hs_e('One structured database. One place to understand the helmet market.'); ?></p>
 </section>
 
 
@@ -124,9 +124,9 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-picks">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Helmetsan Picks</span>
-            <h2 class="hs-home-section__title">Recommended helmets</h2>
-            <p class="hs-home-section__subtitle">Based on safety, value, weight and rider feedback across our database.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Helmetsan Picks'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Recommended helmets'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e('Based on safety, value, weight and rider feedback across our database.'); ?></p>
         </div>
 
         <div class="hs-home-picks__grid">
@@ -152,16 +152,16 @@ $compareUrl     = helmetsan_url('/comparison/');
             }
 
             $pick_badges = [
-                ['label' => '🏆 Best Overall',     'class' => 'gold',   'featured' => true],
-                ['label' => '💰 Best Value',        'class' => 'green',  'featured' => false],
-                ['label' => '🪶 Best Lightweight',   'class' => 'blue',   'featured' => false],
-                ['label' => '🏕️ Best Adventure',    'class' => 'purple', 'featured' => false],
+                ['label' => '🏆 ' . hs_t('Best Overall'),     'class' => 'gold',   'featured' => true],
+                ['label' => '💰 ' . hs_t('Best Value'),        'class' => 'green',  'featured' => false],
+                ['label' => '🪶 ' . hs_t('Best Lightweight'),   'class' => 'blue',   'featured' => false],
+                ['label' => '🏕️ ' . hs_t('Best Adventure'),    'class' => 'purple', 'featured' => false],
             ];
             $pick_reasons = [
-                'Premium construction with strong certification coverage.',
-                'Outstanding performance at a competitive price point.',
-                'Ultra-lightweight shell reduces neck fatigue on long rides.',
-                'Dual-sport versatility for road and trail riding.',
+                hs_t('Premium construction with strong certification coverage.'),
+                hs_t('Outstanding performance at a competitive price point.'),
+                hs_t('Ultra-lightweight shell reduces neck fatigue on long rides.'),
+                hs_t('Dual-sport versatility for road and trail riding.'),
             ];
 
             $pick_index = 0;
@@ -189,15 +189,15 @@ $compareUrl     = helmetsan_url('/comparison/');
                         <?php if ($weight) : ?>
                         <div class="hs-home-pick-card__dims">
                             <div>
-                                <div class="hs-home-pick-card__dim-label">Weight</div>
-                                <div class="hs-home-pick-card__dim-value"><?php echo esc_html($weight); ?>g</div>
+                                <div class="hs-home-pick-card__dim-label"><?php hs_e('Weight'); ?></div>
+                                <div class="hs-home-pick-card__dim-value"><?php echo esc_html(number_format_i18n((int)$weight)); ?>g</div>
                             </div>
                             <div>
-                                <div class="hs-home-pick-card__dim-label">Material</div>
+                                <div class="hs-home-pick-card__dim-label"><?php hs_e('Material'); ?></div>
                                 <div class="hs-home-pick-card__dim-value"><?php echo esc_html(get_post_meta($hid, 'shell_material', true) ?: 'Composite'); ?></div>
                             </div>
                             <div>
-                                <div class="hs-home-pick-card__dim-label">Standard</div>
+                                <div class="hs-home-pick-card__dim-label"><?php hs_e('Standard'); ?></div>
                                 <div class="hs-home-pick-card__dim-value"><?php echo esc_html($homo); ?></div>
                             </div>
                         </div>
@@ -208,12 +208,12 @@ $compareUrl     = helmetsan_url('/comparison/');
                         <div class="hs-home-pick-card__footer">
                             <div>
                                 <?php if ($price) : ?>
-                                <div class="hs-home-pick-card__price-label">MSRP</div>
-                                <div class="hs-home-pick-card__price">$<?php echo esc_html($price); ?></div>
+                                <div class="hs-home-pick-card__price-label"><?php hs_e('MSRP'); ?></div>
+                                <div class="hs-home-pick-card__price"><?php echo function_exists('helmetsan_render_price_element') ? helmetsan_render_price_element($hid) : '$' . esc_html($price); ?></div>
                                 <?php endif; ?>
                             </div>
                             <div class="hs-home-pick-card__actions">
-                                <a href="<?php the_permalink(); ?>" class="hs-btn hs-btn--primary">View →</a>
+                                <a href="<?php the_permalink(); ?>" class="hs-btn hs-btn--primary"><?php hs_e('View →'); ?></a>
                             </div>
                         </div>
                     </div>
@@ -223,14 +223,13 @@ $compareUrl     = helmetsan_url('/comparison/');
                 endwhile;
                 wp_reset_postdata();
             else :
-                // Fallback if no helmets found in WP — show placeholder
             ?>
                 <div class="hs-home-pick-card">
-                    <span class="hs-home-pick-card__badge hs-home-pick-card__badge--gold">🏆 Best Overall</span>
+                    <span class="hs-home-pick-card__badge hs-home-pick-card__badge--gold">🏆 <?php hs_e('Best Overall'); ?></span>
                     <div class="hs-home-pick-card__body">
-                        <div class="hs-home-pick-card__brand">Explore</div>
-                        <div class="hs-home-pick-card__name"><a href="<?php echo esc_url($helmetsUrl); ?>">Browse Our Catalog</a></div>
-                        <p class="hs-home-pick-card__reason">Discover helmets across <?php echo number_format($stats['helmets']); ?>+ products from <?php echo number_format($stats['brands']); ?>+ brands.</p>
+                        <div class="hs-home-pick-card__brand"><?php hs_e('Explore'); ?></div>
+                        <div class="hs-home-pick-card__name"><a href="<?php echo esc_url($helmetsUrl); ?>"><?php hs_e('Browse Our Catalog'); ?></a></div>
+                        <p class="hs-home-pick-card__reason"><?php printf(esc_html(hs_t('Discover helmets across %s+ products from %s+ brands.')), number_format_i18n($stats['helmets']), number_format_i18n($stats['brands'])); ?></p>
                     </div>
                 </div>
             <?php endif; ?>
@@ -243,40 +242,40 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-types">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Explore Helmets</span>
-            <h2 class="hs-home-section__title">Find the right category</h2>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Explore Helmets'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Find the right category'); ?></h2>
         </div>
 
         <div class="hs-home-types__grid">
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/full-face/')); ?>" class="hs-home-type-tile">
                 <span class="hs-home-type-tile__icon">🛡️</span>
-                <span class="hs-home-type-tile__name">Full Face</span>
-                <span class="hs-home-type-tile__desc">Maximum coverage</span>
+                <span class="hs-home-type-tile__name"><?php hs_e('Full Face'); ?></span>
+                <span class="hs-home-type-tile__desc"><?php hs_e('Maximum coverage'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/modular/')); ?>" class="hs-home-type-tile">
                 <span class="hs-home-type-tile__icon">🔄</span>
-                <span class="hs-home-type-tile__name">Modular</span>
-                <span class="hs-home-type-tile__desc">Versatility &amp; touring</span>
+                <span class="hs-home-type-tile__name"><?php hs_e('Modular'); ?></span>
+                <span class="hs-home-type-tile__desc"><?php hs_e('Versatility & touring'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/adventure-dual-sport/')); ?>" class="hs-home-type-tile">
                 <span class="hs-home-type-tile__icon">🏔️</span>
-                <span class="hs-home-type-tile__name">Adventure</span>
-                <span class="hs-home-type-tile__desc">Road + off-road</span>
+                <span class="hs-home-type-tile__name"><?php hs_e('Adventure'); ?></span>
+                <span class="hs-home-type-tile__desc"><?php hs_e('Road + off-road'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/open-face/')); ?>" class="hs-home-type-tile">
                 <span class="hs-home-type-tile__icon">💨</span>
-                <span class="hs-home-type-tile__name">Open Face</span>
-                <span class="hs-home-type-tile__desc">Airflow &amp; visibility</span>
+                <span class="hs-home-type-tile__name"><?php hs_e('Open Face'); ?></span>
+                <span class="hs-home-type-tile__desc"><?php hs_e('Airflow & visibility'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/track-race/')); ?>" class="hs-home-type-tile">
                 <span class="hs-home-type-tile__icon">🏎️</span>
-                <span class="hs-home-type-tile__name">Track / Race</span>
-                <span class="hs-home-type-tile__desc">Race-focused protection</span>
+                <span class="hs-home-type-tile__name"><?php hs_e('Track / Race'); ?></span>
+                <span class="hs-home-type-tile__desc"><?php hs_e('Race-focused protection'); ?></span>
             </a>
         </div>
 
         <div class="hs-home-browse-all">
-            <a href="<?php echo esc_url($helmetsUrl); ?>">Browse all <?php echo number_format($stats['helmets']); ?>+ helmets →</a>
+            <a href="<?php echo esc_url($helmetsUrl); ?>"><?php printf(esc_html(hs_t('Browse all %s+ helmets →')), number_format_i18n($stats['helmets'])); ?></a>
         </div>
     </div>
 </section>
@@ -286,9 +285,9 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-compare">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Compare</span>
-            <h2 class="hs-home-section__title">Can't decide between two helmets?</h2>
-            <p class="hs-home-section__subtitle">Compare them side by side — safety, weight, features and price.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Compare'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e("Can't decide between two helmets?"); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e('Compare them side by side — safety, weight, features and price.'); ?></p>
         </div>
 
         <div class="hs-home-compare__preview">
@@ -320,25 +319,25 @@ $compareUrl     = helmetsan_url('/comparison/');
             </thead>
             <tbody>
                 <tr>
-                    <td>Safety</td>
+                    <td><?php hs_e('Safety'); ?></td>
                     <td class="hs-best">ECE 22.06</td>
                     <td>ECE 22.06</td>
                     <td>ECE 22.06</td>
                 </tr>
                 <tr>
-                    <td>Weight</td>
+                    <td><?php hs_e('Weight'); ?></td>
                     <td>1,520g</td>
                     <td>1,450g</td>
                     <td class="hs-best">1,255g</td>
                 </tr>
                 <tr>
-                    <td>Material</td>
+                    <td><?php hs_e('Material'); ?></td>
                     <td>PB-cLc</td>
                     <td>AIM+</td>
                     <td>Carbon-Aramid</td>
                 </tr>
                 <tr>
-                    <td>Price</td>
+                    <td><?php hs_e('Price'); ?></td>
                     <td>$749</td>
                     <td>$579</td>
                     <td class="hs-best">$499</td>
@@ -347,7 +346,7 @@ $compareUrl     = helmetsan_url('/comparison/');
         </table>
 
         <div class="hs-home-compare__cta">
-            <a href="<?php echo esc_url($compareUrl); ?>" class="hs-btn hs-btn--primary">Compare Helmets →</a>
+            <a href="<?php echo esc_url($compareUrl); ?>" class="hs-btn hs-btn--primary"><?php hs_e('Compare Helmets →'); ?></a>
         </div>
     </div>
 </section>
@@ -357,41 +356,41 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-safety">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Safety Intelligence</span>
-            <h2 class="hs-home-section__title">Understand helmet safety</h2>
-            <p class="hs-home-section__subtitle">Not all certifications mean the same thing. Know what protects you.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Safety Intelligence'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Understand helmet safety'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e('Not all certifications mean the same thing. Know what protects you.'); ?></p>
         </div>
 
         <div class="hs-home-safety__grid">
             <a href="<?php echo esc_url(helmetsan_url('/certification/ece-22-06/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region">🌍 Global</span>
+                <span class="hs-home-safety__card-region"><?php hs_e('🌍 Global'); ?></span>
                 <div class="hs-home-safety__card-name">ECE 22.06</div>
-                <div class="hs-home-safety__card-desc">Impact + rotational testing</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Impact + rotational testing'); ?></div>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/certification/dot-approved/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region">🇺🇸 USA</span>
+                <span class="hs-home-safety__card-region"><?php hs_e('🇺🇸 USA'); ?></span>
                 <div class="hs-home-safety__card-name">DOT FMVSS 218</div>
-                <div class="hs-home-safety__card-desc">US regulatory standard</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('US regulatory standard'); ?></div>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/certification/snell-certified/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region">🏁 Track</span>
+                <span class="hs-home-safety__card-region"><?php hs_e('🏁 Track'); ?></span>
                 <div class="hs-home-safety__card-name">Snell M2020</div>
-                <div class="hs-home-safety__card-desc">Independent performance standard</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Independent performance standard'); ?></div>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/safety-standards/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region">🇬🇧 UK</span>
+                <span class="hs-home-safety__card-region"><?php hs_e('🇬🇧 UK'); ?></span>
                 <div class="hs-home-safety__card-name">SHARP</div>
-                <div class="hs-home-safety__card-desc">Independent UK rating system</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Independent UK rating system'); ?></div>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/certification/fim-certified/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region">🏆 MotoGP</span>
+                <span class="hs-home-safety__card-region"><?php hs_e('🏆 MotoGP'); ?></span>
                 <div class="hs-home-safety__card-name">FIM FRHPhe</div>
-                <div class="hs-home-safety__card-desc">Mandatory racing standard</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Mandatory racing standard'); ?></div>
             </a>
         </div>
 
         <div class="hs-home-safety__cta">
-            <a href="<?php echo esc_url($safetyUrl); ?>" class="hs-btn hs-btn--ghost">Compare Safety Standards →</a>
+            <a href="<?php echo esc_url($safetyUrl); ?>" class="hs-btn hs-btn--ghost"><?php hs_e('Compare Safety Standards →'); ?></a>
         </div>
     </div>
 </section>
@@ -401,14 +400,14 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-moto">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Motorcycle → Helmet</span>
-            <h2 class="hs-home-section__title">Find a helmet for your motorcycle</h2>
-            <p class="hs-home-section__subtitle">Tell us what you ride. We'll recommend helmets that match.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Motorcycle → Helmet'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Find a helmet for your motorcycle'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e("Tell us what you ride. We'll recommend helmets that match."); ?></p>
         </div>
 
         <form role="search" method="get" class="hs-home-moto__search-form" action="<?php echo esc_url($motorcyclesUrl); ?>">
-            <input type="search" name="s" class="hs-home-moto__search-input" placeholder="Search your motorcycle..." aria-label="Search motorcycles" />
-            <button type="submit" class="hs-home-moto__search-btn">Search</button>
+            <input type="search" name="s" class="hs-home-moto__search-input" placeholder="<?php hs_attr_e('Search your motorcycle...'); ?>" aria-label="<?php hs_attr_e('Search motorcycles'); ?>" />
+            <button type="submit" class="hs-home-moto__search-btn"><?php hs_e('Search'); ?></button>
         </form>
 
         <div class="hs-home-moto__chips">
@@ -426,36 +425,36 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-gear">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Compatible Gear</span>
-            <h2 class="hs-home-section__title">Make your helmet work harder</h2>
-            <p class="hs-home-section__subtitle">Find compatible accessories for your helmet.</p>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Compatible Gear'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Make your helmet work harder'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e('Find compatible accessories for your helmet.'); ?></p>
         </div>
 
         <div class="hs-home-gear__grid">
             <a href="<?php echo esc_url(helmetsan_url('/accessory-category/bluetooth-headsets/')); ?>" class="hs-home-gear__card">
                 <span class="hs-home-gear__card-icon">📡</span>
-                <span class="hs-home-gear__card-name">Communication</span>
-                <span class="hs-home-gear__card-items">Bluetooth · Mesh · Audio Kits</span>
+                <span class="hs-home-gear__card-name"><?php hs_e('Communication'); ?></span>
+                <span class="hs-home-gear__card-items"><?php hs_e('Bluetooth · Mesh · Audio Kits'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/accessory-category/face-shields/')); ?>" class="hs-home-gear__card">
                 <span class="hs-home-gear__card-icon">🔍</span>
-                <span class="hs-home-gear__card-name">Visors &amp; Optics</span>
-                <span class="hs-home-gear__card-items">Shields · Pinlock · Anti-Fog</span>
+                <span class="hs-home-gear__card-name"><?php hs_e('Visors & Optics'); ?></span>
+                <span class="hs-home-gear__card-items"><?php hs_e('Shields · Pinlock · Anti-Fog'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/accessory-category/cheek-pads/')); ?>" class="hs-home-gear__card">
                 <span class="hs-home-gear__card-icon">☁️</span>
-                <span class="hs-home-gear__card-name">Comfort</span>
-                <span class="hs-home-gear__card-items">Cheek Pads · Liners · Balaclavas</span>
+                <span class="hs-home-gear__card-name"><?php hs_e('Comfort'); ?></span>
+                <span class="hs-home-gear__card-items"><?php hs_e('Cheek Pads · Liners · Balaclavas'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/accessory-category/helmet-cleaners/')); ?>" class="hs-home-gear__card">
                 <span class="hs-home-gear__card-icon">🧴</span>
-                <span class="hs-home-gear__card-name">Care</span>
-                <span class="hs-home-gear__card-items">Cleaners · Bags · Storage</span>
+                <span class="hs-home-gear__card-name"><?php hs_e('Care'); ?></span>
+                <span class="hs-home-gear__card-items"><?php hs_e('Cleaners · Bags · Storage'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/accessory-category/reflective-stickers/')); ?>" class="hs-home-gear__card">
                 <span class="hs-home-gear__card-icon">🦺</span>
-                <span class="hs-home-gear__card-name">Safety</span>
-                <span class="hs-home-gear__card-items">Reflective · Chin Guards · Vents</span>
+                <span class="hs-home-gear__card-name"><?php hs_e('Safety'); ?></span>
+                <span class="hs-home-gear__card-items"><?php hs_e('Reflective · Chin Guards · Vents'); ?></span>
             </a>
         </div>
     </div>
@@ -466,25 +465,25 @@ $compareUrl     = helmetsan_url('/comparison/');
 <section class="hs-home-guides">
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
-            <span class="hs-home-section__eyebrow">Helmetsan Intelligence</span>
-            <h2 class="hs-home-section__title">Guides &amp; research</h2>
+            <span class="hs-home-section__eyebrow"><?php hs_e('Helmetsan Intelligence'); ?></span>
+            <h2 class="hs-home-section__title"><?php hs_e('Guides & research'); ?></h2>
         </div>
 
         <div class="hs-home-guides__grid">
             <a href="<?php echo esc_url(helmetsan_url('/certification/ece-22-06/')); ?>" class="hs-home-guide-card">
-                <span class="hs-home-guide-card__category">Safety Standards</span>
-                <span class="hs-home-guide-card__title">What does ECE 22.06 actually mean?</span>
-                <span class="hs-home-guide-card__meta">Safety · 8 min read</span>
+                <span class="hs-home-guide-card__category"><?php hs_e('Safety Standards'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('What does ECE 22.06 actually mean?'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Safety · 8 min read'); ?></span>
             </a>
             <a href="<?php echo esc_url($safetyUrl); ?>" class="hs-home-guide-card">
-                <span class="hs-home-guide-card__category">Safety</span>
-                <span class="hs-home-guide-card__title">ECE vs DOT: What's the difference?</span>
-                <span class="hs-home-guide-card__meta">Comparison · 6 min read</span>
+                <span class="hs-home-guide-card__category"><?php hs_e('Safety'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e("ECE vs DOT: What's the difference?"); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Comparison · 6 min read'); ?></span>
             </a>
             <a href="<?php echo esc_url(helmetsan_url('/helmet-type/touring/')); ?>" class="hs-home-guide-card">
-                <span class="hs-home-guide-card__category">Buying Guide</span>
-                <span class="hs-home-guide-card__title">Best helmets for long-distance touring</span>
-                <span class="hs-home-guide-card__meta">Touring · 10 min read</span>
+                <span class="hs-home-guide-card__category"><?php hs_e('Buying Guide'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('Best helmets for long-distance touring'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Touring · 10 min read'); ?></span>
             </a>
         </div>
     </div>
@@ -493,9 +492,9 @@ $compareUrl     = helmetsan_url('/comparison/');
 
 <!-- §11 FINAL CTA -->
 <section class="hs-home-final-cta">
-    <h2 class="hs-home-final-cta__title">Still not sure which helmet is right for you?</h2>
-    <p class="hs-home-final-cta__subtitle">Tell Helmetsan how you ride.</p>
-    <a href="#hs-home-intent" class="hs-home-hero__cta-primary">Find My Helmet →</a>
+    <h2 class="hs-home-final-cta__title"><?php hs_e('Still not sure which helmet is right for you?'); ?></h2>
+    <p class="hs-home-final-cta__subtitle"><?php hs_e('Tell Helmetsan how you ride.'); ?></p>
+    <a href="#hs-home-intent" class="hs-home-hero__cta-primary"><?php hs_e('Find My Helmet →'); ?></a>
 </section>
 
 

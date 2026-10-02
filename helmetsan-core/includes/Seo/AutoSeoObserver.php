@@ -48,6 +48,35 @@ final class AutoSeoObserver
 
         // Handle quality governance & noindex tags for thin/placeholder pages
         add_action('template_redirect', [$this, 'handleQualityAndNoindexGovernance']);
+
+        // Yoast SEO OpenGraph & Twitter card enhancements
+        add_filter('wpseo_opengraph_image', [$this, 'filterYoastOpenGraphImage'], 20);
+        add_filter('wpseo_twitter_card_type', static fn(): string => 'summary_large_image');
+    }
+
+    /**
+     * Ensure Yoast OpenGraph tag uses high-resolution gallery image if featured image is absent.
+     */
+    public function filterYoastOpenGraphImage(mixed $image): mixed
+    {
+        if (! is_singular('helmet')) {
+            return $image;
+        }
+
+        $postId = (int) get_queried_object_id();
+        if ($postId <= 0 || has_post_thumbnail($postId)) {
+            return $image;
+        }
+
+        $gallery = get_post_meta($postId, 'gallery_images', true);
+        if (is_array($gallery) && !empty($gallery[0])) {
+            $first = (string) $gallery[0];
+            if (filter_var($first, FILTER_VALIDATE_URL)) {
+                return $first;
+            }
+        }
+
+        return $image;
     }
 
     /**
@@ -179,6 +208,19 @@ final class AutoSeoObserver
             }
         }
 
+        // 2. Canonical preservation for head-to-head comparison tool
+        $requestUri = (string) ($_SERVER['REQUEST_URI'] ?? '');
+        if (is_page('comparison') || str_starts_with($requestUri, '/comparison')) {
+            if (! empty($_GET['ids'])) {
+                $raw = array_filter(array_map('trim', explode(',', sanitize_text_field((string) $_GET['ids']))));
+                if (count($raw) >= 2) {
+                    sort($raw, SORT_STRING);
+                    return home_url('/comparison/?ids=' . implode(',', array_map('urlencode', $raw)));
+                }
+            }
+            return home_url('/comparison/');
+        }
+
         if (! is_singular('helmet')) {
             return $canonical;
         }
@@ -190,7 +232,17 @@ final class AutoSeoObserver
 
         $post = get_post($postId);
         if ($post instanceof \WP_Post && (int) $post->post_parent > 0) {
-            $parentUrl = get_permalink((int) $post->post_parent);
+            $parentId = (int) $post->post_parent;
+            if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+                $currentLang = pll_current_language();
+                if (! empty($currentLang)) {
+                    $translatedParentId = (int) pll_get_post($parentId, $currentLang);
+                    if ($translatedParentId > 0) {
+                        $parentId = $translatedParentId;
+                    }
+                }
+            }
+            $parentUrl = get_permalink($parentId);
             if ($parentUrl) {
                 return $parentUrl;
             }
@@ -259,10 +311,23 @@ final class AutoSeoObserver
         $robotsDirective = 'noindex, follow';
 
         // 1. Thin Custom Post Types (single or archive)
-        $thinPostTypes = ['dealer', 'distributor', 'comparison', 'recommendation', 'motorcycle', 'asset'];
+        $thinPostTypes = ['dealer', 'distributor', 'comparison', 'recommendation', 'asset'];
         if (is_singular($thinPostTypes) || is_post_type_archive($thinPostTypes)) {
             $shouldNoindex = true;
             $robotsDirective = 'noindex, follow';
+        }
+
+        // 1b. Dynamic quality gate for motorcycle profiles
+        if (is_singular('motorcycle')) {
+            $post = get_queried_object();
+            $isQualityMotorcycle = false;
+            if ($post instanceof \WP_Post) {
+                $isQualityMotorcycle = self::isQualityMotorcycle($post);
+            }
+            if (! $isQualityMotorcycle) {
+                $shouldNoindex = true;
+                $robotsDirective = 'noindex, follow';
+            }
         }
 
         // 2. Granular / thin taxonomy archives
@@ -282,7 +347,10 @@ final class AutoSeoObserver
         }
 
         // 4. Dummy WooCommerce pages if WooCommerce is active but not used as direct store
-        if (function_exists('is_cart') && (is_cart() || is_checkout() || is_account_page())) {
+        $isWooPage = (function_exists('is_cart') && is_cart())
+            || (function_exists('is_checkout') && is_checkout())
+            || (function_exists('is_account_page') && is_account_page());
+        if ($isWooPage) {
             $shouldNoindex = true;
             $robotsDirective = 'noindex, follow';
         }
@@ -332,7 +400,47 @@ final class AutoSeoObserver
             add_filter('wpseo_robots', function () use ($robotsDirective): string {
                 return $robotsDirective;
             }, 99);
+
+            add_filter('wpseo_robots_array', function (array $robots) use ($isNoFollow): array {
+                $robots['index'] = 'noindex';
+                $robots['follow'] = $isNoFollow ? 'nofollow' : 'follow';
+                return $robots;
+            }, 99);
         }
+    }
+
+    /**
+     * Determine if a motorcycle profile meets the indexability quality criteria.
+     * Prevents thin/incomplete motorcycles from being indexed, while ensuring valid
+     * brand + model entries are not aggressively noindexed even if engine displacement (engine_cc) is missing.
+     */
+    public static function isQualityMotorcycle(\WP_Post|int $post): bool
+    {
+        $postId = $post instanceof \WP_Post ? $post->ID : (int) $post;
+        if ($postId <= 0) {
+            return false;
+        }
+
+        $make = trim((string) get_post_meta($postId, 'motorcycle_make', true));
+        if ($make === '') {
+            $make = trim((string) get_post_meta($postId, 'brand', true));
+        }
+
+        $model = trim((string) get_post_meta($postId, 'motorcycle_model', true));
+        $engine = get_post_meta($postId, 'engine_cc', true);
+        $segment = trim((string) get_post_meta($postId, 'bike_segment', true));
+
+        // Quality check: must have make and model, OR make with engine displacement / bike segment
+        if ($make !== '' && $model !== '') {
+            return true;
+        }
+
+        $hasEngine = ! empty($engine) && (float) $engine > 0;
+        if ($make !== '' && ($hasEngine || $segment !== '')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -465,6 +573,10 @@ final class AutoSeoObserver
             return false;
         }
 
+        if (is_singular('helmet') || is_single()) {
+            return false;
+        }
+
         if (is_post_type_archive('helmet')) {
             return true;
         }
@@ -475,8 +587,10 @@ final class AutoSeoObserver
         }
 
         $path = trim((string) wp_parse_url($requestUri, PHP_URL_PATH), '/');
-        $segments = explode('/', $path);
-        return in_array('helmets', $segments, true);
+        // Strip optional 2-letter language code prefix (e.g. de/helmets -> helmets)
+        $normalizedPath = preg_replace('#^[a-z]{2}/#i', '', $path);
+
+        return (bool) preg_match('#^helmets(/page/\d+)?/?$#i', $normalizedPath);
     }
 
     /**

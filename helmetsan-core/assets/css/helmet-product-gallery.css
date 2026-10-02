@@ -1,0 +1,204 @@
+/**
+ * Helmetsan 5-Shot Product Gallery Frontend Styles
+ * Premium automotive commercial styling with smooth transitions and mobile swipe.
+ */
+
+.helmetsan-gallery-wrap {
+  max-width: 960px;
+  margin: 1.5rem auto 2.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Main Viewport Container */
+.hs-gallery-viewport {
+  position: relative;
+  width: 100%;
+  padding-bottom: 65%; /* 16:10 aspect ratio */
+  background: #0f172a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.25);
+}
+
+.hs-gallery-main-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  cursor: zoom-in;
+}
+.hs-gallery-main-img.loading {
+  opacity: 0.4;
+}
+
+/* Trust & Angle Badges */
+.hs-gallery-badge-top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #38bdf8;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  z-index: 2;
+}
+
+.hs-gallery-badge-kimi {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(22, 101, 52, 0.9);
+  backdrop-filter: blur(8px);
+  color: #bbf7d0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(134, 239, 172, 0.4);
+  z-index: 2;
+}
+
+.hs-gallery-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0) 100%);
+  padding: 2.5rem 1.25rem 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 2;
+}
+.hs-gallery-angle-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+.hs-gallery-angle-desc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin: 0.2rem 0 0;
+}
+.hs-gallery-zoom-hint {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* 5-Shot Thumbnail Strip */
+.hs-gallery-thumbs-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.hs-gallery-thumb-btn {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+  text-align: center;
+}
+.hs-gallery-thumb-btn:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+.hs-gallery-thumb-btn.active {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+.hs-gallery-thumb-img {
+  width: 100%;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #1e293b;
+}
+.hs-gallery-thumb-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #334155;
+  margin-top: 0.35rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.hs-gallery-thumb-btn.active .hs-gallery-thumb-label {
+  color: #0284c7;
+}
+
+/* Lightbox Modal */
+.hs-gallery-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+.hs-gallery-lightbox.hidden {
+  display: none !important;
+}
+.hs-lightbox-img {
+  max-width: 94vw;
+  max-height: 94vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: hsFadeIn 0.25s ease;
+}
+@keyframes hsFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+  .hs-gallery-thumbs-strip {
+    gap: 0.4rem;
+  }
+  .hs-gallery-thumb-img {
+    height: 44px;
+  }
+  .hs-gallery-thumb-label {
+    font-size: 0.65rem;
+  }
+  .hs-gallery-angle-title {
+    font-size: 0.95rem;
+  }
+}

@@ -53,6 +53,9 @@ final class GeoService
         'AE' => ['region' => 'ME',   'currency' => 'AED', 'name' => 'United Arab Emirates', 'symbol' => 'AED ', 'flag' => '🇦🇪'],
         'SA' => ['region' => 'ME',   'currency' => 'SAR', 'name' => 'Saudi Arabia',         'symbol' => 'SAR ', 'flag' => '🇸🇦'],
         'BR' => ['region' => 'SA',   'currency' => 'BRL', 'name' => 'Brazil',               'symbol' => 'R$',   'flag' => '🇧🇷'],
+        'CO' => ['region' => 'SA',   'currency' => 'COP', 'name' => 'Colombia',             'symbol' => 'COL$', 'flag' => '🇨🇴'],
+        'AR' => ['region' => 'SA',   'currency' => 'ARS', 'name' => 'Argentina',            'symbol' => '$',    'flag' => '🇦🇷'],
+        'CN' => ['region' => 'APAC', 'currency' => 'CNY', 'name' => 'China',                'symbol' => '¥',    'flag' => '🇨🇳'],
 
         // Africa
         'NG' => ['region' => 'AF',   'currency' => 'NGN', 'name' => 'Nigeria',              'symbol' => '₦',    'flag' => '🇳🇬'],

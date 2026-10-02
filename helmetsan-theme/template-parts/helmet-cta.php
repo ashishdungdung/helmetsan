@@ -27,7 +27,7 @@ if ($bestPrice !== null) :
            rel="nofollow sponsored"
            data-marketplace="<?php echo esc_attr($bestPrice->marketplaceId); ?>"
            data-price="<?php echo esc_attr((string) $bestPrice->price); ?>">
-            <?php echo $bestPrice->price > 0 ? 'Check Price &mdash; ' . esc_html($formatted) : 'Buy Now'; ?>
+            <?php echo $bestPrice->price > 0 ? esc_html__('Check Price', 'helmetsan-theme') . ' &mdash; ' . esc_html($formatted) : esc_html__('Buy Now', 'helmetsan-theme'); ?>
         </a>
     </div>
     <?php
@@ -43,14 +43,14 @@ else :
     if ($targetMp !== '') :
         $goUrl = home_url('/go/' . $slug . '/?marketplace=' . urlencode($targetMp) . '&source=single_page');
         ?>
-        <p><a class="hs-btn hs-btn--primary hs-price-cta" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored">Buy Now</a></p>
+        <p><a class="hs-btn hs-btn--primary hs-price-cta" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored"><?php esc_html_e('Buy Now', 'helmetsan-theme'); ?></a></p>
         <?php
     else :
         $asin = get_post_meta($postId, 'affiliate_asin', true);
         if ($asin !== '') :
             $goUrl = home_url('/go/' . $slug . '/?source=single_page');
             ?>
-            <p><a class="hs-btn hs-btn--primary hs-price-cta" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored">Check Price</a></p>
+            <p><a class="hs-btn hs-btn--primary hs-price-cta" href="<?php echo esc_url($goUrl); ?>" rel="nofollow sponsored"><?php esc_html_e('Check Price', 'helmetsan-theme'); ?></a></p>
             <?php
         endif;
     endif;

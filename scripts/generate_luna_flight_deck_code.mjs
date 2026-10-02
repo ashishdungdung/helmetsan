@@ -4,15 +4,31 @@
  */
 
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const API_KEY = process.env.EXPLABS_API_KEY || "xpl_347a690bbbf034a8340fcd0cd3ee91b5ec0147e1";
+function loadVaultKey(keyName) {
+  if (process.env[keyName]) return process.env[keyName].trim();
+  const vaultPath = path.join(os.homedir(), '.config', 'antigravity', 'ai_mesh.env');
+  if (fs.existsSync(vaultPath)) {
+    const lines = fs.readFileSync(vaultPath, 'utf8').split('\n');
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (trimmed.startsWith(`${keyName}=`)) {
+        return trimmed.slice(`${keyName}=`.length).trim();
+      }
+    }
+  }
+  return '';
+}
+
+const API_KEY = loadVaultKey("EXPLABS_API_KEY");
 const ENDPOINT = "https://api.experientiallabs.ai/v1/chat/completions";
-const MODEL = "gpt-5.6-luna";
+const MODEL = "gpt-6-luna";
 
 const BASE_DIR = path.resolve(__dirname, '../..');
 const MANAGER_DIR = path.join(BASE_DIR, 'HelmetsanManager');

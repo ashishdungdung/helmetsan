@@ -43,12 +43,6 @@ parameters:
 			path: helmetsan-core/includes/Admin/MediaAdmin.php
 
 		-
-			message: '#^Offset ''id'' does not exist on array\{label\: string, type\: ''translation'', start\: int, last_ping\: int, progress\: int, cancelled\: bool\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: helmetsan-core/includes/Admin/TranslationAdmin.php
-
-		-
 			message: '#^Constant DB_HOST not found\.$#'
 			identifier: constant.notFound
 			count: 1

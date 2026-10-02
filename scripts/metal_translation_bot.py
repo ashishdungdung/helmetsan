@@ -31,7 +31,8 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 
 # Configuration
-NODE_A_URL       = "http://127.0.0.1:1234/v1"
+NODE_A_URL       = os.environ.get("NODE_A_URL", "http://127.0.0.1:1234/v1")
+NODE_B_URL       = os.environ.get("NODE_B_URL", "http://192.168.2.223:1235/v1")
 DEFAULT_MODEL    = "google/gemma-4-12b-qat"
 REMOTE_SSH_HOST  = "root@31.70.136.154"
 REMOTE_WP_PATH   = "/var/www/helmetsan.com/public"
@@ -136,10 +137,14 @@ def load_state():
 # ─────────────────────────────────────────────────────────────────────────────
 # Remote Bridge Client
 # ─────────────────────────────────────────────────────────────────────────────
-def run_bridge_command(payload, timeout=45):
-    """Send JSON payload via SSH to remote bridge script with keep-alive."""
+def run_bridge_command(payload, timeout=90):
+    """Send JSON payload via SSH to remote bridge script with connection multiplexing."""
     cmd = [
-        "ssh", "-o", "ConnectTimeout=10",
+        "ssh",
+        "-o", "ControlMaster=auto",
+        "-o", "ControlPath=/tmp/ssh_helmetsan_%r@%h:%p",
+        "-o", "ControlPersist=10m",
+        "-o", "ConnectTimeout=10",
         "-o", "ServerAliveInterval=15",
         "-o", "ServerAliveCountMax=8",
         REMOTE_SSH_HOST,
@@ -166,13 +171,13 @@ def run_bridge_command(payload, timeout=45):
 
 def fetch_stats():
     """Fetch current catalog counts across all languages."""
-    data = run_bridge_command({"action": "stats"})
+    data = run_bridge_command({"action": "stats"}, timeout=60)
     if data and data.get("success"):
         return data
     return None
 
 def fetch_candidates(lang, limit=20, exclude_ids=None, post_id=None):
-    """Fetch untranslated candidate helmets for target language."""
+    """Fetch untranslated candidate helmets for target language with generous 120s timeout."""
     payload = {
         "action": "fetch_candidates",
         "lang": lang,
@@ -181,18 +186,18 @@ def fetch_candidates(lang, limit=20, exclude_ids=None, post_id=None):
     }
     if post_id:
         payload["post_id"] = int(post_id)
-    data = run_bridge_command(payload, timeout=60)
+    data = run_bridge_command(payload, timeout=120)
     if data is not None and data.get("success"):
         return data.get("candidates", [])
     return None
 
 def save_batch_translations(items):
-    """Push translated batch to WordPress."""
+    """Push translated batch to WordPress with generous 300s timeout."""
     payload = {
         "action": "save_batch",
         "items": items
     }
-    data = run_bridge_command(payload, timeout=180)
+    data = run_bridge_command(payload, timeout=300)
     if data and data.get("success"):
         return data.get("results", [])
     return []
@@ -288,8 +293,8 @@ def build_system_prompt(lang):
         )
     return "Translate into the target language. Return ONLY a valid JSON object."
 
-def call_metal_model(model, system_prompt, user_payload, max_tokens=1500, timeout=90):
-    """Execute inference via Apple Silicon Metal on Node A."""
+def call_metal_model(model, system_prompt, user_payload, max_tokens=1500, timeout=180):
+    """Execute inference via Apple Silicon Metal with multi-node support (Node A / Node B)."""
     req_body = {
         "model": model,
         "messages": [
@@ -300,23 +305,31 @@ def call_metal_model(model, system_prompt, user_payload, max_tokens=1500, timeou
         "max_tokens": max_tokens
     }
     
-    url = f"{NODE_A_URL}/chat/completions"
+    candidate_endpoints = [NODE_A_URL]
+    if NODE_B_URL and NODE_B_URL != NODE_A_URL:
+        candidate_endpoints.append(NODE_B_URL)
+
     headers = {"Content-Type": "application/json"}
-    req = urllib.request.Request(url, data=json.dumps(req_body).encode("utf-8"), headers=headers)
-    
-    t0 = time.time()
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as response:
-            result = json.loads(response.read().decode("utf-8"))
-            elapsed = time.time() - t0
-            msg = result["choices"][0]["message"]
-            content = msg.get("content", "").strip()
-            if not content and "reasoning_content" in msg:
-                content = msg["reasoning_content"].strip()
-            return content, elapsed
-    except Exception as e:
-        log(f"❌ Metal inference call failed: {e}")
-        return None, 0
+    payload_bytes = json.dumps(req_body).encode("utf-8")
+
+    for node_url in candidate_endpoints:
+        url = f"{node_url}/chat/completions"
+        req = urllib.request.Request(url, data=payload_bytes, headers=headers)
+        t0 = time.time()
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                elapsed = time.time() - t0
+                msg = result["choices"][0]["message"]
+                content = msg.get("content", "").strip()
+                if not content and "reasoning_content" in msg:
+                    content = msg["reasoning_content"].strip()
+                return content, elapsed
+        except Exception as e:
+            log(f"⚠️ Node ({node_url}) inference failed: {e}. Trying next available node...")
+
+    log("❌ All Apple Silicon inference nodes exhausted for this candidate.")
+    return None, 0
 
 def clean_json(text):
     """Extract clean JSON object from model response."""

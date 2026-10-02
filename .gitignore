@@ -73,3 +73,21 @@ scripts/*_state.json
 # Task queue files (auto-generated when LM Studio is offline — local only)
 data/tasks/queue/*.json
 !data/tasks/queue/.gitkeep
+
+# ── Local databases & generated projections (regenerable, never commit) ──────
+data/catalog.db
+data/projections/
+helmetsan-core/data/projections/
+helmetsan-data/
+scripts/swarm_leases.db
+scripts/swarm_leases.db-shm
+scripts/swarm_leases.db-wal
+
+# ── Generated master indexes >10MB (rebuild: python3 scripts/build_in_memory_catalog_index.py
+#    / python3 scripts/synthesize_motorcycle_catalog_intelligence.py) ──────────
+data/motorcycles_unified_master_memory_index.json
+
+# ── Audit screenshots & agent runtime logs (local artifacts) ─────────────────
+nightmodeaudit/
+.agents/unattended_log.md
+scripts/archive/consultations/

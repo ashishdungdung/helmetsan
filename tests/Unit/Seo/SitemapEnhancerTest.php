@@ -32,9 +32,9 @@ final class SitemapEnhancerTest extends TestCase
         $this->assertNotEmpty($rules);
 
         $regexes = array_column($rules, 0);
-        $this->assertContains('^sitemap-brands\.xml$', $regexes);
-        $this->assertContains('^sitemap-comparisons\.xml$', $regexes);
-        $this->assertContains('^sitemap-helmets-images\.xml$', $regexes);
+        $this->assertContains('^sitemap-brands\.xml/?$', $regexes);
+        $this->assertContains('^sitemap-comparisons\.xml/?$', $regexes);
+        $this->assertContains('^sitemap-helmets-images\.xml/?$', $regexes);
     }
 
     public function testRegisterQueryVarsAddsHelmetsanSitemap(): void
@@ -71,7 +71,7 @@ final class SitemapEnhancerTest extends TestCase
         $xml = $this->service->buildBrandsSitemap();
 
         $this->assertStringContainsString('<?xml version="1.0" encoding="UTF-8"?>', $xml);
-        $this->assertStringContainsString('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', $xml);
+        $this->assertStringContainsString('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', $xml);
         $this->assertStringContainsString('<loc>https://helmetsan.com/?p=50</loc>', $xml);
         $this->assertStringContainsString('<changefreq>weekly</changefreq>', $xml);
         $this->assertStringContainsString('<priority>0.8</priority>', $xml);
@@ -129,5 +129,53 @@ final class SitemapEnhancerTest extends TestCase
         $this->assertStringContainsString('<image:loc>https://helmetsan.com/wp-content/uploads/arai-rx-7v.jpg</image:loc>', $xml);
         $this->assertStringContainsString('<image:title>Arai RX-7V EVO</image:title>', $xml);
         $this->assertStringContainsString('<image:caption>Arai RX-7V EVO Full Face Helmet</image:caption>', $xml);
+    }
+
+    public function testBuildMotorcyclesSitemapHarmonizesWithQualityGate(): void
+    {
+        $qualityBike = new WP_Post();
+        $qualityBike->ID = 401;
+        $qualityBike->post_type = 'motorcycle';
+        $qualityBike->post_name = 'honda-hornet-2-0';
+        $qualityBike->post_title = 'Honda Hornet 2.0';
+        $qualityBike->post_status = 'publish';
+        $qualityBike->post_modified_gmt = '2026-09-15 10:00:00';
+
+        $thinBike = new WP_Post();
+        $thinBike->ID = 402;
+        $thinBike->post_type = 'motorcycle';
+        $thinBike->post_name = 'generic-scooter';
+        $thinBike->post_title = 'Generic Incomplete Scooter';
+        $thinBike->post_status = 'publish';
+        $thinBike->post_modified_gmt = '2026-09-15 10:00:00';
+
+        $GLOBALS['wp_mock_posts'][401] = $qualityBike;
+        $GLOBALS['wp_mock_posts'][402] = $thinBike;
+        $GLOBALS['wp_mock_query_posts'] = [$qualityBike, $thinBike];
+
+        // Quality motorcycle: make + model present, but engine_cc = 0 (e.g. electric/unspecified)
+        $GLOBALS['wp_post_meta'][401] = [
+            'motorcycle_make'  => 'Honda',
+            'motorcycle_model' => 'Hornet 2.0',
+            'engine_cc'        => 0,
+            'bike_segment'     => '',
+        ];
+
+        // Thin motorcycle: missing model, cc, and segment
+        $GLOBALS['wp_post_meta'][402] = [
+            'motorcycle_make'  => '',
+            'motorcycle_model' => '',
+            'engine_cc'        => 0,
+            'bike_segment'     => '',
+        ];
+
+        $xml = $this->service->buildMotorcyclesSitemap();
+
+        $this->assertStringContainsString('<?xml version="1.0" encoding="UTF-8"?>', $xml);
+        $this->assertStringContainsString('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"', $xml);
+        $this->assertStringContainsString('<loc>https://helmetsan.com/?p=401</loc>', $xml);
+        $this->assertStringNotContainsString('https://helmetsan.com/?p=402', $xml);
+        $this->assertStringContainsString('<changefreq>monthly</changefreq>', $xml);
+        $this->assertStringContainsString('<priority>0.7</priority>', $xml);
     }
 }

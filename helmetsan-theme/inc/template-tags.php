@@ -2206,5 +2206,197 @@ add_filter('gettext_with_context', function(string $translation, string $text, s
     return helmetsan_theme_gettext($translation, $text, $domain);
 }, 20, 4);
 
+/**
+ * High-performance In-Memory Gettext Caching for High-Density Catalog Loops.
+ * Memoizes translations by locale, domain, context, and text to eliminate hash lookup overhead.
+ */
+function hs_t(string $text, string $context = '', string $domain = 'helmetsan-theme'): string
+{
+    static $cache = [];
+    $locale = function_exists('determine_locale') ? determine_locale() : (function_exists('get_locale') ? get_locale() : 'en_US');
+    $key = $locale . "\x1F" . $domain . "\x1F" . $context . "\x1F" . $text;
 
+    if (isset($cache[$key])) {
+        return $cache[$key];
+    }
+
+    $translated = !empty($context)
+        ? _x($text, $context, $domain)
+        : __($text, $domain);
+
+    return $cache[$key] = $translated;
+}
+
+function hs_e(string $text, string $context = '', string $domain = 'helmetsan-theme'): void
+{
+    echo esc_html(hs_t($text, $context, $domain));
+}
+
+function hs_attr_e(string $text, string $context = '', string $domain = 'helmetsan-theme'): void
+{
+    echo esc_attr(hs_t($text, $context, $domain));
+}
+
+/**
+ * Map helmet type string to canonical archive filter URL
+ */
+if (! function_exists('hs_moto_helmet_link')) {
+    function hs_moto_helmet_link(string $type_name): string {
+        $clean = strtolower(trim($type_name));
+        $type_slug = 'full-face';
+        if (str_contains($clean, 'dual sport') || str_contains($clean, 'adventure') || str_contains($clean, 'enduro')) {
+            $type_slug = 'dual-sport';
+        } elseif (str_contains($clean, 'modular') || str_contains($clean, 'flip-up')) {
+            $type_slug = 'modular';
+        } elseif (str_contains($clean, 'open face') || str_contains($clean, 'jet')) {
+            $type_slug = 'open-face';
+        } elseif (str_contains($clean, 'half') || str_contains($clean, 'cruiser')) {
+            $type_slug = 'half-helmet';
+        } elseif (str_contains($clean, 'motocross') || str_contains($clean, 'dirt')) {
+            $type_slug = 'off-road';
+        }
+        return esc_url(add_query_arg(['helmet_type[]' => $type_slug], home_url('/helmets/')));
+    }
+}
+
+/**
+ * SVG Silhouette generator function based on motorcycle segment
+ */
+if (! function_exists('hs_render_moto_silhouette')) {
+    function hs_render_moto_silhouette(string $segment_slug): string {
+        $slug = strtolower($segment_slug);
+        if (str_contains($slug, 'sport') || str_contains($slug, 'superbike')) {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--sport" aria-hidden="true">
+                <circle cx="35" cy="55" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="125" cy="55" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="35" cy="55" r="6" fill="currentColor" opacity="0.3"/>
+                <circle cx="125" cy="55" r="6" fill="currentColor" opacity="0.3"/>
+                <path d="M35 55 L58 36 L88 38 L115 22 L132 38 L125 55" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58 36 L75 22 L98 22 L112 36 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M88 38 L72 55 L125 55" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M70 20 L60 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>';
+        } elseif (str_contains($slug, 'adventure') || str_contains($slug, 'dual-sport')) {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--adventure" aria-hidden="true">
+                <circle cx="32" cy="52" r="20" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="128" cy="54" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="32" cy="52" r="7" fill="currentColor" opacity="0.3"/>
+                <circle cx="128" cy="54" r="7" fill="currentColor" opacity="0.3"/>
+                <path d="M32 52 L55 24 L62 14 L75 26 L96 32 L116 28 L138 32 L128 54" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M55 24 L75 26 L90 38 L65 52 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M60 14 L50 20 L30 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M62 14 L68 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M118 28 L138 28 L142 42 L124 42 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            </svg>';
+        } elseif (str_contains($slug, 'cruiser')) {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--cruiser" aria-hidden="true">
+                <circle cx="30" cy="54" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="130" cy="54" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="30" cy="54" r="6" fill="currentColor" opacity="0.3"/>
+                <circle cx="130" cy="54" r="6" fill="currentColor" opacity="0.3"/>
+                <path d="M30 54 L62 48 L80 32 L98 42 L120 48 L130 54" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M62 48 L80 32 L98 42 L95 54 L55 54 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M80 32 L68 18 L62 18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M98 42 L112 36 L124 44" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            </svg>';
+        } elseif (str_contains($slug, 'scooter')) {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--scooter" aria-hidden="true">
+                <circle cx="34" cy="58" r="14" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="126" cy="58" r="14" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="34" cy="58" r="5" fill="currentColor" opacity="0.3"/>
+                <circle cx="126" cy="58" r="5" fill="currentColor" opacity="0.3"/>
+                <path d="M34 58 L48 30 L58 18 L70 32 L88 52 L108 52 L118 36 L134 40 L126 58" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58 18 L52 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M100 36 L128 36 L124 50 L95 50 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M72 52 L100 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+            </svg>';
+        } elseif (str_contains($slug, 'tourer') || str_contains($slug, 'touring')) {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--touring" aria-hidden="true">
+                <circle cx="34" cy="55" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="126" cy="55" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="34" cy="55" r="6" fill="currentColor" opacity="0.3"/>
+                <circle cx="126" cy="55" r="6" fill="currentColor" opacity="0.3"/>
+                <path d="M34 55 L52 30 L64 12 L84 28 L104 35 L120 28 L138 30 L136 50 L126 55" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M52 30 L64 12 L75 26 L65 52 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M115 28 L138 28 L136 48 L112 48 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+            </svg>';
+        } else {
+            return '<svg viewBox="0 0 160 80" class="hs-moto-silhouette hs-moto-silhouette--naked" aria-hidden="true">
+                <circle cx="34" cy="54" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="126" cy="54" r="18" fill="none" stroke="currentColor" stroke-width="4"/>
+                <circle cx="34" cy="54" r="6" fill="currentColor" opacity="0.3"/>
+                <circle cx="126" cy="54" r="6" fill="currentColor" opacity="0.3"/>
+                <path d="M34 54 L58 32 L78 26 L98 32 L116 26 L130 36 L126 54" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58 32 L78 26 L94 36 L86 52 L62 52 Z" fill="currentColor" opacity="0.25"/>
+                <path d="M58 32 L56 22 L48 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <path d="M78 26 L94 48 M70 38 L88 38" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>';
+        }
+    }
+}
+
+if (!function_exists('helmetsan_render_helmet_silhouette')) {
+    /**
+     * Render a high-tech aerodynamic helmet silhouette SVG.
+     * Used for resilient visual fallbacks when photographic assets are absent or fail to load.
+     */
+    function helmetsan_render_helmet_silhouette(string $type = 'full-face', string $accent = '#ff3366', string $extraClass = ''): string
+    {
+        $type = strtolower($type);
+        $uid = 'hs-helm-' . substr(md5($type . $extraClass . wp_rand()), 0, 8);
+        $accent = esc_attr($accent);
+
+        if (str_contains($type, 'adventure') || str_contains($type, 'dual') || str_contains($type, 'motocross')) {
+            // Peak visor + aggressive chinbar silhouette
+            return '<div class="hs-helmet-cad-silhouette ' . esc_attr($extraClass) . '" aria-hidden="true">
+                <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="' . $uid . '-shell" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1e293b"/>
+                            <stop offset="60%" stop-color="#0f172a"/>
+                            <stop offset="100%" stop-color="#020617"/>
+                        </linearGradient>
+                        <linearGradient id="' . $uid . '-visor" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="' . $accent . '" stop-opacity="0.4"/>
+                            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1"/>
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="160" cy="215" rx="100" ry="12" fill="#000" opacity="0.3"/>
+                    <path d="M70 145 C65 85 105 45 175 42 C235 40 270 80 265 145 C262 175 235 190 200 190 L120 190 C85 190 72 175 70 145 Z" fill="url(#' . $uid . '-shell)" stroke="' . $accent . '" stroke-width="2.5" stroke-linejoin="round"/>
+                    <path d="M125 50 L275 28 L235 55 Z" fill="' . $accent . '" opacity="0.85" stroke="#fff" stroke-width="1.2"/>
+                    <path d="M165 90 L260 98 L248 140 L160 135 Z" fill="url(#' . $uid . '-visor)" stroke="' . $accent . '" stroke-width="1.8"/>
+                    <path d="M210 162 L245 160 L240 174 L205 174 Z" fill="' . $accent . '" opacity="0.35"/>
+                    <line x1="218" y1="165" x2="238" y2="165" stroke="' . $accent . '" stroke-width="1.5"/>
+                    <line x1="215" y1="170" x2="235" y2="170" stroke="' . $accent . '" stroke-width="1.5"/>
+                </svg>
+            </div>';
+        }
+
+        // Full Face / Modular aerodynamic silhouette
+        return '<div class="hs-helmet-cad-silhouette ' . esc_attr($extraClass) . '" aria-hidden="true">
+            <svg viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="' . $uid . '-shell" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1e293b"/>
+                        <stop offset="60%" stop-color="#0f172a"/>
+                        <stop offset="100%" stop-color="#020617"/>
+                    </linearGradient>
+                    <linearGradient id="' . $uid . '-visor" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="' . $accent . '" stop-opacity="0.45"/>
+                        <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.15"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="160" cy="215" rx="105" ry="12" fill="#000" opacity="0.35"/>
+                <path d="M72 145 C66 80 110 40 175 38 C238 36 270 78 266 142 C263 174 235 190 200 190 L120 190 C84 190 74 175 72 145 Z" fill="url(#' . $uid . '-shell)" stroke="' . $accent . '" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M125 45 C155 42 195 44 220 54" stroke="' . $accent . '" stroke-width="1.5" stroke-dasharray="4 2" opacity="0.6"/>
+                <path d="M70 115 L60 135 L75 142 Z" fill="' . $accent . '" opacity="0.4"/>
+                <path d="M145 80 L258 92 L248 142 L140 135 Z" fill="url(#' . $uid . '-visor)" stroke="' . $accent . '" stroke-width="2"/>
+                <circle cx="146" cy="110" r="4" fill="' . $accent . '" opacity="0.8"/>
+                <path d="M205 162 L248 160 L242 174 L200 174 Z" fill="' . $accent . '" opacity="0.35"/>
+                <line x1="210" y1="166" x2="240" y2="166" stroke="' . $accent . '" stroke-width="1.5"/>
+                <line x1="208" y1="171" x2="236" y2="171" stroke="' . $accent . '" stroke-width="1.5"/>
+            </svg>
+        </div>';
+    }
+}
 

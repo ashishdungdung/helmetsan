@@ -278,8 +278,8 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
     <!-- §1 COMPACT PUNCHY HEADER & SEARCH -->
     <header class="hs-archive-hero--v3">
         <div class="hs-archive-hero__header-text">
-            <h1 class="hs-archive-hero__v3-title">Motorcycle Helmets</h1>
-            <p class="hs-archive-hero__v3-subtitle"><?php echo esc_html(number_format_i18n((int) $query->found_posts)); ?>+ helmets · 100+ brands · compare safety, fit and price</p>
+            <h1 class="hs-archive-hero__v3-title"><?php hs_e('Motorcycle Helmets'); ?></h1>
+            <p class="hs-archive-hero__v3-subtitle"><?php printf(esc_html(hs_t('%s+ helmets · 100+ brands · compare safety, fit and price')), number_format_i18n((int) $query->found_posts)); ?></p>
         </div>
 
         <div class="hs-smart-search-wrap">
@@ -287,18 +287,18 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <?php foreach ($_GET as $gk => $gv) : if ($gk === 's' || $gk === 'paged') { continue; } if (is_array($gv)) { foreach ($gv as $gitem) { echo '<input type="hidden" name="' . esc_attr($gk) . '[]" value="' . esc_attr($gitem) . '" />'; } } else { echo '<input type="hidden" name="' . esc_attr($gk) . '" value="' . esc_attr($gv) . '" />'; } endforeach; ?>
                 <div class="hs-smart-search-input-wrap">
                     <svg class="hs-smart-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <input type="search" id="hs-smart-search-input" name="s" class="hs-smart-search-input" value="<?php echo esc_attr($searchTerm); ?>" placeholder="Search helmets, brands, motorcycles or requirements..." autocomplete="off" aria-label="Search helmets catalog" />
-                    <button type="submit" class="hs-smart-search-btn">Search</button>
+                    <input type="search" id="hs-smart-search-input" name="s" class="hs-smart-search-input" value="<?php echo esc_attr($searchTerm); ?>" placeholder="<?php hs_attr_e('Search helmets, brands, motorcycles or requirements...'); ?>" autocomplete="off" aria-label="<?php hs_attr_e('Search helmets catalog'); ?>" />
+                    <button type="submit" class="hs-smart-search-btn"><?php hs_e('Search'); ?></button>
                 </div>
             </form>
 
             <div class="hs-smart-search-prompts">
-                <span class="hs-prompts-label">Popular:</span>
+                <span class="hs-prompts-label"><?php hs_e('Popular:'); ?></span>
                 <a href="<?php echo esc_url(add_query_arg(['certification' => ['ece-22-06']], $archiveUrl)); ?>">ECE 22.06</a> ·
-                <a href="<?php echo esc_url(add_query_arg(['helmet_type' => ['full-face']], $archiveUrl)); ?>">Full Face</a> ·
-                <a href="<?php echo esc_url(add_query_arg(['helmet_type' => ['adventure-dual-sport']], $archiveUrl)); ?>">Adventure</a> ·
+                <a href="<?php echo esc_url(add_query_arg(['helmet_type' => ['full-face']], $archiveUrl)); ?>"><?php hs_e('Full Face'); ?></a> ·
+                <a href="<?php echo esc_url(add_query_arg(['helmet_type' => ['adventure-dual-sport']], $archiveUrl)); ?>"><?php hs_e('Adventure'); ?></a> ·
                 <a href="<?php echo esc_url(add_query_arg(['brand_slug' => 'arai'], $archiveUrl)); ?>">Arai</a> ·
-                <a href="<?php echo esc_url(add_query_arg(['price_max' => '500'], $archiveUrl)); ?>">Under $500</a>
+                <a href="<?php echo esc_url(add_query_arg(['price_max' => '500'], $archiveUrl)); ?>"><?php hs_e('Under $500'); ?></a>
             </div>
         </div>
     </header>
@@ -306,58 +306,58 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
     <!-- §2 COMPACT HORIZONTAL FINDER ("FIND YOUR HELMET") -->
     <div class="hs-horizontal-finder">
         <div class="hs-horizontal-finder__head">
-            <h3 class="hs-horizontal-finder__title">FIND YOUR HELMET</h3>
-            <span class="hs-horizontal-finder__sub">Tell us what you're looking for</span>
+            <h3 class="hs-horizontal-finder__title"><?php hs_e('FIND YOUR HELMET'); ?></h3>
+            <span class="hs-horizontal-finder__sub"><?php hs_e("Tell us what you're looking for"); ?></span>
         </div>
         <form method="get" action="<?php echo esc_url($archiveUrl); ?>" class="hs-horizontal-finder__form">
             <div class="hs-horizontal-field">
-                <label for="hs-hfield-moto">Motorcycle</label>
+                <label for="hs-hfield-moto"><?php hs_e('Motorcycle'); ?></label>
                 <input type="text" id="hs-hfield-moto" name="s" placeholder="e.g. Himalayan 450" value="<?php echo esc_attr($searchTerm); ?>" />
             </div>
             <div class="hs-horizontal-field">
-                <label for="hs-hfield-riding">Riding style</label>
+                <label for="hs-hfield-riding"><?php hs_e('Riding style'); ?></label>
                 <select id="hs-hfield-riding" name="use_case[]">
-                    <option value="">Any Riding Style</option>
-                    <option value="highway" <?php selected(in_array('highway', $selectedUseCases, true)); ?>>Highway / Touring</option>
-                    <option value="commuter" <?php selected(in_array('commuter', $selectedUseCases, true)); ?>>City Commuter</option>
-                    <option value="track" <?php selected(in_array('track', $selectedUseCases, true)); ?>>Track / Racing</option>
-                    <option value="adventure" <?php selected(in_array('adventure', $selectedUseCases, true)); ?>>Adventure / Off-Road</option>
+                    <option value=""><?php hs_e('Any Riding Style'); ?></option>
+                    <option value="highway" <?php selected(in_array('highway', $selectedUseCases, true)); ?>><?php hs_e('Highway / Touring'); ?></option>
+                    <option value="commuter" <?php selected(in_array('commuter', $selectedUseCases, true)); ?>><?php hs_e('City Commuter'); ?></option>
+                    <option value="track" <?php selected(in_array('track', $selectedUseCases, true)); ?>><?php hs_e('Track / Racing'); ?></option>
+                    <option value="adventure" <?php selected(in_array('adventure', $selectedUseCases, true)); ?>><?php hs_e('Adventure / Off-Road'); ?></option>
                 </select>
             </div>
             <div class="hs-horizontal-field">
-                <label for="hs-hfield-budget">Budget</label>
+                <label for="hs-hfield-budget"><?php hs_e('Budget'); ?></label>
                 <select id="hs-hfield-budget" name="price_range[]">
-                    <option value="">Any Budget</option>
-                    <option value="under-300">Under $300</option>
-                    <option value="300-600">$300 – $600</option>
-                    <option value="over-600">$600+</option>
+                    <option value=""><?php hs_e('Any Budget'); ?></option>
+                    <option value="under-300"><?php hs_e('Under $300'); ?></option>
+                    <option value="300-600"><?php hs_e('$300 – $600'); ?></option>
+                    <option value="over-600"><?php hs_e('$600+'); ?></option>
                 </select>
             </div>
             <div class="hs-horizontal-field">
-                <label for="hs-hfield-safety">Safety</label>
+                <label for="hs-hfield-safety"><?php hs_e('Safety'); ?></label>
                 <select id="hs-hfield-safety" name="certification[]">
-                    <option value="">Any Safety</option>
+                    <option value=""><?php hs_e('Any Safety'); ?></option>
                     <option value="ece-22-06" <?php selected(in_array('ece-22-06', $selectedCerts, true) || empty($selectedCerts)); ?>>ECE 22.06</option>
                     <option value="dot" <?php selected(in_array('dot', $selectedCerts, true)); ?>>DOT</option>
                     <option value="snell" <?php selected(in_array('snell', $selectedCerts, true)); ?>>Snell M2020</option>
                 </select>
             </div>
-            <button type="submit" class="hs-btn hs-btn--primary hs-horizontal-submit">Show Matching Helmets →</button>
+            <button type="submit" class="hs-btn hs-btn--primary hs-horizontal-submit"><?php hs_e('Show Matching Helmets →'); ?></button>
         </form>
     </div>
 
     <!-- §3 SEGMENTED BROWSE CONTROL -->
     <div class="hs-segmented-bar">
         <div class="hs-segmented-control">
-            <button type="button" class="hs-seg-btn is-active" data-mode="recommended">🧠 Best Matches</button>
-            <button type="button" class="hs-seg-btn" data-mode="browse">All Helmets</button>
+            <button type="button" class="hs-seg-btn is-active" data-mode="recommended">🧠 <?php hs_e('Best Matches'); ?></button>
+            <button type="button" class="hs-seg-btn" data-mode="browse"><?php hs_e('All Helmets'); ?></button>
         </div>
     </div>
 
     <!-- §4 RESULTS CONTEXT BAR -->
     <div class="hs-results-context-bar">
         <div class="hs-results-context-count">
-            <strong><?php echo esc_html(number_format_i18n((int) $query->found_posts)); ?> helmets match your requirements</strong>
+            <strong><?php printf(esc_html(hs_t('%s helmets match your requirements')), number_format_i18n((int) $query->found_posts)); ?></strong>
         </div>
         <?php if (!empty($activeChips) || $searchTerm !== '') : ?>
             <div class="hs-results-context-chips">
@@ -367,7 +367,7 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <?php foreach ($activeChips as $chip) : ?>
                     <a href="<?php echo esc_url((string) $chip['url']); ?>" class="hs-context-chip"><?php echo esc_html((string) $chip['label']); ?> ×</a>
                 <?php endforeach; ?>
-                <a href="<?php echo esc_url($archiveUrl); ?>" class="hs-context-clear-all">Clear all</a>
+                <a href="<?php echo esc_url($archiveUrl); ?>" class="hs-context-clear-all"><?php hs_e('Clear all'); ?></a>
             </div>
         <?php endif; ?>
     </div>
@@ -378,8 +378,8 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
         <aside id="hsFilterPanel" class="hs-catalog__filters hs-catalog__filters--sticky hs-panel" aria-label="Helmet filters">
             <div class="hs-catalog__filters-head">
                 <div class="hs-filter-head-left">
-                    <strong>Filter Helmets</strong>
-                    <span class="hs-filter-head-count">12 filters available</span>
+                    <strong><?php hs_e('Filter Helmets'); ?></strong>
+                    <span class="hs-filter-head-count"><?php printf(esc_html(hs_t('%d filters available')), 12); ?></span>
                 </div>
             </div>
 
@@ -387,17 +387,17 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 1: QUICK FILTERS -->
                 <details class="hs-filter-group" open>
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Quick filters</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Quick filters'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Quick Filters</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Quick Filters'); ?></legend>
                         <div class="hs-filter-checks">
                             <label class="hs-filter-check-label"><input type="checkbox" name="certification[]" value="ece-22-06" <?php checked(in_array('ece-22-06', $selectedCerts, true)); ?> /><span class="hs-filter-check-text">ECE 22.06</span></label>
-                            <label class="hs-filter-check-label"><input type="checkbox" name="helmet_type[]" value="full-face" <?php checked(in_array('full-face', $selectedTypes, true)); ?> /><span class="hs-filter-check-text">Full Face</span></label>
-                            <label class="hs-filter-check-label"><input type="checkbox" name="helmet_type[]" value="adventure-dual-sport" <?php checked(in_array('adventure-dual-sport', $selectedTypes, true)); ?> /><span class="hs-filter-check-text">Adventure</span></label>
-                            <label class="hs-filter-check-label"><input type="checkbox" name="price_max" value="500" <?php checked($priceMax, '500'); ?> /><span class="hs-filter-check-text">Under $500</span></label>
-                            <label class="hs-filter-check-label"><input type="checkbox" name="sharp_rating[]" value="5" <?php checked(in_array(5, $selectedSharp, true)); ?> /><span class="hs-filter-check-text">Top Rated</span></label>
+                            <label class="hs-filter-check-label"><input type="checkbox" name="helmet_type[]" value="full-face" <?php checked(in_array('full-face', $selectedTypes, true)); ?> /><span class="hs-filter-check-text"><?php hs_e('Full Face'); ?></span></label>
+                            <label class="hs-filter-check-label"><input type="checkbox" name="helmet_type[]" value="adventure-dual-sport" <?php checked(in_array('adventure-dual-sport', $selectedTypes, true)); ?> /><span class="hs-filter-check-text"><?php hs_e('Adventure'); ?></span></label>
+                            <label class="hs-filter-check-label"><input type="checkbox" name="price_max" value="500" <?php checked($priceMax, '500'); ?> /><span class="hs-filter-check-text"><?php hs_e('Under $500'); ?></span></label>
+                            <label class="hs-filter-check-label"><input type="checkbox" name="sharp_rating[]" value="5" <?php checked(in_array(5, $selectedSharp, true)); ?> /><span class="hs-filter-check-text"><?php hs_e('Top Rated'); ?></span></label>
                         </div>
                     </fieldset>
                 </details>
@@ -405,11 +405,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 2: HELMET TYPE -->
                 <details class="hs-filter-group" open>
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Helmet Type</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Helmet Type'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Helmet Type</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Helmet Type'); ?></legend>
                         <div class="hs-filter-checks">
                             <?php if (is_array($helmetTypeTerms)) : foreach ($helmetTypeTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="helmet_type[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedTypes, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
@@ -421,11 +421,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 3: SAFETY -->
                 <details class="hs-filter-group" open>
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Safety</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Safety'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Safety Standards</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Safety Standards'); ?></legend>
                         <div class="hs-filter-checks">
                             <?php if (is_array($certTerms)) : foreach ($certTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="certification[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedCerts, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
@@ -437,11 +437,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 4: RIDING -->
                 <details class="hs-filter-group" open>
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Riding</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Riding'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Riding Style</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Riding Style'); ?></legend>
                         <div class="hs-filter-checks hs-filter-scroll">
                             <?php if (is_array($useCaseTerms)) : foreach ($useCaseTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="use_case[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedUseCases, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
@@ -453,11 +453,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 5: PRICE -->
                 <details class="hs-filter-group" open>
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Price</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Price'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Price</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Price'); ?></legend>
                         <div class="hs-filter-checks">
                             <?php if (is_array($priceRangeTerms)) : foreach ($priceRangeTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="price_range[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedPriceRanges, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
@@ -469,14 +469,14 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 6: BRAND -->
                 <details class="hs-filter-group">
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Brand</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Brand'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Brand</legend>
-                        <input type="text" id="hs-brand-filter-search" class="hs-filter-brand-search" placeholder="Search brands..." aria-label="Filter brands" />
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Brand'); ?></legend>
+                        <input type="text" id="hs-brand-filter-search" class="hs-filter-brand-search" placeholder="<?php hs_attr_e('Search brands...'); ?>" aria-label="<?php hs_attr_e('Filter brands'); ?>" />
                         <div class="hs-filter-checks hs-filter-scroll" id="hs-brand-filter-list">
-                            <label class="hs-filter-check-label"><input type="radio" name="brand_slug" value="" <?php checked($brandSlug, ''); ?> /><span class="hs-filter-check-text">All Brands</span></label>
+                            <label class="hs-filter-check-label"><input type="radio" name="brand_slug" value="" <?php checked($brandSlug, ''); ?> /><span class="hs-filter-check-text"><?php hs_e('All Brands'); ?></span></label>
                             <?php foreach ($brandPosts as $brand) : if (! ($brand instanceof WP_Post)) { continue; } $slug = sanitize_title($brand->post_name); ?>
                                 <label class="hs-filter-check-label" data-brand-name="<?php echo esc_attr(strtolower($brand->post_title)); ?>"><input type="radio" name="brand_slug" value="<?php echo esc_attr($slug); ?>" <?php checked($brandSlug, $slug); ?> /><span class="hs-filter-check-text"><?php echo esc_html($brand->post_title); ?></span></label>
                             <?php endforeach; ?>
@@ -487,11 +487,11 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 <!-- GROUP 7: FEATURES -->
                 <details class="hs-filter-group">
                     <summary class="hs-filter-summary">
-                        <span class="hs-filter-summary__label">Features</span>
+                        <span class="hs-filter-summary__label"><?php hs_e('Features'); ?></span>
                         <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
                     </summary>
                     <fieldset>
-                        <legend class="screen-reader-text">Filter by Features</legend>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Features'); ?></legend>
                         <div class="hs-filter-checks hs-filter-scroll">
                             <?php if (is_array($featureTerms)) : foreach ($featureTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="feature[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedFeatures, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
@@ -501,8 +501,8 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                 </details>
 
                 <div class="hs-filter-actions">
-                    <a class="hs-btn hs-btn--outline" href="<?php echo esc_url($archiveUrl); ?>">Clear All</a>
-                    <button class="hs-btn hs-btn--primary" type="submit">Apply Filters</button>
+                    <a class="hs-btn hs-btn--outline" href="<?php echo esc_url($archiveUrl); ?>"><?php hs_e('Clear All'); ?></a>
+                    <button class="hs-btn hs-btn--primary" type="submit"><?php hs_e('Apply Filters'); ?></button>
                 </div>
             </form>
         </aside>
@@ -512,22 +512,22 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
             <!-- CATALOG TOOLBAR -->
             <div class="hs-catalog__topbar hs-panel">
                 <div class="hs-catalog__topbar-left">
-                    <span class="hs-catalog__count-bold"><?php echo esc_html(number_format_i18n((int) $query->found_posts)); ?> helmets</span>
+                    <span class="hs-catalog__count-bold"><?php printf(esc_html(hs_t('%s helmets')), number_format_i18n((int) $query->found_posts)); ?></span>
                     <a href="<?php echo esc_url(home_url('/#hs-home-intent')); ?>" class="hs-btn hs-btn--sm hs-btn--outline hs-help-me-choose-btn">
-                        🧠 Help Me Choose
+                        🧠 <?php hs_e('Help Me Choose'); ?>
                     </a>
                 </div>
 
                 <div class="hs-catalog__topbar-right">
                     <div class="hs-catalog__sort">
-                        <label for="hs-catalog-sort" class="hs-sort-label">Sort by:</label>
-                        <select id="hs-catalog-sort" name="sort" form="hsHelmetFilterForm" aria-label="Sort helmets" onchange="if(this.form){this.form.submit();}else{var u=new URL(window.location.href);u.searchParams.set('sort',this.value);u.searchParams.delete('paged');window.location.href=u.toString();}">
-                            <option value="relevance" <?php selected($sort, 'relevance'); ?>>Relevance</option>
-                            <option value="rating" <?php selected($sort, 'rating'); ?>>Helmetsan Score</option>
-                            <option value="price_low" <?php selected($sort, 'price_low'); ?>>Price: Low → High</option>
-                            <option value="price_high" <?php selected($sort, 'price_high'); ?>>Price: High → Low</option>
-                            <option value="weight" <?php selected($sort, 'weight'); ?>>Weight: Lightest</option>
-                            <option value="newest" <?php selected($sort, 'newest'); ?>>Newest</option>
+                        <label for="hs-catalog-sort" class="hs-sort-label"><?php hs_e('Sort by:'); ?></label>
+                        <select id="hs-catalog-sort" name="sort" form="hsHelmetFilterForm" aria-label="<?php hs_attr_e('Sort helmets'); ?>" onchange="if(this.form){this.form.submit();}else{var u=new URL(window.location.href);u.searchParams.set('sort',this.value);u.searchParams.delete('paged');window.location.href=u.toString();}">
+                            <option value="relevance" <?php selected($sort, 'relevance'); ?>><?php hs_e('Relevance'); ?></option>
+                            <option value="rating" <?php selected($sort, 'rating'); ?>><?php hs_e('Helmetsan Score'); ?></option>
+                            <option value="price_low" <?php selected($sort, 'price_low'); ?>><?php hs_e('Price: Low → High'); ?></option>
+                            <option value="price_high" <?php selected($sort, 'price_high'); ?>><?php hs_e('Price: High → Low'); ?></option>
+                            <option value="weight" <?php selected($sort, 'weight'); ?>><?php hs_e('Weight: Lightest'); ?></option>
+                            <option value="newest" <?php selected($sort, 'newest'); ?>><?php hs_e('Newest'); ?></option>
                         </select>
                     </div>
                 </div>
@@ -540,8 +540,8 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                     <!-- PARTITION 1: BEST MATCHES FOR YOU (FIRST 4-6 CARDS) -->
                     <div class="hs-results-partition" id="partition-best-matches">
                         <div class="hs-partition-head">
-                            <h3 class="hs-results-partition-title">Best matches for you</h3>
-                            <p class="hs-results-partition-sub">Based on your motorcycle, riding style, budget and safety requirements.</p>
+                            <h3 class="hs-results-partition-title"><?php hs_e('Best matches for you'); ?></h3>
+                            <p class="hs-results-partition-sub"><?php hs_e('Based on your motorcycle, riding style, budget and safety requirements.'); ?></p>
                         </div>
                         <div class="hs-catalog-grid hs-catalog-grid--4cols" id="helmet-results-recommended">
                             <?php
@@ -557,7 +557,7 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                     <!-- PARTITION 2: ALL MATCHING HELMETS (REMAINING CARDS) -->
                     <?php if ($query->have_posts()) : ?>
                         <div class="hs-results-partition" id="partition-all-helmets" style="margin-top: 3rem;">
-                            <h3 class="hs-results-partition-title">All matching helmets</h3>
+                            <h3 class="hs-results-partition-title"><?php hs_e('All matching helmets'); ?></h3>
                             <div class="hs-catalog-grid hs-catalog-grid--4cols" id="helmet-results-remaining">
                                 <?php
                                 while ($query->have_posts()) : $query->the_post();

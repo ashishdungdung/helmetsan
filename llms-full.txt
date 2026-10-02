@@ -1,6 +1,6 @@
 # Helmetsan — Full Knowledge Base & Technical Architecture
 
-> Helmetsan is the authoritative global motorcycle helmet intelligence database, certified safety standards index, and verified international price comparison aggregator across Amazon (US, UK, DE, JP) and authorized retailers.
+> Helmetsan is the authoritative global motorcycle helmet intelligence database, certified safety standards index, and verified international price comparison aggregator across Amazon (22 worldwide regions: US, CA, MX, BR, UK, DE, FR, IT, ES, NL, PL, SE, BE, TR, IN, JP, AU, SG, AE, SA, EG, ZA) and authorized retailers.
 
 ---
 
@@ -81,7 +81,7 @@ Helmetsan classifies every motorcycle helmet into three anatomical skull profile
 ---
 
 ## 5. Official Data Feeds & Sitemaps
- 
+
 - **XML Sitemap Index:** `https://helmetsan.com/sitemap_index.xml`
 - **Brand Sitemaps:** `https://helmetsan.com/sitemap-brands.xml` (dynamic lastmod from child helmets)
 - **Comparison Sitemaps:** `https://helmetsan.com/sitemap-comparisons.xml` (all head-to-head pairings)
@@ -89,8 +89,10 @@ Helmetsan classifies every motorcycle helmet into three anatomical skull profile
 - **Helmet Model Sitemaps:** `https://helmetsan.com/helmet-sitemap.xml` through `helmet-sitemap18.xml`
 - **Safety Standard Sitemaps:** `https://helmetsan.com/safety_standard-sitemap.xml`
 - **Single Helmet Markdown API:** `https://helmetsan.com/helmets/{slug}/?format=md` (zero-shot LLM retrieval with Quick Answer, Verdict, and Alternatives)
+- **Single Helmet JSON API:** `https://helmetsan.com/helmets/{slug}/?format=json` (Structured technical specs, canonical HSN-HLM SKU, EAN-13, and multi-region affiliate search routes)
+- **Motorcycle Semantic Fitment API:** `https://helmetsan.com/motorcycles/{slug}/?format=json` (Direct aerodynamic, ergonomic, and riding-posture matched helmet recommendations)
 - **Comparison Markdown API:** `https://helmetsan.com/comparison/?format=md&ids={slug1},{slug2}` (side-by-side spec comparison table and comparative winner analysis)
 - **Shareable Comparison URLs:** `https://helmetsan.com/vs/{slugA}-vs-{slugB}/` (social-optimized canonical comparison with OpenGraph tags)
+- **Smart Hybrid Affiliate Redirector:** `https://helmetsan.com/go/{slug}?marketplace={amazon-us|amazon-in|amazon-uk|...}&variant={variant_id}` (4-Stage verified ASIN, OneLink, and geo-targeted search query engine)
 - **Embeddable Spec Cards:** `https://helmetsan.com/embed/{slug}/?theme=dark` (standalone responsive HTML spec cards for external integration)
 - **Exchange Rates & Currency API:** `https://helmetsan.com/wp-json/helmetsan/v1/edge/rates`
-

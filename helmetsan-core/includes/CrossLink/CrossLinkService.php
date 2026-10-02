@@ -33,6 +33,9 @@ final class CrossLinkService
         if ($post->post_type === 'helmet') {
             return $this->suggestForHelmet($postId);
         }
+        if ($post->post_type === 'motorcycle') {
+            return $this->suggestForMotorcycle($postId);
+        }
         if ($post->post_type === 'brand') {
             return $this->suggestForBrand($postId);
         }
@@ -45,12 +48,12 @@ final class CrossLinkService
     /**
      * Run cross-link suggestion for a batch of posts and optionally save to meta.
      *
-     * @param 'helmet'|'brand'|'accessory'|'all' $postType
+     * @param 'helmet'|'motorcycle'|'brand'|'accessory'|'all' $postType
      * @return array{updated: int, skipped: int, total: int, dry_run: bool, by_reason: array<string, int>, total_links: int, posts_with_links: int}
      */
     public function run(string $postType, int $limit = 0, int $offset = 0, bool $dryRun = false): array
     {
-        $types = $postType === 'all' ? ['helmet', 'brand', 'accessory'] : [$postType];
+        $types = $postType === 'all' ? ['helmet', 'motorcycle', 'brand', 'accessory'] : [$postType];
         $updated = 0;
         $skipped = 0;
         $total = 0;
@@ -108,13 +111,89 @@ final class CrossLinkService
         ];
     }
 
+    private static ?array $helmetFitmentsCache = null;
+    private static ?array $bikeFitmentsCache = null;
+
+    private function resolveProjectionPath(string $filename): ?string
+    {
+        $candidates = [];
+        if (defined('WP_CONTENT_DIR')) {
+            $candidates[] = WP_CONTENT_DIR . '/uploads/helmetsan-data/projections/' . $filename;
+        }
+        if (defined('ABSPATH')) {
+            $candidates[] = ABSPATH . 'data/projections/' . $filename;
+        }
+        $candidates[] = dirname(__DIR__, 2) . '/data/projections/' . $filename;
+        $candidates[] = dirname(__DIR__, 3) . '/data/projections/' . $filename;
+
+        foreach ($candidates as $c) {
+            if (file_exists($c)) {
+                return $c;
+            }
+        }
+        return null;
+    }
+
+    private function getHelmetFitments(): array
+    {
+        if (self::$helmetFitmentsCache === null) {
+            $path = $this->resolveProjectionPath('helmet_motorcycle_fitments.json');
+            if ($path !== null && file_exists($path)) {
+                $raw = file_get_contents($path);
+                self::$helmetFitmentsCache = is_string($raw) ? json_decode($raw, true) : [];
+            } else {
+                self::$helmetFitmentsCache = [];
+            }
+        }
+        return self::$helmetFitmentsCache;
+    }
+
+    private function getBikeFitments(): array
+    {
+        if (self::$bikeFitmentsCache === null) {
+            $path = $this->resolveProjectionPath('motorcycle_helmet_fitments.json');
+            if ($path !== null && file_exists($path)) {
+                $raw = file_get_contents($path);
+                self::$bikeFitmentsCache = is_string($raw) ? json_decode($raw, true) : [];
+            } else {
+                self::$bikeFitmentsCache = [];
+            }
+        }
+        return self::$bikeFitmentsCache;
+    }
+
     /**
-     * @return list<array{post_id: int, url: string, reason: string}>
+     * @return list<array{post_id: int, url: string, reason: string, description?: string}>
      */
     private function suggestForHelmet(int $postId): array
     {
         $seen = [$postId => true];
         $out = [];
+
+        // 1. Add top matching motorcycles from pre-materialized fitment projections (0ms runtime)
+        $slug = (string) get_post_field('post_name', $postId);
+        $normSlug = str_replace('-', '_', $slug);
+        $fitments = $this->getHelmetFitments();
+        $bikeCandidates = $fitments[$normSlug] ?? $fitments[$slug] ?? [];
+        if (is_array($bikeCandidates)) {
+            foreach (array_slice($bikeCandidates, 0, 3) as $bm) {
+                $bikeSlug = str_replace('_', '-', (string)($bm['motorcycle_id'] ?? ''));
+                $bikePost = get_page_by_path($bikeSlug, OBJECT, 'motorcycle');
+                if ($bikePost instanceof WP_Post && !isset($seen[$bikePost->ID])) {
+                    $seen[$bikePost->ID] = true;
+                    $url = get_permalink($bikePost->ID);
+                    if (is_string($url) && $url !== '') {
+                        $out[] = [
+                            'post_id'     => $bikePost->ID,
+                            'url'         => $url,
+                            'reason'      => 'helmet_fitment',
+                            'description' => $bm['reason'] ?? 'Recommended motorcycle match',
+                        ];
+                    }
+                }
+            }
+        }
+
         $brandId = (int) get_post_meta($postId, 'rel_brand', true);
         $typeTermIds = $this->getTermIds($postId, 'helmet_type');
         $certTermIds = $this->getTermIds($postId, 'certification');
@@ -174,6 +253,72 @@ final class CrossLinkService
                         $out[] = ['post_id' => $id, 'url' => $url, 'reason' => 'same_family'];
                         if (count($out) >= self::MAX_LINKS_PER_POST) {
                             return $out;
+                        }
+                    }
+                }
+            }
+        }
+
+        return $out;
+    }
+
+    /**
+     * @return list<array{post_id: int, url: string, reason: string, description?: string}>
+     */
+    private function suggestForMotorcycle(int $postId): array
+    {
+        $seen = [$postId => true];
+        $out = [];
+
+        // 1. Add top matching helmets from pre-materialized fitment projections (0ms runtime SQL load)
+        $slug = (string) get_post_field('post_name', $postId);
+        $normSlug = str_replace('-', '_', $slug);
+        $fitments = $this->getBikeFitments();
+        $helmetCandidates = $fitments[$normSlug] ?? $fitments[$slug] ?? [];
+        if (is_array($helmetCandidates)) {
+            foreach (array_slice($helmetCandidates, 0, 4) as $hm) {
+                $helmetSlug = str_replace('_', '-', (string)($hm['helmet_id'] ?? ''));
+                $helmetPost = get_page_by_path($helmetSlug, OBJECT, 'helmet');
+                if ($helmetPost instanceof WP_Post && !isset($seen[$helmetPost->ID])) {
+                    $seen[$helmetPost->ID] = true;
+                    $url = get_permalink($helmetPost->ID);
+                    if (is_string($url) && $url !== '') {
+                        $out[] = [
+                            'post_id'     => $helmetPost->ID,
+                            'url'         => $url,
+                            'reason'      => 'motorcycle_fitment',
+                            'description' => $hm['reason'] ?? 'Recommended helmet match for this motorcycle profile',
+                        ];
+                    }
+                }
+            }
+        }
+
+        // 2. Supplementary: same riding style / category motorcycles
+        if (count($out) < self::MAX_LINKS_PER_POST) {
+            $catTerms = $this->getTermIds($postId, 'motorcycle_category');
+            if ($catTerms !== []) {
+                $q = new \WP_Query([
+                    'post_type'      => 'motorcycle',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => self::MAX_LINKS_PER_POST - count($out),
+                    'fields'         => 'ids',
+                    'post__not_in'   => array_keys($seen),
+                    'tax_query'      => [
+                        [
+                            'taxonomy' => 'motorcycle_category',
+                            'field'    => 'term_id',
+                            'terms'    => $catTerms,
+                        ],
+                    ],
+                ]);
+                foreach ($q->posts as $id) {
+                    $id = (int) $id;
+                    if (!isset($seen[$id])) {
+                        $seen[$id] = true;
+                        $url = get_permalink($id);
+                        if (is_string($url) && $url !== '') {
+                            $out[] = ['post_id' => $id, 'url' => $url, 'reason' => 'same_category'];
                         }
                     }
                 }

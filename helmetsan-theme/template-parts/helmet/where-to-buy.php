@@ -114,7 +114,7 @@ if (!$hasWhereToBuy) {
                     <tbody>
                         <?php foreach ($displayedOffers as $offerItem) : 
                             $mpKey = $offerItem['marketplaceId'];
-                            $mpLabel = $offerItem['label'] ?? (function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($mpKey) : $mpKey);
+                            $mpLabel = !empty($offerItem['label']) ? $offerItem['label'] : (function_exists('helmetsan_marketplace_label') ? helmetsan_marketplace_label($mpKey) : $mpKey);
                             $itemGoUrl = home_url('/go/' . ($post ? $post->post_name : $helmetId) . '/?marketplace=' . urlencode($mpKey) . '&source=pdp');
                             $isBest = ($bestOffer && $offerItem['is_live'] && $offerItem['price'] > 0 && (float) $offerItem['price'] === (float) $bestOffer->price);
                         ?>

@@ -10,7 +10,7 @@ use Helmetsan\Core\Support\Config;
 final class RevenueService
 {
     /** Country code (e.g. IN, US) → preferred Amazon marketplace ID for geo fallback */
-    private const COUNTRY_TO_AMAZON_MARKETPLACE = [
+    public const COUNTRY_TO_AMAZON_MARKETPLACE = [
         'US' => 'amazon-us',
         'CA' => 'amazon-ca',
         'FR' => 'amazon-fr',
@@ -31,8 +31,51 @@ final class RevenueService
         'SG' => 'amazon-sg',
         'SA' => 'amazon-sa',
         'BE' => 'amazon-be',
-        'IE' => 'amazon-ie',
+        'IE' => 'amazon-uk',
         'TR' => 'amazon-tr',
+        'EG' => 'amazon-eg',
+        'ZA' => 'amazon-za',
+        // Smart Cross-Border Neighbor Routing
+        'AT' => 'amazon-de',
+        'CH' => 'amazon-de',
+        'NZ' => 'amazon-au',
+        'PT' => 'amazon-es',
+        'CO' => 'amazon-us',
+        'AR' => 'amazon-us',
+        'CL' => 'amazon-us',
+        'PE' => 'amazon-us',
+        'NO' => 'amazon-se',
+        'DK' => 'amazon-de',
+        'FI' => 'amazon-se',
+        'LU' => 'amazon-de',
+        'CZ' => 'amazon-de',
+        'SK' => 'amazon-de',
+    ];
+
+    /** Complete 22 Amazon Worldwide Regions Registry */
+    public const AMAZON_REGIONS = [
+        'us' => ['domain' => 'amazon.com',     'onelink' => false, 'tag_key' => 'amazon_tag',    'default_tag' => 'vtete-20'],
+        'ca' => ['domain' => 'amazon.ca',      'onelink' => true,  'tag_key' => 'amazon_tag_ca', 'default_tag' => 'vtete-20'],
+        'mx' => ['domain' => 'amazon.com.mx',  'onelink' => false, 'tag_key' => 'amazon_tag_mx', 'default_tag' => 'vtete-20'],
+        'br' => ['domain' => 'amazon.com.br',  'onelink' => false, 'tag_key' => 'amazon_tag_br', 'default_tag' => 'vtete-20'],
+        'uk' => ['domain' => 'amazon.co.uk',   'onelink' => true,  'tag_key' => 'amazon_tag_uk', 'default_tag' => 'vtete-21'],
+        'de' => ['domain' => 'amazon.de',      'onelink' => true,  'tag_key' => 'amazon_tag_de', 'default_tag' => 'vtete-20'],
+        'fr' => ['domain' => 'amazon.fr',      'onelink' => true,  'tag_key' => 'amazon_tag_fr', 'default_tag' => 'vtete-20'],
+        'it' => ['domain' => 'amazon.it',      'onelink' => true,  'tag_key' => 'amazon_tag_it', 'default_tag' => 'vtete-20'],
+        'es' => ['domain' => 'amazon.es',      'onelink' => true,  'tag_key' => 'amazon_tag_es', 'default_tag' => 'vtete-20'],
+        'nl' => ['domain' => 'amazon.nl',      'onelink' => false, 'tag_key' => 'amazon_tag_nl', 'default_tag' => 'vtete-20'],
+        'pl' => ['domain' => 'amazon.pl',      'onelink' => false, 'tag_key' => 'amazon_tag_pl', 'default_tag' => 'vtete-20'],
+        'se' => ['domain' => 'amazon.se',      'onelink' => false, 'tag_key' => 'amazon_tag_se', 'default_tag' => 'vtete-20'],
+        'be' => ['domain' => 'amazon.com.be',  'onelink' => false, 'tag_key' => 'amazon_tag_be', 'default_tag' => 'vtete-20'],
+        'tr' => ['domain' => 'amazon.com.tr',  'onelink' => false, 'tag_key' => 'amazon_tag_tr', 'default_tag' => 'vtete-20'],
+        'in' => ['domain' => 'amazon.in',      'onelink' => false, 'tag_key' => 'amazon_tag_in', 'default_tag' => 'virginiatete-21'],
+        'jp' => ['domain' => 'amazon.co.jp',   'onelink' => false, 'tag_key' => 'amazon_tag_jp', 'default_tag' => 'vtete-22'],
+        'au' => ['domain' => 'amazon.com.au',  'onelink' => false, 'tag_key' => 'amazon_tag_au', 'default_tag' => 'vtete-20'],
+        'sg' => ['domain' => 'amazon.sg',      'onelink' => false, 'tag_key' => 'amazon_tag_sg', 'default_tag' => 'vtete-20'],
+        'ae' => ['domain' => 'amazon.ae',      'onelink' => false, 'tag_key' => 'amazon_tag_ae', 'default_tag' => 'vtete0c-21'],
+        'sa' => ['domain' => 'amazon.sa',      'onelink' => false, 'tag_key' => 'amazon_tag_sa', 'default_tag' => 'vtete-20'],
+        'eg' => ['domain' => 'amazon.eg',      'onelink' => false, 'tag_key' => 'amazon_tag_eg', 'default_tag' => 'vtete-20'],
+        'za' => ['domain' => 'amazon.co.za',   'onelink' => false, 'tag_key' => 'amazon_tag_za', 'default_tag' => 'vtete-20'],
     ];
 
     public function __construct(
@@ -51,13 +94,15 @@ final class RevenueService
 
     public function filterRobotsTxt(string $output, bool $public): string
     {
+        // 1. Generative Engine Optimization (GEO) - AI Search Engines & Ingestion Agents
         $aiCrawlers = [
             'OAI-SearchBot',       // OpenAI SearchGPT & ChatGPT Search
             'ChatGPT-User',        // On-demand ChatGPT live prompt browsing
             'GPTBot',              // OpenAI web indexing
-            'PerplexityBot',       // Perplexity AI Search Engine
+            'Claude-SearchBot',    // Anthropic Claude Live Web Search
             'ClaudeBot',           // Anthropic Claude Citations & Search
             'Claude-Web',          // Anthropic Claude live web retrieval
+            'PerplexityBot',       // Perplexity AI Search Engine
             'Google-Extended',     // Google Gemini & Search Generative Overviews
             'GoogleOther',         // Google Multi-modal Knowledge Graph
             'Applebot',            // Apple Intelligence & Siri Core
@@ -66,6 +111,8 @@ final class RevenueService
             'Meta-ExternalAgent',  // Meta AI Llama web search
             'Meta-ExternalFetcher',// Meta AI real-time link preview
             'Amazonbot',           // Amazon Rufus AI Shopping Assistant
+            'MistralBot',          // Mistral AI Web Search
+            'DeepSeekBot',         // DeepSeek Search & Ingestion
             'Diffbot',             // Diffbot AI Knowledge Graph
             'Tavily',              // LangChain / Agentic Search Stack
             'YouBot',              // You.com AI Search
@@ -73,35 +120,146 @@ final class RevenueService
             'Bytespider',          // ByteDance / TikTok AI Search
         ];
 
-        $aiDirectives = "\n# ------------------------------------------------------------\n";
-        $aiDirectives .= "# Generative Engine Optimization (GEO) - Authorized AI Agents\n";
-        $aiDirectives .= "# ------------------------------------------------------------\n";
+        // 2. Core Search Engines & Rich Snippet Indexers
+        $searchCrawlers = [
+            'Googlebot',
+            'Googlebot-Image',
+            'Google-InspectionTool', // GSC live URL test and rich results validator
+            'Slurp',                 // Yahoo Search
+            'DuckDuckBot',           // DuckDuckGo Search
+            'Baiduspider',           // Baidu China Search
+            'YandexBot',             // Yandex Search
+            'NaverBot',              // Naver Korea Search
+        ];
+
+        // 3. Shopping Aggregators & Price Comparison Engines
+        $shoppingCrawlers = [
+            'Google-Shopping',       // Google Shopping Feed & Merchant Center
+            'Google-Safety',         // Merchant Safety & Compliance Scanner
+            'KlarnaBot',             // Klarna Shopping & Price Discovery
+            'idealo',                // Idealo Comparison Engine
+            'PriceSpy',              // PriceSpy / Prisjakt Price Tracker
+        ];
+
+        // 4. SEO & Market Health Auditing Crawlers (Rate limited to 1s delay to protect origin)
+        $seoAuditCrawlers = [
+            'AhrefsBot',
+            'SemrushBot',
+            'DotBot',
+            'Moz',
+            'Rogerbot',
+            'Screaming Frog SEO Spider',
+        ];
+
+        // 5. Social Media OpenGraph Link Previews
+        $socialCrawlers = [
+            'facebookexternalhit',
+            'Twitterbot',
+            'LinkedInBot',
+            'Pinterestbot',
+            'Slackbot',
+            'TelegramBot',
+            'Discordbot',
+        ];
+
+        $directives = "\n# ============================================================\n";
+        $directives .= "# 1. Generative Engine Optimization (GEO) - AI Search Agents\n";
+        $directives .= "# ============================================================\n";
         foreach ($aiCrawlers as $crawler) {
-            $aiDirectives .= "User-agent: {$crawler}\n";
-            $aiDirectives .= "Allow: /\n";
-            $aiDirectives .= "Allow: /helmets/*/\n";
-            $aiDirectives .= "Allow: /comparison/\n";
-            $aiDirectives .= "Allow: /brands/*/\n";
-            $aiDirectives .= "Allow: /accessories/*/\n";
-            $aiDirectives .= "Allow: /llms.txt\n";
-            $aiDirectives .= "Allow: /llms-full.txt\n";
-            $aiDirectives .= "Disallow: /go/\n";
-            $aiDirectives .= "Disallow: /wp-admin/\n";
-            $aiDirectives .= "Disallow: /cart/\n";
-            $aiDirectives .= "Disallow: /checkout/\n";
-            $aiDirectives .= "Crawl-delay: 0\n\n";
+            $directives .= "User-agent: {$crawler}\n";
+            $directives .= "Allow: /\n";
+            $directives .= "Allow: /helmets/*/\n";
+            $directives .= "Allow: /comparison/\n";
+            $directives .= "Allow: /brands/*/\n";
+            $directives .= "Allow: /accessories/*/\n";
+            $directives .= "Allow: /llms.txt\n";
+            $directives .= "Allow: /llms-full.txt\n";
+            $directives .= "Disallow: /go/\n";
+            $directives .= "Disallow: /wp-admin/\n";
+            $directives .= "Disallow: /cart/\n";
+            $directives .= "Disallow: /checkout/\n";
+            $directives .= "Crawl-delay: 0\n\n";
         }
 
-        $output .= "\nUser-agent: *\nDisallow: /go/\n" . $aiDirectives;
-        $output .= "# LLMs.txt AI Manifest\n";
-        $output .= "Allow: /llms.txt\n";
-        $output .= "Allow: /llms-full.txt\n\n";
+        $directives .= "# ============================================================\n";
+        $directives .= "# 2. Core Search Discovery & Rich Snippet Indexers\n";
+        $directives .= "# ============================================================\n";
+        foreach ($searchCrawlers as $crawler) {
+            $directives .= "User-agent: {$crawler}\n";
+            $directives .= "Allow: /\n";
+            $directives .= "Allow: /helmets/*/\n";
+            $directives .= "Allow: /comparison/\n";
+            $directives .= "Allow: /brands/*/\n";
+            $directives .= "Allow: /accessories/*/\n";
+            $directives .= "Disallow: /go/\n";
+            $directives .= "Disallow: /wp-admin/\n";
+            $directives .= "Disallow: /cart/\n";
+            $directives .= "Disallow: /checkout/\n";
+            $directives .= "Crawl-delay: 0\n\n";
+        }
+
+        $directives .= "# ============================================================\n";
+        $directives .= "# 3. Shopping Aggregators & Price Comparison Engines\n";
+        $directives .= "# ============================================================\n";
+        foreach ($shoppingCrawlers as $crawler) {
+            $directives .= "User-agent: {$crawler}\n";
+            $directives .= "Allow: /\n";
+            $directives .= "Allow: /helmets/*/\n";
+            $directives .= "Allow: /comparison/\n";
+            $directives .= "Allow: /brands/*/\n";
+            $directives .= "Allow: /accessories/*/\n";
+            $directives .= "Disallow: /go/\n";
+            $directives .= "Disallow: /wp-admin/\n\n";
+        }
+
+        $directives .= "# ============================================================\n";
+        $directives .= "# 4. SEO & Market Health Auditing Crawlers (Protected)\n";
+        $directives .= "# ============================================================\n";
+        foreach ($seoAuditCrawlers as $crawler) {
+            $directives .= "User-agent: {$crawler}\n";
+            $directives .= "Allow: /\n";
+            $directives .= "Allow: /helmets/*/\n";
+            $directives .= "Allow: /comparison/\n";
+            $directives .= "Allow: /brands/*/\n";
+            $directives .= "Allow: /accessories/*/\n";
+            $directives .= "Disallow: /go/\n";
+            $directives .= "Disallow: /wp-admin/\n";
+            $directives .= "Crawl-delay: 1\n\n";
+        }
+
+        $directives .= "# ============================================================\n";
+        $directives .= "# 5. Social OpenGraph & Link Previews\n";
+        $directives .= "# ============================================================\n";
+        foreach ($socialCrawlers as $crawler) {
+            $directives .= "User-agent: {$crawler}\n";
+            $directives .= "Allow: /\n";
+            $directives .= "Disallow: /go/\n\n";
+        }
+
+        $directives .= "# ============================================================\n";
+        $directives .= "# 6. Default Crawlers & Security Shield\n";
+        $directives .= "# ============================================================\n";
+        $directives .= "User-agent: *\n";
+        $directives .= "Disallow: /go/\n";
+        $directives .= "Disallow: /wp-admin/\n";
+        $directives .= "Disallow: /wp-content/plugins/hellopress/\n";
+        $directives .= "Disallow: /*wp_filemanager.php*\n";
+        $directives .= "Disallow: /*eval-stdin.php*\n";
+        $directives .= "Disallow: /.env\n";
+        $directives .= "Disallow: /.git/\n\n";
+
+        $directives .= "# LLMs.txt AI Manifest\n";
+        $directives .= "Allow: /llms.txt\n";
+        $directives .= "Allow: /llms-full.txt\n\n";
+
+        $output .= $directives;
 
         $sitemaps = [
             home_url('/sitemap_index.xml'),
             home_url('/sitemap-brands.xml'),
             home_url('/sitemap-comparisons.xml'),
             home_url('/sitemap-helmets-images.xml'),
+            home_url('/post-sitemap.xml'),
         ];
         foreach ($sitemaps as $sm) {
             if (! str_contains($output, $sm)) {
@@ -120,6 +278,10 @@ final class RevenueService
             return;
         }
 
+        $cookiePath = (defined('COOKIEPATH') && is_string(COOKIEPATH) && COOKIEPATH !== '') ? COOKIEPATH : '/';
+        $cookieDomain = (defined('COOKIE_DOMAIN') && is_string(COOKIE_DOMAIN)) ? COOKIE_DOMAIN : '';
+        $dayInSeconds = defined('DAY_IN_SECONDS') ? DAY_IN_SECONDS : 86400;
+
         // 1. First-touch referrer
         if (empty($_COOKIE['hs_first_referrer']) && ! empty($_SERVER['HTTP_REFERER'])) {
             $ref = esc_url_raw((string) $_SERVER['HTTP_REFERER']);
@@ -132,9 +294,9 @@ final class RevenueService
                         'hs_first_referrer',
                         $ref,
                         [
-                            'expires'  => time() + (30 * DAY_IN_SECONDS),
-                            'path'     => COOKIEPATH ?: '/',
-                            'domain'   => COOKIE_DOMAIN ?: '',
+                            'expires'  => time() + (30 * $dayInSeconds),
+                            'path'     => $cookiePath,
+                            'domain'   => $cookieDomain,
                             'secure'   => is_ssl(),
                             'httponly' => false,
                             'samesite' => 'Lax',
@@ -156,9 +318,9 @@ final class RevenueService
                         $cookieName,
                         $val,
                         [
-                            'expires'  => time() + (30 * DAY_IN_SECONDS),
-                            'path'     => COOKIEPATH ?: '/',
-                            'domain'   => COOKIE_DOMAIN ?: '',
+                            'expires'  => time() + (30 * $dayInSeconds),
+                            'path'     => $cookiePath,
+                            'domain'   => $cookieDomain,
                             'secure'   => is_ssl(),
                             'httponly' => false,
                             'samesite' => 'Lax',
@@ -319,6 +481,44 @@ final class RevenueService
         return 'referral';
     }
 
+    public static function detectDeviceType(string $ua): string
+    {
+        if (self::isBotTraffic($ua)) {
+            return 'bot';
+        }
+        $uaLower = strtolower($ua);
+        if (preg_match('/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i', $uaLower)) {
+            return 'tablet';
+        }
+        if (preg_match('/(mobile|iphone|ipod|blackberry|opera mini|iemobile|kindle|silk|fennec|motorola|nokia)/i', $uaLower)) {
+            return 'mobile';
+        }
+        return 'desktop';
+    }
+
+    public static function isBotTraffic(string $ua): bool
+    {
+        if ($ua === '') {
+            return true;
+        }
+        $botPatterns = [
+            'bot', 'crawl', 'spider', 'slurp', 'mediapartners', 'feed', 'search',
+            'headless', 'phantomjs', 'selenium', 'puppeteer', 'playwright',
+            'python', 'curl', 'wget', 'urllib', 'httpclient', 'scrapy', 'postman',
+            'facebookexternalhit', 'twitterbot', 'linkedinbot', 'slackbot',
+            'discordbot', 'whatsapp', 'telegrambot', 'applebot', 'bingbot',
+            'googlebot', 'yandexbot', 'baiduspider', 'bytespider', 'semrushbot',
+            'ahrefsbot', 'dotbot', 'mj12bot', 'archive.org_bot'
+        ];
+        $uaLower = strtolower($ua);
+        foreach ($botPatterns as $pattern) {
+            if (str_contains($uaLower, $pattern)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function ensureTable(): void
     {
         global $wpdb;
@@ -338,6 +538,10 @@ final class RevenueService
             referer text,
             user_agent text,
             ip_hash varchar(64) DEFAULT '',
+            country_iso char(2) NOT NULL DEFAULT '',
+            device_type enum('desktop','mobile','tablet','bot') NOT NULL DEFAULT 'desktop',
+            is_bot tinyint(1) NOT NULL DEFAULT 0,
+            destination_domain varchar(100) NOT NULL DEFAULT '',
             utm_source varchar(100) NOT NULL DEFAULT '',
             utm_medium varchar(100) NOT NULL DEFAULT '',
             utm_campaign varchar(100) NOT NULL DEFAULT '',
@@ -352,7 +556,35 @@ final class RevenueService
             KEY affiliate_network (affiliate_network),
             KEY referral_channel (referral_channel),
             KEY utm_source (utm_source),
-            KEY created_at (created_at)
+            KEY country_iso (country_iso),
+            KEY is_bot (is_bot),
+            KEY created_at (created_at),
+            KEY idx_clicks_reporting (created_at, country_iso, affiliate_network)
+        ) {$charset};";
+
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        dbDelta($sql);
+
+        $this->ensureDailyTable();
+    }
+
+    public function ensureDailyTable(): void
+    {
+        global $wpdb;
+
+        $table = $wpdb->prefix . 'helmetsan_clicks_daily';
+        $charset = $wpdb->get_charset_collate();
+
+        $sql = "CREATE TABLE {$table} (
+            click_date date NOT NULL,
+            affiliate_network varchar(50) NOT NULL,
+            marketplace_id varchar(50) NOT NULL,
+            country_iso char(2) NOT NULL DEFAULT '',
+            device_type enum('desktop','mobile','tablet','bot') NOT NULL DEFAULT 'desktop',
+            total_clicks int(10) unsigned NOT NULL DEFAULT 0,
+            bot_clicks int(10) unsigned NOT NULL DEFAULT 0,
+            unique_visitors int(10) unsigned NOT NULL DEFAULT 0,
+            PRIMARY KEY (click_date, affiliate_network, marketplace_id, country_iso, device_type)
         ) {$charset};";
 
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
@@ -424,12 +656,15 @@ final class RevenueService
 
         $helmetId = (int) $post->ID;
         $marketplaceId = isset($_GET['marketplace']) ? sanitize_text_field((string) $_GET['marketplace']) : '';
+        $variantId = isset($_GET['variant']) ? sanitize_text_field((string) $_GET['variant']) : '';
         $source = isset($_GET['source']) ? sanitize_text_field((string) $_GET['source']) : 'direct';
         $intent = isset($_GET['intent']) ? sanitize_text_field((string) $_GET['intent']) : 'purchase';
 
-        // Detect user country preference (from GET, cookie, or GeoService)
+        // Detect user country preference (from Cloudflare header, GET, cookie, or GeoService)
         $userCountry = '';
-        if (isset($_GET['country']) && is_string($_GET['country']) && strlen(trim($_GET['country'])) === 2) {
+        if (isset($_SERVER['HTTP_CF_IPCOUNTRY']) && is_string($_SERVER['HTTP_CF_IPCOUNTRY']) && strlen(trim($_SERVER['HTTP_CF_IPCOUNTRY'])) === 2) {
+            $userCountry = strtoupper(trim($_SERVER['HTTP_CF_IPCOUNTRY']));
+        } elseif (isset($_GET['country']) && is_string($_GET['country']) && strlen(trim($_GET['country'])) === 2) {
             $userCountry = strtoupper(trim($_GET['country']));
         } elseif (isset($_COOKIE['helmetsan_geo']) && is_string($_COOKIE['helmetsan_geo']) && strlen(trim($_COOKIE['helmetsan_geo'])) === 2) {
             $userCountry = strtoupper(trim($_COOKIE['helmetsan_geo']));
@@ -439,7 +674,7 @@ final class RevenueService
             $userCountry = strtoupper($this->geo->getCountry());
         }
         if ($userCountry === '') {
-            $userCountry = 'IN';
+            $userCountry = 'US';
         }
 
         // If generic 'amazon' or empty was passed, map it to the user's regional Amazon marketplace!
@@ -447,22 +682,20 @@ final class RevenueService
             $marketplaceId = self::COUNTRY_TO_AMAZON_MARKETPLACE[$userCountry] ?? 'amazon-in';
         }
 
-        // Try multi-network URL first (with normalized marketplace ID)
-        $destination = '';
-        $network = '';
+        // 1. Try 4-Stage Smart Hybrid Redirect Engine first (with identifiers & quarantine awareness)
+        $hybridResult = $this->buildSmartHybridUrl($helmetId, $marketplaceId, $variantId, $userCountry, $settings);
+        $destination = $hybridResult['url'];
+        $network = $hybridResult['network'];
+        $stage = $hybridResult['stage'];
+        if ($hybridResult['marketplace'] !== '') {
+            $marketplaceId = $hybridResult['marketplace'];
+        }
 
-        if ($marketplaceId !== '') {
+        // 2. Fallback to multi-network URL if hybrid engine returned empty (e.g. non-Amazon network like CJ/Flipkart)
+        if ($destination === '' && $marketplaceId !== '') {
             $result = $this->buildMultiNetworkUrl($helmetId, $marketplaceId, $settings);
             $destination = $result['url'];
             $network = $result['network'];
-            // No stored link for this marketplace: use ASIN-based regional Amazon URL so e.g. India sees Amazon India
-            if ($destination === '' && str_starts_with(strtolower($marketplaceId), 'amazon-')) {
-                $destination = $this->buildLegacyAmazonUrlForRegion($helmetId, $marketplaceId, $settings);
-                if ($destination !== '') {
-                    $network = 'amazon';
-                }
-            }
-            // No stored Flipkart link: redirect to Flipkart search by helmet title (India)
             if ($destination === '' && str_starts_with(strtolower($marketplaceId), 'flipkart-')) {
                 $destination = $this->buildFlipkartSearchUrl($helmetId);
                 if ($destination !== '') {
@@ -471,29 +704,7 @@ final class RevenueService
             }
         }
 
-        // When no marketplace or "static": try geo-driven default from stored links
-        if ($destination === '' && $this->geo !== null) {
-            $preferredMp = self::COUNTRY_TO_AMAZON_MARKETPLACE[$userCountry] ?? 'amazon-in';
-            
-            if ($marketplaceId === '') {
-                $marketplaceId = $preferredMp;
-            }
-
-            $result = $this->buildMultiNetworkUrl($helmetId, $preferredMp, $settings);
-            if ($result['url'] !== '') {
-                $destination = $result['url'];
-                $network = $result['network'];
-                $marketplaceId = $preferredMp;
-            }
-        }
-
-        // Legacy fallback (ASIN / affiliate_url); for geo fallback prefer regional Amazon when possible
-        if ($destination === '' && $marketplaceId !== '' && str_starts_with(strtolower($marketplaceId), 'amazon-')) {
-            $destination = $this->buildLegacyAmazonUrlForRegion($helmetId, $marketplaceId, $settings);
-            if ($destination !== '') {
-                $network = 'amazon';
-            }
-        }
+        // 3. Legacy fallback (ASIN / affiliate_url)
         if ($destination === '') {
             $destination = $this->buildLegacyUrl($helmetId, $settings);
             $network = $settings['default_affiliate_network'] ?? 'amazon';
@@ -504,6 +715,13 @@ final class RevenueService
             exit;
         }
 
+        // Open redirect and destination domain safety guard
+        if (! $this->isSafeDestination($destination)) {
+            wp_safe_redirect(get_permalink($helmetId), 302);
+            exit;
+        }
+
+        $attribution = [];
         if ($trackingEnabled) {
             $utmSource = isset($_GET['utm_source']) ? sanitize_text_field((string) $_GET['utm_source']) : (isset($_COOKIE['hs_utm_source']) ? sanitize_text_field((string) $_COOKIE['hs_utm_source']) : '');
             $utmMedium = isset($_GET['utm_medium']) ? sanitize_text_field((string) $_GET['utm_medium']) : (isset($_COOKIE['hs_utm_medium']) ? sanitize_text_field((string) $_COOKIE['hs_utm_medium']) : '');
@@ -522,24 +740,210 @@ final class RevenueService
                 'referral_channel' => $channel,
                 'first_referrer'   => $firstReferrer,
             ];
-
-            $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent, $attribution);
         }
 
-        $code = isset($settings['redirect_status_code']) ? (int) $settings['redirect_status_code'] : 302;
+        $code = isset($settings['redirect_status_code']) ? (int) $settings['redirect_status_code'] : 307;
         if (! in_array($code, [301, 302, 307, 308], true)) {
-            $code = 302;
+            $code = 307;
         }
 
+        // Cache-bypass headers: never allow edge or FastCGI to cache redirect responses
         if (! headers_sent()) {
             header('X-Robots-Tag: noindex, nofollow, nosnippet, noarchive');
             header('Cache-Control: private, no-store, no-cache, must-revalidate, max-age=0');
             header('Pragma: no-cache');
             header('Expires: 0');
+            header('Vary: Cookie');
+        }
+
+        // Zero-latency non-blocking telemetry flush:
+        if ($trackingEnabled) {
+            if (function_exists('fastcgi_finish_request')) {
+                wp_redirect($destination, $code);
+                fastcgi_finish_request();
+                $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent, $attribution, $userCountry);
+                exit;
+            } else {
+                register_shutdown_function(function() use ($helmetId, $source, $network, $destination, $marketplaceId, $intent, $attribution, $userCountry) {
+                    $this->logClick($helmetId, $source, $network, $destination, $marketplaceId, $intent, $attribution, $userCountry);
+                });
+            }
         }
 
         wp_redirect($destination, $code);
         exit;
+    }
+
+    /**
+     * Validate destination URL against strict allowlist to prevent open redirects.
+     */
+    public function isSafeDestination(string $url): bool
+    {
+        if (! str_starts_with($url, 'https://')) {
+            return false;
+        }
+        $host = parse_url($url, PHP_URL_HOST);
+        if (! is_string($host) || $host === '') {
+            return false;
+        }
+        $host = strtolower($host);
+        $allowed = [
+            'amazon.com', 'amazon.ca', 'amazon.co.uk', 'amazon.de', 'amazon.fr', 'amazon.it', 'amazon.es',
+            'amazon.nl', 'amazon.pl', 'amazon.se', 'amazon.com.be', 'amazon.com.tr', 'amazon.in', 'amazon.co.jp',
+            'amazon.com.au', 'amazon.sg', 'amazon.ae', 'amazon.sa', 'amazon.eg', 'amazon.co.za', 'amazon.com.br',
+            'amazon.com.mx', 'revzilla.com', 'flipkart.com', 'fc-moto.de', 'motoin.de', 'cyclegear.com'
+        ];
+        foreach ($allowed as $domain) {
+            if ($host === $domain || str_ends_with($host, '.' . $domain)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 4-Stage Smart Hybrid Redirect Engine.
+     *
+     * Stage 1: Verified Direct ASIN -> https://www.amazon.{tld}/dp/{asin}?tag={tag}
+     * Stage 2: OneLink Auto-Forwarding -> https://www.amazon.com/dp/{us_asin}?tag=vtete-20 for OneLink regions
+     * Stage 3: Collision Quarantine / Missing ASIN -> Precision localized affiliate search query
+     * Stage 4: Brand storefront / category fallback
+     *
+     * @param array<string,mixed> $settings
+     * @return array{url: string, network: string, marketplace: string, stage: int}
+     */
+    public function buildSmartHybridUrl(int $postId, string $marketplaceId, string $variantId, string $userCountry, array $settings): array
+    {
+        $targetMp = strtolower(str_replace('_', '-', $marketplaceId));
+        if ($targetMp === '' || $targetMp === 'amazon') {
+            $targetMp = self::COUNTRY_TO_AMAZON_MARKETPLACE[$userCountry] ?? 'amazon-in';
+        }
+
+        $regionCode = str_replace('amazon-', '', $targetMp);
+        if ($regionCode === 'gb') {
+            $regionCode = 'uk';
+        }
+
+        $regionConfig = self::AMAZON_REGIONS[$regionCode] ?? self::AMAZON_REGIONS['us'];
+        $domain = $regionConfig['domain'];
+        $tag = $this->resolveRegionalTag($regionCode, $regionConfig, $settings);
+
+        // Retrieve identifiers
+        $identJson = (string) get_post_meta($postId, 'identifiers_json', true);
+        $ident = json_decode($identJson, true);
+        if (!is_array($ident)) {
+            $ident = [];
+        }
+
+        $title = (string) get_post_field('post_title', $postId);
+        $slug = (string) get_post_field('post_name', $postId);
+        $brandId = (int) get_post_meta($postId, 'rel_brand', true);
+        $brandName = '';
+        if ($brandId > 0) {
+            $bPost = get_post($brandId);
+            if ($bPost instanceof \WP_Post) {
+                $brandName = (string) $bPost->post_title;
+            }
+        }
+        if ($brandName === '') {
+            $brandName = (string) get_post_meta($postId, 'brand', true);
+        }
+
+        // Check for variant-specific identifiers if requested
+        $variantData = null;
+        if ($variantId !== '') {
+            $varsJson = (string) get_post_meta($postId, 'variants_json', true);
+            $vars = json_decode($varsJson, true);
+            if (is_array($vars)) {
+                foreach ($vars as $v) {
+                    if (isset($v['id']) && (string)$v['id'] === $variantId) {
+                        $variantData = $v;
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Stage 1: Verified Direct ASIN in target region
+        $regionalAsinData = $ident['amazon'][$regionCode] ?? null;
+        if (is_array($regionalAsinData) && ($regionalAsinData['status'] ?? '') === 'verified' && !empty($regionalAsinData['asin'])) {
+            $directUrl = 'https://www.' . $domain . '/dp/' . rawurlencode((string) $regionalAsinData['asin']) . '?' . http_build_query(['tag' => $tag]);
+            return ['url' => $directUrl, 'network' => 'amazon', 'marketplace' => $targetMp, 'stage' => 1];
+        }
+
+        // Check if US ASIN is verified
+        $usAsinData = $ident['amazon']['us'] ?? null;
+        $usAsin = is_array($usAsinData) && ($usAsinData['status'] ?? '') === 'verified' ? ($usAsinData['asin'] ?? '') : '';
+        if ($usAsin === '') {
+            // Check legacy affiliate_asin
+            $legAsin = (string) get_post_meta($postId, 'affiliate_asin', true);
+            $legStatus = (string) get_post_meta($postId, 'asin_status', true);
+            if ($legStatus === 'verified' && $legAsin !== '') {
+                $usAsin = $legAsin;
+            }
+        }
+
+        // Stage 2: OneLink Auto-Forwarding for enrolled partner countries
+        if (!empty($regionConfig['onelink']) && $usAsin !== '') {
+            $onelinkTag = (string) ($settings['amazon_tag'] ?? 'vtete-20');
+            $onelinkUrl = 'https://www.amazon.com/dp/' . rawurlencode($usAsin) . '?' . http_build_query(['tag' => $onelinkTag]);
+            return ['url' => $onelinkUrl, 'network' => 'amazon', 'marketplace' => $targetMp, 'stage' => 2];
+        }
+
+        // Stage 3: Collision Quarantine & Non-OneLink Localized Search Query
+        $searchQuery = '';
+        if ($variantData !== null && !empty($variantData['title'])) {
+            $searchQuery = (string) $variantData['title'];
+        } elseif (is_array($regionalAsinData) && !empty($regionalAsinData['search_fallback'])) {
+            $searchQuery = (string) $regionalAsinData['search_fallback'];
+        } elseif ($title !== '') {
+            $queryBase = $this->searchQueryFromTitleOrSlug($title, $slug);
+            $searchQuery = $brandName !== '' && !str_contains(strtolower($queryBase), strtolower($brandName))
+                ? $brandName . ' ' . $queryBase
+                : $queryBase;
+        }
+
+        if ($searchQuery !== '') {
+            $searchUrl = 'https://www.' . $domain . '/s?' . http_build_query([
+                'k'   => $searchQuery,
+                'tag' => $tag,
+            ]);
+            return ['url' => $searchUrl, 'network' => 'amazon', 'marketplace' => $targetMp, 'stage' => 3];
+        }
+
+        // Stage 4: Brand Storefront fallback
+        if ($brandName !== '') {
+            $brandSearchUrl = 'https://www.' . $domain . '/s?' . http_build_query([
+                'k'   => $brandName . ' helmet',
+                'tag' => $tag,
+            ]);
+            return ['url' => $brandSearchUrl, 'network' => 'amazon', 'marketplace' => $targetMp, 'stage' => 4];
+        }
+
+        return ['url' => '', 'network' => '', 'marketplace' => $targetMp, 'stage' => 0];
+    }
+
+    /**
+     * Resolve associate tracking tag for a specific Amazon region.
+     *
+     * @param array<string,mixed> $regionConfig
+     * @param array<string,mixed> $settings
+     */
+    public function resolveRegionalTag(string $regionCode, array $regionConfig, array $settings): string
+    {
+        $cCode = strtolower($regionCode);
+        $key = 'amazon_tag_' . $cCode;
+        if (!empty($settings[$key])) {
+            return (string) $settings[$key];
+        }
+        return match ($cCode) {
+            'in'    => (string) ($settings['amazon_tag_in'] ?? 'virginiatete-21'),
+            'uk'    => (string) ($settings['amazon_tag_uk'] ?? 'vtete-21'),
+            'jp'    => (string) ($settings['amazon_tag_jp'] ?? 'vtete-22'),
+            'ae'    => (string) ($settings['amazon_tag_ae'] ?? 'vtete0c-21'),
+            'sa'    => (string) ($settings['amazon_tag_sa'] ?? 'vtete0c-21'),
+            default => (string) ($settings['amazon_tag'] ?? $regionConfig['default_tag'] ?? 'vtete-20'),
+        };
     }
 
     /**
@@ -692,6 +1096,8 @@ final class RevenueService
             'amazon-sa' => 'https://www.amazon.sa',
             'amazon-ie' => 'https://www.amazon.co.uk',
             'amazon-tr' => 'https://www.amazon.com.tr',
+            'amazon-eg' => 'https://www.amazon.eg',
+            'amazon-za' => 'https://www.amazon.co.za',
         ];
 
         return $domains[$mp] ?? 'https://www.amazon.com';
@@ -812,9 +1218,9 @@ final class RevenueService
                 }
                 $tagKey = 'amazon_tag_' . $cCode;
                 $tag = ! empty($revConfig[$tagKey]) ? (string) $revConfig[$tagKey] : match ($targetMp) {
-                    'amazon-in'                            => (string) ($revConfig['amazon_tag_in'] ?? 'virginiatete-21'),
-                    'amazon-uk', 'amazon-gb', 'amazon-ie' => (string) ($revConfig['amazon_tag_uk'] ?? 'vtete-21'),
-                    'amazon-jp'                            => (string) ($revConfig['amazon_tag_jp'] ?? 'vtete-22'),
+                    'amazon-in' => (string) ($revConfig['amazon_tag_in'] ?? 'virginiatete-21'),
+                    'amazon-uk' => (string) ($revConfig['amazon_tag_uk'] ?? 'vtete-21'),
+                    'amazon-jp' => (string) ($revConfig['amazon_tag_jp'] ?? 'vtete-22'),
                     // Fix: AE was falling to default (vtete-20 US tag). vtete0c-21 is the UAE Associates ID.
                     'amazon-ae'                            => (string) ($revConfig['amazon_tag_ae'] ?? 'vtete0c-21'),
                     'amazon-sa'                            => (string) ($revConfig['amazon_tag_sa'] ?? 'vtete0c-21'),
@@ -1095,7 +1501,8 @@ final class RevenueService
         string $destination,
         string $marketplaceId = '',
         string $intent = 'purchase',
-        array $attribution = []
+        array $attribution = [],
+        string $countryIso = 'US'
     ): void {
         global $wpdb;
 
@@ -1105,28 +1512,37 @@ final class RevenueService
 
         $ip = isset($_SERVER['REMOTE_ADDR']) ? (string) $_SERVER['REMOTE_ADDR'] : '';
         $ipHash = $ip !== '' ? hash('sha256', $ip . wp_salt('auth')) : '';
+        $ua = isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field((string) $_SERVER['HTTP_USER_AGENT']) : '';
+        $isBot = self::isBotTraffic($ua) ? 1 : 0;
+        $deviceType = self::detectDeviceType($ua);
+        $destHost = (string) wp_parse_url($destination, PHP_URL_HOST);
+        $destDomain = strtolower($destHost);
 
         $wpdb->insert(
             $this->tableName(),
             [
-                'created_at'        => current_time('mysql'),
-                'helmet_id'         => $helmetId,
-                'marketplace_id'    => sanitize_text_field($marketplaceId),
-                'click_source'      => sanitize_text_field($source),
-                'click_intent'      => sanitize_text_field($intent),
-                'affiliate_network' => sanitize_text_field($network),
-                'destination_url'   => esc_url_raw($destination),
-                'referer'           => isset($_SERVER['HTTP_REFERER']) ? esc_url_raw((string) $_SERVER['HTTP_REFERER']) : '',
-                'user_agent'        => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field((string) $_SERVER['HTTP_USER_AGENT']) : '',
-                'ip_hash'           => $ipHash,
-                'utm_source'        => sanitize_text_field($attribution['utm_source'] ?? ''),
-                'utm_medium'        => sanitize_text_field($attribution['utm_medium'] ?? ''),
-                'utm_campaign'      => sanitize_text_field($attribution['utm_campaign'] ?? ''),
-                'utm_content'       => sanitize_text_field($attribution['utm_content'] ?? ''),
-                'referral_channel'  => sanitize_text_field($attribution['referral_channel'] ?? 'direct'),
-                'first_referrer'    => esc_url_raw($attribution['first_referrer'] ?? ''),
+                'created_at'         => current_time('mysql'),
+                'helmet_id'          => $helmetId,
+                'marketplace_id'     => sanitize_text_field($marketplaceId),
+                'click_source'       => sanitize_text_field($source),
+                'click_intent'       => sanitize_text_field($intent),
+                'affiliate_network'  => sanitize_text_field($network),
+                'destination_url'    => esc_url_raw($destination),
+                'referer'            => isset($_SERVER['HTTP_REFERER']) ? esc_url_raw((string) $_SERVER['HTTP_REFERER']) : '',
+                'user_agent'         => $ua,
+                'ip_hash'            => $ipHash,
+                'country_iso'        => strtoupper(substr($countryIso, 0, 2)),
+                'device_type'        => $deviceType,
+                'is_bot'             => $isBot,
+                'destination_domain' => substr($destDomain, 0, 100),
+                'utm_source'         => sanitize_text_field($attribution['utm_source'] ?? ''),
+                'utm_medium'         => sanitize_text_field($attribution['utm_medium'] ?? ''),
+                'utm_campaign'       => sanitize_text_field($attribution['utm_campaign'] ?? ''),
+                'utm_content'        => sanitize_text_field($attribution['utm_content'] ?? ''),
+                'referral_channel'   => sanitize_text_field($attribution['referral_channel'] ?? 'direct'),
+                'first_referrer'     => esc_url_raw($attribution['first_referrer'] ?? ''),
             ],
-            ['%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
+            ['%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s']
         );
     }
 
@@ -1210,13 +1626,46 @@ final class RevenueService
             }
         }
 
+        $botClicks = (int) $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM ' . $table . ' WHERE created_at >= %s AND is_bot = 1', $from));
+
+        $byDeviceRows = $wpdb->get_results($wpdb->prepare(
+            'SELECT device_type, COUNT(*) as total FROM ' . $table . ' WHERE created_at >= %s GROUP BY device_type ORDER BY total DESC',
+            $from
+        ), ARRAY_A);
+        $byDevice = [];
+        if (is_array($byDeviceRows)) {
+            foreach ($byDeviceRows as $row) {
+                $key = isset($row['device_type']) ? (string) $row['device_type'] : '';
+                if ($key !== '') {
+                    $byDevice[$key] = (int) ($row['total'] ?? 0);
+                }
+            }
+        }
+
+        $byCountryRows = $wpdb->get_results($wpdb->prepare(
+            'SELECT country_iso, COUNT(*) as total FROM ' . $table . ' WHERE created_at >= %s AND country_iso != "" GROUP BY country_iso ORDER BY total DESC LIMIT 15',
+            $from
+        ), ARRAY_A);
+        $byCountry = [];
+        if (is_array($byCountryRows)) {
+            foreach ($byCountryRows as $row) {
+                $key = isset($row['country_iso']) ? (string) $row['country_iso'] : '';
+                if ($key !== '') {
+                    $byCountry[$key] = (int) ($row['total'] ?? 0);
+                }
+            }
+        }
+
         return [
             'ok'          => true,
             'days'        => $days,
             'from'        => $from,
-            'total_clicks' => $total,
+            'total_clicks'=> $total,
+            'bot_clicks'  => $botClicks,
             'by_source'   => $bySource,
             'by_network'  => $byNetwork,
+            'by_device'   => $byDevice,
+            'by_country'  => $byCountry,
             'top_helmets' => $topHelmets,
         ];
     }

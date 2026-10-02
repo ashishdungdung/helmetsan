@@ -20,17 +20,51 @@ final class YoastSeoSeeder
     private const TITLE_MAX = 60;
     private const META_DESC_MAX = 160;
 
-    private const YOAST_TITLE = '_yoast_wpseo_title';
-    private const YOAST_METADESC = '_yoast_wpseo_metadesc';
-    private const YOAST_FOCUSKW = '_yoast_wpseo_focuskw';
+    public const YOAST_TITLE = '_yoast_wpseo_title';
+    public const YOAST_METADESC = '_yoast_wpseo_metadesc';
+    public const YOAST_FOCUSKW = '_yoast_wpseo_focuskw';
+    public const PROVENANCE_META = '_helmetsan_seo_source';
+    public const PROVENANCE_GENERATED = 'generated';
+    public const PROVENANCE_EDITORIAL = 'editorial';
 
     public function __construct(
         private readonly ?AiSeoDescriptionProvider $aiProvider = null
     ) {
     }
 
-    public function seedSinglePost(int $postId): bool
+    /**
+     * Determine if a post has human-authored editorial SEO metadata that must not be overwritten.
+     */
+    public function isEditorialLocked(int $postId): bool
     {
+        $source = get_post_meta($postId, self::PROVENANCE_META, true);
+        if ($source === self::PROVENANCE_EDITORIAL) {
+            return true;
+        }
+
+        // If title or meta description exists but no Helmetsan source was recorded, assume human authored
+        $existingTitle = get_post_meta($postId, self::YOAST_TITLE, true);
+        $existingDesc = get_post_meta($postId, self::YOAST_METADESC, true);
+        if ((!empty($existingTitle) || !empty($existingDesc)) && empty($source)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function seedSinglePost(int $postId, bool $force = false): bool
+    {
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return false;
+        }
+        if (wp_is_post_revision($postId) || wp_is_post_autosave($postId)) {
+            return false;
+        }
+
+        if (! $force && $this->isEditorialLocked($postId)) {
+            return false;
+        }
+
         $post = get_post($postId);
         if (! $post instanceof WP_Post) {
             return false;
@@ -53,6 +87,7 @@ final class YoastSeoSeeder
 
         update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
         update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+        update_post_meta($postId, self::PROVENANCE_META, self::PROVENANCE_GENERATED);
         
         $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
         if ($focuskw === '') {
@@ -88,9 +123,13 @@ final class YoastSeoSeeder
             if ($triple === null) {
                 continue;
             }
+            if ($this->isEditorialLocked($postId)) {
+                continue;
+            }
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+                update_post_meta($postId, self::PROVENANCE_META, self::PROVENANCE_GENERATED);
                 $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
                 if ($focuskw === '') {
                     $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title, 60));
@@ -126,9 +165,13 @@ final class YoastSeoSeeder
             if ($triple === null) {
                 continue;
             }
+            if ($this->isEditorialLocked($postId)) {
+                continue;
+            }
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+                update_post_meta($postId, self::PROVENANCE_META, self::PROVENANCE_GENERATED);
                 $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
                 if ($focuskw === '') {
                     $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title . ' helmets', 60));
@@ -164,9 +207,13 @@ final class YoastSeoSeeder
             if ($triple === null) {
                 continue;
             }
+            if ($this->isEditorialLocked($postId)) {
+                continue;
+            }
             if (! $dryRun) {
                 update_post_meta($postId, self::YOAST_TITLE, $triple['title']);
                 update_post_meta($postId, self::YOAST_METADESC, $triple['metadesc']);
+                update_post_meta($postId, self::PROVENANCE_META, self::PROVENANCE_GENERATED);
                 $focuskw = $this->normalizeFocusKw(trim((string) ($triple['focuskw'] ?? '')));
                 if ($focuskw === '') {
                     $focuskw = $this->normalizeFocusKw($this->truncate((string) $post->post_title, 60));

@@ -32,15 +32,19 @@
 }
 
 /* Tokens live in design-tokens.css; :root and [data-theme] define light/dark. */
-body {
-    --hs-content-max: 1200px;
+html {
+    background-color: var(--hs-bg);
+    color: var(--hs-text);
 }
 
 body {
+    --hs-content-max: 1200px;
     margin: 0;
+    min-height: 100%;
     color: var(--hs-text);
     font-family: var(--hs-font-sans);
-    background: var(--hs-bg-gradient);
+    background-color: var(--hs-bg);
+    background-image: var(--hs-bg-gradient);
     transition: background var(--hs-transition-slow), color var(--hs-transition);
 }
 

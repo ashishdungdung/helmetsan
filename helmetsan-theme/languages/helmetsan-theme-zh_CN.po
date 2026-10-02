@@ -1,762 +1,1741 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Helmetsan Theme 2.0\n"
-"POT-Creation-Date: 2026-09-06 12:00+0000\n"
-"PO-Revision-Date: 2026-09-06 12:00+0000\n"
-"Last-Translator: Helmetsan\n"
-"Language-Team: Helmetsan\n"
+"Project-Id-Version: Helmetsan Theme 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 12:00+0000\n"
+"PO-Revision-Date: 2026-09-24 12:00+0000\n"
+"Last-Translator: Helmetsan Luna Engine\n"
+"Language-Team: Helmetsan Localization Team\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Home"
-msgstr "首页"
+msgid "$300 – $600"
+msgstr "$300 – $600"
 
-msgid "Helmets"
-msgstr "头盔"
+msgid "$600+"
+msgstr "$600+"
 
-msgid "Brands"
-msgstr "品牌"
+msgid "%1$d / %2$d Global"
+msgstr "%1$d / %2$d Global"
+
+msgid "%d filters available"
+msgstr "%d 个筛选条件可用"
+
+msgid "%d stars"
+msgstr "%d stars"
+
+msgid "%s helmets"
+msgstr "%s 个头盔"
+
+msgid "%s helmets match your requirements"
+msgstr "%s 个头盔符合您的要求"
+
+msgid "%s is an international import. Orders via cross-border distributors may be subject to customs clearance and local import taxes upon delivery."
+msgstr "%s 为国际进口商品。通过跨境经销商下单的商品在交付时可能需要办理清关并缴纳当地进口税。"
+
+msgid "%s%% MATCH"
+msgstr "%s%% 匹配"
+
+msgid "%s+ helmets · 100+ brands · compare safety, fit and price"
+msgstr "%s+ 个头盔 · 100+ 个品牌 · 比较安全性、贴合度和价格"
+
+msgid "&larr; Prev"
+msgstr "&larr; Prev"
+
+msgid "-- Choose Brand --"
+msgstr "-- 选择品牌 --"
+
+msgid "-- Choose Model (Optional) --"
+msgstr "-- 选择型号（可选） --"
+
+msgid "-- Select Brand First --"
+msgstr "-- 请先选择品牌 --"
+
+msgid "0 helmets selected"
+msgstr "已选择 0 个头盔"
+
+msgid "1 Year"
+msgstr "1 年"
+
+msgid "1. Select your helmet"
+msgstr "1. 选择您的头盔"
+
+msgid "30 Days"
+msgstr "30 天"
+
+msgid "90 Days"
+msgstr "90 天"
+
+msgid "AI Policy"
+msgstr "AI Policy"
+
+msgid "About Helmetsan"
+msgstr "About Helmetsan"
+
+msgid "Accessibility Statement"
+msgstr "Accessibility Statement"
 
 msgid "Accessories"
-msgstr "配件"
+msgstr "Accessories"
 
-msgid "Motorcycles"
-msgstr "摩托车"
-
-msgid "Breadcrumb"
-msgstr "面包屑导航"
-
-msgid "Catalog"
-msgstr "目录"
-
-msgid "Primary Menu"
-msgstr "主菜单"
-
-msgid "Secondary Menu"
-msgstr "次级菜单"
-
-msgid "Footer Menu"
-msgstr "页脚菜单"
-
-msgid "Legal Menu"
-msgstr "法律条款菜单"
-
-msgid "Social Menu"
-msgstr "社交媒体菜单"
-
-msgid "Skip to content"
-msgstr "跳转到内容"
-
-msgid "Open Search"
-msgstr "打开搜索"
-
-msgid "Page sections"
-msgstr "页面导航"
-
-msgid "Product details"
-msgstr "产品详情"
-
-msgid "Quick Verdict"
-msgstr "快速评定"
-
-msgid "Quick Facts"
-msgstr "核心参数"
-
-msgid "Safety"
-msgstr "安全认证"
-
-msgid "Fit & Sizing"
-msgstr "版型与尺码"
-
-msgid "Overview"
-msgstr "全景概览"
-
-msgid "Specifications"
-msgstr "技术规格"
-
-msgid "Where to Buy"
-msgstr "购买渠道"
-
-msgid "Where to buy"
-msgstr "购买渠道"
-
-msgid "Reviews"
-msgstr "测评评价"
-
-msgid "Data & Sources"
-msgstr "数据来源"
-
-msgid "Product description"
-msgstr "产品描述"
-
-msgid "Part numbers"
-msgstr "零件编号"
-
-msgid "Sizing & fit"
-msgstr "尺码与版型"
-
-msgid "Sizing &amp; fit"
-msgstr "尺码与版型"
-
-msgid "VERIFIED TECHNICAL SPEC"
-msgstr "已核验技术规格"
-
-msgid "Verified Data"
-msgstr "已验证数据"
-
-msgid "Verification Status"
-msgstr "验证状态"
-
-msgid "Data Confidence & Verification Provenance"
-msgstr "数据可信度与验证溯源"
-
-msgid "IMAGE UNAVAILABLE"
-msgstr "暂无图片"
-
-msgid "Helmetsan does not currently have a verified product image for this model."
-msgstr "Helmetsan 暂未获取到该型号的已验证产品图片。"
-
-msgid "Quick Facts at a Glance"
-msgstr "核心参数一览"
-
-msgid "Category"
-msgstr "头盔类型"
-
-msgid "Certifications"
-msgstr "安全认证"
-
-msgid "Measured Weight"
-msgstr "实测重量"
-
-msgid "Shell Material"
-msgstr "外壳材质"
-
-msgid "Head Shape Fit"
-msgstr "头型匹配"
-
-msgid "Retention System"
-msgstr "系带系统"
-
-msgid "Shell Construction"
-msgstr "外壳结构"
-
-msgid "Outer structural material"
-msgstr "外部结构材质"
-
-msgid "Approximate medium size weight"
-msgstr "M码参考重量"
-
-msgid "Warranty"
-msgstr "质保年限"
-
-msgid "Manufacturer coverage duration"
-msgstr "官方质保周期"
-
-msgid "Primary Use Case"
-msgstr "主打场景"
-
-msgid "Optimized riding orientation"
-msgstr "优化骑行姿态"
-
-msgid "Certification"
-msgstr "认证标准"
-
-msgid "Certified safety standard"
-msgstr "法定安全标准"
-
-msgid "Rotational Protection"
-msgstr "旋转冲击防护"
-
-msgid "Mitigates rotational impact"
-msgstr "减缓脑部旋转冲击力"
-
-msgid "Emergency Release"
-msgstr "应急快拆"
-
-msgid "Emergency Release System"
-msgstr "紧急快拆颊垫系统"
-
-msgid "Cheek pad quick removal"
-msgstr "颊垫快速拆除装置"
-
-msgid "Retention Strap"
-msgstr "系带类型"
-
-msgid "Chin strap buckle style"
-msgstr "下巴搭扣类型"
-
-msgid "Retention Mechanism"
-msgstr "系带闭合机制"
-
-msgid "SHARP Impact Rating"
-msgstr "SHARP 碰撞测试评分"
-
-msgid "Verified SHARP UK impact test score"
-msgstr "英国 SHARP 实验室实测评分"
-
-msgid "Noise Level"
-msgstr "风噪分贝"
-
-msgid "Measured wind noise at speed"
-msgstr "高速风噪实测值"
-
-msgid "Ventilation"
-msgstr "通风性能"
-
-msgid "Airflow performance rating"
-msgstr "风道气流性能评分"
-
-msgid "Wind Tunnel Tested"
-msgstr "风洞测试"
-
-msgid "Optimized shell aerodynamics"
-msgstr "空气动力学优化壳体"
-
-msgid "Pinlock Anti-Fog"
-msgstr "Pinlock 防雾贴"
-
-msgid "Anti-fog visor insert"
-msgstr "防雾镜片内嵌装置"
-
-msgid "Comms Integration"
-msgstr "蓝牙耳机槽"
-
-msgid "Intercom cutout availability"
-msgstr "专用对讲机耳机槽"
-
-msgid "Glasses Friendly"
-msgstr "眼镜凹槽设计"
-
-msgid "Inner lining eyewear grooves"
-msgstr "内衬眼镜专用通道"
-
-msgid "Visor System"
-msgstr "镜片系统"
-
-msgid "Integrated drop-down sun visor"
-msgstr "内置遮阳防眩镜片"
-
-msgid "Removable Interior"
-msgstr "可拆卸内衬"
-
-msgid "Washable lining modules"
-msgstr "全套可水洗内衬模块"
-
-msgid "SAFETY & CERTIFICATIONS"
-msgstr "安全与认证"
-
-msgid "Verified Safety Snapshot"
-msgstr "权威安全速览"
-
-msgid "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
-msgstr "该头盔认证标准与全球权威碰撞测试对照解析。"
-
-msgid "Certified Homologation"
-msgstr "官方认证标准"
-
-msgid "SHARP Impact Score"
-msgstr "SHARP 碰撞星级"
-
-msgid "Safety Standards"
-msgstr "安全标准"
-
-msgid "Safety & Certifications"
-msgstr "安全与认证"
-
-msgid "Safety & Aero-Acoustics HUD"
-msgstr "安全与声学监控"
+msgid "Accessories Tracked"
+msgstr "已跟踪配件"
 
 msgid "Acoustics & Aerodynamics"
-msgstr "声学与空气动力学"
+msgstr "Acoustics & Aerodynamics"
 
-msgid "Technology & Convenience"
-msgstr "科技与舒适配置"
+msgid "Activate Track Alert"
+msgstr "Activate Track Alert"
 
-msgid "Regional Legality Guidance"
-msgstr "区域法规与合规指南"
+msgid "Add to Comparison"
+msgstr "添加到对比"
 
-msgid "Regional Legality & Compliance"
-msgstr "区域合规性与路权合法性"
+msgid "Add to compare"
+msgstr "Add to compare"
 
-msgid "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
-msgstr "安全标准符合性基于制造商官方文件及独立实验室公开碰撞测试。使用前请核实实物头盔上的区域合规标识。"
+msgid "Add to comparison"
+msgstr "Add to comparison"
 
-msgid "FIT & SIZING"
-msgstr "版型与尺码指南"
+msgid "Adventure"
+msgstr "Adventure"
 
-msgid "Verified Fit & Sizing Guide"
-msgstr "权威头型与尺码匹配指南"
+msgid "Adventure / Off-Road"
+msgstr "Adventure / 越野"
 
-msgid "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
-msgstr "根据制造商权威几何尺寸提供头型智能匹配及交互式尺码换算。"
+msgid "Aero-Acoustics"
+msgstr "Aero-Acoustics"
 
-msgid "Your Head Circumference"
-msgstr "您的头围尺寸"
+msgid "Aero-acoustic profile pending track testing."
+msgstr "Aero-acoustic profile pending track testing."
 
-msgid "Select Head Shape Profile"
-msgstr "选择您的头型"
+msgid "Affiliate Disclosure"
+msgstr "Affiliate Disclosure"
 
-msgid "Recommended Helmet Size"
-msgstr "推荐头盔尺码"
+msgid "Aggressive street"
+msgstr "激进街道骑行"
 
-msgid "Using standardized ECE/DOT baseline metrics."
-msgstr "采用 ECE/DOT 标准基准参数。"
+msgid "Airflow & visibility"
+msgstr "气流与视野"
 
-msgid "How to measure"
-msgstr "如何测量头围"
+msgid "Airflow performance rating"
+msgstr "气流性能评级"
 
-msgid "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
-msgstr "将软皮尺水平围绕头部，位于眉毛上方约1指处并绕过耳上方。保持舒适服帖，读取数值并多次测量以保证准确。"
+msgid "All Brands"
+msgstr "所有品牌"
 
-msgid "Interactive Size & Fit Finder"
-msgstr "交互式尺码匹配工具"
+msgid "All Helmets"
+msgstr "所有头盔"
 
-msgid "Round Oval"
-msgstr "圆椭头型"
+msgid "All matching helmets"
+msgstr "所有匹配的头盔"
 
-msgid "Intermediate Oval"
-msgstr "标准中椭头型"
+msgid "Anti-fog visor insert"
+msgstr "防雾镜片内衬"
 
-msgid "Long Oval"
-msgstr "长椭头型"
+msgid "Any Budget"
+msgstr "不限预算"
 
-msgid "Round Oval Shape"
-msgstr "圆椭头型 (亚洲头型)"
+msgid "Any Riding Style"
+msgstr "不限骑行风格"
 
-msgid "Intermediate Oval Shape"
-msgstr "标准中椭头型"
+msgid "Any Safety"
+msgstr "不限安全等级"
 
-msgid "Long Oval Shape"
-msgstr "长椭头型 (欧美头型)"
+msgid "Apply Filters"
+msgstr "应用筛选条件"
 
-msgid "Spherical fit: added side volume width, tailored for rounder skull profiles."
-msgstr "圆形版型：增加两侧空间宽度，专为较圆的亚洲头型优化。"
+msgid "Approximate medium size weight"
+msgstr "中号尺寸的大约重量"
+
+msgid "Authorized Distributor"
+msgstr "Authorized Distributor"
+
+msgid "Availability"
+msgstr "Availability"
+
+msgid "Avg. Standard"
+msgstr "Avg. Standard"
+
+msgid "Avg. Weight"
+msgstr "Avg. Weight"
+
+msgid "Awaiting SHARP Audit"
+msgstr "Awaiting SHARP Audit"
+
+msgid "Balanced (Centered)"
+msgstr "Balanced (Centered)"
 
 msgid "Balanced oval fit: standard ergonomic curvature fitting 80%+ of riders."
-msgstr "标准中椭版型：符合全球 80% 以上骑手的人体工学弧度。"
+msgstr "Balanced oval fit: standard ergonomic curvature fitting 80%+ of riders."
 
-msgid "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
-msgstr "长椭版型：释放太阳穴压迫感，专为前后径较长头型设计。"
+msgid "Based on %d verified reviews"
+msgstr "Based on %d verified reviews"
 
-msgid "Product Concept & Specifications"
-msgstr "产品设计理念与技术规格"
+msgid "Based on safety, value, weight and rider feedback across our database."
+msgstr "基于我们整个数据库中的安全性、性价比、重量和骑手反馈。"
+
+msgid "Based on your motorcycle, riding style, budget and safety requirements."
+msgstr "基于您的摩托车、骑行风格、预算和安全需求。"
+
+msgid "Be the first to share your riding experience with this helmet."
+msgstr "Be the first to share your riding experience with this helmet."
+
+msgid "Best Adventure"
+msgstr "最佳探险型"
+
+msgid "Best For"
+msgstr "最适合"
+
+msgid "Best Lightweight"
+msgstr "最佳轻量化"
+
+msgid "Best Match"
+msgstr "最佳匹配"
+
+msgid "Best Matches"
+msgstr "最佳匹配项"
+
+msgid "Best Online Price"
+msgstr "最佳在线价格"
+
+msgid "Best Overall"
+msgstr "综合最佳"
+
+msgid "Best Price"
+msgstr "最佳价格"
+
+msgid "Best Value"
+msgstr "最佳性价比"
+
+msgid "Best helmets for long-distance touring"
+msgstr "最适合长途旅行的头盔"
+
+msgid "Best matches for you"
+msgstr "最适合您的头盔"
+
+msgid "Blog & News"
+msgstr "Blog & News"
+
+msgid "Bluetooth · Mesh · Audio Kits"
+msgstr "Bluetooth · Mesh · 音频套件"
+
+msgid "Brand"
+msgstr "品牌"
+
+msgid "Brands"
+msgstr "Brands"
+
+msgid "Breadcrumb"
+msgstr "Breadcrumb"
+
+msgid "Browse All Accessories →"
+msgstr "浏览所有配件 →"
+
+msgid "Browse All Helmets →"
+msgstr "浏览所有头盔 →"
+
+msgid "Browse Our Catalog"
+msgstr "浏览我们的目录"
+
+msgid "Browse all %s+ helmets"
+msgstr "浏览所有%s+头盔"
+
+msgid "Browse all %s+ helmets →"
+msgstr "浏览所有%s+头盔 →"
+
+msgid "Browse all accessories"
+msgstr "浏览所有配件"
+
+msgid "Browse helmets"
+msgstr "浏览头盔"
+
+msgid "Browse the catalog and click “Compare” on any helmet to add it here. You can compare up to four helmets at once."
+msgstr "浏览目录并点击任意头盔上的“比较”，即可将其添加到这里。您最多可以同时比较四个头盔。"
+
+msgid "Budget"
+msgstr "预算"
+
+msgid "Built for riders who demand clarity and compliance."
+msgstr "Built for riders who demand clarity and compliance."
+
+msgid "Buy Local"
+msgstr "本地购买"
+
+msgid "Buy Now"
+msgstr "立即购买"
+
+msgid "Buy on Amazon →"
+msgstr "在Amazon上购买 →"
+
+msgid "Buying Guide"
+msgstr "购买指南"
+
+msgid "COCKPIT & RIDER GEAR"
+msgstr "驾驶舱与骑手装备"
+
+msgid "COMPARE"
+msgstr "比较"
+
+msgid "COMPATIBILITY ENGINE"
+msgstr "兼容性引擎"
+
+msgid "COMPATIBILITY MATRIX"
+msgstr "兼容性矩阵"
+
+msgid "Cache inherited helmet specs and features to reduce database load."
+msgstr "Cache inherited helmet specs and features to reduce database load."
+
+msgid "Call"
+msgstr "Call"
+
+msgid "Can't decide between two helmets?"
+msgstr "在两款头盔之间难以选择？"
+
+msgid "Care"
+msgstr "护理"
+
+msgid "Catalog"
+msgstr "Catalog"
+
+msgid "Categories"
+msgstr "类别"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Certification"
+msgstr "认证"
+
+msgid "Certification Documents & References"
+msgstr "Certification Documents & References"
+
+msgid "Certification standards pending lab verification."
+msgstr "认证标准待实验室验证。"
+
+msgid "Certifications"
+msgstr "Certifications"
+
+msgid "Certifications & Documents"
+msgstr "Certifications & Documents"
+
+msgid "Certified Homologation"
+msgstr "Certified Homologation"
+
+msgid "Certified safety standard"
+msgstr "经认证的安全标准"
+
+msgid "Check Deals"
+msgstr "Check Deals"
+
+msgid "Check Price"
+msgstr "查看价格"
+
+msgid "Check Price →"
+msgstr "查看价格 →"
+
+msgid "Check live price"
+msgstr "查看实时价格"
+
+msgid "Check price"
+msgstr "查看价格"
+
+msgid "Check price for %s"
+msgstr "Check price for %s"
+
+msgid "Cheek Pads · Liners · Balaclavas"
+msgstr "脸颊垫 · 内衬 · 巴拉克拉法帽"
+
+msgid "Cheek pad quick removal"
+msgstr "脸颊垫快速拆卸"
+
+msgid "Chin strap buckle style"
+msgstr "下巴带扣类型"
+
+msgid "City & daily use"
+msgstr "城市与日常使用"
+
+msgid "City Commuter"
+msgstr "城市通勤"
+
+msgid "Cleaners · Bags · Storage"
+msgstr "清洁剂 · 包袋 · 收纳用品"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "Clear All"
+msgstr "全部清除"
+
+msgid "Clear All Filters →"
+msgstr "清除所有筛选条件 →"
+
+msgid "Clear all"
+msgstr "全部清除"
+
+msgid "Close modal"
+msgstr "关闭模态窗口"
+
+msgid "Color/Finish:"
+msgstr "Color/Finish:"
+
+msgid "Comfort"
+msgstr "舒适性"
+
+msgid "Comms Integration"
+msgstr "通信设备集成"
+
+msgid "Comms Ready"
+msgstr "Comms Ready"
+
+msgid "Communication"
+msgstr "通信"
+
+msgid "Commute"
+msgstr "通勤"
+
+msgid "Company"
+msgstr "Company"
+
+msgid "Compare"
+msgstr "Compare"
+
+msgid "Compare All Stores ↓"
+msgstr "比较所有商店 ↓"
+
+msgid "Compare Helmets →"
+msgstr "比较头盔 →"
+
+msgid "Compare Now →"
+msgstr "立即比较 →"
+
+msgid "Compare Safety Standards →"
+msgstr "比较安全标准 →"
+
+msgid "Compare now"
+msgstr "Compare now"
+
+msgid "Compare safety, fit, features, riding style and price across thousands of helmets."
+msgstr "比较数千款头盔的安全性、贴合度、功能、骑行风格和价格。"
+
+msgid "Compare specs, certifications, weight, and price side by side. Add up to four helmets from the catalog, then use this page to see differences at a glance and choose the right one."
+msgstr "并排比较规格、认证、重量和价格。从目录中添加最多四款头盔，然后在此页面上一目了然地查看差异并选择合适的款式。"
+
+msgid "Compare them side by side — safety, weight, features and price."
+msgstr "并排比较安全性、重量、功能和价格。"
+
+msgid "Comparison bar"
+msgstr "Comparison bar"
+
+msgid "Comparison · 6 min read"
+msgstr "比较 · 阅读需时6分钟"
+
+msgid "Compatibility Data"
+msgstr "兼容性数据"
+
+msgid "Compatible Accessories"
+msgstr "Compatible Accessories"
+
+msgid "Compatible Gear"
+msgstr "兼容装备"
+
+msgid "Compatible Helmets"
+msgstr "Compatible Helmets"
+
+msgid "Cons (comma separated)"
+msgstr "Cons (comma separated)"
+
+msgid "Cons:"
+msgstr "Cons:"
+
+msgid "Contact Page &rarr;"
+msgstr "Contact Page &rarr;"
+
+msgid "Contact Us"
+msgstr "Contact Us"
+
+msgid "Content Alignment"
+msgstr "Content Alignment"
+
+msgid "Content Max Width (px)"
+msgstr "Content Max Width (px)"
+
+msgid "Cookie Policy"
+msgstr "Cookie Policy"
+
+msgid "Copy link to clipboard"
+msgstr "复制链接到剪贴板"
+
+msgid "Copyright Notice"
+msgstr "Copyright Notice"
+
+msgid "Data & Sources"
+msgstr "数据与来源"
+
+msgid "Data Confidence & Verification Provenance"
+msgstr "Data Confidence & Verification Provenance"
+
+msgid "Data Notes"
+msgstr "数据说明"
+
+msgid "Dealers Directory"
+msgstr "Dealers Directory"
 
 msgid "Design Concept & Background"
-msgstr "设计概念与研发背景"
+msgstr "Design Concept & Background"
 
-msgid "Key Highlights:"
-msgstr "核心亮点："
+msgid "Detailed specifications and technical profile details for the %s are available in the tables below."
+msgstr "Detailed specifications and technical profile details for the %s are available in the tables below."
 
-msgid "Rider Profile & Intended Use"
-msgstr "骑手画像与适用场景"
+msgid "Detected IP"
+msgstr "检测到的IP"
 
-msgid "Riding Style"
-msgstr "骑行风格"
+msgid "Directions"
+msgstr "路线"
 
-msgid "Helmet Category"
-msgstr "头盔类别"
+msgid "Disclaimer"
+msgstr "Disclaimer"
 
-msgid "Internal Fit Shape"
-msgstr "内部版型特征"
+msgid "Discover helmets across %s+ products from %s+ brands."
+msgstr "探索来自超过%s款产品和超过%s个品牌的头盔。"
+
+msgid "Displacement"
+msgstr "排量"
+
+msgid "Display Name"
+msgstr "Display Name"
+
+msgid "Drag and drop to reorder links in footer bottom line."
+msgstr "Drag and drop to reorder links in footer bottom line."
+
+msgid "Dual Visor System"
+msgstr "双镜片系统"
+
+msgid "Dual-sport versatility for road and trail riding."
+msgstr "兼顾公路与越野骑行的双运动多功能性。"
+
+msgid "ECE vs DOT: What's the difference?"
+msgstr "ECE与DOT：有什么区别？"
+
+msgid "EQRS Active"
+msgstr "EQRS Active"
+
+msgid "EQUIPMENT & OPTICS INTELLIGENCE"
+msgstr "装备与光学智能"
+
+msgid "Electric Heating Compatibility:"
+msgstr "Electric Heating Compatibility:"
+
+msgid "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
+msgstr "Elongated fit: relieved lateral pressure, optimized front-to-back sizing."
+
+msgid "Email (private)"
+msgstr "Email (private)"
+
+msgid "Emergency Release"
+msgstr "紧急释放"
+
+msgid "Emergency Release System"
+msgstr "Emergency Release System"
+
+msgid "Enable Metadata Caching"
+msgstr "Enable Metadata Caching"
 
 msgid "Engineering & Technical Analysis"
-msgstr "工程技术深度解析"
+msgstr "Engineering & Technical Analysis"
+
+msgid "Essential cockpit communication, protection, or maintenance accessory."
+msgstr "用于座舱通信、防护或维护的必备配件。"
+
+msgid "Exclusive Importer"
+msgstr "Exclusive Importer"
+
+msgid "Explore"
+msgstr "探索"
+
+msgid "Explore Helmets"
+msgstr "探索头盔"
+
+msgid "Extremely Quiet: Superior long-distance sound damping."
+msgstr "Extremely Quiet: Superior long-distance sound damping."
+
+msgid "FIND YOUR HELMET"
+msgstr "找到适合你的头盔"
+
+msgid "FIT & SIZING"
+msgstr "FIT & SIZING"
+
+msgid "Feature"
+msgstr "功能"
+
+msgid "Features"
+msgstr "功能"
+
+msgid "Filter Helmets"
+msgstr "筛选头盔"
+
+msgid "Filter brands"
+msgstr "筛选品牌"
+
+msgid "Filter by Brand"
+msgstr "按品牌筛选"
+
+msgid "Filter by Features"
+msgstr "按功能筛选"
+
+msgid "Filter by Helmet Type"
+msgstr "按头盔类型筛选"
+
+msgid "Filter by Price"
+msgstr "按价格筛选"
+
+msgid "Filter by Riding Style"
+msgstr "按骑行风格筛选"
+
+msgid "Filter by Safety Standards"
+msgstr "按安全标准筛选"
+
+msgid "Find Accessories for Your Helmet"
+msgstr "查找适合您头盔的配件"
+
+msgid "Find My Helmet →"
+msgstr "查找我的头盔 →"
+
+msgid "Find a helmet for your motorcycle"
+msgstr "为您的摩托车查找头盔"
+
+msgid "Find accessories for my helmet →"
+msgstr "查找适合我的头盔的配件 →"
+
+msgid "Find compatible accessories for your helmet."
+msgstr "查找与您的头盔兼容的配件。"
+
+msgid "Find the right accessories for your helmet — from visibility and communication upgrades to comfort, protection and care."
+msgstr "为您的头盔找到合适的配件 — 从提升能见度和通信功能，到舒适性、防护与保养。"
+
+msgid "Find the right category"
+msgstr "找到合适的类别"
+
+msgid "Find the right helmet for how you ride."
+msgstr "根据您的骑行方式找到合适的头盔。"
 
 msgid "Fit & Shell Structure"
-msgstr "版型匹配与外壳架构"
+msgstr "Fit & Shell Structure"
+
+msgid "Fit & Sizing"
+msgstr "贴合度与尺寸"
+
+msgid "Footer Column 1"
+msgstr "Footer Column 1"
+
+msgid "Footer Column 2"
+msgstr "Footer Column 2"
+
+msgid "Footer Column 3"
+msgstr "Footer Column 3"
+
+msgid "Footer Menu"
+msgstr "Footer Menu"
+
+msgid "Full Face"
+msgstr "全盔"
+
+msgid "Full Set"
+msgstr "完整套装"
+
+msgid "Gallery for %s"
+msgstr "Gallery for %s"
+
+msgid "Glasses Friendly"
+msgstr "适合佩戴眼镜"
+
+msgid "Global Helmet Intelligence Platform"
+msgstr "全球头盔智能平台"
+
+msgid "Good Flow: Standard EPS exhaust ports."
+msgstr "Good Flow: Standard EPS exhaust ports."
+
+msgid "Guides & research"
+msgstr "指南与研究"
+
+msgid "HELMETSAN QUICK VERDICT"
+msgstr "HELMETSAN 快速评定"
+
+msgid "Head Shape Fit"
+msgstr "Head Shape Fit"
+
+msgid "Head shape fit profile is unverified."
+msgstr "基于头型的贴合度档案尚未验证。"
+
+msgid "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
+msgstr "Head shape profile matching and interactive size calculator based on verified manufacturer dimensions."
+
+msgid "Helmet Accessories & Optics"
+msgstr "头盔配件与光学产品"
+
+msgid "Helmet Catalog"
+msgstr "头盔目录"
+
+msgid "Helmet Category"
+msgstr "Helmet Category"
+
+msgid "Helmet Comparison"
+msgstr "Helmet Comparison"
+
+msgid "Helmet Compatibility:"
+msgstr "Helmet Compatibility:"
+
+msgid "Helmet Model"
+msgstr "头盔型号"
+
+msgid "Helmet Type"
+msgstr "头盔类型"
+
+msgid "Helmet Types"
+msgstr "Helmet Types"
+
+msgid "Helmets"
+msgstr "Helmets"
+
+msgid "Helmets Tracked"
+msgstr "已追踪的头盔"
+
+msgid "Helmetsan Assessment"
+msgstr "Helmetsan评估"
+
+msgid "Helmetsan Decision Support"
+msgstr "Helmetsan决策支持"
+
+msgid "Helmetsan Intelligence"
+msgstr "Helmetsan智能分析"
+
+msgid "Helmetsan Layout & Footer"
+msgstr "Helmetsan Layout & Footer"
+
+msgid "Helmetsan Mac Child expects GeneratePress as parent theme."
+msgstr "Helmetsan Mac Child expects GeneratePress as parent theme."
+
+msgid "Helmetsan Performance"
+msgstr "Helmetsan Performance"
+
+msgid "Helmetsan Pick"
+msgstr "Helmetsan推荐"
+
+msgid "Helmetsan Picks"
+msgstr "Helmetsan推荐列表"
+
+msgid "Helmetsan Score"
+msgstr "Helmetsan 评分"
+
+msgid "Helmetsan Theme works best with Helmetsan Core plugin active."
+msgstr "Helmetsan Theme works best with Helmetsan Core plugin active."
+
+msgid "Helmetsan does not currently have a verified product image for this model."
+msgstr "Helmetsan does not currently have a verified product image for this model."
+
+msgid "Helmetsan enforces field-level verification and multi-source cross-referencing. Unverified values are explicitly flagged rather than estimated."
+msgstr "Helmetsan enforces field-level verification and multi-source cross-referencing. Unverified values are explicitly flagged rather than estimated."
+
+msgid "Helmetsan is a trademark, owned and operated by Ash Digital Services."
+msgstr "Helmetsan is a trademark, owned and operated by Ash Digital Services."
+
+msgid "Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you."
+msgstr "Helmetsan 是一个独立的摩托车安全与决策引擎。当您查看价格或通过零售商链接购买时，Helmetsan 可能会获得联盟佣金，且不会向您收取额外费用。"
+
+msgid "Helmetsan recommendation profile tailored specifically for the %s riding ergonomics, wind screen profile, and velocity characteristics."
+msgstr "针对 %s 的骑行人体工学、风挡轮廓和速度特性量身定制的 Helmetsan 推荐配置。"
+
+msgid "Help Me Choose"
+msgstr "帮我选择"
+
+msgid "High Aero Noise: Ear protection strongly recommended."
+msgstr "High Aero Noise: Ear protection strongly recommended."
+
+msgid "High Flow: Dynamic multi-channel active venting."
+msgstr "High Flow: Dynamic multi-channel active venting."
+
+msgid "Highway"
+msgstr "高速公路"
+
+msgid "Highway / Touring"
+msgstr "高速公路 / 长途旅行"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "How Do You Ride?"
+msgstr "您的骑行方式是？"
+
+msgid "How many stars?"
+msgstr "How many stars?"
+
+msgid "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
+msgstr "How this helmet’s verified certifications map to recognized safety homologations and crash testing."
+
+msgid "How to measure"
+msgstr "How to measure"
+
+msgid "IMAGE UNAVAILABLE"
+msgstr "IMAGE UNAVAILABLE"
+
+msgid "Image Unavailable"
+msgstr "图片不可用"
+
+msgid "Impact + rotational testing"
+msgstr "冲击与旋转测试"
+
+msgid "In stock"
+msgstr "有库存"
+
+msgid "Included"
+msgstr "包含"
+
+msgid "Independent UK rating system"
+msgstr "英国独立评级系统"
+
+msgid "Independent performance standard"
+msgstr "独立性能标准"
+
+msgid "Inner lining eyewear grooves"
+msgstr "内衬眼镜凹槽"
+
+msgid "Integrated drop-down sun visor"
+msgstr "一体式下拉式遮阳镜"
+
+msgid "Interactive Size & Fit Finder"
+msgstr "Interactive Size & Fit Finder"
+
+msgid "Intercom cutout availability"
+msgstr "对讲机开孔可用性"
+
+msgid "Interior & Liner Tech"
+msgstr "Interior & Liner Tech"
+
+msgid "Intermediate Oval"
+msgstr "Intermediate Oval"
+
+msgid "Internal Fit Shape"
+msgstr "Internal Fit Shape"
+
+msgid "International Import & Customs Advisory"
+msgstr "国际进口与海关提示"
+
+msgid "Key Factors"
+msgstr "关键因素"
+
+msgid "Key Highlights:"
+msgstr "Key Highlights:"
+
+msgid "Last Audit Date"
+msgstr "Last Audit Date"
+
+msgid "Left Aligned"
+msgstr "Left Aligned"
+
+msgid "Legal Links Order"
+msgstr "Legal Links Order"
+
+msgid "Legal Menu"
+msgstr "Legal Menu"
+
+msgid "Lightest"
+msgstr "最轻"
+
+msgid "Load More Reviews"
+msgstr "Load More Reviews"
+
+msgid "Long Oval"
+msgstr "Long Oval"
+
+msgid "Long-distance rides"
+msgstr "长途骑行"
+
+msgid "Low Flow: Minimal venting ports."
+msgstr "Low Flow: Minimal venting ports."
+
+msgid "MFR. product #"
+msgstr "MFR. product #"
+
+msgid "MOTORCYCLE RECOMMENDATION ENGINE"
+msgstr "摩托车推荐引擎"
+
+msgid "MSRP"
+msgstr "制造商建议零售价"
+
+msgid "Made with %s in India"
+msgstr "Made with %s in India"
+
+msgid "Make your helmet work harder"
+msgstr "让你的头盔发挥更大作用"
+
+msgid "Mandatory racing standard"
+msgstr "强制赛车标准"
+
+msgid "Manufacturer"
+msgstr "制造商"
+
+msgid "Manufacturer Source"
+msgstr "Manufacturer Source"
+
+msgid "Manufacturer coverage duration"
+msgstr "制造商保障期限"
+
+msgid "Market Position"
+msgstr "Market Position"
+
+msgid "Material"
+msgstr "材质"
+
+msgid "Maximum coverage"
+msgstr "最大保障范围"
+
+msgid "Measured Weight"
+msgstr "Measured Weight"
+
+msgid "Measured weight unavailable."
+msgstr "实测重量不可用。"
+
+msgid "Measured wind noise at speed"
+msgstr "实测高速风噪"
+
+msgid "Mega Menu: Accessories"
+msgstr "Mega Menu: Accessories"
+
+msgid "Mega Menu: Brands"
+msgstr "Mega Menu: Brands"
+
+msgid "Mega Menu: Helmets"
+msgstr "Mega Menu: Helmets"
+
+msgid "Mega Menu: Motorcycles"
+msgstr "Mega Menu: Motorcycles"
+
+msgid "Mid-Range"
+msgstr "Mid-Range"
+
+msgid "Mitigates rotational impact"
+msgstr "减轻旋转冲击"
+
+msgid "Models Tracked"
+msgstr "Models Tracked"
+
+msgid "Moderate: Balanced road noise levels."
+msgstr "Moderate: Balanced road noise levels."
+
+msgid "Modular"
+msgstr "模块化"
+
+msgid "More from %s"
+msgstr "More from %s"
+
+msgid "Most Helpful"
+msgstr "Most Helpful"
+
+msgid "Motorcycle"
+msgstr "摩托车"
+
+msgid "Motorcycle Helmets"
+msgstr "摩托车头盔"
+
+msgid "Motorcycle Riding"
+msgstr "摩托车骑行"
+
+msgid "Motorcycle → Helmet"
+msgstr "摩托车 → 头盔"
+
+msgid "Motorcycles"
+msgstr "Motorcycles"
+
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NO VERIFIED RIDER REVIEWS YET"
+msgstr "NO VERIFIED RIDER REVIEWS YET"
+
+msgid "Newest"
+msgstr "最新"
+
+msgid "Newest First"
+msgstr "Newest First"
+
+msgid "Next &rarr;"
+msgstr "Next &rarr;"
+
+msgid "No"
+msgstr "No"
+
+msgid "No content found matching your search. Try different keywords or browse our catalog."
+msgstr "No content found matching your search. Try different keywords or browse our catalog."
+
+msgid "No content found."
+msgstr "No content found."
+
+msgid "No exact helmet matches found"
+msgstr "未找到完全匹配的头盔"
+
+msgid "No helmets found for the selected filters."
+msgstr "No helmets found for the selected filters."
+
+msgid "No helmets selected yet."
+msgstr "尚未选择头盔。"
+
+msgid "No historical observations recorded yet. Helmetsan will track price trends as observations accumulate."
+msgstr "尚未记录历史观测数据。随着观测数据不断积累，Helmetsan 将跟踪价格趋势。"
+
+msgid "No reviews yet. Be the first to share your experience with this helmet!"
+msgstr "No reviews yet. Be the first to share your experience with this helmet!"
+
+msgid "No specific compatible helmets linked. Use compatible types and brands above to filter."
+msgstr "No specific compatible helmets linked. Use compatible types and brands above to filter."
+
+msgid "Noise Level"
+msgstr "噪音水平"
+
+msgid "Not all certifications mean the same thing. Know what protects you."
+msgstr "并非所有认证都意味着相同的保障。了解什么能保护您。"
+
+msgid "Not included"
+msgstr "未包含"
 
 msgid "Not specified"
-msgstr "未注明"
-
-msgid "Not verified"
-msgstr "未验证"
+msgstr "Not specified"
 
 msgid "Not tested"
 msgstr "未测试"
 
 msgid "Not tested by SHARP"
-msgstr "未参与 SHARP 测试"
+msgstr "Not tested by SHARP"
 
-msgid "EQRS Active"
-msgstr "具备 EQRS 快拆系统"
+msgid "Not verified"
+msgstr "Not verified"
 
-msgid "Yes"
-msgstr "是"
+msgid "Official Brand Hub"
+msgstr "Official Brand Hub"
 
-msgid "No"
-msgstr "否"
+msgid "Official Partner"
+msgstr "官方合作伙伴"
 
-msgid "Included"
-msgstr "标配"
+msgid "Official Wholesale Importers &amp; Distributors"
+msgstr "Official Wholesale Importers &amp; Distributors"
 
-msgid "Not included"
-msgstr "未附带"
+msgid "One structured database. One place to understand the helmet market."
+msgstr "一个结构化数据库。一个了解头盔市场的一站式平台。"
 
-msgid "Dual Visor System"
-msgstr "双镜片系统"
+msgid "Online Stores"
+msgstr "在线商店"
 
-msgid "Full Set"
-msgstr "全套配备"
+msgid "Open Face"
+msgstr "开放式"
+
+msgid "Open Search"
+msgstr "Open Search"
+
+msgid "Optimize site speed and database scalability."
+msgstr "Optimize site speed and database scalability."
+
+msgid "Optimized aerodynamic balance and vision field."
+msgstr "优化的空气动力平衡和视野。"
+
+msgid "Optimized riding orientation"
+msgstr "优化的骑行姿态"
+
+msgid "Optimized shell aerodynamics"
+msgstr "优化的外壳空气动力学"
+
+msgid "Other part numbers"
+msgstr "Other part numbers"
+
+msgid "Outer structural material"
+msgstr "外部结构材料"
+
+msgid "Outstanding performance at a competitive price point."
+msgstr "以具有竞争力的价格提供卓越性能。"
+
+msgid "Overview"
+msgstr "概览"
+
+msgid "Overview and specifications for the %s based on verified manufacturer details:"
+msgstr "Overview and specifications for the %s based on verified manufacturer details:"
+
+msgid "Page %d of %d"
+msgstr "Page %d of %d"
+
+msgid "Page sections"
+msgstr "页面部分"
+
+msgid "Parent Classification:"
+msgstr "Parent Classification:"
+
+msgid "Part numbers"
+msgstr "Part numbers"
+
+msgid "Photo of %s"
+msgstr "Photo of %s"
+
+msgid "Pinlock Anti-Fog"
+msgstr "Pinlock 防雾"
+
+msgid "Pinlock Integration:"
+msgstr "Pinlock Integration:"
+
+msgid "Popular Alternative Helmets"
+msgstr "热门替代头盔"
+
+msgid "Popular:"
+msgstr "热门："
+
+msgid "Portal"
+msgstr "Portal"
+
+msgid "Premium / Pro"
+msgstr "Premium / Pro"
+
+msgid "Premium construction with strong certification coverage."
+msgstr "高端构造，认证覆盖范围广。"
+
+msgid "Price"
+msgstr "价格"
+
+msgid "Price Drop Alert"
+msgstr "Price Drop Alert"
+
+msgid "Price History & Trends"
+msgstr "价格历史与趋势"
+
+msgid "Price Range"
+msgstr "Price Range"
+
+msgid "Price: High → Low"
+msgstr "价格：高 → 低"
+
+msgid "Price: Low → High"
+msgstr "价格：低 → 高"
+
+msgid "Prices, taxes, and local safety standards automatically adapt to your chosen location."
+msgstr "价格、税费和当地安全标准会根据您选择的位置自动调整。"
+
+msgid "Primary Menu"
+msgstr "Primary Menu"
+
+msgid "Primary Use Case"
+msgstr "主要用途"
+
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+msgid "Product Category:"
+msgstr "Product Category:"
+
+msgid "Product Concept & Specifications"
+msgstr "Product Concept & Specifications"
+
+msgid "Product Video Walkthrough"
+msgstr "Product Video Walkthrough"
+
+msgid "Product at retailers"
+msgstr "Product at retailers"
+
+msgid "Product description"
+msgstr "Product description"
+
+msgid "Product details"
+msgstr "Product details"
+
+msgid "Product style"
+msgstr "Product style"
+
+msgid "Pros (comma separated)"
+msgstr "Pros (comma separated)"
+
+msgid "Pros:"
+msgstr "Pros:"
+
+msgid "Quick Facts"
+msgstr "快速信息"
+
+msgid "Quick Facts at a Glance"
+msgstr "Quick Facts at a Glance"
+
+msgid "Quick Filters"
+msgstr "快速筛选"
+
+msgid "Quick Verdict"
+msgstr "快速结论"
+
+msgid "Quick filters"
+msgstr "快速筛选"
+
+msgid "Race-focused"
+msgstr "竞赛导向"
+
+msgid "Race-focused protection"
+msgstr "竞赛导向的防护"
+
+msgid "Real-time price tracking active across international retailers."
+msgstr "Real-time price tracking active across international retailers."
+
+msgid "Recommended Accessories for %s"
+msgstr "适合%s的推荐配件"
+
+msgid "Recommended Cert"
+msgstr "推荐认证"
+
+msgid "Recommended Helmet Size"
+msgstr "Recommended Helmet Size"
+
+msgid "Recommended Helmets for %s"
+msgstr "适合%s的推荐头盔"
+
+msgid "Recommended helmets"
+msgstr "推荐头盔"
+
+msgid "Reflective · Chin Guards · Vents"
+msgstr "反光材料 · 下巴护具 · 通风口"
+
+msgid "Regional Distributor"
+msgstr "Regional Distributor"
+
+msgid "Regional Legality & Compliance"
+msgstr "Regional Legality & Compliance"
+
+msgid "Regional Legality Guidance"
+msgstr "Regional Legality Guidance"
+
+msgid "Related videos"
+msgstr "Related videos"
+
+msgid "Relevance"
+msgstr "相关性"
+
+msgid "Removable Interior"
+msgstr "可拆卸内衬"
+
+msgid "Remove %s from comparison"
+msgstr "Remove %s from comparison"
+
+msgid "Required:"
+msgstr "Required:"
+
+msgid "Resources"
+msgstr "Resources"
+
+msgid "Retailer"
+msgstr "零售商"
+
+msgid "Retention Mechanism"
+msgstr "Retention Mechanism"
+
+msgid "Retention Strap"
+msgstr "固定带"
+
+msgid "Retention System"
+msgstr "Retention System"
+
+msgid "Review Details"
+msgstr "Review Details"
+
+msgid "Reviews"
+msgstr "评价"
+
+msgid "Reviews by Region"
+msgstr "Reviews by Region"
+
+msgid "Rider Profile & Intended Use"
+msgstr "Rider Profile & Intended Use"
+
+msgid "Riders frequently choose these verified models:"
+msgstr "骑手经常选择这些经过验证的型号："
+
+msgid "Riding"
+msgstr "骑行"
+
+msgid "Riding Style"
+msgstr "Riding Style"
+
+msgid "Riding style"
+msgstr "骑行风格"
+
+msgid "Road & trail"
+msgstr "公路与越野小径"
+
+msgid "Road + off-road"
+msgstr "公路 + 越野"
+
+msgid "Rotational Protection"
+msgstr "Rotational Protection"
+
+msgid "Round Oval"
+msgstr "Round Oval"
+
+msgid "SAFETY & CERTIFICATIONS"
+msgstr "SAFETY & CERTIFICATIONS"
+
+msgid "SHARP Impact Rating"
+msgstr "SHARP 碰撞评级"
+
+msgid "SHARP Impact Score"
+msgstr "SHARP Impact Score"
+
+msgid "SHARP impact test results pending."
+msgstr "SHARP impact test results pending."
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Safety"
+msgstr "安全性"
+
+msgid "Safety & Aero-Acoustics HUD"
+msgstr "Safety & Aero-Acoustics HUD"
+
+msgid "Safety & Certifications"
+msgstr "Safety & Certifications"
+
+msgid "Safety Intelligence"
+msgstr "安全智能"
+
+msgid "Safety Standards"
+msgstr "Safety Standards"
+
+msgid "Safety Testing Agency"
+msgstr "Safety Testing Agency"
+
+msgid "Safety profile available"
+msgstr "安全档案可用"
+
+msgid "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
+msgstr "Safety standards compliance is based on official manufacturer documentation and public safety laboratory test results. Always verify regional compliance labels on the physical helmet prior to use."
+
+msgid "Safety · 8 min read"
+msgstr "安全 · 8 分钟阅读"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Search Helmetsan"
+msgstr "搜索 Helmetsan"
+
+msgid "Search Results for: %s"
+msgstr "Search Results for: %s"
+
+msgid "Search brands..."
+msgstr "搜索品牌..."
+
+msgid "Search country or currency (e.g. India, EUR, ₹)..."
+msgstr "搜索国家或货币（例如印度、EUR、₹）..."
+
+msgid "Search for:"
+msgstr "搜索："
+
+msgid "Search helmets catalog"
+msgstr "搜索头盔目录"
+
+msgid "Search helmets, brands, accessories..."
+msgstr "搜索头盔、品牌、配件..."
+
+msgid "Search helmets, brands, motorcycles or requirements..."
+msgstr "搜索头盔、品牌、摩托车或要求..."
+
+msgid "Search motorcycles"
+msgstr "搜索摩托车"
+
+msgid "Search pagination"
+msgstr "Search pagination"
+
+msgid "Search your motorcycle..."
+msgstr "搜索您的摩托车..."
+
+msgid "Secondary Menu"
+msgstr "Secondary Menu"
+
+msgid "Segment"
+msgstr "细分"
+
+msgid "Select Country & Currency"
+msgstr "选择国家和货币"
+
+msgid "Select Country and Currency"
+msgstr "选择国家和货币"
+
+msgid "Select Head Shape Profile"
+msgstr "Select Head Shape Profile"
+
+msgid "Select Language"
+msgstr "Select Language"
+
+msgid "Select country and currency"
+msgstr "选择国家和货币"
+
+msgid "Select your specific helmet model to view confirmed compatible visors, pinlock inserts, communication headsets, liners, and care gear."
+msgstr "选择您的具体头盔型号，以查看已确认兼容的面罩、Pinlock镜片、通信耳机、内衬和护理用品。"
+
+msgid "Set Drop Alert"
+msgstr "Set Drop Alert"
+
+msgid "Share this comparison"
+msgstr "分享此比较"
+
+msgid "Share your experience"
+msgstr "Share your experience"
+
+msgid "Shell Construction"
+msgstr "外壳结构"
+
+msgid "Shell Material"
+msgstr "Shell Material"
+
+msgid "Shields · Pinlock · Anti-Fog"
+msgstr "面罩 · Pinlock · 防雾"
+
+msgid "Show AI Policy"
+msgstr "Show AI Policy"
+
+msgid "Show Accessibility Statement"
+msgstr "Show Accessibility Statement"
+
+msgid "Show Affiliate Disclosure"
+msgstr "Show Affiliate Disclosure"
+
+msgid "Show Cookie Policy"
+msgstr "Show Cookie Policy"
+
+msgid "Show Disclaimer"
+msgstr "Show Disclaimer"
+
+msgid "Show Matching Helmets →"
+msgstr "显示匹配的头盔 →"
+
+msgid "Show Privacy Policy"
+msgstr "Show Privacy Policy"
+
+msgid "Show Required Legal Links"
+msgstr "Show Required Legal Links"
+
+msgid "Show Terms of Use"
+msgstr "Show Terms of Use"
+
+msgid "Show empty fields"
+msgstr "显示空字段"
+
+msgid "Show “Made with <3 in India”"
+msgstr "Show “Made with <3 in India”"
+
+msgid "Showing %d–%d of %d"
+msgstr "Showing %d–%d of %d"
+
+msgid "Size-first, safety-aware helmet catalog with mobile and desktop faceted navigation."
+msgstr "以尺寸为先、注重安全的头盔目录，提供移动端和桌面端的多维筛选导航。"
+
+msgid "Sizing &amp; fit"
+msgstr "Sizing &amp; fit"
+
+msgid "Sizing Group:"
+msgstr "Sizing Group:"
+
+msgid "Skip to content"
+msgstr "Skip to content"
+
+msgid "Snowmobile/Winter Use:"
+msgstr "Snowmobile/Winter Use:"
+
+msgid "Social Menu"
+msgstr "Social Menu"
+
+msgid "Sort Reviews"
+msgstr "Sort Reviews"
+
+msgid "Sort by:"
+msgstr "排序方式："
+
+msgid "Sort helmets"
+msgstr "对头盔排序"
+
+msgid "Specifications"
+msgstr "规格"
+
+msgid "Spherical fit: added side volume width, tailored for rounder skull profiles."
+msgstr "Spherical fit: added side volume width, tailored for rounder skull profiles."
+
+msgid "Sport"
+msgstr "运动"
+
+msgid "Sport · Highway"
+msgstr "运动 · 高速公路"
+
+msgid "Stability & comfort"
+msgstr "稳定性与舒适性"
+
+msgid "Standard"
+msgstr "标准"
+
+msgid "Still not sure which helmet is right for you?"
+msgstr "仍然不确定哪款头盔适合您？"
+
+msgid "Subcategory:"
+msgstr "Subcategory:"
+
+msgid "Submit for Review"
+msgstr "Submit for Review"
+
+msgid "Supply channels, regional warehouses, and B2B contacts authorized to supply %s helmets in the %s region."
+msgstr "Supply channels, regional warehouses, and B2B contacts authorized to supply %s helmets in the %s region."
+
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+msgid "Technology & Convenience"
+msgstr "Technology & Convenience"
+
+msgid "Tell Helmetsan how you ride."
+msgstr "告诉 Helmetsan 您的骑行方式。"
+
+msgid "Tell us what you ride. We'll recommend helmets that match."
+msgstr "告诉我们您骑什么车。我们会为您推荐匹配的头盔。"
+
+msgid "Tell us what you're looking for"
+msgstr "告诉我们您在寻找什么"
+
+msgid "Tell us your riding style"
+msgstr "告诉我们您的骑行风格"
+
+msgid "Terms of Use"
+msgstr "Terms of Use"
+
+msgid "The %s is matched via the Helmetsan Multi-Axial Compatibility Matrix. Pairings account for forward riding tuck, slipstream turbulence over the handlebars, and cockpit acoustic sound dampening."
+msgstr "%s 通过 Helmetsan Multi-Axial Compatibility Matrix 进行匹配。匹配结果会考虑前倾骑行姿势、车把上方的滑流湍流以及驾驶舱声学降噪。"
+
+msgid "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
+msgstr "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
+
+msgid "Today's pick"
+msgstr "Today's pick"
+
+msgid "Top Rated"
+msgstr "高评分"
+
+msgid "Touring"
+msgstr "旅行骑行"
+
+msgid "Touring · 10 min read"
+msgstr "旅行骑行 · 阅读需 10 分钟"
+
+msgid "Track"
+msgstr "赛道"
+
+msgid "Track / Race"
+msgstr "赛道 / 比赛"
+
+msgid "Track / Racing"
+msgstr "赛道 / Racing"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "US regulatory standard"
+msgstr "美国法规标准"
+
+msgid "Ultra-lightweight shell reduces neck fatigue on long rides."
+msgstr "超轻量外壳可减轻长途骑行时的颈部疲劳。"
+
+msgid "Under $300"
+msgstr "低于 300 美元"
+
+msgid "Under $500"
+msgstr "低于 500 美元"
+
+msgid "Understand helmet safety"
+msgstr "了解头盔安全性"
+
+msgid "Use Detected"
+msgstr "使用检测到的车型"
+
+msgid "Use {year} and {site_name} placeholders."
+msgstr "Use {year} and {site_name} placeholders."
+
+msgid "User Reviews"
+msgstr "User Reviews"
+
+msgid "Using standardized ECE/DOT baseline metrics."
+msgstr "Using standardized ECE/DOT baseline metrics."
+
+msgid "VERIFIED COCKPIT FIT"
+msgstr "驾驶舱适配已验证"
+
+msgid "VERIFIED TECHNICAL SPEC"
+msgstr "技术规格已验证"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Value / Entry"
+msgstr "Value / Entry"
+
+msgid "Various"
+msgstr "Various"
+
+msgid "Ventilation"
+msgstr "通风"
+
+msgid "Ventilation Flow"
+msgstr "Ventilation Flow"
+
+msgid "Ventilation flow score awaiting CFD test."
+msgstr "Ventilation flow score awaiting CFD test."
+
+msgid "Verification Status"
+msgstr "Verification Status"
+
+msgid "Verified"
+msgstr "已验证"
+
+msgid "Verified Data"
+msgstr "Verified Data"
+
+msgid "Verified Fit & Sizing Guide"
+msgstr "Verified Fit & Sizing Guide"
+
+msgid "Verified SHARP UK impact test score"
+msgstr "SHARP UK 冲击测试成绩已验证"
+
+msgid "Verified Safety Snapshot"
+msgstr "Verified Safety Snapshot"
+
+msgid "Versatility & touring"
+msgstr "多用途与旅行骑行"
+
+msgid "Video Spotlight & Field Reviews"
+msgstr "Video Spotlight & Field Reviews"
+
+msgid "Video content for %s"
+msgstr "Video content for %s"
+
+msgid "View"
+msgstr "View"
+
+msgid "View Accessory →"
+msgstr "查看配件 →"
+
+msgid "View Deal →"
+msgstr "查看优惠 →"
+
+msgid "View Helmet Specs →"
+msgstr "查看头盔规格 →"
+
+msgid "View Stores"
+msgstr "查看店铺"
+
+msgid "View compare"
+msgstr "View compare"
+
+msgid "View details for %s"
+msgstr "View details for %s"
+
+msgid "View helmet"
+msgstr "View helmet"
+
+msgid "View helmet →"
+msgstr "查看头盔 →"
+
+msgid "View on retailers"
+msgstr "View on retailers"
+
+msgid "View on site"
+msgstr "在网站上查看"
+
+msgid "View →"
+msgstr "查看 →"
+
+msgid "Visor Features"
+msgstr "Visor Features"
+
+msgid "Visor System"
+msgstr "面罩系统"
+
+msgid "Visors & Optics"
+msgstr "面罩与光学"
+
+msgid "Warehouses:"
+msgstr "Warehouses:"
+
+msgid "Warranty"
+msgstr "Warranty"
+
+msgid "Was this helpful?"
+msgstr "Was this helpful?"
+
+msgid "Washable lining modules"
+msgstr "可清洗内衬模块"
+
+msgid "We couldn't find a helmet matching all your active filters. Try relaxing one or more parameters or explore our top-rated recommendations below."
+msgstr "我们找不到符合您当前所有筛选条件的头盔。请尝试放宽一个或多个参数，或查看下方我们评分最高的推荐。"
+
+msgid "We track prices on Amazon, Flipkart, FC-Moto, and others. Enter your email and target price below, and we will email you the moment the price drops!"
+msgstr "We track prices on Amazon, Flipkart, FC-Moto, and others. Enter your email and target price below, and we will email you the moment the price drops!"
+
+msgid "We'll show you helmets designed for exactly how you ride."
+msgstr "我们将为您展示专为您的骑行方式设计的头盔。"
+
+msgid "Website"
+msgstr "网站"
+
+msgid "Weight"
+msgstr "重量"
+
+msgid "Weight: Lightest"
+msgstr "重量：最轻"
+
+msgid "What does ECE 22.06 actually mean?"
+msgstr "ECE 22.06究竟意味着什么？"
+
+msgid "Where to Buy"
+msgstr "购买渠道"
+
+msgid "Where to buy"
+msgstr "去哪里购买"
+
+msgid "Wide (Centered)"
+msgstr "Wide (Centered)"
+
+msgid "Wind Tunnel Tested"
+msgstr "风洞测试"
+
+msgid "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
+msgstr "Wrap a cloth measuring tape around your head just above your eyebrows and ears. Pull the tape comfortably snug, read the length, and repeat for consistency."
+
+msgid "Write a review"
+msgstr "Write a review"
 
 msgid "Years"
 msgstr "年"
 
-msgid "Modular"
-msgstr "揭面盔 / 模块化盔"
+msgid "Yes"
+msgstr "Yes"
 
-msgid "Full Face"
-msgstr "全盔"
+msgid "Yes (Anti-fog ready)"
+msgstr "Yes (Anti-fog ready)"
 
-msgid "Open Face"
-msgstr "3/4 盔 / 半盔"
+msgid "Your Head Circumference"
+msgstr "Your Head Circumference"
 
-msgid "Dual Sport"
-msgstr "拉力越野盔"
+msgid "selected"
+msgstr "selected"
 
-msgid "Touring"
-msgstr "长途摩旅"
+msgid "🇬🇧 UK"
+msgstr "🇬🇧 英国"
 
-msgid "Street"
-msgstr "公路/街道"
+msgid "🇺🇸 USA"
+msgstr "🇺🇸 美国"
 
-msgid "Track"
-msgstr "赛道日"
+msgid "🌍 Global"
+msgstr "🌍 全球"
 
-msgid "Adventure"
-msgstr "探险/ADV"
+msgid "🏁 Track"
+msgstr "🏁 赛道"
 
-msgid "Double D-Ring"
-msgstr "双D扣"
+msgid "🏆 MotoGP"
+msgstr "🏆 MotoGP"
 
-msgid "Micrometric"
-msgstr "微调齿排扣"
-
-msgid "Carbon"
-msgstr "碳纤维"
-
-msgid "Carbon-Aramid-Glass"
-msgstr "碳纤维-芳纶-玻璃纤维复合"
-
-msgid "Fiberglass"
-msgstr "玻璃纤维"
-
-msgid "Polycarbonate"
-msgstr "聚碳酸酯"
-
-msgid "Product at retailers"
-msgstr "合作零售渠道"
-
-msgid "View on retailers"
-msgstr "在各电商平台查看"
-
-msgid "This helmet is linked to product pages on the following retailers. Links can be used for affiliate and as a source for data and images."
-msgstr "此头盔链接至授权经销商与官方零售渠道。实时监控各平台价格与库存。"
-
-msgid "Price tracking active across international retailers."
-msgstr "全网跨国零售商价格实时追踪中。"
-
-msgid "Set Drop Alert"
-msgstr "设置降价提醒"
-
-msgid "Online Stores"
-msgstr "线上电商"
-
-msgid "Buy Local"
-msgstr "本地实体店"
-
-msgid "Best price"
-msgstr "历史最低价"
-
-msgid "Check live price"
-msgstr "查看实时价格"
-
-msgid "View Deal"
-msgstr "前往购买"
-
-msgid "View Deal →"
-msgstr "前往购买 →"
-
-msgid "Price History & Trends"
-msgstr "价格走势与历史"
-
-msgid "No historical observations recorded yet. Helmetsan will track price trends as observations accumulate."
-msgstr "暂无历史价格数据。Helmetsan 将随着监控深入持续累计价格走势。"
-
-msgid "30 Days"
-msgstr "近30天"
-
-msgid "90 Days"
-msgstr "近90天"
-
-msgid "1 Year"
-msgstr "近1年"
-
-msgid "Call"
-msgstr "电话咨询"
-
-msgid "Website"
-msgstr "官方网店"
-
-msgid "Directions"
-msgstr "导航到店"
-
-msgid "Helmetsan is an independent motorcycle safety & decision engine. When you check prices or purchase via retailer links, Helmetsan may earn an affiliate commission at no additional cost to you."
-msgstr "Helmetsan 是一家独立的摩托车安全与选购决策平台。通过合作渠道链接购买时，我们可能获得少量佣金，这不会增加您的任何费用。"
-
-msgid "Add to compare"
-msgstr "加入对比"
-
-msgid "Add to comparison"
-msgstr "加入头盔对比"
-
-msgid "Compare"
-msgstr "对比"
-
-msgid "Compare now"
-msgstr "立即对比"
-
-msgid "Comparison bar"
-msgstr "对比栏"
-
-msgid "View compare"
-msgstr "查看对比"
-
-msgid "Remove %s from comparison"
-msgstr "从对比中移除 %s"
-
-msgid "Clear"
-msgstr "清空"
-
-msgid "Video Spotlight & Field Reviews"
-msgstr "视频评测与实测特写"
-
-msgid "Product Video Walkthrough"
-msgstr "官方产品实测解析"
-
-msgid "User Reviews"
-msgstr "车友口碑与评价"
-
-msgid "Write a review"
-msgstr "发表真实评价"
-
-msgid "No reviews yet. Be the first to share your experience with this helmet!"
-msgstr "暂无车友评价。快来抢先分享您的试戴体验！"
-
-msgid "NO VERIFIED RIDER REVIEWS YET"
-msgstr "暂无认证车友评价"
-
-msgid "Be the first to share your riding experience with this helmet."
-msgstr "率先分享您对这款头盔的实际骑行体验。"
-
-msgid "Review Details"
-msgstr "评价详情"
-
-msgid "Share your experience"
-msgstr "分享骑行心得"
-
-msgid "Submit for Review"
-msgstr "提交审核"
-
-msgid "Was this helpful?"
-msgstr "此评价是否有用？"
-
-msgid "Load More Reviews"
-msgstr "加载更多评价"
-
-msgid "Newest First"
-msgstr "最新优先"
-
-msgid "Most Helpful"
-msgstr "最有帮助"
-
-msgid "Sort Reviews"
-msgstr "评价排序"
-
-msgid "Shop by Type"
-msgstr "按头盔类型选购"
-
-msgid "Shop by Brand"
-msgstr "按品牌选购"
-
-msgid "Riding Style & Safety"
-msgstr "骑行风格与安全"
-
-msgid "Features & Style"
-msgstr "功能与款式"
-
-msgid "View All Helmets"
-msgstr "查看所有头盔"
-
-msgid "View All Brands"
-msgstr "查看所有品牌"
-
-msgid "View All Motorcycles"
-msgstr "查看所有摩托车"
-
-msgid "View All Accessories"
-msgstr "查看所有配件"
-
-msgid "Helmet Accessories"
-msgstr "头盔配件"
-
-msgid "Sale & Closeouts"
-msgstr "特惠与清仓"
-
-msgid "Mega Menu: Helmets"
-msgstr "头盔全景导航"
-
-msgid "Mega Menu: Brands"
-msgstr "品牌全景导航"
-
-msgid "Mega Menu: Accessories"
-msgstr "装备全景导航"
-
-msgid "Mega Menu: Motorcycles"
-msgstr "车型全景导航"
-
-msgid "About Helmetsan"
-msgstr "关于 Helmetsan"
-
-msgid "Privacy Policy"
-msgstr "隐私政策"
-
-msgid "Terms of Use"
-msgstr "用户协议"
-
-msgid "Cookie Policy"
-msgstr "Cookie 政策"
-
-msgid "Affiliate Disclosure"
-msgstr "商业合作声明"
-
-msgid "AI Policy"
-msgstr "人工智能合规声明"
-
-msgid "Accessibility Statement"
-msgstr "无障碍声明"
-
-msgid "Contact Us"
-msgstr "联系我们"
-
-msgid "Dealers Directory"
-msgstr "授权经销商目录"
-
-msgid "Disclaimer"
-msgstr "免责声明"
-
-msgid "Copyright Notice"
-msgstr "版权所有声明"
-
-msgid "Footer Column 1"
-msgstr "页脚第1栏"
-
-msgid "Footer Column 2"
-msgstr "页脚第2栏"
-
-msgid "Footer Column 3"
-msgstr "页脚第3栏"
-
-msgid "Full Face Helmets"
-msgstr "全盔"
-
-msgid "Modular Helmets"
-msgstr "揭面盔"
-
-msgid "Open Face Helmets"
-msgstr "半盔 (3/4盔)"
-
-msgid "Half Helmets"
-msgstr "复古半盔"
-
-msgid "Dirt / Motocross Helmets"
-msgstr "越野盔"
-
-msgid "Adventure / Dual Sport Helmets"
-msgstr "探险/多功能头盔"
-
-msgid "Touring Helmets"
-msgstr "旅行头盔"
-
-msgid "Track / Race Helmets"
-msgstr "赛道/竞速头盔"
-
-msgid "Youth Helmets"
-msgstr "青少年头盔"
-
-msgid "Snowmobile Helmets"
-msgstr "雪地摩托头盔"
-
-msgid "Cruiser"
-msgstr "巡航车"
-
-msgid "Sportbike"
-msgstr "跑车/街跑"
-
-msgid "Dirt / MX"
-msgstr "越野 / MX"
-
-msgid "Urban / Commuter"
-msgstr "城市通勤"
-
-msgid "ECE Certified"
-msgstr "ECE 认证"
-
-msgid "DOT Approved"
-msgstr "DOT 认证"
-
-msgid "MIPS Technology"
-msgstr "MIPS 多向冲击保护系统"
-
-msgid "Internal Sun Visor"
-msgstr "内置太阳镜"
-
-msgid "Photochromic"
-msgstr "光致变色镜片"
-
-msgid "Carbon Fiber"
-msgstr "碳纤维"
-
-msgid "Composite"
-msgstr "复合材质"
-
-msgid "1 Shell"
-msgstr "1种盔体尺寸"
-
-msgid "2 Shells"
-msgstr "2种盔体尺寸"
-
-msgid "3 Shells"
-msgstr "3种盔体尺寸"
-
-msgid "4+ Shell Sizes"
-msgstr "4种及以上盔体尺寸"
-
-msgid "Face Shields"
-msgstr "面罩与镜片"
-
-msgid "Pinlock Inserts"
-msgstr "防雾贴片"
-
-msgid "Replacement Liners"
-msgstr "替换内衬"
-
-msgid "Cheek Pads"
-msgstr "脸颊内衬"
-
-msgid "Bluetooth Systems"
-msgstr "蓝牙通讯系统"
-
-msgid "Cleaning Kits"
-msgstr "头盔清洁套装"
-
-msgid "Helmet Bags"
-msgstr "头盔收纳袋"
-
-msgid "Helmets on Sale"
-msgstr "特价头盔"
-
-msgid "Closeout Helmets"
-msgstr "清仓头盔"
+msgid "💡 Riding Profile & Aerodynamic Recommendation"
+msgstr "💡 骑行档案与空气动力学建议"

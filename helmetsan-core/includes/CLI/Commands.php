@@ -1494,7 +1494,7 @@ final class Commands
                 }
                 \WP_CLI::log(sprintf('[%s] Concurrency %d: processed up to %d posts.', $postType, $concurrency, $effectiveTotal));
             }
-            if ($scope === 'terms' || $scope === 'all') {
+            if ($scope === 'all') {
                 \WP_CLI::log('Seeding Yoast SEO (taxonomy terms): title, meta description, focus keyword (lowercase).');
                 $taxonomies = YoastSeoSeeder::getTaxonomiesForTermSeo();
                 foreach ($taxonomies as $tax) {
@@ -4551,64 +4551,184 @@ final class Commands
      */
     public function repairTitles(array $args, array $assoc): void
     {
+        global $wpdb;
+
         $postType = sanitize_key($assoc['post-type'] ?? 'helmet');
-        $limit    = (int) ($assoc['limit'] ?? 1000);
+        $limit    = (int) ($assoc['limit'] ?? 0);
         $dryRun   = isset($assoc['dry-run']);
 
-        $posts = get_posts([
-            'post_type'      => $postType,
-            'post_status'    => ['publish', 'draft'],
-            'posts_per_page' => $limit,
-            'fields'         => 'ids',
-            'orderby'        => 'ID',
-            'order'          => 'ASC',
-        ]);
+        // Targeted scan: only rows whose title is a raw catalog slug. Loading every post
+        // OOMs at ~98k rows (10 Polylang languages x duplicates), so filter in SQL first.
+        $like = $wpdb->esc_like('_') . '%';
+        $sql = $wpdb->prepare(
+            "SELECT p.ID, p.post_title, p.post_name, m.meta_value AS external_id
+               FROM {$wpdb->posts} p
+               LEFT JOIN {$wpdb->postmeta} m
+                      ON m.post_id = p.ID AND m.meta_key = '_helmet_unique_id'
+              WHERE p.post_type = %s
+                AND p.post_status IN ('publish','draft','pending','future','private')
+                AND (
+                     p.post_title = m.meta_value
+                  OR p.post_title REGEXP '^[a-z0-9]+(_[a-z0-9-]+)+$'
+                  OR p.post_title REGEXP '^[a-z0-9]+(-[a-z0-9]+)+$'
+                  OR TRIM(p.post_title) = ''
+                )" . ($limit > 0 ? " LIMIT %d" : ''),
+            $postType,
+            ...( $limit > 0 ? [$limit] : [] )
+        );
 
-        if (empty($posts)) {
-            \WP_CLI::success('No posts found.');
+        $rows = $wpdb->get_results($sql, ARRAY_A);
+        if (! is_array($rows) || $rows === []) {
+            \WP_CLI::success('No slug-leaked titles found.');
             return;
         }
 
+        $brandMap = [];
         $fixed = 0;
-        $scanned = 0;
+        $report = [];
 
-        foreach ($posts as $postId) {
-            $post = get_post((int) $postId);
-            if (!$post) continue;
-            $scanned++;
+        foreach ($rows as $row) {
+            $postId = (int) $row['ID'];
+            $title  = (string) $row['post_title'];
+            $extId  = (string) ($row['external_id'] ?? '');
 
-            // Detect brand from taxonomy
-            $brandTerms = get_the_terms((int) $postId, 'helmet_brand');
-            $brandName  = (is_array($brandTerms) && !empty($brandTerms)) ? trim($brandTerms[0]->name) : '';
+            // Never touch a post that already reads as human copy (spaces + capitals).
+            if ($title !== '' && ! preg_match('/^[a-z0-9]+([_-][a-z0-9-]+)*$/', $title)) {
+                continue;
+            }
 
-            if ($brandName === '') continue;
+            if (! isset($brandMap[$postId])) {
+                $terms = get_the_terms($postId, 'helmet_brand');
+                $brandMap[$postId] = (is_array($terms) && ! empty($terms)) ? trim((string) $terms[0]->name) : '';
+            }
+            $brandName = $brandMap[$postId];
 
-            $title = $post->post_title;
-            $dupePrefix = $brandName . ' ' . $brandName . ' ';
-            if (stripos($title, $dupePrefix) !== 0) continue;
+            // Prefer the canonical title shipped in the JSON source of truth.
+            $newTitle = '';
+            if ($extId !== '') {
+                // Older rows still carry double brand-prefixed ids (klim_klim_f5_...);
+                // the catalogue collapsed them to klim_f5_..., so try both stems.
+                $idStem = $extId;
+                $parts  = explode('_', $extId);
+                if (count($parts) > 2 && $parts[0] === $parts[1]) {
+                    $idStem = implode('_', array_merge([$parts[0]], array_slice($parts, 2)));
+                }
 
-            $newTitle = $brandName . ' ' . ltrim(substr($title, strlen($dupePrefix)));
+                foreach ([
+                    dirname(__DIR__, 3) . '/data/helmets/' . $idStem . '.json',
+                    dirname(__DIR__, 3) . '/data/helmets/' . $extId . '.json',
+                    (defined('WP_CONTENT_DIR') ? rtrim((string) WP_CONTENT_DIR, '/\\') . '/../data/helmets/' : '') . $idStem . '.json',
+                ] as $jsonFile) {
+                    if (! is_file($jsonFile)) {
+                        continue;
+                    }
+                    $decoded = json_decode((string) file_get_contents($jsonFile), true);
+                    if (is_array($decoded) && isset($decoded['title']) && is_string($decoded['title']) && trim($decoded['title']) !== '') {
+                        $newTitle = trim($decoded['title']);
+                        break;
+                    }
+                }
+            }
 
-            \WP_CLI::log(sprintf(
-                '  [%s] ID %d: "%s" -> "%s"',
-                $dryRun ? 'DRY-RUN' : 'FIXED',
-                $postId,
-                $title,
+            if ($newTitle === '') {
+                $newTitle = IngestionService::humanizeTitle($title !== '' ? $title : $extId, $brandName);
+            }
+
+            // Localised colourway copies (nero-lucido / negro-brillante) keep their own token
+            // when the English source title does not describe this post's slug tail.
+            $newTitle = self::preserveLocalizedTail($title, $newTitle);
+
+            // Keep model acronyms intact (MIPS, DLX, EXO-1400, FF396, ATB-2T).
+            $newTitle = (string) preg_replace_callback(
+                '/\b[a-z0-9]+\b/',
+                static function (array $m): string {
+                    $acronyms = [
+                        'mips' => 'MIPS', 'dlx' => 'DLX', 'exo' => 'EXO', 'rpha' => 'RPHA',
+                        'smx' => 'SMX', 'koroyd' => 'Koroyd', 'pinlock' => 'Pinlock',
+                        'ls2' => 'LS2', 'atb' => 'ATB', 'atr' => 'ATR', 'ats' => 'ATS',
+                        'fidlock' => 'FIDLOCK', 'uvex' => 'UVEX', 'mt' => 'MT', 'tc' => 'TC',
+                    ];
+                    $w   = $m[0];
+                    $key = strtolower($w);
+                    if (isset($acronyms[$key])) {
+                        return $acronyms[$key];
+                    }
+                    return preg_match('/^[a-z]{1,3}\d{1,4}[a-z0-9-]*$/', $w) ? strtoupper($w) : ucfirst($w);
+                },
                 $newTitle
-            ));
+            );
 
-            if (!$dryRun) {
-                wp_update_post(['ID' => (int) $postId, 'post_title' => $newTitle]);
+            // Rejoin model codes the slug split ("TC 5" -> "TC-5").
+            $newTitle = (string) preg_replace('/\bTC\s+(\d+)\b/', 'TC-$1', $newTitle);
+            $newTitle = (string) preg_replace('/\b(MX|AT|GT|EXO|FF|SMX)\s+(\d+[A-Z]*)\b/', '$1-$2', $newTitle);
+
+            if ($newTitle === $title || trim($newTitle) === '') {
+                continue;
+            }
+
+            $report[] = [
+                'post_id' => $postId,
+                'from'    => $title,
+                'to'      => $newTitle,
+                'uid'     => $extId,
+            ];
+
+            if (! $dryRun) {
+                wp_update_post([
+                    'ID'         => $postId,
+                    'post_title' => sanitize_text_field($newTitle),
+                ]);
             }
             $fixed++;
         }
 
-        \WP_CLI::success(sprintf(
-            '%s: Scanned %d posts, repaired %d titles.',
-            $dryRun ? 'DRY-RUN' : 'DONE',
-            $scanned,
-            $fixed
-        ));
+        \WP_CLI::line(wp_json_encode([
+            'ok'       => true,
+            'dry_run'  => $dryRun,
+            'scanned'  => count($rows),
+            'repaired' => $fixed,
+            'changes'  => $report,
+        ], JSON_PRETTY_PRINT));
+    }
+
+    /**
+     * Keep a non-English colourway token when the English source title would erase it.
+     */
+    private static function preserveLocalizedTail(string $slugTitle, string $proposed): string
+    {
+        $tail = substr(strrchr($slugTitle, '_') ?: strrchr($slugTitle, '-') ?: '', 1);
+        if ($tail === '' || $tail === false) {
+            return $proposed;
+        }
+
+        $localized = ['nero-lucido', 'negro-brillante', 'preto-brilhante', 'gloss-black', 'gloss-white'];
+        if (! in_array(strtolower($tail), $localized, true)) {
+            return $proposed;
+        }
+
+        // Only rewrite the colour token; keep whatever model line the source supplied.
+        if (preg_match('/(Nero Lucido|Negro Brillante|Preto Brilhante)/i', $proposed)) {
+            return $proposed;
+        }
+
+        $map = [
+            'nero-lucido' => 'Nero Lucido',
+            'negro-brillante' => 'Negro Brillante',
+            'preto-brilhante' => 'Preto Brilhante',
+        ];
+
+        if (! isset($map[strtolower($tail)])) {
+            return $proposed;
+        }
+
+        // Swap the trailing colour token rather than appending ("... Gloss Black" + "Nero Lucido").
+        $proposed = (string) preg_replace(
+            '/\s+(Gloss Black|Gloss White|Matte Black|Pearl White|Anthracite|Solid Black|Silver Metallic)\s*$/i',
+            '',
+            $proposed
+        );
+
+        return rtrim($proposed) . ' ' . $map[strtolower($tail)];
     }
 
     /**
@@ -4892,4 +5012,5 @@ final class Commands
             ));
         }
     }
+
 }

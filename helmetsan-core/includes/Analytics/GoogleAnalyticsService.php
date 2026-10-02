@@ -62,8 +62,9 @@ final class GoogleAnalyticsService
             $candidatePaths[] = $coreDir . 'keys/google-search-console.json';
         }
 
-        $rootDir = dirname(__DIR__, 2);
+        $rootDir = dirname(__DIR__, 3);
         $candidatePaths[] = $rootDir . '/secrets/ash-site-502901-cd0bf333dc7c.json';
+        $candidatePaths[] = dirname(__DIR__, 2) . '/secrets/ash-site-502901-cd0bf333dc7c.json';
 
         foreach ($candidatePaths as $path) {
             if (file_exists($path)) {
@@ -275,8 +276,14 @@ final class GoogleAnalyticsService
 
         if (!class_exists(BetaAnalyticsDataClient::class)) {
             return [
-                'ok'      => false,
-                'message' => 'BetaAnalyticsDataClient class not found.',
+                'ok'                   => false,
+                'active_users'         => 0,
+                'sessions'             => 0,
+                'page_views'           => 0,
+                'avg_session_duration' => 0.0,
+                'bounce_rate'          => 0.0,
+                'timestamp'            => function_exists('current_time') ? current_time('mysql') : date('Y-m-d H:i:s'),
+                'message'              => 'BetaAnalyticsDataClient class not found.',
             ];
         }
 

@@ -28,49 +28,49 @@ while (have_posts()) {
         <article <?php post_class('hs-article hs-editorial'); ?>>
             <header class="hs-article__header" style="margin-bottom: 2rem;">
                 <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem;">
-                    <span class="hs-badge" style="background: rgba(227, 6, 19, 0.1); color: var(--hs-primary, #e30613); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;">
+                    <span class="hs-badge" style="background: var(--hs-accent-soft); color: var(--hs-accent); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase;">
                         <?php echo esc_html($primaryCat); ?>
                     </span>
-                    <span style="font-size: 0.875rem; color: var(--hs-muted, #666);">
+                    <span style="font-size: 0.875rem; color: var(--hs-muted);">
                         <?php echo esc_html($readingTime); ?> min read · Updated <?php echo esc_html(get_the_modified_date('F Y')); ?>
                     </span>
                 </div>
 
-                <h1 style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.2; font-weight: 800; color: var(--hs-heading, #111); margin: 0 0 1rem 0;">
+                <h1 style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.2; font-weight: 800; color: var(--hs-text); margin: 0 0 1rem 0;">
                     <?php the_title(); ?>
                 </h1>
 
                 <?php if (has_excerpt()) : ?>
-                    <p style="font-size: 1.125rem; line-height: 1.6; color: var(--hs-text-secondary, #4b5563); margin: 0; font-weight: 400;">
+                    <p style="font-size: 1.125rem; line-height: 1.6; color: var(--hs-muted); margin: 0; font-weight: 400;">
                         <?php echo esc_html(get_the_excerpt()); ?>
                     </p>
                 <?php endif; ?>
             </header>
 
-            <div class="hs-article__content hs-panel" style="background: var(--hs-surface, #fff); border: 1px solid var(--hs-border, #e5e7eb); border-radius: 12px; padding: clamp(1.5rem, 3vw, 2.5rem); font-size: 1.0625rem; line-height: 1.75; color: var(--hs-text, #1f2937);">
+            <div class="hs-article__content hs-panel" style="background: var(--hs-panel); border: 1px solid var(--hs-border); border-radius: 12px; padding: clamp(1.5rem, 3vw, 2.5rem); font-size: 1.0625rem; line-height: 1.75; color: var(--hs-text);">
                 <style>
-                    .hs-article__content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--hs-heading, #111); border-bottom: 1px solid var(--hs-border, #e5e7eb); padding-bottom: 0.5rem; }
-                    .hs-article__content h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--hs-heading, #111); }
+                    .hs-article__content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem; color: var(--hs-text); border-bottom: 1px solid var(--hs-border); padding-bottom: 0.5rem; }
+                    .hs-article__content h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--hs-text); }
                     .hs-article__content p { margin-bottom: 1.25rem; }
                     .hs-article__content ul, .hs-article__content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
                     .hs-article__content li { margin-bottom: 0.5rem; }
-                    .hs-article__content strong { color: var(--hs-heading, #111); }
+                    .hs-article__content strong { color: var(--hs-text); }
                     .hs-article__content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9375rem; }
-                    .hs-article__content th, .hs-article__content td { padding: 0.75rem 1rem; border: 1px solid var(--hs-border, #e5e7eb); text-align: left; }
-                    .hs-article__content th { background: var(--hs-bg-alt, #f9fafb); font-weight: 600; }
+                    .hs-article__content th, .hs-article__content td { padding: 0.75rem 1rem; border: 1px solid var(--hs-border); text-align: left; }
+                    .hs-article__content th { background: var(--hs-bg-alt); font-weight: 600; color: var(--hs-text); }
                 </style>
                 <?php the_content(); ?>
             </div>
 
             <!-- Author & Editorial Trust Box -->
-            <footer class="hs-article__footer" style="margin-top: 2.5rem; padding: 1.5rem; background: var(--hs-bg-alt, #f9fafb); border: 1px solid var(--hs-border, #e5e7eb); border-radius: 12px; display: flex; gap: 1rem; align-items: center;">
-                <div style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: var(--hs-primary, #e30613); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">
+            <footer class="hs-article__footer" style="margin-top: 2.5rem; padding: 1.5rem; background: var(--hs-bg-alt); border: 1px solid var(--hs-border); border-radius: 12px; display: flex; gap: 1rem; align-items: center;">
+                <div style="flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: var(--hs-accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem;">
                     HS
                 </div>
                 <div>
-                    <h3 style="margin: 0 0 0.25rem 0; font-size: 1rem; font-weight: 700; color: var(--hs-heading, #111);">Helmetsan Technical Editorial Board</h3>
-                    <p style="margin: 0; font-size: 0.875rem; color: var(--hs-muted, #666); line-height: 1.4;">
-                        Our guides are written and reviewed by experienced motorcycle riders and safety gear analysts adhering to strict <a href="<?php echo esc_url(home_url('/legal/compliance-and-safety/')); ?>" style="color: var(--hs-primary, #e30613); text-decoration: underline;">editorial and testing standards</a>.
+                    <h3 style="margin: 0 0 0.25rem 0; font-size: 1rem; font-weight: 700; color: var(--hs-text);">Helmetsan Technical Editorial Board</h3>
+                    <p style="margin: 0; font-size: 0.875rem; color: var(--hs-muted); line-height: 1.4;">
+                        Our guides are written and reviewed by experienced motorcycle riders and safety gear analysts adhering to strict <a href="<?php echo esc_url(home_url('/legal/compliance-and-safety/')); ?>" style="color: var(--hs-accent); text-decoration: underline;">editorial and testing standards</a>.
                     </p>
                 </div>
             </footer>

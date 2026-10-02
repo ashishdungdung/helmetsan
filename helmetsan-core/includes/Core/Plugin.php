@@ -8,6 +8,9 @@ use Helmetsan\Core\Accessory\AccessoryService;
 use Helmetsan\Core\Admin\Admin;
 use Helmetsan\Core\Admin\AiAdmin;
 use Helmetsan\Core\Admin\HelmetImagesAdmin;
+use Helmetsan\Core\Media\HelmetImageManager;
+use Helmetsan\Core\Media\ImageAuditService;
+use Helmetsan\Core\API\HelmetImageController;
 use Helmetsan\Core\AI\AccessoryGeneratorService;
 use Helmetsan\Core\AI\AiService;
 use Helmetsan\Core\AI\HealRepository;
@@ -93,6 +96,7 @@ use Helmetsan\Core\Geo\ComplianceService;
 use Helmetsan\Core\Price\PriceHistory;
 use Helmetsan\Core\API\PriceController;
 use Helmetsan\Core\API\ReviewController;
+use Helmetsan\Core\API\MotorcycleCommerceController;
 use Helmetsan\Core\API\ApiGateway;
 use Helmetsan\Core\API\DataApiController;
 use Helmetsan\Core\Cloudflare\TurnstileService;
@@ -132,6 +136,7 @@ final class Plugin
     private ChecklistService $checklist;
     private DocsService $docs;
     private HelmetDataBlock $helmetDataBlock;
+    private \Helmetsan\Core\Frontend\HelmetGalleryBlock $helmetGalleryBlock;
     private Tracker $tracker;
     private BrandService $brands;
     private AccessoryService $accessories;
@@ -157,6 +162,7 @@ final class Plugin
     private HealRepository $heals;
     private PriceController $priceApi;
     private ReviewController $reviewApi;
+    private MotorcycleCommerceController $motorcycleCommerceApi;
     private \Helmetsan\Core\API\HelmetController $helmetApi;
     private \Helmetsan\Core\API\DeltaController $deltaApi;
     private CdnController $cdnApi;
@@ -173,6 +179,9 @@ final class Plugin
     private RevZillaImageService $revZillaImageService;
     private HelmetImageEnrichmentService $helmetImageEnrichment;
     private HelmetImagesAdmin $helmetImagesAdmin;
+    private HelmetImageManager $helmetImageManager;
+    private ImageAuditService $imageAuditService;
+    private HelmetImageController $helmetImageController;
     private AssetManager $assetManager;
     private ScraperService $scraperService;
     private ImageAnalysisService $imageAnalysisService;
@@ -257,6 +266,7 @@ final class Plugin
         $this->priceApi = new PriceController($this->price, $this->priceHistory);
         $this->turnstileService = new TurnstileService($this->config, $this->ingestionLogs);
         $this->reviewApi = new ReviewController($this->turnstileService, $this->reviews);
+        $this->motorcycleCommerceApi = new MotorcycleCommerceController();
         $this->helmetApi = new \Helmetsan\Core\API\HelmetController();
         $this->deltaApi = new \Helmetsan\Core\API\DeltaController($this->repository);
         $this->cdnApi = new CdnController();
@@ -374,7 +384,11 @@ final class Plugin
             $this->discovery,
             $this->mediaAdmin
         );
-        $this->helmetImagesAdmin = new HelmetImagesAdmin($this->helmetImageEnrichment, $this->aiService);
+        $this->helmetImageManager = new HelmetImageManager();
+        $this->imageAuditService = new ImageAuditService($this->providerRegistry, $this->helmetImageManager);
+        $this->helmetImageController = new HelmetImageController($this->helmetImageManager, $this->imageAuditService, $this->providerRegistry);
+        $this->helmetImagesAdmin = new HelmetImagesAdmin($this->helmetImageEnrichment, $this->aiService, $this->helmetImageManager);
+        $this->helmetGalleryBlock = new \Helmetsan\Core\Frontend\HelmetGalleryBlock($this->helmetImageManager);
 
         // Asset Manager / Scraper Services
         $this->assetManager = new AssetManager();
@@ -427,6 +441,7 @@ final class Plugin
 
         $this->aiAdmin->register();
         $this->helmetImagesAdmin->register();
+        $this->helmetImageController->register();
         $this->mediaAdmin->register();
         $this->translationAdmin->register();
         (new Admin(
@@ -452,6 +467,7 @@ final class Plugin
         ))->register();
         $this->databaseManager->register();
         $this->helmetDataBlock->register();
+        $this->helmetGalleryBlock->register();
         $this->tracker->register();
         $this->dataLayer->register();
         $this->analyticsEventService->register();
@@ -462,6 +478,7 @@ final class Plugin
         $this->geo->register();
         $this->cacheWarming->register();
         ObjectCacheService::register();
+        (new \Helmetsan\Core\Cache\EdgeCacheService())->register();
         (new \Helmetsan\Core\Cloudflare\CloudflareCacheService())->registerAjaxHooks();
         add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
         add_action('template_redirect', [$this, 'redirectCorruptedHelmetSlugs'], 1);
@@ -469,6 +486,7 @@ final class Plugin
         $this->adSense->register();
         $this->priceApi->register();
         $this->reviewApi->register();
+        $this->motorcycleCommerceApi->register();
         $this->helmetApi->register();
         $this->deltaApi->register();
         $this->cdnApi->register();
@@ -477,6 +495,7 @@ final class Plugin
         $this->revenueDashboard->register();
         add_action('pre_get_posts', [$this->search, 'interceptMainQuery']);
         add_action('pre_get_posts', [$this, 'enforceHelmetQueryParentGuard']);
+        add_action('pre_get_posts', [$this, 'interceptMotorcycleArchiveQuery'], 20);
 
         // Register custom cron interval
         add_filter('cron_schedules', [$this->feedTask, 'addInterval']);
@@ -869,5 +888,65 @@ final class Plugin
 
         // Guard against returning internal child variants across frontend queries
         $query->set('post_parent', 0);
+    }
+
+    /**
+     * Intercept main query for motorcycle post type archive to handle search,
+     * segment taxonomy filtering, manufacturer taxonomy filtering, and sorting cleanly.
+     */
+    public function interceptMotorcycleArchiveQuery(\WP_Query $query): void
+    {
+        if (is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive('motorcycle')) {
+            return;
+        }
+
+        $query->set('posts_per_page', 24);
+
+        // Sorting options
+        $sort = isset($_GET['hs_sort']) ? sanitize_key((string) $_GET['hs_sort']) : '';
+        if ($sort === 'displacement_desc') {
+            $query->set('meta_key', 'engine_cc');
+            $query->set('orderby', 'meta_value_num');
+            $query->set('order', 'DESC');
+        } elseif ($sort === 'displacement_asc') {
+            $query->set('meta_key', 'engine_cc');
+            $query->set('orderby', 'meta_value_num');
+            $query->set('order', 'ASC');
+        } elseif ($sort === 'alpha_desc') {
+            $query->set('orderby', 'title');
+            $query->set('order', 'DESC');
+        } else {
+            $query->set('orderby', 'title');
+            $query->set('order', 'ASC');
+        }
+
+        $search = isset($_GET['hs_q']) ? trim(sanitize_text_field(wp_unslash((string) $_GET['hs_q']))) : '';
+        if ($search !== '') {
+            $query->set('s', $search);
+        }
+
+        $taxQuery = (array) ($query->get('tax_query') ?: []);
+
+        $segment = isset($_GET['hs_segment']) ? sanitize_title(wp_unslash((string) $_GET['hs_segment'])) : '';
+        if ($segment !== '') {
+            $taxQuery[] = [
+                'taxonomy' => 'motorcycle_segment',
+                'field'    => 'slug',
+                'terms'    => $segment,
+            ];
+        }
+
+        $make = isset($_GET['hs_make']) ? sanitize_title(wp_unslash((string) $_GET['hs_make'])) : '';
+        if ($make !== '') {
+            $taxQuery[] = [
+                'taxonomy' => 'motorcycle_make',
+                'field'    => 'slug',
+                'terms'    => $make,
+            ];
+        }
+
+        if (! empty($taxQuery)) {
+            $query->set('tax_query', $taxQuery);
+        }
     }
 }

@@ -47,6 +47,9 @@ final class ExchangeRateService
         'NOK' => 10.6,
         'SAR' => 3.75,
         'KRW' => 1350.0,
+        'CNY' => 7.25,
+        'COP' => 4150.0,
+        'ARS' => 1050.0,
     ];
 
     /**

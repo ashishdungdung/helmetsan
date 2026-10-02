@@ -291,14 +291,14 @@ $comparison_link = home_url('/comparison/');
 <div class="hs-section hs-section--comparison">
     <div class="hs-container">
         <header class="hs-comparison-hero">
-            <h1>Helmet Comparison</h1>
-            <p class="hs-comparison-hero__lead">Compare specs, certifications, weight, and price side by side. Add up to four helmets from the catalog, then use this page to see differences at a glance and choose the right one.</p>
+            <h1><?php hs_e('Helmet Comparison'); ?></h1>
+            <p class="hs-comparison-hero__lead"><?php hs_e('Compare specs, certifications, weight, and price side by side. Add up to four helmets from the catalog, then use this page to see differences at a glance and choose the right one.'); ?></p>
         </header>
 
         <?php if (empty($helmets)): ?>
             <div class="hs-panel hs-comparison-empty">
-                <p><strong>No helmets selected yet.</strong> Browse the catalog and click “Compare” on any helmet to add it here. You can compare up to four helmets at once.</p>
-                <a href="<?php echo esc_url($helmets_link); ?>" class="hs-btn hs-btn--primary">Browse helmets</a>
+                <p><strong><?php hs_e('No helmets selected yet.'); ?></strong> <?php hs_e('Browse the catalog and click “Compare” on any helmet to add it here. You can compare up to four helmets at once.'); ?></p>
+                <a href="<?php echo esc_url($helmets_link); ?>" class="hs-btn hs-btn--primary"><?php hs_e('Browse helmets'); ?></a>
             </div>
         <?php else: 
             $helmet_ids = array_map(static fn($p) => $p->ID, $helmets);
@@ -312,24 +312,24 @@ $comparison_link = home_url('/comparison/');
                 <?php endif; ?>
             </script>
             <p class="hs-comp-toolbar">
-                <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost" id="hs-comp-toggle-empty" aria-pressed="false">Show empty fields</button>
-                <button type="button" class="hs-btn hs-btn--ghost js-comparison-clear">Clear All</button>
-                <button type="button" class="hs-btn hs-btn--sm hs-btn--primary js-share-comparison" id="hs-comp-share" title="Copy link to clipboard">
-                    Share this comparison
+                <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost" id="hs-comp-toggle-empty" aria-pressed="false"><?php hs_e('Show empty fields'); ?></button>
+                <button type="button" class="hs-btn hs-btn--ghost js-comparison-clear"><?php hs_e('Clear All'); ?></button>
+                <button type="button" class="hs-btn hs-btn--sm hs-btn--primary js-share-comparison" id="hs-comp-share" title="<?php hs_attr_e('Copy link to clipboard'); ?>">
+                    <?php hs_e('Share this comparison'); ?>
                 </button>
             </p>
             <div class="hs-comparison-table-wrap">
                 <table class="hs-comparison-table" id="hs-comparison-table">
                     <thead>
                         <tr>
-                            <th scope="col" id="col-feature" class="hs-comp-label-col">Feature</th>
+                            <th scope="col" id="col-feature" class="hs-comp-label-col"><?php hs_e('Feature'); ?></th>
                             <?php foreach ($helmets as $helmet): 
                                 $colId = 'col-helmet-' . $helmet->ID;
                                 ?>
                                 <th scope="col" id="<?php echo esc_attr($colId); ?>" class="hs-comp-header">
                                     <div class="hs-comp-img">
                                         <?php if (has_post_thumbnail($helmet->ID)) : ?>
-                                            <?php echo get_the_post_thumbnail($helmet->ID, 'medium', ['alt' => sprintf(__('Photo of %s', 'helmetsan-theme'), $helmet->post_title)]); ?>
+                                            <?php echo get_the_post_thumbnail($helmet->ID, 'medium', ['alt' => sprintf(esc_html(hs_t('Photo of %s')), $helmet->post_title)]); ?>
                                         <?php else : ?>
                                             <span class="hs-comp-img-placeholder" aria-hidden="true">—</span>
                                         <?php endif; ?>
@@ -340,12 +340,12 @@ $comparison_link = home_url('/comparison/');
                                         </a>
                                     </div>
                                     <div class="hs-comp-header-actions">
-                                        <a href="<?php echo esc_url(get_permalink($helmet->ID)); ?>" class="hs-btn hs-btn--sm hs-btn--ghost" aria-label="<?php echo esc_attr(sprintf(__('View details for %s', 'helmetsan-theme'), $helmet->post_title)); ?>">View</a>
+                                        <a href="<?php echo esc_url(get_permalink($helmet->ID)); ?>" class="hs-btn hs-btn--sm hs-btn--ghost" aria-label="<?php echo esc_attr(sprintf(hs_t('View details for %s'), $helmet->post_title)); ?>"><?php hs_e('View'); ?></a>
                                         <?php
                                         $slug = get_post_field('post_name', $helmet->ID);
                                         $go_url = $slug ? home_url('/go/' . $slug . '/?source=comparison') : get_permalink($helmet->ID);
                                         ?>
-                                        <a href="<?php echo esc_url($go_url); ?>" class="hs-btn hs-btn--sm hs-btn--primary hs-price-cta" data-marketplace="amazon" rel="nofollow sponsored" aria-label="<?php echo esc_attr(sprintf(__('Check price for %s', 'helmetsan-theme'), $helmet->post_title)); ?>">Check price</a>
+                                        <a href="<?php echo esc_url($go_url); ?>" class="hs-btn hs-btn--sm hs-btn--primary hs-price-cta" data-marketplace="amazon" rel="nofollow sponsored" aria-label="<?php echo esc_attr(sprintf(hs_t('Check price for %s'), $helmet->post_title)); ?>"><?php hs_e('Check price'); ?></a>
                                         <button type="button" class="hs-btn hs-btn--sm hs-btn--ghost js-add-to-compare is-active" 
                                                 data-id="<?php echo (int) $helmet->ID; ?>" 
                                                 aria-label="<?php echo esc_attr(sprintf(__('Remove %s from comparison', 'helmetsan-theme'), $helmet->post_title)); ?>">Remove</button>

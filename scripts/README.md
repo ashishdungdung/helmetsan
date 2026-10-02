@@ -1,36 +1,55 @@
-# Helmetsan Operational Scripts
+# Helmetsan Operational Scripts & Tooling Directory
+**Target:** Production Automation, Telemetry, Ingestion & Data Pipelines
 
-Core operational scripts for deployment, synchronization, data generation, and local AI audits. Run from the repository root unless specified.
+This directory houses operational tools for deployment, multi-engine search indexation, revenue analytics, catalog synthesis, and background workers.
 
-## Core Deployment & Sync Tools
+---
 
-| Script | Type | Description |
-| :--- | :--- | :--- |
-| `deploy.sh` | Bash | Production deploy (builds fresh zips from source, uploads, sets permissions, clears caches). |
-| `sync_data.sh` | Bash | Data synchronization engine between local workspace and production VPS. |
-| `reseed.sh` | Bash | Full ingestion pipeline: generate seed JSON → deploy → ingest into WordPress. |
-| `restore_to_server.sh` | Bash | Disaster recovery & database restore utility for the production server. |
-| `pull-data.sh` | Bash | Pulls latest data files from server to local workspace. |
-| `check-lm-studio.sh` | Bash | Verifies local LM Studio endpoint (`192.168.2.74:1234`) for zero-token AI tasks. |
+## 1. Search Engine Ingestion & Edge Performance
 
-## Core Data & AI Engines
+| Script | Runtime | Purpose |
+|---|---|---|
+| `multi_engine_ingest_controller.py` | Python 3 | Enterprise multi-engine dispatcher supporting IndexNow Universal Gateway, Bing Direct, Yandex Direct, Seznam Direct, Baidu Push API, and MariaDB ledger recording. |
+| `indexnow_surge.py` | Python 3 | High-throughput batch submitter for mass catalog indexation into `api.indexnow.org`. |
+| `edge_prewarm_crawler.mjs` / `.py` | Node.js / Python 3 | Concurrent crawler that sweeps high-priority catalog routes to prime Cloudflare edge POPs and Nginx FastCGI microcache (`x-fastcgi-cache: HIT`). |
 
-| Script | Command | Description |
-| :--- | :--- | :--- |
-| `create_helmets_seed.php` | `php scripts/create_helmets_seed.php` | Compiles single/multi-variant helmet schemas into master ingestion seed. |
-| `unified_deep_audit_and_enrich.php` | `php scripts/unified_deep_audit_and_enrich.php` | Unified master audit and multi-field enrichment engine. |
-| `local_llm_deep_audit.php` | `php scripts/local_llm_deep_audit.php` | Local LLM-powered helmet data audit via LM Studio. |
-| `local_llm_fix_and_enrich.php` | `php scripts/local_llm_fix_and_enrich.php` | Automated repair and enrichment using local AI consensus. |
-| `media_draw_things_api.php` | `php scripts/media_draw_things_api.php` | Local DrawThings image generation runner. |
-| `media_pollinations_batch.php` | `php scripts/media_pollinations_batch.php` | Fallback batch image generator via Pollinations. |
+---
 
-## VPS Recovery Utilities (`scripts/vps-*.sh`)
+## 2. Revenue Telemetry & Reporting
 
-Run directly on the VPS host:
-* `vps-recover-themes-plugins.sh`: Restores baseline clean WordPress theme and plugin stack.
-* `vps-fix-duplicate-helmetsan-core.sh`: De-duplicates active plugin entries.
-* `vps-fix-wp-content-permissions.sh`: Fixes ownership and permissions for `wp-content`.
+| Script | Runtime | Purpose |
+|---|---|---|
+| `aggregate_daily_clicks.py` | Python 3 | Rolls up raw `wp_helmetsan_clicks` records into `wp_helmetsan_clicks_daily` (configured as nightly cron: `5 0 * * *`). |
+| `affiliate_telemetry_report.py` | Python 3 | Operational CLI report displaying real-time click volumes, affiliate network distributions, and top converting helmets. |
+| `hybrid_affiliate_resolver.mjs` | Node.js | Cross-checks regional ASIN resolution and collision quarantine fallback routes. |
 
-## Archived Scripts (`scripts/archive/`)
+---
 
-Historical, one-off database migrations, and legacy version-specific enrichment scripts (v1–v4) are safely preserved in [`scripts/archive/`](./archive/) to avoid search pollution and token context bloat.
+## 3. Translation & Swarm Orchestration
+
+| Script | Runtime | Purpose |
+|---|---|---|
+| `launch_multi_swarm.py` | Python 3 | Multi-process supervisor managing continuous translation workers across locales. |
+| `swarm_translation_bot.py` | Python 3 | Sharded translation engine connecting to translation APIs with lease coordination. |
+| `swarm_lease_manager.py` | Python 3 | SQLite lease manager preventing worker collision during translation sweeps. |
+| `translate_bridge.php` | PHP CLI | WordPress bridge connecting external translation processes to Polylang schema. |
+
+---
+
+## 4. Deployment, Reseeding & Infrastructure
+
+| Script | Runtime | Purpose |
+|---|---|---|
+| `deploy.sh` | Bash | Production deployment builder (compiles bundles, syncs files, sets permissions, flushes caches). |
+| `sync_data.sh` | Bash | Syncs catalog JSON definitions and database state between workspace and VPS. |
+| `reseed.sh` | Bash | Full catalog pipeline: compiles seed JSON → syncs to VPS → executes WordPress ingestion. |
+| `export-mobile-db.py` | Python 3 | Compiles master SQLite full-text search database (`HelmetsanMobile/assets/database/catalog.db`). |
+| `create_helmets_seed.php` | PHP CLI | Compiles individual helmet JSON files into master ingestion seed file. |
+
+---
+
+## 5. Directory Substructure
+
+- `archive/`: Historical scripts, previous version migration engines (v1–v4), and retired one-off migration tasks.
+- `archive/consultations/`: One-off LLM consultation harnesses (Luna & Kimi prompt generators) preserved for provenance.
+- `config/`: Configuration templates and environment maps.
