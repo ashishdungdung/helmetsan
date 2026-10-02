@@ -70,7 +70,7 @@ A deterministic structural map of Helmetsan's **47 plugin subsystems**, **theme 
 | Tool | Command | Execution Time & Purpose |
 |:---|:---|:---|
 | **RAM Similarity Matcher** | `php scripts/in_memory_search_engine.php [id]` | **<66ms**: Vector similarity and alternative recommendations. |
-| **RAM Analytics Matrix** | `php scripts/in_memory_analytics_engine.php` | **<300ms**: 4-pass RAM statistical analysis across 2,235 helmets. |
+| **RAM Analytics Matrix** | `php scripts/in_memory_analytics_engine.php` | **<300ms**: 4-pass RAM statistical analysis across 2,218 helmets. |
 | **Recompile RAM Master Index** | `python3 scripts/build_in_memory_catalog_index.py` | **<1s**: Compiles `data/helmets_unified_master_memory_index.json` (3.5MB). |
 | **Catalog Data Linter** | `python3 scripts/lint_helmet_data.py` | Fast catalog consistency and schema validation. |
 | **Validation Bridge** | `php scripts/id-ai-validate.php [file]` | Validates single JSON files against `Validator.php`. |

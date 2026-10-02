@@ -8,7 +8,7 @@ The **Helmetsan In-Memory Data Analytics Engine** is a high-speed, RAM-based dat
 
 ## Key Performance & Completeness Metrics
 
-- **Total Catalog Indexed**: `2,235 Helmets`, `61 Brand Profiles`, `27 Accessories`.
+- **Total Catalog Indexed**: `2,218 Helmets`, `60 Brand Profiles`, `26 Accessories`.
 - **RAM Dataset Load Time**: `269 ms` – `289 ms`.
 - **In-Memory Analytical Sweep Time**: `281 ms` – `315 ms`.
 - **Overall Catalog Completeness**: **`100.0%` of all catalog helmets sit in the top 90% – 100% completeness tier**.
