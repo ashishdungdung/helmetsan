@@ -5,10 +5,10 @@
   "brand": "Jawa Motorcycles",
   "country_origin": "India 🇮🇳",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 294.72,
+  "power_hp": 27.3,
+  "torque_nm": 26.8,
+  "curb_weight_kg": 182.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "294.72cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 27.3,
+      "torque_nm": 26.8,
+      "curb_weight_kg": 182.0,
+      "power_to_weight": "15.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -115,7 +116,7 @@
     },
     {
       "id": "scorpion_exo_r1_air_camo-red",
-      "title": "-R1 Air Camo Red",
+      "title": "EXO-R1 Air Camo Red",
       "brand": "Scorpion EXO",
       "type": "Track / Race",
       "match_score": 91,
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "JAWA-JAWA_M",
+    "sku": "HSN-MOTO-JAWA-MOTORCYCLES-JAWA-42-BOBBER-",
+    "model_year": null,
+    "gear_search_fallback": "Jawa Motorcycles jawa_motorcycles_jawa_42_bobber_black_mirror_adventure_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

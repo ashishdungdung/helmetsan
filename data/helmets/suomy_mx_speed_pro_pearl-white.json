@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1307,
-    "weight_lbs": 2.88,
+    "weight_g": 1289,
+    "weight_lbs": 2.84,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 100
   },
   "description": "The Suomy MX-Speed Pro Pearl White is engineered for punishing motocross motos and technical single-track trails, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1307g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -60,22 +60,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0DADB204D",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy MX-Speed Pro Pearl White"
+      }
+    },
+    "gtin": "4969219630872",
+    "ean": "4969219630872",
+    "ean_status": "valid",
     "mpn": "MX-SPEED-PRO-PW",
-    "sku": "SUO-SUOMYM",
-    "asin": "B0DADB204D",
-    "ean": "4969219630872"
+    "sku": "HSN-HLM-SUOMY-MX-SPEED-PRO-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Specific fit notes not provided in input."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -105,7 +229,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1307,
+    "weight_grams": 1289,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -256,5 +380,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

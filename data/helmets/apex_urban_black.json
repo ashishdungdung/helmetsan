@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1269,
-    "weight_lbs": 2.8,
+    "weight_g": 1279,
+    "weight_lbs": 2.82,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the Apex Urban Black is engineered for warm-weather riding with featherweight crown comfort. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1269g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~98 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7M2K4P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7M2K4P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex Urban Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Urban Black"
+      }
+    },
+    "gtin": "843561290456",
     "ean": "843561290456",
+    "ean_status": "valid",
     "mpn": "AUX-OF-BLK-01",
-    "sku": "APE-APEXUR"
+    "sku": "HSN-HLM-APEX-URBAN-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban commuting; offers a relaxed fit suitable for oval and intermediate head shapes.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -116,7 +241,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1269,
+    "weight_grams": 1279,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,6 +394,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

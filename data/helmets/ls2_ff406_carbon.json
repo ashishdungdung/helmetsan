@@ -4,16 +4,16 @@
   "type": "Full Face",
   "specs": {
     "material": "Carbon Fiber Composite Shell with ABS Impact Liner",
-    "weight_g": 1304,
+    "weight_g": 1264,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.87,
+    "weight_lbs": 2.79,
     "noise_db_at_100kph": 87
   },
   "head_shape": "Intermediate Oval",
@@ -51,15 +51,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0F957433E",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406 Carbon"
+      }
+    },
+    "gtin": "4963355653948",
+    "ean": "4963355653948",
+    "ean_status": "valid",
     "mpn": "FF406-CARBON",
-    "sku": "LS-LS2FF4",
-    "asin": "B0F957433E",
-    "ean": "4963355653948"
+    "sku": "HSN-HLM-LS2-FF406-CARBON",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "homologation_standard": "ECE 22.06, DOT",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
   "unified_enriched": true,
   "model_year": 2023,
@@ -77,16 +201,16 @@
   "finish": "gloss",
   "is_graphic": false,
   "parent_id": "ls2_ff406",
-  "helmet_family": "Ls2 ff406",
+  "helmet_family": "FF406",
   "country_origin": "Spain / China 🇪🇸🇨🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1304,
+    "weight_grams": 1264,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -246,6 +370,8 @@
   "noise_db": 87,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1103,
-    "weight_lbs": 2.43,
+    "weight_g": 1115,
+    "weight_lbs": 2.46,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 95
   },
   "description": "The Studds Marshall Matte Black is engineered for warm-weather riding with featherweight crown comfort, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1103g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0DC86F11B",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Marshall Matte Black"
+      }
+    },
+    "gtin": "4967945533832",
+    "ean": "4967945533832",
+    "ean_status": "valid",
     "mpn": "STU-MB-OF-24",
-    "sku": "STU-STUDDS",
-    "asin": "B0DC86F11B",
-    "ean": "4967945533832"
+    "sku": "HSN-HLM-STUDDS-MARSHALL-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Matte Black finish with Studds branding; Open Face design."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.42
   },
@@ -113,7 +237,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1103,
+    "weight_grams": 1115,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,6 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
-  "sharp_rating": 0
+  "noise_db": 95,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

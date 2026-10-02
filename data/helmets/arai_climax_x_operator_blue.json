@@ -3,22 +3,22 @@
   "brand": "Arai",
   "type": "Full Face",
   "specs": {
-    "material": "Multi-Directional Impact Protection System (MIPS) with Arai's proprietary EPS and Carbon Fiber Reinforced Shell",
-    "weight_g": 1278,
+    "material": "Multi-Directional Impact Protection System (MIPS) with Arai's proprietary EPS liner and Carbon Fiber reinforced shell",
+    "weight_g": 1267,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Double D-Ring with Quick-Release Buckle",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.82,
-    "noise_db_at_100kph": 86
+    "weight_lbs": 2.79,
+    "noise_db_at_100kph": 85
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 9.2,
     "drag_coefficient": 0.29
   },
@@ -46,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B09X7K2M1P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7K2M1P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Climax X Operator Blue"
+      }
+    },
+    "gtin": "4549000123456",
     "ean": "4549000123456",
+    "ean_status": "valid",
     "mpn": "CLMX-OP-BLU-24",
-    "sku": "ARA-ARAICL"
+    "sku": "HSN-HLM-ARAI-CLIMAX-X-OPERATOR-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
+    "sharp_rating": 0,
     "homologation_standard": "DOT, ECE 22.06",
-    "rotational_mitigation": "MIPS"
+    "rotational_mitigation": "MIPS",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 8,
     "cable_management": true
@@ -76,12 +200,12 @@
   "color_family": "Multi-Color / Graphic",
   "finish": "gloss",
   "is_graphic": true,
-  "parent_id": "arai_climax",
-  "helmet_family": "Arai climax",
+  "parent_id": "arai_climax_x",
+  "helmet_family": "Climax X",
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1278,
+    "weight_grams": 1267,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -243,9 +367,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86,
+  "noise_db": 85,
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

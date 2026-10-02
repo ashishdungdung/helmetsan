@@ -73,33 +73,33 @@
   },
   "compatible_helmets": [
     {
-      "id": "scorpion_exo_gt930_track_grey",
-      "title": "Scorpion scorpion_exo_gt930_track-grey",
-      "brand": "Scorpion EXO",
-      "type": "Full Face",
-      "match_score": 98,
-      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Matter Energy Matter AERA 5000 4-Speed Manual Electric (Touring Pack)."
-    },
-    {
       "id": "nexx_x_g200_gloss-white",
       "title": "X.G200 Gloss White",
       "brand": "Nexx",
       "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Matter AERA 5000 4-Speed Manual Electric (Touring Pack) at highway speeds."
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Matter Energy Matter AERA 5000 4-Speed Manual Electric (Touring Pack)."
     },
     {
       "id": "axor_apex_carbon",
       "title": "Apex Carbon",
       "brand": "Axor",
       "type": "Full Face",
-      "match_score": 91,
-      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Matter Energy Matter AERA 5000 4-Speed Manual Electric (Touring Pack)."
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Matter AERA 5000 4-Speed Manual Electric (Touring Pack) at highway speeds."
     },
     {
       "id": "shark_skwal_i3_gloss-black",
       "title": "Skwal i3 Gloss Black",
       "brand": "Shark",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Matter Energy Matter AERA 5000 4-Speed Manual Electric (Touring Pack)."
+    },
+    {
+      "id": "studds_dragon_d9_grey",
+      "title": "Dragon D9 Grey",
+      "brand": "Studds",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Matter AERA 5000 4-Speed Manual Electric (Touring Pack)."
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "MATT-MATTER",
+    "sku": "HSN-MOTO-MATTER-ENERGY-MATTER-AERA-5000-4",
+    "model_year": null,
+    "gear_search_fallback": "Matter Energy matter_energy_matter_aera_5000_4_speed_manual_electric_touring_pack accessories motorcycle gear"
+  }
 }

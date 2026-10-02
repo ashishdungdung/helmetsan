@@ -99,7 +99,7 @@
   "compatible_helmets": [
     {
       "id": "shoei_tec_ii_urban_tc_2",
-      "title": "TC-2 Urban",
+      "title": "Tec II Urban TC-2",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 98,
@@ -146,5 +146,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "APRI-APRILI",
+    "sku": "HSN-MOTO-APRILIA-TUONO-V4-FACTORY",
+    "model_year": null,
+    "gear_search_fallback": "Aprilia aprilia_tuono_v4_factory accessories motorcycle gear"
+  }
 }

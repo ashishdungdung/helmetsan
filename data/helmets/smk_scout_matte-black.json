@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "smk_scout",
-  "helmet_family": "Scout",
+  "helmet_family": "SMK Scout",
   "price": {
     "usd": 139,
     "inr": 11537,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1307,
-    "weight_lbs": 2.88,
+    "weight_g": 1294,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 90
+    "noise_db_at_100kph": 88
   },
   "description": "Tuned for all-terrain exploration, the SMK Helmets SMK Scout Matte Black is purpose-built for adventure riders tackling varied weather and challenging backcountry trails across highway asphalt and backcountry gravel. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1307g, channeling boundary-layer airflow to maintain a ~90 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B048F793A9",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Scout Matte Black"
+      }
+    },
+    "gtin": "4963251973072",
+    "ean": "4963251973072",
+    "ean_status": "valid",
     "mpn": "SMK-SCOUT-MB",
-    "sku": "SMK-SMKSCO",
-    "asin": "B048F793A9",
-    "ean": "4963251973072"
+    "sku": "HSN-HLM-SMK-SCOUT-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -112,7 +236,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1307,
+    "weight_grams": 1294,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

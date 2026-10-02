@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "HRT Thermoplastic",
-    "weight_g": 1473,
-    "weight_lbs": 3.25,
+    "weight_g": 1419,
+    "weight_lbs": 3.13,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 100
   },
   "description": "The Airoh Twist 3 Silver Metallic is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, delivering lightweight balance and wide-vision goggle accommodation. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1473g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~98 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -63,15 +63,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Twist 3 Silver Metallic"
+      }
+    },
+    "gtin": "8013654270014",
     "ean": "8013654270014",
+    "ean_status": "valid",
     "mpn": "TWIST-3-SILVER-METALLIC",
-    "sku": "AIR-AIROHT"
+    "sku": "HSN-HLM-AIROH-TWIST-3-SILVER-METALLIC",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for dirt/MX riding; Twist 3 features a twist-lock retention system and silver metallic finish. Optimized for Intermediate Oval head shape.",
@@ -105,12 +230,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1473,
+    "weight_grams": 1419,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1271,
-    "weight_lbs": 2.8,
+    "weight_g": 1280,
+    "weight_lbs": 2.82,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 96
   },
   "description": "The Apex Cruise Ultra Black is engineered for warm-weather riding with featherweight crown comfort, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1271g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09K7X2M4P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09K7X2M4P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Cruise Ultra Black"
+      }
+    },
+    "gtin": "8594321098765",
     "ean": "8594321098765",
+    "ean_status": "valid",
     "mpn": "APX-CU-BLK-24",
-    "sku": "APE-APEXCR"
+    "sku": "HSN-HLM-APEX-CRUISE-ULTRA-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": null,
+    "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open face design; specific fit depends on individual head shape and Apex sizing chart. Optimized for Intermediate Oval head shapes.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -113,12 +238,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 985,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1271,
+    "weight_grams": 1280,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -271,5 +395,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

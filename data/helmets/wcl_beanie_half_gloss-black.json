@@ -8,7 +8,7 @@
     "Half"
   ],
   "parent_id": "wcl_beanie_half",
-  "helmet_family": "Beanie Half",
+  "helmet_family": "WCL Beanie Half",
   "price": {
     "usd": 39,
     "inr": 3237,
@@ -24,17 +24,17 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1470,
-    "weight_lbs": 3.24,
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 102
+    "noise_db_at_100kph": 101
   },
   "description": "The Wcl Beanie Half Gloss Black delivers stripped-down minimalist coverage for relaxed warm-weather cruising, pairing low-profile styling with essential certified head protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1470g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~102 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B095BA49D0",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss Black"
+      }
+    },
+    "gtin": "4963022284307",
+    "ean": "4963022284307",
+    "ean_status": "valid",
     "mpn": "WCL-BH-GLOSS-BLK",
-    "sku": "WCL-WCLBEA",
-    "asin": "B095BA49D0",
-    "ean": "4963022284307"
+    "sku": "HSN-HLM-WCL-BEANIE-HALF-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Half coverage beanie style; not a hard-shell helmet."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 102,
+    "noise_db_at_100kph": 101,
     "ventilation_efficiency_score": 3,
     "drag_coefficient": 0.48
   },
@@ -101,7 +225,7 @@
   "country_origin": "Global",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1470,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "102 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,6 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 102,
-  "sharp_rating": 0
+  "noise_db": 101,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

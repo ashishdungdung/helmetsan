@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1435,
-    "weight_lbs": 3.16,
+    "weight_g": 1411,
+    "weight_lbs": 3.11,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 98
   },
   "description": "The Studds Motocross D5 Raptor Red is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1435g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0F132A4A6",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Motocross D5 Raptor Red"
+      }
+    },
+    "gtin": "4961985481054",
+    "ean": "4961985481054",
+    "ean_status": "valid",
     "mpn": "D5-RAPTOR-RED",
-    "sku": "STU-STUDDS",
-    "asin": "B0F132A4A6",
-    "ean": "4961985481054"
+    "sku": "HSN-HLM-STUDDS-MOTOCROSS-D5-RAPTOR-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Studds D5 Raptor Red is a motocross/dirt bike helmet designed for off-road use. It typically features a standard oval fit and may require specific sizing based on head circumference.",
@@ -78,7 +202,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -108,7 +232,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1435,
+    "weight_grams": 1411,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

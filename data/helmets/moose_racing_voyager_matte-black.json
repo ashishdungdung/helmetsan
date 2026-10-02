@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "moose_racing_voyager",
-  "helmet_family": "Voyager",
+  "helmet_family": "Racing Voyager",
   "price": {
     "usd": 229,
     "inr": 19007,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1476,
-    "weight_lbs": 3.25,
+    "weight_g": 1393,
+    "weight_lbs": 3.07,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 90
   },
   "description": "The Moose Racing Voyager Matte Black bridges highway aerodynamic poise with high-flow off-road ventilation, pairing peak visor aerodynamic stability with high-flow dust filtration. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1476g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~91 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B05A7A2C03",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Matte Black"
+      }
+    },
+    "gtin": "4967401849163",
+    "ean": "4967401849163",
+    "ean_status": "valid",
     "mpn": "MOOSE-VY-MAT-BLK",
-    "sku": "MOO-MOOSER",
-    "asin": "B05A7A2C03",
-    "ean": "4967401849163"
+    "sku": "HSN-HLM-MOOSE-RACING-VOYAGER-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Matte Black finish; Adventure/Dual Sport design."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -100,7 +224,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1476,
+    "weight_grams": 1393,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -252,5 +376,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

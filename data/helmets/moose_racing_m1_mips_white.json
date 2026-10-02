@@ -3,12 +3,12 @@
   "entity": "helmet",
   "title": "Racing M1 MIPS White",
   "brand": "Moose",
-  "type": "Dirt / Motocross",
+  "type": "Dirt / MX",
   "helmet_types": [
     "Dirt / Motocross"
   ],
   "parent_id": "moose_racing_m1_mips",
-  "helmet_family": "M1 MIPS",
+  "helmet_family": "Racing M1",
   "price": {
     "usd": 189,
     "inr": 15687,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1395,
-    "weight_lbs": 3.08,
+    "weight_g": 1408,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 100
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0D03D0AA6",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS White"
+      }
+    },
+    "gtin": "4962675453153",
+    "ean": "4962675453153",
+    "ean_status": "valid",
     "mpn": "M1-MIPS-WHT",
-    "sku": "MOO-MOOSER",
-    "asin": "B0D03D0AA6",
-    "ean": "4962675453153"
+    "sku": "HSN-HLM-MOOSE-RACING-M1-MIPS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "rotational_mitigation": true,
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4
+    "sharp_rating": 0,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for dirt and motocross riding; features MIPS technology for rotational impact mitigation."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -98,9 +222,9 @@
   },
   "unified_enriched": true,
   "country_origin": "Global",
-  "category": "Dirt / Motocross",
+  "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1395,
+    "weight_grams": 1408,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -253,5 +377,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

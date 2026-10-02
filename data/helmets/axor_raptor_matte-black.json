@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1332,
-    "weight_lbs": 2.94,
+    "weight_g": 1271,
+    "weight_lbs": 2.8,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 90
   },
   "description": "The Axor Raptor Matte Black bridges highway aerodynamic poise with high-flow off-road ventilation, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1332g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "mpn": "AXOR-RAP-MAT-BLK",
-    "asin": "B08X7K2P9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7K2P9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Raptor Matte Black"
+      }
+    },
+    "gtin": "8412345678901",
     "ean": "8412345678901",
-    "sku": "AXO-AXORRA"
+    "ean_status": "valid",
+    "mpn": "AXOR-RAP-MAT-BLK",
+    "sku": "HSN-HLM-AXOR-RAPTOR-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for adventure riding with a slightly roomier fit to accommodate goggles and communication systems; features a multi-density EPS liner for impact absorption.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -116,7 +241,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1332,
+    "weight_grams": 1271,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -5,10 +5,10 @@
   "brand": "Yamaha",
   "country_origin": "Japan 🇯🇵",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 689.0,
+  "power_hp": 73.4,
+  "torque_nm": 67.0,
+  "curb_weight_kg": 188.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "689cc Parallel-Twin Liquid-Cooled DOHC CP2 Engine",
+      "power_hp": 73.4,
+      "torque_nm": 67.0,
+      "curb_weight_kg": 188.0,
+      "power_to_weight": "39.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist & Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -123,5 +124,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-YZF-R7-HO-ENDURO-SPEC",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_yzf_r7_ho_enduro_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist & Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

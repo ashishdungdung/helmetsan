@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM",
-    "weight_g": 1595,
-    "weight_lbs": 3.52,
+    "weight_g": 1684,
+    "weight_lbs": 3.71,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 89
   },
   "description": "Engineered for adaptable touring, the Shoei Neotec 3 Black is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1595g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,139 @@
   },
   "model_year": 2022,
   "identifiers": {
-    "asin": "B09K3QWJ8X",
+    "amazon": {
+      "us": {
+        "asin": "B09K3QWJ8X",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Neotec 3 Black"
+      }
+    },
+    "gtin": "4546712090234",
     "ean": "4546712090234",
+    "ean_status": "valid",
     "mpn": "NE-TEC3-BLK",
-    "sku": "SHO-SHOEIN"
+    "sku": "HSN-HLM-SHOEI-NEOTEC-3-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for intermediate oval head shapes; offers a slightly roomier fit compared to the GT-Air series.",
@@ -109,7 +233,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1595,
+    "weight_grams": 1684,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +384,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 88
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

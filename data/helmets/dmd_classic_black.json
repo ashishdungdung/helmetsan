@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "dmd_classic",
-  "helmet_family": "Classic",
+  "helmet_family": "DMD Classic",
   "price": {
     "usd": 179,
     "inr": 14857,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1150,
-    "weight_lbs": 2.54,
+    "weight_g": 1105,
+    "weight_lbs": 2.44,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 98
   },
   "description": "The Dmd Classic Black is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a featherweight 1150g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "mpn": "DMD-CLASSIC-BLK",
-    "asin": "B07Q5WZ8Y4",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5WZ8Y4",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Dmd Classic Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Dmd Classic Black"
+      }
+    },
+    "gtin": "8429613000000",
     "ean": "8429613000000",
-    "sku": "DMD-DMDCLA"
+    "ean_status": "valid",
+    "mpn": "DMD-CLASSIC-BLK",
+    "sku": "HSN-HLM-DMD-CLASSIC-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open face design with extended cheek pads for a secure fit on oval and intermediate head shapes; may feel loose on very round heads without additional padding.",
@@ -111,7 +235,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1150,
+    "weight_grams": 1105,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,6 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

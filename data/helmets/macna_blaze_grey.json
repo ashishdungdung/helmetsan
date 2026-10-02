@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1287,
-    "weight_lbs": 2.84,
+    "weight_g": 1344,
+    "weight_lbs": 2.96,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 95
+    "noise_db_at_100kph": 96
   },
   "description": "The Macna Blaze Grey delivers breezy open-air freedom for scenic cruising and city exploration, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1287g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~95 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,16 +62,140 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0149E048E",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Macna Blaze Grey"
+      }
+    },
+    "gtin": "4966585865372",
+    "ean": "4966585865372",
+    "ean_status": "valid",
     "mpn": "MACNA-BLAZE-GREY",
-    "sku": "MAC-MACNAB",
-    "asin": "B0149E048E",
-    "ean": "4966585865372"
+    "sku": "HSN-HLM-MACNA-BLAZE-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -108,7 +232,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1287,
+    "weight_grams": 1344,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,6 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 95,
-  "sharp_rating": 0
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

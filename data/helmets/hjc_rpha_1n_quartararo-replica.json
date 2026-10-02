@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PIM+",
-    "weight_g": 1471,
-    "weight_lbs": 3.24,
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.06",
       "FIM"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 92
   },
   "description": "Born for the apex and high-speed straightaways, the HJC RPHA 1N Quartararo Replica is born on the race grid to conquer high-speed turbulence. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1471g, channeling boundary-layer airflow to maintain a ~91 dB acoustic cabin profile while meeting DOT, ECE 22.06, FIM impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09TQZV8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09TQZV8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Quartararo Replica"
+      }
+    },
+    "gtin": "4976152000000",
     "ean": "4976152000000",
+    "ean_status": "valid",
     "mpn": "HJC-RPHA-1N-QRT",
-    "sku": "HJC-HJCRPH"
+    "sku": "HSN-HLM-HJC-RPHA-1N-QUARTARARO-REPLICA",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06, FIM",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for aggressive track tuck; may feel tight on larger head sizes due to narrow cheek pads.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 92,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -112,7 +237,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1471,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "2.1 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 91
+  "noise_db": 92,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

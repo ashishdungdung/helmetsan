@@ -23,16 +23,16 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "HPC Composite",
-    "weight_g": 1139,
-    "weight_lbs": 2.51,
+    "weight_g": 1119,
+    "weight_lbs": 2.47,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 98
   },
   "description": "Tailored for classic roadsters and urban cruising, the Airoh Helios Anthracite is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at a featherweight 1139g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~96 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -63,16 +63,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q5XJZ8K",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5XJZ8K",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Anthracite"
+      }
+    },
+    "gtin": "8012634090000",
     "ean": "8012634090000",
+    "ean_status": "valid",
     "mpn": "Airoh-Helios-Anthracite",
-    "sku": "AIR-AIROHH"
+    "sku": "HSN-HLM-AIROH-HELIOS-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Classic open-face fit with a slightly rounded interior shell designed for Round Oval head shapes; requires cheek pads for full coverage on larger heads.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.39
   },
@@ -111,12 +235,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1080,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1139,
+    "weight_grams": 1119,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -267,6 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

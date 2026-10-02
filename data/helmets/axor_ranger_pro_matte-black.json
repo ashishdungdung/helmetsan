@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1309,
-    "weight_lbs": 2.89,
+    "weight_g": 1324,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 91
@@ -65,15 +65,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B08X7K2P9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7K2P9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Ranger Pro Matte Black"
+      }
+    },
+    "gtin": "4056389214567",
     "ean": "4056389214567",
+    "ean_status": "valid",
     "mpn": "AXOR-RANGER-PRO-BLK",
-    "sku": "AXO-AXORRA"
+    "sku": "HSN-HLM-AXOR-RANGER-PRO-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for adventure riding with a slightly roomier fit to accommodate goggles and communication systems; features a multi-density EPS liner for impact absorption.",
@@ -111,7 +236,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1309,
+    "weight_grams": 1324,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

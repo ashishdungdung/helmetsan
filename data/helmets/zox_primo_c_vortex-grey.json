@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1293,
-    "weight_lbs": 2.85,
+    "weight_g": 1324,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Zox Primo C Vortex Grey is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1293g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09TQZV8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09TQZV8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Vortex Grey"
+      }
+    },
+    "gtin": "8427651000000",
     "ean": "8427651000000",
+    "ean_status": "valid",
     "mpn": "ZPVC-GRY",
-    "sku": "ZOX-ZOXPRI"
+    "sku": "HSN-HLM-ZOX-PRIMO-C-VORTEX-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; Vortex Grey finish may show fingerprints on matte sections.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -102,7 +227,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1293,
+    "weight_grams": 1324,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +379,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

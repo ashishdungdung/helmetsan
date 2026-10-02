@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PB-cLc",
-    "weight_g": 1137,
-    "weight_lbs": 2.51,
+    "weight_g": 1148,
+    "weight_lbs": 2.53,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -67,16 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07K9X2M4P",
+    "amazon": {
+      "us": {
+        "asin": "B07K9X2M4P",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Street TC-3"
+      }
+    },
+    "gtin": "4543600123456",
     "ean": "4543600123456",
+    "ean_status": "valid",
     "mpn": "AV-TC3-18",
-    "sku": "ARA-ARAICL"
+    "sku": "HSN-HLM-ARAI-CLASSIC-V-STREET-TC-3",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "The Classic-V Street TC-3 is a retro-styled open-face helmet featuring a rounder shell profile suitable for intermediate oval head shapes. The TC-3 designation indicates track certification, which may affect comfort for long-distance street riding compared to the standard Classic-V.",
@@ -84,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -110,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1180,
   "repaired_and_enriched": true,
   "country_origin": "Japan 🇯🇵",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1137,
+    "weight_grams": 1148,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -271,5 +394,6 @@
     }
   ],
   "noise_db": 97,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

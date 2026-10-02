@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Thermoplastic",
-    "weight_g": 1406,
-    "weight_lbs": 3.1,
+    "weight_g": 1413,
+    "weight_lbs": 3.12,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 99
   },
   "description": "Built for aggressive dirt performance, the MT Helmets Falcon Hi-Viz Yellow is engineered for punishing motocross motos and technical single-track trails across punishing tracks and trails. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1406g, channeling boundary-layer airflow to maintain a ~97 dB acoustic cabin profile while meeting ECE 22.06 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Falcon Hi-Viz Yellow"
+      }
+    },
+    "gtin": "8419250360000",
     "ean": "8419250360000",
+    "ean_status": "valid",
     "mpn": "FAL-HI-VIZ-YEL",
-    "sku": "MTH-MTHELM"
+    "sku": "HSN-HLM-MT-HELMETS-FALCON-HI-VIZ-YELLOW",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for aggressive riding positions; may feel tight on larger head sizes due to low-profile shell.",
@@ -78,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -107,7 +232,7 @@
   "country_origin": "Spain 🇪🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1406,
+    "weight_grams": 1413,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -258,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

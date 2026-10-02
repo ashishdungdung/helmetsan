@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1328,
-    "weight_lbs": 2.93,
+    "weight_g": 1306,
+    "weight_lbs": 2.88,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the Apex Drift X2 Chrome is engineered for warm-weather riding with featherweight crown comfort. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1328g, channeling boundary-layer airflow to maintain a ~98 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "APEX-DRIFT-X2-CHROME",
-    "asin": "B0C9X8Y2Z1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y2Z1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Drift X2 Chrome"
+      }
+    },
+    "gtin": "5060123456789",
     "ean": "5060123456789",
-    "sku": "APE-APEXDR"
+    "ean_status": "valid",
+    "mpn": "APEX-DRIFT-X2-CHROME",
+    "sku": "HSN-HLM-APEX-DRIFT-X2-CHROME",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Standard open-face fit with moderate cheek padding; may feel tight on high-oval heads due to chrome shell rigidity. Designed for Intermediate Oval head shapes.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.42
   },
@@ -113,12 +238,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 985,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1328,
+    "weight_grams": 1306,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -271,6 +395,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

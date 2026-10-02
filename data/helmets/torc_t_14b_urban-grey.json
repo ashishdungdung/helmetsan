@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1468,
-    "weight_lbs": 3.24,
+    "weight_g": 1409,
+    "weight_lbs": 3.11,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8YX",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YX",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Torc T-14B Urban Grey"
+      }
+    },
+    "gtin": "842396015000",
     "ean": "842396015000",
+    "ean_status": "valid",
     "mpn": "T-14B-UG",
-    "sku": "TOR-TORCT1"
+    "sku": "HSN-HLM-TORC-T-14B-URBAN-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban commuting; fits most head shapes but may feel tight on larger skulls due to compact shell design.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -109,7 +234,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1468,
+    "weight_grams": 1409,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

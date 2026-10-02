@@ -114,16 +114,16 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Z H2 SE Supercharged Naked at highway speeds."
     },
     {
-      "id": "shark_evo_one_2_course_red",
-      "title": "Evo One 2 Course Red",
-      "brand": "Shark",
+      "id": "shoei_tec_ii_operator_blue",
+      "title": "Tec II Operator Blue",
+      "brand": "Shoei",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Kawasaki Z H2 SE Supercharged Naked."
     },
     {
-      "id": "shoei_tec_ii_operator_blue",
-      "title": "Tec II Operator Blue",
+      "id": "shoei_tec_ii",
+      "title": "Tec II",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 87,
@@ -146,5 +146,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KAWA-KAWASA",
+    "sku": "HSN-MOTO-KAWASAKI-ZH2",
+    "model_year": null,
+    "gear_search_fallback": "Kawasaki kawasaki_zh2 accessories motorcycle gear"
+  }
 }

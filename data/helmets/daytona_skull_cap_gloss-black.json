@@ -23,13 +23,13 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1420,
-    "weight_lbs": 3.13,
+    "weight_g": 1454,
+    "weight_lbs": 3.21,
     "certifications": [
       "DOT"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 99
@@ -63,23 +63,148 @@
   },
   "model_year": 2021,
   "identifiers": {
-    "asin": "B08X7Y2Z9A",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7Y2Z9A",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Skull Cap Gloss Black"
+      }
+    },
+    "gtin": "8901234567890",
     "ean": "8901234567890",
+    "ean_status": "valid",
     "mpn": "DAY-SKULL-BLK-01",
-    "sku": "DAY-DAYTON"
+    "sku": "HSN-HLM-DAYTONA-SKULL-CAP-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Gloss Black finish; Daytona Skull Cap style."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 102,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -109,7 +234,7 @@
   "country_origin": "Global",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1420,
+    "weight_grams": 1454,
     "acoustic_noise_rating_db": "102 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -25,7 +25,7 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1151,
+    "weight_g": 1152,
     "weight_lbs": 2.54,
     "certifications": [
       "DOT",
@@ -33,7 +33,7 @@
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -64,23 +64,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B04B1153CB",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Ranger D6 Matte Black"
+      }
+    },
+    "gtin": "4962494173218",
+    "ean": "4962494173218",
+    "ean_status": "valid",
     "mpn": "Ranger-D6-MatteBlack",
-    "sku": "STU-STUDDS",
-    "asin": "B04B1153CB",
-    "ean": "4962494173218"
+    "sku": "HSN-HLM-STUDDS-RANGER-D6-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Matte Black finish; Open Face design"
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 4,
     "drag_coefficient": 0.85
   },
@@ -110,7 +234,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1151,
+    "weight_grams": 1152,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +390,6 @@
     }
   ],
   "noise_db": 97,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -7,14 +7,14 @@
     "weight_g": 1264,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.79,
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -46,15 +46,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B076D34FA4",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "LS2 FF406"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF406"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF406"
+      }
+    },
+    "gtin": "4962652011840",
+    "ean": "4962652011840",
+    "ean_status": "valid",
     "mpn": "FF406",
-    "sku": "LS-LS2FF4",
-    "asin": "B076D34FA4",
-    "ean": "4962652011840"
+    "sku": "HSN-HLM-LS2-FF406",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "homologation_standard": "ECE 22.06, DOT",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
   "unified_enriched": true,
   "model_year": 2023,
@@ -71,8 +195,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "ls2_ff406",
-  "helmet_family": "Ls2 ff406",
+  "parent_id": null,
+  "helmet_family": "FF406",
   "country_origin": "Spain / China 🇪🇸🇨🇳",
   "category": "Full Face",
   "physics_intelligence": {
@@ -81,7 +205,7 @@
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -238,9 +362,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85,
+  "noise_db": 87,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

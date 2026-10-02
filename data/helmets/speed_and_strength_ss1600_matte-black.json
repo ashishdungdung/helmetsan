@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "speed_and_strength_ss1600",
-  "helmet_family": "SS1600",
+  "helmet_family": "and Strength SS1600",
   "price": {
     "usd": 149,
     "inr": 12367,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1295,
-    "weight_lbs": 2.85,
+    "weight_g": 1321,
+    "weight_lbs": 2.91,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 85
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Speed and Strength SS1600 Matte Black is tuned for city streets, daily work runs, and weekend joyrides. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1295g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,139 @@
   },
   "model_year": 2016,
   "identifiers": {
-    "asin": "B07QKZV1X3",
+    "amazon": {
+      "us": {
+        "asin": "B07QKZV1X3",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Matte Black"
+      }
+    },
+    "gtin": "8426590000000",
     "ean": "8426590000000",
+    "ean_status": "valid",
     "mpn": "SS1600-BLK",
-    "sku": "SPE-SPEEDA"
+    "sku": "HSN-HLM-SPEED-AND-STRENGTH-SS1600-MATTE-",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "MIPS"
+    "sharp_rating": 0,
+    "rotational_mitigation": "MIPS",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Matte Black finish; fits most head shapes but may feel tight on large occipital lobes due to aggressive cheek pads.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.34
   },
@@ -102,7 +226,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1295,
+    "weight_grams": 1321,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

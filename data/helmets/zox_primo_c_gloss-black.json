@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1336,
-    "weight_lbs": 2.95,
+    "weight_g": 1324,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 88
   },
   "description": "The Zox Primo C Gloss Black is engineered for everyday agility, rapid ventilation, and effortless usability, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1336g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -62,15 +62,140 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B08XZ9K2L4",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08XZ9K2L4",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Primo C Gloss Black"
+      }
+    },
+    "gtin": "8901234567890",
     "ean": "8901234567890",
+    "ean_status": "valid",
     "mpn": "ZOX-PRIMO-C-BLK",
-    "sku": "ZOX-ZOXPRI"
+    "sku": "HSN-HLM-ZOX-PRIMO-C-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -100,7 +225,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1336,
+    "weight_grams": 1324,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -252,5 +377,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

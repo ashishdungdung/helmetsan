@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1623,
-    "weight_lbs": 3.58,
+    "weight_g": 1612,
+    "weight_lbs": 3.55,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 88
   },
   "description": "The Shark Evo-One 2 Gloss White is engineered for seamless transitions between open-face city stops and full-face highway cruising, pairing a quick-flip chin bar with certified impact protection. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1623g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZJ8V3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZJ8V3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Evo-One 2 Gloss White"
+      }
+    },
+    "gtin": "6954210000000",
     "ean": "6954210000000",
+    "ean_status": "valid",
     "mpn": "SH-1000-WHT",
-    "sku": "SHA-SHARKE"
+    "sku": "HSN-HLM-SHARK-EVO-ONE-2-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; may feel tight on very round heads due to extended cheek pads.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -109,7 +234,7 @@
   "country_origin": "France 🇫🇷",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1623,
+    "weight_grams": 1612,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

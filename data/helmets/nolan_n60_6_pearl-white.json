@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1320,
-    "weight_lbs": 2.91,
+    "weight_g": 1283,
+    "weight_lbs": 2.83,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Microlock2 (Micrometric Ratchet)",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Nolan N60-6 Pearl White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1320g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
   "product_details": {
@@ -62,15 +62,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8Y5",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8Y5",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Nolan N60-6 Pearl White"
+      }
+    },
+    "gtin": "8021364960000",
     "ean": "8021364960000",
+    "ean_status": "valid",
     "mpn": "N60-6",
-    "sku": "NOL-NOLANN"
+    "sku": "HSN-HLM-NOLAN-N60-6-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; features a wide visor opening and adjustable cheek pads for a secure fit.",
@@ -78,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.34
   },
@@ -107,7 +232,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1320,
+    "weight_grams": 1283,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

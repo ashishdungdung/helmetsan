@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "moose_racing_voyager",
-  "helmet_family": "Voyager",
+  "helmet_family": "Racing Voyager",
   "price": {
     "usd": 229,
     "inr": 19007,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1417,
-    "weight_lbs": 3.12,
+    "weight_g": 1393,
+    "weight_lbs": 3.07,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 90
   },
   "description": "The Moose Racing Voyager Gloss White is crafted for all-terrain explorers transitioning from tarmac to rugged single-track, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1417g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B05F593E55",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing Voyager Gloss White"
+      }
+    },
+    "gtin": "4966170341571",
+    "ean": "4966170341571",
+    "ean_status": "valid",
     "mpn": "VGLWHT",
-    "sku": "MOO-MOOSER",
-    "asin": "B05F593E55",
-    "ean": "4966170341571"
+    "sku": "HSN-HLM-MOOSE-RACING-VOYAGER-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for Adventure/Dual Sport riding; fits standard head shapes.",
@@ -78,7 +202,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -101,7 +225,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1417,
+    "weight_grams": 1393,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -253,5 +377,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

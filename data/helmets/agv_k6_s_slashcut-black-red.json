@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon-Aramid",
-    "weight_g": 1316,
-    "weight_lbs": 2.9,
+    "weight_g": 1334,
+    "weight_lbs": 2.94,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Slashcut Black/Red"
+      }
+    },
+    "gtin": "8016345270001",
     "ean": "8016345270001",
+    "ean_status": "valid",
     "mpn": "K6S-SLASHCUT-BLK-RED",
-    "sku": "AGV-AGVK6S"
+    "sku": "HSN-HLM-AGV-K6-S-SLASHCUT-BLACK-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a snug, race-oriented fit with minimal cheek volume; may feel tight on wider heads without the optional expansion kit. Optimized for Intermediate Oval head shape.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.29
   },
@@ -107,12 +232,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1320,
   "repaired_and_enriched": true,
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1316,
+    "weight_grams": 1334,
     "acoustic_noise_rating_db": "85 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1322,
+    "weight_g": 1320,
     "weight_lbs": 2.91,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -65,15 +65,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Lux Matte Black"
+      }
+    },
+    "gtin": "8426510370024",
     "ean": "8426510370024",
+    "ean_status": "valid",
     "mpn": "V1-LUX-MAT-BLK-ADJ",
-    "sku": "FOX-FOXRAC"
+    "sku": "HSN-HLM-FOX-RACING-V1-LUX-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Fox Racing V1 Lux Matte Black is a motocross/dirt helmet designed for off-road use. It features an open-face design typical of MX helmets, prioritizing ventilation and lightweight construction over full-face protection standards like DOT or ECE.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -110,7 +235,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1322,
+    "weight_grams": 1320,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

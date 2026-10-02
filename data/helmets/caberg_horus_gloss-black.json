@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Thermoplastic",
-    "weight_g": 1427,
-    "weight_lbs": 3.15,
+    "weight_g": 1419,
+    "weight_lbs": 3.13,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
   "description": "The Caberg Horus Gloss Black is crafted for daily urban navigators conquering dense traffic, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1427g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~85 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -63,15 +63,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Horus Gloss Black"
+      }
+    },
+    "gtin": "8012657043214",
     "ean": "8012657043214",
+    "ean_status": "valid",
     "mpn": "H-GB-24",
-    "sku": "CAB-CABERG"
+    "sku": "HSN-HLM-CABERG-HORUS-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "No specific fit notes available for this model.",
@@ -113,7 +238,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1427,
+    "weight_grams": 1419,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1283,
-    "weight_lbs": 2.83,
+    "weight_g": 1264,
+    "weight_lbs": 2.79,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0F46178B6",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Sistema II Anthracite"
+      }
+    },
+    "gtin": "4966196673939",
+    "ean": "4966196673939",
+    "ean_status": "valid",
     "mpn": "SII-ANTH",
-    "sku": "SED-SEDICI",
-    "asin": "B0F46178B6",
-    "ean": "4966196673939"
+    "sku": "HSN-HLM-SEDICI-SISTEMA-II-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -107,7 +231,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1283,
+    "weight_grams": 1264,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

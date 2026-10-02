@@ -10,7 +10,7 @@
       "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.92,
@@ -46,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B09K7X2M4P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09K7X2M4P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai Corso X"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corso X"
+      }
+    },
+    "gtin": "4580123456789",
     "ean": "4580123456789",
+    "ean_status": "valid",
     "mpn": "CORSO-X-24-CF",
-    "sku": "ARA-ARAICO"
+    "sku": "HSN-HLM-ARAI-CORSO-X",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
+    "sharp_rating": 0,
     "homologation_standard": "DOT, ECE 22.06",
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,8 +200,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "arai_corso",
-  "helmet_family": "Arai corso",
+  "parent_id": null,
+  "helmet_family": "Corso X",
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
@@ -247,5 +371,7 @@
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

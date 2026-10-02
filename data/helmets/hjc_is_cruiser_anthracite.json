@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1266,
+    "weight_g": 1265,
     "weight_lbs": 2.79,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 101
   },
   "description": "The HJC IS-Cruiser Anthracite combines lightweight simplicity with classic V-twin custom presence, pairing low-profile styling with essential certified head protection. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1266g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~100 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -64,16 +64,141 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QZVX8JG",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QZVX8JG",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Anthracite"
+      }
+    },
+    "gtin": "4936251000000",
     "ean": "4936251000000",
+    "ean_status": "valid",
     "mpn": "IS-CR-AN",
-    "sku": "HJC-HJCISC"
+    "sku": "HSN-HLM-HJC-IS-CRUISER-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": "MIPS",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for cruiser-style helmets; fits most head shapes but may feel tight on very large heads due to fixed shell size.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 101,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -110,7 +235,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1266,
+    "weight_grams": 1265,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -258,6 +383,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 100,
-  "sharp_rating": 0
+  "noise_db": 101,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

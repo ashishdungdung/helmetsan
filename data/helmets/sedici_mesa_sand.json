@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1310,
-    "weight_lbs": 2.89,
+    "weight_g": 1324,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 89
   },
   "description": "The Sedici Mesa Sand bridges highway aerodynamic poise with high-flow off-road ventilation, pairing peak visor aerodynamic stability with high-flow dust filtration. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1310g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~91 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B09120545E",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sedici Mesa Sand"
+      }
+    },
+    "gtin": "4965353384008",
+    "ean": "4965353384008",
+    "ean_status": "valid",
     "mpn": "S123456789",
-    "sku": "SED-SEDICI",
-    "asin": "B09120545E",
-    "ean": "4965353384008"
+    "sku": "HSN-HLM-SEDICI-MESA-SAND",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Sedici Mesa Sand is an adventure/dual-sport helmet; specific fit notes require individual sizing."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -112,7 +236,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1310,
+    "weight_grams": 1324,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

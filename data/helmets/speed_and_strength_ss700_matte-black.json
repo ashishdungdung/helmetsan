@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "speed_and_strength_ss700",
-  "helmet_family": "SS700",
+  "helmet_family": "and Strength SS700",
   "price": {
     "usd": 99,
     "inr": 8217,
@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1262,
-    "weight_lbs": 2.78,
+    "weight_g": 1342,
+    "weight_lbs": 2.96,
     "certifications": [
       "DOT"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 95
@@ -62,16 +62,141 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZ8V3L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZ8V3L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS700 Matte Black"
+      }
+    },
+    "gtin": "8429610050000",
     "ean": "8429610050000",
+    "ean_status": "valid",
     "mpn": "SS700-BLK",
-    "sku": "SPE-SPEEDA"
+    "sku": "HSN-HLM-SPEED-AND-STRENGTH-SS700-MATTE-B",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fitment; may require cheek pads adjustment for smaller jawlines.",
@@ -79,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.48
   },
@@ -101,7 +226,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1262,
+    "weight_grams": 1342,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -252,5 +377,6 @@
     }
   ],
   "noise_db": 95,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

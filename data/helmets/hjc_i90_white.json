@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1344,
-    "weight_lbs": 2.96,
+    "weight_g": 1262,
+    "weight_lbs": 2.78,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 86
   },
   "description": "Engineered for adaptable touring, the HJC i90 White is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1344g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B046486638",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "HJC i90 White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i90 White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i90 White"
+      }
+    },
+    "gtin": "4967491523240",
+    "ean": "4967491523240",
+    "ean_status": "valid",
     "mpn": "HJC-I90-WHT",
-    "sku": "HJC-HJCI90",
-    "asin": "B046486638",
-    "ean": "4967491523240"
+    "sku": "HSN-HLM-HJC-I90-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -112,7 +236,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1344,
+    "weight_grams": 1262,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 88
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

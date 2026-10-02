@@ -74,15 +74,15 @@
   "compatible_helmets": [
     {
       "id": "shoei_tec_ii_urban_tc_2",
-      "title": "TC-2 Urban",
+      "title": "Tec II Urban TC-2",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 98,
       "match_reason": "Timeless silhouette harmonizes with the classic heritage aesthetics and retro character of the KTM Husqvarna Vitpilen 250 Neo (Adventure Spec)."
     },
     {
-      "id": "ruroc_no_models_found_for_outside_the_excluded_atlas_4.0_variants;_alpinestars_constraint_not_applicable_to_request.",
-      "title": "Atlas 4.0 Excluded Variant",
+      "id": "ruroc_atlas_4_0_carbon_gloss-white",
+      "title": "Atlas 4.0 Carbon Gloss White",
       "brand": "Ruroc",
       "type": "Full Face",
       "match_score": 94,
@@ -121,5 +121,11 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the KTM engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-HUSQVARNA-V",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_husqvarna_vitpilen_250_neo_adventure_spec accessories motorcycle gear"
+  }
 }

@@ -25,18 +25,18 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1119,
-    "weight_lbs": 2.47,
+    "weight_g": 1127,
+    "weight_lbs": 2.48,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 97
   },
   "description": "The Steelbird Falcon Black is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1119g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -66,16 +66,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV5J3",
+    "amazon": {
+      "us": {
+        "asin": "B07QKZV5J3",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Falcon Black"
+      }
+    },
+    "gtin": "8426910000000",
     "ean": "8426910000000",
+    "ean_status": "valid",
     "mpn": "SB-OF-BLK-001",
-    "sku": "STE-STEELB"
+    "sku": "HSN-HLM-STEELBIRD-FALCON-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open face design offers maximum ventilation; suitable for track days and street riding in warm climates. Chin bar provides minimal protection compared to full-face models.",
@@ -83,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.48
   },
@@ -117,7 +241,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1119,
+    "weight_grams": 1127,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,6 +396,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

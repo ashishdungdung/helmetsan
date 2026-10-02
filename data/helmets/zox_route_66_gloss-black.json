@@ -24,14 +24,14 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1433,
-    "weight_lbs": 3.16,
+    "weight_g": 1405,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 101
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B058442C8C",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Zox Route 66 Gloss Black"
+      }
+    },
+    "gtin": "4965184391633",
+    "ean": "4965184391633",
+    "ean_status": "valid",
     "mpn": "ZOX-R66-BLK",
-    "sku": "ZOX-ZOXROU",
-    "asin": "B058442C8C",
-    "ean": "4965184391633"
+    "sku": "HSN-HLM-ZOX-ROUTE-66-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Zox Route 66 Gloss Black is a half-shell helmet designed for urban commuting and casual riding. It features an open-face design with a glossy black finish."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 102,
+    "noise_db_at_100kph": 101,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -101,7 +225,7 @@
   "country_origin": "Global",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1433,
+    "weight_grams": 1405,
     "acoustic_noise_rating_db": "102 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -255,5 +379,6 @@
     }
   ],
   "noise_db": 101,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

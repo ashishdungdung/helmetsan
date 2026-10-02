@@ -5,10 +5,10 @@
   "brand": "TVS Motor Company",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 225.9,
+  "power_hp": 20.4,
+  "torque_nm": 19.93,
+  "curb_weight_kg": 160.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "225.9cc Single-Cylinder Oil-Cooled SOHC 4V",
+      "power_hp": 20.4,
+      "torque_nm": 19.93,
+      "curb_weight_kg": 160.0,
+      "power_to_weight": "12.8 HP/100kg",
+      "transmission": "5-speed Manual with Assist & Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-RONIN-225-TRIP",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_ronin_225_triple_tone_classic_heritage accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual with Assist & Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -8,7 +8,7 @@
     "Modular"
   ],
   "parent_id": "gmax_md_01s",
-  "helmet_family": "MD-01S",
+  "helmet_family": "GMax MD-01S",
   "price": {
     "usd": 179,
     "inr": 14857,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1262,
-    "weight_lbs": 2.78,
+    "weight_g": 1278,
+    "weight_lbs": 2.82,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 89
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B037770EFC",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax MD-01S Pearl White"
+      }
+    },
+    "gtin": "4962747462021",
+    "ean": "4962747462021",
+    "ean_status": "valid",
     "mpn": "MD-01S",
-    "sku": "GMA-GMAXMD",
-    "asin": "B037770EFC",
-    "ean": "4962747462021"
+    "sku": "HSN-HLM-GMAX-MD-01S-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -107,7 +231,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1262,
+    "weight_grams": 1278,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

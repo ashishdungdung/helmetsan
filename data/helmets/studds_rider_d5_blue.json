@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1460,
-    "weight_lbs": 3.22,
+    "weight_g": 1400,
+    "weight_lbs": 3.09,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 86
   },
   "description": "The Studds Rider D5 Blue is engineered for everyday agility, rapid ventilation, and effortless usability, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1460g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -64,15 +64,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B091018F3B",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Studds Rider D5 Blue"
+      }
+    },
+    "gtin": "4966186646400",
+    "ean": "4966186646400",
+    "ean_status": "valid",
     "mpn": "D5-BLUE",
-    "sku": "STU-STUDDS",
-    "asin": "B091018F3B",
-    "ean": "4966186646400"
+    "sku": "HSN-HLM-STUDDS-RIDER-D5-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "No specific fit notes available for this model."
@@ -109,7 +233,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1460,
+    "weight_grams": 1400,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

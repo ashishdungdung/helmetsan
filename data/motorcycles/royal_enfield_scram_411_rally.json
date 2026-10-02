@@ -5,10 +5,10 @@
   "brand": "Royal Enfield",
   "country_origin": "India 🇮🇳",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 411.0,
+  "power_hp": 24.3,
+  "torque_nm": 32.0,
+  "curb_weight_kg": 185.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -51,11 +51,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "411cc Single-Cylinder Air-Cooled SOHC 2V (LS410)",
+      "power_hp": 24.3,
+      "torque_nm": 32.0,
+      "curb_weight_kg": 185.0,
+      "power_to_weight": "13.1 HP/100kg",
+      "transmission": "5-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -123,5 +124,14 @@
       "title": "Rain-X Visor Rain Repellent",
       "reason": "115° hydrophobic water beading ensures crystal-clear optical sightlines during wet mountain passes on the Scram 411 Rally."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "ROYA-ROYAL_",
+    "sku": "HSN-MOTO-ROYAL-ENFIELD-SCRAM-411-RALLY",
+    "model_year": null,
+    "gear_search_fallback": "Royal Enfield royal_enfield_scram_411_rally accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -112,18 +112,18 @@
       "match_reason": "Panoramic horizontal eyeport maximizes peripheral visibility in relaxed feet-forward cruising postures on the & Husqvarna GasGas Vitpilen 250."
     },
     {
-      "id": "klim_klim_f5_koroyd_vortex_tc_2",
-      "title": "-F5 Koroyd Vortex TC-2",
-      "brand": "Klim",
-      "type": "Full Face",
-      "match_score": 91,
-      "match_reason": "Low-profile shell geometry fits the laid-back cruiser stance of the KTM & Husqvarna GasGas Vitpilen 250 with modern ECE 22.06 safety."
-    },
-    {
       "id": "shoei_j_cruise_ii_camo-tc-5",
       "title": "J-Cruise II Camo TC-5",
       "brand": "Shoei",
       "type": "Open Face",
+      "match_score": 91,
+      "match_reason": "Low-profile shell geometry fits the laid-back cruiser stance of the KTM & Husqvarna GasGas Vitpilen 250 with modern ECE 22.06 safety."
+    },
+    {
+      "id": "bell_eliminator_hi-viz-yellow",
+      "title": "Eliminator Hi-Viz Yellow",
+      "brand": "Bell",
+      "type": "Full Face",
       "match_score": 87,
       "match_reason": "Plush anti-microbial interior prevents temple pressure points during low-rpm highway cruising on the & Husqvarna GasGas Vitpilen 250."
     }
@@ -144,5 +144,11 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the KTM engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-HUSQVARNA-V",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_husqvarna_vitpilen_250 accessories motorcycle gear"
+  }
 }

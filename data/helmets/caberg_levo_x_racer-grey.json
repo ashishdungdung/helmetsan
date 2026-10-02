@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1288,
-    "weight_lbs": 2.84,
+    "weight_g": 1335,
+    "weight_lbs": 2.94,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 86
@@ -63,15 +63,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Caberg Levo X Racer Grey"
+      }
+    },
+    "gtin": "8021564370028",
     "ean": "8021564370028",
+    "ean_status": "valid",
     "mpn": "LEVO-X-RACER-GREY",
-    "sku": "CAB-CABERG"
+    "sku": "HSN-HLM-CABERG-LEVO-X-RACER-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a snug, locked-in fit typical of the Levo X line; features an intermediate oval head shape with a slightly lower profile to accommodate aerodynamic fairings.",
@@ -79,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -108,7 +233,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1288,
+    "weight_grams": 1335,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -258,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

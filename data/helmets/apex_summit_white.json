@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1689,
-    "weight_lbs": 3.72,
+    "weight_g": 1676,
+    "weight_lbs": 3.69,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 86
   },
   "description": "The Apex Summit White is designed for versatile commuters and touring riders requiring multi-mode adaptability, delivering flip-up versatility for city stops and sealed protection at speed. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a solid 1689g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X8K2M1P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X8K2M1P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex Summit White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Summit White"
+      }
+    },
+    "gtin": "5060123456789",
     "ean": "5060123456789",
+    "ean_status": "valid",
     "mpn": "APEX-SUM-WHT-24",
-    "sku": "APE-APEXSU"
+    "sku": "HSN-HLM-APEX-SUMMIT-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Standard Apex fit; generally runs true to size with a semi-spherical shell profile that accommodates Intermediate Oval head shapes well.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -112,12 +237,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1720,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1689,
+    "weight_grams": 1676,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

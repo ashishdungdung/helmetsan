@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "ls2_challenger_carbon",
-  "helmet_family": "Challenger Carbon",
+  "helmet_family": "Challenger",
   "price": {
     "usd": 359,
     "inr": 29797,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1318,
-    "weight_lbs": 2.91,
+    "weight_g": 1296,
+    "weight_lbs": 2.86,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger Carbon Matte Black"
+      }
+    },
+    "gtin": "5913624090000",
     "ean": "5913624090000",
+    "ean_status": "valid",
     "mpn": "LS2-CHALLENGER-CARBON-MATTE-BLACK",
-    "sku": "LS-LS2CHA"
+    "sku": "HSN-HLM-LS2-CHALLENGER-CARBON-MATTE-BLAC",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; features a narrow chin bar and extended cheek coverage.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -114,7 +239,7 @@
   "country_origin": "Spain / China 🇪🇸🇨🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1318,
+    "weight_grams": 1296,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

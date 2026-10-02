@@ -4,10 +4,10 @@
   "title": "Hypermotard 698 Mono",
   "brand": "Ducati",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 659.0,
+  "power_hp": 77.5,
+  "torque_nm": 63.0,
+  "curb_weight_kg": 151,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "659cc Superquadro Mono Single-Cylinder Desmodromic",
+      "power_hp": 77.5,
+      "torque_nm": 63.0,
+      "curb_weight_kg": 151,
+      "power_to_weight": "51.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-HYPERMOTARD-698-MONO",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_hypermotard_698_mono accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

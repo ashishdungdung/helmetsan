@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1110,
-    "weight_lbs": 2.45,
+    "weight_g": 1116,
+    "weight_lbs": 2.46,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -67,16 +67,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09XJ7K2M3",
+    "amazon": {
+      "us": {
+        "asin": "B09XJ7K2M3",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Axor Joker Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Joker Silver"
+      }
+    },
+    "gtin": "8412345678901",
     "ean": "8412345678901",
+    "ean_status": "valid",
     "mpn": "AXOR-JKR-SLV-OF",
-    "sku": "AXO-AXORJO"
+    "sku": "HSN-HLM-AXOR-JOKER-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fit; may feel tight on larger head sizes due to aggressive cheek pad placement.",
@@ -118,7 +242,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1110,
+    "weight_grams": 1116,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -274,5 +398,6 @@
     }
   ],
   "noise_db": 97,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

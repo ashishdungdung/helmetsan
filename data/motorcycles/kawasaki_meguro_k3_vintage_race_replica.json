@@ -4,10 +4,10 @@
   "title": "Meguro K3 Vintage (Race Replica)",
   "brand": "Kawasaki",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 773.0,
+  "power_hp": 52.0,
+  "torque_nm": 62.9,
+  "curb_weight_kg": 227.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "773cc Vertical-Twin Air-Cooled SOHC Bevel-Gear Drive",
+      "power_hp": 52.0,
+      "torque_nm": 62.9,
+      "curb_weight_kg": 227.0,
+      "power_to_weight": "22.9 HP/100kg",
+      "transmission": "5-speed Manual with Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KAWA-KAWASA",
+    "sku": "HSN-MOTO-KAWASAKI-MEGURO-K3-VINTAGE-RACE-",
+    "model_year": null,
+    "gear_search_fallback": "Kawasaki kawasaki_meguro_k3_vintage_race_replica accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual with Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

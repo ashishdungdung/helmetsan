@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM+",
-    "weight_g": 1407,
-    "weight_lbs": 3.1,
+    "weight_g": 1414,
+    "weight_lbs": 3.12,
     "certifications": [
       "DOT",
       "Snell M2015",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 89
+    "noise_db_at_100kph": 90
   },
   "description": "Tuned for all-terrain exploration, the Shoei Hornet X2 Raptor Grey is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt across highway asphalt and backcountry gravel. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1407g, channeling boundary-layer airflow to maintain a ~89 dB acoustic cabin profile while meeting DOT, Snell M2015, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,22 +64,146 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B08X7H2K9P",
+    "amazon": {
+      "us": {
+        "asin": "B08X7H2K9P",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Hornet X2 Raptor Grey"
+      }
+    },
+    "gtin": "4936201500123",
     "ean": "4936201500123",
+    "ean_status": "valid",
     "mpn": "SHX2RGR",
-    "sku": "SHO-SHOEIH"
+    "sku": "HSN-HLM-SHOEI-HORNET-X2-RAPTOR-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2015, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -109,7 +233,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1407,
+    "weight_grams": 1414,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "6.5 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +387,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 89
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

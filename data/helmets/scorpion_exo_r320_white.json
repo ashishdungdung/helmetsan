@@ -1,7 +1,7 @@
 {
   "id": "scorpion_exo_r320_white",
   "entity": "helmet",
-  "title": "-R320 White",
+  "title": "EXO-R320 White",
   "brand": "Scorpion EXO",
   "type": "Full Face",
   "helmet_types": [
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1302,
-    "weight_lbs": 2.87,
+    "weight_g": 1283,
+    "weight_lbs": 2.83,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 85
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Scorpion EXO R320 White is optimized for high-performance street and spirited backroad riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1302g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R320 White"
+      }
+    },
+    "gtin": "8414690253000",
     "ean": "8414690253000",
+    "ean_status": "valid",
     "mpn": "R320-WHT",
-    "sku": "SCO-SCORPI"
+    "sku": "HSN-HLM-SCORPION-EXO-R320-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; may feel tight on very round heads.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -109,7 +234,7 @@
   "country_origin": "France / USA 🇫🇷🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1302,
+    "weight_grams": 1283,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

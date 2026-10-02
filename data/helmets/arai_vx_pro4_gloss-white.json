@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "cLc",
-    "weight_g": 1404,
-    "weight_lbs": 3.1,
+    "weight_g": 1421,
+    "weight_lbs": 3.13,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -67,15 +67,140 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09TQWZ8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09TQWZ8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Gloss White"
+      }
+    },
+    "gtin": "4547621002345",
     "ean": "4547621002345",
+    "ean_status": "valid",
     "mpn": "VX-PRO4-GW",
-    "sku": "ARA-ARAIVX"
+    "sku": "HSN-HLM-ARAI-VX-PRO4-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Arai VX-Pro4 is a dedicated off-road/dirt helmet designed for motocross and enduro. It features a removable visor, integrated goggles mount, and ventilation optimized for high-heat environments. The fit is generally true to Arai's standard sizing (often slightly roomier than Japanese domestic market fits). Designed specifically for Intermediate Oval head shapes.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -109,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1430,
   "repaired_and_enriched": true,
   "country_origin": "Japan 🇯🇵",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1404,
+    "weight_grams": 1421,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

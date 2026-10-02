@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "scorpion_exo_t521",
-      "title": "-T521",
+      "title": "EXO-T521",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 98,
@@ -97,9 +97,9 @@
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the BMW Motorrad K1600 GTL 6-Cylinder (Adventure Spec)."
     },
     {
-      "id": "apex_apex_3_matte-black",
-      "title": "Apex 3 Matte Black",
-      "brand": "Apex",
+      "id": "scorpion_exo_r420_vortex-blue",
+      "title": "EXO-R420 Vortex Blue",
+      "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the K1600 GTL 6-Cylinder (Adventure Spec)."
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BMW -BMW_MO",
+    "sku": "HSN-MOTO-BMW-MOTORRAD-K1600-GTL-6-CYLINDE",
+    "model_year": null,
+    "gear_search_fallback": "BMW Motorrad bmw_motorrad_k1600_gtl_6_cylinder_adventure_spec accessories motorcycle gear"
+  }
 }

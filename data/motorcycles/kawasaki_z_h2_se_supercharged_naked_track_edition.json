@@ -5,10 +5,10 @@
   "brand": "Kawasaki",
   "country_origin": "Japan 🇯🇵",
   "category": "Hyper Naked Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 998.0,
+  "power_hp": 200.0,
+  "torque_nm": 137.0,
+  "curb_weight_kg": 239.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -73,11 +73,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "998cc Supercharged Balanced Supercharged Inline-4 DOHC 16V",
+      "power_hp": 200.0,
+      "torque_nm": 137.0,
+      "curb_weight_kg": 239.0,
+      "power_to_weight": "83.7 HP/100kg",
+      "transmission": "6-speed Dog-Ring Manual with Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -120,9 +121,9 @@
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Kawasaki Z H2 SE Supercharged Naked (Track Edition)."
     },
     {
-      "id": "shark_evo_one_2_course_red",
-      "title": "Evo One 2 Course Red",
-      "brand": "Shark",
+      "id": "hjc_cs_r3",
+      "title": "CS-R3",
+      "brand": "HJC",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Z H2 SE Supercharged Naked (Track Edition)."
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KAWA-KAWASA",
+    "sku": "HSN-MOTO-KAWASAKI-Z-H2-SE-SUPERCHARGED-NA",
+    "model_year": null,
+    "gear_search_fallback": "Kawasaki kawasaki_z_h2_se_supercharged_naked_track_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Dog-Ring Manual with Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

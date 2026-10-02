@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1462,
-    "weight_lbs": 3.22,
+    "weight_g": 1407,
+    "weight_lbs": 3.1,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Lazer Rafale SR Anthracite is crafted for daily urban navigators conquering dense traffic. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1462g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZJ8V3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZJ8V3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer Rafale SR Anthracite"
+      }
+    },
+    "gtin": "8021645090000",
     "ean": "8021645090000",
+    "ean_status": "valid",
     "mpn": "LZR-1000-SR",
-    "sku": "LAZ-LAZERR"
+    "sku": "HSN-HLM-LAZER-RAFALE-SR-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; may feel tight on very round heads due to aggressive cheek padding.",
@@ -78,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -107,7 +232,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1462,
+    "weight_grams": 1407,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

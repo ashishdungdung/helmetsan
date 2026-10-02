@@ -1,24 +1,24 @@
 {
-  "title": "-F5 Koroyd White",
+  "title": "F5 Koroyd White",
   "brand": "Klim",
-  "type": "Full Face",
+  "type": "Dirt / MX",
   "specs": {
-    "material": "Carbon Fiber Composite Shell with Koroyd Impact Technology",
-    "weight_g": 1260,
+    "material": "Carbon Fiber",
+    "weight_g": 1269,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 5,
-    "strap_type": "Quick-Release Buckle with Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.78,
-    "noise_db_at_100kph": 88
+    "weight_lbs": 2.8,
+    "noise_db_at_100kph": 97
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 9.2,
     "drag_coefficient": 0.29
   },
@@ -46,15 +46,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0B41DC260",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim -F5 Koroyd White"
+      }
+    },
+    "gtin": "4966647253109",
+    "ean": "4966647253109",
+    "ean_status": "valid",
     "mpn": "Klim-F5 Koroyd White",
-    "sku": "KLI-KLIMF5",
-    "asin": "B0B41DC260",
-    "ean": "4966647253109"
+    "sku": "HSN-HLM-KLIM-F5-KOROYD-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "homologation_standard": "ECE 22.06, DOT",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "unified_enriched": true,
   "model_year": 2023,
@@ -71,17 +195,17 @@
   "color_family": "White",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "klim_f5",
-  "helmet_family": "Klim f5",
+  "parent_id": "klim_f5_koroyd",
+  "helmet_family": "F5 Koroyd",
   "country_origin": "United States 🇺🇸",
-  "category": "Full Face",
+  "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1260,
+    "weight_grams": 1269,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -205,27 +329,27 @@
       "match_reason": "Wide panoramic eyeport and Pinlock-ready dual shield accommodate changing mountain weather aboard the Norden 901 Expedition."
     },
     {
-      "id": "yamaha_yzf_r1m_carbon_track_edition",
-      "title": "YZF-R1M Carbon (Track Edition)",
-      "make": "Yamaha",
-      "category": "Homologation Superbike",
+      "id": "bmw_motorrad_f850gs_adventure_special_edition",
+      "title": "F850GS Adventure (Special Edition)",
+      "make": "BMW Motorrad",
+      "category": "Adventure Tourer",
       "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Yamaha performance."
+      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the BMW Motorrad F850GS Adventure (Special Edition)."
     },
     {
-      "id": "kawasaki_ninja_zx_10r_krt_chrome_edition",
-      "title": "Ninja ZX-10R KRT (Chrome Edition)",
-      "make": "Kawasaki",
-      "category": "Homologation Superbike",
+      "id": "ktm_husqvarna_gasgas_ktm_390_adventure_sw",
+      "title": "390 Adventure SW",
+      "make": "KTM",
+      "category": "Adventure Tourer",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja ZX-10R KRT (Chrome Edition)."
+      "match_reason": "Lightweight composite shell minimizes cervical neck fatigue during multi-day expeditions on the 390 Adventure SW."
     }
   ],
   "compatible_accessories": [
     {
-      "id": "pinlock-120-lens",
-      "title": "Pinlock 120 Max Vision Lens",
-      "fitment": "Universal Pinlock-prepared shield integration"
+      "id": "anti-fog-insert-universal",
+      "title": "Pinlock 70 MaxVision Anti-Fog Insert",
+      "fitment": "Adhesive hydrophilic moisture barrier fitment"
     },
     {
       "id": "bluetooth-comms-kit",
@@ -238,9 +362,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88,
+  "noise_db": 97,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

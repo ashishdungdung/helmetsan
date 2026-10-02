@@ -5,10 +5,10 @@
   "brand": "Royal Enfield",
   "country_origin": "India 🇮🇳",
   "category": "Heritage Cafe Racer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 535.0,
+  "power_hp": 29.1,
+  "torque_nm": 44.0,
+  "curb_weight_kg": 184,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "535cc Single-Cylinder Air-Cooled 4-Stroke",
+      "power_hp": 29.1,
+      "torque_nm": 44.0,
+      "curb_weight_kg": 184,
+      "power_to_weight": "15.8 HP/100kg",
+      "transmission": "5-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,5 +122,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Royal Enfield engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "ROYA-ROYAL_",
+    "sku": "HSN-MOTO-ROYAL-ENFIELD-CONTINENTAL-GT-535",
+    "model_year": null,
+    "gear_search_fallback": "Royal Enfield royal_enfield_continental_gt_535_cafe_circuit_spec accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

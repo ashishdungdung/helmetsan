@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PIM+",
-    "weight_g": 1402,
-    "weight_lbs": 3.09,
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.06",
       "FIM"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 92
   },
   "description": "Serving closed-circuit and supersport riders, the HJC RPHA 1N Red Bull Austin is purpose-built for closed-course competition and apex carving. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1402g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06, FIM certifications with an acoustically tuned ~93 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 1N Red Bull Austin"
+      }
+    },
+    "gtin": "4965231000000",
     "ean": "4965231000000",
+    "ean_status": "valid",
     "mpn": "RPHA-1N-RBA",
-    "sku": "HJC-HJCRPH"
+    "sku": "HSN-HLM-HJC-RPHA-1N-RED-BULL-AUSTIN",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06, FIM",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval track use; requires specific sizing for optimal cheek pad clearance.",
@@ -112,7 +237,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1402,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "92 dB @ 100km/h",
     "aerodynamic_lift_force_n": "2.1 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 93
+  "noise_db": 92,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

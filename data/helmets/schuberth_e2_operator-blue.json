@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Refined Fiberglass",
-    "weight_g": 1466,
-    "weight_lbs": 3.23,
+    "weight_g": 1392,
+    "weight_lbs": 3.07,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Micro-Lock Ratchet",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 90
@@ -64,15 +64,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth E2 Operator Blue"
+      }
+    },
+    "gtin": "4012639058214",
     "ean": "4012639058214",
+    "ean_status": "valid",
     "mpn": "E2-OP-BLU",
-    "sku": "SCH-SCHUBE"
+    "sku": "HSN-HLM-SCHUBERTH-E2-OPERATOR-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Designed for adventure riding with a slightly larger internal volume to accommodate goggles and communication systems; features a robust chin bar suitable for dual-sport use.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.34
   },
@@ -114,7 +239,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1466,
+    "weight_grams": 1392,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

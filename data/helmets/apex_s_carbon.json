@@ -1,5 +1,5 @@
 {
-  "id": "apex_apex_s_carbon",
+  "id": "apex_s_carbon",
   "entity": "helmet",
   "title": "Apex S Carbon",
   "brand": "Apex",
@@ -7,7 +7,7 @@
   "helmet_types": [
     "Full Face"
   ],
-  "parent_id": "apex_apex_s",
+  "parent_id": "apex_s",
   "helmet_family": "Apex S",
   "price": {
     "usd": 479,
@@ -24,19 +24,19 @@
   ],
   "head_shape": "Intermediate Oval",
   "specs": {
-    "material": "Carbon Fiber",
-    "weight_g": 1308,
-    "weight_lbs": 2.88,
+    "material": "Carbon",
+    "weight_g": 1260,
+    "weight_lbs": 2.78,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
   "description": "The Apex S Carbon is crafted for daily urban navigators conquering dense traffic, pairing agile street ergonomics with certified multi-impact protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1308g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~85 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "APEX-S-CARBON",
-    "asin": "B0C9X8Y7Z6",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y7Z6",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex S Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex S Carbon"
+      }
+    },
+    "gtin": "5012345678901",
     "ean": "5012345678901",
-    "sku": "APE-APEXAP"
+    "ean_status": "valid",
+    "mpn": "APEX-S-CARBON",
+    "sku": "HSN-HLM-APEX-APEX-S-CARBON",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit with extended cheek pads; designed for intermediate oval head shapes but may feel tight on long ovals due to narrow chin bar geometry.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -109,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1308,
+    "weight_grams": 1260,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -219,36 +343,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "bmw_motorrad_s1000rr_m_package_dark_edition",
-      "title": "S1000RR M Package (Dark Edition)",
-      "make": "BMW Motorrad",
-      "category": "Homologation Superbike",
-      "match_score": 97,
-      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the BMW Motorrad S1000RR M Package (Dark Edition)."
-    },
-    {
-      "id": "ola_electric_ola_roadster_electric_superbike_concept",
-      "title": "Ola Roadster Electric Superbike Concept",
-      "make": "Ola Electric",
-      "category": "Homologation Superbike",
-      "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ola Roadster Electric Superbike Concept velocity benchmarks."
-    },
-    {
-      "id": "kawasaki_ninja_zx_10r_krt_chrome_edition",
-      "title": "Ninja ZX-10R KRT (Chrome Edition)",
+      "id": "kawasaki_ninja_h2_sx_se_supercharged",
+      "title": "Ninja H2 SX SE Supercharged",
       "make": "Kawasaki",
       "category": "Homologation Superbike",
-      "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Kawasaki performance."
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Kawasaki Ninja H2 SX SE Supercharged."
     },
     {
-      "id": "suzuki_hayabusa_25th_anniversary_performance_edition",
-      "title": "Hayabusa 25th Anniversary (Performance Edition)",
-      "make": "Suzuki",
-      "category": "Homologation Superbike",
+      "id": "yamaha_yzf_r15m_v4_quickshifter_adventure_spec",
+      "title": "YZF-R15M V4 Quickshifter (Adventure Spec)",
+      "make": "Yamaha",
+      "category": "Middleweight Sportbike",
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at YZF-R15M V4 Quickshifter (Adventure Spec) velocity benchmarks."
+    },
+    {
+      "id": "honda_sp160",
+      "title": "SP160 Single Disc",
+      "make": "Honda",
+      "category": "Middleweight Sportbike",
+      "match_score": 90,
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Honda performance."
+    },
+    {
+      "id": "kawasaki_ninja_300_abs_performance_edition",
+      "title": "Ninja 300 ABS (Performance Edition)",
+      "make": "Kawasaki",
+      "category": "Middleweight Sportbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Hayabusa 25th Anniversary (Performance Edition)."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja 300 ABS (Performance Edition)."
     }
   ],
   "compatible_accessories": [
@@ -268,5 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

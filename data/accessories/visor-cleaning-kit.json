@@ -1,76 +1,214 @@
 {
-    "title": "Muc-Off Helmet & Visor Cleaning Kit",
-    "type": "Maintenance",
-    "compatible_helmet_types": [
-        "All"
+  "title": "Muc-Off Helmet & Visor Cleaning Kit",
+  "type": "Maintenance",
+  "compatible_helmet_types": [],
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [
+    "arai-corsair-x",
+    "agv-k6",
+    "bell-qualifier-dlx-mips",
+    "mt-thunder-3",
+    "shoei-rf-1400"
+  ],
+  "features": [
+    "Deep cleans helmet shells and visors to remove grime and oxidation",
+    "Includes specialized brushes for hard-to-reach areas",
+    "Safe for all helmet materials including polycarbonate and glass"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "description": "<p>Engineered to withstand harsh ultraviolet radiation and dense condensation, the Muc-Off Helmet & Visor Cleaning Kit from Muc-Off elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds).</p><p>The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.</p>",
+  "id": "visor-cleaning-kit",
+  "entity": "accessory",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Cleaning Kit",
+  "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Muc-Off Muc-Off Helmet & Visor Cleaning Kit"
+      }
+    },
+    "gtin": null,
+    "ean": null,
+    "mpn": "MUCOFF-HV-CLEAN",
+    "sku": "HSN-ACC-VISOR-CLEANING-KIT",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Muc-Off Muc-Off Helmet & Visor Cleaning Kit.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "optical_tint_vlt_percentage": "88% to 92% Optical Class 1 Clear Transmission",
+    "optical_clarity_class": "Optical Class 1 (Zero peripheral distortion at 240+ km/h)",
+    "uv_protection_rating": "UV400 (Blocks 99.9% of harmful UVA and UVB radiation)",
+    "battery_life_operating_hours": "Passive Photonic / Molecular Dye Matrix (No Battery Required)",
+    "waterproof_ip_rating": "Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal",
+    "installation_difficulty": "1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds)",
+    "audio_driver_specification": "Optical Class 1 Injection-Molded Polycarbonate with 99.9% UV-A/UV-B Shielding"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Pronounced central or side visor-lift tab designed for positive thumb engagement even while wearing thick waterproof gloves.",
+    "wind_noise_suppression_mic": "Aero-beaded perimeter seal compresses firmly against eyeport gasket to prevent high-speed whistling.",
+    "real_world_pros": [
+      "100% fog-free vision in freezing rain and humid urban stop-and-go traffic",
+      "True Optical Class 1 clarity without edge distortion or night-time glare haloing",
+      "Rapid toolless trackside installation"
     ],
-    "compatible_brands": [
-        "Universal"
+    "real_world_cons": [
+      "Dark smoke versions are restricted to daytime use under DOT/ECE regulations",
+      "Pinlock silicone bead requires gentle cleaning with lukewarm water only"
     ],
-    "compatible_helmet_ids": [
-        "arai-corsair-x",
-        "agv-k6",
-        "bell-qualifier-dlx-mips",
-        "mt-thunder-3",
-        "shoei-rf-1400"
+    "editorial_verdict": "The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
+  },
+  "brand": "Muc-Off",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Muc-Off+Helmet+%26+Visor+Cleaning+Kit&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Muc-Off+Helmet+%26+Visor+Cleaning+Kit&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  },
+  "editorial_overview": "Engineered to withstand harsh ultraviolet radiation and dense condensation, the Muc-Off Helmet & Visor Cleaning Kit from Muc-Off elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds). The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
+  "rider_takeaway": "The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
+  "compatibility": [
+    "Universal"
+  ],
+  "price_placeholder": true,
+  "compatibility_matrix": {
+    "helmet_types": [],
+    "brands": [
+      "Universal"
     ],
-    "features": [
-        "Deep cleans helmet shells and visors to remove grime and oxidation",
-        "Includes specialized brushes for hard-to-reach areas",
-        "Safe for all helmet materials including polycarbonate and glass"
-    ],
-    "price": {
-        "usd": 150,
-        "inr": 12450,
-        "eur": 138,
-        "gbp": 119,
-        "jpy": 23250
-    },
-    "description": "<p>Engineered to withstand harsh ultraviolet radiation and dense condensation, the Muc-Off Helmet & Visor Cleaning Kit from Muc-Off elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds).</p><p>The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.</p>",
-    "id": "visor-cleaning-kit",
-    "entity": "accessory",
-    "accessory_pinlock_ready": 0,
-    "accessory_electric_compatible": 0,
-    "accessory_snow_compatible": 0,
-    "accessory_subcategory": "Cleaning Kit",
-    "identifiers": {
-        "mpn": "MUCOFF-HV-CLEAN"
-    },
-    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Muc-Off Muc-Off Helmet & Visor Cleaning Kit.",
-    "unified_enriched": true,
-    "accessory_physics_matrix": {
-        "optical_tint_vlt_percentage": "88% to 92% Optical Class 1 Clear Transmission",
-        "optical_clarity_class": "Optical Class 1 (Zero peripheral distortion at 240+ km/h)",
-        "uv_protection_rating": "UV400 (Blocks 99.9% of harmful UVA and UVB radiation)",
-        "battery_life_operating_hours": "Passive Photonic / Molecular Dye Matrix (No Battery Required)",
-        "waterproof_ip_rating": "Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal",
-        "installation_difficulty": "1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds)",
-        "audio_driver_specification": "Optical Class 1 Injection-Molded Polycarbonate with 99.9% UV-A/UV-B Shielding"
-    },
-    "qualitative_intelligence": {
-        "glove_friendly_controls": "Pronounced central or side visor-lift tab designed for positive thumb engagement even while wearing thick waterproof gloves.",
-        "wind_noise_suppression_mic": "Aero-beaded perimeter seal compresses firmly against eyeport gasket to prevent high-speed whistling.",
-        "real_world_pros": [
-            "100% fog-free vision in freezing rain and humid urban stop-and-go traffic",
-            "True Optical Class 1 clarity without edge distortion or night-time glare haloing",
-            "Rapid toolless trackside installation"
-        ],
-        "real_world_cons": [
-            "Dark smoke versions are restricted to daytime use under DOT/ECE regulations",
-            "Pinlock silicone bead requires gentle cleaning with lukewarm water only"
-        ],
-        "editorial_verdict": "The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
-    },
-    "brand": "Muc-Off",
-    "marketplace_links": {
-        "amazon": "https://www.amazon.com/s?k=Muc-Off+Helmet+%26+Visor+Cleaning+Kit&tag=helmetsan-20"
-    },
-    "affiliate_links": {
-        "amazon": {
-            "url": "https://www.amazon.com/s?k=Muc-Off+Helmet+%26+Visor+Cleaning+Kit&tag=helmetsan-20",
-            "network": "amazon"
-        }
-    },
-    "editorial_overview": "Engineered to withstand harsh ultraviolet radiation and dense condensation, the Muc-Off Helmet & Visor Cleaning Kit from Muc-Off elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds). The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
-    "rider_takeaway": "The Muc-Off Helmet & Visor Cleaning Kit is an essential visual clarity upgrade from Muc-Off. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
+    "helmet_ids": [
+      "arai-corsair-x",
+      "agv-k6",
+      "bell-qualifier-dlx-mips",
+      "mt-thunder-3",
+      "shoei-rf-1400"
+    ]
+  }
 }

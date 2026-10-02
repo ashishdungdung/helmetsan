@@ -24,17 +24,17 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1343,
-    "weight_lbs": 2.96,
+    "weight_g": 1291,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 95
   },
   "description": "Tailored for classic roadsters and urban cruising, the Icon Overlord Black is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1343g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~96 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0CB07F65C",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Icon Overlord Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Overlord Black"
+      }
+    },
+    "gtin": "4968381124639",
+    "ean": "4968381124639",
+    "ean_status": "valid",
     "mpn": "ICON-OVERLORD-BLK",
-    "sku": "ICO-ICONOV",
-    "asin": "B0CB07F65C",
-    "ean": "4968381124639"
+    "sku": "HSN-HLM-ICON-OVERLORD-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Round Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.38
   },
@@ -113,7 +237,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1343,
+    "weight_grams": 1291,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,6 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 95,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

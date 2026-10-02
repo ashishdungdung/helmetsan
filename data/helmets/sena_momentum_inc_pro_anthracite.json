@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1656,
-    "weight_lbs": 3.65,
+    "weight_g": 1683,
+    "weight_lbs": 3.71,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 89
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q3K5V8G",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q3K5V8G",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Anthracite"
+      }
+    },
+    "gtin": "8429610000000",
     "ean": "8429610000000",
+    "ean_status": "valid",
     "mpn": "SMA-INC-PRO-ANT",
-    "sku": "SEN-SENAMO"
+    "sku": "HSN-HLM-SENA-MOMENTUM-INC-PRO-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Modular design allows for interchangeable chin bars; fits most head shapes but may require sizing adjustment for extended necks due to modular hinge geometry.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -102,7 +227,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1656,
+    "weight_grams": 1683,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +379,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

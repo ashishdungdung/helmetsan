@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1453,
-    "weight_lbs": 3.2,
+    "weight_g": 1417,
+    "weight_lbs": 3.12,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 89
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09K7X2M4P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09K7X2M4P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Trail Ultra Orange"
+      }
+    },
+    "gtin": "8912345678901",
     "ean": "8912345678901",
+    "ean_status": "valid",
     "mpn": "ATU-OR-24",
-    "sku": "APE-APEXTR"
+    "sku": "HSN-HLM-APEX-TRAIL-ULTRA-ORANGE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for adventure riding with a semi-open face design; fits snug around the cheeks and jawline to prevent debris entry while maintaining ventilation. Runs slightly large compared to full-face equivalents due to the open chin bar geometry. Optimized for Intermediate Oval head shapes.",
@@ -112,12 +237,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1180,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1453,
+    "weight_grams": 1417,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

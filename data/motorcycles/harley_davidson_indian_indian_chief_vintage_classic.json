@@ -4,10 +4,10 @@
   "title": "Chief Vintage Classic",
   "brand": "Harley-Davidson",
   "category": "Performance Cruiser",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1890.0,
+  "power_hp": 88.0,
+  "torque_nm": 162.0,
+  "curb_weight_kg": 304.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1890cc Thunderstroke 116 Air-Cooled 49-Degree V-Twin",
+      "power_hp": 88.0,
+      "torque_nm": 162.0,
+      "curb_weight_kg": 304.0,
+      "power_to_weight": "28.9 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 705,
@@ -146,5 +147,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Harley-Davidson engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-INDIAN-CH",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_indian_chief_vintage_classic accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

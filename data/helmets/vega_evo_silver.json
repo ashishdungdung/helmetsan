@@ -25,15 +25,15 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1124,
-    "weight_lbs": 2.48,
+    "weight_g": 1143,
+    "weight_lbs": 2.52,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 98
@@ -66,16 +66,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7Z8Y3W",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7Z8Y3W",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Evo Silver"
+      }
+    },
+    "gtin": "0194652000123",
     "ean": "0194652000123",
+    "ean_status": "valid",
     "mpn": "VEGA-EVO-SLV-OF",
-    "sku": "VEG-VEGAEV"
+    "sku": "HSN-HLM-VEGA-EVO-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fit; compatible with Vega Evo Silver shell. May require cheek pad adjustment for smaller head shapes.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -117,7 +242,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1124,
+    "weight_grams": 1143,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -273,5 +398,6 @@
     }
   ],
   "noise_db": 98,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

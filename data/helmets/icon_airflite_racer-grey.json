@@ -24,17 +24,17 @@
   "head_shape": "Long Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1289,
-    "weight_lbs": 2.84,
+    "weight_g": 1343,
+    "weight_lbs": 2.96,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 86
   },
   "description": "The Icon Airflite Racer Grey is tuned for city streets, daily work runs, and weekend joyrides, delivering responsive balance and confident road feel. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1289g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~88 dB aero profile. A plush, washable 3D comfort liner cradles Long Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0716AE4C6",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Airflite Racer Grey"
+      }
+    },
+    "gtin": "4965748581098",
+    "ean": "4965748581098",
+    "ean_status": "valid",
     "mpn": "AIRFLITE-RACER-GREY",
-    "sku": "ICO-ICONAI",
-    "asin": "B0716AE4C6",
-    "ean": "4965748581098"
+    "sku": "HSN-HLM-ICON-AIRFLITE-RACER-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Long Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -112,7 +236,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1289,
+    "weight_grams": 1343,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Modular"
   ],
   "parent_id": "givi_x_21_challenger",
-  "helmet_family": "X.21 Challenger",
+  "helmet_family": "GIVI X.21 Challenger",
   "price": {
     "usd": 299,
     "inr": 24817,
@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1607,
-    "weight_lbs": 3.54,
+    "weight_g": 1621,
+    "weight_lbs": 3.57,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 88
   },
   "description": "The Givi X.21 Challenger Pearl White is engineered for seamless transitions between open-face city stops and full-face highway cruising, pairing a quick-flip chin bar with certified impact protection. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1607g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -63,15 +63,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Givi X.21 Challenger Pearl White"
+      }
+    },
+    "gtin": "8021356472194",
     "ean": "8021356472194",
+    "ean_status": "valid",
     "mpn": "GIV-X21-CH-PW",
-    "sku": "GIV-GIVIX2"
+    "sku": "HSN-HLM-GIVI-X-21-CHALLENGER-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "GIVI X.21 Challenger is a modular helmet; specific fit notes depend on individual head shape and size selection.",
@@ -79,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -108,7 +233,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1607,
+    "weight_grams": 1621,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

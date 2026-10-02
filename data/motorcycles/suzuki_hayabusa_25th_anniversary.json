@@ -5,10 +5,10 @@
   "brand": "Suzuki",
   "country_origin": "Japan 🇯🇵",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1340.0,
+  "power_hp": 190.0,
+  "torque_nm": 150.0,
+  "curb_weight_kg": 264,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -50,11 +50,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1340cc Inline-4 Liquid-Cooled DOHC 16V",
+      "power_hp": 190.0,
+      "torque_nm": 150.0,
+      "curb_weight_kg": 264,
+      "power_to_weight": "72.0 HP/100kg",
+      "transmission": "6-speed Manual with Bi-directional Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -89,18 +90,18 @@
       "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the Hayabusa 25th Anniversary."
     },
     {
-      "id": "shark_race_r_pro_gp_vortex_tc_2",
-      "title": "Race R Pro GP Vortex TC-2",
-      "brand": "Shark",
+      "id": "shoei_tec_ii_matte_deep_grey",
+      "title": "Tec II Matte Deep Grey",
+      "brand": "Shoei",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Suzuki Hayabusa 25th Anniversary."
     },
     {
-      "id": "hjc_rpha_1n_quartararo-replica",
-      "title": "RPHA 1N Quartararo Replica",
-      "brand": "HJC",
-      "type": "Track / Race",
+      "id": "arai_signet_x_course-tc-3",
+      "title": "Signet-X Course TC-3",
+      "brand": "Arai",
+      "type": "Full Face",
       "match_score": 87,
       "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for Hayabusa 25th Anniversary speeds."
     }
@@ -121,5 +122,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "SUZU-SUZUKI",
+    "sku": "HSN-MOTO-SUZUKI-HAYABUSA-25TH-ANNIVERSARY",
+    "model_year": null,
+    "gear_search_fallback": "Suzuki suzuki_hayabusa_25th_anniversary accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Bi-directional Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

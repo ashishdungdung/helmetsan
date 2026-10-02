@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1460,
-    "weight_lbs": 3.22,
+    "weight_g": 1425,
+    "weight_lbs": 3.14,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 89
+    "noise_db_at_100kph": 90
   },
   "description": "Tuned for all-terrain exploration, the Bilmola Explorer Gloss White is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt across highway asphalt and backcountry gravel. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1460g, channeling boundary-layer airflow to maintain a ~89 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": "2024",
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0FA85C279",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bilmola Explorer Gloss White"
+      }
+    },
+    "gtin": "4964744648408",
+    "ean": "4964744648408",
+    "ean_status": "valid",
     "mpn": "Bilmola Explorer Gloss White",
-    "sku": "BIL-BILMOL",
-    "asin": "B0FA85C279",
-    "ean": "4964744648408"
+    "sku": "HSN-HLM-BILMOLA-EXPLORER-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Adventure / Dual Sport",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -111,7 +235,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1460,
+    "weight_grams": 1425,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

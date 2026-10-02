@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1392,
-    "weight_lbs": 3.07,
+    "weight_g": 1453,
+    "weight_lbs": 3.2,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 91
@@ -62,15 +62,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8Y3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8Y3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Pearl White"
+      }
+    },
+    "gtin": "8416920050000",
     "ean": "8416920050000",
+    "ean_status": "valid",
     "mpn": "OR-3-PW",
-    "sku": "LAZ-LAZERO"
+    "sku": "HSN-HLM-LAZER-OR-3-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for Adventure/Dual Sport; features a slightly extended rear coverage and adjustable visor compatible with goggles.",
@@ -78,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 91,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -107,7 +232,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1392,
+    "weight_grams": 1453,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

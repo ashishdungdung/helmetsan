@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "smk_twister",
-  "helmet_family": "Twister",
+  "helmet_family": "SMK Twister",
   "price": {
     "usd": 119,
     "inr": 9877,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1342,
-    "weight_lbs": 2.96,
+    "weight_g": 1266,
+    "weight_lbs": 2.79,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 86
+    "noise_db_at_100kph": 87
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the SMK Helmets SMK Twister Grey is optimized for upright naked and roadster riders seeking wide-angle road awareness. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1342g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B04A9BA0FB",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Twister Grey"
+      }
+    },
+    "gtin": "4964217634624",
+    "ean": "4964217634624",
+    "ean_status": "valid",
     "mpn": "SMK-TWISTER-GREY",
-    "sku": "SMK-SMKTWI",
-    "asin": "B04A9BA0FB",
-    "ean": "4964217634624"
+    "sku": "HSN-HLM-SMK-TWISTER-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -112,7 +236,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1342,
+    "weight_grams": 1266,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Thermoplastic",
-    "weight_g": 1465,
-    "weight_lbs": 3.23,
+    "weight_g": 1408,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXZ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXZ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K3 Gloss Black"
+      }
+    },
+    "gtin": "8013640527894",
     "ean": "8013640527894",
+    "ean_status": "valid",
     "mpn": "K3-GLOSS-BLK-INT",
-    "sku": "AGV-AGVK3G"
+    "sku": "HSN-HLM-AGV-K3-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit with high cheek pads; designed for intermediate oval head shapes but may feel tight on long ovals due to narrow chin bar.",
@@ -112,12 +237,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1520,
   "repaired_and_enriched": true,
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1465,
+    "weight_grams": 1408,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

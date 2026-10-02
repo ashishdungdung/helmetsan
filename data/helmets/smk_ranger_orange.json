@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "smk_ranger",
-  "helmet_family": "Ranger",
+  "helmet_family": "SMK Ranger",
   "price": {
     "usd": 169,
     "inr": 14027,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1292,
-    "weight_lbs": 2.85,
+    "weight_g": 1279,
+    "weight_lbs": 2.82,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 90
@@ -64,15 +64,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7K2M4P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7K2M4P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Ranger Orange"
+      }
+    },
+    "gtin": "8435621098765",
     "ean": "8435621098765",
+    "ean_status": "valid",
     "mpn": "SMK-ADV-ORANGE-24",
-    "sku": "SMK-SMKRAN"
+    "sku": "HSN-HLM-SMK-RANGER-ORANGE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for dual-sport use; slightly higher profile for adventure riding; fits most head shapes but may feel tight on very large skulls due to internal padding density.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -114,7 +239,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1292,
+    "weight_grams": 1279,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

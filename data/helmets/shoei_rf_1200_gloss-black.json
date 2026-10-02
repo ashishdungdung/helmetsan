@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM",
-    "weight_g": 1449,
-    "weight_lbs": 3.19,
+    "weight_g": 1405,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "Snell M2015",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 85
@@ -66,15 +66,139 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07Q3JZ8V5",
+    "amazon": {
+      "us": {
+        "asin": "B07Q3JZ8V5",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei RF-1200 Gloss Black"
+      }
+    },
+    "gtin": "4962100076645",
     "ean": "4962100076645",
+    "ean_status": "valid",
     "mpn": "RF-1200-BLK",
-    "sku": "SHO-SHOEIR"
+    "sku": "HSN-HLM-SHOEI-RF-1200-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2015, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for intermediate oval head shapes; features a wide visor opening and adjustable cheek pads for comfort.",
@@ -82,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -111,7 +235,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1449,
+    "weight_grams": 1405,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +389,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 85
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

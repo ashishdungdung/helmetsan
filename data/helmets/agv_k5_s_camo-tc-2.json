@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1465,
-    "weight_lbs": 3.23,
+    "weight_g": 1471,
+    "weight_lbs": 3.24,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXZ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXZ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Camo TC-2"
+      }
+    },
+    "gtin": "8021356478924",
     "ean": "8021356478924",
+    "ean_status": "valid",
     "mpn": "K5S-CAMO-TC2",
-    "sku": "AGV-AGVK5S"
+    "sku": "HSN-HLM-AGV-K5-S-CAMO-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "MIPS"
+    "sharp_rating": 0,
+    "rotational_mitigation": "MIPS",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a snug, locked-in fit with minimal cheek pad compression; runs slightly small compared to older AGV K-series models. Optimized for Intermediate Oval head shapes.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -107,7 +232,6 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1420,
   "repaired_and_enriched": true,
   "editorial_excerpt": "The K5 S Camo TC-2 delivers uncompromising safety with its ECE 22.06 certification and MIPS system while maintaining the aerodynamic profile serious riders demand on the track.",
   "story_narrative": "The AGV K5 S Camo TC-2 features a 1420 g shell engineered for track aerodynamic stability and ECE 22.06 safety. High-velocity chin vents channel air through deep EPS grooves, maintaining cool airflow at triple-digit speeds. The MIPS liner rotates independently to dissipate rotational energy during high-G cornering, while the optical clarity of the Pinlock-ready visor remains sharp even under direct sunlight. This helmet prioritizes function over fashion, delivering a rigid structure that absorbs impact without compromising rider visibility or comfort on long sport-touring runs.",
@@ -120,7 +244,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1465,
+    "weight_grams": 1471,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,5 +396,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

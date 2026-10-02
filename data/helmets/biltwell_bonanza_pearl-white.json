@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1135,
-    "weight_lbs": 2.5,
+    "weight_g": 1117,
+    "weight_lbs": 2.46,
     "certifications": [
       "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 96
   },
   "description": "The Biltwell Bonanza Pearl White is engineered for warm-weather riding with featherweight crown comfort, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1135g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -63,16 +63,141 @@
   },
   "model_year": "2018",
   "identifiers": {
-    "asin": "B07Q2X8V9K",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q2X8V9K",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Bonanza Pearl White"
+      }
+    },
+    "gtin": "8416350000000",
     "ean": "8416350000000",
+    "ean_status": "valid",
     "mpn": "BON-PEW",
-    "sku": "BIL-BILTWE"
+    "sku": "HSN-HLM-BILTWELL-BONANZA-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open-face design offers unrestricted peripheral vision and ventilation; Pearl White finish may show scuffs more easily than darker colors.",
@@ -114,7 +239,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1135,
+    "weight_grams": 1117,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +389,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -5,10 +5,10 @@
   "brand": "Suzuki",
   "country_origin": "Japan 🇯🇵",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 776.0,
+  "power_hp": 83.0,
+  "torque_nm": 78.0,
+  "curb_weight_kg": 205,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "776cc Parallel-Twin DOHC 270-Degree Crank",
+      "power_hp": 83.0,
+      "torque_nm": 78.0,
+      "curb_weight_kg": 205,
+      "power_to_weight": "40.5 HP/100kg",
+      "transmission": "6-speed Manual with Bi-directional Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -123,5 +124,14 @@
       "title": "Alpinestars Race V3 Balaclava",
       "reason": "Seamless moisture-wicking CoolMax fiber protects skin and keeps helmet interior fresh during long saddle hours."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "SUZU-SUZUKI",
+    "sku": "HSN-MOTO-SUZUKI-GSX-8S-NAKED-TOURING-PACK",
+    "model_year": null,
+    "gear_search_fallback": "Suzuki suzuki_gsx_8s_naked_touring_pack accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Bi-directional Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

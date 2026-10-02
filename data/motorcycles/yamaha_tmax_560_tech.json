@@ -4,10 +4,10 @@
   "title": "TMAX 560 Tech",
   "brand": "Yamaha",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 562.0,
+  "power_hp": 47.6,
+  "torque_nm": 55.7,
+  "curb_weight_kg": 220.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "562cc Forward-Inclined Parallel-Twin Liquid-Cooled DOHC 4V",
+      "power_hp": 47.6,
+      "torque_nm": 55.7,
+      "curb_weight_kg": 220.0,
+      "power_to_weight": "21.6 HP/100kg",
+      "transmission": "V-Belt Automatic (CVT)"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-TMAX-560-TECH",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_tmax_560_tech accessories motorcycle gear"
+  },
+  "transmission": "V-Belt Automatic (CVT)",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -89,18 +89,18 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the RC 200 GP (Enduro Spec) at highway speeds."
     },
     {
-      "id": "ruroc_atlas_4_0_street_tc_2",
-      "title": "Atlas 4.0 Street TC-2",
-      "brand": "Ruroc",
-      "type": "Full Face",
+      "id": "klim_tk1200_karbon_gloss-white",
+      "title": "TK1200 Karbon Gloss White",
+      "brand": "Klim",
+      "type": "Modular",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM RC 200 GP (Enduro Spec)."
     },
     {
-      "id": "shoei_rf_1400_accolade-tc-10",
-      "title": "RF-1400 Accolade TC-10",
+      "id": "shoei_neotec_3_black",
+      "title": "Neotec 3 Black",
       "brand": "Shoei",
-      "type": "Full Face",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the RC 200 GP (Enduro Spec)."
     }
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-RC-200-",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_rc_200_gp_enduro_spec accessories motorcycle gear"
+  }
 }

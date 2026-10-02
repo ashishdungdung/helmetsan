@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon-Aramid",
-    "weight_g": 1322,
-    "weight_lbs": 2.91,
+    "weight_g": 1334,
+    "weight_lbs": 2.94,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K6 S Nardo Grey"
+      }
+    },
+    "gtin": "8021356478902",
     "ean": "8021356478902",
+    "ean_status": "valid",
     "mpn": "K6S-NAR-INT",
-    "sku": "AGV-AGVK6S"
+    "sku": "HSN-HLM-AGV-K6-S-NARDO-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for an Intermediate Oval head shape; features a semi-rigid carbon-aramid shell with a multi-density EPS liner that offers a snug fit around the cheeks and temples while maintaining comfort on the crown. The interior padding is removable and washable.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -107,12 +232,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1322,
+    "weight_grams": 1334,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

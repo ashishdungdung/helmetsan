@@ -5,10 +5,10 @@
   "brand": "Yamaha",
   "country_origin": "Japan 🇯🇵",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 155.0,
+  "power_hp": 18.4,
+  "torque_nm": 14.2,
+  "curb_weight_kg": 142.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -53,11 +53,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "155cc Single-Cylinder Liquid-Cooled SOHC 4V with VVA",
+      "power_hp": 18.4,
+      "torque_nm": 14.2,
+      "curb_weight_kg": 142.0,
+      "power_to_weight": "13.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist & Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -125,5 +126,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-R15-V4-INTENSITY-WHITE-UR",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_r15_v4_intensity_white_urban_commuter accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist & Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

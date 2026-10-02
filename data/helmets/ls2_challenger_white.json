@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "KPA",
-    "weight_g": 1427,
-    "weight_lbs": 3.15,
+    "weight_g": 1412,
+    "weight_lbs": 3.11,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the LS2 Challenger White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1427g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,139 @@
   },
   "model_year": 2020,
   "identifiers": {
-    "asin": "B07Q2X3K8V",
+    "amazon": {
+      "us": {
+        "asin": "B07Q2X3K8V",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "LS2 Challenger White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 Challenger White"
+      }
+    },
+    "gtin": "8414960500000",
     "ean": "8414960500000",
+    "ean_status": "valid",
     "mpn": "LS2-CHALLENGER-WHT",
-    "sku": "LS-LS2CHA"
+    "sku": "HSN-HLM-LS2-CHALLENGER-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; features a wide cheek area that may feel tight on very round heads.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -114,7 +238,7 @@
   "country_origin": "Spain / China 🇪🇸🇨🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1427,
+    "weight_grams": 1412,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

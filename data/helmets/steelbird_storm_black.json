@@ -25,18 +25,18 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1091,
-    "weight_lbs": 2.41,
+    "weight_g": 1127,
+    "weight_lbs": 2.48,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for classic roadsters and urban cruising, the Steelbird Storm Black pairs retro roadster charm with modern multi-density cranial protection. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1091g, it combines progressive kinetic energy dissipation across DOT, ISI, ECE 22.05 certifications with an acoustically tuned ~97 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -66,16 +66,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09XQZV8J2",
+    "amazon": {
+      "us": {
+        "asin": "B09XQZV8J2",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Storm Black"
+      }
+    },
+    "gtin": "5016437000123",
     "ean": "5016437000123",
+    "ean_status": "valid",
     "mpn": "SB-OF-SB-BLK",
-    "sku": "STE-STEELB"
+    "sku": "HSN-HLM-STEELBIRD-STORM-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open face design offers unrestricted peripheral vision; suitable for warm weather and track days.",
@@ -83,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.38
   },
@@ -117,7 +241,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1091,
+    "weight_grams": 1127,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,6 +396,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97,
-  "sharp_rating": 0
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

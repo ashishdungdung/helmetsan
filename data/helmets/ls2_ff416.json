@@ -7,10 +7,10 @@
     "weight_g": 1317,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.9,
@@ -45,15 +45,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0A33104D1",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "LS2 FF416"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "LS2 FF416"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "LS2 FF416"
+      }
+    },
+    "gtin": "4966528346579",
+    "ean": "4966528346579",
+    "ean_status": "valid",
     "mpn": "FF416",
-    "sku": "LS-LS2FF4",
-    "asin": "B0A33104D1",
-    "ean": "4966528346579"
+    "sku": "HSN-HLM-LS2-FF416",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "homologation_standard": "ECE 22.06, DOT",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
   "yoast_metadesc": "In-depth review of the LS2 FF416. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
   "unified_enriched": true,
@@ -72,8 +196,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "ls2_ff416",
-  "helmet_family": "Ls2 ff416",
+  "parent_id": null,
+  "helmet_family": "FF416",
   "country_origin": "Spain / China 🇪🇸🇨🇳",
   "category": "Full Face",
   "physics_intelligence": {
@@ -82,7 +206,7 @@
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -242,6 +366,8 @@
   "noise_db": 87,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "icon_domain_mips",
-  "helmet_family": "Domain MIPS",
+  "helmet_family": "Domain",
   "price": {
     "usd": 399,
     "inr": 33117,
@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1442,
-    "weight_lbs": 3.18,
+    "weight_g": 1424,
+    "weight_lbs": 3.14,
     "certifications": [
       "DOT",
       "ECE 22.05",
       "Snell M2020"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -66,15 +66,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8Y5",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8Y5",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Icon Domain MIPS Matte Black"
+      }
+    },
+    "gtin": "0194623000000",
     "ean": "0194623000000",
+    "ean_status": "valid",
     "mpn": "H-1000-MIPS-BLK",
-    "sku": "ICO-ICONDO"
+    "sku": "HSN-HLM-ICON-DOMAIN-MIPS-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05, Snell M2020",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; may feel tight on very round heads due to extended cheek pads.",
@@ -116,7 +241,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1442,
+    "weight_grams": 1424,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -270,5 +395,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

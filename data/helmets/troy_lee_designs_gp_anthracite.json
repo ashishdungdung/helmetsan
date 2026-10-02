@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "troy_lee_designs_gp",
-  "helmet_family": "GP",
+  "helmet_family": "Lee Designs GP",
   "price": {
     "usd": 199,
     "inr": 16517,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1264,
-    "weight_lbs": 2.79,
+    "weight_g": 1309,
+    "weight_lbs": 2.89,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 97
   },
   "description": "The Troy Lee Designs GP Anthracite delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1264g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B05F9C8C94",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Anthracite"
+      }
+    },
+    "gtin": "4969514452346",
+    "ean": "4969514452346",
+    "ean_status": "valid",
     "mpn": "TLD-GP-ANTH-24",
-    "sku": "TRO-TROYLE",
-    "asin": "B05F9C8C94",
-    "ean": "4969514452346"
+    "sku": "HSN-HLM-TROY-LEE-DESIGNS-GP-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -107,7 +231,7 @@
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1264,
+    "weight_grams": 1309,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

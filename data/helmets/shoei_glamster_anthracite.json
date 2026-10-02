@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM",
-    "weight_g": 1416,
-    "weight_lbs": 3.12,
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 95
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the Shoei Glamster Anthracite delivers breezy open-air freedom for scenic cruising and city exploration. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1416g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~95 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -64,16 +64,141 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV3Y5",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV3Y5",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Anthracite"
+      }
+    },
+    "gtin": "4962810004650",
     "ean": "4962810004650",
+    "ean_status": "valid",
     "mpn": "Glamster-19",
-    "sku": "SHO-SHOEIG"
+    "sku": "HSN-HLM-SHOEI-GLAMSTER-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for intermediate oval head shapes; may feel tight on round heads or loose on diamond heads.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -115,7 +240,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1416,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,6 +393,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 95,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

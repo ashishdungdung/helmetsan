@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "scorpion_exo_t521",
-      "title": "-T521",
+      "title": "EXO-T521",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 98,
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-APACHE-RTR-200",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_apache_rtr_200_4v_ride_modes_apex_spec accessories motorcycle gear"
+  }
 }

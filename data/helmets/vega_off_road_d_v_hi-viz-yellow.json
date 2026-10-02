@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1425,
-    "weight_lbs": 3.14,
+    "weight_g": 1406,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 99
   },
   "description": "Built for aggressive dirt performance, the Vega Off-Road D/V Hi-Viz Yellow is engineered for punishing motocross motos and technical single-track trails across punishing tracks and trails. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1425g, channeling boundary-layer airflow to maintain a ~97 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B08XYZ1234",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08XYZ1234",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Vega Off-Road D/V Hi-Viz Yellow"
+      }
+    },
+    "gtin": "8901234567890",
     "ean": "8901234567890",
+    "ean_status": "valid",
     "mpn": "Vega-DV-HiVis-Yellow",
-    "sku": "VEG-VEGAOF"
+    "sku": "HSN-HLM-VEGA-OFF-ROAD-D-V-HI-VIZ-YELLOW",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Off-road specific fit for dirt/MX riding"
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -107,7 +232,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1425,
+    "weight_grams": 1406,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

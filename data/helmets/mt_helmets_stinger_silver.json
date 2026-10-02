@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1311,
-    "weight_lbs": 2.89,
+    "weight_g": 1299,
+    "weight_lbs": 2.86,
     "certifications": [
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 97
   },
   "description": "The MT Helmets Stinger Silver is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1311g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -60,16 +60,140 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B025A3D803",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Stinger Silver"
+      }
+    },
+    "gtin": "4960587424018",
+    "ean": "4960587424018",
+    "ean_status": "valid",
     "mpn": "MT-STINGER-SILVER",
-    "sku": "MTH-MTHELM",
-    "asin": "B025A3D803",
-    "ean": "4960587424018"
+    "sku": "HSN-HLM-MT-HELMETS-STINGER-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -106,7 +230,7 @@
   "country_origin": "Spain 🇪🇸",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1311,
+    "weight_grams": 1299,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -256,6 +380,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

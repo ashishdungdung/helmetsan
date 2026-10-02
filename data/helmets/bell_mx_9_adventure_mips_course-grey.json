@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "bell_mx_9_adventure_mips",
-  "helmet_family": "MX-9 Adventure MIPS",
+  "helmet_family": "MX-9 Adventure",
   "price": {
     "usd": 289,
     "inr": 23987,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1281,
-    "weight_lbs": 2.82,
+    "weight_g": 1269,
+    "weight_lbs": 2.8,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 91
@@ -65,15 +65,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q3K8V5G",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q3K8V5G",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell MX-9 Adventure MIPS Course Grey"
+      }
+    },
+    "gtin": "8841692000000",
     "ean": "8841692000000",
+    "ean_status": "valid",
     "mpn": "MX-9ADV-MIPS-CG",
-    "sku": "BEL-BELLMX"
+    "sku": "HSN-HLM-BELL-MX-9-ADVENTURE-MIPS-COURSE-",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for adventure riding with a slightly extended rear profile; fits most head shapes but may feel tight on very large heads due to the Adventure-specific shell shape.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 91,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -110,7 +235,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1281,
+    "weight_grams": 1269,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 91
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -92,16 +92,16 @@
     },
     {
       "id": "shoei_tec_ii_anthracite",
-      "title": "TC-10 Anthracite",
+      "title": "Tec II Anthracite",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Suzuki Gixxer 150 (Dark Edition)."
     },
     {
-      "id": "shark_spartan_gt_matte_black",
-      "title": "Spartan GT Matte Black",
-      "brand": "Shark",
+      "id": "hjc_i10_matte-black",
+      "title": "i10 Matte Black",
+      "brand": "HJC",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Gixxer 150 (Dark Edition)."
@@ -123,5 +123,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "SUZU-SUZUKI",
+    "sku": "HSN-MOTO-SUZUKI-GIXXER-150-DARK-EDITION",
+    "model_year": null,
+    "gear_search_fallback": "Suzuki suzuki_gixxer_150_dark_edition accessories motorcycle gear"
+  }
 }

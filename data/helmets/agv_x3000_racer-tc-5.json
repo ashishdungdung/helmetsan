@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fibreglass",
-    "weight_g": 1410,
-    "weight_lbs": 3.11,
+    "weight_g": 1464,
+    "weight_lbs": 3.23,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 94
+    "noise_db_at_100kph": 93
   },
   "description": "The AGV X3000 Racer TC-5 delivers authentic custom flair backed by modern impact mitigation, pairing relaxed road ergonomics with modern certified protection. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1410g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~94 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "X3000-RACER-TC5",
-    "asin": "B0C9X8Y2Z1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y2Z1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV X3000 Racer TC-5"
+      }
+    },
+    "gtin": "8053690123456",
     "ean": "8053690123456",
-    "sku": "AGV-AGVX30"
+    "ean_status": "valid",
+    "mpn": "X3000-RACER-TC5",
+    "sku": "HSN-HLM-AGV-X3000-RACER-TC-5",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a tight, race-oriented fit with minimal cheek volume; may feel snug on average oval heads. Requires specific sizing down from road versions. Optimized for Intermediate Oval head shapes.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 94,
+    "noise_db_at_100kph": 93,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.29
   },
@@ -107,12 +232,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1370,
   "repaired_and_enriched": true,
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1410,
+    "weight_grams": 1464,
     "acoustic_noise_rating_db": "94 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +389,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 94
+  "noise_db": 93,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

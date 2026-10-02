@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1434,
-    "weight_lbs": 3.16,
+    "weight_g": 1416,
+    "weight_lbs": 3.12,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 100
   },
   "description": "The Bell Rogue Street TC-2 delivers stripped-down minimalist coverage for relaxed warm-weather cruising, pairing low-profile styling with essential certified head protection. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1434g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07Q5K8V3X",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5K8V3X",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Rogue Street TC-2"
+      }
+    },
+    "gtin": "0194620000000",
     "ean": "0194620000000",
+    "ean_status": "valid",
     "mpn": "TC-2",
-    "sku": "BEL-BELLRO"
+    "sku": "HSN-HLM-BELL-ROGUE-STREET-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Fits most head shapes; slightly roomy for larger heads due to TC-2 specific sizing.",
@@ -82,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 101,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -116,7 +240,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1434,
+    "weight_grams": 1416,
     "acoustic_noise_rating_db": "101 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,6 +388,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 99,
-  "sharp_rating": 0
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

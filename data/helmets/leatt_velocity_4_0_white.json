@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1271,
-    "weight_lbs": 2.8,
+    "weight_g": 1291,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 95
   },
   "description": "Tailored for classic roadsters and urban cruising, the Leatt Velocity 4.0 White is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1271g, channeling boundary-layer airflow to maintain a ~96 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0AEF4CD8E",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Leatt Velocity 4.0 White"
+      }
+    },
+    "gtin": "4966588768410",
+    "ean": "4966588768410",
+    "ean_status": "valid",
     "mpn": "Leatt Velocity 4.0",
-    "sku": "LEA-LEATTV",
-    "asin": "B0AEF4CD8E",
-    "ean": "4966588768410"
+    "sku": "HSN-HLM-LEATT-VELOCITY-4-0-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open face design with Leatt Velocity 4.0 specific fit profile."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.36
   },
@@ -101,7 +225,7 @@
   "country_origin": "South Africa 🇿🇦",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1271,
+    "weight_grams": 1291,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,6 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 95,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

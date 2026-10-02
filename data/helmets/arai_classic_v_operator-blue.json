@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PB-cLc",
-    "weight_g": 1095,
-    "weight_lbs": 2.41,
+    "weight_g": 1148,
+    "weight_lbs": 2.53,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the Arai Classic-V Operator Blue is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at a featherweight 1095g, channeling boundary-layer airflow to maintain a ~96 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -67,16 +67,141 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Classic-V Operator Blue"
+      }
+    },
+    "gtin": "4549632123456",
     "ean": "4549632123456",
+    "ean_status": "valid",
     "mpn": "CL-OP-001-BLU",
-    "sku": "ARA-ARAICL"
+    "sku": "HSN-HLM-ARAI-CLASSIC-V-OPERATOR-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Ideal for riders with oval head shapes; offers a slightly roomier fit compared to the Arai XD4 due to its open-face design.",
@@ -84,7 +209,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.48
   },
@@ -113,7 +238,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1095,
+    "weight_grams": 1148,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,6 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

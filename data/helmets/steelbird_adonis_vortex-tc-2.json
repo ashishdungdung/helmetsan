@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1332,
-    "weight_lbs": 2.94,
+    "weight_g": 1299,
+    "weight_lbs": 2.86,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 98
   },
   "description": "Tailored for classic roadsters and urban cruising, the Steelbird Adonis Vortex TC-2 is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1332g, channeling boundary-layer airflow to maintain a ~96 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -64,16 +64,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7Z2M4K",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7Z2M4K",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Steelbird Adonis Vortex TC-2"
+      }
+    },
+    "gtin": "8435621098765",
     "ean": "8435621098765",
+    "ean_status": "valid",
     "mpn": "SB-AD-VTC2-BLK",
-    "sku": "STE-STEELB"
+    "sku": "HSN-HLM-STEELBIRD-ADONIS-VORTEX-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Open-face design offers maximum ventilation; suitable for track days and street riding in warm climates. Chin bar provides structural integrity without full-face coverage.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -115,7 +240,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1332,
+    "weight_grams": 1299,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,6 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

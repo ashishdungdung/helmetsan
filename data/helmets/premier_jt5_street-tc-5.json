@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1265,
-    "weight_lbs": 2.79,
+    "weight_g": 1296,
+    "weight_lbs": 2.86,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 95
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for classic roadsters and urban cruising, the Premier JT5 Street TC-5 delivers breezy open-air freedom for scenic cruising and city exploration. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at a featherweight 1265g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~95 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,16 +62,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B08X7Y9Z1A",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7Y9Z1A",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Street TC-5"
+      }
+    },
+    "gtin": "8423567890123",
     "ean": "8423567890123",
+    "ean_status": "valid",
     "mpn": "JT5-TC5-BLK",
-    "sku": "PRE-PREMIE"
+    "sku": "HSN-HLM-PREMIER-JT5-STREET-TC-5",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fit; offers a wide field of view with minimal neck coverage. Suitable for street riding and commuting.",
@@ -108,7 +233,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1265,
+    "weight_grams": 1296,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,6 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 95,
-  "sharp_rating": 0
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

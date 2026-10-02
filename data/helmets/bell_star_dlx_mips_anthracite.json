@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "bell_star_dlx_mips",
-  "helmet_family": "Star DLX MIPS",
+  "helmet_family": "Star",
   "price": {
     "usd": 569,
     "inr": 47227,
@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Tri-Matrix",
-    "weight_g": 1439,
-    "weight_lbs": 3.17,
+    "weight_g": 1447,
+    "weight_lbs": 3.19,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 93
@@ -67,15 +67,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09TQZV8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09TQZV8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Star DLX MIPS Anthracite"
+      }
+    },
+    "gtin": "7625410000000",
     "ean": "7625410000000",
+    "ean_status": "valid",
     "mpn": "11000000000",
-    "sku": "BEL-BELLST"
+    "sku": "HSN-HLM-BELL-STAR-DLX-MIPS-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; features a multi-position dial and adjustable cheek pads for a secure fit.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 93,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -117,7 +242,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1439,
+    "weight_grams": 1447,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 93
+  "noise_db": 93,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

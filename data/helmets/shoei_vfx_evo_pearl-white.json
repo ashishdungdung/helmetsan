@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM+",
-    "weight_g": 1478,
-    "weight_lbs": 3.26,
+    "weight_g": 1415,
+    "weight_lbs": 3.12,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 100
@@ -66,15 +66,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZ8V5G",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZ8V5G",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei VFX-EVO Pearl White"
+      }
+    },
+    "gtin": "4963128026380",
     "ean": "4963128026380",
+    "ean_status": "valid",
     "mpn": "VFX-EVO-PEARL-WHITE",
-    "sku": "SHO-SHOEIV"
+    "sku": "HSN-HLM-SHOEI-VFX-EVO-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a slightly larger head shape; offers excellent ventilation and a secure fit for aggressive riding positions common in dirt/MX.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.34
   },
@@ -111,7 +236,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1478,
+    "weight_grams": 1415,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 100
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

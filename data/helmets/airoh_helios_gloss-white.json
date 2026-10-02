@@ -23,13 +23,13 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "HPC Composite",
-    "weight_g": 1134,
-    "weight_lbs": 2.5,
+    "weight_g": 1119,
+    "weight_lbs": 2.47,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 98
@@ -63,16 +63,141 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8YX",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YX",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Gloss White"
+      }
+    },
+    "gtin": "5321460090000",
     "ean": "5321460090000",
+    "ean_status": "valid",
     "mpn": "Airoh-Helios-Gloss-White",
-    "sku": "AIR-AIROHH"
+    "sku": "HSN-HLM-AIROH-HELIOS-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Classic open-face fit with a slightly rounded interior shell; requires cheek pads for secure retention on larger Round Oval heads.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -111,12 +236,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1080,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1134,
+    "weight_grams": 1119,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,5 +392,6 @@
     }
   ],
   "noise_db": 98,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "roof_ro200_carbon",
-  "helmet_family": "RO200 Carbon",
+  "helmet_family": "ROOF RO200",
   "price": {
     "usd": 549,
     "inr": 45567,
@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1309,
-    "weight_lbs": 2.89,
+    "weight_g": 1325,
+    "weight_lbs": 2.92,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -60,22 +60,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0741A9E1F",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof RO200 Carbon Course Blue"
+      }
+    },
+    "gtin": "4968165023592",
+    "ean": "4968165023592",
+    "ean_status": "valid",
     "mpn": "RO200-CB",
-    "sku": "ROO-ROOFRO",
-    "asin": "B0741A9E1F",
-    "ean": "4968165023592"
+    "sku": "HSN-HLM-ROOF-RO200-CARBON-COURSE-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.27
   },
@@ -98,7 +222,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1309,
+    "weight_grams": 1325,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -248,5 +372,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

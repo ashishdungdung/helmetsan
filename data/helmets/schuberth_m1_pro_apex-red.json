@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1122,
-    "weight_lbs": 2.47,
+    "weight_g": 1118,
+    "weight_lbs": 2.46,
     "certifications": [
       "DOT",
       "ECE"
     ],
     "warranty_years": 2,
-    "strap_type": "Micro-Lock Ratchet",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 98
   },
   "description": "Tailored for classic roadsters and urban cruising, the Schuberth M1 Pro Apex Red is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at a featherweight 1122g, channeling boundary-layer airflow to maintain a ~96 dB acoustic cabin profile while meeting DOT, ECE impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly Micro-Lock Ratchet retention system for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0B7187FE8",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Apex Red"
+      }
+    },
+    "gtin": "4968415651926",
+    "ean": "4968415651926",
+    "ean_status": "valid",
     "mpn": "M1PROAPEXRED",
-    "sku": "SCH-SCHUBE",
-    "asin": "B0B7187FE8",
-    "ean": "4968415651926"
+    "sku": "HSN-HLM-SCHUBERTH-M1-PRO-APEX-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Open face design; requires separate chin bar or conversion kit for full-face protection."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 95,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.28
   },
@@ -113,7 +237,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1122,
+    "weight_grams": 1118,
     "acoustic_noise_rating_db": "95 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,6 +389,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

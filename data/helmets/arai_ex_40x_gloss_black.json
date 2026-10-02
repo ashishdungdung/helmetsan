@@ -3,22 +3,22 @@
   "brand": "Arai",
   "type": "Full Face",
   "specs": {
-    "material": "Thermoformed Polycarbonate Composite with Carbon Fiber Reinforcement",
-    "weight_g": 1313,
+    "material": "Carbon Fiber Composite Shell with ABS Liner",
+    "weight_g": 1284,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.89,
-    "noise_db_at_100kph": 86
+    "weight_lbs": 2.83,
+    "noise_db_at_100kph": 85
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 9.2,
     "drag_coefficient": 0.29
   },
@@ -46,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B09X8K2M1P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X8K2M1P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai EX-40X Gloss Black"
+      }
+    },
+    "gtin": "4549000123456",
     "ean": "4549000123456",
+    "ean_status": "valid",
     "mpn": "EX-40X-BLK-24",
-    "sku": "ARA-ARAIEX"
+    "sku": "HSN-HLM-ARAI-EX-40X-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
+    "sharp_rating": 0,
     "homologation_standard": "DOT, ECE 22.06",
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
-  "spec_weight_g": 1420,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,12 +200,12 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "arai_ex",
-  "helmet_family": "Arai ex",
+  "parent_id": "arai_ex_40x",
+  "helmet_family": "EX-40X",
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1313,
+    "weight_grams": 1284,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -243,9 +367,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86,
+  "noise_db": 85,
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

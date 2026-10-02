@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1340,
-    "weight_lbs": 2.95,
+    "weight_g": 1296,
+    "weight_lbs": 2.86,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for classic roadsters and urban cruising, the Premier JT5 Course Red pairs retro roadster charm with modern multi-density cranial protection. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1340g, channeling boundary-layer airflow to maintain a ~97 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,16 +62,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B08X7Y9Z1A",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7Y9Z1A",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier JT5 Course Red"
+      }
+    },
+    "gtin": "8423567890123",
     "ean": "8423567890123",
+    "ean_status": "valid",
     "mpn": "JT5-RED-OPEN",
-    "sku": "PRE-PREMIE"
+    "sku": "HSN-HLM-PREMIER-JT5-COURSE-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fitment with extended cheek pads for larger jawlines; requires chin strap adjustment for optimal retention.",
@@ -79,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 95,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -108,7 +233,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1340,
+    "weight_grams": 1296,
     "acoustic_noise_rating_db": "95 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,6 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97,
-  "sharp_rating": 0
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1289,
-    "weight_lbs": 2.84,
+    "weight_g": 1299,
+    "weight_lbs": 2.86,
     "certifications": [
       "DOT",
       "ECE 22.06",
       "FIM"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 92
   },
   "description": "Born for the apex and high-speed straightaways, the AGV Pista GP RR Soleluna 2023 is purpose-built for closed-course competition and apex carving. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1289g, channeling boundary-layer airflow to maintain a ~93 dB acoustic cabin profile while meeting DOT, ECE 22.06, FIM impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,139 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B0C1X9K2L4",
+    "amazon": {
+      "us": {
+        "asin": "B0C1X9K2L4",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV Pista GP RR Soleluna 2023"
+      }
+    },
+    "gtin": "8052360789452",
     "ean": "8052360789452",
+    "ean_status": "valid",
     "mpn": "PST-RR-SL-23",
-    "sku": "AGV-AGVPIS"
+    "sku": "HSN-HLM-AGV-PISTA-GP-RR-SOLELUNA-2023",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06, FIM",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a snug, track-focused fit with minimal cheek volume; often requires specific sizing down from road versions. The 'Soleluna' edition features the same internal shell geometry as standard Pista GP RR but with distinct graphics. Optimized for Intermediate Oval head shapes.",
@@ -83,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 93,
+    "noise_db_at_100kph": 92,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -109,12 +233,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1420,
   "repaired_and_enriched": true,
   "country_origin": "Italy 🇮🇹",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1289,
+    "weight_grams": 1299,
     "acoustic_noise_rating_db": "93 dB @ 100km/h",
     "aerodynamic_lift_force_n": "2.1 N @ 180km/h",
     "safety_certifications": [
@@ -268,5 +391,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 93
+  "noise_db": 92,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

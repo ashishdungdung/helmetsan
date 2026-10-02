@@ -4,10 +4,10 @@
   "title": "F900XR Adventure",
   "brand": "BMW Motorrad",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 895.0,
+  "power_hp": 105.0,
+  "torque_nm": 92.0,
+  "curb_weight_kg": 219,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "895cc Parallel-Twin Liquid-Cooled DOHC",
+      "power_hp": 105.0,
+      "torque_nm": 92.0,
+      "curb_weight_kg": 219,
+      "power_to_weight": "47.9 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -146,5 +147,14 @@
       "title": "Alpinestars Race V3 Balaclava",
       "reason": "Seamless moisture-wicking CoolMax fiber protects skin and keeps helmet interior fresh during long saddle hours."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BMW -BMW_MO",
+    "sku": "HSN-MOTO-BMW-MOTORRAD-F900XR-ADVENTURE",
+    "model_year": null,
+    "gear_search_fallback": "BMW Motorrad bmw_motorrad_f900xr_adventure accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

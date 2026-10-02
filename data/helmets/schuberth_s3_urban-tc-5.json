@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Direct Fiber",
-    "weight_g": 1469,
-    "weight_lbs": 3.24,
+    "weight_g": 1459,
+    "weight_lbs": 3.22,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Micro-Lock Ratchet",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Schuberth S3 Urban TC-5 is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1469g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Micro-Lock Ratchet retention system.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q2X5V3K",
+    "amazon": {
+      "us": {
+        "asin": "B07Q2X5V3K",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Urban TC-5"
+      }
+    },
+    "gtin": "4018690000000",
     "ean": "4018690000000",
+    "ean_status": "valid",
     "mpn": "S3-URBAN-T5",
-    "sku": "SCH-SCHUBE"
+    "sku": "HSN-HLM-SCHUBERTH-S3-URBAN-TC-5",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban commuting with a compact profile; fits most head shapes but may feel tight on very large heads due to the TC-5 shell size.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.28
   },
@@ -115,7 +239,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1469,
+    "weight_grams": 1459,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -267,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

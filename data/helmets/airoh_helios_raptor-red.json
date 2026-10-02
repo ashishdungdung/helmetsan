@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "HPC Composite",
-    "weight_g": 1137,
-    "weight_lbs": 2.51,
+    "weight_g": 1119,
+    "weight_lbs": 2.47,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 98
@@ -63,16 +63,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "AIROH-HELIOS-RAPTOR-RED",
-    "asin": "B0C9X7K2M1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X7K2M1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Helios Raptor Red"
+      }
+    },
+    "gtin": "8053690123456",
     "ean": "8053690123456",
-    "sku": "AIR-AIROHH"
+    "ean_status": "valid",
+    "mpn": "AIROH-HELIOS-RAPTOR-RED",
+    "sku": "HSN-HLM-AIROH-HELIOS-RAPTOR-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for an open-face fit with a secure chin bar; typically runs true to size with a semi-slim profile that accommodates most head shapes but may feel tight on very large heads due to the fixed shell geometry. Optimized for Intermediate Oval head shape.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 95,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -111,12 +236,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1120,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1137,
+    "weight_grams": 1119,
     "acoustic_noise_rating_db": "95 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,5 +392,6 @@
     }
   ],
   "noise_db": 98,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Tri-Matrix",
-    "weight_g": 1427,
-    "weight_lbs": 3.15,
+    "weight_g": 1446,
+    "weight_lbs": 3.19,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 101
+    "noise_db_at_100kph": 102
   },
   "description": "The Bell Pit Boss Raptor TC-2 delivers stripped-down minimalist coverage for relaxed warm-weather cruising, pairing low-profile styling with essential certified head protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1427g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~101 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,141 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Raptor TC-2"
+      }
+    },
+    "gtin": "885916243000",
     "ean": "885916243000",
+    "ean_status": "valid",
     "mpn": "TC-2",
-    "sku": "BEL-BELLPI"
+    "sku": "HSN-HLM-BELL-PIT-BOSS-RAPTOR-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval head shapes; may feel tight on round heads due to internal padding.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 101,
+    "noise_db_at_100kph": 102,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -111,7 +236,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1427,
+    "weight_grams": 1446,
     "acoustic_noise_rating_db": "101 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,6 +384,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 101,
-  "sharp_rating": 0
+  "noise_db": 102,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

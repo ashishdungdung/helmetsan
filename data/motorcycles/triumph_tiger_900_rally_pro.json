@@ -4,10 +4,10 @@
   "title": "Tiger 900 Rally Pro",
   "brand": "Triumph",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 888.0,
+  "power_hp": 95.2,
+  "torque_nm": 87.0,
+  "curb_weight_kg": 201.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "888cc Inline-3 Liquid-Cooled DOHC 12V T-Plane Crank",
+      "power_hp": 95.2,
+      "torque_nm": 87.0,
+      "curb_weight_kg": 201.0,
+      "power_to_weight": "47.4 HP/100kg",
+      "transmission": "6-speed Manual with Slip-and-Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -146,5 +147,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the Tiger 900 Rally Pro."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TRIU-TRIUMP",
+    "sku": "HSN-MOTO-TRIUMPH-TIGER-900-RALLY-PRO",
+    "model_year": null,
+    "gear_search_fallback": "Triumph triumph_tiger_900_rally_pro accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Slip-and-Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

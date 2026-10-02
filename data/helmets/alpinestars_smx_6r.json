@@ -4,17 +4,18 @@
   "type": "Full Face",
   "specs": {
     "material": "Carbon Fiber Composite Shell with EPS Liner",
-    "weight_g": 1263,
+    "weight_g": 1306,
     "certifications": [
       "ECE 22.06",
-      "SNELL M-2020"
+      "Snell M2020"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Fidlock Magnetic",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.78,
-    "noise_db_at_100kph": 87
+    "weight_lbs": 2.88,
+    "noise_db_at_100kph": 87,
+    "strap_type_source": "Quick Release Magnetic Buckle"
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -46,17 +47,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B0C9X7K2M1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X7K2M1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-6R"
+      }
+    },
+    "gtin": "8056340001234",
     "ean": "8056340001234",
+    "ean_status": "valid",
     "mpn": "SMX-6R-CF-24",
-    "sku": "ALP-ALPINE"
+    "sku": "HSN-HLM-ALPINESTARS-SMX-6R",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
-    "homologation_standard": "ECE 22.06, SNELL M-2020",
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "homologation_standard": "ECE 22.06, Snell M2020",
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Fidlock Magnetic"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,17 +201,17 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "alpinestars_smx",
-  "helmet_family": "Alpinestars smx",
+  "parent_id": null,
+  "helmet_family": "SMX-6R",
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1263,
+    "weight_grams": 1306,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "SNELL M-2020"
+      "Snell M2020"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -246,6 +371,8 @@
   "noise_db": 87,
   "certifications": [
     "ECE 22.06",
-    "SNELL M-2020"
-  ]
+    "Snell M2020"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

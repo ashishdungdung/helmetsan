@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "troy_lee_designs_gp_mono",
-  "helmet_family": "GP Mono",
+  "helmet_family": "Lee Designs GP Mono",
   "price": {
     "usd": 179,
     "inr": 14857,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1349,
-    "weight_lbs": 2.97,
+    "weight_g": 1333,
+    "weight_lbs": 2.94,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 100
   },
   "description": "The Troy Lee Designs GP Mono Solid Red is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1349g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0EC72353A",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs GP Mono Solid Red"
+      }
+    },
+    "gtin": "4960367824199",
+    "ean": "4960367824199",
+    "ean_status": "valid",
     "mpn": "TLD-GP-MONO-SOLID-RED",
-    "sku": "TRO-TROYLE",
-    "asin": "B0EC72353A",
-    "ean": "4960367824199"
+    "sku": "HSN-HLM-TROY-LEE-DESIGNS-GP-MONO-SOLID-R",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -107,7 +231,7 @@
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1349,
+    "weight_grams": 1333,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

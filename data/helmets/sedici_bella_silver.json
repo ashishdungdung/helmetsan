@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "sedici_bella",
-  "helmet_family": "Bella",
+  "helmet_family": "Sedici Bella",
   "price": {
     "usd": 119,
     "inr": 9877,
@@ -24,17 +24,17 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1262,
-    "weight_lbs": 2.78,
+    "weight_g": 1293,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for classic roadsters and urban cruising, the Bell Sedici Bella Silver is engineered for warm-weather riding with featherweight crown comfort. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1262g, channeling boundary-layer airflow to maintain a ~98 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B04814333B",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Sedici Bella Silver"
+      }
+    },
+    "gtin": "4960536256721",
+    "ean": "4960536256721",
+    "ean_status": "valid",
     "mpn": "Sedici-Bella-Silver-OF",
-    "sku": "SED-SEDICI",
-    "asin": "B04814333B",
-    "ean": "4960536256721"
+    "sku": "HSN-HLM-SEDICI-BELLA-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Round Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -113,7 +237,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1262,
+    "weight_grams": 1293,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,6 +385,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 98,
-  "sharp_rating": 0
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1314,
-    "weight_lbs": 2.9,
+    "weight_g": 1295,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 89
+    "noise_db_at_100kph": 87
   },
   "description": "The Daytona Glide Pearl White delivers one-handed chin bar actuation paired with certified dual-homologation protection, delivering flip-up versatility for city stops and sealed protection at speed. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1314g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~89 dB while dissipating kinetic impact forces across DOT benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -63,15 +63,139 @@
   },
   "model_year": "2024",
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B075774864",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Daytona Glide Pearl White"
+      }
+    },
+    "gtin": "4962127215148",
+    "ean": "4962127215148",
+    "ean_status": "valid",
     "mpn": "DAYTONA-GP-WHT-MOD",
-    "sku": "DAY-DAYTON",
-    "asin": "B075774864",
-    "ean": "4962127215148"
+    "sku": "HSN-HLM-DAYTONA-GLIDE-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Standard Daytona fit; generally runs true to size with a semi-spherical interior shell. May feel slightly tight on very large heads due to the fixed EPS liner density.",
@@ -114,7 +238,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1314,
+    "weight_grams": 1295,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

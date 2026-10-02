@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "smk_urban",
-  "helmet_family": "Urban",
+  "helmet_family": "SMK",
   "price": {
     "usd": 79,
     "inr": 6557,
@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1296,
-    "weight_lbs": 2.86,
+    "weight_g": 1266,
+    "weight_lbs": 2.79,
     "certifications": [
       "DOT",
       "ISI",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the SMK Helmets SMK Urban Silver is engineered for warm-weather riding with featherweight crown comfort. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1296g, channeling boundary-layer airflow to maintain a ~98 dB acoustic cabin profile while meeting DOT, ISI, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -66,16 +66,141 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7K2M3P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7K2M3P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "SMK Helmets SMK Urban Silver"
+      }
+    },
+    "gtin": "8412345678901",
     "ean": "8412345678901",
+    "ean_status": "valid",
     "mpn": "SMK-UR-SLV-OF",
-    "sku": "SMK-SMKURB"
+    "sku": "HSN-HLM-SMK-URBAN-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ISI, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban commuting; fits most head shapes but may feel tight on very large skulls due to open-face design constraints.",
@@ -117,7 +242,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1296,
+    "weight_grams": 1266,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,6 +397,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

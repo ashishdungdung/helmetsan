@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1459,
-    "weight_lbs": 3.22,
+    "weight_g": 1420,
+    "weight_lbs": 3.13,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 94
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for custom cruisers and classic roadsters, the Biltwell Gringo S Camo Blue delivers authentic custom flair backed by modern impact mitigation. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1459g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~94 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV3YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV3YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo S Camo Blue"
+      }
+    },
+    "gtin": "8429150060000",
     "ean": "8429150060000",
+    "ean_status": "valid",
     "mpn": "GRG-S-CAM-BLU",
-    "sku": "BIL-BILTWE"
+    "sku": "HSN-HLM-BILTWELL-GRINGO-S-CAMO-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 3,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; features a distinctively tall rear profile that may require sizing down for riders with larger occipital lobes.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 94,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.38
   },
@@ -110,7 +235,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1459,
+    "weight_grams": 1420,
     "acoustic_noise_rating_db": "94 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 94
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

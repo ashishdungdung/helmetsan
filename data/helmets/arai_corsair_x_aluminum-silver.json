@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PB-SNC2",
-    "weight_g": 1447,
-    "weight_lbs": 3.19,
+    "weight_g": 1402,
+    "weight_lbs": 3.09,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 92
+    "noise_db_at_100kph": 90
   },
   "description": "The Arai Corsair-X Aluminum Silver is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck, purpose-built for riders demanding uncompromising high-speed aerodynamic stability and track-certified protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1447g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~92 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV3Y5",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV3Y5",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai Corsair-X Aluminum Silver"
+      }
+    },
+    "gtin": "4961820025324",
     "ean": "4961820025324",
+    "ean_status": "valid",
     "mpn": "A-AX-SL-ALU",
-    "sku": "ARA-ARAICO"
+    "sku": "HSN-HLM-ARAI-CORSAIR-X-ALUMINUM-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Arai's proprietary fit; generally runs slightly larger than other brands. Aluminum shell adds weight but improves rigidity.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 92,
+    "noise_db_at_100kph": 90,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -117,7 +242,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1447,
+    "weight_grams": 1402,
     "acoustic_noise_rating_db": "92 dB @ 100km/h",
     "aerodynamic_lift_force_n": "2.1 N @ 180km/h",
     "safety_certifications": [
@@ -271,5 +396,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 92
+  "noise_db": 90,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

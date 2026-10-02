@@ -8,7 +8,7 @@
     "Track / Race"
   ],
   "parent_id": "schuberth_r2_carbon",
-  "helmet_family": "R2 Carbon",
+  "helmet_family": "R2",
   "price": {
     "usd": 949,
     "inr": 78767,
@@ -24,17 +24,17 @@
   "head_shape": "Long Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1347,
-    "weight_lbs": 2.97,
+    "weight_g": 1303,
+    "weight_lbs": 2.87,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 92
   },
   "description": "Born for the apex and high-speed straightaways, the Schuberth R2 Carbon Urban TC-2 is purpose-built for closed-course competition and apex carving. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1347g, channeling boundary-layer airflow to maintain a ~93 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Long Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2020,
   "identifiers": {
-    "asin": "B07Q2K3V8X",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q2K3V8X",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Urban TC-2"
+      }
+    },
+    "gtin": "4056915000000",
     "ean": "4056915000000",
+    "ean_status": "valid",
     "mpn": "R2-CARBON-URBAN-TTC2",
-    "sku": "SCH-SCHUBE"
+    "sku": "HSN-HLM-SCHUBERTH-R2-CARBON-URBAN-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban track use; requires specific cheek pad adjustment for optimal fit on oval heads.",
@@ -110,7 +235,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1347,
+    "weight_grams": 1303,
     "acoustic_noise_rating_db": "92 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -262,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 93
+  "noise_db": 92,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

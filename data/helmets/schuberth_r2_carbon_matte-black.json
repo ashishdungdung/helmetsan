@@ -8,7 +8,7 @@
     "Track / Race"
   ],
   "parent_id": "schuberth_r2_carbon",
-  "helmet_family": "R2 Carbon",
+  "helmet_family": "R2",
   "price": {
     "usd": 899,
     "inr": 74617,
@@ -24,17 +24,17 @@
   "head_shape": "Long Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1343,
-    "weight_lbs": 2.96,
+    "weight_g": 1303,
+    "weight_lbs": 2.87,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 90
+    "noise_db_at_100kph": 92
   },
   "description": "Born for the apex and high-speed straightaways, the Schuberth R2 Carbon Matte Black is engineered for high-velocity circuit stability. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1343g, channeling boundary-layer airflow to maintain a ~90 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Long Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZ8V3G",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZ8V3G",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth R2 Carbon Matte Black"
+      }
+    },
+    "gtin": "4056912000000",
     "ean": "4056912000000",
+    "ean_status": "valid",
     "mpn": "R2-CARB-MAT-BLK",
-    "sku": "SCH-SCHUBE"
+    "sku": "HSN-HLM-SCHUBERTH-R2-CARBON-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Requires precise sizing; Carbon shell is rigid with minimal adjustment post-fit. Best for oval head shapes.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 93,
+    "noise_db_at_100kph": 92,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.27
   },
@@ -110,7 +235,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1343,
+    "weight_grams": 1303,
     "acoustic_noise_rating_db": "93 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -262,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90
+  "noise_db": 92,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

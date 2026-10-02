@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Direct Fiber",
-    "weight_g": 1434,
-    "weight_lbs": 3.16,
+    "weight_g": 1459,
+    "weight_lbs": 3.22,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Micro-Lock Ratchet",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 88
   },
   "description": "The Schuberth S3 Gloss White is engineered for everyday agility, rapid ventilation, and effortless usability, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1434g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly Micro-Lock Ratchet retention system for confident all-day riding.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q5K3V8T",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5K3V8T",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth S3 Gloss White"
+      }
+    },
+    "gtin": "4012697015000",
     "ean": "4012697015000",
+    "ean_status": "valid",
     "mpn": "S3-GW-01",
-    "sku": "SCH-SCHUBE"
+    "sku": "HSN-HLM-SCHUBERTH-S3-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Universal fit with adjustable cheek pads; requires specific head shape for optimal seal.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.31
   },
@@ -115,7 +239,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1434,
+    "weight_grams": 1459,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -267,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

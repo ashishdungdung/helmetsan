@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1462,
-    "weight_lbs": 3.22,
+    "weight_g": 1437,
+    "weight_lbs": 3.17,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 86
+    "noise_db_at_100kph": 85
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the HJC F70 Hi-Viz Yellow is engineered for responsive sport riding with pinpoint lateral stability. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1462g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QZVX8Y3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QZVX8Y3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC F70 Hi-Viz Yellow"
+      }
+    },
+    "gtin": "4961251000000",
     "ean": "4961251000000",
+    "ean_status": "valid",
     "mpn": "F70-HV-YL",
-    "sku": "HJC-HJCF70"
+    "sku": "HSN-HLM-HJC-F70-HI-VIZ-YELLOW",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval head shapes; may feel tight on diamond heads due to extended cheek pads.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -114,7 +239,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1462,
+    "weight_grams": 1437,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 86
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

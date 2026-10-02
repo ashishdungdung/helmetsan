@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "HPC Carbon",
-    "weight_g": 1337,
-    "weight_lbs": 2.95,
+    "weight_g": 1342,
+    "weight_lbs": 2.96,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 85
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Airoh Matryx Course TC-2 is engineered for everyday agility, rapid ventilation, and effortless usability. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1337g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -63,15 +63,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q5X9K3L",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5X9K3L",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Airoh Matryx Course TC-2"
+      }
+    },
+    "gtin": "8012640000000",
     "ean": "8012640000000",
+    "ean_status": "valid",
     "mpn": "Airoh-Matryx-Course-TC2",
-    "sku": "AIR-AIROHM"
+    "sku": "HSN-HLM-AIROH-MATRYX-COURSE-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit with extended cheek pads; designed for track use requiring a locked-in position. Optimized for Intermediate Oval head shape.",
@@ -79,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -110,12 +234,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1337,
+    "weight_grams": 1342,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

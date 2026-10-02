@@ -90,16 +90,16 @@
     },
     {
       "id": "scorpion_exo_r420_vortex-blue",
-      "title": "-R420 Vortex Blue",
+      "title": "EXO-R420 Vortex Blue",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the TVS Motor Company XL100 Comfort i-Touch (Chrome Edition)."
     },
     {
-      "id": "scorpion_exo_r1_air_vortex_tc_3",
-      "title": "Scorpion scorpion_exo_r1_air_vortex-tc-3",
-      "brand": "Scorpion EXO",
+      "id": "ls2_challenger_gt_gloss-white",
+      "title": "Challenger GT Gloss White",
+      "brand": "LS2",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the XL100 Comfort i-Touch (Chrome Edition)."
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-XL100-COMFORT-",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_xl100_comfort_i_touch_chrome_edition accessories motorcycle gear"
+  }
 }

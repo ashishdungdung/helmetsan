@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "roof_roadster_classic",
-  "helmet_family": "Roadster Classic",
+  "helmet_family": "ROOF Roadster Classic",
   "price": {
     "usd": 329,
     "inr": 27307,
@@ -23,13 +23,13 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1149,
-    "weight_lbs": 2.53,
+    "weight_g": 1110,
+    "weight_lbs": 2.45,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 98
@@ -60,16 +60,141 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B08X7Y2Z9A",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08X7Y2Z9A",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Silver Metallic"
+      }
+    },
+    "gtin": "4056345892103",
     "ean": "4056345892103",
+    "ean_status": "valid",
     "mpn": "ROOF-RoadsterClassic-Silver",
-    "sku": "ROO-ROOFRO"
+    "sku": "HSN-HLM-ROOF-ROADSTER-CLASSIC-SILVER-MET",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Round Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -99,7 +224,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1149,
+    "weight_grams": 1110,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -251,5 +376,6 @@
     }
   ],
   "noise_db": 98,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

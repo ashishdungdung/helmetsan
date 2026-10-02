@@ -1,7 +1,7 @@
 {
   "id": "scorpion_exo_t520_red",
   "entity": "helmet",
-  "title": "-T520 Red",
+  "title": "EXO-T520 Red",
   "brand": "Scorpion EXO",
   "type": "Full Face",
   "helmet_types": [
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1308,
-    "weight_lbs": 2.88,
+    "weight_g": 1325,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 85
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the Scorpion EXO T520 Red is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1308g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QZVX8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QZVX8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -T520 Red"
+      }
+    },
+    "gtin": "841965020520",
     "ean": "841965020520",
+    "ean_status": "valid",
     "mpn": "T520-RED",
-    "sku": "SCO-SCORPI"
+    "sku": "HSN-HLM-SCORPION-EXO-T520-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval head shapes; may feel tight on very round heads.",
@@ -109,7 +234,7 @@
   "country_origin": "France / USA 🇫🇷🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1308,
+    "weight_grams": 1325,
     "acoustic_noise_rating_db": "85 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +386,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1427,
-    "weight_lbs": 3.15,
+    "weight_g": 1453,
+    "weight_lbs": 3.2,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 91
   },
   "description": "The Lazer OR-3 Apex TC-1 is crafted for all-terrain explorers transitioning from tarmac to rugged single-track, bridging highway aero efficiency with rugged off-road ventilation. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1427g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -63,15 +63,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B09X7Z2K4M",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09X7Z2K4M",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Lazer OR-3 Apex TC-1"
+      }
+    },
+    "gtin": "8056130000000",
     "ean": "8056130000000",
+    "ean_status": "valid",
     "mpn": "LZR-OR3-APX-TC1",
-    "sku": "LAZ-LAZERO"
+    "sku": "HSN-HLM-LAZER-OR-3-APEX-TC-1",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for Adventure/Dual Sport; features a slightly extended rear coverage for wind protection and integrated sun visor compatibility.",
@@ -79,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 91,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -113,7 +238,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1427,
+    "weight_grams": 1453,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

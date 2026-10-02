@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "premier_hyper_carbon",
-  "helmet_family": "Hyper Carbon",
+  "helmet_family": "Hyper",
   "price": {
     "usd": 599,
     "inr": 49717,
@@ -29,10 +29,10 @@
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "description": "The Premier Hyper Carbon Silver Metallic is crafted for daily urban navigators conquering dense traffic, delivering responsive balance and confident road feel. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1341g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~85 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -60,22 +60,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B070C42C21",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Premier Hyper Carbon Silver Metallic"
+      }
+    },
+    "gtin": "4960406176913",
+    "ean": "4960406176913",
+    "ean_status": "valid",
     "mpn": "PREMIER-HYPER-CARBON-SILVER",
-    "sku": "PRE-PREMIE",
-    "asin": "B070C42C21",
-    "ean": "4960406176913"
+    "sku": "HSN-HLM-PREMIER-HYPER-CARBON-SILVER-META",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -248,5 +372,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

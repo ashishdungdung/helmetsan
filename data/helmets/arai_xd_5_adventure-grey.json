@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PB-cLc2",
-    "weight_g": 1420,
-    "weight_lbs": 3.13,
+    "weight_g": 1414,
+    "weight_lbs": 3.12,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 89
   },
   "description": "Tuned for all-terrain exploration, the Arai XD-5 Adventure Grey bridges highway aerodynamic poise with high-flow off-road ventilation across highway asphalt and backcountry gravel. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1420g, channeling boundary-layer airflow to maintain a ~91 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKXZ8V3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKXZ8V3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai XD-5 Adventure Grey"
+      }
+    },
+    "gtin": "4961520000000",
     "ean": "4961520000000",
+    "ean_status": "valid",
     "mpn": "XD-5ADV-GREY",
-    "sku": "ARA-ARAIXD"
+    "sku": "HSN-HLM-ARAI-XD-5-ADVENTURE-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Arai XD-5 Adventure features a slightly more open fit compared to the standard XD-5, designed for comfort during long adventure rides. The shell is wider in the temples and rear to accommodate larger visors and communication systems.",
@@ -112,7 +237,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1420,
+    "weight_grams": 1414,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

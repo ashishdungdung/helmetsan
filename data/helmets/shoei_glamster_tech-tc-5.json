@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM",
-    "weight_g": 1410,
-    "weight_lbs": 3.11,
+    "weight_g": 1474,
+    "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 97
   },
   "description": "Tailored for classic roadsters and urban cruising, the Shoei Glamster Tech TC-5 is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1410g, channeling boundary-layer airflow to maintain a ~96 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -64,16 +64,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q6V3Z8K",
+    "amazon": {
+      "us": {
+        "asin": "B07Q6V3Z8K",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei Glamster Tech TC-5"
+      }
+    },
+    "gtin": "4951291076423",
     "ean": "4951291076423",
+    "ean_status": "valid",
     "mpn": "Glamster TC-5",
-    "sku": "SHO-SHOEIG"
+    "sku": "HSN-HLM-SHOEI-GLAMSTER-TECH-TC-5",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for intermediate oval head shapes; may feel tight on round heads or loose on diamond heads.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -115,7 +239,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1410,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -268,6 +392,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

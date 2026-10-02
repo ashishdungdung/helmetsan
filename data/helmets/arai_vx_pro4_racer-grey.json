@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "cLc",
-    "weight_g": 1464,
-    "weight_lbs": 3.23,
+    "weight_g": 1421,
+    "weight_lbs": 3.13,
     "certifications": [
       "DOT",
       "Snell M2020"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 97
   },
   "description": "The Arai VX-Pro4 Racer Grey is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1464g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, Snell M2020 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q2X8K9L",
+    "amazon": {
+      "us": {
+        "asin": "B07Q2X8K9L",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Racer Grey"
+      }
+    },
+    "gtin": "4549361023456",
     "ean": "4549361023456",
+    "ean_status": "valid",
     "mpn": "VX-PRO4-RACER-GREY",
-    "sku": "ARA-ARAIVX"
+    "sku": "HSN-HLM-ARAI-VX-PRO4-RACER-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020",
-    "sharp_rating": null,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Arai VX-Pro4 is a motocross/dirt bike helmet designed for off-road use; it does not feature road-legal certifications (like ECE or DOT), integrated speakers, cable management ports, HUD compatibility, or rotational impact mitigation systems found in full-face road helmets. Designed for Intermediate Oval head shape.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -107,12 +231,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1430,
   "repaired_and_enriched": true,
   "country_origin": "Japan 🇯🇵",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1464,
+    "weight_grams": 1421,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

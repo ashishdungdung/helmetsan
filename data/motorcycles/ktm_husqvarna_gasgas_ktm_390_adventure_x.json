@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 398.6,
+  "power_hp": 45.3,
+  "torque_nm": 39.0,
+  "curb_weight_kg": 168.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -51,11 +51,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "398.6cc Single-Cylinder Liquid-Cooled DOHC 4V (LC4c)",
+      "power_hp": 45.3,
+      "torque_nm": 39.0,
+      "curb_weight_kg": 168.0,
+      "power_to_weight": "27.0 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter+"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -123,5 +124,14 @@
       "title": "Alpinestars Race V3 Balaclava",
       "reason": "Seamless moisture-wicking CoolMax fiber protects skin and keeps helmet interior fresh during long saddle hours."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-390-ADV",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_390_adventure_x accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter+",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

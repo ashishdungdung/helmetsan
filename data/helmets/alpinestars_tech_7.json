@@ -7,14 +7,15 @@
     "weight_g": 1276,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 5,
-    "strap_type": "Quick-Release Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.81,
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 88,
+    "strap_type_source": "Quick-Release Buckle"
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -46,17 +47,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B0C9X8Y7Z6",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y7Z6",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech-7"
+      }
+    },
+    "gtin": "5012345678901",
     "ean": "5012345678901",
+    "ean_status": "valid",
     "mpn": "TECH-7-CF-24",
-    "sku": "ALP-ALPINE"
+    "sku": "HSN-HLM-ALPINESTARS-TECH-7",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "homologation_standard": "ECE 22.06, DOT",
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,8 +201,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "alpinestars_tech",
-  "helmet_family": "Alpinestars tech",
+  "parent_id": null,
+  "helmet_family": "Tech-7",
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
@@ -86,7 +211,7 @@
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -246,6 +371,8 @@
   "noise_db": 88,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

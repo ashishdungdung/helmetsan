@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 398.6,
+  "power_hp": 45.3,
+  "torque_nm": 39.0,
+  "curb_weight_kg": 168.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -52,11 +52,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "398.6cc Single-Cylinder Liquid-Cooled DOHC 4V (LC4c)",
+      "power_hp": 45.3,
+      "torque_nm": 39.0,
+      "curb_weight_kg": 168.0,
+      "power_to_weight": "27.0 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter+"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -83,26 +84,26 @@
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked KTM 390 Duke Gen-3 LC4c (Pro Spec)."
     },
     {
-      "id": "klim_klim_f5_koroyd_vortex_tc_2",
-      "title": "-F5 Koroyd Vortex TC-2",
-      "brand": "Klim",
+      "id": "airoh_matryx_hi-viz-yellow",
+      "title": "Matryx Hi-Viz Yellow",
+      "brand": "Airoh",
       "type": "Full Face",
       "match_score": 94,
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 390 Duke Gen-3 LC4c (Pro Spec) at highway speeds."
     },
     {
-      "id": "airoh_matryx_hi-viz-yellow",
-      "title": "Matryx Hi-Viz Yellow",
-      "brand": "Airoh",
+      "id": "shoei_rf_1200_anthracite",
+      "title": "RF-1200 Anthracite",
+      "brand": "Shoei",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 390 Duke Gen-3 LC4c (Pro Spec)."
     },
     {
-      "id": "bell_mag_9_tech-tc-5",
-      "title": "Mag-9 Tech TC-5",
+      "id": "bell_qualifier_white",
+      "title": "Qualifier White",
       "brand": "Bell",
-      "type": "Open Face",
+      "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 390 Duke Gen-3 LC4c (Pro Spec)."
     }
@@ -123,5 +124,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-390-DUK",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_390_duke_gen_3_lc4c_pro_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter+",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

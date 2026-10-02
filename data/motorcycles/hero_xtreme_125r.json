@@ -105,7 +105,7 @@
     },
     {
       "id": "scorpion_exo_r1_air_camo-red",
-      "title": "-R1 Air Camo Red",
+      "title": "EXO-R1 Air Camo Red",
       "brand": "Scorpion EXO",
       "type": "Track / Race",
       "match_score": 94,
@@ -121,7 +121,7 @@
     },
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 87,
@@ -144,5 +144,11 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HERO-HERO_X",
+    "sku": "HSN-MOTO-HERO-XTREME-125R",
+    "model_year": null,
+    "gear_search_fallback": "Hero MotoCorp hero_xtreme_125r accessories motorcycle gear"
+  }
 }

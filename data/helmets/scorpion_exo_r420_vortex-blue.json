@@ -1,7 +1,7 @@
 {
   "id": "scorpion_exo_r420_vortex-blue",
   "entity": "helmet",
-  "title": "-R420 Vortex Blue",
+  "title": "EXO-R420 Vortex Blue",
   "brand": "Scorpion EXO",
   "type": "Full Face",
   "helmet_types": [
@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1273,
-    "weight_lbs": 2.81,
+    "weight_g": 1270,
+    "weight_lbs": 2.8,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 85
@@ -66,15 +66,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8Y3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8Y3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Scorpion EXO -R420 Vortex Blue"
+      }
+    },
+    "gtin": "841426005920",
     "ean": "841426005920",
+    "ean_status": "valid",
     "mpn": "R420-VX-BLU",
-    "sku": "SCO-SCORPI"
+    "sku": "HSN-HLM-SCORPION-EXO-R420-VORTEX-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; Vortex shell offers a slightly narrower fit than standard R420 models.",
@@ -82,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -111,7 +236,7 @@
   "country_origin": "France / USA 🇫🇷🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1273,
+    "weight_grams": 1270,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

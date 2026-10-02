@@ -3,12 +3,12 @@
   "entity": "helmet",
   "title": "Racing M1 MIPS Black",
   "brand": "Moose",
-  "type": "Dirt / Motocross",
+  "type": "Dirt / MX",
   "helmet_types": [
     "Dirt / Motocross"
   ],
   "parent_id": "moose_racing_m1_mips",
-  "helmet_family": "M1 MIPS",
+  "helmet_family": "Racing M1",
   "price": {
     "usd": 189,
     "inr": 15687,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1417,
-    "weight_lbs": 3.12,
+    "weight_g": 1408,
+    "weight_lbs": 3.1,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 100
   },
   "description": "The Moose Racing M1 MIPS Black is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1417g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0FC29BD4A",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Moose Racing M1 MIPS Black"
+      }
+    },
+    "gtin": "4961599568479",
+    "ean": "4961599568479",
+    "ean_status": "valid",
     "mpn": "M1-MIPS-BLK",
-    "sku": "MOO-MOOSER",
-    "asin": "B0FC29BD4A",
-    "ean": "4961599568479"
+    "sku": "HSN-HLM-MOOSE-RACING-M1-MIPS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "rotational_mitigation": "MIPS",
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4
+    "sharp_rating": 0,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for dirt and motocross riding; features a low-profile visor and extended rear coverage for off-road use."
@@ -98,9 +222,9 @@
   },
   "unified_enriched": true,
   "country_origin": "Global",
-  "category": "Dirt / Motocross",
+  "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1417,
+    "weight_grams": 1408,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -253,5 +377,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "fly_racing_formula_carbon",
-  "helmet_family": "Formula Carbon",
+  "helmet_family": "Formula",
   "price": {
     "usd": 689,
     "inr": 57187,
@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1265,
-    "weight_lbs": 2.79,
+    "weight_g": 1326,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05",
       "Snell M2020"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 99
@@ -67,15 +67,140 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B07Q5W8K3L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q5W8K3L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Gloss Black"
+      }
+    },
+    "gtin": "8419620000000",
     "ean": "8419620000000",
+    "ean_status": "valid",
     "mpn": "FLY-FORMULA-CARBON-GLOSS-BLK",
-    "sku": "FLY-FLYRAC"
+    "sku": "HSN-HLM-FLY-RACING-FORMULA-CARBON-GLOSS-",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05, Snell M2020",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Fly Racing Formula Carbon is designed for dirt/MX use; specific fit notes depend on individual head shape and size selection.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -112,7 +237,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1265,
+    "weight_grams": 1326,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -267,5 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

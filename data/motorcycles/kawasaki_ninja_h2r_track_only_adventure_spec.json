@@ -5,10 +5,10 @@
   "brand": "Kawasaki",
   "country_origin": "Japan 🇯🇵",
   "category": "Homologation Superbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 998.0,
+  "power_hp": 200.0,
+  "torque_nm": 137.3,
+  "curb_weight_kg": 260.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "998cc Supercharged Inline-4 Liquid-Cooled DOHC 16V",
+      "power_hp": 200.0,
+      "torque_nm": 137.3,
+      "curb_weight_kg": 260.0,
+      "power_to_weight": "76.9 HP/100kg",
+      "transmission": "6-speed Dog-Ring Manual with Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KAWA-KAWASA",
+    "sku": "HSN-MOTO-KAWASAKI-NINJA-H2R-TRACK-ONLY-AD",
+    "model_year": null,
+    "gear_search_fallback": "Kawasaki kawasaki_ninja_h2r_track_only_adventure_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Dog-Ring Manual with Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

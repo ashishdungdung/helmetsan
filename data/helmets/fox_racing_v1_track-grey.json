@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1284,
-    "weight_lbs": 2.83,
+    "weight_g": 1260,
+    "weight_lbs": 2.78,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 98
@@ -65,15 +65,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07XQZJ9K2",
+    "amazon": {
+      "us": {
+        "asin": "B07XQZJ9K2",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fox Racing V1 Track Grey"
+      }
+    },
+    "gtin": "8851643021456",
     "ean": "8851643021456",
+    "ean_status": "valid",
     "mpn": "V1-TRK-GRY-M",
-    "sku": "FOX-FOXRAC"
+    "sku": "HSN-HLM-FOX-RACING-V1-TRACK-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "Multi-Density EPS Liner"
+    "sharp_rating": 0,
+    "rotational_mitigation": "Multi-Density EPS Liner",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit designed for motocross goggles; requires cheek pads adjustment for optimal comfort.",
@@ -110,7 +234,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1284,
+    "weight_grams": 1260,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -263,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

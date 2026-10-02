@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1428,
-    "weight_lbs": 3.15,
+    "weight_g": 1426,
+    "weight_lbs": 3.14,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 84
+    "noise_db_at_100kph": 83
   },
   "description": "Purpose-built for long-distance touring, the Apex Venture X Silver is engineered to isolate riders from harsh highway buffeting over 800km days to minimize neck fatigue on cross-country treks. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1428g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~84 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07VQZ3K5G",
+    "amazon": {
+      "us": {
+        "asin": "B07VQZ3K5G",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex Venture X Silver"
+      }
+    },
+    "gtin": "8426910000000",
     "ean": "8426910000000",
+    "ean_status": "valid",
     "mpn": "AVX-SP-SIL",
-    "sku": "APE-APEXVE"
+    "sku": "HSN-HLM-APEX-VENTURE-X-SILVER",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for touring comfort with extended neck support and adjustable retention system; fits Intermediate Oval head shapes but may require sizing up for larger occiput.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 83,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -112,12 +236,11 @@
       "target_type": "helmet"
     }
   ],
-  "spec_weight_g": 1570,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Touring",
   "physics_intelligence": {
-    "weight_grams": 1428,
+    "weight_grams": 1426,
     "acoustic_noise_rating_db": "85 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 84
+  "noise_db": 83,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

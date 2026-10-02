@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1307,
-    "weight_lbs": 2.88,
+    "weight_g": 1290,
+    "weight_lbs": 2.84,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 97
   },
   "description": "The Alpinestars S-M10 Urban TC-3 delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1307g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "S-M10-TC3",
-    "asin": "B0C9X7K2M1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X7K2M1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars S-M10 Urban TC-3"
+      }
+    },
+    "gtin": "8053690123456",
     "ean": "8053690123456",
-    "sku": "ALP-ALPINE"
+    "ean_status": "valid",
+    "mpn": "S-M10-TC3",
+    "sku": "HSN-HLM-ALPINESTARS-S-M10-URBAN-TC-3",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "The Alpinestars S-M10 Urban TC-3 is a motocross/dirt bike helmet designed for off-road use. It features an open-face design typical of MX helmets, which generally does not accommodate full-face specific technologies like MIPS (rotational mitigation), HUD mounts, or deep speaker pockets found on street/full-face models. The fit is typically aggressive and narrow to suit MX riding positions, optimized for Intermediate Oval head shapes.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -107,12 +232,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1180,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1307,
+    "weight_grams": 1290,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -265,5 +389,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

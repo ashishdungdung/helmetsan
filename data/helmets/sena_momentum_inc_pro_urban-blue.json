@@ -31,7 +31,7 @@
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 89
@@ -64,15 +64,139 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09QFVX8K3",
+    "amazon": {
+      "us": {
+        "asin": "B09QFVX8K3",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Sena Momentum INC Pro Urban Blue"
+      }
+    },
+    "gtin": "019456270001",
     "ean": "019456270001",
+    "ean_status": "valid",
     "mpn": "SMA-INC-PRO-UB",
-    "sku": "SEN-SENAMO"
+    "sku": "HSN-HLM-SENA-MOMENTUM-INC-PRO-URBAN-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for urban commuting with a compact profile; fits most head shapes but may feel snug on larger skulls due to the modular chin bar mechanism.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -254,5 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 89
+  "noise_db": 89,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

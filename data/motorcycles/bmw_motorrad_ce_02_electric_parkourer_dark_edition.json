@@ -83,25 +83,25 @@
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked BMW Motorrad CE 02 Electric Parkourer (Dark Edition)."
     },
     {
-      "id": "apex_apex_3_matte-black",
-      "title": "Apex 3 Matte Black",
-      "brand": "Apex",
+      "id": "hjc_f70",
+      "title": "F70",
+      "brand": "HJC",
       "type": "Full Face",
       "match_score": 94,
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the CE 02 Electric Parkourer (Dark Edition) at highway speeds."
     },
     {
-      "id": "hjc_f70",
-      "title": "F70",
-      "brand": "HJC",
+      "id": "axor_dragon_white",
+      "title": "Dragon White",
+      "brand": "Axor",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the BMW Motorrad CE 02 Electric Parkourer (Dark Edition)."
     },
     {
-      "id": "scorpion_exo_gt930_track_grey",
-      "title": "Scorpion scorpion_exo_gt930_track-grey",
-      "brand": "Scorpion EXO",
+      "id": "schuberth_s3_urban-tc-5",
+      "title": "S3 Urban TC-5",
+      "brand": "Schuberth",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the CE 02 Electric Parkourer (Dark Edition)."
@@ -123,5 +123,13 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BMW -BMW_MO",
+    "sku": "HSN-MOTO-BMW-MOTORRAD-CE-02-ELECTRIC-PARK",
+    "model_year": null,
+    "gear_search_fallback": "BMW Motorrad bmw_motorrad_ce_02_electric_parkourer_dark_edition accessories motorcycle gear"
+  },
+  "powertrain": "electric",
+  "fuel_type": "electric"
 }

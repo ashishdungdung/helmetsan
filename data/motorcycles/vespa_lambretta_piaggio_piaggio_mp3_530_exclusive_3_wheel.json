@@ -4,10 +4,10 @@
   "title": "& Lambretta Piaggio MP3 530 Exclusive 3-Wheel",
   "brand": "Vespa",
   "category": "Commuter Scooter",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 530.0,
+  "power_hp": 44.2,
+  "torque_nm": 50.0,
+  "curb_weight_kg": 280.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Dense city traffic, urban errands, and daily stop-and-go commuting"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "530cc Single-Cylinder Liquid-Cooled hpe 4-Stroke",
+      "power_hp": 44.2,
+      "torque_nm": 50.0,
+      "curb_weight_kg": 280.0,
+      "power_to_weight": "15.8 HP/100kg",
+      "transmission": "CVT Automatic with Reverse Gear"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 765,
@@ -146,5 +147,14 @@
       "title": "Helmetlok Carabiner Helmet Lock",
       "reason": "Secures helmet to the luggage rack or frame of the Vespa & Lambretta Piaggio MP3 530 Exclusive 3-Wheel when stowing in compact spaces."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "VESP-VESPA_",
+    "sku": "HSN-MOTO-VESPA-LAMBRETTA-PIAGGIO-PIAGGIO-",
+    "model_year": null,
+    "gear_search_fallback": "Vespa vespa_lambretta_piaggio_piaggio_mp3_530_exclusive_3_wheel accessories motorcycle gear"
+  },
+  "transmission": "CVT Automatic with Reverse Gear",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

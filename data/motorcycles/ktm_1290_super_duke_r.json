@@ -99,7 +99,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -114,17 +114,17 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 1290 Super Duke R EVO at highway speeds."
     },
     {
-      "id": "ruroc_atlas_4_0_track_tech_tc_3",
-      "title": "Atlas 4.0 Track Tech-TC-3",
+      "id": "ruroc_atlas_4_0_hi-viz-yellow",
+      "title": "Atlas 4.0 Hi-Viz Yellow",
       "brand": "Ruroc",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 1290 Super Duke R EVO."
     },
     {
-      "id": "bell_qualifier_dlx_mips_hi-viz-yellow",
-      "title": "Qualifier DLX MIPS Hi-Viz Yellow",
-      "brand": "Bell",
+      "id": "shoei_glamster_gloss-black",
+      "title": "Glamster Gloss Black",
+      "brand": "Shoei",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 1290 Super Duke R EVO."
@@ -146,5 +146,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_12",
+    "sku": "HSN-MOTO-KTM-1290-SUPER-DUKE-R",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_1290_super_duke_r accessories motorcycle gear"
+  }
 }

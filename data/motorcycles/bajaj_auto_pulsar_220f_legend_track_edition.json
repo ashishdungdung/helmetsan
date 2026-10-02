@@ -5,10 +5,10 @@
   "brand": "Bajaj Auto",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 220.0,
+  "power_hp": 20.4,
+  "torque_nm": 18.55,
+  "curb_weight_kg": 160.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "220cc Single-Cylinder Oil-Cooled Twin Spark 2V",
+      "power_hp": 20.4,
+      "torque_nm": 18.55,
+      "curb_weight_kg": 160.0,
+      "power_to_weight": "12.8 HP/100kg",
+      "transmission": "5-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BAJA-BAJAJ_",
+    "sku": "HSN-MOTO-BAJAJ-AUTO-PULSAR-220F-LEGEND-TR",
+    "model_year": null,
+    "gear_search_fallback": "Bajaj Auto bajaj_auto_pulsar_220f_legend_track_edition accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

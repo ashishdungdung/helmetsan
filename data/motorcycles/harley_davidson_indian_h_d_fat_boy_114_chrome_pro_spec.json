@@ -5,10 +5,10 @@
   "brand": "Harley-Davidson",
   "country_origin": "United States 🇺🇸",
   "category": "Performance Cruiser",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1868.0,
+  "power_hp": 94.0,
+  "torque_nm": 155.0,
+  "curb_weight_kg": 317,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -53,11 +53,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1868cc Milwaukee-Eight 114 V-Twin Pushrod OHV",
+      "power_hp": 94.0,
+      "torque_nm": 155.0,
+      "curb_weight_kg": 317,
+      "power_to_weight": "29.7 HP/100kg",
+      "transmission": "6-speed Cruise Drive Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 705,
@@ -125,5 +126,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Harley-Davidson engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-H-D-FAT-B",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_h_d_fat_boy_114_chrome_pro_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Cruise Drive Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

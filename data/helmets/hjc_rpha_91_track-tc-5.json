@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PIM Evo",
-    "weight_g": 1659,
-    "weight_lbs": 3.66,
+    "weight_g": 1649,
+    "weight_lbs": 3.64,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -64,15 +64,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q2W3X9K",
+    "amazon": {
+      "us": {
+        "asin": "B07Q2W3X9K",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 91 Track TC-5"
+      }
+    },
+    "gtin": "4961853000000",
     "ean": "4961853000000",
+    "ean_status": "valid",
     "mpn": "RPHA-91TC5",
-    "sku": "HJC-HJCRPH"
+    "sku": "HSN-HLM-HJC-RPHA-91-TRACK-TC-5",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for track use with a narrow fit profile; may feel tight on wide heads.",
@@ -109,7 +233,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1659,
+    "weight_grams": 1649,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -256,5 +380,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

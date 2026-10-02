@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "cLc",
-    "weight_g": 1427,
-    "weight_lbs": 3.15,
+    "weight_g": 1421,
+    "weight_lbs": 3.13,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 97
   },
   "description": "The Arai VX-Pro4 Street TC-2 delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1427g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09TQWZ8K3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09TQWZ8K3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Street TC-2"
+      }
+    },
+    "gtin": "4547621000234",
     "ean": "4547621000234",
+    "ean_status": "valid",
     "mpn": "VX-Pro4-TC2",
-    "sku": "ARA-ARAIVX"
+    "sku": "HSN-HLM-ARAI-VX-PRO4-STREET-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Arai VX-Pro4 TC-2 is a motocross/dirt helmet designed for off-road use. It features the Arai Multi-Density EPS liner and is available in various head shapes (typically M1-M5). It is not certified for street/highway use. Designed specifically for Intermediate Oval head shape.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 99,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -109,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1430,
   "repaired_and_enriched": true,
   "country_origin": "Japan 🇯🇵",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1427,
+    "weight_grams": 1421,
     "acoustic_noise_rating_db": "99 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

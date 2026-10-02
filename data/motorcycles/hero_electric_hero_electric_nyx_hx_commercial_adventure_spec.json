@@ -112,17 +112,17 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Nyx HX Commercial (Adventure Spec) at highway speeds."
     },
     {
-      "id": "scorpion_exo_r1_air_vortex_tc_3",
-      "title": "Scorpion scorpion_exo_r1_air_vortex-tc-3",
-      "brand": "Scorpion EXO",
+      "id": "ilm_953_street-tc-3",
+      "title": "ILM 953 Street TC-3",
+      "brand": "Ilm",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Hero Electric Nyx HX Commercial (Adventure Spec)."
     },
     {
-      "id": "ilm_953_street-tc-3",
-      "title": "ILM 953 Street TC-3",
-      "brand": "Ilm",
+      "id": "vega_apex_2_matte-black",
+      "title": "Apex 2 Matte Black",
+      "brand": "Vega",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Nyx HX Commercial (Adventure Spec)."
@@ -144,5 +144,13 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HERO-HERO_E",
+    "sku": "HSN-MOTO-HERO-ELECTRIC-HERO-ELECTRIC-NYX-",
+    "model_year": null,
+    "gear_search_fallback": "Hero Electric hero_electric_hero_electric_nyx_hx_commercial_adventure_spec accessories motorcycle gear"
+  },
+  "powertrain": "electric",
+  "fuel_type": "electric"
 }

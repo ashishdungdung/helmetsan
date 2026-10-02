@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1143,
-    "weight_lbs": 2.52,
+    "weight_g": 1118,
+    "weight_lbs": 2.46,
     "certifications": [
       "DOT",
       "ECE"
     ],
     "warranty_years": 2,
-    "strap_type": "Micro-Lock Ratchet",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 98
   },
   "description": "The Schuberth M1 Pro Pearl White is crafted for classic motorcycle enthusiasts seeking unrestricted peripheral sightlines, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a featherweight 1143g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~96 dB while dissipating kinetic impact forces across DOT, ECE benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly Micro-Lock Ratchet retention system for effortless warm-weather riding.",
   "product_details": {
@@ -63,23 +63,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B01720121A",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Schuberth M1 Pro Pearl White"
+      }
+    },
+    "gtin": "4966782161239",
+    "ean": "4966782161239",
+    "ean_status": "valid",
     "mpn": "M1PRO-PW",
-    "sku": "SCH-SCHUBE",
-    "asin": "B01720121A",
-    "ean": "4966782161239"
+    "sku": "HSN-HLM-SCHUBERTH-M1-PRO-PEARL-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Open face design; requires separate chin bar or conversion kit for full-face protection."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 98,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.28
   },
@@ -109,7 +233,7 @@
   "country_origin": "Germany 🇩🇪",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1143,
+    "weight_grams": 1118,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,6 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

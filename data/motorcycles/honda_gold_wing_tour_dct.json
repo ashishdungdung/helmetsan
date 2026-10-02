@@ -5,10 +5,10 @@
   "brand": "Honda",
   "country_origin": "Japan 🇯🇵",
   "category": "Luxury Grand Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1833.0,
+  "power_hp": 126.0,
+  "torque_nm": 170.0,
+  "curb_weight_kg": 383,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -50,11 +50,12 @@
       "target_terrain": "Interstate highways, cross-country transits, and two-up touring"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1833cc Horizontally-Opposed 6-Cylinder Liquid-Cooled",
+      "power_hp": 126.0,
+      "torque_nm": 170.0,
+      "curb_weight_kg": 383,
+      "power_to_weight": "32.9 HP/100kg",
+      "transmission": "7-speed Dual Clutch Transmission (DCT)"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,5 +122,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the Gold Wing Tour DCT."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-HONDA_",
+    "sku": "HSN-MOTO-HONDA-GOLD-WING-TOUR-DCT",
+    "model_year": null,
+    "gear_search_fallback": "Honda honda_gold_wing_tour_dct accessories motorcycle gear"
+  },
+  "transmission": "7-speed Dual Clutch Transmission (DCT)",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

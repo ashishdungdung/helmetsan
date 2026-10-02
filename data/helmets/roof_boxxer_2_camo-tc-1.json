@@ -8,7 +8,7 @@
     "Modular"
   ],
   "parent_id": "roof_boxxer_2",
-  "helmet_family": "Boxxer 2",
+  "helmet_family": "ROOF Boxxer 2",
   "price": {
     "usd": 599,
     "inr": 49717,
@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1599,
-    "weight_lbs": 3.53,
+    "weight_g": 1620,
+    "weight_lbs": 3.57,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 88
@@ -60,22 +60,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B060469340",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Boxxer 2 Camo TC-1"
+      }
+    },
+    "gtin": "4962158560095",
+    "ean": "4962158560095",
+    "ean_status": "valid",
     "mpn": "TC-1",
-    "sku": "ROO-ROOFBO",
-    "asin": "B060469340",
-    "ean": "4962158560095"
+    "sku": "HSN-HLM-ROOF-BOXXER-2-CAMO-TC-1",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Modular design allows for customization; 'Roof' branding suggests a specific aesthetic or regional variant not standard in global safety databases."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -98,7 +222,7 @@
   "country_origin": "Global",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1599,
+    "weight_grams": 1620,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -247,5 +371,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

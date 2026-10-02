@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "cLc",
-    "weight_g": 1475,
-    "weight_lbs": 3.25,
+    "weight_g": 1421,
+    "weight_lbs": 3.13,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 97
   },
   "description": "The Arai VX-Pro4 Matte Black is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, delivering lightweight balance and wide-vision goggle accommodation. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1475g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.05 certifications with an acoustically tuned ~99 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXZ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXZ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Arai VX-Pro4 Matte Black"
+      }
+    },
+    "gtin": "4547621389012",
     "ean": "4547621389012",
+    "ean_status": "valid",
     "mpn": "A-1000000000",
-    "sku": "ARA-ARAIVX"
+    "sku": "HSN-HLM-ARAI-VX-PRO4-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "The Arai VX-Pro4 is designed for dirt/MX use with an Intermediate Oval head shape fit. Please ensure the helmet matches your specific occiput position and size selection for optimal comfort.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -109,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1430,
   "repaired_and_enriched": true,
   "country_origin": "Japan 🇯🇵",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1475,
+    "weight_grams": 1421,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -269,5 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

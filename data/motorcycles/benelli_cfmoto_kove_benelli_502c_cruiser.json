@@ -4,10 +4,10 @@
   "title": "Benelli & CFMOTO KOVE 502C Cruiser",
   "brand": "CFMOTO",
   "category": "Performance Cruiser",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 500.0,
+  "power_hp": 47.0,
+  "torque_nm": 45.0,
+  "curb_weight_kg": 216,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "500cc Parallel-Twin Liquid-Cooled DOHC",
+      "power_hp": 47.0,
+      "torque_nm": 45.0,
+      "curb_weight_kg": 216,
+      "power_to_weight": "21.8 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 705,
@@ -146,5 +147,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the CFMOTO engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "CFMO-BENELL",
+    "sku": "HSN-MOTO-BENELLI-CFMOTO-KOVE-BENELLI-502C",
+    "model_year": null,
+    "gear_search_fallback": "CFMOTO benelli_cfmoto_kove_benelli_502c_cruiser accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1263,
-    "weight_lbs": 2.78,
+    "weight_g": 1314,
+    "weight_lbs": 2.9,
     "certifications": [
       "ECE 22.06",
       "FIM"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 92
+    "noise_db_at_100kph": 93
   },
   "description": "Born for the apex and high-speed straightaways, the Suomy SR-GP Evo Anthracite is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1263g, channeling boundary-layer airflow to maintain a ~92 dB acoustic cabin profile while meeting ECE 22.06, FIM impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B01F7BA7B6",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Suomy SR-GP Evo Anthracite"
+      }
+    },
+    "gtin": "4966162814632",
+    "ean": "4966162814632",
+    "ean_status": "valid",
     "mpn": "SR-GP-EVO-ANTH",
-    "sku": "SUO-SUOMYS",
-    "asin": "B01F7BA7B6",
-    "ean": "4966162814632"
+    "sku": "HSN-HLM-SUOMY-SR-GP-EVO-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06, FIM",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for aggressive track tuck; may feel tight on larger head sizes due to race-specific shell geometry.",
@@ -78,7 +202,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 93,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.34
   },
@@ -108,7 +232,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1263,
+    "weight_grams": 1314,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 92
+  "noise_db": 93,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

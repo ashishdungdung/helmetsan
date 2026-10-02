@@ -4,10 +4,10 @@
   "title": "Panigale V2 Bayliss",
   "brand": "Ducati",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 955.0,
+  "power_hp": 155.0,
+  "torque_nm": 104.0,
+  "curb_weight_kg": 193,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "955cc Superquadro 90-Degree V-Twin Desmodromic",
+      "power_hp": 155.0,
+      "torque_nm": 104.0,
+      "curb_weight_kg": 193,
+      "power_to_weight": "80.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -114,17 +115,17 @@
       "match_reason": "Wide optical vertical eyeport preserves unrestricted apex sightlines when hanging off the Panigale V2 Bayliss."
     },
     {
-      "id": "shark_race_r_pro_gp_vortex_tc_2",
-      "title": "Race R Pro GP Vortex TC-2",
-      "brand": "Shark",
+      "id": "suomy_speedstar_tech-grey",
+      "title": "Speedstar Tech Grey",
+      "brand": "Suomy",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Wind-tunnel sculpted shell channels laminar airflow over the aggressive cockpit geometry of the Ducati Panigale V2 Bayliss."
     },
     {
-      "id": "suomy_speedstar_tech-grey",
-      "title": "Speedstar Tech Grey",
-      "brand": "Suomy",
+      "id": "nolan_n60_6_urban-tc-5",
+      "title": "N60-6 Urban TC-5",
+      "brand": "Nolan",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "FIM/ECE homologated shell structure delivers track-grade rotational impact mitigation for Panigale V2 Bayliss speeds."
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-PANIGALE-V2-BAYLISS",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_panigale_v2_bayliss accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

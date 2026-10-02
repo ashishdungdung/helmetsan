@@ -5,10 +5,10 @@
   "brand": "Harley-Davidson",
   "country_origin": "United States 🇺🇸",
   "category": "Luxury Grand Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1768.0,
+  "power_hp": 122.0,
+  "torque_nm": 178.0,
+  "curb_weight_kg": 416.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -51,11 +51,12 @@
       "target_terrain": "Interstate highways, cross-country transits, and two-up touring"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1768cc PowerPlus Liquid-Cooled 60-Degree V-Twin",
+      "power_hp": 122.0,
+      "torque_nm": 178.0,
+      "curb_weight_kg": 416.0,
+      "power_to_weight": "29.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "Alpinestars Race V3 Balaclava",
       "reason": "Seamless moisture-wicking CoolMax fiber protects skin and keeps helmet interior fresh during long saddle hours."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-INDIAN-PU",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_indian_pursuit_dark_horse_tourer accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 398.6,
+  "power_hp": 45.3,
+  "torque_nm": 39.0,
+  "curb_weight_kg": 168.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -50,11 +50,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "398.6cc Single-Cylinder Liquid-Cooled DOHC 4V (LC4c)",
+      "power_hp": 45.3,
+      "torque_nm": 39.0,
+      "curb_weight_kg": 168.0,
+      "power_to_weight": "27.0 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter+"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -74,7 +75,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -89,18 +90,18 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 390 Duke Gen-3 LC4c at highway speeds."
     },
     {
-      "id": "ruroc_no_models_found_for_outside_the_excluded_atlas_4.0_variants;_alpinestars_constraint_not_applicable_to_request.",
-      "title": "Atlas 4.0 Excluded Variant",
-      "brand": "Ruroc",
-      "type": "Full Face",
+      "id": "klim_tk1200_karbon_operator-tc-5",
+      "title": "TK1200 Karbon Operator TC-5",
+      "brand": "Klim",
+      "type": "Modular",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 390 Duke Gen-3 LC4c."
     },
     {
-      "id": "klim_klim_tk1200_karbon_operator_tc_5",
-      "title": "klim_tk1200_karbon_operator-tc-5",
-      "brand": "Klim",
-      "type": "Full Face",
+      "id": "bell_custom_500_track-tc-2",
+      "title": "Custom 500 Track TC-2",
+      "brand": "Bell",
+      "type": "Open Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 390 Duke Gen-3 LC4c."
     }
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-390-DUK",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_390_duke_gen_3_lc4c accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter+",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

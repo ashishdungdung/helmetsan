@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1347,
-    "weight_lbs": 2.97,
+    "weight_g": 1292,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 91
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B06E38D2DB",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim Krios Pro Hi-Viz Yellow"
+      }
+    },
+    "gtin": "4966623166270",
+    "ean": "4966623166270",
+    "ean_status": "valid",
     "mpn": "Krios Pro Hi-Viz Yellow",
-    "sku": "KLI-KLIMKR",
-    "asin": "B06E38D2DB",
-    "ean": "4966623166270"
+    "sku": "HSN-HLM-KLIM-KRIOS-PRO-HI-VIZ-YELLOW",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Adventure / Dual Sport"
@@ -107,7 +231,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1347,
+    "weight_grams": 1292,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "6.5 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

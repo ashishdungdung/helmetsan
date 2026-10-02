@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1291,
-    "weight_lbs": 2.85,
+    "weight_g": 1265,
+    "weight_lbs": 2.79,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 101
@@ -63,16 +63,140 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0878D5470",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC IS-Cruiser Gloss Black"
+      }
+    },
+    "gtin": "4965994282916",
+    "ean": "4965994282916",
+    "ean_status": "valid",
     "mpn": "IS-Cruiser-Gloss-Black",
-    "sku": "HJC-HJCISC",
-    "asin": "B0878D5470",
-    "ean": "4965994282916"
+    "sku": "HSN-HLM-HJC-IS-CRUISER-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "sharp_rating": 0,
     "homologation_standard": "DOT, ECE 22.05",
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for cruiser-style helmets; fits most head shapes but may feel tight on very large heads due to fixed shell size.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 102,
+    "noise_db_at_100kph": 101,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -110,7 +234,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1291,
+    "weight_grams": 1265,
     "acoustic_noise_rating_db": "102 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,6 @@
     }
   ],
   "noise_db": 101,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

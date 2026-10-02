@@ -4,10 +4,10 @@
   "title": "Jawa & Yezdi Adventure Rally",
   "brand": "Global",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 334.0,
+  "power_hp": 30.2,
+  "torque_nm": 29.9,
+  "curb_weight_kg": 188.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "334cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 30.2,
+      "torque_nm": 29.9,
+      "curb_weight_kg": 188.0,
+      "power_to_weight": "16.1 HP/100kg",
+      "transmission": "6-speed Manual with Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -146,5 +147,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the Jawa & Yezdi Adventure Rally."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "GLOB-JAWA_Y",
+    "sku": "HSN-MOTO-JAWA-YEZDI-YEZDI-ADVENTURE-RALLY",
+    "model_year": null,
+    "gear_search_fallback": "Global jawa_yezdi_yezdi_adventure_rally accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -4,10 +4,10 @@
   "title": "YZF-R3 Monster",
   "brand": "Yamaha",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 321.0,
+  "power_hp": 42.0,
+  "torque_nm": 29.5,
+  "curb_weight_kg": 169.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Spirited twisties, technical canyon roads, and weekend track sessions"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "321cc Parallel-Twin Liquid-Cooled DOHC 4V",
+      "power_hp": 42.0,
+      "torque_nm": 29.5,
+      "curb_weight_kg": 169.0,
+      "power_to_weight": "24.9 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-YZF-R3-MONSTER",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_yzf_r3_monster accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

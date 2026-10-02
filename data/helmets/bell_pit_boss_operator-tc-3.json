@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Tri-Matrix",
-    "weight_g": 1445,
+    "weight_g": 1446,
     "weight_lbs": 3.19,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 102
   },
   "description": "The Bell Pit Boss Operator TC-3 is crafted for riders seeking low-profile styling with DOT baseline compliance, pairing low-profile styling with essential certified head protection. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1445g, channeling boundary-layer airflow to maintain a ~99 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -65,16 +65,141 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZ8V5G",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZ8V5G",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell Pit Boss Operator TC-3"
+      }
+    },
+    "gtin": "0193642000000",
     "ean": "0193642000000",
+    "ean_status": "valid",
     "mpn": "TC-3",
-    "sku": "BEL-BELLPI"
+    "sku": "HSN-HLM-BELL-PIT-BOSS-OPERATOR-TC-3",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a wide range of head sizes; TC-3 features an adjustable fit system. May require sizing up for users with larger occipital lobes compared to the standard Bell Pit.",
@@ -111,7 +236,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1445,
+    "weight_grams": 1446,
     "acoustic_noise_rating_db": "102 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,6 +384,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 99,
-  "sharp_rating": 0
+  "noise_db": 102,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

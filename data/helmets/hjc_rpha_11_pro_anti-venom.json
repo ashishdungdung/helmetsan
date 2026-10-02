@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "PIM+",
-    "weight_g": 1430,
+    "weight_g": 1428,
     "weight_lbs": 3.15,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 93
@@ -64,15 +64,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07XQZV8Y2",
+    "amazon": {
+      "us": {
+        "asin": "B07XQZV8Y2",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC RPHA 11 Pro Anti Venom"
+      }
+    },
+    "gtin": "4936516000000",
     "ean": "4936516000000",
+    "ean_status": "valid",
     "mpn": "RPHA-11P-AV",
-    "sku": "HJC-HJCRPH"
+    "sku": "HSN-HLM-HJC-RPHA-11-PRO-ANTI-VENOM",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for track use; features a tight, aggressive fit with extended cheek pads for aerodynamic efficiency. The Anti-Venom variant includes integrated communication system compatibility and a specialized visor mechanism.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 91,
+    "noise_db_at_100kph": 93,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -109,7 +233,7 @@
   "country_origin": "South Korea 🇰🇷",
   "category": "Track / Race",
   "physics_intelligence": {
-    "weight_grams": 1430,
+    "weight_grams": 1428,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "2.1 N @ 180km/h",
     "safety_certifications": [
@@ -256,5 +380,7 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 93
+  "noise_db": 93,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

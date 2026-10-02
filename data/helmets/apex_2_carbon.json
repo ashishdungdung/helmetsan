@@ -1,5 +1,5 @@
 {
-  "id": "apex_apex_2_carbon",
+  "id": "apex_2_carbon",
   "entity": "helmet",
   "title": "Apex 2 Carbon",
   "brand": "Apex",
@@ -7,7 +7,7 @@
   "helmet_types": [
     "Full Face"
   ],
-  "parent_id": "apex_apex_2",
+  "parent_id": "apex_2",
   "helmet_family": "Apex 2",
   "price": {
     "usd": 519,
@@ -24,19 +24,19 @@
   ],
   "head_shape": "Intermediate Oval",
   "specs": {
-    "material": "Carbon Fiber",
-    "weight_g": 1305,
-    "weight_lbs": 2.88,
+    "material": "Carbon",
+    "weight_g": 1268,
+    "weight_lbs": 2.8,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 91
+    "noise_db_at_100kph": 87
   },
   "description": "The Apex 2 Carbon is born on the race grid to conquer high-speed turbulence, purpose-built for riders demanding uncompromising high-speed aerodynamic stability and track-certified protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1305g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~91 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8Y3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8Y3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Carbon"
+      }
+    },
+    "gtin": "8429651000000",
     "ean": "8429651000000",
+    "ean_status": "valid",
     "mpn": "APX-2-CAR",
-    "sku": "APE-APEXAP"
+    "sku": "HSN-HLM-APEX-APEX-2-CARBON",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate oval head shapes; requires cheek pad adjustment for narrow faces.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 92,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -112,7 +237,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1305,
+    "weight_grams": 1268,
     "acoustic_noise_rating_db": "92 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -217,36 +342,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "kawasaki_ninja_h2_sx_se_supercharged_stealth_edition",
-      "title": "Ninja H2 SX SE Supercharged (Stealth Edition)",
+      "id": "kawasaki_ninja_zx_10r_krt",
+      "title": "Ninja ZX-10R KRT",
       "make": "Kawasaki",
       "category": "Homologation Superbike",
       "match_score": 97,
-      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Kawasaki Ninja H2 SX SE Supercharged (Stealth Edition)."
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Kawasaki Ninja ZX-10R KRT."
     },
     {
-      "id": "ducati_panigale_v4s",
-      "title": "Panigale V4 S Corse",
-      "make": "Ducati",
-      "category": "Homologation Superbike",
-      "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Panigale V4 S Corse velocity benchmarks."
-    },
-    {
-      "id": "honda_cbr1000rr_r_fireblade_sp_race_replica",
-      "title": "CBR1000RR-R Fireblade SP (Race Replica)",
+      "id": "honda_cbr1000rr_r_fireblade_sp_classic_heritage",
+      "title": "CBR1000RR-R Fireblade SP (Classic Heritage)",
       "make": "Honda",
       "category": "Homologation Superbike",
-      "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Honda performance."
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at CBR1000RR-R Fireblade SP (Classic Heritage) velocity benchmarks."
     },
     {
-      "id": "triumph_speed_triple_1200_rr_sport_black",
-      "title": "Speed Triple 1200 RR (Sport Black)",
-      "make": "Triumph",
-      "category": "Middleweight Sportbike",
+      "id": "ducati_panigale_v4_s_corse_stealth_edition",
+      "title": "Panigale V4 S Corse (Stealth Edition)",
+      "make": "Ducati",
+      "category": "Homologation Superbike",
+      "match_score": 90,
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ducati performance."
+    },
+    {
+      "id": "bmw_m1000rr",
+      "title": "BMW M1000RR Competition",
+      "make": "BMW Motorrad",
+      "category": "Homologation Superbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Speed Triple 1200 RR (Sport Black)."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the BMW M1000RR Competition."
     }
   ],
   "compatible_accessories": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 91
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

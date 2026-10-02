@@ -4,10 +4,10 @@
   "title": "Activa 6G",
   "brand": "Honda",
   "category": "Commuter Scooter",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 109.5,
+  "power_hp": 7.8,
+  "torque_nm": 8.9,
+  "curb_weight_kg": 106,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Dense city traffic, urban errands, and daily stop-and-go commuting"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "109.5cc Single-Cylinder 4-Stroke PGM-FI",
+      "power_hp": 7.8,
+      "torque_nm": 8.9,
+      "curb_weight_kg": 106,
+      "power_to_weight": "7.4 HP/100kg",
+      "transmission": "CVT Automatic"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 765,
@@ -146,5 +147,14 @@
       "title": "Helmetlok Carabiner Helmet Lock",
       "reason": "Secures helmet to the luggage rack or frame of the Honda Activa 6G when stowing in compact spaces."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-HONDA_",
+    "sku": "HSN-MOTO-HONDA-ACTIVA-6G",
+    "model_year": null,
+    "gear_search_fallback": "Honda honda_activa_6g accessories motorcycle gear"
+  },
+  "transmission": "CVT Automatic",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

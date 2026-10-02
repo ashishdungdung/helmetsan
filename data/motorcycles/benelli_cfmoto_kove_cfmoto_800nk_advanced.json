@@ -4,10 +4,10 @@
   "title": "Benelli & CFMOTO KOVE 800NK Advanced",
   "brand": "CFMOTO",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 799.0,
+  "power_hp": 100.6,
+  "torque_nm": 81.0,
+  "curb_weight_kg": 186,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "799cc Parallel-Twin Liquid-Cooled DOHC (LC8c)",
+      "power_hp": 100.6,
+      "torque_nm": 81.0,
+      "curb_weight_kg": 186,
+      "power_to_weight": "54.1 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -97,7 +98,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "CFMO-BENELL",
+    "sku": "HSN-MOTO-BENELLI-CFMOTO-KOVE-CFMOTO-800NK",
+    "model_year": null,
+    "gear_search_fallback": "CFMOTO benelli_cfmoto_kove_cfmoto_800nk_advanced accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

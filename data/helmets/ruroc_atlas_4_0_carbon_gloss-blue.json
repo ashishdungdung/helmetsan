@@ -3,22 +3,22 @@
   "brand": "Ruroc",
   "type": "Full Face",
   "specs": {
-    "material": "Carbon Fiber Composite Shell with ABS Impact Liner",
-    "weight_g": 1291,
+    "material": "Carbon Fiber",
+    "weight_g": 1296,
     "certifications": [
-      "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT",
+      "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Quick-Release Buckle with D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.85,
-    "noise_db_at_100kph": 86
+    "weight_lbs": 2.86,
+    "noise_db_at_100kph": 87
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 9.2,
     "drag_coefficient": 0.29
   },
@@ -32,7 +32,7 @@
   "yoast_metadesc": "In-depth review of the Ruroc Atlas 4.0 Carbon Gloss Blue. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
   "yoast_focuskw": "Ruroc Atlas 4.0 Carbon Helmet",
   "entity": "helmet",
-  "id": "ruroc_atlas_4_0_carbon_gloss_blue",
+  "id": "ruroc_atlas_4_0_carbon_gloss-blue",
   "deep_enriched": true,
   "marketplace_links": {
     "amazon": "https://www.amazon.com/s?k=Ruroc+Atlas+4.0+Carbon+Gloss+Blue&tag=helmetsan-20",
@@ -46,15 +46,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0D4F92FFD",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ruroc Atlas 4.0 Carbon Gloss Blue"
+      }
+    },
+    "gtin": "4968686634710",
+    "ean": "4968686634710",
+    "ean_status": "valid",
     "mpn": "Ruroc-Atlas4.0-Carbon-Gloss-Blue",
-    "sku": "RUR-RUROCA",
-    "asin": "B0D4F92FFD",
-    "ean": "4968686634710"
+    "sku": "HSN-HLM-RUROC-ATLAS-4-0-CARBON-GLOSS-BLU",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "homologation_standard": "DOT, ECE 22.06",
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "unified_enriched": true,
   "model_year": 2023,
@@ -67,21 +191,21 @@
     "https://helmetsan.com/assets/helmets/ruroc_atlas_4_0_carbon_gloss_blue_side.png",
     "https://helmetsan.com/assets/helmets/ruroc_atlas_4_0_carbon_gloss_blue_rear.png"
   ],
-  "color": "Blue",
-  "color_family": "Multi-Color / Graphic",
+  "color": "Gloss Blue",
+  "color_family": "Blue",
   "finish": "gloss",
   "is_graphic": true,
-  "parent_id": "ruroc_atlas",
-  "helmet_family": "Ruroc atlas",
+  "parent_id": "ruroc_atlas_4_0_carbon",
+  "helmet_family": "Atlas 4.0 Carbon",
   "country_origin": "United Kingdom 🇬🇧",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1291,
+    "weight_grams": 1296,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
-      "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT",
+      "ECE 22.06"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -189,36 +313,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "ktm_husqvarna_gasgas_husqvarna_fe_501_enduro_rally_edition",
-      "title": "Husqvarna FE 501 Enduro (Rally Edition)",
+      "id": "ktm_husqvarna_gasgas_ktm_rc_390_gp_factory_special_edition",
+      "title": "RC 390 GP Factory (Special Edition)",
       "make": "KTM",
-      "category": "Adventure Tourer",
+      "category": "Middleweight Sportbike",
       "match_score": 97,
-      "match_reason": "Aerodynamic peak and high-flow chin venting provide effortless all-day comfort during trail and highway touring on the KTM Husqvarna FE 501 Enduro (Rally Edition)."
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the KTM RC 390 GP Factory (Special Edition)."
     },
     {
-      "id": "kawasaki_ninja_h2r_track_only_apex_spec",
-      "title": "Ninja H2R Track Only (Apex Spec)",
-      "make": "Kawasaki",
+      "id": "bmw_s1000rr_m",
+      "title": "BMW S1000RR M Package",
+      "make": "BMW Motorrad",
       "category": "Homologation Superbike",
       "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ninja H2R Track Only (Apex Spec) velocity benchmarks."
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at BMW S1000RR M Package velocity benchmarks."
     },
     {
-      "id": "ducati_panigale_v2_bayliss_edition",
-      "title": "Panigale V2 Bayliss Edition",
-      "make": "Ducati",
+      "id": "yamaha_yzf_r1m_carbon_rally_edition",
+      "title": "YZF-R1M Carbon (Rally Edition)",
+      "make": "Yamaha",
       "category": "Homologation Superbike",
       "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ducati performance."
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Yamaha performance."
     },
     {
-      "id": "ola_electric_ola_roadster_electric_superbike_concept_touring_pack",
-      "title": "Ola Roadster Electric Superbike Concept (Touring Pack)",
-      "make": "Ola Electric",
+      "id": "ducati_panigale_v4_r_homologation",
+      "title": "Panigale V4 R Homologation",
+      "make": "Ducati",
       "category": "Homologation Superbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ola Roadster Electric Superbike Concept (Touring Pack)."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Panigale V4 R Homologation."
     }
   ],
   "compatible_accessories": [
@@ -228,8 +352,8 @@
       "fitment": "Universal Pinlock-prepared shield integration"
     },
     {
-      "id": "bluetooth-comms-kit",
-      "title": "Cardo Packtalk Edge",
+      "id": "sena-50s-mesh",
+      "title": "Sena 50S Mesh 2.0",
       "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
     {
@@ -238,9 +362,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86,
+  "noise_db": 87,
   "certifications": [
-    "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT",
+    "ECE 22.06"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

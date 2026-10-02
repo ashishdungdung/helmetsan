@@ -4,10 +4,10 @@
   "title": "Benelli & CFMOTO TRK 502X Adventure",
   "brand": "CFMOTO",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 500.0,
+  "power_hp": 47.5,
+  "torque_nm": 46.0,
+  "curb_weight_kg": 235,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "500cc Parallel-Twin Liquid-Cooled DOHC",
+      "power_hp": 47.5,
+      "torque_nm": 46.0,
+      "curb_weight_kg": 235,
+      "power_to_weight": "20.2 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -146,5 +147,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the Benelli & CFMOTO TRK 502X Adventure."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "CFMO-BENELL",
+    "sku": "HSN-MOTO-BENELLI-CFMOTO-BENELLI-TRK-502X-",
+    "model_year": null,
+    "gear_search_fallback": "CFMOTO benelli_cfmoto_benelli_trk_502x_adventure accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

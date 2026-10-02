@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "ogk_kabuto_exceed",
-  "helmet_family": "Exceed",
+  "helmet_family": "OGK Kabuto Exceed",
   "price": {
     "usd": 279,
     "inr": 23157,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1098,
-    "weight_lbs": 2.42,
+    "weight_g": 1155,
+    "weight_lbs": 2.55,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 95
@@ -64,16 +64,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B07QKZJ3V4",
+    "amazon": {
+      "us": {
+        "asin": "B07QKZJ3V4",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss Black"
+      }
+    },
+    "gtin": "4582691000000",
     "ean": "4582691000000",
+    "ean_status": "valid",
     "mpn": "OGK-00000000",
-    "sku": "OGK-OGKKAB"
+    "sku": "HSN-HLM-OGK-KABUTO-EXCEED-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for open-face fit; may require cheek pad adjustment for smaller chin profiles.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -110,7 +234,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1098,
+    "weight_grams": 1155,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -264,5 +388,6 @@
     }
   ],
   "noise_db": 95,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

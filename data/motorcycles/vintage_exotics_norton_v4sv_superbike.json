@@ -4,10 +4,10 @@
   "title": "Vintage & Exotics Norton V4SV Superbike",
   "brand": "Norton",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1200.0,
+  "power_hp": 185.0,
+  "torque_nm": 125.0,
+  "curb_weight_kg": 193.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1200cc 72-Degree V4 Liquid-Cooled DOHC 16V",
+      "power_hp": 185.0,
+      "torque_nm": 125.0,
+      "curb_weight_kg": 193.0,
+      "power_to_weight": "95.9 HP/100kg",
+      "transmission": "6-speed Manual with Billet Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "NORT-VINTAG",
+    "sku": "HSN-MOTO-VINTAGE-EXOTICS-NORTON-V4SV-SUPE",
+    "model_year": null,
+    "gear_search_fallback": "Norton vintage_exotics_norton_v4sv_superbike accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Billet Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

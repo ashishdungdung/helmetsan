@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "gmax_gm_11s",
-  "helmet_family": "GM-11S",
+  "helmet_family": "GMax GM-11S",
   "price": {
     "usd": 159,
     "inr": 13197,
@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1317,
-    "weight_lbs": 2.9,
+    "weight_g": 1262,
+    "weight_lbs": 2.78,
     "certifications": [
       "DOT"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 99
+    "noise_db_at_100kph": 100
   },
   "description": "Built for aggressive dirt performance, the Gmax GM-11S Urban Grey is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization across punishing tracks and trails. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a featherweight 1317g, channeling boundary-layer airflow to maintain a ~99 dB acoustic cabin profile while meeting DOT impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -62,15 +62,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q2K3V8X",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07Q2K3V8X",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Gmax GM-11S Urban Grey"
+      }
+    },
+    "gtin": "0194650000000",
     "ean": "0194650000000",
+    "ean_status": "valid",
     "mpn": "GM-11S",
-    "sku": "GMA-GMAXGM"
+    "sku": "HSN-HLM-GMAX-GM-11S-URBAN-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT",
-    "sharp_rating": 3,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Urban Grey colorway; designed for dirt/MX use with a focus on ventilation and impact protection; fits most head shapes but may feel tight for users with larger occipital lobes due to the aggressive MX profile.",
@@ -78,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -107,7 +232,7 @@
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1317,
+    "weight_grams": 1262,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -257,5 +382,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 100,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

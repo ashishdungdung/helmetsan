@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1406,
-    "weight_lbs": 3.1,
+    "weight_g": 1471,
+    "weight_lbs": 3.24,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 86
+    "noise_db_at_100kph": 88
   },
   "description": "The AGV K5 S Anthracite is optimized for upright naked and roadster riders seeking wide-angle road awareness, delivering responsive balance and confident road feel. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1406g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXZ8K9L",
+    "amazon": {
+      "us": {
+        "asin": "B0CQXZ8K9L",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV K5 S Anthracite"
+      }
+    },
+    "gtin": "8016523470123",
     "ean": "8016523470123",
+    "ean_status": "valid",
     "mpn": "K5S-ANTH",
-    "sku": "AGV-AGVK5S"
+    "sku": "HSN-HLM-AGV-K5-S-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit with high cheek pads; designed for intermediate oval head shapes but may feel tight on long ovals due to narrow rear.",
@@ -81,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 86,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -107,7 +231,6 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1480,
   "repaired_and_enriched": true,
   "editorial_excerpt": "This Italian-built gem delivers exceptional high-speed stability and optical clarity while the MIPS system effectively manages rotational forces during an impact.",
   "story_narrative": "The AGV K5 S Anthracite features a 1480 g shell engineered for track aerodynamic stability and ECE 22.06, DOT safety. High-velocity chin vents channel air through deep EPS grooves, maintaining cool airflow at triple-digit speeds. I tested this rig on a sport-touring run where the visor's optical clarity cut through glare without distortion. The MIPS liner rotates independently inside the shell to dissipate rotational energy during high-speed impacts. AGV manufactures these helmets in Italy using precision-molded fiberglass composites that resist fatigue over thousands of miles.",
@@ -120,7 +243,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1406,
+    "weight_grams": 1471,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,5 +395,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 86
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -1,5 +1,5 @@
 {
-  "id": "apex_apex_3_carbon",
+  "id": "apex_3_carbon",
   "entity": "helmet",
   "title": "Apex 3 Carbon",
   "brand": "Apex",
@@ -7,7 +7,7 @@
   "helmet_types": [
     "Full Face"
   ],
-  "parent_id": "apex_apex_3",
+  "parent_id": "apex_3",
   "helmet_family": "Apex 3",
   "price": {
     "usd": 549,
@@ -24,19 +24,19 @@
   ],
   "head_shape": "Intermediate Oval",
   "specs": {
-    "material": "Carbon Fiber",
-    "weight_g": 1309,
-    "weight_lbs": 2.89,
+    "material": "Carbon",
+    "weight_g": 1274,
+    "weight_lbs": 2.81,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 88
   },
   "description": "The Apex 3 Carbon is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1309g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "APEX-3-CARBON",
-    "asin": "B0C9X7K2M1",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X7K2M1",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 3 Carbon"
+      }
+    },
+    "gtin": "5061234567890",
     "ean": "5061234567890",
-    "sku": "APE-APEXAP"
+    "ean_status": "valid",
+    "mpn": "APEX-3-CARBON",
+    "sku": "HSN-HLM-APEX-APEX-3-CARBON",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Snug fit with extended cheek padding; designed for intermediate oval head shapes but may feel tight on long ovals due to carbon shell rigidity.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.29
   },
@@ -109,12 +234,11 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1309,
+    "weight_grams": 1274,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -219,36 +343,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "vintage_exotics_norton_v4sv_superbike",
-      "title": "Vintage & Exotics Norton V4SV Superbike",
-      "make": "Norton",
+      "id": "bmw_motorrad_s1000rr_m_package_performance_edition",
+      "title": "S1000RR M Package (Performance Edition)",
+      "make": "BMW Motorrad",
       "category": "Homologation Superbike",
       "match_score": 97,
-      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Norton Vintage & Exotics Norton V4SV Superbike."
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the BMW Motorrad S1000RR M Package (Performance Edition)."
     },
     {
-      "id": "ola_electric_ola_roadster_electric_superbike_concept_touring_pack",
-      "title": "Ola Roadster Electric Superbike Concept (Touring Pack)",
-      "make": "Ola Electric",
-      "category": "Homologation Superbike",
+      "id": "suzuki_gixxer_sf_150_apex_spec",
+      "title": "Gixxer SF 150 (Apex Spec)",
+      "make": "Suzuki",
+      "category": "Middleweight Sportbike",
       "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ola Roadster Electric Superbike Concept (Touring Pack) velocity benchmarks."
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Gixxer SF 150 (Apex Spec) velocity benchmarks."
     },
     {
-      "id": "ducati_supersport_950_s_urban_carbon",
-      "title": "SuperSport 950 S (Urban Carbon)",
-      "make": "Ducati",
+      "id": "kawasaki_ninja_300_abs_dark_edition",
+      "title": "Ninja 300 ABS (Dark Edition)",
+      "make": "Kawasaki",
       "category": "Middleweight Sportbike",
       "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ducati performance."
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Kawasaki performance."
     },
     {
-      "id": "ktm_rc_390",
-      "title": "RC 390 GP Factory",
-      "make": "KTM",
+      "id": "kawasaki_ninja_400_abs_custom_edition",
+      "title": "Ninja 400 ABS (Custom Edition)",
+      "make": "Kawasaki",
       "category": "Middleweight Sportbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the RC 390 GP Factory."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja 400 ABS (Custom Edition)."
     }
   ],
   "compatible_accessories": [
@@ -268,5 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

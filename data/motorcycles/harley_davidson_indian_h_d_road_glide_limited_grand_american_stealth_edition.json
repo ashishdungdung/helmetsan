@@ -5,10 +5,10 @@
   "brand": "Harley-Davidson",
   "country_origin": "United States 🇺🇸",
   "category": "Luxury Grand Tourer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1868.0,
+  "power_hp": 93.0,
+  "torque_nm": 158.0,
+  "curb_weight_kg": 387,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Interstate highways, cross-country transits, and two-up touring"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1868cc Milwaukee-Eight 114 V-Twin Pushrod OHV",
+      "power_hp": 93.0,
+      "torque_nm": 158.0,
+      "curb_weight_kg": 387,
+      "power_to_weight": "24.0 HP/100kg",
+      "transmission": "6-speed Cruise Drive Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the H-D Road Glide Limited Grand American (Stealth Edition)."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-H-D-ROAD-",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_h_d_road_glide_limited_grand_american_stealth_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Cruise Drive Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

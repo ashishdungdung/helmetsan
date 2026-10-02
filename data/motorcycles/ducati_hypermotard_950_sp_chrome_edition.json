@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "agv_pista_rp_r",
-      "title": "agv_pista_rp_r",
+      "title": "Pista RP R",
       "brand": "AGV",
       "type": "Full Face",
       "match_score": 98,
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-HYPERMOTARD-950-SP-CHROME",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_hypermotard_950_sp_chrome_edition accessories motorcycle gear"
+  }
 }

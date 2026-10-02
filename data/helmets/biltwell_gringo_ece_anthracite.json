@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1462,
-    "weight_lbs": 3.22,
+    "weight_g": 1428,
+    "weight_lbs": 3.15,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 96
+    "noise_db_at_100kph": 94
   },
   "description": "Tailored for custom cruisers and classic roadsters, the Biltwell Gringo ECE Anthracite is crafted for laid-back highway cruising with timeless retro lines. Featuring a High-Yield Impact-Resistant Polycarbonate / Lexan architecture at 1462g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~96 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -63,15 +63,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07Q5W3K8T",
+    "amazon": {
+      "us": {
+        "asin": "B07Q5W3K8T",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Biltwell Gringo ECE Anthracite"
+      }
+    },
+    "gtin": "8416290100000",
     "ean": "8416290100000",
+    "ean_status": "valid",
     "mpn": "GRG-EC-A",
-    "sku": "BIL-BILTWE"
+    "sku": "HSN-HLM-BILTWELL-GRINGO-ECE-ANTHRACITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for a wide range of head shapes with an extended fit profile; may feel slightly loose on very small heads.",
@@ -108,7 +232,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1462,
+    "weight_grams": 1428,
     "acoustic_noise_rating_db": "94 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -259,5 +383,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 96
+  "noise_db": 94,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

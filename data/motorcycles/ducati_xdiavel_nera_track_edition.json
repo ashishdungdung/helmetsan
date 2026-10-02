@@ -5,10 +5,10 @@
   "brand": "Ducati",
   "country_origin": "Italy 🇮🇹",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1262.0,
+  "power_hp": 160.0,
+  "torque_nm": 127.0,
+  "curb_weight_kg": 247,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1262cc Testastretta DVT L-Twin DOHC",
+      "power_hp": 160.0,
+      "torque_nm": 127.0,
+      "curb_weight_kg": 247,
+      "power_to_weight": "64.8 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -97,10 +98,10 @@
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Ducati XDiavel Nera (Track Edition)."
     },
     {
-      "id": "shark_spartan_gt_matte_black",
-      "title": "Spartan GT Matte Black",
-      "brand": "Shark",
-      "type": "Full Face",
+      "id": "agv_sportmodular_hi-viz-yellow",
+      "title": "Sportmodular Hi-Viz Yellow",
+      "brand": "AGV",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the XDiavel Nera (Track Edition)."
     }
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-XDIAVEL-NERA-TRACK-EDITIO",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_xdiavel_nera_track_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

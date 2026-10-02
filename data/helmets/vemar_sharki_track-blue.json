@@ -8,7 +8,7 @@
     "Modular"
   ],
   "parent_id": "vemar_sharki",
-  "helmet_family": "Sharki",
+  "helmet_family": "Vemar Sharki",
   "price": {
     "usd": 379,
     "inr": 31457,
@@ -23,13 +23,13 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1604,
-    "weight_lbs": 3.54,
+    "weight_g": 1676,
+    "weight_lbs": 3.69,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -60,15 +60,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0582E39AC",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shark Vemar Sharki Track Blue"
+      }
+    },
+    "gtin": "4966391595142",
+    "ean": "4966391595142",
+    "ean_status": "valid",
     "mpn": "VEM-SHARKI-BLU",
-    "sku": "VEM-VEMARS",
-    "asin": "B0582E39AC",
-    "ean": "4966391595142"
+    "sku": "HSN-HLM-VEMAR-SHARKI-TRACK-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Vemar Sharki Track Blue is a modular track helmet. Specific technical data points such as ASIN, EAN, homologation, and speaker pocket depth are not publicly available for this specific colorway or model variant in standard databases."
@@ -105,7 +229,7 @@
   "country_origin": "France 🇫🇷",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1604,
+    "weight_grams": 1676,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "speed_and_strength_ss1600",
-  "helmet_family": "SS1600",
+  "helmet_family": "and Strength SS1600",
   "price": {
     "usd": 149,
     "inr": 12367,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1285,
-    "weight_lbs": 2.83,
+    "weight_g": 1321,
+    "weight_lbs": 2.91,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 85
@@ -64,15 +64,140 @@
   },
   "model_year": 2016,
   "identifiers": {
-    "asin": "B07QKZ8V5M",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZ8V5M",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Speed and Strength SS1600 Hi-Viz Yellow"
+      }
+    },
+    "gtin": "842396016000",
     "ean": "842396016000",
+    "ean_status": "valid",
     "mpn": "SS1600-HVY-FLY",
-    "sku": "SPE-SPEEDA"
+    "sku": "HSN-HLM-SPEED-AND-STRENGTH-SS1600-HI-VIZ",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Hi-Viz yellow shell with black accents; fits most head shapes but may feel tight on very large occipital lobes due to fixed cheek pads.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.38
   },
@@ -102,7 +227,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1285,
+    "weight_grams": 1321,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +379,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 85,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

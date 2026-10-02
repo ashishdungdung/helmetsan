@@ -5,10 +5,10 @@
   "brand": "Yamaha",
   "country_origin": "Japan 🇯🇵",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 155.0,
+  "power_hp": 18.4,
+  "torque_nm": 14.1,
+  "curb_weight_kg": 141.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "155cc Single-Cylinder Liquid-Cooled SOHC 4V with VVA",
+      "power_hp": 18.4,
+      "torque_nm": 14.1,
+      "curb_weight_kg": 141.0,
+      "power_to_weight": "13.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist & Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-MT-15-V2-DELUXE",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_mt_15_v2_deluxe accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist & Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

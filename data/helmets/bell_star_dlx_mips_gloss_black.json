@@ -1,24 +1,24 @@
 {
-  "title": "bell_star_dlx_mips_gloss-black",
+  "title": "Star DLX MIPS Gloss Black",
   "brand": "Bell",
   "type": "Full Face",
   "specs": {
-    "material": "Carbon Fiber Composite Shell with MIPS Technology",
-    "weight_g": 1306,
+    "material": "Polycarbonate",
+    "weight_g": 1291,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.88,
+    "weight_lbs": 2.85,
     "noise_db_at_100kph": 87
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 9.2,
     "drag_coefficient": 0.29
   },
@@ -51,16 +51,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B08XYZ1234",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08XYZ1234",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Bell _star_dlx_mips_gloss-black"
+      }
+    },
+    "gtin": "8859097654321",
     "ean": "8859097654321",
+    "ean_status": "valid",
     "mpn": "bell_star_dlx_mips_gloss-black",
-    "sku": "BEL-BELLST"
+    "sku": "HSN-HLM-BELL-STAR-DLX-MIPS-GLOSS-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "unified_enriched": true,
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "model_year": 2023,
   "sizing_fit": {
@@ -77,11 +202,11 @@
   "finish": "gloss",
   "is_graphic": false,
   "parent_id": "bell_star",
-  "helmet_family": "Bell star",
+  "helmet_family": "Star",
   "country_origin": "United States 🇺🇸",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1306,
+    "weight_grams": 1291,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -242,5 +367,7 @@
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -8,7 +8,7 @@
     "Full Face"
   ],
   "parent_id": "joe_rocket_rkt_prime",
-  "helmet_family": "RKT-Prime",
+  "helmet_family": "Rocket RKT-Prime",
   "price": {
     "usd": 169,
     "inr": 14027,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Polycarbonate",
-    "weight_g": 1336,
-    "weight_lbs": 2.95,
+    "weight_g": 1280,
+    "weight_lbs": 2.82,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 1,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 86
   },
   "description": "The Joe Rocket RKT-Prime Raptor Blue is crafted for daily urban navigators conquering dense traffic, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1336g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~85 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
   "product_details": {
@@ -62,15 +62,139 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0AA8F107C",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Joe Rocket RKT-Prime Raptor Blue"
+      }
+    },
+    "gtin": "4966204825565",
+    "ean": "4966204825565",
+    "ean_status": "valid",
     "mpn": "RKT-Prime Raptor Blue",
-    "sku": "JOE-JOEROC",
-    "asin": "B0AA8F107C",
-    "ean": "4966204825565"
+    "sku": "HSN-HLM-JOE-ROCKET-RKT-PRIME-RAPTOR-BLUE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Full face helmet designed for sport riding; specific fit notes require manufacturer sizing chart."
@@ -100,7 +224,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1336,
+    "weight_grams": 1280,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -252,5 +376,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

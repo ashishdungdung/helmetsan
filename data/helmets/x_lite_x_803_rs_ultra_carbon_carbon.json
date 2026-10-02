@@ -1,14 +1,14 @@
 {
   "id": "x_lite_x_803_rs_ultra_carbon_carbon",
   "entity": "helmet",
-  "title": "X-803 RS Ultra Carbon Carbon",
+  "title": "X-803 RS Ultra Carbon",
   "brand": "X-Lite",
   "type": "Full Face",
   "helmet_types": [
     "Full Face"
   ],
   "parent_id": "x_lite_x_803_rs_ultra_carbon",
-  "helmet_family": "X-803 RS Ultra Carbon",
+  "helmet_family": "X-803 RS Ultra",
   "price": {
     "usd": 699,
     "inr": 58017,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1283,
-    "weight_lbs": 2.83,
+    "weight_g": 1275,
+    "weight_lbs": 2.81,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Microlock2 (Micrometric Ratchet)",
+    "strap_type": "Micrometric Ratchet",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 87
   },
   "description": "Optimized for spirited canyon carvers and urban commuters alike, the X-Lite X-803 RS Ultra Carbon Carbon is tuned for city streets, daily work runs, and weekend joyrides. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1283g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
   "product_details": {
@@ -64,15 +64,139 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZ8V3J",
+    "amazon": {
+      "us": {
+        "asin": "B07QKZ8V3J",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "X-Lite X-803 RS Ultra Carbon Carbon"
+      }
+    },
+    "gtin": "841692000056",
     "ean": "841692000056",
+    "ean_status": "valid",
     "mpn": "X-803RS-C",
-    "sku": "XLI-XLITEX"
+    "sku": "HSN-HLM-X-LITE-X-803-RS-ULTRA-CARBON-CAR",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Micrometric Ratchet"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval head shapes; features a wide visor and extended cheek coverage.",
@@ -109,7 +233,7 @@
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1283,
+    "weight_grams": 1275,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

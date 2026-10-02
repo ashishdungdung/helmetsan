@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "6d_atb_2t",
-  "helmet_family": "ATB-2T",
+  "helmet_family": "6D ATB-2T",
   "price": {
     "usd": 549,
     "inr": 45567,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon-Kevlar",
-    "weight_g": 1344,
-    "weight_lbs": 2.96,
+    "weight_g": 1346,
+    "weight_lbs": 2.97,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 97
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "asin": "B0CQXJ8V9L",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0CQXJ8V9L",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "6D Helmets 6D ATB-2T Urban Grey"
+      }
+    },
+    "gtin": "8417365200000",
     "ean": "8417365200000",
+    "ean_status": "valid",
     "mpn": "ATB-2T-URBAN-GREY",
-    "sku": "D-6DATB2"
+    "sku": "HSN-HLM-6D-ATB-2T-URBAN-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 4,
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for Intermediate Oval head shape; offers a snug fit with extended cheek pads optimized for dirt riding. Note: Runs slightly small compared to road helmets due to the aggressive padding profile.",
@@ -81,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 97,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.34
   },
@@ -107,7 +232,6 @@
       "target_type": "brand"
     }
   ],
-  "spec_weight_g": 1380,
   "repaired_and_enriched": true,
   "editorial_excerpt": "The 6D ATB-2T delivers robust off-road protection with its ECE 22.06 compliance and integrated MIPS system. Its intermediate oval fit and venturi exhaust design ensure comfort during extended track sessions.",
   "story_narrative": "1. DESIGN & SHELL: The 6D ATB-2T Urban Grey utilizes a lightweight composite shell architecture optimized for off-road agility and impact dispersion.\n2. SAFETY & LINER: Homologated to ECE 22.06 standards, the interior integrates multi-density EPS foam tailored for energy absorption across varying impact vectors.\n3. AIRFLOW & ACOUSTICS: Strategic venturi exhaust channels manage thermal regulation while minimizing wind noise at high velocities.\n4. ERGONOMICS & FIT: Designed for an intermediate oval head shape, the system includes an EQRS retention mechanism and a removable moisture-wicking liner.",
@@ -120,7 +244,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1344,
+    "weight_grams": 1346,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -273,5 +397,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97
+  "noise_db": 97,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

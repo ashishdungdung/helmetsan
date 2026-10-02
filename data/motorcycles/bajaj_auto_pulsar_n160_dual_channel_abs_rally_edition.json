@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -97,9 +97,9 @@
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Bajaj Auto Pulsar N160 Dual Channel ABS (Rally Edition)."
     },
     {
-      "id": "scorpion_exo_gt930_track_grey",
-      "title": "Scorpion scorpion_exo_gt930_track-grey",
-      "brand": "Scorpion EXO",
+      "id": "apex_nova",
+      "title": "Nova",
+      "brand": "Apex",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Pulsar N160 Dual Channel ABS (Rally Edition)."
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BAJA-BAJAJ_",
+    "sku": "HSN-MOTO-BAJAJ-AUTO-PULSAR-N160-DUAL-CHAN",
+    "model_year": null,
+    "gear_search_fallback": "Bajaj Auto bajaj_auto_pulsar_n160_dual_channel_abs_rally_edition accessories motorcycle gear"
+  }
 }

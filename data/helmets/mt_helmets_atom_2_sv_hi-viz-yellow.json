@@ -23,16 +23,16 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "HPFC Composite",
-    "weight_g": 1607,
-    "weight_lbs": 3.54,
+    "weight_g": 1610,
+    "weight_lbs": 3.55,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 86
+    "noise_db_at_100kph": 88
   },
   "description": "The MT Helmets Atom 2 SV Hi-Viz Yellow combines flip-up modular convenience with highway touring comfort, pairing a quick-flip chin bar with certified impact protection. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1607g, it combines progressive kinetic energy dissipation across ECE 22.06 certifications with an acoustically tuned ~86 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -60,22 +60,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0B94FC2DB",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "MT Helmets Atom 2 SV Hi-Viz Yellow"
+      }
+    },
+    "gtin": "4964986571175",
+    "ean": "4964986571175",
+    "ean_status": "valid",
     "mpn": "MT-ATOM2SV-HVY",
-    "sku": "MTH-MTHELM",
-    "asin": "B0B94FC2DB",
-    "ean": "4964986571175"
+    "sku": "HSN-HLM-MT-HELMETS-ATOM-2-SV-HI-VIZ-YELL",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 89,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -105,7 +229,7 @@
   "country_origin": "Spain 🇪🇸",
   "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1607,
+    "weight_grams": 1610,
     "acoustic_noise_rating_db": "89 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,5 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 86
+  "noise_db": 88,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

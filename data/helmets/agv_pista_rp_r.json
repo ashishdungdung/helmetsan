@@ -1,5 +1,5 @@
 {
-  "title": "agv_pista_rp_r",
+  "title": "Pista RP R",
   "brand": "AGV",
   "type": "Full Face",
   "specs": {
@@ -7,14 +7,15 @@
     "weight_g": 1329,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick-Release Magnetic Buckle",
+    "strap_type": "Fidlock Magnetic",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.93,
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 92,
+    "strap_type_source": "Quick-Release Magnetic Buckle"
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -45,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B09K7X2M1P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09K7X2M1P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _pista_rp_r"
+      }
+    },
+    "gtin": "8056340123456",
     "ean": "8056340123456",
+    "ean_status": "valid",
     "mpn": "AGV-PISTA-RP-24",
-    "sku": "AGV-AGVPIS"
+    "sku": "HSN-HLM-AGV-PISTA-RP-R",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "homologation_standard": "ECE 22.06, DOT",
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Fidlock Magnetic"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -77,8 +202,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "agv_pista",
-  "helmet_family": "Agv pista",
+  "parent_id": null,
+  "helmet_family": "Pista RP R",
   "country_origin": "Italy 🇮🇹",
   "category": "Full Face",
   "physics_intelligence": {
@@ -87,7 +212,7 @@
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -244,9 +369,11 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 93,
+  "noise_db": 92,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

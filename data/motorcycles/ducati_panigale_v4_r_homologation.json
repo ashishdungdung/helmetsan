@@ -5,10 +5,10 @@
   "brand": "Ducati",
   "country_origin": "Italy 🇮🇹",
   "category": "Homologation Superbike",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1103.0,
+  "power_hp": 215.5,
+  "torque_nm": 123.6,
+  "curb_weight_kg": 195.5,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -51,11 +51,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1103cc Desmosedici Stradale 90-Degree V4",
+      "power_hp": 215.5,
+      "torque_nm": 123.6,
+      "curb_weight_kg": 195.5,
+      "power_to_weight": "110.2 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-PANIGALE-V4-R-HOMOLOGATIO",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_panigale_v4_r_homologation accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

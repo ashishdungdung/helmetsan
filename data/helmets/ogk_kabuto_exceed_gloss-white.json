@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "ogk_kabuto_exceed",
-  "helmet_family": "Exceed",
+  "helmet_family": "OGK Kabuto Exceed",
   "price": {
     "usd": 279,
     "inr": 23157,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1098,
-    "weight_lbs": 2.42,
+    "weight_g": 1155,
+    "weight_lbs": 2.55,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 95
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B01D0159E8",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ogk Kabuto Exceed Gloss White"
+      }
+    },
+    "gtin": "4963721270885",
+    "ean": "4963721270885",
+    "ean_status": "valid",
     "mpn": "OGK-KABUTO-EXCEED-GLOSS-WHITE",
-    "sku": "OGK-OGKKAB",
-    "asin": "B01D0159E8",
-    "ean": "4963721270885"
+    "sku": "HSN-HLM-OGK-KABUTO-EXCEED-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 96,
+    "noise_db_at_100kph": 95,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.35
   },
@@ -108,7 +232,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1098,
+    "weight_grams": 1155,
     "acoustic_noise_rating_db": "96 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -262,5 +386,6 @@
     }
   ],
   "noise_db": 95,
-  "sharp_rating": 0
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

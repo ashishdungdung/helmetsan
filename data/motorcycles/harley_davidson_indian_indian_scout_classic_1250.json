@@ -107,7 +107,7 @@
     },
     {
       "id": "shoei_tec_ii_stripe_red",
-      "title": "TC-10 Street Stripe Red",
+      "title": "Tec II Stripe Red",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 94,
@@ -146,5 +146,11 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Harley-Davidson engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-INDIAN-SC",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_indian_scout_classic_1250 accessories motorcycle gear"
+  }
 }

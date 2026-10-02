@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "troy_lee_designs_se5_carbon",
-  "helmet_family": "SE5 Carbon",
+  "helmet_family": "Lee Designs SE5",
   "price": {
     "usd": 675,
     "inr": 56025,
@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1324,
-    "weight_lbs": 2.92,
+    "weight_g": 1292,
+    "weight_lbs": 2.85,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 99
@@ -62,22 +62,146 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0D74A9EF7",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Troy Lee Designs SE5 Carbon Silver Metallic"
+      }
+    },
+    "gtin": "4967433890843",
+    "ean": "4967433890843",
+    "ean_status": "valid",
     "mpn": "TLD-SE5-CARB-SIL",
-    "sku": "TRO-TROYLE",
-    "asin": "B0D74A9EF7",
-    "ean": "4967433890843"
+    "sku": "HSN-HLM-TROY-LEE-DESIGNS-SE5-CARBON-SILV",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Intermediate Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -107,7 +231,7 @@
   "country_origin": "Global",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1324,
+    "weight_grams": 1292,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -260,5 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

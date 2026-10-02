@@ -76,7 +76,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -91,17 +91,17 @@
       "match_reason": "Panoramic horizontal eyeport maximizes peripheral visibility in relaxed feet-forward cruising postures on the Avenger Street 160 ABS (Adventure Spec)."
     },
     {
-      "id": "scorpion_exo_gt930_track_grey",
-      "title": "Scorpion scorpion_exo_gt930_track-grey",
-      "brand": "Scorpion EXO",
+      "id": "vega_thunder",
+      "title": "Thunder",
+      "brand": "Vega",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Low-profile shell geometry fits the laid-back cruiser stance of the Bajaj Auto Avenger Street 160 ABS (Adventure Spec) with modern ECE 22.06 safety."
     },
     {
-      "id": "vega_thunder",
-      "title": "Thunder",
-      "brand": "Vega",
+      "id": "arai_dt_x_vortex-tc-5",
+      "title": "DT-X Vortex TC-5",
+      "brand": "Arai",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "Plush anti-microbial interior prevents temple pressure points during low-rpm highway cruising on the Avenger Street 160 ABS (Adventure Spec)."
@@ -123,5 +123,11 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Bajaj Auto engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BAJA-BAJAJ_",
+    "sku": "HSN-MOTO-BAJAJ-AUTO-AVENGER-STREET-160-AB",
+    "model_year": null,
+    "gear_search_fallback": "Bajaj Auto bajaj_auto_avenger_street_160_abs_adventure_spec accessories motorcycle gear"
+  }
 }

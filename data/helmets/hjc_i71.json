@@ -10,11 +10,12 @@
       "ECE 22.06"
     ],
     "warranty_years": 1,
-    "strap_type": "Micro-adjustable YKK Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.79,
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 86,
+    "strap_type_source": "Micro-adjustable YKK Buckle"
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -45,15 +46,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0D6DEBCF8",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "HJC i71"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "HJC i71"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "HJC i71"
+      }
+    },
+    "gtin": "4961991580246",
+    "ean": "4961991580246",
+    "ean_status": "valid",
     "mpn": "i71",
-    "sku": "HJC-HJCI71",
-    "asin": "B0D6DEBCF8",
-    "ean": "4961991580246"
+    "sku": "HSN-HLM-HJC-I71",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
   "yoast_metadesc": "In-depth review of the HJC i71. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
   "unified_enriched": true,
@@ -72,8 +197,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "hjc_i71",
-  "helmet_family": "Hjc i71",
+  "parent_id": null,
+  "helmet_family": "i71",
   "country_origin": "South Korea 🇰🇷",
   "category": "Full Face",
   "physics_intelligence": {
@@ -234,9 +359,11 @@
       "fitment": "HJ-31 eyeport airtight silicone seal"
     }
   ],
-  "noise_db": 87,
+  "noise_db": 86,
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

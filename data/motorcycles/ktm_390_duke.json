@@ -112,18 +112,18 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 390 Duke Gen-3 LC4c at highway speeds."
     },
     {
-      "id": "ruroc_no_models_found_for_outside_the_excluded_atlas_4.0_variants;_alpinestars_constraint_not_applicable_to_request.",
-      "title": "Atlas 4.0 Excluded Variant",
+      "id": "ruroc_atlas_4_0_carbon_hi-viz-yellow",
+      "title": "Atlas 4.0 Carbon Hi-Viz Yellow",
       "brand": "Ruroc",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 390 Duke Gen-3 LC4c."
     },
     {
-      "id": "bell_star_dlx_mips",
-      "title": "Star DLX MIPS",
-      "brand": "Bell",
-      "type": "Full Face",
+      "id": "shoei_neotec_ii",
+      "title": "Neotec II",
+      "brand": "Shoei",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 390 Duke Gen-3 LC4c."
     }
@@ -144,5 +144,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_39",
+    "sku": "HSN-MOTO-KTM-390-DUKE",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_390_duke accessories motorcycle gear"
+  }
 }

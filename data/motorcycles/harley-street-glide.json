@@ -80,11 +80,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 0,
-      "torque_nm": 0,
-      "curb_weight_kg": 0,
-      "power_to_weight": "Optimal street balance"
+      "displacement": "1868cc Milwaukee-Eight 114 V-Twin Pushrod OHV",
+      "power_hp": 93.0,
+      "torque_nm": 158.0,
+      "curb_weight_kg": 375.0,
+      "power_to_weight": "24.8 HP/100kg",
+      "transmission": "6-speed Cruise Drive Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -153,5 +154,18 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-STREET",
+    "sku": "HSN-MOTO-HARLEY-STREET-GLIDE",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson Street Glide accessories motorcycle gear"
+  },
+  "displacement_cc": 1868.0,
+  "power_hp": 93.0,
+  "torque_nm": 158.0,
+  "curb_weight_kg": 375.0,
+  "transmission": "6-speed Cruise Drive Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "scorpion_exo_r320_matte-black",
-      "title": "-R320 Matte Black",
+      "title": "EXO-R320 Matte Black",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 98,
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BMW -BMW_MO",
+    "sku": "HSN-MOTO-BMW-MOTORRAD-K1600-GTL-6-CYLINDE",
+    "model_year": null,
+    "gear_search_fallback": "BMW Motorrad bmw_motorrad_k1600_gtl_6_cylinder accessories motorcycle gear"
+  }
 }

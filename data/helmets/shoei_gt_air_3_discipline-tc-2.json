@@ -24,14 +24,14 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "AIM",
-    "weight_g": 1471,
-    "weight_lbs": 3.24,
+    "weight_g": 1439,
+    "weight_lbs": 3.17,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 86
@@ -64,15 +64,139 @@
   },
   "model_year": 2023,
   "identifiers": {
-    "asin": "B09K3QJZ8V",
+    "amazon": {
+      "us": {
+        "asin": "B09K3QJZ8V",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei GT-Air 3 Discipline TC-2"
+      }
+    },
+    "gtin": "4541762003622",
     "ean": "4541762003622",
+    "ean_status": "valid",
     "mpn": "GT-AIR3-TC2-BLK",
-    "sku": "SHO-SHOEIG"
+    "sku": "HSN-HLM-SHOEI-GT-AIR-3-DISCIPLINE-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for touring with a slightly open-face profile; fits most head shapes but may feel tight on very large heads due to the TC-2 shell system.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -109,7 +233,7 @@
   "country_origin": "Japan 🇯🇵",
   "category": "Touring",
   "physics_intelligence": {
-    "weight_grams": 1471,
+    "weight_grams": 1439,
     "acoustic_noise_rating_db": "85 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -261,5 +385,7 @@
       "fitment": "Fleece-lined tailored shell transport protection"
     }
   ],
-  "noise_db": 86
+  "noise_db": 86,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

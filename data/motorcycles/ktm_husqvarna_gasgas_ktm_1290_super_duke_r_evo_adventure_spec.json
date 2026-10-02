@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Hyper Naked Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1301.0,
+  "power_hp": 180.0,
+  "torque_nm": 140.0,
+  "curb_weight_kg": 210.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1301cc 75-Degree V-Twin Liquid-Cooled DOHC (LC8)",
+      "power_hp": 180.0,
+      "torque_nm": 140.0,
+      "curb_weight_kg": 210.0,
+      "power_to_weight": "85.7 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter+"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-1290-SU",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_1290_super_duke_r_evo_adventure_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter+",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

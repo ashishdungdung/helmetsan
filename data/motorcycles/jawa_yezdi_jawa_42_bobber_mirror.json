@@ -4,10 +4,10 @@
   "title": "Jawa & Yezdi 42 Bobber Mirror",
   "brand": "Global",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 294.72,
+  "power_hp": 27.3,
+  "torque_nm": 26.8,
+  "curb_weight_kg": 182.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "294.72cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 27.3,
+      "torque_nm": 26.8,
+      "curb_weight_kg": 182.0,
+      "power_to_weight": "15.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -123,7 +124,7 @@
     },
     {
       "id": "scorpion_exo_r420",
-      "title": "-R420",
+      "title": "EXO-R420",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 87,
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "GLOB-JAWA_Y",
+    "sku": "HSN-MOTO-JAWA-YEZDI-JAWA-42-BOBBER-MIRROR",
+    "model_year": null,
+    "gear_search_fallback": "Global jawa_yezdi_jawa_42_bobber_mirror accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

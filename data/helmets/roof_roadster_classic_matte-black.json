@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "roof_roadster_classic",
-  "helmet_family": "Roadster Classic",
+  "helmet_family": "ROOF Roadster Classic",
   "price": {
     "usd": 329,
     "inr": 27307,
@@ -23,16 +23,16 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "Fiberglass",
-    "weight_g": 1111,
+    "weight_g": 1110,
     "weight_lbs": 2.45,
     "certifications": [
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 98
   },
   "description": "The Roof Roadster Classic Matte Black pairs retro roadster charm with modern multi-density cranial protection, pairing 180-degree panoramic sightlines with certified cranial protection. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing a featherweight 1111g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~97 dB while dissipating kinetic impact forces across ECE 22.06 benchmarks. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -60,16 +60,140 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0FE940E73",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Roof Roadster Classic Matte Black"
+      }
+    },
+    "gtin": "4965533456419",
+    "ean": "4965533456419",
+    "ean_status": "valid",
     "mpn": "ROOF-RoadsterClassic-MatteBlack",
-    "sku": "ROO-ROOFRO",
-    "asin": "B0FE940E73",
-    "ean": "4965533456419"
+    "sku": "HSN-HLM-ROOF-ROADSTER-CLASSIC-MATTE-BLAC",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Optimized for Round Oval head shapes with pressure-relief temple channels and contoured removable cheek pads."
@@ -99,7 +223,7 @@
   "country_origin": "Global",
   "category": "Open Face",
   "physics_intelligence": {
-    "weight_grams": 1111,
+    "weight_grams": 1110,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -250,6 +374,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97,
-  "sharp_rating": 0
+  "noise_db": 98,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -5,10 +5,10 @@
   "brand": "Ducati",
   "country_origin": "Italy 🇮🇹",
   "category": "Performance Cruiser",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1158.0,
+  "power_hp": 168.0,
+  "torque_nm": 126.0,
+  "curb_weight_kg": 223,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Open highways, scenic coastal byways, and relaxed urban cruising"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1158cc V4 Granturismo Liquid-Cooled DOHC",
+      "power_hp": 168.0,
+      "torque_nm": 126.0,
+      "curb_weight_kg": 223,
+      "power_to_weight": "75.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 705,
@@ -123,5 +124,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Ducati engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-DIAVEL-V4-POWER-CRUISER-R",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_diavel_v4_power_cruiser_race_replica accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

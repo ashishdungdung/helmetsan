@@ -5,10 +5,10 @@
   "brand": "TVS Motor Company",
   "country_origin": "India 🇮🇳",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 312.2,
+  "power_hp": 34.0,
+  "torque_nm": 27.3,
+  "curb_weight_kg": 174,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -53,11 +53,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "312.2cc Single-Cylinder Liquid-Cooled DOHC",
+      "power_hp": 34.0,
+      "torque_nm": 27.3,
+      "curb_weight_kg": 174,
+      "power_to_weight": "19.5 HP/100kg",
+      "transmission": "6-speed Manual with Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -125,5 +126,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-APACHE-RR-310-",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_apache_rr_310_bto_carbon_dark_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -5,10 +5,10 @@
   "brand": "Royal Enfield",
   "country_origin": "India 🇮🇳",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 411.0,
+  "power_hp": 24.3,
+  "torque_nm": 32.0,
+  "curb_weight_kg": 199.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -76,11 +76,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "411cc Single-Cylinder Air-Cooled SOHC 2V",
+      "power_hp": 24.3,
+      "torque_nm": 32.0,
+      "curb_weight_kg": 199.0,
+      "power_to_weight": "12.2 HP/100kg",
+      "transmission": "5-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -148,5 +149,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the Himalayan 411 Rally (Pro Spec)."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "ROYA-ROYAL_",
+    "sku": "HSN-MOTO-ROYAL-ENFIELD-HIMALAYAN-411-RALL",
+    "model_year": null,
+    "gear_search_fallback": "Royal Enfield royal_enfield_himalayan_411_rally_pro_spec accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

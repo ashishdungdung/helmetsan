@@ -76,7 +76,7 @@
   "compatible_helmets": [
     {
       "id": "shoei_tec_ii",
-      "title": "TC-1",
+      "title": "Tec II",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 98,
@@ -123,5 +123,11 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Harley-Davidson engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-H-D-SPORT",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_h_d_sportster_s_1250_track_edition accessories motorcycle gear"
+  }
 }

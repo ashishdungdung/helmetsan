@@ -8,7 +8,7 @@
     "Half"
   ],
   "parent_id": "wcl_beanie_half",
-  "helmet_family": "Beanie Half",
+  "helmet_family": "WCL Beanie Half",
   "price": {
     "usd": 39,
     "inr": 3237,
@@ -24,17 +24,17 @@
   "head_shape": "Round Oval",
   "specs": {
     "material": "ABS",
-    "weight_g": 1476,
+    "weight_g": 1474,
     "weight_lbs": 3.25,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 102
+    "noise_db_at_100kph": 101
   },
   "description": "The Wcl Beanie Half Gloss White is crafted for riders seeking low-profile styling with DOT baseline compliance, pairing low-profile styling with essential certified head protection. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1476g, channeling boundary-layer airflow to maintain a ~102 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Round Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -62,23 +62,147 @@
   },
   "model_year": 2023,
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0437FC9A2",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Wcl Beanie Half Gloss White"
+      }
+    },
+    "gtin": "4961148493467",
+    "ean": "4961148493467",
+    "ean_status": "valid",
     "mpn": "WCL-BH-WHT",
-    "sku": "WCL-WCLBEA",
-    "asin": "B0437FC9A2",
-    "ean": "4961148493467"
+    "sku": "HSN-HLM-WCL-BEANIE-HALF-GLOSS-WHITE",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
     "rotational_mitigation": true,
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Half helmet style; WCL Beanie Half Gloss White finish."
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 101,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.38
   },
@@ -101,7 +225,7 @@
   "country_origin": "Global",
   "category": "Half",
   "physics_intelligence": {
-    "weight_grams": 1476,
+    "weight_grams": 1474,
     "acoustic_noise_rating_db": "100 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -254,6 +378,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 102,
-  "sharp_rating": 0
+  "noise_db": 101,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

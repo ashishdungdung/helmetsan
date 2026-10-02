@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 1301.0,
+  "power_hp": 180.0,
+  "torque_nm": 140.0,
+  "curb_weight_kg": 210.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -51,11 +51,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "1301cc 75-Degree V-Twin Liquid-Cooled DOHC (LC8)",
+      "power_hp": 180.0,
+      "torque_nm": 140.0,
+      "curb_weight_kg": 210.0,
+      "power_to_weight": "85.7 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter+"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -123,5 +124,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the 1290 Super Adventure S."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-1290-SU",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_1290_super_adventure_s accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter+",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

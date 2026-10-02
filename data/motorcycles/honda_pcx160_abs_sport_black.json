@@ -76,7 +76,7 @@
   "compatible_helmets": [
     {
       "id": "shoei_tec_ii_matte_deep_grey",
-      "title": "TC-10 Matte Deep Grey",
+      "title": "Tec II Matte Deep Grey",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 98,
@@ -123,5 +123,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-HONDA_",
+    "sku": "HSN-MOTO-HONDA-PCX160-ABS-SPORT-BLACK",
+    "model_year": null,
+    "gear_search_fallback": "Honda honda_pcx160_abs_sport_black accessories motorcycle gear"
+  }
 }

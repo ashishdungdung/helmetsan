@@ -1,20 +1,20 @@
 {
-  "title": "agv_tourmodular_street-tc-2",
+  "title": "Tourmodular Street TC-2",
   "brand": "AGV",
-  "type": "Modular Full Face",
+  "type": "Modular",
   "specs": {
-    "material": "Carbon Fiber Reinforced Polymer (CFRP) Shell with ABS Impact Liner",
-    "weight_g": 1305,
+    "material": "Carbon-Aramid-Glass",
+    "weight_g": 1323,
     "certifications": [
-      "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT",
+      "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick-Release Magnetic Buckle with Double D-Ring",
+    "strap_type": "Fidlock Magnetic",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.88,
-    "noise_db_at_100kph": 87
+    "weight_lbs": 2.92,
+    "noise_db_at_100kph": 88
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -46,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B09K7X2M1P",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B09K7X2M1P",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "AGV _tourmodular_street-tc-2"
+      }
+    },
+    "gtin": "8056340123456",
     "ean": "8056340123456",
+    "ean_status": "valid",
     "mpn": "AGV-TM-24-CF",
-    "sku": "AGV-AGVTOU"
+    "sku": "HSN-HLM-AGV-TOURMODULAR-STREET-TC-2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "rotational_mitigation": "None"
+    "sharp_rating": 0,
+    "homologation_standard": "DOT, ECE 22.06",
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Fidlock Magnetic"
   },
-  "spec_weight_g": 1420,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -77,16 +201,16 @@
   "finish": "gloss",
   "is_graphic": false,
   "parent_id": "agv_tourmodular",
-  "helmet_family": "Agv tourmodular",
+  "helmet_family": "Tourmodular",
   "country_origin": "Italy 🇮🇹",
-  "category": "Modular Full Face",
+  "category": "Modular",
   "physics_intelligence": {
-    "weight_grams": 1305,
+    "weight_grams": 1323,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
-      "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT",
+      "ECE 22.06"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -194,36 +318,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "honda_hornet_2_0_repsol_edition_urban_carbon",
-      "title": "Hornet 2.0 Repsol Edition (Urban Carbon)",
-      "make": "Honda",
-      "category": "Urban Roadster",
+      "id": "ducati_streetfighter_v4_sp2_custom_edition",
+      "title": "Streetfighter V4 SP2 (Custom Edition)",
+      "make": "Ducati",
+      "category": "Hyper Naked Roadster",
       "match_score": 97,
-      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Honda Hornet 2.0 Repsol Edition (Urban Carbon)."
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the unfaired Ducati Streetfighter V4 SP2 (Custom Edition)."
     },
     {
-      "id": "vintage_exotics_laverda_jota_1000_legend_track_edition",
-      "title": "Vintage & Exotics Laverda Jota 1000 Legend (Track Edition)",
-      "make": "Laverda",
+      "id": "vintage_exotics_mv_agusta_f4_750_legend_dark_edition",
+      "title": "Vintage & Exotics MV Agusta F4 750 Legend (Dark Edition)",
+      "make": "MV Agusta",
       "category": "Urban Roadster",
       "match_score": 93,
-      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Vintage & Exotics Laverda Jota 1000 Legend (Track Edition)."
+      "match_reason": "Acoustic shell design isolates open-air wind roar in the upright streetfighter cockpit of the Vintage & Exotics MV Agusta F4 750 Legend (Dark Edition)."
     },
     {
-      "id": "royal_enfield_scram_411_rally",
-      "title": "Scram 411 Rally",
-      "make": "Royal Enfield",
-      "category": "Adventure Tourer",
+      "id": "aprilia_moto_guzzi_aprilia_tuono_v4_factory_1100_sport_black",
+      "title": "Tuono V4 Factory 1100 (Sport Black)",
+      "make": "Aprilia",
+      "category": "Hyper Naked Roadster",
       "match_score": 90,
-      "match_reason": "Acoustic neck roll isolates low-frequency windscreen turbulence across long saddle hours on the Royal Enfield Scram 411 Rally."
+      "match_reason": "Balanced center-of-gravity reduces rider neck strain during aggressive urban flickability on the Aprilia Tuono V4 Factory 1100 (Sport Black)."
     },
     {
-      "id": "tvs_motor_company_apache_rtr_160_2v_disc_pro_spec",
-      "title": "Apache RTR 160 2V Disc (Pro Spec)",
-      "make": "TVS Motor Company",
+      "id": "ducati_scrambler_icon_gen_2_sport_black",
+      "title": "Scrambler Icon Gen-2 (Sport Black)",
+      "make": "Ducati",
       "category": "Urban Roadster",
       "match_score": 86,
-      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Apache RTR 160 2V Disc (Pro Spec)."
+      "match_reason": "High-intake vent geometry provides active scalp cooling across spirited stop-and-go sessions on the Scrambler Icon Gen-2 (Sport Black)."
     }
   ],
   "compatible_accessories": [
@@ -243,9 +367,11 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 87,
+  "noise_db": 88,
   "certifications": [
-    "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT",
+    "ECE 22.06"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

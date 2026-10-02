@@ -1,100 +1,254 @@
 {
-    "entity": "accessory",
-    "id": "helmet-sanitizer-spray",
-    "title": "Motul M2 Helmet Interior Cleaner",
-    "type": "Maintenance",
-    "compatible_helmet_types": [
-        "Full Face",
-        "Modular",
-        "Adventure",
-        "Open Face",
-        "Half"
+  "entity": "accessory",
+  "id": "helmet-sanitizer-spray",
+  "title": "Motul M2 Helmet Interior Cleaner",
+  "type": "Maintenance",
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face",
+    "Half"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [
+    "shoei-rf-1400",
+    "hjc-rpha-71",
+    "agv-k6",
+    "arai-corsair-x",
+    "bell-qualifier-dlx-mips",
+    "mt-thunder-3",
+    "steelbird-air-sba-21",
+    "smk-stellar"
+  ],
+  "features": [
+    "Deep cleans and removes grime from helmet interiors",
+    "Safe for all types of helmet liners including leather and fabric",
+    "Leaves a fresh scent without leaving residue"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "geo_pricing": {
+    "US": {
+      "price": 14.99,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 11.99,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 999,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Built to protect your helmet investment between epic journeys, the Motul M2 Helmet Interior Cleaner from Motul delivers comprehensive hygiene, drying, and surface protection. Built with pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation).</p><p>The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Helmet Interior Cleaner",
+  "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Motul Motul M2 Helmet Interior Cleaner"
+      }
+    },
+    "gtin": null,
+    "ean": null,
+    "mpn": "M2",
+    "sku": "HSN-ACC-HELMET-SANITIZER-SPRAY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Motul Motul M2 Helmet Interior Cleaner.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "battery_life_operating_hours": "Bio-Degradable Aerosol Pump (Eliminates 99.9% of bacteria and sweat grime)",
+    "waterproof_ip_rating": "pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes",
+    "installation_difficulty": "1.0 / 10 (Direct wipe application or plug-and-play operation)",
+    "audio_driver_specification": "Anti-Microbial Sanitization & Optical Surface Hydrophobic Shielding"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Heavy-duty oversized zipper pulls and wide-mouth access operable with gloved hands.",
+    "wind_noise_suppression_mic": "Soft fleece interior lining prevents scratch micro-abrasions to expensive helmet shells and tinted visors.",
+    "real_world_pros": [
+      "Maintains fresh helmet interior hygiene and prevents fungal buildup",
+      "Padded exterior protection shields paint finish from garage drops and luggage bumps",
+      "Simple, highly effective maintenance ritual extending helmet lifespan"
     ],
-    "compatible_brands": [
-        "Universal"
+    "real_world_cons": [
+      "Takes up moderate storage footprint in touring panniers",
+      "Must be used regularly for maximum sanitization efficacy"
     ],
-    "compatible_helmet_ids": [
-        "shoei-rf-1400",
-        "hjc-rpha-71",
-        "agv-k6",
-        "arai-corsair-x",
-        "bell-qualifier-dlx-mips",
-        "mt-thunder-3",
-        "steelbird-air-sba-21",
-        "smk-stellar"
+    "editorial_verdict": "The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions."
+  },
+  "brand": "Motul",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  },
+  "editorial_overview": "Built to protect your helmet investment between epic journeys, the Motul M2 Helmet Interior Cleaner from Motul delivers comprehensive hygiene, drying, and surface protection. Built with pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation). The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.",
+  "rider_takeaway": "The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.",
+  "compatibility": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face",
+    "Half",
+    "Universal"
+  ],
+  "price_placeholder": true,
+  "compatibility_matrix": {
+    "helmet_types": [
+      "Full Face",
+      "Modular",
+      "Adventure / Dual Sport",
+      "Open Face",
+      "Half"
     ],
-    "features": [
-        "Deep cleans and removes grime from helmet interiors",
-        "Safe for all types of helmet liners including leather and fabric",
-        "Leaves a fresh scent without leaving residue"
+    "brands": [
+      "Universal"
     ],
-    "price": {
-        "usd": 150,
-        "inr": 12450,
-        "eur": 138,
-        "gbp": 119,
-        "jpy": 23250
-    },
-    "geo_pricing": {
-        "US": {
-            "price": 14.99,
-            "currency": "USD",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "EU": {
-            "price": 11.99,
-            "currency": "EUR",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "IN": {
-            "price": 999,
-            "currency": "INR",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        }
-    },
-    "description": "<p>Built to protect your helmet investment between epic journeys, the Motul M2 Helmet Interior Cleaner from Motul delivers comprehensive hygiene, drying, and surface protection. Built with pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation).</p><p>The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.</p>",
-    "accessory_pinlock_ready": 0,
-    "accessory_electric_compatible": 0,
-    "accessory_snow_compatible": 0,
-    "accessory_subcategory": "Helmet Interior Cleaner",
-    "identifiers": {
-        "mpn": "M2"
-    },
-    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Motul Motul M2 Helmet Interior Cleaner.",
-    "unified_enriched": true,
-    "accessory_physics_matrix": {
-        "battery_life_operating_hours": "Bio-Degradable Aerosol Pump (Eliminates 99.9% of bacteria and sweat grime)",
-        "waterproof_ip_rating": "pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes",
-        "installation_difficulty": "1.0 / 10 (Direct wipe application or plug-and-play operation)",
-        "audio_driver_specification": "Anti-Microbial Sanitization & Optical Surface Hydrophobic Shielding"
-    },
-    "qualitative_intelligence": {
-        "glove_friendly_controls": "Heavy-duty oversized zipper pulls and wide-mouth access operable with gloved hands.",
-        "wind_noise_suppression_mic": "Soft fleece interior lining prevents scratch micro-abrasions to expensive helmet shells and tinted visors.",
-        "real_world_pros": [
-            "Maintains fresh helmet interior hygiene and prevents fungal buildup",
-            "Padded exterior protection shields paint finish from garage drops and luggage bumps",
-            "Simple, highly effective maintenance ritual extending helmet lifespan"
-        ],
-        "real_world_cons": [
-            "Takes up moderate storage footprint in touring panniers",
-            "Must be used regularly for maximum sanitization efficacy"
-        ],
-        "editorial_verdict": "The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions."
-    },
-    "brand": "Motul",
-    "marketplace_links": {
-        "amazon": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20"
-    },
-    "affiliate_links": {
-        "amazon": {
-            "url": "https://www.amazon.com/s?k=Motul+M2+Helmet+Interior+Cleaner&tag=helmetsan-20",
-            "network": "amazon"
-        }
-    },
-    "editorial_overview": "Built to protect your helmet investment between epic journeys, the Motul M2 Helmet Interior Cleaner from Motul delivers comprehensive hygiene, drying, and surface protection. Built with pH-Neutral Surfactant Safe for EPS Liners & Mirror Finishes, it boasts an installation rating of 1.0 / 10 (Direct wipe application or plug-and-play operation). The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions.",
-    "rider_takeaway": "The Motul M2 Helmet Interior Cleaner from Motul is a must-have maintenance asset for riders who value helmet longevity. It keeps premium EPS liners hygienic, odor-free, and protected between track days and long-haul expeditions."
+    "helmet_ids": [
+      "shoei-rf-1400",
+      "hjc-rpha-71",
+      "agv-k6",
+      "arai-corsair-x",
+      "bell-qualifier-dlx-mips",
+      "mt-thunder-3",
+      "steelbird-air-sba-21",
+      "smk-stellar"
+    ]
+  }
 }

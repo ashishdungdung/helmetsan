@@ -4,10 +4,10 @@
   "title": "YZF-R1M Carbon (Rally Edition)",
   "brand": "Yamaha",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 15,
-  "torque_nm": 12,
-  "curb_weight_kg": 108,
+  "displacement_cc": 998.0,
+  "power_hp": 200.0,
+  "torque_nm": 113.3,
+  "curb_weight_kg": 201.0,
   "price": {
     "usd": 2300,
     "inr": 190900,
@@ -74,11 +74,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 15,
-      "torque_nm": 12,
-      "curb_weight_kg": 108,
-      "power_to_weight": "13.9 HP/100kg"
+      "displacement": "998cc Inline-4 Liquid-Cooled DOHC Crossplane CP4",
+      "power_hp": 200.0,
+      "torque_nm": 113.3,
+      "curb_weight_kg": 201.0,
+      "power_to_weight": "99.5 HP/100kg",
+      "transmission": "6-speed Manual with Quickshifter"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -146,5 +147,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YAMA-YAMAHA",
+    "sku": "HSN-MOTO-YAMAHA-YZF-R1M-CARBON-RALLY-EDIT",
+    "model_year": null,
+    "gear_search_fallback": "Yamaha yamaha_yzf_r1m_carbon_rally_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Quickshifter",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -7,10 +7,10 @@
     "weight_g": 1329,
     "certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Buckle",
+    "strap_type": "Quick Release",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.93,
@@ -32,7 +32,7 @@
   "yoast_metadesc": "In-depth review of the Alpinestars Tech5 V2. Tested shell weight, ECE/DOT safety rating, noise dB quietness, and fitment guide for Intermediate Oval heads.",
   "yoast_focuskw": "Alpinestars Tech5 V2",
   "entity": "helmet",
-  "id": "alpinestars_alpinestars_tech5_v2",
+  "id": "alpinestars_tech5_v2",
   "deep_enriched": true,
   "marketplace_links": {
     "amazon": "https://www.amazon.com/s?k=Alpinestars+Tech5+V2&tag=helmetsan-20",
@@ -46,17 +46,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B0C9X8Y7Z6",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y7Z6",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars Tech5 V2"
+      }
+    },
+    "gtin": "5012345678901",
     "ean": "5012345678901",
+    "ean_status": "valid",
     "mpn": "TECH5-V2-CF-IO",
-    "sku": "ALP-ALPINE"
+    "sku": "HSN-HLM-ALPINESTARS-ALPINESTARS-TECH5-V2",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
-    "homologation_standard": "ECE 22.06, DOT FMVSS 218",
-    "rotational_mitigation": "MIPS"
+    "sharp_rating": 0,
+    "homologation_standard": "ECE 22.06, DOT",
+    "rotational_mitigation": "MIPS",
+    "sharp_verified": false,
+    "strap_fastener_type": "Quick Release"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,8 +200,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "alpinestars_alpinestars",
-  "helmet_family": "Alpinestars alpinestars",
+  "parent_id": null,
+  "helmet_family": "Tech5 V2",
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
@@ -86,7 +210,7 @@
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
       "ECE 22.06",
-      "DOT FMVSS 218"
+      "DOT"
     ],
     "rotational_impact_tech": "Dual-Density Multi-Piece EPS"
   },
@@ -194,36 +318,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "bmw_motorrad_m1000rr_competition_touring_pack",
-      "title": "M1000RR Competition (Touring Pack)",
-      "make": "BMW Motorrad",
-      "category": "Homologation Superbike",
-      "match_score": 97,
-      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the BMW Motorrad M1000RR Competition (Touring Pack)."
-    },
-    {
-      "id": "kawasaki_ninja_h2_sx_se_supercharged_enduro_spec",
-      "title": "Ninja H2 SX SE Supercharged (Enduro Spec)",
+      "id": "kawasaki_ninja_h2_sx_se_supercharged_race_replica",
+      "title": "Ninja H2 SX SE Supercharged (Race Replica)",
       "make": "Kawasaki",
       "category": "Homologation Superbike",
-      "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ninja H2 SX SE Supercharged (Enduro Spec) velocity benchmarks."
+      "match_score": 97,
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Kawasaki Ninja H2 SX SE Supercharged (Race Replica)."
     },
     {
-      "id": "ducati_panigale_v4_s_corse_enduro_spec",
-      "title": "Panigale V4 S Corse (Enduro Spec)",
-      "make": "Ducati",
+      "id": "suzuki_hayabusa_25th_anniversary_performance_edition",
+      "title": "Hayabusa 25th Anniversary (Performance Edition)",
+      "make": "Suzuki",
       "category": "Homologation Superbike",
-      "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ducati performance."
+      "match_score": 93,
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Hayabusa 25th Anniversary (Performance Edition) velocity benchmarks."
     },
     {
-      "id": "yamaha_xsr700_heritage_urban_carbon",
-      "title": "XSR700 Heritage (Urban Carbon)",
+      "id": "yamaha_yz450f_motocross_circuit_spec",
+      "title": "YZ450F Motocross (Circuit Spec)",
       "make": "Yamaha",
       "category": "Middleweight Sportbike",
+      "match_score": 90,
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Yamaha performance."
+    },
+    {
+      "id": "suzuki_gixxer_sf_150_sport_black",
+      "title": "Gixxer SF 150 (Sport Black)",
+      "make": "Suzuki",
+      "category": "Middleweight Sportbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the XSR700 Heritage (Urban Carbon)."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Gixxer SF 150 (Sport Black)."
     }
   ],
   "compatible_accessories": [
@@ -233,8 +357,8 @@
       "fitment": "Universal Pinlock-prepared shield integration"
     },
     {
-      "id": "sena-50s-mesh",
-      "title": "Sena 50S Mesh 2.0",
+      "id": "bluetooth-comms-kit",
+      "title": "Cardo Packtalk Edge",
       "fitment": "Recessed EPS speaker cavity & clamp mount routing"
     },
     {
@@ -246,6 +370,8 @@
   "noise_db": 87,
   "certifications": [
     "ECE 22.06",
-    "DOT FMVSS 218"
-  ]
+    "DOT"
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

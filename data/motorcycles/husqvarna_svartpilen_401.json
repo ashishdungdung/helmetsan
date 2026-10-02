@@ -106,26 +106,26 @@
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked Husqvarna Svartpilen 401 Urban Scrambler."
     },
     {
-      "id": "klim_klim_f5_koroyd_vortex_tc_2",
-      "title": "-F5 Koroyd Vortex TC-2",
-      "brand": "Klim",
-      "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Svartpilen 401 Urban Scrambler at highway speeds."
-    },
-    {
       "id": "bell_rogue_vortex-grey",
       "title": "Rogue Vortex Grey",
       "brand": "Bell",
       "type": "Half",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Svartpilen 401 Urban Scrambler at highway speeds."
+    },
+    {
+      "id": "klim_tk1200_karbon_gloss-black",
+      "title": "TK1200 Karbon Gloss Black",
+      "brand": "Klim",
+      "type": "Modular",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Husqvarna Svartpilen 401 Urban Scrambler."
     },
     {
-      "id": "bell_qualifier_dlx_mips_gloss-black",
-      "title": "Qualifier DLX MIPS Gloss Black",
-      "brand": "Bell",
-      "type": "Full Face",
+      "id": "shoei_neotec_3_matte-deep-grey",
+      "title": "Neotec 3 Matte Deep Grey",
+      "brand": "Shoei",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Svartpilen 401 Urban Scrambler."
     }
@@ -146,5 +146,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HUSQ-HUSQVA",
+    "sku": "HSN-MOTO-HUSQVARNA-SVARTPILEN-401",
+    "model_year": null,
+    "gear_search_fallback": "Husqvarna husqvarna_svartpilen_401 accessories motorcycle gear"
+  }
 }

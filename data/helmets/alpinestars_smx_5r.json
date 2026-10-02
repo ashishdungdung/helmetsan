@@ -1,5 +1,5 @@
 {
-  "title": "SMX-5R Carbon Fiber Helmet",
+  "title": "SMX-5R",
   "brand": "Alpinestars",
   "type": "Full Face",
   "specs": {
@@ -10,11 +10,12 @@
       "FIM FIE"
     ],
     "warranty_years": 2,
-    "strap_type": "Quick Release Magnetic Buckle",
+    "strap_type": "Fidlock Magnetic",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "weight_lbs": 2.88,
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87,
+    "strap_type_source": "Quick Release Magnetic Buckle"
   },
   "head_shape": "Intermediate Oval",
   "aero_acoustic_profile": {
@@ -46,17 +47,141 @@
     }
   ],
   "identifiers": {
-    "asin": "B0C9X8Y7Z6",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B0C9X8Y7Z6",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Alpinestars SMX-5R Carbon Fiber Helmet"
+      }
+    },
+    "gtin": "5012345678901",
     "ean": "5012345678901",
+    "ean_status": "valid",
     "mpn": "SMX-5R-CF-24",
-    "sku": "ALP-ALPINE"
+    "sku": "HSN-HLM-ALPINESTARS-SMX-5R",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
-    "sharp_rating": 4,
+    "sharp_rating": 0,
     "homologation_standard": "ECE 22.06, FIM FIE",
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Fidlock Magnetic"
   },
-  "spec_weight_g": 1380,
   "tech_integration": {
     "speaker_pocket_depth_mm": 7,
     "cable_management": true
@@ -76,8 +201,8 @@
   "color_family": "Black",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "alpinestars_smx",
-  "helmet_family": "Alpinestars smx",
+  "parent_id": null,
+  "helmet_family": "SMX-5R",
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
@@ -243,9 +368,11 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85,
+  "noise_db": 87,
   "certifications": [
     "ECE 22.06",
     "FIM FIE"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

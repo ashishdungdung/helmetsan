@@ -1,14 +1,14 @@
 {
   "id": "axor_apex_carbon_carbon",
   "entity": "helmet",
-  "title": "Apex Carbon Carbon",
+  "title": "Apex Carbon",
   "brand": "Axor",
   "type": "Full Face",
   "helmet_types": [
     "Full Face"
   ],
   "parent_id": "axor_apex_carbon",
-  "helmet_family": "Apex Carbon",
+  "helmet_family": "Apex",
   "price": {
     "usd": 179,
     "inr": 14857,
@@ -23,15 +23,15 @@
   ],
   "head_shape": "Intermediate Oval",
   "specs": {
-    "material": "Carbon Fiber",
-    "weight_g": 1264,
-    "weight_lbs": 2.79,
+    "material": "Carbon",
+    "weight_g": 1340,
+    "weight_lbs": 2.95,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 87
@@ -65,15 +65,140 @@
   },
   "model_year": 2024,
   "identifiers": {
-    "mpn": "AXOR-APX-CARBON-FULL",
-    "asin": "B08XQZJ9K2",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B08XQZJ9K2",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Axor Apex Carbon Carbon"
+      }
+    },
+    "gtin": "8416530000000",
     "ean": "8416530000000",
-    "sku": "AXO-AXORAP"
+    "ean_status": "valid",
+    "mpn": "AXOR-APX-CARBON-FULL",
+    "sku": "HSN-HLM-AXOR-APEX-CARBON-CARBON",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; tight fit on round heads may require sizing up.",
@@ -120,7 +245,7 @@
   "country_origin": "India 🇮🇳",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1264,
+    "weight_grams": 1340,
     "acoustic_noise_rating_db": "87 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -272,5 +397,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

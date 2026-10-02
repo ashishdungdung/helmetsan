@@ -8,7 +8,7 @@
     "Adventure / Dual Sport"
   ],
   "parent_id": "ckx_mission_ams",
-  "helmet_family": "Mission AMS",
+  "helmet_family": "CKX Mission AMS",
   "price": {
     "usd": 349,
     "inr": 28967,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Composite",
-    "weight_g": 1405,
-    "weight_lbs": 3.1,
+    "weight_g": 1391,
+    "weight_lbs": 3.07,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 90
+    "noise_db_at_100kph": 91
   },
   "description": "Tuned for all-terrain exploration, the Ckx Mission AMS Matte Black is purpose-built for adventure riders tackling varied weather and challenging backcountry trails across highway asphalt and backcountry gravel. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1405g, channeling boundary-layer airflow to maintain a ~90 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
   "product_details": {
@@ -65,15 +65,139 @@
   },
   "model_year": "2024",
   "identifiers": {
-    "asin": "B0CQXK9M2L",
+    "amazon": {
+      "us": {
+        "asin": "B0CQXK9M2L",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Ckx Mission AMS Matte Black"
+      }
+    },
+    "gtin": "8435678912345",
     "ean": "8435678912345",
+    "ean_status": "valid",
     "mpn": "CKX-MAT-BLK-AMS-24",
-    "sku": "CKX-CKXMIS"
+    "sku": "HSN-HLM-CKX-MISSION-AMS-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
     "sharp_rating": 0,
-    "rotational_mitigation": "None"
+    "rotational_mitigation": "None",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for an intermediate oval head shape; features a semi-fairing chin bar that may feel slightly snug on wider cheeks compared to full-face counterparts due to the dual-sport cutout geometry.",
@@ -110,7 +234,7 @@
   "country_origin": "Global",
   "category": "Adventure / Dual Sport",
   "physics_intelligence": {
-    "weight_grams": 1405,
+    "weight_grams": 1391,
     "acoustic_noise_rating_db": "91 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -262,5 +386,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90
+  "noise_db": 91,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -5,10 +5,10 @@
   "brand": "Hero MotoCorp",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 113.2,
+  "power_hp": 9.15,
+  "torque_nm": 9.79,
+  "curb_weight_kg": 117.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -52,11 +52,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "113.2cc Single-Cylinder Air-Cooled 4-Stroke",
+      "power_hp": 9.15,
+      "torque_nm": 9.79,
+      "curb_weight_kg": 117.0,
+      "power_to_weight": "7.8 HP/100kg",
+      "transmission": "4-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HERO-HERO_M",
+    "sku": "HSN-MOTO-HERO-MOTOCORP-PASSION-XTEC-DISC-",
+    "model_year": null,
+    "gear_search_fallback": "Hero MotoCorp hero_motocorp_passion_xtec_disc_dark_edition accessories motorcycle gear"
+  },
+  "transmission": "4-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

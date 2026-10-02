@@ -5,10 +5,10 @@
   "brand": "Ducati",
   "country_origin": "Italy 🇮🇹",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1158.0,
+  "power_hp": 170.0,
+  "torque_nm": 125.0,
+  "curb_weight_kg": 240,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1158cc V4 Granturismo Liquid-Cooled DOHC",
+      "power_hp": 170.0,
+      "torque_nm": 125.0,
+      "curb_weight_kg": 240,
+      "power_to_weight": "70.8 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -123,5 +124,14 @@
       "title": "Rain-X Visor Rain Repellent",
       "reason": "115° hydrophobic water beading ensures crystal-clear optical sightlines during wet mountain passes on the Multistrada V4 Rally (Chrome Edition)."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-MULTISTRADA-V4-RALLY-CHRO",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_multistrada_v4_rally_chrome_edition accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

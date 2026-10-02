@@ -1,19 +1,19 @@
 {
-  "title": "TC-10 Matte Deep Grey",
+  "title": "Tec II Matte Deep Grey",
   "brand": "Shoei",
   "type": "Full Face",
   "specs": {
-    "material": "Multi-Density Composite Shell with In-Mold Polycarbonate Liner",
-    "weight_g": 1337,
+    "material": "Carbon Fiber Composite",
+    "weight_g": 1314,
     "certifications": [
       "DOT",
       "ECE 22.06"
     ],
     "warranty_years": 5,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "weight_lbs": 2.95,
+    "weight_lbs": 2.9,
     "noise_db_at_100kph": 86
   },
   "head_shape": "Intermediate Oval",
@@ -46,15 +46,139 @@
     }
   ],
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B077063F2B",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Shoei TC-10 Matte Deep Grey"
+      }
+    },
+    "gtin": "4963703130770",
+    "ean": "4963703130770",
+    "ean_status": "valid",
     "mpn": "TC-10-MDG",
-    "sku": "SHO-SHOEIT",
-    "asin": "B077063F2B",
-    "ean": "4963703130770"
+    "sku": "HSN-HLM-SHOEI-TEC-II-MATTE-DEEP-GREY",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.06",
-    "sharp_rating": 4,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "unified_enriched": true,
   "model_year": 2023,
@@ -71,12 +195,12 @@
   "color_family": "Grey",
   "finish": "gloss",
   "is_graphic": false,
-  "parent_id": "shoei_tec",
-  "helmet_family": "Shoei tec",
+  "parent_id": "shoei_tec_ii",
+  "helmet_family": "Tec II",
   "country_origin": "Japan 🇯🇵",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1337,
+    "weight_grams": 1314,
     "acoustic_noise_rating_db": "86 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -242,5 +366,7 @@
   "certifications": [
     "DOT",
     "ECE 22.06"
-  ]
+  ],
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

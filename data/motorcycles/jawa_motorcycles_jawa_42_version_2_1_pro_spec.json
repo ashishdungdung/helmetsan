@@ -5,10 +5,10 @@
   "brand": "Jawa Motorcycles",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 294.72,
+  "power_hp": 27.3,
+  "torque_nm": 26.8,
+  "curb_weight_kg": 182.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -52,11 +52,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "294.72cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 27.3,
+      "torque_nm": 26.8,
+      "curb_weight_kg": 182.0,
+      "power_to_weight": "15.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "JAWA-JAWA_M",
+    "sku": "HSN-MOTO-JAWA-MOTORCYCLES-JAWA-42-VERSION",
+    "model_year": null,
+    "gear_search_fallback": "Jawa Motorcycles jawa_motorcycles_jawa_42_version_2_1_pro_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

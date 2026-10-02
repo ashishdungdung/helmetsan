@@ -5,10 +5,10 @@
   "brand": "Yezdi Motorcycles",
   "country_origin": "India 🇮🇳",
   "category": "Performance Cruiser",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 334.0,
+  "power_hp": 29.1,
+  "torque_nm": 28.2,
+  "curb_weight_kg": 182.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -53,11 +53,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "334cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 29.1,
+      "torque_nm": 28.2,
+      "curb_weight_kg": 182.0,
+      "power_to_weight": "16.0 HP/100kg",
+      "transmission": "6-speed Manual with Assist Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 705,
@@ -93,17 +94,17 @@
       "match_reason": "Panoramic horizontal eyeport maximizes peripheral visibility in relaxed feet-forward cruising postures on the Yezdi Scrambler Rebel Red (Urban Commuter)."
     },
     {
-      "id": "scorpion_exo_r1_air_vortex_tc_3",
-      "title": "Scorpion scorpion_exo_r1_air_vortex-tc-3",
-      "brand": "Scorpion EXO",
+      "id": "arai_dt_x_vortex-tc-5",
+      "title": "DT-X Vortex TC-5",
+      "brand": "Arai",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Low-profile shell geometry fits the laid-back cruiser stance of the Yezdi Motorcycles Yezdi Scrambler Rebel Red (Urban Commuter) with modern ECE 22.06 safety."
     },
     {
-      "id": "arai_dt_x_vortex-tc-5",
-      "title": "DT-X Vortex TC-5",
-      "brand": "Arai",
+      "id": "shark_spartan_gt_raptor-tc-5",
+      "title": "Spartan GT Raptor TC-5",
+      "brand": "Shark",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "Plush anti-microbial interior prevents temple pressure points during low-rpm highway cruising on the Yezdi Scrambler Rebel Red (Urban Commuter)."
@@ -125,5 +126,14 @@
       "title": "NoNoise Motorsport Filtered Earplugs",
       "reason": "Filters exhaust drone and ambient highway roar while preserving the deep acoustic rumble of the Yezdi Motorcycles engine."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "YEZD-YEZDI_",
+    "sku": "HSN-MOTO-YEZDI-MOTORCYCLES-YEZDI-SCRAMBLE",
+    "model_year": null,
+    "gear_search_fallback": "Yezdi Motorcycles yezdi_motorcycles_yezdi_scrambler_rebel_red_urban_commuter accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Assist Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

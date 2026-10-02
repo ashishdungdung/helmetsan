@@ -5,10 +5,10 @@
   "brand": "BMW Motorrad",
   "country_origin": "Germany 🇩🇪",
   "category": "Middleweight Sportbike",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1170.0,
+  "power_hp": 109.0,
+  "torque_nm": 115.0,
+  "curb_weight_kg": 227.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -51,11 +51,12 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1170cc Boxer Twin Air/Oil-Cooled DOHC 4V",
+      "power_hp": 109.0,
+      "torque_nm": 115.0,
+      "curb_weight_kg": 227.0,
+      "power_to_weight": "48.0 HP/100kg",
+      "transmission": "6-speed Manual with Shaft Drive"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 820,
@@ -123,5 +124,14 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BMW -BMW_MO",
+    "sku": "HSN-MOTO-BMW-MOTORRAD-R12-NINET-ROADSTER-",
+    "model_year": null,
+    "gear_search_fallback": "BMW Motorrad bmw_motorrad_r12_ninet_roadster_apex_spec accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Shaft Drive",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

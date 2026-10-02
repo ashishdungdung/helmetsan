@@ -1,92 +1,235 @@
 {
-    "entity": "accessory",
-    "id": "fidlock-chin-strap",
-    "title": "FIDLOCK V-Buckle Magnetic Chin Strap Kit",
-    "type": "Hardware",
-    "compatible_helmet_types": [
-        "Full Face",
-        "Modular",
-        "Adventure",
-        "Open Face"
+  "entity": "accessory",
+  "id": "fidlock-chin-strap",
+  "title": "FIDLOCK V-Buckle Magnetic Chin Strap Kit",
+  "type": "Hardware",
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Magnetic V-buckle design for secure chin strap attachment",
+    "Universal compatibility with most motorcycle helmets",
+    "Quick-release mechanism for easy adjustment and removal"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "geo_pricing": {
+    "US": {
+      "price": 44.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 39.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 3999,
+      "currency": "INR",
+      "availability": "limited",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Designed to optimize interior helmet ergonomics and temperature regulation, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security).</p><p>Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Chin Strap",
+  "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit"
+      }
+    },
+    "gtin": null,
+    "ean": null,
+    "mpn": "FIDLOCK-VBUCKLE",
+    "sku": "HSN-ACC-FIDLOCK-CHIN-STRAP",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "material_composition": "Anodized Aerospace Aluminum & Neodymium Magnetic Core (Mechanical Shear-Latch Lock)",
+    "thermal_regulation_range": "-5°C to 40°C All-Season Temperature Regulation",
+    "battery_life_operating_hours": "Passive Ergonomic Fiber / Evaporative Hydro-Activation",
+    "waterproof_ip_rating": "Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer",
+    "installation_difficulty": "2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security)",
+    "audio_driver_specification": "Acoustic Neck Roll / Chin Curtain Baffling Reducing Base Wind Drone"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Seamless friction-fit design prevents bunching around ears when sliding your helmet on.",
+    "wind_noise_suppression_mic": "Acoustic-dampening neck roll fabric reduces cockpit wind turbulence entering from underneath the chin-bar.",
+    "real_world_pros": [
+      "Significantly extends helmet liner freshness by wicking away scalp sweat",
+      "Breathable cooling mesh prevents overheated temple pressure points",
+      "Machine washable construction retains elasticity over multiple seasons"
     ],
-    "compatible_brands": [
-        "Universal"
+    "real_world_cons": [
+      "Snug compression fit may feel tight during initial break-in rides",
+      "Requires occasional hang-drying after intense summer sessions"
     ],
-    "compatible_helmet_ids": [],
-    "features": [
-        "Magnetic V-buckle design for secure chin strap attachment",
-        "Universal compatibility with most motorcycle helmets",
-        "Quick-release mechanism for easy adjustment and removal"
+    "editorial_verdict": "Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity."
+  },
+  "brand": "FIDLOCK",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=FIDLOCK+V-Buckle+Magnetic+Chin+Strap+Kit&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=FIDLOCK+V-Buckle+Magnetic+Chin+Strap+Kit&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  },
+  "editorial_overview": "Designed to optimize interior helmet ergonomics and temperature regulation, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security). Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
+  "rider_takeaway": "Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
+  "compatibility": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face",
+    "Universal"
+  ],
+  "price_placeholder": true,
+  "compatibility_matrix": {
+    "helmet_types": [
+      "Full Face",
+      "Modular",
+      "Adventure / Dual Sport",
+      "Open Face"
     ],
-    "price": {
-        "usd": 150,
-        "inr": 12450,
-        "eur": 138,
-        "gbp": 119,
-        "jpy": 23250
-    },
-    "geo_pricing": {
-        "US": {
-            "price": 44.95,
-            "currency": "USD",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "EU": {
-            "price": 39.95,
-            "currency": "EUR",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "IN": {
-            "price": 3999,
-            "currency": "INR",
-            "availability": "limited",
-            "updated_at": "2026-02-20"
-        }
-    },
-    "description": "<p>Designed to optimize interior helmet ergonomics and temperature regulation, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security).</p><p>Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.</p>",
-    "accessory_pinlock_ready": 0,
-    "accessory_electric_compatible": 0,
-    "accessory_snow_compatible": 0,
-    "accessory_subcategory": "Chin Strap",
-    "identifiers": {
-        "mpn": "FIDLOCK-VBUCKLE"
-    },
-    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the FIDLOCK FIDLOCK V-Buckle Magnetic Chin Strap Kit.",
-    "unified_enriched": true,
-    "accessory_physics_matrix": {
-        "material_composition": "Anodized Aerospace Aluminum & Neodymium Magnetic Core (Mechanical Shear-Latch Lock)",
-        "thermal_regulation_range": "-5°C to 40°C All-Season Temperature Regulation",
-        "battery_life_operating_hours": "Passive Ergonomic Fiber / Evaporative Hydro-Activation",
-        "waterproof_ip_rating": "Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer",
-        "installation_difficulty": "2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security)",
-        "audio_driver_specification": "Acoustic Neck Roll / Chin Curtain Baffling Reducing Base Wind Drone"
-    },
-    "qualitative_intelligence": {
-        "glove_friendly_controls": "Seamless friction-fit design prevents bunching around ears when sliding your helmet on.",
-        "wind_noise_suppression_mic": "Acoustic-dampening neck roll fabric reduces cockpit wind turbulence entering from underneath the chin-bar.",
-        "real_world_pros": [
-            "Significantly extends helmet liner freshness by wicking away scalp sweat",
-            "Breathable cooling mesh prevents overheated temple pressure points",
-            "Machine washable construction retains elasticity over multiple seasons"
-        ],
-        "real_world_cons": [
-            "Snug compression fit may feel tight during initial break-in rides",
-            "Requires occasional hang-drying after intense summer sessions"
-        ],
-        "editorial_verdict": "Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity."
-    },
-    "brand": "FIDLOCK",
-    "marketplace_links": {
-        "amazon": "https://www.amazon.com/s?k=FIDLOCK+V-Buckle+Magnetic+Chin+Strap+Kit&tag=helmetsan-20"
-    },
-    "affiliate_links": {
-        "amazon": {
-            "url": "https://www.amazon.com/s?k=FIDLOCK+V-Buckle+Magnetic+Chin+Strap+Kit&tag=helmetsan-20",
-            "network": "amazon"
-        }
-    },
-    "editorial_overview": "Designed to optimize interior helmet ergonomics and temperature regulation, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 2.0 / 10 (Retrofit chin-strap webbing weave with double-box stitch security). Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
-    "rider_takeaway": "Engineered for all-season comfort, the FIDLOCK V-Buckle Magnetic Chin Strap Kit from FIDLOCK delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity."
+    "brands": [
+      "Universal"
+    ],
+    "helmet_ids": []
+  }
 }

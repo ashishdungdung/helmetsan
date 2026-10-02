@@ -4,10 +4,10 @@
   "title": "Indian Commuters TVS Star City Plus",
   "brand": "Global",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 109.7,
+  "power_hp": 8.19,
+  "torque_nm": 8.7,
+  "curb_weight_kg": 115.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "109.7cc Single-Cylinder Air-Cooled 4-Stroke ETFi",
+      "power_hp": 8.19,
+      "torque_nm": 8.7,
+      "curb_weight_kg": 115.0,
+      "power_to_weight": "7.1 HP/100kg",
+      "transmission": "4-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -112,17 +113,17 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Indian Commuters TVS Star City Plus at highway speeds."
     },
     {
-      "id": "apex_apex_3_matte-black",
-      "title": "Apex 3 Matte Black",
+      "id": "apex_pulse_black",
+      "title": "Pulse Black",
       "brand": "Apex",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the Global Indian Commuters TVS Star City Plus."
     },
     {
-      "id": "apex_pulse_black",
-      "title": "Pulse Black",
-      "brand": "Apex",
+      "id": "icon_domain_pearl-white",
+      "title": "Domain Pearl White",
+      "brand": "Icon",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Indian Commuters TVS Star City Plus."
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "GLOB-INDIAN",
+    "sku": "HSN-MOTO-INDIAN-COMMUTERS-TVS-STAR-CITY-P",
+    "model_year": null,
+    "gear_search_fallback": "Global indian_commuters_tvs_star_city_plus accessories motorcycle gear"
+  },
+  "transmission": "4-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

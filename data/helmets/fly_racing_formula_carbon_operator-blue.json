@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "fly_racing_formula_carbon",
-  "helmet_family": "Formula Carbon",
+  "helmet_family": "Formula",
   "price": {
     "usd": 739,
     "inr": 61337,
@@ -25,15 +25,15 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1320,
-    "weight_lbs": 2.91,
+    "weight_g": 1326,
+    "weight_lbs": 2.92,
     "certifications": [
       "DOT",
       "ECE 22.05",
       "Snell M2020"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
     "noise_db_at_100kph": 99
@@ -67,15 +67,140 @@
   },
   "model_year": 2019,
   "identifiers": {
-    "asin": "B07QKZV8J3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8J3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Formula Carbon Operator Blue"
+      }
+    },
+    "gtin": "8419260050000",
     "ean": "8419260050000",
+    "ean_status": "valid",
     "mpn": "F-1000-CO-BLU",
-    "sku": "FLY-FLYRAC"
+    "sku": "HSN-HLM-FLY-RACING-FORMULA-CARBON-OPERAT",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05, Snell M2020",
-    "sharp_rating": 3,
-    "rotational_mitigation": "Fly Racing Impact Technology (FIT)"
+    "sharp_rating": 0,
+    "rotational_mitigation": "Fly Racing Impact Technology (FIT)",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Operator fit is designed for a wide range of head shapes with a focus on cheekbone clearance and rear coverage; may require sizing up for larger heads.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -112,7 +237,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1320,
+    "weight_grams": 1326,
     "acoustic_noise_rating_db": "98 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -267,5 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 99
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

@@ -76,7 +76,7 @@
   "compatible_helmets": [
     {
       "id": "scorpion_exo_r420",
-      "title": "-R420",
+      "title": "EXO-R420",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 98,
@@ -92,7 +92,7 @@
     },
     {
       "id": "agv_pista_rp_r",
-      "title": "agv_pista_rp_r",
+      "title": "Pista RP R",
       "brand": "AGV",
       "type": "Full Face",
       "match_score": 91,
@@ -123,5 +123,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BAJA-BAJAJ_",
+    "sku": "HSN-MOTO-BAJAJ-AUTO-CT-110X-RUGGED-COMMUT",
+    "model_year": null,
+    "gear_search_fallback": "Bajaj Auto bajaj_auto_ct_110x_rugged_commuter_pro_spec accessories motorcycle gear"
+  }
 }

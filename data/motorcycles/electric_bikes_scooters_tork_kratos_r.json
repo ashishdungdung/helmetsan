@@ -121,7 +121,7 @@
     },
     {
       "id": "scorpion_exo_r420",
-      "title": "-R420",
+      "title": "EXO-R420",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 87,
@@ -144,5 +144,13 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "GLOB-ELECTR",
+    "sku": "HSN-MOTO-ELECTRIC-BIKES-SCOOTERS-TORK-KRA",
+    "model_year": null,
+    "gear_search_fallback": "Global electric_bikes_scooters_tork_kratos_r accessories motorcycle gear"
+  },
+  "powertrain": "electric",
+  "fuel_type": "electric"
 }

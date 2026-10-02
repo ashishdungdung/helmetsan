@@ -74,33 +74,33 @@
   "compatible_helmets": [
     {
       "id": "shoei_tec_ii_anthracite",
-      "title": "TC-10 Anthracite",
+      "title": "Tec II Anthracite",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 98,
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked KTM Husqvarna TE 300 2-Stroke (Touring Pack)."
     },
     {
-      "id": "ruroc_atlas_4_0_street_tc_2",
-      "title": "Atlas 4.0 Street TC-2",
-      "brand": "Ruroc",
-      "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Husqvarna TE 300 2-Stroke (Touring Pack) at highway speeds."
-    },
-    {
       "id": "bell_bullitt_matte-black",
       "title": "Bullitt Matte Black",
       "brand": "Bell",
       "type": "Open Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Husqvarna TE 300 2-Stroke (Touring Pack) at highway speeds."
+    },
+    {
+      "id": "airoh_spark_2",
+      "title": "Spark 2",
+      "brand": "Airoh",
+      "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM Husqvarna TE 300 2-Stroke (Touring Pack)."
     },
     {
-      "id": "shoei_j_cruise_ii_silver-metallic",
-      "title": "J-Cruise II Silver Metallic",
+      "id": "shoei_rf_1200",
+      "title": "RF-1200",
       "brand": "Shoei",
-      "type": "Open Face",
+      "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Husqvarna TE 300 2-Stroke (Touring Pack)."
     }
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-HUSQVARNA-T",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_husqvarna_te_300_2_stroke_touring_pack accessories motorcycle gear"
+  }
 }

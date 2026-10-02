@@ -1,5 +1,5 @@
 {
-  "id": "apex_apex_2_matte-black",
+  "id": "apex_2_matte-black",
   "entity": "helmet",
   "title": "Apex 2 Matte Black",
   "brand": "Apex",
@@ -7,7 +7,7 @@
   "helmet_types": [
     "Full Face"
   ],
-  "parent_id": "apex_apex_2",
+  "parent_id": "apex_2",
   "helmet_family": "Apex 2",
   "price": {
     "usd": 459,
@@ -25,18 +25,18 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon",
-    "weight_g": 1282,
-    "weight_lbs": 2.83,
+    "weight_g": 1268,
+    "weight_lbs": 2.8,
     "certifications": [
       "DOT",
       "Snell M2020",
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 87
   },
   "description": "The Apex 2 Matte Black is crafted for daily urban navigators conquering dense traffic, delivering responsive balance and confident road feel. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1282g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~85 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -67,15 +67,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZJ8V3",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZJ8V3",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Apex 2 Matte Black"
+      }
+    },
+    "gtin": "8429561000000",
     "ean": "8429561000000",
+    "ean_status": "valid",
     "mpn": "A2-MAT-BLK",
-    "sku": "APE-APEXAP"
+    "sku": "HSN-HLM-APEX-APEX-2-MATTE-BLACK",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, Snell M2020, ECE 22.06",
-    "sharp_rating": 5,
-    "rotational_mitigation": true
+    "sharp_rating": 0,
+    "rotational_mitigation": true,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for oval to intermediate head shapes; may feel tight on very round heads.",
@@ -83,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.34
   },
@@ -112,7 +237,7 @@
   "country_origin": "Global",
   "category": "Full Face",
   "physics_intelligence": {
-    "weight_grams": 1282,
+    "weight_grams": 1268,
     "acoustic_noise_rating_db": "88 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -217,36 +342,36 @@
   },
   "compatible_motorcycles": [
     {
-      "id": "ducati_panigale_v4_s_corse_stealth_edition",
-      "title": "Panigale V4 S Corse (Stealth Edition)",
-      "make": "Ducati",
+      "id": "suzuki_hayabusa_gsx1300r",
+      "title": "Hayabusa 25th Anniversary",
+      "make": "Suzuki",
       "category": "Homologation Superbike",
       "match_score": 97,
-      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Ducati Panigale V4 S Corse (Stealth Edition)."
+      "match_reason": "Track-tuned aerodynamic shell and high eyeport optimize forward sightlines during full-tuck cornering on the Suzuki Hayabusa 25th Anniversary."
     },
     {
-      "id": "honda_cbr1000rr_r_fireblade_sp_track_edition",
-      "title": "CBR1000RR-R Fireblade SP (Track Edition)",
-      "make": "Honda",
+      "id": "kawasaki_ninja_zx_10r_krt",
+      "title": "Ninja ZX-10R KRT",
+      "make": "Kawasaki",
       "category": "Homologation Superbike",
       "match_score": 93,
-      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at CBR1000RR-R Fireblade SP (Track Edition) velocity benchmarks."
+      "match_reason": "High-speed rear spoiler stabilizes airflow and minimizes helmet buffeting at Ninja ZX-10R KRT velocity benchmarks."
     },
     {
-      "id": "yamaha_yzf_r1m_carbon_rally_edition",
-      "title": "YZF-R1M Carbon (Rally Edition)",
-      "make": "Yamaha",
+      "id": "ola_electric_ola_roadster_electric_superbike_concept_adventure_spec",
+      "title": "Ola Roadster Electric Superbike Concept (Adventure Spec)",
+      "make": "Ola Electric",
       "category": "Homologation Superbike",
       "match_score": 90,
-      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Yamaha performance."
+      "match_reason": "FIM/ECE impact engineering delivers race-grade cranial protection tailored for high-speed Ola Electric performance."
     },
     {
-      "id": "kawasaki_ninja_zx_10r_krt_rally_edition",
-      "title": "Ninja ZX-10R KRT (Rally Edition)",
+      "id": "kawasaki_ninja_h2r_track_only_apex_spec",
+      "title": "Ninja H2R Track Only (Apex Spec)",
       "make": "Kawasaki",
       "category": "Homologation Superbike",
       "match_score": 86,
-      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja ZX-10R KRT (Rally Edition)."
+      "match_reason": "Multi-channel ram-air ventilation channels laminar airflow through the aggressive cockpit of the Ninja H2R Track Only (Apex Spec)."
     }
   ],
   "compatible_accessories": [
@@ -266,5 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85
+  "noise_db": 87,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

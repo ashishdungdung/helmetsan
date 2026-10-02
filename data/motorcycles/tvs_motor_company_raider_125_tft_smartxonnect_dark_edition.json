@@ -75,33 +75,33 @@
   },
   "compatible_helmets": [
     {
-      "id": "scorpion_exo_gt930_track_grey",
-      "title": "Scorpion scorpion_exo_gt930_track-grey",
-      "brand": "Scorpion EXO",
-      "type": "Full Face",
-      "match_score": 98,
-      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked TVS Motor Company Raider 125 TFT SmartXonnect (Dark Edition)."
-    },
-    {
       "id": "apex_revolt_matte-black",
       "title": "Revolt Matte Black",
       "brand": "Apex",
       "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Raider 125 TFT SmartXonnect (Dark Edition) at highway speeds."
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked TVS Motor Company Raider 125 TFT SmartXonnect (Dark Edition)."
     },
     {
       "id": "vega_crux_dx_apex-tc-1",
       "title": "Crux DX Apex TC-1",
       "brand": "Vega",
       "type": "Full Face",
-      "match_score": 91,
-      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the TVS Motor Company Raider 125 TFT SmartXonnect (Dark Edition)."
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Raider 125 TFT SmartXonnect (Dark Edition) at highway speeds."
     },
     {
       "id": "ls2_thunder_matte-black",
       "title": "Thunder Matte Black",
       "brand": "LS2",
+      "type": "Full Face",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the TVS Motor Company Raider 125 TFT SmartXonnect (Dark Edition)."
+    },
+    {
+      "id": "torc_t_14b_hi-viz-yellow",
+      "title": "T-14B Hi-Viz Yellow",
+      "brand": "Torc",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Raider 125 TFT SmartXonnect (Dark Edition)."
@@ -123,5 +123,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-RAIDER-125-TFT",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_raider_125_tft_smartxonnect_dark_edition accessories motorcycle gear"
+  }
 }

@@ -89,18 +89,18 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 250 Duke Gen-3 at highway speeds."
     },
     {
-      "id": "klim_f5_koroyd_white",
-      "title": "-F5 Koroyd White",
-      "brand": "Klim",
-      "type": "Full Face",
-      "match_score": 91,
-      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 250 Duke Gen-3."
-    },
-    {
       "id": "bell_broozer",
       "title": "Broozer",
       "brand": "Bell",
       "type": "Modular",
+      "match_score": 91,
+      "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 250 Duke Gen-3."
+    },
+    {
+      "id": "shoei_j_cruise_ii_pearl-white",
+      "title": "J-Cruise II Pearl White",
+      "brand": "Shoei",
+      "type": "Open Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 250 Duke Gen-3."
     }
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-250-DUK",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_250_duke_gen_3 accessories motorcycle gear"
+  }
 }

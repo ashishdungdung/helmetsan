@@ -8,7 +8,7 @@
     "Open Face"
   ],
   "parent_id": "caberg_flyon_ii",
-  "helmet_family": "Flyon II",
+  "helmet_family": "Caberg Flyon II",
   "price": {
     "usd": 299,
     "inr": 24817,
@@ -29,10 +29,10 @@
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 96
   },
   "description": "Tailored for classic roadsters and urban cruising, the Fly Racing Caberg Flyon II Hi-Viz Yellow is engineered for warm-weather riding with featherweight crown comfort. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1272g, channeling boundary-layer airflow to maintain a ~98 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
   "product_details": {
@@ -63,16 +63,140 @@
   },
   "model_year": "2023",
   "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": "B0ED7DCAA9",
+        "status": "verified",
+        "confidence": 0.95,
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "ca": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "uk": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "de": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "fr": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "it": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "es": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "nl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "pl": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "se": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "be": {
+        "asin": null,
+        "status": "onelink_forwarding",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Fly Racing Caberg Flyon II Hi-Viz Yellow"
+      }
+    },
+    "gtin": "4960226069921",
+    "ean": "4960226069921",
+    "ean_status": "valid",
     "mpn": "Flyon II Hi-Viz Yellow",
-    "sku": "CAB-CABERG",
-    "asin": "B0ED7DCAA9",
-    "ean": "4960226069921"
+    "sku": "HSN-HLM-CABERG-FLYON-II-HI-VIZ-YELLOW",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "ECE 22.06",
     "sharp_rating": 0,
     "rotational_mitigation": "None",
-    "emergency_release_system": false
+    "emergency_release_system": false,
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Standard open-face fit with a semi-spherical shell; generally fits most head shapes comfortably but may feel tight on very large heads due to the fixed cheek pads.",
@@ -80,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -261,5 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98
+  "noise_db": 96,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

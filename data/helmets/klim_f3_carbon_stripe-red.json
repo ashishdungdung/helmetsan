@@ -8,7 +8,7 @@
     "Dirt / MX"
   ],
   "parent_id": "klim_f3_carbon",
-  "helmet_family": "F3 Carbon",
+  "helmet_family": "F3",
   "price": {
     "usd": 449,
     "inr": 37267,
@@ -24,17 +24,17 @@
   "head_shape": "Intermediate Oval",
   "specs": {
     "material": "Carbon Fiber",
-    "weight_g": 1313,
-    "weight_lbs": 2.89,
+    "weight_g": 1314,
+    "weight_lbs": 2.9,
     "certifications": [
       "DOT",
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Double D-Ring",
+    "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 99
   },
   "description": "Built for aggressive dirt performance, the Klim F3 Carbon Stripe Red delivers competition-grade off-road impact absorption with maximum cooling throughput across punishing tracks and trails. Its Aerospace-Grade 100% Carbon Fiber shell tips the scales at a featherweight 1313g, channeling boundary-layer airflow to maintain a ~100 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
   "product_details": {
@@ -64,15 +64,140 @@
   },
   "model_year": 2018,
   "identifiers": {
-    "asin": "B07QKZV8YJ",
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "quarantined",
+        "quarantined_asin": "B07QKZV8YJ",
+        "reason": "SYNTHETIC_COLLISION",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "Klim F3 Carbon Stripe Red"
+      }
+    },
+    "gtin": "842651003900",
     "ean": "842651003900",
+    "ean_status": "valid",
     "mpn": "F3-MS-CR",
-    "sku": "KLI-KLIMF3"
+    "sku": "HSN-HLM-KLIM-F3-CARBON-STRIPE-RED",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
   },
   "safety_intelligence": {
     "homologation_standard": "DOT, ECE 22.05",
-    "sharp_rating": 5,
-    "rotational_mitigation": "MIPS"
+    "sharp_rating": 0,
+    "rotational_mitigation": "MIPS",
+    "sharp_verified": false,
+    "strap_fastener_type": "Double-D Ring"
   },
   "sizing_fit": {
     "fit_notes": "Designed for aggressive off-road riding; features a carbon fiber reinforced shell with red stripe graphics. The fit is optimized for motocross and enduro use, offering a secure, low-profile look that accommodates goggles and communication systems.",
@@ -80,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -109,7 +234,7 @@
   "country_origin": "United States 🇺🇸",
   "category": "Dirt / MX",
   "physics_intelligence": {
-    "weight_grams": 1313,
+    "weight_grams": 1314,
     "acoustic_noise_rating_db": "97 dB @ 100km/h",
     "aerodynamic_lift_force_n": "4.2 N @ 180km/h",
     "safety_certifications": [
@@ -262,5 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100
+  "noise_db": 99,
+  "sharp_rating": 0,
+  "sharp_verified": false
 }

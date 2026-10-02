@@ -74,7 +74,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -89,18 +89,18 @@
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the 450 EXC-F Six Days at highway speeds."
     },
     {
-      "id": "klim_tk1200_karbon_silver",
-      "title": "TK1200 Karbon Silver",
-      "brand": "Klim",
+      "id": "airoh_matryx_hi-viz-yellow",
+      "title": "Matryx Hi-Viz Yellow",
+      "brand": "Airoh",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM 450 EXC-F Six Days."
     },
     {
-      "id": "shoei_rf_1400_accolade-tc-10",
-      "title": "RF-1400 Accolade TC-10",
-      "brand": "Shoei",
-      "type": "Full Face",
+      "id": "klim_tk1200_karbon",
+      "title": "TK1200 Karbon",
+      "brand": "Klim",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the 450 EXC-F Six Days."
     }
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-450-EXC",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_450_exc_f_six_days accessories motorcycle gear"
+  }
 }

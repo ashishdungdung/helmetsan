@@ -5,10 +5,10 @@
   "brand": "KTM",
   "country_origin": "Austria 🇦🇹",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 889.0,
+  "power_hp": 105.0,
+  "torque_nm": 100.0,
+  "curb_weight_kg": 219.0,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -50,11 +50,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "889cc Parallel-Twin Liquid-Cooled DOHC 8V",
+      "power_hp": 105.0,
+      "torque_nm": 100.0,
+      "curb_weight_kg": 219.0,
+      "power_to_weight": "47.9 HP/100kg",
+      "transmission": "6-speed Manual with Easy Shift"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -73,34 +74,34 @@
   },
   "compatible_helmets": [
     {
-      "id": "klim_klim_f5_koroyd_vortex_tc_2",
-      "title": "-F5 Koroyd Vortex TC-2",
-      "brand": "Klim",
-      "type": "Full Face",
-      "match_score": 98,
-      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked KTM Husqvarna Norden 901 Expedition (Explorer Pack)."
-    },
-    {
       "id": "bell_qualifier_white",
       "title": "Qualifier White",
       "brand": "Bell",
       "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Husqvarna Norden 901 Expedition (Explorer Pack) at highway speeds."
+      "match_score": 98,
+      "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked KTM Husqvarna Norden 901 Expedition (Explorer Pack)."
     },
     {
       "id": "shoei_neotec_3_grasp-tc-1",
       "title": "Neotec 3 Grasp TC-1",
       "brand": "Shoei",
       "type": "Modular",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the Husqvarna Norden 901 Expedition (Explorer Pack) at highway speeds."
+    },
+    {
+      "id": "klim_tk1200_karbon_operator-tc-5",
+      "title": "TK1200 Karbon Operator TC-5",
+      "brand": "Klim",
+      "type": "Modular",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM Husqvarna Norden 901 Expedition (Explorer Pack)."
     },
     {
-      "id": "shoei_j_cruise_ii_pearl-white",
-      "title": "J-Cruise II Pearl White",
-      "brand": "Shoei",
-      "type": "Open Face",
+      "id": "bell_broozer_hi-viz-yellow",
+      "title": "Broozer Hi-Viz Yellow",
+      "brand": "Bell",
+      "type": "Modular",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the Husqvarna Norden 901 Expedition (Explorer Pack)."
     }
@@ -121,5 +122,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-HUSQVARNA-N",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_husqvarna_norden_901_expedition_explorer_pack accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual with Easy Shift",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

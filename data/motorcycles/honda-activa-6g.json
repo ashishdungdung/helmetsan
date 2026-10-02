@@ -78,11 +78,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 0,
-      "torque_nm": 0,
-      "curb_weight_kg": 0,
-      "power_to_weight": "Optimal street balance"
+      "displacement": "109.5cc Single-Cylinder 4-Stroke PGM-FI",
+      "power_hp": 7.8,
+      "torque_nm": 8.9,
+      "curb_weight_kg": 106,
+      "power_to_weight": "7.4 HP/100kg",
+      "transmission": "CVT Automatic"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -150,5 +151,18 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-ACTIVA",
+    "sku": "HSN-MOTO-HONDA-ACTIVA-6G",
+    "model_year": null,
+    "gear_search_fallback": "Honda Activa 6G accessories motorcycle gear"
+  },
+  "displacement_cc": 109.5,
+  "power_hp": 7.8,
+  "torque_nm": 8.9,
+  "curb_weight_kg": 106,
+  "transmission": "CVT Automatic",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

@@ -4,10 +4,10 @@
   "title": "Jawa & Yezdi BSA Perak 334 Custom",
   "brand": "Global",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 334.0,
+  "power_hp": 30.6,
+  "torque_nm": 32.74,
+  "curb_weight_kg": 185.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "334cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 30.6,
+      "torque_nm": 32.74,
+      "curb_weight_kg": 185.0,
+      "power_to_weight": "16.5 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "GLOB-JAWA_Y",
+    "sku": "HSN-MOTO-JAWA-YEZDI-BSA-JAWA-PERAK-334-CU",
+    "model_year": null,
+    "gear_search_fallback": "Global jawa_yezdi_bsa_jawa_perak_334_custom accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

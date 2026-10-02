@@ -1,96 +1,243 @@
 {
-    "entity": "accessory",
-    "id": "hearing-protection-earplugs",
-    "title": "NoNoise Motorsport Filtered Earplugs",
-    "type": "Hearing Protection",
-    "compatible_helmet_types": [
-        "Full Face",
-        "Modular",
-        "Adventure",
-        "Open Face",
-        "Half",
-        "Motocross"
+  "entity": "accessory",
+  "id": "hearing-protection-earplugs",
+  "title": "NoNoise Motorsport Filtered Earplugs",
+  "type": "Hearing Protection",
+  "compatible_helmet_types": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face",
+    "Half",
+    "Dirt / MX"
+  ],
+  "compatible_brands": [
+    "Universal"
+  ],
+  "compatible_helmet_ids": [],
+  "features": [
+    "Noise reduction rating of 24dB for hearing protection",
+    "Filtered design allows natural sound transmission",
+    "Universal fit compatible with most motorcycle helmets"
+  ],
+  "price": {
+    "usd": 150,
+    "inr": 12450,
+    "eur": 138,
+    "gbp": 119,
+    "jpy": 23250
+  },
+  "geo_pricing": {
+    "US": {
+      "price": 24.95,
+      "currency": "USD",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "EU": {
+      "price": 19.95,
+      "currency": "EUR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    },
+    "IN": {
+      "price": 1999,
+      "currency": "INR",
+      "availability": "in_stock",
+      "updated_at": "2026-02-20"
+    }
+  },
+  "description": "<p>Engineered specifically for high-speed motorcyclists, the NoNoise Motorsport Filtered Earplugs from NoNoise filters out damaging cockpit wind blast while preserving acoustic fidelity for sirens, horns, and comms. Built with 100% Sweat-Proof & Washable Medical Polymer, it boasts an installation rating of 0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem).</p><p>The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days.</p>",
+  "accessory_pinlock_ready": 0,
+  "accessory_electric_compatible": 0,
+  "accessory_snow_compatible": 0,
+  "accessory_subcategory": "Filtered Earplugs",
+  "identifiers": {
+    "amazon": {
+      "us": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "ca": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "mx": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "br": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "uk": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "de": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "fr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "it": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "es": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "nl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "pl": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "se": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "be": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "tr": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "in": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "jp": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "au": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "sg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "ae": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "sa": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "eg": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      },
+      "za": {
+        "asin": null,
+        "status": "search_fallback",
+        "search_fallback": "NoNoise NoNoise Motorsport Filtered Earplugs"
+      }
+    },
+    "gtin": null,
+    "ean": null,
+    "mpn": "NN-MOT-FILT",
+    "sku": "HSN-ACC-HEARING-PROTECTION-EARPLUGS",
+    "retailer_skus": {
+      "revzilla": null,
+      "fc_moto": null,
+      "motoin": null,
+      "cyclegear": null,
+      "louis": null,
+      "chromeburner": null
+    }
+  },
+  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the NoNoise NoNoise Motorsport Filtered Earplugs.",
+  "unified_enriched": true,
+  "accessory_physics_matrix": {
+    "noise_reduction_snr_db": "24 dB SNR (High: 26dB, Mid: 21dB, Low: 18dB)",
+    "acoustic_filter_profile": "Precision Ceramic Venturi Filter (dampens harmful 2kHz–4kHz wind blast; preserves sirens & comms)",
+    "hypoallergenic_material": "Medical-grade thermoplastic elastomer (silicone-free, thermo-reactive body heat fit)",
+    "reusability_durability": "100+ Rides (Precision washable with warm soapy water)",
+    "battery_life_operating_hours": "Passive Acoustic Attenuation (Zero Battery Required)",
+    "waterproof_ip_rating": "100% Sweat-Proof & Washable Medical Polymer",
+    "installation_difficulty": "0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem)",
+    "audio_driver_specification": "Dual-Band Wind Noise Baffling with Open Voice & Siren Frequency Passage"
+  },
+  "qualitative_intelligence": {
+    "glove_friendly_controls": "Slim textured pull-stem allows effortless insertion and extraction even with riding gloves or cold fingertips.",
+    "wind_noise_suppression_mic": "Ceramic micro-filter delivers an SNR of 24 dB, cutting exhausting cockpit wind roar while keeping sirens, horns, and comms crystal clear.",
+    "real_world_pros": [
+      "Eliminates highway wind fatigue without isolating the rider from traffic sounds",
+      "Hypoallergenic medical-grade material conforms to ear canal body heat",
+      "Washable and reusable across hundreds of touring stints"
     ],
-    "compatible_brands": [
-        "Universal"
+    "real_world_cons": [
+      "Requires finding the correct insertion depth for optimal acoustic seal",
+      "Easy to misplace without using the included aluminum carrying pod"
     ],
-    "compatible_helmet_ids": [],
-    "features": [
-        "Noise reduction rating of 24dB for hearing protection",
-        "Filtered design allows natural sound transmission",
-        "Universal fit compatible with most motorcycle helmets"
+    "editorial_verdict": "The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days."
+  },
+  "brand": "NoNoise",
+  "marketplace_links": {
+    "amazon": "https://www.amazon.com/s?k=NoNoise+Motorsport+Filtered+Earplugs&tag=helmetsan-20"
+  },
+  "affiliate_links": {
+    "amazon": {
+      "url": "https://www.amazon.com/s?k=NoNoise+Motorsport+Filtered+Earplugs&tag=helmetsan-20",
+      "network": "amazon"
+    }
+  },
+  "editorial_overview": "Engineered specifically for high-speed motorcyclists, the NoNoise Motorsport Filtered Earplugs from NoNoise filters out damaging cockpit wind blast while preserving acoustic fidelity for sirens, horns, and comms. Built with 100% Sweat-Proof & Washable Medical Polymer, it boasts an installation rating of 0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem). The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days.",
+  "rider_takeaway": "The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days.",
+  "compatibility": [
+    "Full Face",
+    "Modular",
+    "Adventure / Dual Sport",
+    "Open Face",
+    "Half",
+    "Dirt / MX",
+    "Universal"
+  ],
+  "price_placeholder": true,
+  "compatibility_matrix": {
+    "helmet_types": [
+      "Full Face",
+      "Modular",
+      "Adventure / Dual Sport",
+      "Open Face",
+      "Half",
+      "Dirt / MX"
     ],
-    "price": {
-        "usd": 150,
-        "inr": 12450,
-        "eur": 138,
-        "gbp": 119,
-        "jpy": 23250
-    },
-    "geo_pricing": {
-        "US": {
-            "price": 24.95,
-            "currency": "USD",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "EU": {
-            "price": 19.95,
-            "currency": "EUR",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        },
-        "IN": {
-            "price": 1999,
-            "currency": "INR",
-            "availability": "in_stock",
-            "updated_at": "2026-02-20"
-        }
-    },
-    "description": "<p>Engineered specifically for high-speed motorcyclists, the NoNoise Motorsport Filtered Earplugs from NoNoise filters out damaging cockpit wind blast while preserving acoustic fidelity for sirens, horns, and comms. Built with 100% Sweat-Proof & Washable Medical Polymer, it boasts an installation rating of 0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem).</p><p>The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days.</p>",
-    "accessory_pinlock_ready": 0,
-    "accessory_electric_compatible": 0,
-    "accessory_snow_compatible": 0,
-    "accessory_subcategory": "Filtered Earplugs",
-    "identifiers": {
-        "mpn": "NN-MOT-FILT"
-    },
-    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the NoNoise NoNoise Motorsport Filtered Earplugs.",
-    "unified_enriched": true,
-    "accessory_physics_matrix": {
-        "noise_reduction_snr_db": "24 dB SNR (High: 26dB, Mid: 21dB, Low: 18dB)",
-        "acoustic_filter_profile": "Precision Ceramic Venturi Filter (dampens harmful 2kHz–4kHz wind blast; preserves sirens & comms)",
-        "hypoallergenic_material": "Medical-grade thermoplastic elastomer (silicone-free, thermo-reactive body heat fit)",
-        "reusability_durability": "100+ Rides (Precision washable with warm soapy water)",
-        "battery_life_operating_hours": "Passive Acoustic Attenuation (Zero Battery Required)",
-        "waterproof_ip_rating": "100% Sweat-Proof & Washable Medical Polymer",
-        "installation_difficulty": "0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem)",
-        "audio_driver_specification": "Dual-Band Wind Noise Baffling with Open Voice & Siren Frequency Passage"
-    },
-    "qualitative_intelligence": {
-        "glove_friendly_controls": "Slim textured pull-stem allows effortless insertion and extraction even with riding gloves or cold fingertips.",
-        "wind_noise_suppression_mic": "Ceramic micro-filter delivers an SNR of 24 dB, cutting exhausting cockpit wind roar while keeping sirens, horns, and comms crystal clear.",
-        "real_world_pros": [
-            "Eliminates highway wind fatigue without isolating the rider from traffic sounds",
-            "Hypoallergenic medical-grade material conforms to ear canal body heat",
-            "Washable and reusable across hundreds of touring stints"
-        ],
-        "real_world_cons": [
-            "Requires finding the correct insertion depth for optimal acoustic seal",
-            "Easy to misplace without using the included aluminum carrying pod"
-        ],
-        "editorial_verdict": "The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days."
-    },
-    "brand": "NoNoise",
-    "marketplace_links": {
-        "amazon": "https://www.amazon.com/s?k=NoNoise+Motorsport+Filtered+Earplugs&tag=helmetsan-20"
-    },
-    "affiliate_links": {
-        "amazon": {
-            "url": "https://www.amazon.com/s?k=NoNoise+Motorsport+Filtered+Earplugs&tag=helmetsan-20",
-            "network": "amazon"
-        }
-    },
-    "editorial_overview": "Engineered specifically for high-speed motorcyclists, the NoNoise Motorsport Filtered Earplugs from NoNoise filters out damaging cockpit wind blast while preserving acoustic fidelity for sirens, horns, and comms. Built with 100% Sweat-Proof & Washable Medical Polymer, it boasts an installation rating of 0.5 / 10 (Direct ear-canal contour fit with integral soft extraction stem). The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days.",
-    "rider_takeaway": "The NoNoise Motorsport Filtered Earplugs from NoNoise is essential protective equipment for any serious motorcyclist. By isolating hazardous wind frequencies while preserving situational awareness, it prevents permanent hearing fatigue across long highway days."
+    "brands": [
+      "Universal"
+    ],
+    "helmet_ids": []
+  }
 }

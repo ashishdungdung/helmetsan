@@ -4,10 +4,10 @@
   "title": "DesertX Rally",
   "brand": "Ducati",
   "category": "Adventure Tourer",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 937.0,
+  "power_hp": 110.0,
+  "torque_nm": 92.0,
+  "curb_weight_kg": 223,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -74,11 +74,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "937cc Testastretta 11-Degree L-Twin DOHC",
+      "power_hp": 110.0,
+      "torque_nm": 92.0,
+      "curb_weight_kg": 223,
+      "power_to_weight": "49.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 855,
@@ -146,5 +147,14 @@
       "title": "Macna Cooling Vest Evo",
       "reason": "Lowers rider core body temperature up to 15°C across scorching desert and highway stretches on the DesertX Rally."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "DUCA-DUCATI",
+    "sku": "HSN-MOTO-DUCATI-DESERTX-RALLY",
+    "model_year": null,
+    "gear_search_fallback": "Ducati ducati_desertx_rally accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

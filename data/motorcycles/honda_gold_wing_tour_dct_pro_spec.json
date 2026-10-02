@@ -5,10 +5,10 @@
   "brand": "Honda",
   "country_origin": "Japan 🇯🇵",
   "category": "Luxury Grand Tourer",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 1833.0,
+  "power_hp": 126.0,
+  "torque_nm": 170.0,
+  "curb_weight_kg": 383,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -52,11 +52,12 @@
       "target_terrain": "Interstate highways, cross-country transits, and two-up touring"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "1833cc Horizontally-Opposed 6-Cylinder Liquid-Cooled",
+      "power_hp": 126.0,
+      "torque_nm": 170.0,
+      "curb_weight_kg": 383,
+      "power_to_weight": "32.9 HP/100kg",
+      "transmission": "7-speed Dual Clutch Transmission (DCT)"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -123,5 +124,14 @@
       "title": "Rain-X Visor Rain Repellent",
       "reason": "115° hydrophobic water beading ensures crystal-clear optical sightlines during wet mountain passes on the Gold Wing Tour DCT (Pro Spec)."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-HONDA_",
+    "sku": "HSN-MOTO-HONDA-GOLD-WING-TOUR-DCT-PRO-SPE",
+    "model_year": null,
+    "gear_search_fallback": "Honda honda_gold_wing_tour_dct_pro_spec accessories motorcycle gear"
+  },
+  "transmission": "7-speed Dual Clutch Transmission (DCT)",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

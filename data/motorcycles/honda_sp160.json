@@ -97,7 +97,7 @@
   "compatible_helmets": [
     {
       "id": "bell_star_dlx_mips_gloss_black",
-      "title": "bell_star_dlx_mips_gloss-black",
+      "title": "Star DLX MIPS Gloss Black",
       "brand": "Bell",
       "type": "Full Face",
       "match_score": 98,
@@ -144,5 +144,11 @@
       "title": "GoPro Chin Mount Kit",
       "reason": "Vibration-damped 4K telemetry and trackday POV recording mounted directly to the chin bar."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HOND-HONDA_",
+    "sku": "HSN-MOTO-HONDA-SP160",
+    "model_year": null,
+    "gear_search_fallback": "Honda honda_sp160 accessories motorcycle gear"
+  }
 }

@@ -81,26 +81,26 @@
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked KTM RC 200 GP (Urban Carbon)."
     },
     {
-      "id": "klim_f5_koroyd_white",
-      "title": "-F5 Koroyd White",
-      "brand": "Klim",
-      "type": "Full Face",
-      "match_score": 94,
-      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the RC 200 GP (Urban Carbon) at highway speeds."
-    },
-    {
       "id": "bell_custom_500_anthracite",
       "title": "Custom 500 Anthracite",
       "brand": "Bell",
       "type": "Open Face",
+      "match_score": 94,
+      "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the RC 200 GP (Urban Carbon) at highway speeds."
+    },
+    {
+      "id": "ruroc_atlas_4_0_hi-viz-yellow",
+      "title": "Atlas 4.0 Hi-Viz Yellow",
+      "brand": "Ruroc",
+      "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the KTM RC 200 GP (Urban Carbon)."
     },
     {
-      "id": "bell_bullitt_white",
-      "title": "Bullitt White",
+      "id": "bell_qualifier_dlx_mips_solid-tc-3",
+      "title": "Qualifier DLX MIPS Solid TC-3",
       "brand": "Bell",
-      "type": "Open Face",
+      "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the RC 200 GP (Urban Carbon)."
     }
@@ -121,5 +121,11 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "KTM-KTM_HU",
+    "sku": "HSN-MOTO-KTM-HUSQVARNA-GASGAS-KTM-RC-200-",
+    "model_year": null,
+    "gear_search_fallback": "KTM ktm_husqvarna_gasgas_ktm_rc_200_gp_urban_carbon accessories motorcycle gear"
+  }
 }

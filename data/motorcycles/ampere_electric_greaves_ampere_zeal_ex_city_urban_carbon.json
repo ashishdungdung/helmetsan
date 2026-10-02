@@ -101,8 +101,8 @@
     },
     {
       "id": "sedici_bella",
-      "title": "Sedici Bella",
-      "brand": "Bell",
+      "title": "Bella",
+      "brand": "Sedici",
       "type": "Open Face",
       "match_score": 87,
       "match_reason": "Direct flow-through ventilation keeps urban commuters cool and dry through dense stop-and-go traffic on the Ampere Zeal EX City (Urban Carbon)."
@@ -124,5 +124,13 @@
       "title": "Helmetlok Carabiner Helmet Lock",
       "reason": "Secures helmet to the luggage rack or frame of the Ampere Electric (Greaves) Ampere Zeal EX City (Urban Carbon) when stowing in compact spaces."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "AMPE-AMPERE",
+    "sku": "HSN-MOTO-AMPERE-ELECTRIC-GREAVES-AMPERE-Z",
+    "model_year": null,
+    "gear_search_fallback": "Ampere Electric (Greaves) ampere_electric_greaves_ampere_zeal_ex_city_urban_carbon accessories motorcycle gear"
+  },
+  "powertrain": "electric",
+  "fuel_type": "electric"
 }

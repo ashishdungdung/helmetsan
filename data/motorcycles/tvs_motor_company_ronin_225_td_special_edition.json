@@ -5,10 +5,10 @@
   "brand": "TVS Motor Company",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 225.9,
+  "power_hp": 20.4,
+  "torque_nm": 19.93,
+  "curb_weight_kg": 160.0,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -52,11 +52,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "225.9cc Single-Cylinder Oil-Cooled SOHC 4V",
+      "power_hp": 20.4,
+      "torque_nm": 19.93,
+      "curb_weight_kg": 160.0,
+      "power_to_weight": "12.8 HP/100kg",
+      "transmission": "5-speed Manual with Assist & Slipper Clutch"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -92,7 +93,7 @@
     },
     {
       "id": "scorpion_exo_r420_vortex-blue",
-      "title": "-R420 Vortex Blue",
+      "title": "EXO-R420 Vortex Blue",
       "brand": "Scorpion EXO",
       "type": "Full Face",
       "match_score": 91,
@@ -123,5 +124,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "TVS -TVS_MO",
+    "sku": "HSN-MOTO-TVS-MOTOR-COMPANY-RONIN-225-TD-S",
+    "model_year": null,
+    "gear_search_fallback": "TVS Motor Company tvs_motor_company_ronin_225_td_special_edition accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual with Assist & Slipper Clutch",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

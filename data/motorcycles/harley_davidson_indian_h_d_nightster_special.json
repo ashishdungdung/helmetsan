@@ -4,10 +4,10 @@
   "title": "H-D Nightster Special",
   "brand": "Harley-Davidson",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 12,
-  "torque_nm": 10,
-  "curb_weight_kg": 110,
+  "displacement_cc": 975.0,
+  "power_hp": 89.0,
+  "torque_nm": 95.0,
+  "curb_weight_kg": 221,
   "price": {
     "usd": 1500,
     "inr": 124500,
@@ -73,11 +73,12 @@
       "target_terrain": "Urban lane-splitting, daily city commuting, and weekend backroad blasts"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 12,
-      "torque_nm": 10,
-      "curb_weight_kg": 110,
-      "power_to_weight": "10.9 HP/100kg"
+      "displacement": "975cc Revolution Max 975T V-Twin Liquid-Cooled DOHC",
+      "power_hp": 89.0,
+      "torque_nm": 95.0,
+      "curb_weight_kg": 221,
+      "power_to_weight": "40.3 HP/100kg",
+      "transmission": "6-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -121,7 +122,7 @@
     },
     {
       "id": "shoei_tec_ii_matte_deep_grey",
-      "title": "TC-10 Matte Deep Grey",
+      "title": "Tec II Matte Deep Grey",
       "brand": "Shoei",
       "type": "Full Face",
       "match_score": 87,
@@ -144,5 +145,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "HARL-HARLEY",
+    "sku": "HSN-MOTO-HARLEY-DAVIDSON-INDIAN-H-D-NIGHT",
+    "model_year": null,
+    "gear_search_fallback": "Harley-Davidson harley_davidson_indian_h_d_nightster_special accessories motorcycle gear"
+  },
+  "transmission": "6-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }

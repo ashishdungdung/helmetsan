@@ -5,10 +5,10 @@
   "brand": "BSA Motorcycles India",
   "country_origin": "India 🇮🇳",
   "category": "Urban Roadster",
-  "displacement_cc": 0,
-  "power_hp": 16,
-  "torque_nm": 13,
-  "curb_weight_kg": 108,
+  "displacement_cc": 652.0,
+  "power_hp": 45.0,
+  "torque_nm": 55.0,
+  "curb_weight_kg": 218,
   "price": {
     "usd": 2450,
     "inr": 203350,
@@ -52,11 +52,12 @@
       "target_terrain": "Highway asphalt, mountain switchbacks, gravel washboards, and rugged trails"
     },
     "powertrain_and_chassis": {
-      "displacement": "high-efficiency electric",
-      "power_hp": 16,
-      "torque_nm": 13,
-      "curb_weight_kg": 108,
-      "power_to_weight": "14.8 HP/100kg"
+      "displacement": "652cc Single-Cylinder Liquid-Cooled DOHC 4V",
+      "power_hp": 45.0,
+      "torque_nm": 55.0,
+      "curb_weight_kg": 218,
+      "power_to_weight": "20.6 HP/100kg",
+      "transmission": "5-speed Manual"
     },
     "ergonomics_and_cockpit": {
       "seat_height_mm": 790,
@@ -83,25 +84,25 @@
       "match_reason": "Aero chin spoiler eliminates lateral head buffet caused by direct handlebar windblast on the naked BSA Motorcycles India BSA B65 Scrambler Concept (Performance Edition)."
     },
     {
-      "id": "scorpion_exo_r1_air_vortex_tc_3",
-      "title": "Scorpion scorpion_exo_r1_air_vortex-tc-3",
-      "brand": "Scorpion EXO",
+      "id": "apex_revolt_matte-black",
+      "title": "Revolt Matte Black",
+      "brand": "Apex",
       "type": "Full Face",
       "match_score": 94,
       "match_reason": "Acoustic neck roll and tight eyeport gasket dampen open-air wind roar on the BSA B65 Scrambler Concept (Performance Edition) at highway speeds."
     },
     {
-      "id": "apex_revolt_matte-black",
-      "title": "Revolt Matte Black",
-      "brand": "Apex",
+      "id": "mt_helmets_rapide_pro",
+      "title": "Rapide Pro",
+      "brand": "MT Helmets",
       "type": "Full Face",
       "match_score": 91,
       "match_reason": "Lightweight composite shell reduces cervical fatigue during upright streetfighter blasts aboard the BSA Motorcycles India BSA B65 Scrambler Concept (Performance Edition)."
     },
     {
-      "id": "apex_apex_2_carbon",
-      "title": "Apex 2 Carbon",
-      "brand": "Apex",
+      "id": "sedici_strada_3",
+      "title": "Strada 3",
+      "brand": "Sedici",
       "type": "Full Face",
       "match_score": 87,
       "match_reason": "High-efficiency intake ports provide active cooling during aggressive throttle transitions on the BSA B65 Scrambler Concept (Performance Edition)."
@@ -123,5 +124,14 @@
       "title": "Cardo Spirit HD Duo",
       "reason": "Slim low-drag Bluetooth 5.2 intercom for navigation alerts and rider communications across urban traffic."
     }
-  ]
+  ],
+  "identifiers": {
+    "oem_family_code": "BSA -BSA_MO",
+    "sku": "HSN-MOTO-BSA-MOTORCYCLES-INDIA-BSA-B65-SC",
+    "model_year": null,
+    "gear_search_fallback": "BSA Motorcycles India bsa_motorcycles_india_bsa_b65_scrambler_concept_performance_edition accessories motorcycle gear"
+  },
+  "transmission": "5-speed Manual",
+  "powertrain": "internal combustion engine",
+  "fuel_type": "petrol"
 }
