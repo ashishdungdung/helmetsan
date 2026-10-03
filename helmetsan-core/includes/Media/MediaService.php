@@ -110,23 +110,32 @@ final class MediaService
             ];
         }
 
-        // 2. Gallery Images (geo_media_json)
+        // 2. Gallery Images (geo_media_json with recursive extraction & placehold.co filter)
         $geoMediaJson = get_post_meta($helmetId, 'geo_media_json', true);
         if (is_string($geoMediaJson) && $geoMediaJson !== '') {
             $media = json_decode($geoMediaJson, true);
             if (is_array($media)) {
-                foreach ($media as $imageUrl) {
-                    if (! is_string($imageUrl) || $imageUrl === '') {
-                        continue;
+                $rawUrls = [];
+                $extractFn = function ($items) use (&$extractFn, &$rawUrls) {
+                    foreach ($items as $val) {
+                        if (is_string($val) && $val !== '' && strpos($val, 'placehold.co') === false) {
+                            $rawUrls[] = $val;
+                        } elseif (is_array($val)) {
+                            $extractFn($val);
+                        }
                     }
-                    $imageUrl = esc_url_raw($imageUrl);
-                    if ($imageUrl === '') {
+                };
+                $extractFn($media);
+
+                foreach (array_unique($rawUrls) as $imageUrl) {
+                    $cleanUrl = esc_url_raw($imageUrl);
+                    if ($cleanUrl === '') {
                         continue;
                     }
                     $gallery[] = [
                         'type' => 'image',
-                        'url' => $imageUrl,
-                        'thumb' => $imageUrl,
+                        'url' => $cleanUrl,
+                        'thumb' => $cleanUrl,
                         'alt' => get_the_title($helmetId),
                     ];
                 }
@@ -153,6 +162,14 @@ final class MediaService
                         'thumb' => $this->getVideoThumbnail($videoUrl),
                     ];
                 }
+            }
+        }
+
+                // 4. Fallback to Parent Helmet Gallery if variant has no images
+        if (empty($gallery)) {
+            $parentId = wp_get_post_parent_id($helmetId);
+            if ($parentId > 0 && $parentId !== $helmetId) {
+                return $this->getProductGallery($parentId);
             }
         }
 

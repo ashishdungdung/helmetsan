@@ -396,7 +396,9 @@ def translate_helmet_metal(helmet, lang, model):
 # Autonomous Live Runner
 # ─────────────────────────────────────────────────────────────────────────────
 class TranslationBot:
-    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None, workers=2, post_id=None):
+    def __init__(self, target_lang="de", model=DEFAULT_MODEL, batch_size=10, all_langs=False, max_count=None, workers=2, post_id=None, compute_node="swarm", timeout=180):
+        self.compute_node = compute_node
+        self.timeout = timeout
         self.target_lang = target_lang
         self.model = model
         self.post_id = post_id
@@ -496,7 +498,7 @@ class TranslationBot:
                     h_title = helmet["title"]
                     h_slug = helmet["slug"]
 
-                    parsed, elapsed = translate_helmet_metal(helmet, lang, self.model)
+                    parsed, elapsed = translate_helmet_metal(helmet, lang, self.model, compute_node=self.compute_node, timeout=self.timeout)
                     if not parsed:
                         log(f"  ❌ #{h_id} '{h_title}' translation failed. Adding to temporary exclude.")
                         self.failed_ids.add(h_id)
@@ -737,6 +739,8 @@ def main():
     parser.add_argument("--workers", type=int, default=2, help="Number of concurrent translation workers (default: 2)")
     parser.add_argument("--count", type=int, default=None, help="Target count of helmets to translate in this run (e.g. 200)")
     parser.add_argument("--post-id", type=int, default=None, help="Translate a specific helmet ID on-demand")
+    parser.add_argument("--compute-node", default="swarm", choices=["swarm", "node_a", "node_b"], help="Target compute node: swarm, node_a, or node_b")
+    parser.add_argument("--timeout", type=int, default=180, help="Per-candidate model inference timeout in seconds (default: 180)")
     parser.add_argument("--all-langs", action="store_true", help="Continue sequentially through all 9 languages")
     parser.add_argument("--daemon", action="store_true", help="Launch bot as background daemon")
     parser.add_argument("--stop", action="store_true", help="Stop running background daemon")
@@ -763,7 +767,9 @@ def main():
         all_langs=args.all_langs,
         max_count=args.count,
         workers=args.workers,
-        post_id=args.post_id
+        post_id=args.post_id,
+        compute_node=args.compute_node,
+        timeout=args.timeout
     )
     bot.run()
 
