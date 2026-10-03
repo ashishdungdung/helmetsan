@@ -118,7 +118,7 @@ final class MediaService
                 $rawUrls = [];
                 $extractFn = function ($items) use (&$extractFn, &$rawUrls) {
                     foreach ($items as $val) {
-                        if (is_string($val) && $val !== '' && strpos($val, 'placehold.co') === false) {
+                        if (is_string($val) && $val !== '' && strpos($val, 'placehold.co') === false && strpos($val, '/assets/helmets/') === false && strpos($val, 'cdn.helmetsan.com') === false) {
                             $rawUrls[] = $val;
                         } elseif (is_array($val)) {
                             $extractFn($val);

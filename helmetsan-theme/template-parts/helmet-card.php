@@ -32,19 +32,28 @@ if (has_post_thumbnail($helmetId)) {
     $geoMedia = get_post_meta($helmetId, 'geo_media_json', true);
     if (is_string($geoMedia) && $geoMedia !== '') {
         $arr = json_decode($geoMedia, true);
-        if (is_array($arr) && ! empty($arr) && is_string($arr[0])) {
-            $imgUrl = esc_url_raw($arr[0]);
+        if (is_array($arr) && ! empty($arr)) {
+            $extractValid = function ($items) use (&$extractValid, &$imgUrl) {
+                foreach ($items as $item) {
+                    if (is_string($item) && $item !== '' && strpos($item, 'placehold.co') === false && strpos($item, '/assets/helmets/') === false && strpos($item, 'cdn.helmetsan.com') === false) {
+                        $imgUrl = esc_url_raw($item);
+                        return;
+                    } elseif (is_array($item) && $imgUrl === '') {
+                        $extractValid($item);
+                    }
+                }
+            };
+            $extractValid($arr);
         }
     }
     // Check image_url meta fallback
     if ($imgUrl === '') {
         $metaImg = get_post_meta($helmetId, 'image_url', true);
-        if (is_string($metaImg) && $metaImg !== '') {
+        if (is_string($metaImg) && $metaImg !== '' && strpos($metaImg, 'placehold.co') === false && strpos($metaImg, '/assets/helmets/') === false && strpos($metaImg, 'cdn.helmetsan.com') === false) {
             $imgUrl = esc_url_raw($metaImg);
         }
     }
 }
-
 // Score verification (only show score if backed by SHARP or explicit verified score, never fabricate)
 $rawScore = (int) get_post_meta($helmetId, 'helmetsan_score', true);
 $hasVerifiedScore = false;

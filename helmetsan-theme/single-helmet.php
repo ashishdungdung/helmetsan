@@ -1095,7 +1095,15 @@ if (have_posts()) {
                                         echo $thumb;
                                     else : 
                                         $childGeoMedia = json_decode((string) get_post_meta($child->ID, 'geo_media_json', true), true);
-                                        $fallbackUrl = is_array($childGeoMedia) && !empty($childGeoMedia) ? $childGeoMedia[0] : '';
+                                        $fallbackUrl = '';
+                                        if (is_array($childGeoMedia) && !empty($childGeoMedia)) {
+                                            foreach ($childGeoMedia as $candidate) {
+                                                if (is_string($candidate) && $candidate !== '' && strpos($candidate, 'placehold.co') === false && strpos($candidate, '/assets/helmets/') === false && strpos($candidate, 'cdn.helmetsan.com') === false) {
+                                                    $fallbackUrl = esc_url_raw($candidate);
+                                                    break;
+                                                }
+                                            }
+                                        }
                                         if ($fallbackUrl) : ?>
                                             <img src="<?php echo esc_url($fallbackUrl); ?>" alt="<?php echo esc_attr($child->post_title); ?>" loading="lazy">
                                         <?php else : ?>
