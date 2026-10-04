@@ -98,54 +98,46 @@ final class HelmetCatalogSynthesizer
             str_contains($tLower, "adv") ||
             str_contains($tLower, "trail") ||
             str_contains($tLower, "dirt") ||
-            str_contains($tLower, "mx")
+            str_contains($tLower, "motocross") ||
+            str_contains($tLower, "enduro")
         ) {
             $disc = "adv";
         } elseif (
             str_contains($tLower, "track") ||
             str_contains($tLower, "race") ||
-            str_contains($tLower, "pista") ||
-            str_contains($tLower, "x-fifteen") ||
-            str_contains($tLower, "x-15") ||
-            str_contains($tLower, "corsair") ||
-            str_contains($tLower, "rpha 1")
+            str_contains($tLower, "corsa") ||
+            str_contains($tLower, "gp") ||
+            str_contains($tLower, "racing") ||
+            str_contains($tLower, "circuit")
         ) {
             $disc = "track";
         } elseif (
             str_contains($tLower, "modular") ||
-            str_contains($tLower, "flip-up") ||
-            str_contains($tLower, "neotec") ||
-            str_contains($tLower, "c5") ||
-            str_contains($tLower, "c4") ||
-            str_contains($tLower, "tourmodular")
-        ) {
-            $disc = "modular";
-        } elseif (
             str_contains($tLower, "touring") ||
-            str_contains($tLower, "gt-air") ||
-            str_contains($tLower, "rpha 71")
+            str_contains($tLower, "flip-up") ||
+            str_contains($tLower, "system") ||
+            str_contains($tLower, "gt") ||
+            str_contains($tLower, "tour")
         ) {
             $disc = "touring";
         } elseif (
+            str_contains($tLower, "cruiser") ||
             str_contains($tLower, "open face") ||
-            str_contains($tLower, "open-face") ||
-            str_contains($tLower, "3/4") ||
+            str_contains($tLower, "classic") ||
+            str_contains($tLower, "retro") ||
             str_contains($tLower, "half") ||
-            str_contains($tLower, "custom") ||
-            str_contains($tLower, "cruiser")
+            str_contains($tLower, "custom")
         ) {
             $disc = "cruiser";
         }
 
         $motoSynergy = match ($disc) {
             "adv"
-                => 'Engineered with aerodynamic peak clearance and high-flow dust filtration, this helmet is tailored for upright all-terrain adventure tourers such as the <a href="https://helmetsan.com/motorcycles/">Royal Enfield Himalayan 450, BMW R 1250 GS, and KTM 390 Adventure</a>.',
+                => "Optimized for upright enduro and dual-sport upright ergonomics, the peak visor and chin ventilation channel maximum airflow at moderate trail velocities while minimizing buffeting behind adventure windscreens.",
             "track"
-                => 'Calibrated for an aggressive 3/4 to full chin-on-tank tuck, this helmet minimizes parasitic aerodynamic drag at extreme velocities, making it an optimal companion for circuit and supersport machines including the <a href="https://helmetsan.com/motorcycles/">Yamaha YZF-R1, BMW S1000RR, and Kawasaki Ninja ZX-10R</a>.',
-            "modular"
-                => 'Acoustically insulated for long-distance highway comfort and upright ergonomics, this architecture pairs seamlessly with luxury grand tourers and versatile roadsters like the <a href="https://helmetsan.com/motorcycles/">Honda Gold Wing, BMW R 1250 RT, and Harley-Davidson Street Glide</a>.',
+                => "Aerodynamically tuned for deep tuck positions and high-speed trackway stability, the aggressive rear stabilizer reduces aerodynamic lift and vortex shedding at high velocity.",
             "touring"
-                => "Designed to isolate riders from sustained wind shear over high-mileage journeys, this helmet excels in neutral upright riding postures on sport-touring machines and premium highway cruisers.",
+                => "Engineered for cross-continental touring comfort, this chassis emphasizes sound dampening, integrated comm-system speaker pockets, and seamless transitions behind variable-height windscreens.",
             "cruiser"
                 => "Featuring a low-profile aesthetic and panoramic sightlines, this design complements modern classics, retro roadsters, and urban commuters with relaxed riding ergonomics.",
             default
@@ -214,12 +206,12 @@ final class HelmetCatalogSynthesizer
     }
 
     /**
-     * Executes the catalog persistence pipeline.
+     * Executes the catalog persistence pipeline with keyset pagination.
      *
      * @param int $limit Max records to process (0 = all).
      * @param int $batchSize Batch size for transactions.
      * @param bool $dryRun If true, does not write to database.
-     * @param bool $force If true, updates records even if already long.
+     * @param bool $force If true, updates records even if already rich.
      * @return array<string, mixed>
      */
     public function run(
@@ -232,30 +224,47 @@ final class HelmetCatalogSynthesizer
         $totalUpdated = 0;
         $totalProcessed = 0;
 
-        $whereClause = "WHERE post_type = 'helmet' AND post_status = 'publish'";
+        $countQuery = "SELECT COUNT(*) FROM {$this->db->posts} WHERE post_type = 'helmet' AND post_status = 'publish'";
         if (!$force) {
-            $whereClause .=
+            $countQuery .=
                 " AND (LENGTH(post_content) < 500 OR post_content NOT LIKE '%protective system%')";
         }
 
-        $totalMatching = (int) $this->db->get_var(
-            "SELECT COUNT(*) FROM {$this->db->posts} {$whereClause}",
-        );
+        $totalMatching = (int) $this->db->get_var($countQuery);
         echo "Found {$totalMatching} helmet records targeted for synthesis and persistence.\n";
 
-        if ($limit > 0 && $totalMatching > $limit) {
-            $totalMatching = $limit;
+        if ($totalMatching === 0) {
+            echo "All helmets already possess synthesized rich content.\n";
+            return [
+                "total_processed" => 0,
+                "total_updated" => 0,
+                "elapsed_seconds" => 0,
+                "throughput_rps" => 0,
+            ];
         }
 
-        $offset = 0;
-        while ($offset < $totalMatching) {
-            $currentLimit = min($batchSize, $totalMatching - $offset);
+        $targetTotal =
+            $limit > 0 && $totalMatching > $limit ? $limit : $totalMatching;
+
+        $lastId = 0;
+        while ($totalUpdated < $targetTotal) {
+            $currentLimit = min($batchSize, $targetTotal - $totalUpdated);
+            if ($currentLimit <= 0) {
+                break;
+            }
+
+            $whereClause = "WHERE post_type = 'helmet' AND post_status = 'publish' AND ID > {$lastId}";
+            if (!$force) {
+                $whereClause .=
+                    " AND (LENGTH(post_content) < 500 OR post_content NOT LIKE '%protective system%')";
+            }
+
             $postsQuery = "
                 SELECT ID, post_title, post_name, post_content
                 FROM {$this->db->posts}
                 {$whereClause}
                 ORDER BY ID ASC
-                LIMIT {$currentLimit} OFFSET {$offset}
+                LIMIT {$currentLimit}
             ";
 
             $posts = $this->db->get_results($postsQuery);
@@ -263,6 +272,7 @@ final class HelmetCatalogSynthesizer
                 break;
             }
 
+            $lastId = (int) end($posts)->ID;
             $ids = array_map(fn($p) => (int) $p->ID, $posts);
             $idList = implode(",", $ids);
 
@@ -368,8 +378,6 @@ final class HelmetCatalogSynthesizer
                 $totalUpdated += count($updates);
             }
 
-            $offset += count($posts);
-
             // Guard against memory leaks
             $this->db->queries = [];
             global $wp_object_cache;
@@ -386,12 +394,13 @@ final class HelmetCatalogSynthesizer
             $elapsed = microtime(true) - $startTime;
             $rate = $totalProcessed / max(0.001, $elapsed);
             printf(
-                "Progress: %d / %d processed (%d updated) [%.1f records/sec, %.1fs elapsed]\n",
+                "Progress: %d / %d processed (%d updated) [%.1f records/sec, %.1fs elapsed, last ID: %d]\n",
                 $totalProcessed,
-                $totalMatching,
+                $targetTotal,
                 $totalUpdated,
                 $rate,
                 $elapsed,
+                $lastId,
             );
         }
 
@@ -428,8 +437,8 @@ if (
     $results = $synthesizer->run($limit, $batch, $dryRun, $force);
 
     echo "\n=== Synthesis Complete ===\n";
-    echo "Total Processed: {$results["total_processed"]}\n";
-    echo "Total Updated: {$results["total_updated"]}\n";
-    echo "Elapsed: {$results["elapsed_seconds"]}s\n";
-    echo "Throughput: {$results["throughput_rps"]} records/sec\n";
+    echo "Total Processed: " . $results["total_processed"] . "\n";
+    echo "Total Updated: " . $results["total_updated"] . "\n";
+    echo "Elapsed: " . $results["elapsed_seconds"] . "s\n";
+    echo "Throughput: " . $results["throughput_rps"] . " records/sec\n";
 }
