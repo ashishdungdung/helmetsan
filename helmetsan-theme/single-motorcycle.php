@@ -696,11 +696,11 @@ if (have_posts()) :
                                             <?php esc_html_e('View Helmet Specs', 'helmetsan-theme'); ?>
                                         </a>
                                         <?php
-                                        $revConfig = function_exists('get_option') ? (array) get_option('helmetsan_revenue', []) : [];
-                                        $amazonInTag = ! empty($revConfig['amazon_tag_in']) ? (string) $revConfig['amazon_tag_in'] : 'virginiatete-21';
+                                        $h_slug = ! empty($helmet->post_name) ? $helmet->post_name : (string) $h_id;
+                                        $h_go_url = home_url('/go/' . rawurlencode($h_slug) . '/?marketplace=amazon&source=motorcycle_synergy');
                                         ?>
-                                        <a href="https://www.amazon.in/s?k=<?php echo urlencode($h_title . ' motorcycle helmet'); ?>&tag=<?php echo esc_attr($amazonInTag); ?>" target="_blank" rel="noopener noreferrer" class="hs-moto-btn hs-moto-btn--primary" style="padding:0.45rem 0.6rem; font-size:0.75rem;">
-                                            <?php esc_html_e('Amazon IN ↗', 'helmetsan-theme'); ?>
+                                        <a href="<?php echo esc_url($h_go_url); ?>" target="_blank" rel="noopener noreferrer sponsored" class="hs-moto-btn hs-moto-btn--primary hs-btn--amazon hs-price-cta" data-marketplace="amazon" style="padding:0.45rem 0.6rem; font-size:0.75rem;">
+                                            <?php esc_html_e('Buy on Amazon ↗', 'helmetsan-theme'); ?>
                                         </a>
                                     </div>
                                 </div>
