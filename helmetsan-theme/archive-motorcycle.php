@@ -436,7 +436,12 @@ $has_active_filters = ($active_segment !== '' || $active_make !== '' || $search_
                         $cc_int = (int) $engine_cc;
                         $price_inr = ($cc_int >= 400) ? 295000 : (($cc_int >= 200) ? 175000 : 115000);
                     }
-                    $price_fmt = $price_inr >= 100000 ? sprintf('From ₹%.2fL', $price_inr / 100000) : ('₹' . number_format($price_inr));
+                    if (function_exists('helmetsan_is_india_visitor') && helmetsan_is_india_visitor()) {
+                        $price_fmt = $price_inr >= 100000 ? sprintf('From ₹%.2fL', $price_inr / 100000) : ('₹' . number_format($price_inr));
+                    } else {
+                        $price_usd = round($price_inr / 86.5);
+                        $price_fmt = 'From $' . number_format($price_usd);
+                    }
 
                     // Taxonomy fallbacks
                     if ($segment_meta === '') {
@@ -488,7 +493,7 @@ $has_active_filters = ($active_segment !== '' || $active_make !== '' || $search_
                                 <?php if ($make_meta) : ?>
                                     <span class="hs-moto-badge hs-moto-badge--make"><?php echo esc_html($make_meta); ?></span>
                                 <?php endif; ?>
-                                <span class="hs-moto-badge" style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); font-weight:700;">
+                                <span class="hs-moto-badge hs-price" data-base-price="<?php echo esc_attr((string) $price_inr); ?>" data-base-currency="INR" style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); font-weight:700;">
                                     <?php echo esc_html($price_fmt); ?>
                                 </span>
                             </div>

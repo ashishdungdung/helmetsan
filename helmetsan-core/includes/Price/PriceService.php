@@ -107,7 +107,7 @@ final class PriceService
         $postType = (string) get_post_field('post_type', $postId) ?: 'helmet';
 
         $cc = $countryCode ?? $this->geo->getCountry();
-        $cc = $cc ?: 'IN'; // Default to India routing
+        $cc = $cc ?: 'US'; // Default to global US routing
 
         // 1. Check recent price history (under 1 hour old)
         $latest = $this->history->getLatestByMarketplace($postId, $cc, $postType);
@@ -179,7 +179,7 @@ final class PriceService
 
         $postType = (string) get_post_field('post_type', $postId) ?: 'helmet';
         $cc = $countryCode ?? $this->geo->getCountry();
-        $cc = $cc ?: 'IN'; // Default to India routing
+        $cc = $cc ?: 'US'; // Default to global US routing
         $helmetRef = (string) get_post_field('post_name', $postId);
 
         if ($helmetRef === '') {

@@ -365,23 +365,44 @@ if (have_posts()) :
             </section>
 
             <!-- Commercial Pricing & On-Road Estimator Section -->
+            <?php
+            $is_india_visitor = function_exists('helmetsan_is_india_visitor') ? helmetsan_is_india_visitor() : false;
+            ?>
             <section class="hs-moto-pricing-section" aria-labelledby="hs-pricing-heading">
                 <!-- Ex-Showroom & City Calculator -->
                 <div class="hs-moto-pricing-card">
                     <div class="hs-moto-pricing-card__header">
                         <div>
                             <span class="hs-moto-price-badge"><?php echo $is_price_estimated ? esc_html__('Estimated Price Guidance', 'helmetsan-theme') : esc_html__('Official Price Guidance', 'helmetsan-theme'); ?></span>
-                            <div class="hs-moto-ex-showroom" id="hs-display-ex-price">
-                                <?php echo esc_html($format_lakh($price_inr)); ?>
+                            <div class="hs-moto-ex-showroom">
+                                <span class="hs-price" data-base-price="<?php echo (float) $price_inr; ?>" data-base-currency="INR" id="hs-display-ex-price">
+                                    <?php
+                                    if ($is_india_visitor) {
+                                        echo esc_html($format_lakh($price_inr));
+                                    } else {
+                                        $price_usd = round($price_inr / 86.5);
+                                        echo esc_html('$' . number_format($price_usd));
+                                    }
+                                    ?>
+                                </span>
                                 <?php if ($is_price_estimated) : ?>
                                     <span style="font-size:0.55em; font-weight:500; color:var(--hs-text-muted); display:inline-block; margin-left:4px; vertical-align:middle;"><?php esc_html_e('(Estimated)', 'helmetsan-theme'); ?></span>
                                 <?php endif; ?>
                             </div>
-                            <span class="hs-moto-ex-label"><?php echo $is_price_estimated ? esc_html__('Approx. Ex-Showroom India (Displacement Estimate)', 'helmetsan-theme') : esc_html__('Avg. Ex-Showroom India (Base Variant)', 'helmetsan-theme'); ?></span>
+                            <span class="hs-moto-ex-label" id="hs-moto-ex-label-text">
+                                <?php
+                                if ($is_india_visitor) {
+                                    echo $is_price_estimated ? esc_html__('Approx. Ex-Showroom India (Displacement Estimate)', 'helmetsan-theme') : esc_html__('Avg. Ex-Showroom India (Base Variant)', 'helmetsan-theme');
+                                } else {
+                                    echo esc_html__('Estimated Base MSRP (Global Reference)', 'helmetsan-theme');
+                                }
+                                ?>
+                            </span>
                         </div>
                     </div>
 
-                    <div class="hs-moto-city-calc">
+                    <!-- India Calculator (Shown for Indian visitors, toggled dynamically via JS) -->
+                    <div class="hs-moto-city-calc hs-moto-india-only" style="<?php echo $is_india_visitor ? '' : 'display: none;'; ?>">
                         <div class="hs-moto-city-select-row">
                             <label for="hs-city-estimator" class="hs-moto-ex-label" style="font-weight:700;"><?php esc_html_e('Select City for On-Road Estimate:', 'helmetsan-theme'); ?></label>
                             <select id="hs-city-estimator" class="hs-moto-city-dropdown" data-base-price="<?php echo (int) $price_inr; ?>">
@@ -412,7 +433,7 @@ if (have_posts()) :
                         </div>
 
                         <div class="hs-moto-actions">
-                            <button type="button" class="hs-moto-btn hs-moto-btn--primary" id="hs-open-lead-btn" data-motorcycle-id="<?php echo esc_attr($post_id); ?>" data-motorcycle-title="<?php echo esc_attr($title); ?>">
+                            <button type="button" class="hs-moto-btn hs-moto-btn--primary hs-open-lead-trigger" id="hs-open-lead-btn" data-motorcycle-id="<?php echo esc_attr($post_id); ?>" data-motorcycle-title="<?php echo esc_attr($title); ?>">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 <?php esc_html_e('Request Best Price & Test Ride', 'helmetsan-theme'); ?>
                             </button>
@@ -421,41 +442,85 @@ if (have_posts()) :
                             </a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Verified Metro Dealers Directory -->
-                <div class="hs-moto-dealers-card">
-                    <h3 style="margin:0 0 0.5rem 0; font-size:1.15rem;"><?php printf(esc_html__('Authorized %s Dealerships', 'helmetsan-theme'), esc_html($make_meta)); ?></h3>
-                    <p style="font-size:0.85rem; color:var(--hs-text-muted); margin:0 0 1rem 0;">
-                        <?php esc_html_e('Connect directly with certified showrooms across India for doorstep test rides and immediate delivery.', 'helmetsan-theme'); ?>
-                    </p>
-
-                    <div class="hs-moto-dealers-city-tabs" id="hs-dealers-tabs">
-                        <?php $i = 0; foreach ($indian_dealers as $ckey => $cdata) : ?>
-                            <button type="button" class="hs-moto-city-tab <?php echo $i === 0 ? 'is-active' : ''; ?>" data-city="<?php echo esc_attr($ckey); ?>">
-                                <?php echo esc_html($cdata['city']); ?>
-                            </button>
-                        <?php $i++; endforeach; ?>
-                    </div>
-
-                    <div class="hs-moto-dealers-list" id="hs-dealers-container">
-                        <?php
-                        $first_dealer = reset($indian_dealers);
-                        ?>
-                        <div class="hs-moto-dealer-item">
-                            <div class="hs-moto-dealer-info">
-                                <h4 id="hs-dealer-name"><?php echo esc_html($first_dealer['name']); ?></h4>
-                                <p class="hs-moto-dealer-addr" id="hs-dealer-addr"><?php echo esc_html($first_dealer['address']); ?></p>
-                                <div class="hs-moto-dealer-meta">
-                                    <span>✓ <?php esc_html_e('Verified Dealership', 'helmetsan-theme'); ?></span>
-                                    <span>• <?php esc_html_e('Test Ride Available', 'helmetsan-theme'); ?></span>
-                                </div>
+                    <!-- Global Guidance (Shown for International Visitors, toggled dynamically via JS) -->
+                    <div class="hs-moto-global-calc hs-moto-global-only" style="<?php echo $is_india_visitor ? 'display: none;' : ''; ?>">
+                        <div class="hs-moto-global-guidance-box" style="padding:1.25rem; background:rgba(255,255,255,0.03); border:1px solid var(--hs-border); border-radius:12px; margin-bottom:1.5rem;">
+                            <div style="font-weight:600; color:var(--hs-text); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                <?php esc_html_e('Global MSRP & Homologation Guidance', 'helmetsan-theme'); ?>
                             </div>
-                            <div>
-                                <a href="tel:<?php echo esc_attr(str_replace(' ', '', $first_dealer['phone'])); ?>" class="hs-moto-btn hs-moto-btn--secondary" id="hs-dealer-call-btn" style="padding:0.45rem 0.8rem; font-size:0.8rem;">
-                                    <?php esc_html_e('Call Showroom', 'helmetsan-theme'); ?>
+                            <p style="font-size:0.875rem; color:var(--hs-text-muted); line-height:1.6; margin:0 0 1rem 0;">
+                                <?php esc_html_e('International base MSRP is estimated from global motorcycle catalog guidelines. Drive-away pricing in your jurisdiction depends on regional homologation (DOT / ECE 22.06), import tariffs, freight, and applicable local sales tax / VAT.', 'helmetsan-theme'); ?>
+                            </p>
+                            <div class="hs-moto-actions">
+                                <button type="button" class="hs-moto-btn hs-moto-btn--primary hs-open-lead-trigger" id="hs-open-lead-btn-global" data-motorcycle-id="<?php echo esc_attr($post_id); ?>" data-motorcycle-title="<?php echo esc_attr($title); ?>">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    <?php esc_html_e('Request Regional Dealer Quote', 'helmetsan-theme'); ?>
+                                </button>
+                                <a href="https://www.google.com/search?q=<?php echo urlencode($make_meta . ' official motorcycle dealers ' . $title); ?>" target="_blank" rel="noopener noreferrer" class="hs-moto-btn hs-moto-btn--secondary">
+                                    <?php esc_html_e('Find Regional Importers ↗', 'helmetsan-theme'); ?>
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dealerships Card (Toggled between India metro dealers and Global importer network) -->
+                <div class="hs-moto-dealers-card">
+                    <!-- India metro dealers -->
+                    <div class="hs-moto-india-dealers hs-moto-india-only" style="<?php echo $is_india_visitor ? '' : 'display: none;'; ?>">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.15rem;"><?php printf(esc_html__('Authorized %s Dealerships', 'helmetsan-theme'), esc_html($make_meta)); ?></h3>
+                        <p style="font-size:0.85rem; color:var(--hs-text-muted); margin:0 0 1rem 0;">
+                            <?php esc_html_e('Connect directly with certified showrooms across India for doorstep test rides and immediate delivery.', 'helmetsan-theme'); ?>
+                        </p>
+
+                        <div class="hs-moto-dealers-city-tabs" id="hs-dealers-tabs">
+                            <?php $i = 0; foreach ($indian_dealers as $ckey => $cdata) : ?>
+                                <button type="button" class="hs-moto-city-tab <?php echo $i === 0 ? 'is-active' : ''; ?>" data-city="<?php echo esc_attr($ckey); ?>">
+                                    <?php echo esc_html($cdata['city']); ?>
+                                </button>
+                            <?php $i++; endforeach; ?>
+                        </div>
+
+                        <div class="hs-moto-dealers-list" id="hs-dealers-container">
+                            <?php
+                            $first_dealer = reset($indian_dealers);
+                            ?>
+                            <div class="hs-moto-dealer-item">
+                                <div class="hs-moto-dealer-info">
+                                    <h4 id="hs-dealer-name"><?php echo esc_html($first_dealer['name']); ?></h4>
+                                    <p class="hs-moto-dealer-addr" id="hs-dealer-addr"><?php echo esc_html($first_dealer['address']); ?></p>
+                                    <div class="hs-moto-dealer-meta">
+                                        <span>✓ <?php esc_html_e('Verified Dealership', 'helmetsan-theme'); ?></span>
+                                        <span>• <?php esc_html_e('Test Ride Available', 'helmetsan-theme'); ?></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="tel:<?php echo esc_attr(str_replace(' ', '', $first_dealer['phone'])); ?>" class="hs-moto-btn hs-moto-btn--secondary" id="hs-dealer-call-btn" style="padding:0.45rem 0.8rem; font-size:0.8rem;">
+                                        <?php esc_html_e('Call Showroom', 'helmetsan-theme'); ?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global Dealers -->
+                    <div class="hs-moto-global-dealers hs-moto-global-only" style="<?php echo $is_india_visitor ? 'display: none;' : ''; ?>">
+                        <h3 style="margin:0 0 0.5rem 0; font-size:1.15rem;"><?php printf(esc_html__('Global %s Dealer & Importer Network', 'helmetsan-theme'), esc_html($make_meta)); ?></h3>
+                        <p style="font-size:0.85rem; color:var(--hs-text-muted); margin:0 0 1rem 0;">
+                            <?php esc_html_e('Locate certified distributors, factory outlets, and authorized retail partners worldwide.', 'helmetsan-theme'); ?>
+                        </p>
+                        <div style="background:var(--hs-surface); border:1px solid var(--hs-border); border-radius:10px; padding:1.25rem;">
+                            <div style="font-weight:600; color:var(--hs-text); margin-bottom:0.4rem;">
+                                <?php printf(esc_html__('Authorized Regional Distributor Network for %s', 'helmetsan-theme'), esc_html($make_meta)); ?>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--hs-text-muted); line-height:1.5; margin:0 0 1rem 0;">
+                                <?php esc_html_e('Submit your location to receive official dealer pricing, homologation compliance sheets, and test-ride scheduling from authorized local representatives.', 'helmetsan-theme'); ?>
+                            </p>
+                            <button type="button" class="hs-moto-btn hs-moto-btn--secondary" id="hs-open-dealer-partner-btn" style="width:100%; font-size:0.85rem;">
+                                <?php esc_html_e('Inquire With Regional Dealers & Importers →', 'helmetsan-theme'); ?>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -963,6 +1028,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 2.5 Region UI Synchronization (India vs Global)
+    function syncMotoRegionUI(countryCode) {
+        var isIndia = (countryCode === 'IN');
+        document.querySelectorAll('.hs-moto-india-only').forEach(function(el) {
+            el.style.display = isIndia ? '' : 'none';
+        });
+        document.querySelectorAll('.hs-moto-global-only').forEach(function(el) {
+            el.style.display = isIndia ? 'none' : '';
+        });
+        var labelEl = document.getElementById('hs-moto-ex-label-text');
+        if (labelEl) {
+            labelEl.textContent = isIndia 
+                ? '<?php echo $is_price_estimated ? esc_html__("Approx. Ex-Showroom India (Displacement Estimate)", "helmetsan-theme") : esc_html__("Avg. Ex-Showroom India (Base Variant)", "helmetsan-theme"); ?>'
+                : '<?php echo esc_html__("Estimated Base MSRP (Global Reference)", "helmetsan-theme"); ?>';
+        }
+    }
+
+    document.addEventListener('helmetsan:country_changed', function(e) {
+        if (e.detail && e.detail.country) {
+            syncMotoRegionUI(e.detail.country);
+        }
+    });
+
     // 3. Modals Opening & Closing
     var leadModal = document.getElementById('hs-lead-modal');
     var dealerModal = document.getElementById('hs-dealer-app-modal');
@@ -980,12 +1068,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
-    if (openLeadBtn) {
-        openLeadBtn.addEventListener('click', function() { openModal(leadModal); });
-    }
-    if (openDealerBtn) {
-        openDealerBtn.addEventListener('click', function() { openModal(dealerModal); });
-    }
+    document.querySelectorAll('#hs-open-lead-btn, #hs-open-lead-btn-global, .hs-open-lead-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() { openModal(leadModal); });
+    });
+    document.querySelectorAll('#hs-open-dealer-app-btn, #hs-open-dealer-partner-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() { openModal(dealerModal); });
+    });
 
     // Generic modal triggers
     document.querySelectorAll('[data-open-modal]').forEach(function(btn) {

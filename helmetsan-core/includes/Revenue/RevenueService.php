@@ -679,7 +679,7 @@ final class RevenueService
 
         // If generic 'amazon' or empty was passed, map it to the user's regional Amazon marketplace!
         if ($marketplaceId === '' || $marketplaceId === 'amazon') {
-            $marketplaceId = self::COUNTRY_TO_AMAZON_MARKETPLACE[$userCountry] ?? 'amazon-in';
+            $marketplaceId = self::COUNTRY_TO_AMAZON_MARKETPLACE[$userCountry] ?? 'amazon-us';
         }
 
         // 1. Try 4-Stage Smart Hybrid Redirect Engine first (with identifiers & quarantine awareness)

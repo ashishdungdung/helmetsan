@@ -20,7 +20,7 @@ $brandUpper = strtoupper(trim($brandName));
 $domesticIndianBrands = ['VEGA', 'STEELBIRD', 'STUDDS', 'AXOR', 'SMK'];
 $isDomesticIn = in_array($brandUpper, $domesticIndianBrands, true);
 
-$currentCountry = function_exists('helmetsan_core') ? helmetsan_core()->geo()->getCountry() : 'IN';
+$currentCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
 $shouldShow = ($currentCountry === 'IN' && !$isDomesticIn);
 ?>
 

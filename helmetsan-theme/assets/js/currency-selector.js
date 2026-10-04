@@ -192,11 +192,32 @@
             return domCode;
         }
 
-        return 'IN';
+        return 'US';
     }
 
-    function updateHeaderTriggerBadge(countryCode) {
-        const info = countryData[countryCode] || countryData['IN'];
+    function getActiveCurrency() {
+        try {
+            const stored = localStorage.getItem('helmetsan_currency');
+            if (stored && (CURRENCIES[stored] || FALLBACK_RATES[stored])) {
+                return stored;
+            }
+        } catch (e) {}
+
+        const cookieVal = getCookie('helmetsan_currency');
+        if (cookieVal && (CURRENCIES[cookieVal] || FALLBACK_RATES[cookieVal])) {
+            return cookieVal;
+        }
+
+        const country = getActiveCountry();
+        return countryData[country]?.currency || 'USD';
+    }
+
+    function updateHeaderTriggerBadge(countryCode, currencyCode) {
+        countryCode = (countryCode || getActiveCountry()).toUpperCase();
+        currencyCode = (currencyCode || getActiveCurrency()).toUpperCase();
+        const info = countryData[countryCode] || countryData['US'];
+        const currConfig = CURRENCIES[currencyCode] || { symbol: currencyCode };
+
         const flagEl = document.getElementById('hsCurrentFlag');
         const nameEl = document.getElementById('hsCurrentCountry');
         const codeEl = document.getElementById('hsCurrentCode');
@@ -206,10 +227,23 @@
         if (flagEl) flagEl.textContent = info.flag;
         if (nameEl) nameEl.textContent = info.name;
         if (codeEl) codeEl.textContent = countryCode;
-        if (currEl) currEl.textContent = `(${info.symbol})`;
+        if (currEl) currEl.textContent = `(${currConfig.symbol.trim()} ${currencyCode})`;
         if (triggerBtn) {
-            triggerBtn.setAttribute('aria-label', `Select Country and Currency: Current selection ${info.name} (${info.currency})`);
+            triggerBtn.setAttribute('aria-label', `Select Country and Currency: Current selection ${info.name} (${currencyCode})`);
         }
+
+        // Modal Badges & Summary
+        const activeCountryBadge = document.getElementById('hsActiveCountryBadge');
+        if (activeCountryBadge) activeCountryBadge.textContent = countryCode;
+
+        const activeCurrencyBadge = document.getElementById('hsActiveCurrencyBadge');
+        if (activeCurrencyBadge) activeCurrencyBadge.textContent = currencyCode;
+
+        const summaryCountry = document.getElementById('hsSummaryCountry');
+        if (summaryCountry) summaryCountry.textContent = info.name;
+
+        const summaryCurrency = document.getElementById('hsSummaryCurrency');
+        if (summaryCurrency) summaryCurrency.textContent = `${currencyCode} (${currConfig.symbol.trim()})`;
     }
 
     function updateRoadLegalityBadge(countryCode) {
@@ -397,15 +431,13 @@
     }
 
     function updateAffiliateLinks(countryCode) {
-        const cc = (countryCode || 'IN').toUpperCase();
+        const cc = (countryCode || 'US').toUpperCase();
         const countryInfo = countryData[cc];
-        let defaultFallback = amazonMarketplaces['IN'];
+        let defaultFallback = amazonMarketplaces['US'];
         if (countryInfo && countryInfo.region === 'EU') {
             defaultFallback = amazonMarketplaces['DE'];
-        } else if (countryInfo && countryInfo.region === 'NA') {
-            defaultFallback = amazonMarketplaces['US'];
         }
-        const regionalAmz = amazonMarketplaces[cc] || defaultFallback;
+        const regionalAmz = (cc === 'IN') ? amazonMarketplaces['IN'] : (amazonMarketplaces[cc] || defaultFallback);
 
         // 1. Update primary Amazon CTA button
         document.querySelectorAll('.hs-price-cta, .hs-btn--amazon').forEach(btn => {
@@ -517,18 +549,17 @@
         }
     }
 
-    async function updateAllPrices(countryCode) {
-        if (!countryCode) {
-            countryCode = getActiveCountry();
-        }
+    async function updateAllPrices(countryCode, currencyCode) {
+        if (!countryCode) countryCode = getActiveCountry();
+        if (!currencyCode) currencyCode = getActiveCurrency();
+
         const ratesData = await fetchRates();
         const rates = ratesData ? ratesData.rates : null;
-        const geo = countryData[countryCode] || { currency: 'INR' };
-        const targetCurrency = geo.currency;
+        const targetCurrency = currencyCode;
 
         document.querySelectorAll('.hs-price').forEach(el => {
             const basePriceAttr = el.getAttribute('data-base-price');
-            const baseCurrencyAttr = el.getAttribute('data-base-currency') || 'USD';
+            const baseCurrencyAttr = (el.getAttribute('data-base-currency') || 'USD').toUpperCase();
             const manualPricingAttr = el.getAttribute('data-manual-pricing');
 
             if (!basePriceAttr) return;
@@ -568,6 +599,18 @@
                 const toRate = rates[targetCurrency];
                 let converted = (basePrice / fromRate) * toRate;
 
+                // Motorcycle price formatting (baseCurrencyAttr === 'INR')
+                if (baseCurrencyAttr === 'INR') {
+                    if (targetCurrency === 'INR' && converted >= 100000) {
+                        el.innerHTML = '₹' + (converted / 100000).toFixed(2) + ' Lakh';
+                        return;
+                    }
+                    let formattedPrice = formatCurrency(Math.round(converted), targetCurrency);
+                    el.innerHTML = formattedPrice;
+                    return;
+                }
+
+                // Helmet / Gear product conversion
                 converted = applyVat(converted, countryCode);
                 converted = charmRound(converted, targetCurrency);
 
@@ -586,18 +629,31 @@
     // Expose global price updater
     window.helmetsanUpdatePrices = updateAllPrices;
 
-    function hydrateUI(countryCode) {
-        countryCode = (countryCode || 'IN').toUpperCase();
-        if (!countryData[countryCode]) countryCode = 'IN';
+    function hydrateUI(countryCode, currencyCode) {
+        countryCode = (countryCode || getActiveCountry()).toUpperCase();
+        currencyCode = (currencyCode || getActiveCurrency()).toUpperCase();
+        if (!countryData[countryCode]) countryCode = 'US';
 
-        updateHeaderTriggerBadge(countryCode);
+        updateHeaderTriggerBadge(countryCode, currencyCode);
         updateRoadLegalityBadge(countryCode);
         updateImportDutyNotice(countryCode);
         updateAffiliateLinks(countryCode);
 
-        // Update active class and aria-selected on cards
+        // Update active class and aria-selected on country cards
         document.querySelectorAll('.hs-country-card').forEach(card => {
             const isMatch = (card.getAttribute('data-country-code') === countryCode);
+            if (isMatch) {
+                card.classList.add('is-active');
+                card.setAttribute('aria-selected', 'true');
+            } else {
+                card.classList.remove('is-active');
+                card.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // Update active class and aria-selected on currency cards
+        document.querySelectorAll('.hs-currency-card').forEach(card => {
+            const isMatch = (card.getAttribute('data-currency-code') === currencyCode);
             if (isMatch) {
                 card.classList.add('is-active');
                 card.setAttribute('aria-selected', 'true');
@@ -612,7 +668,7 @@
             s.value = countryCode;
         });
 
-        updateAllPrices(countryCode);
+        updateAllPrices(countryCode, currencyCode);
     }
 
     function selectCountry(countryCode) {
@@ -625,14 +681,24 @@
 
         document.cookie = `helmetsan_geo=${countryCode}; path=/; max-age=86400; secure; SameSite=Lax`;
 
-        hydrateUI(countryCode);
+        // Switch default currency for that country if no explicit user override exists
+        let activeCurr = getActiveCurrency();
+        const hasExplicitCurrency = (function() {
+            try { return !!localStorage.getItem('helmetsan_currency'); } catch(e) { return false; }
+        })();
+        if (!hasExplicitCurrency && countryData[countryCode].currency) {
+            activeCurr = countryData[countryCode].currency;
+            document.cookie = `helmetsan_currency=${activeCurr}; path=/; max-age=86400; secure; SameSite=Lax`;
+        }
 
-        // Dispatch country changed event for other components (e.g. compliance badges)
+        hydrateUI(countryCode, activeCurr);
+
+        // Dispatch country changed event for other components (compliance, motorcycle templates, etc.)
         document.dispatchEvent(new CustomEvent('helmetsan:country_changed', {
             detail: {
                 country: countryCode,
-                currency: countryData[countryCode].currency,
-                symbol: countryData[countryCode].symbol
+                currency: activeCurr,
+                symbol: CURRENCIES[activeCurr]?.symbol || '$'
             }
         }));
 
@@ -641,14 +707,50 @@
             const geo = countryData[countryCode];
             window.gtag('event', 'country_changed', {
                 'target_country': countryCode,
-                'target_currency': geo.currency
+                'target_currency': activeCurr
             });
             window.gtag('set', 'user_properties', {
                 'geo_country': countryCode,
-                'geo_currency': geo.currency
+                'geo_currency': activeCurr
             });
         }
     }
+
+    function selectCurrency(currencyCode) {
+        currencyCode = currencyCode.toUpperCase();
+        if (!CURRENCIES[currencyCode] && !FALLBACK_RATES[currencyCode]) return;
+
+        try {
+            localStorage.setItem('helmetsan_currency', currencyCode);
+        } catch (e) {}
+
+        document.cookie = `helmetsan_currency=${currencyCode}; path=/; max-age=86400; secure; SameSite=Lax`;
+
+        const countryCode = getActiveCountry();
+        hydrateUI(countryCode, currencyCode);
+
+        // Dispatch currency changed event
+        document.dispatchEvent(new CustomEvent('helmetsan:currency_changed', {
+            detail: {
+                country: countryCode,
+                currency: currencyCode,
+                symbol: CURRENCIES[currencyCode]?.symbol || '$'
+            }
+        }));
+
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'currency_changed', {
+                'target_currency': currencyCode
+            });
+            window.gtag('set', 'user_properties', {
+                'geo_currency': currencyCode
+            });
+        }
+    }
+
+    // Expose selectCurrency and selectCountry globally
+    window.helmetsanSelectCountry = selectCountry;
+    window.helmetsanSelectCurrency = selectCurrency;
 
     function initCountryModal() {
         const modal = document.getElementById('hsCountryModal');
@@ -719,12 +821,65 @@
             });
         }
 
+        // Mode Switcher Tabs
+        const tabCountryBtn = document.getElementById('hsTabCountryBtn');
+        const tabCurrencyBtn = document.getElementById('hsTabCurrencyBtn');
+        const countryPanel = document.getElementById('hsCountryTabPanel');
+        const currencyPanel = document.getElementById('hsCurrencyTabPanel');
+
+        function switchTab(to) {
+            if (to === 'country') {
+                tabCountryBtn?.classList.add('is-active');
+                tabCountryBtn?.setAttribute('aria-selected', 'true');
+                tabCurrencyBtn?.classList.remove('is-active');
+                tabCurrencyBtn?.setAttribute('aria-selected', 'false');
+                if (countryPanel) countryPanel.style.display = '';
+                if (currencyPanel) currencyPanel.style.display = 'none';
+            } else {
+                tabCurrencyBtn?.classList.add('is-active');
+                tabCurrencyBtn?.setAttribute('aria-selected', 'true');
+                tabCountryBtn?.classList.remove('is-active');
+                tabCountryBtn?.setAttribute('aria-selected', 'false');
+                if (countryPanel) countryPanel.style.display = 'none';
+                if (currencyPanel) currencyPanel.style.display = '';
+            }
+        }
+
+        tabCountryBtn?.addEventListener('click', () => switchTab('country'));
+        tabCurrencyBtn?.addEventListener('click', () => switchTab('currency'));
+
         // Country Card Selection
         modal.querySelectorAll('.hs-country-card').forEach(card => {
             card.addEventListener('click', () => {
                 const code = card.getAttribute('data-country-code');
                 if (code) {
                     selectCountry(code);
+                    closeModal();
+                }
+            });
+        });
+
+        // Currency Search filtering
+        const currSearchInput = document.getElementById('hsCurrencySearchInput');
+        if (currSearchInput) {
+            currSearchInput.addEventListener('input', (e) => {
+                const q = e.target.value.toLowerCase().trim();
+                modal.querySelectorAll('.hs-currency-card').forEach(card => {
+                    const code = (card.getAttribute('data-currency-code') || '').toLowerCase();
+                    const name = (card.getAttribute('data-currency-name') || '').toLowerCase();
+                    const symbol = (card.getAttribute('data-currency-symbol') || '').toLowerCase();
+                    const matches = !q || code.includes(q) || name.includes(q) || symbol.includes(q);
+                    card.hidden = !matches;
+                });
+            });
+        }
+
+        // Currency Card Selection
+        modal.querySelectorAll('.hs-currency-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const code = card.getAttribute('data-currency-code');
+                if (code) {
+                    selectCurrency(code);
                     closeModal();
                 }
             });

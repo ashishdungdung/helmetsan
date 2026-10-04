@@ -144,15 +144,17 @@
 
             <!-- Country & Currency Trigger -->
             <?php
-            $headerGeo = function_exists('helmetsan_core') && helmetsan_core()->geo() ? helmetsan_core()->geo()->getCountry() : 'IN';
+            $headerGeo = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+            $headerCurrency = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
             $headerCountries = function_exists('helmetsan_get_supported_countries') ? helmetsan_get_supported_countries() : [];
-            $activeHeaderCountry = $headerCountries[$headerGeo] ?? ($headerCountries['IN'] ?? ['name' => 'India', 'symbol' => '₹', 'flag' => '🇮🇳']);
+            $activeHeaderCountry = $headerCountries[$headerGeo] ?? ($headerCountries['US'] ?? ['name' => 'United States', 'symbol' => '$', 'flag' => '🇺🇸', 'currency' => 'USD']);
+            $currencySymbol = function_exists('helmetsan_get_currency_symbol') ? helmetsan_get_currency_symbol($headerCurrency) : ($activeHeaderCountry['symbol'] ?? '$');
             ?>
             <button type="button" class="hs-country-trigger" id="hsCountryTrigger" aria-label="<?php esc_attr_e( 'Select Country and Currency', 'helmetsan-theme' ); ?>" aria-haspopup="dialog" aria-expanded="false" aria-controls="hsCountryModal">
                 <span class="hs-country-trigger__flag" id="hsCurrentFlag"><?php echo esc_html($activeHeaderCountry['flag']); ?></span>
                 <span class="hs-country-trigger__name" id="hsCurrentCountry"><?php echo esc_html($activeHeaderCountry['name']); ?></span>
                 <span class="hs-country-trigger__code" id="hsCurrentCode"><?php echo esc_html($headerGeo); ?></span>
-                <span class="hs-country-trigger__currency" id="hsCurrentCurrency">(<?php echo esc_html($activeHeaderCountry['symbol']); ?>)</span>
+                <span class="hs-country-trigger__currency" id="hsCurrentCurrency">(<?php echo esc_html($currencySymbol . ' ' . $headerCurrency); ?>)</span>
                 <svg class="hs-country-trigger__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
             </button>
 

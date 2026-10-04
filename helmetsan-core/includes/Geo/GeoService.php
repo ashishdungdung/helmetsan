@@ -123,7 +123,7 @@ final class GeoService
         }
 
         // 4. Fallback to default
-        $this->resolvedCountry = 'IN';
+        $this->resolvedCountry = 'US';
 
         return $this->resolvedCountry;
     }
@@ -144,6 +144,21 @@ final class GeoService
      */
     public function getCurrency(?string $countryCode = null): string
     {
+        if ($countryCode === null) {
+            if (! empty($_COOKIE['helmetsan_currency']) && is_string($_COOKIE['helmetsan_currency'])) {
+                $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_COOKIE['helmetsan_currency']), 0, 3));
+                if (strlen($c) === 3) {
+                    return $c;
+                }
+            }
+            if (! empty($_GET['currency']) && is_string($_GET['currency'])) {
+                $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_GET['currency']), 0, 3));
+                if (strlen($c) === 3) {
+                    return $c;
+                }
+            }
+        }
+
         $cc = $countryCode ?? $this->getCountry();
         $map = $this->getSupportedCountries();
 

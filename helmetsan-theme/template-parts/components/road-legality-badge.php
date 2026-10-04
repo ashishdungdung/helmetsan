@@ -17,7 +17,7 @@ if (!$helmetId) {
 
 $certs = helmetsan_get_certifications_array((int) $helmetId);
 $brandName = helmetsan_get_brand_name((int) $helmetId);
-$currentCountry = function_exists('helmetsan_core') ? helmetsan_core()->geo()->getCountry() : 'IN';
+$currentCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
 
 $legality = helmetsan_resolve_road_legality($certs, $currentCountry, $brandName);
 $status = $legality['status']; // 'legal' | 'advisory'

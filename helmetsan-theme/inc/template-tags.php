@@ -155,6 +155,139 @@ function helmetsan_get_helmet_price($helmetId): string
 }
 
 /**
+ * Resolves the visitor's ISO 3166-1 alpha-2 country code.
+ * Order of precedence:
+ * 1. User cookie 'helmetsan_geo' or 'helmetsan_geo_country'
+ * 2. GET override ?country=XX
+ * 3. Cloudflare header HTTP_CF_IPCOUNTRY
+ * 4. Core GeoService
+ * 5. Universal default: 'US'
+ */
+function helmetsan_get_visitor_country(): string
+{
+    // 1. User explicit cookie preference
+    if (! empty($_COOKIE['helmetsan_geo']) && is_string($_COOKIE['helmetsan_geo'])) {
+        $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_COOKIE['helmetsan_geo']), 0, 2));
+        if (strlen($c) === 2) {
+            return $c;
+        }
+    }
+    if (! empty($_COOKIE['helmetsan_geo_country']) && is_string($_COOKIE['helmetsan_geo_country'])) {
+        $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_COOKIE['helmetsan_geo_country']), 0, 2));
+        if (strlen($c) === 2) {
+            return $c;
+        }
+    }
+
+    // 2. URL param override (e.g. testing / debug)
+    if (! empty($_GET['country']) && is_string($_GET['country'])) {
+        $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_GET['country']), 0, 2));
+        if (strlen($c) === 2) {
+            return $c;
+        }
+    }
+
+    // 3. Cloudflare edge IPCountry header
+    if (! empty($_SERVER['HTTP_CF_IPCOUNTRY']) && is_string($_SERVER['HTTP_CF_IPCOUNTRY'])) {
+        $c = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_SERVER['HTTP_CF_IPCOUNTRY']), 0, 2));
+        if (strlen($c) === 2 && $c !== 'XX' && $c !== 'T1') {
+            return $c;
+        }
+    }
+
+    // 4. Core GeoService
+    if (function_exists('helmetsan_core') && helmetsan_core()->geo()) {
+        $c = strtoupper((string) helmetsan_core()->geo()->getCountry());
+        if (strlen($c) === 2) {
+            return $c;
+        }
+    }
+
+    // 5. Universal global default
+    return 'US';
+}
+
+/**
+ * Check if the active visitor is from India.
+ */
+function helmetsan_is_india_visitor(): bool
+{
+    return helmetsan_get_visitor_country() === 'IN';
+}
+
+/**
+ * Resolves the visitor's preferred currency code (e.g. 'USD', 'EUR', 'GBP', 'INR').
+ * Order of precedence:
+ * 1. User cookie 'helmetsan_currency'
+ * 2. GET override ?currency=XXX
+ * 3. Default currency of the visitor's country
+ * 4. Universal default: 'USD'
+ */
+function helmetsan_get_visitor_currency(): string
+{
+    // 1. User explicit cookie preference
+    if (! empty($_COOKIE['helmetsan_currency']) && is_string($_COOKIE['helmetsan_currency'])) {
+        $curr = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_COOKIE['helmetsan_currency']), 0, 3));
+        if (strlen($curr) === 3) {
+            return $curr;
+        }
+    }
+
+    // 2. URL param override
+    if (! empty($_GET['currency']) && is_string($_GET['currency'])) {
+        $curr = strtoupper(substr(preg_replace('/[^a-zA-Z]/', '', $_GET['currency']), 0, 3));
+        if (strlen($curr) === 3) {
+            return $curr;
+        }
+    }
+
+    // 3. Default currency for the resolved country
+    $country = helmetsan_get_visitor_country();
+    $supported = function_exists('helmetsan_get_supported_countries') ? helmetsan_get_supported_countries() : [];
+    if (isset($supported[$country]['currency'])) {
+        return strtoupper((string) $supported[$country]['currency']);
+    }
+
+    return 'USD';
+}
+
+/**
+ * Get currency symbol for a 3-letter currency code.
+ */
+function helmetsan_get_currency_symbol(string $currency): string
+{
+    $symbols = [
+        'USD' => '$',
+        'EUR' => '€',
+        'GBP' => '£',
+        'INR' => '₹',
+        'JPY' => '¥',
+        'CAD' => 'CA$',
+        'AUD' => 'A$',
+        'AED' => 'AED ',
+        'SAR' => 'SAR ',
+        'CHF' => 'CHF ',
+        'SEK' => ' kr',
+        'NOK' => ' kr',
+        'MXN' => 'MX$',
+        'BRL' => 'R$',
+        'PLN' => 'zł',
+        'SGD' => 'S$',
+        'NZD' => 'NZ$',
+        'KRW' => '₩',
+        'TRY' => '₺',
+        'NGN' => '₦',
+        'KES' => 'KSh ',
+        'EGP' => 'E£',
+        'MAD' => 'MAD',
+        'GHS' => 'GH₵',
+        'UGX' => 'USh ',
+        'TZS' => 'TSh ',
+    ];
+    return $symbols[strtoupper(trim($currency))] ?? $currency;
+}
+
+/**
  * Get all supported countries with metadata.
  * Decoupled wrapper that calls GeoService::getSupportedCountries() if available,
  * with fallback to prevent fatal errors if helmetsan-core is disabled.
