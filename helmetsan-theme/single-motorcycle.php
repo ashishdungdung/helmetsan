@@ -659,13 +659,22 @@ if (have_posts()) :
                         ?>
                             <div class="hs-moto-helmet-card">
                                 <div class="hs-moto-helmet-card__media">
-                                    <?php if (has_post_thumbnail($h_id)) : ?>
-                                        <a href="<?php echo esc_url($h_link); ?>" tabindex="-1" aria-hidden="true">
-                                            <?php echo get_the_post_thumbnail($h_id, 'medium', ['class' => 'hs-moto-helmet-card__img', 'loading' => 'lazy']); ?>
+                                    <?php 
+                                    $h_slug_term = (! empty($h_terms) && ! is_wp_error($h_terms)) ? $h_terms[0]->slug : 'full-face';
+                                    if (has_post_thumbnail($h_id)) : ?>
+                                        <a href="<?php echo esc_url($h_link); ?>" tabindex="-1" aria-hidden="true" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                            <?php echo get_the_post_thumbnail($h_id, 'medium', [
+                                                'class' => 'hs-moto-helmet-card__img',
+                                                'loading' => 'lazy',
+                                                'onerror' => "this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='flex';}"
+                                            ]); ?>
+                                            <div class="hs-helmet-cad-fallback-wrap" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
+                                                <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($h_slug_term, '#00d2be') : ''; ?>
+                                            </div>
                                         </a>
                                     <?php else : ?>
-                                        <div class="hs-moto-helmet-card__placeholder">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="11" r="7"/><path d="M12 18v3M9 21h6"/></svg>
+                                        <div class="hs-moto-helmet-card__placeholder" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                                            <?php echo function_exists('helmetsan_render_helmet_silhouette') ? helmetsan_render_helmet_silhouette($h_slug_term, '#00d2be') : '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="11" r="7"/><path d="M12 18v3M9 21h6"/></svg>'; ?>
                                         </div>
                                     <?php endif; ?>
                                     <span class="hs-moto-helmet-card__badge"><?php echo esc_html($h_cert); ?></span>

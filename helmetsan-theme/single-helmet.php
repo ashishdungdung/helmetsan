@@ -1410,6 +1410,16 @@ if (have_posts()) {
                     </div>
                 </section>
             <?php endif; ?>
+            <!-- Compatible Motorcycles & Vehicle Synergy Section -->
+            <?php
+            get_template_part('template-parts/helmet/compatible-motorcycles', null, [
+                'helmetId'        => $helmetId,
+                'helmetTypeLabel' => $helmetTypeLabel,
+                'useCase'         => $useCase,
+                'title'           => $titleClean,
+            ]);
+            ?>
+
             <!-- Data & Sources Provenance Section -->
             <section class="hs-panel hs-pdp-panel hs-reveal" id="data-sources">
                 <h2 class="hs-section-icon-title">
