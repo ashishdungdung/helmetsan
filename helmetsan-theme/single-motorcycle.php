@@ -695,7 +695,11 @@ if (have_posts()) :
                                         <a href="<?php echo esc_url($h_link); ?>" class="hs-moto-helmet-card__cta" style="flex:1;">
                                             <?php esc_html_e('View Helmet Specs', 'helmetsan-theme'); ?>
                                         </a>
-                                        <a href="https://www.amazon.in/s?k=<?php echo urlencode($h_title . ' motorcycle helmet'); ?>&tag=helmetsan-21" target="_blank" rel="noopener noreferrer" class="hs-moto-btn hs-moto-btn--primary" style="padding:0.45rem 0.6rem; font-size:0.75rem;">
+                                        <?php
+                                        $revConfig = function_exists('get_option') ? (array) get_option('helmetsan_revenue', []) : [];
+                                        $amazonInTag = ! empty($revConfig['amazon_tag_in']) ? (string) $revConfig['amazon_tag_in'] : 'virginiatete-21';
+                                        ?>
+                                        <a href="https://www.amazon.in/s?k=<?php echo urlencode($h_title . ' motorcycle helmet'); ?>&tag=<?php echo esc_attr($amazonInTag); ?>" target="_blank" rel="noopener noreferrer" class="hs-moto-btn hs-moto-btn--primary" style="padding:0.45rem 0.6rem; font-size:0.75rem;">
                                             <?php esc_html_e('Amazon IN ↗', 'helmetsan-theme'); ?>
                                         </a>
                                     </div>
