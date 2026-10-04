@@ -29,6 +29,7 @@ final class SitemapEnhancer
         add_filter('redirect_canonical', [$this, 'preventSitemapRedirect'], 10, 2);
         add_action('template_redirect', [$this, 'handleSitemapRequest']);
         add_filter('wpseo_sitemap_index', [$this, 'filterYoastSitemapIndex']);
+        add_filter('wpseo_sitemap_url', [$this, 'filterYoastSitemapUrl'], 10, 2);
 
         add_action('save_post_helmet', [$this, 'invalidateCache']);
         add_action('save_post_brand', [$this, 'invalidateCache']);
@@ -83,6 +84,36 @@ final class SitemapEnhancer
 
         echo $this->getSitemapXml($type);
         exit;
+    }
+
+    /**
+     * Injects canonical sitemaps.org <priority> and <changefreq> elements into Yoast XML entries.
+     * Guarantees 1.0 priority and weekly crawl frequency for the 15 Authoritative Masterclass Guides.
+     *
+     * @param string $output The XML string for this <url> entry.
+     * @param array<string, mixed> $url The URL data array.
+     */
+    public function filterYoastSitemapUrl(string $output, array $url): string
+    {
+        $loc = (string) ($url['loc'] ?? '');
+        $priority = '0.7';
+        $changefreq = 'monthly';
+
+        $home = rtrim(home_url(), '/');
+        if ($loc === $home || $loc === $home . '/' || preg_match('#/(ece-22-06|intermediate-oval|helmet-cheek-pad|carbon-fiber|pinlock|best-modular|quietest-motorcycle|when-to-replace|how-helmet-ventilation|adventure-dual-sport|track-day-helmet|integrated-bluetooth|how-to-wash|how-to-choose|helmet-weight)#i', $loc)) {
+            $priority = '1.0';
+            $changefreq = 'weekly';
+        } elseif (strpos($loc, '/brand/') !== false || strpos($loc, '/brands/') !== false || strpos($loc, '/motorcycle') !== false) {
+            $priority = '0.8';
+            $changefreq = 'weekly';
+        }
+
+        $injection = "		<changefreq>" . $changefreq . "</changefreq>
+		<priority>" . $priority . "</priority>
+	</url>
+";
+        return str_replace("	</url>
+", $injection, $output);
     }
 
     /**
