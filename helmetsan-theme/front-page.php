@@ -17,7 +17,7 @@ $helmetsUrl     = helmetsan_url('/helmets/');
 $brandsUrl      = helmetsan_url('/brands/');
 $accessoriesUrl = helmetsan_url('/accessories/');
 $motorcyclesUrl = helmetsan_url('/motorcycles/');
-$safetyUrl      = helmetsan_url('/safety-standards/');
+$safetyUrl      = helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/');
 $compareUrl     = helmetsan_url('/comparison/');
 ?>
 
@@ -362,30 +362,30 @@ $compareUrl     = helmetsan_url('/comparison/');
         </div>
 
         <div class="hs-home-safety__grid">
-            <a href="<?php echo esc_url(helmetsan_url('/certification/ece-22-06/')); ?>" class="hs-home-safety__card">
-                <span class="hs-home-safety__card-region"><?php hs_e('🌍 Global'); ?></span>
+            <a href="<?php echo esc_url(helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/')); ?>" class="hs-home-safety__card">
+                <span class="hs-home-safety__card-region"><?php hs_e('🌍 Global / EU'); ?></span>
                 <div class="hs-home-safety__card-name">ECE 22.06</div>
-                <div class="hs-home-safety__card-desc"><?php hs_e('Impact + rotational testing'); ?></div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Rotational acceleration & multi-angle impact'); ?></div>
             </a>
-            <a href="<?php echo esc_url(helmetsan_url('/certification/dot-approved/')); ?>" class="hs-home-safety__card">
+            <a href="<?php echo esc_url(helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/')); ?>" class="hs-home-safety__card">
                 <span class="hs-home-safety__card-region"><?php hs_e('🇺🇸 USA'); ?></span>
                 <div class="hs-home-safety__card-name">DOT FMVSS 218</div>
-                <div class="hs-home-safety__card-desc"><?php hs_e('US regulatory standard'); ?></div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('US federal compliance standard'); ?></div>
             </a>
-            <a href="<?php echo esc_url(helmetsan_url('/certification/snell-certified/')); ?>" class="hs-home-safety__card">
+            <a href="<?php echo esc_url(helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/')); ?>" class="hs-home-safety__card">
                 <span class="hs-home-safety__card-region"><?php hs_e('🏁 Track'); ?></span>
                 <div class="hs-home-safety__card-name">Snell M2020</div>
-                <div class="hs-home-safety__card-desc"><?php hs_e('Independent performance standard'); ?></div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('High-energy double impact testing'); ?></div>
             </a>
-            <a href="<?php echo esc_url(helmetsan_url('/safety-standards/')); ?>" class="hs-home-safety__card">
+            <a href="<?php echo esc_url(helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/')); ?>" class="hs-home-safety__card">
                 <span class="hs-home-safety__card-region"><?php hs_e('🇬🇧 UK'); ?></span>
-                <div class="hs-home-safety__card-name">SHARP</div>
-                <div class="hs-home-safety__card-desc"><?php hs_e('Independent UK rating system'); ?></div>
+                <div class="hs-home-safety__card-name">SHARP Rating</div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('Independent star safety rating system'); ?></div>
             </a>
-            <a href="<?php echo esc_url(helmetsan_url('/certification/fim-certified/')); ?>" class="hs-home-safety__card">
+            <a href="<?php echo esc_url(helmetsan_url('/track-day-helmet-requirements-fim-homologation/')); ?>" class="hs-home-safety__card">
                 <span class="hs-home-safety__card-region"><?php hs_e('🏆 MotoGP'); ?></span>
                 <div class="hs-home-safety__card-name">FIM FRHPhe</div>
-                <div class="hs-home-safety__card-desc"><?php hs_e('Mandatory racing standard'); ?></div>
+                <div class="hs-home-safety__card-desc"><?php hs_e('FIM mandatory circuit racing homologation'); ?></div>
             </a>
         </div>
 
@@ -466,25 +466,45 @@ $compareUrl     = helmetsan_url('/comparison/');
     <div class="hs-home-section__inner">
         <div class="hs-home-section__header">
             <span class="hs-home-section__eyebrow"><?php hs_e('Helmetsan Intelligence'); ?></span>
-            <h2 class="hs-home-section__title"><?php hs_e('Guides & research'); ?></h2>
+            <h2 class="hs-home-section__title"><?php hs_e('Guides & Research'); ?></h2>
+            <p class="hs-home-section__subtitle"><?php hs_e('Authoritative engineering benchmarks, fit masterclasses, and biomechanical safety analyses.'); ?></p>
         </div>
 
         <div class="hs-home-guides__grid">
-            <a href="<?php echo esc_url(helmetsan_url('/certification/ece-22-06/')); ?>" class="hs-home-guide-card">
+            <a href="<?php echo esc_url(helmetsan_url('/ece-22-06-vs-dot-vs-snell-helmet-safety-standards/')); ?>" class="hs-home-guide-card">
                 <span class="hs-home-guide-card__category"><?php hs_e('Safety Standards'); ?></span>
-                <span class="hs-home-guide-card__title"><?php hs_e('What does ECE 22.06 actually mean?'); ?></span>
-                <span class="hs-home-guide-card__meta"><?php hs_e('Safety · 8 min read'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('ECE 22.06 vs DOT vs SNELL: Complete 2026 Standards Guide'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Engineering · 1,500 words · 9 min read'); ?></span>
             </a>
-            <a href="<?php echo esc_url($safetyUrl); ?>" class="hs-home-guide-card">
-                <span class="hs-home-guide-card__category"><?php hs_e('Safety'); ?></span>
-                <span class="hs-home-guide-card__title"><?php hs_e("ECE vs DOT: What's the difference?"); ?></span>
-                <span class="hs-home-guide-card__meta"><?php hs_e('Comparison · 6 min read'); ?></span>
+            <a href="<?php echo esc_url(helmetsan_url('/intermediate-oval-vs-long-oval-head-shape-guide/')); ?>" class="hs-home-guide-card">
+                <span class="hs-home-guide-card__category"><?php hs_e('Ergonomics & Fit'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('Intermediate Oval vs Long Oval: Finding Your Head Shape'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Cranial Fit · 1,300 words · 8 min read'); ?></span>
             </a>
-            <a href="<?php echo esc_url(helmetsan_url('/helmet-type/touring/')); ?>" class="hs-home-guide-card">
-                <span class="hs-home-guide-card__category"><?php hs_e('Buying Guide'); ?></span>
-                <span class="hs-home-guide-card__title"><?php hs_e('Best helmets for long-distance touring'); ?></span>
-                <span class="hs-home-guide-card__meta"><?php hs_e('Touring · 10 min read'); ?></span>
+            <a href="<?php echo esc_url(helmetsan_url('/carbon-fiber-vs-fiberglass-vs-polycarbonate-helmets/')); ?>" class="hs-home-guide-card">
+                <span class="hs-home-guide-card__category"><?php hs_e('Material Science'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('Carbon Fiber vs Fiberglass vs Polycarbonate Shells'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Materials · 1,400 words · 8 min read'); ?></span>
             </a>
+            <a href="<?php echo esc_url(helmetsan_url('/quietest-motorcycle-helmets-highway-commuting/')); ?>" class="hs-home-guide-card">
+                <span class="hs-home-guide-card__category"><?php hs_e('Acoustics & Aero'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('Quietest Motorcycle Helmets for Highway Commuting'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Acoustics · 1,350 words · 7 min read'); ?></span>
+            </a>
+            <a href="<?php echo esc_url(helmetsan_url('/best-modular-flip-up-helmets-guide/')); ?>" class="hs-home-guide-card">
+                <span class="hs-home-guide-card__category"><?php hs_e('Modular Architecture'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('The Best Modular & Flip-Up Helmets: Homologation & Noise'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Modular · 1,280 words · 7 min read'); ?></span>
+            </a>
+            <a href="<?php echo esc_url(helmetsan_url('/how-to-choose-first-motorcycle-helmet-beginners-guide/')); ?>" class="hs-home-guide-card">
+                <span class="hs-home-guide-card__category"><?php hs_e('Buyer’s Guide'); ?></span>
+                <span class="hs-home-guide-card__title"><?php hs_e('How to Choose Your First Helmet: Beginner Checklist'); ?></span>
+                <span class="hs-home-guide-card__meta"><?php hs_e('Beginner · 1,450 words · 9 min read'); ?></span>
+            </a>
+        </div>
+
+        <div class="hs-home-guides__cta" style="text-align: center; margin-top: 2rem;">
+            <a href="<?php echo esc_url(helmetsan_url('/blog/')); ?>" class="hs-btn hs-btn--secondary"><?php hs_e('Explore All 15 Engineering Masterclasses →'); ?></a>
         </div>
     </div>
 </section>
