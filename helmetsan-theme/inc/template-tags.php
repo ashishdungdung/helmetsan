@@ -1629,7 +1629,6 @@ function helmetsan_render_comparison_bar(): void
 {
     get_template_part('template-parts/sticky-comparison-bar');
 }
-add_action('wp_footer', 'helmetsan_render_comparison_bar');
 
 /**
  * Render a semantic breadcrumb trail for Helmets and Brands.
