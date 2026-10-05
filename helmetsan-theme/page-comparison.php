@@ -251,8 +251,11 @@ if (count($helmets) >= 2) {
 <script>
 // Auto-redirect to ?ids=... if localStorage has items but URL parameter is missing
 document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.indexOf('/vs/') !== -1) {
+        return;
+    }
     const urlParams = new URLSearchParams(window.location.search);
-    if (!urlParams.get('ids')) {
+    if (!urlParams.get('ids') && window.location.pathname.includes('/comparison')) {
         try {
             const list = JSON.parse(localStorage.getItem('helmetsan_compare_list')) || [];
             if (list.length > 0) {
@@ -976,7 +979,8 @@ $helmets_link = get_post_type_archive_link("helmet") ?: home_url("/helmets/");
         } else {
             var input = document.createElement('input');
             input.value = url;
-            input.setAttribute('readonly', '');\n            input.style.position = 'fixed'; input.style.opacity = '0';
+            input.setAttribute('readonly', '');
+            input.style.position = 'fixed'; input.style.opacity = '0';
             document.body.appendChild(input);
             input.select();
             try {
