@@ -5,11 +5,10 @@
  * @package HelmetsanTheme
  */
 
-static $hs_sticky_comparison_bar_rendered = false;
-if ($hs_sticky_comparison_bar_rendered) {
+if (!empty($GLOBALS["hs_sticky_comparison_bar_rendered"])) {
     return;
 }
-$hs_sticky_comparison_bar_rendered = true;
+$GLOBALS["hs_sticky_comparison_bar_rendered"] = true;
 
 $compare_url = helmetsan_url("/comparison/");
 ?>
