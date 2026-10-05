@@ -29,7 +29,9 @@ function helmetsan_ajax_filter_handler(): void
         }
     }
 
-    $cacheKey = 'hs_filter_' . $lang . '_' . md5(wp_json_encode($_GET));
+    $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+    $vCurrency = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+    $cacheKey = 'hs_filter_' . $lang . '_' . $vCountry . '_' . $vCurrency . '_' . md5(wp_json_encode($_GET));
     $cached = get_transient($cacheKey);
     
     if ($cached !== false && !is_user_logged_in()) {

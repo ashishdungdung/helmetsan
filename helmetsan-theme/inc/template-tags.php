@@ -127,7 +127,7 @@ function helmetsan_get_related_helmets_by_brand(int $helmetId, int $limit = 6): 
     return $q->posts;
 }
 
-function helmetsan_get_helmet_price($helmetId): string
+function helmetsan_get_helmet_price($helmetId, ?string $currency = null): string
 {
     if (function_exists('pll_default_language') && function_exists('pll_get_post')) {
         $defaultLang = pll_default_language();
@@ -137,21 +137,52 @@ function helmetsan_get_helmet_price($helmetId): string
         }
     }
 
-    if (function_exists('helmetsan_core')) {
-        $priceService = helmetsan_core()->price();
-        $perfConfig = helmetsan_core()->config()->performanceConfig();
-        if (!empty($perfConfig['enable_geoip_pricing'])) {
-            return $priceService->getGeoPrice((int) $helmetId);
+    $visitorCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+    $targetCurrency = $currency ?: (function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD');
+
+    // 1. Check if helmet has explicit geo_pricing_json for visitor's country
+    $geoPricingJson = (string) get_post_meta((int) $helmetId, 'geo_pricing_json', true);
+    if ($geoPricingJson !== '') {
+        $geoPricing = json_decode($geoPricingJson, true);
+        if (is_array($geoPricing) && isset($geoPricing[$visitorCountry])) {
+            $manual = $geoPricing[$visitorCountry];
+            $p = $manual['current_price'] ?? $manual['price'] ?? null;
+            if (is_numeric($p) && (float) $p > 0) {
+                $manualCurr = $manual['currency'] ?? $targetCurrency;
+                if ($manualCurr === $targetCurrency) {
+                    if (function_exists('helmetsan_core') && helmetsan_core()->price() && helmetsan_core()->price()->formatter()) {
+                        return helmetsan_core()->price()->formatter()->format((float) $p, $manualCurr);
+                    }
+                    $sym = function_exists('helmetsan_get_currency_symbol') ? helmetsan_get_currency_symbol($manualCurr) : '$';
+                    return $sym . number_format((float) $p, 2);
+                }
+            }
         }
-        return $priceService->getPrice($helmetId);
     }
 
-    $price = get_post_meta($helmetId, 'price_retail_usd', true);
-    if (! is_numeric((string) $price)) {
-        return 'N/A';
+    // 2. Fetch base USD price
+    $basePrice = get_post_meta((int) $helmetId, 'price_retail_usd', true);
+    if (! is_numeric($basePrice) || (float) $basePrice <= 0) {
+        $basePrice = get_post_meta((int) $helmetId, 'price_usd', true);
     }
 
-    return '$' . number_format((float) $price, 2);
+    if (! is_numeric($basePrice) || (float) $basePrice <= 0) {
+        return 'Check Deals';
+    }
+
+    $basePriceVal = (float) $basePrice;
+
+    // 3. Dynamic conversion to target currency with VAT and charm rounding
+    if (function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+        $ratesService = helmetsan_core()->exchangeRates();
+        $convertedVal = $ratesService->convert($basePriceVal, 'USD', $targetCurrency);
+        $convertedVal = $ratesService->applyVat($convertedVal, $visitorCountry);
+        $convertedVal = $ratesService->charmRound($convertedVal, $targetCurrency);
+        return helmetsan_core()->price()->formatter()->format($convertedVal, $targetCurrency);
+    }
+
+    $sym = function_exists('helmetsan_get_currency_symbol') ? helmetsan_get_currency_symbol($targetCurrency) : '$';
+    return $sym . number_format($basePriceVal, 2);
 }
 
 /**
@@ -339,8 +370,7 @@ function helmetsan_render_price_element(int $helmetId, string $class = 'hs-price
     }
     
     $taxLabel = '';
-    if (function_exists('helmetsan_core')) {
-        $cc = helmetsan_core()->geo()->getCountry();
+    $cc = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : (function_exists('helmetsan_core') ? helmetsan_core()->geo()->getCountry() : 'US');
         $vatCountries = [
             'DE', 'FR', 'IT', 'ES', 'GB', 'UK', 'PL', 'AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'FI',
             'GR', 'HR', 'HU', 'IE', 'LT', 'LU', 'LV', 'MT', 'NL', 'PT', 'RO', 'SE', 'SI', 'SK', 'CH', 'NO'
@@ -348,7 +378,6 @@ function helmetsan_render_price_element(int $helmetId, string $class = 'hs-price
         if (in_array($cc, $vatCountries, true)) {
             $taxLabel = ' <small class="hs-tax-label">incl. VAT</small>';
         }
-    }
 
     return sprintf(
         '<span class="%s" data-base-price="%s" data-base-currency="USD" data-manual-pricing="%s"%s>%s%s</span>',

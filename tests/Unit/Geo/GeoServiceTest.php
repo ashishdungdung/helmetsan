@@ -29,11 +29,11 @@ class GeoServiceTest extends TestCase
         parent::tearDown();
     }
 
-    public function testGetCountryDefaultIsIndia(): void
+    public function testGetCountryDefaultIsGlobal(): void
     {
         $service = new GeoService();
         $country = $service->getCountry();
-        $this->assertSame('IN', $country);
+        $this->assertSame('US', $country);
     }
 
     public function testGetCountryFromCloudflareHeader(): void
@@ -91,6 +91,6 @@ class GeoServiceTest extends TestCase
         $_COOKIE['helmetsan_geo'] = 'ZZ'; // Invalid country code
         $service = new GeoService();
         $country = $service->getCountry();
-        $this->assertSame('IN', $country, 'Invalid 2-letter cookie should be ignored and fall back to default IN');
+        $this->assertSame('US', $country, 'Invalid 2-letter cookie should be ignored and fall back to default US');
     }
 }

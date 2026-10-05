@@ -40,12 +40,22 @@ if (have_posts()) {
         $categoryTerms = is_array($categoryTerms) ? $categoryTerms : [];
 
         $priceDisplay = '—';
-        $currency = '';
+        $rawPriceVal = 0.0;
         if (is_array($price)) {
             $rawPrice = $price['usd'] ?? $price['current'] ?? null;
-            if ($rawPrice !== null) {
-                $priceDisplay = is_numeric($rawPrice) ? number_format_i18n((float) $rawPrice) : (string) $rawPrice;
-                $currency = (string) ($price['currency'] ?? 'USD');
+            if ($rawPrice !== null && is_numeric($rawPrice)) {
+                $rawPriceVal = (float) $rawPrice;
+                $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+                $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+                if (function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+                    $rates = helmetsan_core()->exchangeRates();
+                    $conv = $rates->convert($rawPriceVal, 'USD', $vCurr);
+                    $conv = $rates->applyVat($conv, $vCountry);
+                    $conv = $rates->charmRound($conv, $vCurr);
+                    $priceDisplay = helmetsan_core()->price()->formatter()->format($conv, $vCurr);
+                } else {
+                    $priceDisplay = '$' . number_format($rawPriceVal, 2);
+                }
             }
         }
         $compatCount = count($helmetTypes);
@@ -80,7 +90,7 @@ if (have_posts()) {
                         </li>
                         <li class="accessory-hero__stat">
                             <span class="accessory-hero__stat-label">Price</span>
-                            <strong class="accessory-hero__stat-value"><?php echo esc_html($priceDisplay . ($currency !== '' ? ' ' . $currency : '')); ?></strong>
+                            <strong class="accessory-hero__stat-value"><span class="hs-price" data-base-price="<?php echo esc_attr((string) $rawPriceVal); ?>" data-base-currency="USD"><?php echo esc_html($priceDisplay); ?></span></strong>
                         </li>
                         <li class="accessory-hero__stat">
                             <span class="accessory-hero__stat-label">Compatibility</span>
@@ -119,7 +129,7 @@ if (have_posts()) {
 
             <section class="hs-stat-grid accessory-single__stat-cards" aria-label="Product details">
                 <article class="hs-stat-card"><span>Type</span><strong><?php echo esc_html($type !== '' ? $type : '—'); ?></strong></article>
-                <article class="hs-stat-card"><span>Price</span><strong><?php echo esc_html($priceDisplay . ($currency !== '' ? ' ' . $currency : '')); ?></strong></article>
+                <article class="hs-stat-card"><span>Price</span><strong><span class="hs-price" data-base-price="<?php echo esc_attr((string) $rawPriceVal); ?>" data-base-currency="USD"><?php echo esc_html($priceDisplay); ?></span></strong></article>
                 <article class="hs-stat-card"><span>Helmet Types</span><strong><?php echo esc_html($compatCount === 0 ? '—' : number_format_i18n($compatCount)); ?></strong></article>
             </section>
 
@@ -250,7 +260,7 @@ if (have_posts()) {
                                             <span class="hs-price-table__best-tag"><?php esc_html_e('Best Price', 'helmetsan-theme'); ?></span>
                                         </td>
                                         <td class="hs-price-table__price">
-                                            <strong class="hs-price-table__amount"><?php echo esc_html($priceDisplay . ($currency !== '' ? ' ' . $currency : '')); ?></strong>
+                                            <strong class="hs-price-table__amount"><span class="hs-price" data-base-price="<?php echo esc_attr((string) $rawPriceVal); ?>" data-base-currency="USD"><?php echo esc_html($priceDisplay); ?></span></strong>
                                         </td>
                                         <td class="hs-price-table__avail"><span class="accessory-single__avail"><?php esc_html_e('In stock', 'helmetsan-theme'); ?></span></td>
                                         <td class="hs-price-table__action">
@@ -454,7 +464,7 @@ if (have_posts()) {
                         <input type="email" class="hs-pdp-modal__input" id="hsAlertEmail" placeholder="your@email.com" required>
                     </div>
                     <div class="hs-pdp-modal__form-row">
-                        <input type="number" class="hs-pdp-modal__input" id="hsAlertPrice" placeholder="Target Price ($)" required>
+                        <input type="number" class="hs-pdp-modal__input" id="hsAlertPrice" placeholder="<?php printf(esc_attr__('Target Price (%s)', 'helmetsan-theme'), esc_attr(function_exists('helmetsan_get_currency_symbol') && function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_currency_symbol(helmetsan_get_visitor_currency()) : '$')); ?>" required>
                     </div>
                     <button type="submit" class="hs-pdp-modal__submit"><?php esc_html_e('Activate Track Alert', 'helmetsan-theme'); ?></button>
                 </form>

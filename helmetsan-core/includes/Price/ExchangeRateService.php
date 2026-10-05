@@ -50,6 +50,7 @@ final class ExchangeRateService
         'CNY' => 7.25,
         'COP' => 4150.0,
         'ARS' => 1050.0,
+        'TRY' => 34.5,
     ];
 
     /**

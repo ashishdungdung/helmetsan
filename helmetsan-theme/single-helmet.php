@@ -120,11 +120,15 @@ if (have_posts()) {
         }
         $relatedAccessories = [];
         if ($accessoryMetaQueries !== []) {
+            $currentLang = function_exists('pll_current_language') ? pll_current_language() : 'en';
             $relatedAccessories = get_posts([
-                'post_type' => 'accessory',
-                'post_status' => 'publish',
-                'posts_per_page' => 8,
-                'meta_query' => array_merge(['relation' => 'OR'], $accessoryMetaQueries),
+                'post_type'        => 'accessory',
+                'post_status'      => 'publish',
+                'post_parent'      => 0,
+                'posts_per_page'   => 8,
+                'suppress_filters' => false,
+                'lang'             => $currentLang,
+                'meta_query'       => array_merge(['relation' => 'OR'], $accessoryMetaQueries),
             ]);
         }
 
@@ -1360,8 +1364,23 @@ if (have_posts()) {
                                 $accPriceData = json_decode($accPriceJson, true);
                                 
                                 $accPriceStr = '—';
-                                if (is_array($accPriceData) && isset($accPriceData['current'])) {
-                                    $accPriceStr = '$' . number_format((float)$accPriceData['current'], 2);
+                                $accBasePrice = 0.0;
+                                if (is_array($accPriceData)) {
+                                    $rawVal = $accPriceData['usd'] ?? $accPriceData['current'] ?? null;
+                                    if (is_numeric($rawVal) && (float)$rawVal > 0) {
+                                        $accBasePrice = (float)$rawVal;
+                                        $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+                                        $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+                                        if (function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+                                            $rates = helmetsan_core()->exchangeRates();
+                                            $conv = $rates->convert($accBasePrice, 'USD', $vCurr);
+                                            $conv = $rates->applyVat($conv, $vCountry);
+                                            $conv = $rates->charmRound($conv, $vCurr);
+                                            $accPriceStr = helmetsan_core()->price()->formatter()->format($conv, $vCurr);
+                                        } else {
+                                            $accPriceStr = '$' . number_format($accBasePrice, 2);
+                                        }
+                                    }
                                 }
                                 $accThumbUrl = get_the_post_thumbnail_url($accId, 'medium');
                                 $accLink = get_permalink($accId);
@@ -1383,7 +1402,7 @@ if (have_posts()) {
                                                 <a href="<?php echo esc_url($accLink); ?>" style="color: inherit; text-decoration: none;"><?php echo esc_html($accPost->post_title); ?></a>
                                             </h3>
                                             <div class="hs-compat-card__price-row">
-                                                <span class="hs-compat-card__price"><?php echo esc_html($accPriceStr); ?></span>
+                                                <span class="hs-compat-card__price hs-price"<?php echo $accBasePrice > 0 ? ' data-base-price="' . esc_attr((string)$accBasePrice) . '" data-base-currency="USD"' : ''; ?>><?php echo esc_html($accPriceStr); ?></span>
                                                 <a href="<?php echo esc_url($accLink); ?>" class="hs-compat-card__btn">
                                                     <?php esc_html_e('View', 'helmetsan-theme'); ?> &rarr;
                                                 </a>
@@ -1464,7 +1483,7 @@ if (have_posts()) {
                         <input type="email" class="hs-pdp-modal__input" id="hsAlertEmail" placeholder="your@email.com" required>
                     </div>
                     <div class="hs-pdp-modal__form-row">
-                        <input type="number" class="hs-pdp-modal__input" id="hsAlertPrice" placeholder="Target Price ($)" required>
+                        <input type="number" class="hs-pdp-modal__input" id="hsAlertPrice" placeholder="<?php printf(esc_attr__('Target Price (%s)', 'helmetsan-theme'), esc_attr(function_exists('helmetsan_get_currency_symbol') && function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_currency_symbol(helmetsan_get_visitor_currency()) : '$')); ?>" required>
                     </div>
                     <button type="submit" class="hs-pdp-modal__submit"><?php esc_html_e('Activate Track Alert', 'helmetsan-theme'); ?></button>
                 </form>

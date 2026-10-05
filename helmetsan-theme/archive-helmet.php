@@ -265,11 +265,15 @@ if ($brandSlug !== '') {
 if ($helmetFamily !== '') {
     $activeChips[] = ['label' => $helmetFamily, 'url' => $removeFilterUrl('helmet_family')];
 }
+$currencySymbol = function_exists('helmetsan_get_currency_symbol') && function_exists('helmetsan_get_visitor_currency')
+    ? helmetsan_get_currency_symbol(helmetsan_get_visitor_currency())
+    : '$';
+
 if ($priceMin !== '') {
-    $activeChips[] = ['label' => 'Min $' . $priceMin, 'url' => $removeFilterUrl('price_min')];
+    $activeChips[] = ['label' => sprintf(esc_html__('Min %s%s', 'helmetsan-theme'), $currencySymbol, $priceMin), 'url' => $removeFilterUrl('price_min')];
 }
 if ($priceMax !== '') {
-    $activeChips[] = ['label' => 'Max $' . $priceMax, 'url' => $removeFilterUrl('price_max')];
+    $activeChips[] = ['label' => sprintf(esc_html__('Max %s%s', 'helmetsan-theme'), $currencySymbol, $priceMax), 'url' => $removeFilterUrl('price_max')];
 }
 
 $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];

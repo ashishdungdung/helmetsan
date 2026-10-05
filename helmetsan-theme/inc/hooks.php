@@ -54,7 +54,9 @@ function helmetsan_theme_product_og_tags(): void
         echo "\n" . '<!-- Helmetsan Deep SEO: Product OG Tags -->' . "\n";
         echo '<meta property="og:type" content="og:product" />' . "\n";
         echo '<meta property="product:price:amount" content="' . esc_attr((string) $priceNum) . '" />' . "\n";
-        echo '<meta property="product:price:currency" content="USD" />' . "\n";
+        $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+        echo '<meta property="product:price:currency" content="' . esc_attr($vCurr) . '" />' . "
+";
     }
 }
 
@@ -100,7 +102,7 @@ function helmetsan_theme_single_helmet_schema(): void
         'offers'   => [
             '@type'         => 'Offer',
             'url'           => get_permalink($helmetId),
-            'priceCurrency' => 'USD',
+            'priceCurrency' => function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD',
             'price'         => $priceNum ?: '0.00',
             'itemCondition' => 'https://schema.org/NewCondition',
             'availability'  => 'https://schema.org/InStock',

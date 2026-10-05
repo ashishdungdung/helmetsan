@@ -648,7 +648,7 @@ final class Config
         return [
             'enable_metadata_caching' => false,
             'cache_expiration_hours'  => 24,
-            'enable_geoip_pricing'    => false,
+            'enable_geoip_pricing'    => true,
             'enable_active_cache_push'=> false,
         ];
     }

@@ -90,7 +90,20 @@ $permalink = esc_url(helmetsan_url('/helmets/' . $helmetSlug . '/'));
         <div class="hs-card-footer hs-pt-3 hs-flex hs-items-center hs-justify-between">
             <div>
                 <div class="hs-text-micro hs-uppercase hs-text-muted hs-font-bold">MSRP</div>
-                <div class="hs-font-black hs-text-lg hs-text-main">$<?php echo $price; ?></div>
+                <?php
+                $rawPriceVal = is_numeric($price) ? (float) $price : 0.0;
+                $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+                $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+                $renderedPrice = '$' . $price;
+                if ($rawPriceVal > 0 && function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+                    $rates = helmetsan_core()->exchangeRates();
+                    $conv = $rates->convert($rawPriceVal, 'USD', $vCurr);
+                    $conv = $rates->applyVat($conv, $vCountry);
+                    $conv = $rates->charmRound($conv, $vCurr);
+                    $renderedPrice = helmetsan_core()->price()->formatter()->format($conv, $vCurr);
+                }
+                ?>
+                <div class="hs-font-black hs-text-lg hs-text-main hs-price" data-base-price="<?php echo esc_attr((string) $rawPriceVal); ?>" data-base-currency="USD"><?php echo esc_html($renderedPrice); ?></div>
             </div>
 
             <div class="hs-flex hs-items-center hs-gap-2">

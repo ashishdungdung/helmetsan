@@ -170,12 +170,14 @@ if (have_posts()) :
         $target_tax_slugs = array_values(array_unique($target_tax_slugs));
 
         $matching_helmet_args = [
-            'post_type'      => 'helmet',
-            'post_status'    => 'publish',
-            'post_parent'    => 0,
-            'posts_per_page' => 4,
-            'orderby'        => 'date',
-            'order'          => 'DESC',
+            'post_type'        => 'helmet',
+            'post_status'      => 'publish',
+            'post_parent'      => 0,
+            'posts_per_page'   => 4,
+            'orderby'          => 'date',
+            'order'            => 'DESC',
+            'suppress_filters' => false,
+            'lang'             => function_exists('pll_current_language') ? pll_current_language() : 'en',
         ];
         if (! empty($target_tax_slugs)) {
             $matching_helmet_args['tax_query'] = [
@@ -192,20 +194,65 @@ if (have_posts()) :
             $matched_helmets = get_posts($matching_helmet_args);
         }
 
-        // Query matching cockpit accessories
-        $matched_accessories = get_posts([
-            'post_type'      => 'accessory',
-            'post_status'    => 'publish',
-            'posts_per_page' => 3,
-        ]);
+        $currentLang = function_exists('pll_current_language') ? pll_current_language() : 'en';
+
+        // Query matching cockpit accessories (curated, genuine riding gear strictly in visitor's language)
+        $cockpit_curated_ids = [84, 9349, 87, 9345, 9359, 9346, 88];
+        $localized_acc_ids = [];
+        foreach ($cockpit_curated_ids as $c_id) {
+            if (function_exists('pll_get_post')) {
+                $trans_id = (int) pll_get_post($c_id, $currentLang);
+                if ($trans_id > 0 && get_post_status($trans_id) === 'publish') {
+                    $localized_acc_ids[] = $trans_id;
+                    continue;
+                }
+            }
+            if (get_post_status($c_id) === 'publish') {
+                $localized_acc_ids[] = $c_id;
+            }
+        }
+
+        $matched_accessories = [];
+        if (! empty($localized_acc_ids)) {
+            $matched_accessories = get_posts([
+                'post_type'        => 'accessory',
+                'post_status'      => 'publish',
+                'post__in'         => $localized_acc_ids,
+                'orderby'          => 'post__in',
+                'posts_per_page'   => 4,
+                'suppress_filters' => false,
+            ]);
+        }
+
+        if (empty($matched_accessories)) {
+            $matched_accessories = get_posts([
+                'post_type'        => 'accessory',
+                'post_status'      => 'publish',
+                'post_parent'      => 0,
+                'posts_per_page'   => 4,
+                'orderby'          => 'menu_order date',
+                'order'            => 'DESC',
+                'suppress_filters' => false,
+                'lang'             => $currentLang,
+                'meta_query'       => [
+                    [
+                        'key'     => 'price_json',
+                        'compare' => 'EXISTS',
+                    ],
+                ],
+            ]);
+        }
 
         // Query competing/similar motorcycles
         $similar_bikes = get_posts([
-            'post_type'      => 'motorcycle',
-            'post_status'    => 'publish',
-            'posts_per_page' => 3,
-            'post__not_in'   => [$post_id],
-            'tax_query'      => ! empty($seg_terms) && ! is_wp_error($seg_terms) ? [
+            'post_type'        => 'motorcycle',
+            'post_status'      => 'publish',
+            'post_parent'      => 0,
+            'posts_per_page'   => 3,
+            'post__not_in'     => [$post_id],
+            'suppress_filters' => false,
+            'lang'             => $currentLang,
+            'tax_query'        => ! empty($seg_terms) && ! is_wp_error($seg_terms) ? [
                 [
                     'taxonomy' => 'motorcycle_segment',
                     'field'    => 'term_id',
@@ -215,10 +262,13 @@ if (have_posts()) :
         ]);
         if (empty($similar_bikes)) {
             $similar_bikes = get_posts([
-                'post_type'      => 'motorcycle',
-                'post_status'    => 'publish',
-                'posts_per_page' => 3,
-                'post__not_in'   => [$post_id],
+                'post_type'        => 'motorcycle',
+                'post_status'      => 'publish',
+                'post_parent'      => 0,
+                'posts_per_page'   => 3,
+                'post__not_in'     => [$post_id],
+                'suppress_filters' => false,
+                'lang'             => $currentLang,
             ]);
         }
 
@@ -756,6 +806,9 @@ if (have_posts()) :
                                         <span class="hs-moto-synergy-dot"></span>
                                         <span><?php esc_html_e('Optimal Postural Alignment', 'helmetsan-theme'); ?></span>
                                     </div>
+                                    <div class="hs-moto-helmet-card__price-row" style="margin-top:0.5rem;">
+                                        <?php echo function_exists('helmetsan_render_price_element') ? helmetsan_render_price_element($h_id, 'hs-moto-helmet-card__price') : ''; ?>
+                                    </div>
                                     <div style="margin-top:1rem; display:flex; gap:0.5rem;">
                                         <a href="<?php echo esc_url($h_link); ?>" class="hs-moto-helmet-card__cta" style="flex:1;">
                                             <?php esc_html_e('View Helmet Specs', 'helmetsan-theme'); ?>
@@ -791,19 +844,69 @@ if (have_posts()) :
                         </a>
                     </div>
 
-                    <div class="hs-moto-acc-grid">
+                    <div class="hs-moto-acc-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1rem;">
                         <?php foreach ($matched_accessories as $acc) :
                             $acc_id    = $acc->ID;
+                            if (function_exists('pll_get_post') && function_exists('pll_current_language')) {
+                                $transId = (int) pll_get_post($acc_id, pll_current_language());
+                                if ($transId > 0 && get_post_status($transId) === 'publish') {
+                                    $acc_id = $transId;
+                                }
+                            }
                             $acc_title = get_the_title($acc_id);
                             $acc_link  = get_permalink($acc_id);
+                            $acc_type  = (string) get_post_meta($acc_id, 'accessory_type', true);
+                            if ($acc_type === '') {
+                                $acc_terms = get_the_terms($acc_id, 'accessory_category');
+                                if (! empty($acc_terms) && ! is_wp_error($acc_terms)) {
+                                    $acc_type = $acc_terms[0]->name;
+                                }
+                            }
+
+                            $acc_price_json = (string) get_post_meta($acc_id, 'price_json', true);
+                            $acc_price_data = json_decode($acc_price_json, true);
+                            $acc_price_val = 0.0;
+                            $acc_price_display = '';
+                            if (is_array($acc_price_data)) {
+                                $rawVal = $acc_price_data['usd'] ?? $acc_price_data['current'] ?? null;
+                                if (is_numeric($rawVal) && (float)$rawVal > 0) {
+                                    $acc_price_val = (float)$rawVal;
+                                    $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+                                    $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+                                    if (function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+                                        $rates = helmetsan_core()->exchangeRates();
+                                        $conv = $rates->convert($acc_price_val, 'USD', $vCurr);
+                                        $conv = $rates->applyVat($conv, $vCountry);
+                                        $conv = $rates->charmRound($conv, $vCurr);
+                                        $acc_price_display = helmetsan_core()->price()->formatter()->format($conv, $vCurr);
+                                    } else {
+                                        $acc_price_display = '$' . number_format($acc_price_val, 2);
+                                    }
+                                }
+                            }
+                            $acc_thumb = get_the_post_thumbnail_url($acc_id, 'thumbnail');
                         ?>
-                            <a href="<?php echo esc_url($acc_link); ?>" class="hs-moto-acc-card">
-                                <div class="hs-moto-acc-card__icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            <a href="<?php echo esc_url($acc_link); ?>" class="hs-moto-acc-card" style="text-decoration:none; color:inherit;">
+                                <div class="hs-moto-acc-card__icon" style="flex-shrink:0; width:48px; height:48px; border-radius:8px; background:rgba(0,210,190,0.08); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                                    <?php if ($acc_thumb) : ?>
+                                        <img src="<?php echo esc_url($acc_thumb); ?>" alt="<?php echo esc_attr($acc_title); ?>" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+                                    <?php else : ?>
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--hs-accent, #00d2be)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                    <?php endif; ?>
                                 </div>
-                                <div class="hs-moto-acc-card__copy">
-                                    <h4><?php echo esc_html($acc_title); ?></h4>
-                                    <span class="hs-moto-acc-badge"><?php esc_html_e('Verified Fit', 'helmetsan-theme'); ?></span>
+                                <div class="hs-moto-acc-card__copy" style="flex:1; min-width:0;">
+                                    <?php if ($acc_type !== '') : ?>
+                                        <span style="font-size:0.7rem; font-weight:700; color:var(--hs-muted, #94a3b8); text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:2px;"><?php echo esc_html($acc_type); ?></span>
+                                    <?php endif; ?>
+                                    <h4 style="margin:0 0 4px 0; font-size:0.9rem; font-weight:700; line-height:1.3; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"><?php echo esc_html($acc_title); ?></h4>
+                                    <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+                                        <?php if ($acc_price_display !== '') : ?>
+                                            <span class="hs-price" data-base-price="<?php echo esc_attr((string)$acc_price_val); ?>" data-base-currency="USD" style="font-weight:800; font-size:0.85rem; color:var(--hs-heading, #fff);">
+                                                <?php echo esc_html($acc_price_display); ?>
+                                            </span>
+                                        <?php endif; ?>
+                                        <span class="hs-moto-acc-badge"><?php esc_html_e('Verified Fit', 'helmetsan-theme'); ?></span>
+                                    </div>
                                 </div>
                             </a>
                         <?php endforeach; ?>

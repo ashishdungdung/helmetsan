@@ -7,7 +7,7 @@ namespace Helmetsan\Core\Price;
 /**
  * Multi-currency formatting engine.
  *
- * Supports 18 currencies aligned with GeoService::COUNTRY_MAP.
+ * Supports global currencies aligned with GeoService::COUNTRY_MAP and theme currency modal.
  * Each currency defines symbol, position (before/after amount),
  * decimal places, and thousand/decimal separators.
  */
@@ -15,26 +15,209 @@ final class CurrencyFormatter
 {
     /** @var array<string, array{symbol: string, position: string, decimals: int, thousands: string, decimal: string}> */
     private const CURRENCIES = [
-        'USD' => ['symbol' => '$',    'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'EUR' => ['symbol' => '€',    'position' => 'before', 'decimals' => 2, 'thousands' => '.', 'decimal' => ','],
-        'GBP' => ['symbol' => '£',    'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'INR' => ['symbol' => '₹',    'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'JPY' => ['symbol' => '¥',    'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'AUD' => ['symbol' => 'A$',   'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'CAD' => ['symbol' => 'CA$',  'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'MXN' => ['symbol' => 'MX$',  'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'BRL' => ['symbol' => 'R$',   'position' => 'before', 'decimals' => 2, 'thousands' => '.', 'decimal' => ','],
-        'PLN' => ['symbol' => 'zł',   'position' => 'after',  'decimals' => 2, 'thousands' => ' ', 'decimal' => ','],
-        'AED' => ['symbol' => 'AED ', 'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'NGN' => ['symbol' => '₦',    'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'KES' => ['symbol' => 'KSh ', 'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'EGP' => ['symbol' => 'E£',   'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'MAD' => ['symbol' => ' MAD', 'position' => 'after',  'decimals' => 2, 'thousands' => ' ', 'decimal' => ','],
-        'GHS' => ['symbol' => 'GH₵',  'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'UGX' => ['symbol' => 'USh ', 'position' => 'before', 'decimals' => 0, 'thousands' => ',', 'decimal' => '.'],
-        'CNY' => ['symbol' => '¥',    'position' => 'before', 'decimals' => 2, 'thousands' => ',', 'decimal' => '.'],
-        'COP' => ['symbol' => 'COL$', 'position' => 'before', 'decimals' => 0, 'thousands' => '.', 'decimal' => ','],
-        'ARS' => ['symbol' => '$',    'position' => 'before', 'decimals' => 2, 'thousands' => '.', 'decimal' => ','],
+        "USD" => [
+            "symbol" => '$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "EUR" => [
+            "symbol" => "€",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ".",
+            "decimal" => ",",
+        ],
+        "GBP" => [
+            "symbol" => "£",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "INR" => [
+            "symbol" => "₹",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "JPY" => [
+            "symbol" => "¥",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "AUD" => [
+            "symbol" => 'A$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "CAD" => [
+            "symbol" => 'CA$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "MXN" => [
+            "symbol" => 'MX$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "BRL" => [
+            "symbol" => 'R$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ".",
+            "decimal" => ",",
+        ],
+        "PLN" => [
+            "symbol" => "zł",
+            "position" => "after",
+            "decimals" => 2,
+            "thousands" => " ",
+            "decimal" => ",",
+        ],
+        "AED" => [
+            "symbol" => "AED ",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "NGN" => [
+            "symbol" => "₦",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "KES" => [
+            "symbol" => "KSh ",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "EGP" => [
+            "symbol" => "E£",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "MAD" => [
+            "symbol" => " MAD",
+            "position" => "after",
+            "decimals" => 2,
+            "thousands" => " ",
+            "decimal" => ",",
+        ],
+        "GHS" => [
+            "symbol" => "GH₵",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "UGX" => [
+            "symbol" => "USh ",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "TZS" => [
+            "symbol" => "TSh ",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "CHF" => [
+            "symbol" => "CHF ",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => "'",
+            "decimal" => ".",
+        ],
+        "NZD" => [
+            "symbol" => 'NZ$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "SGD" => [
+            "symbol" => 'S$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "SEK" => [
+            "symbol" => " kr",
+            "position" => "after",
+            "decimals" => 2,
+            "thousands" => " ",
+            "decimal" => ",",
+        ],
+        "NOK" => [
+            "symbol" => " kr",
+            "position" => "after",
+            "decimals" => 2,
+            "thousands" => " ",
+            "decimal" => ",",
+        ],
+        "SAR" => [
+            "symbol" => "SAR ",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "KRW" => [
+            "symbol" => "₩",
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "TRY" => [
+            "symbol" => "₺",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ".",
+            "decimal" => ",",
+        ],
+        "CNY" => [
+            "symbol" => "¥",
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ",",
+            "decimal" => ".",
+        ],
+        "COP" => [
+            "symbol" => 'COL$',
+            "position" => "before",
+            "decimals" => 0,
+            "thousands" => ".",
+            "decimal" => ",",
+        ],
+        "ARS" => [
+            "symbol" => '$',
+            "position" => "before",
+            "decimals" => 2,
+            "thousands" => ".",
+            "decimal" => ",",
+        ],
     ];
 
     /**
@@ -43,17 +226,22 @@ final class CurrencyFormatter
     public function format(float $amount, string $currency): string
     {
         $code = strtoupper($currency);
-        $cfg  = self::CURRENCIES[$code] ?? null;
+        $cfg = self::CURRENCIES[$code] ?? null;
 
         if ($cfg === null) {
-            return number_format($amount, 2) . ' ' . $code;
+            return number_format($amount, 2) . " " . $code;
         }
 
-        $formatted = number_format($amount, $cfg['decimals'], $cfg['decimal'], $cfg['thousands']);
+        $formatted = number_format(
+            $amount,
+            $cfg["decimals"],
+            $cfg["decimal"],
+            $cfg["thousands"],
+        );
 
-        return $cfg['position'] === 'before'
-            ? $cfg['symbol'] . $formatted
-            : $formatted . $cfg['symbol'];
+        return $cfg["position"] === "before"
+            ? $cfg["symbol"] . $formatted
+            : $formatted . $cfg["symbol"];
     }
 
     /**
@@ -63,7 +251,7 @@ final class CurrencyFormatter
     {
         $code = strtoupper($currency);
 
-        return trim(self::CURRENCIES[$code]['symbol'] ?? $code);
+        return trim(self::CURRENCIES[$code]["symbol"] ?? $code);
     }
 
     /**
@@ -81,6 +269,6 @@ final class CurrencyFormatter
     {
         $code = strtoupper($currency);
 
-        return self::CURRENCIES[$code]['decimals'] ?? 2;
+        return self::CURRENCIES[$code]["decimals"] ?? 2;
     }
 }

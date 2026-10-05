@@ -139,9 +139,20 @@ if ($brandName === '') {
 
         <!-- 4. PRICE FOURTH -->
         <div class="accessory-card__price-row">
-            <?php if ($priceCurrent !== null && $priceCurrent > 0) : ?>
+            <?php if ($priceCurrent !== null && $priceCurrent > 0) :
+                $vCurr = function_exists('helmetsan_get_visitor_currency') ? helmetsan_get_visitor_currency() : 'USD';
+                $vCountry = function_exists('helmetsan_get_visitor_country') ? helmetsan_get_visitor_country() : 'US';
+                $renderedPrice = '$' . number_format($priceCurrent, 2);
+                if (function_exists('helmetsan_core') && helmetsan_core()->exchangeRates() && helmetsan_core()->price()) {
+                    $rates = helmetsan_core()->exchangeRates();
+                    $converted = $rates->convert($priceCurrent, 'USD', $vCurr);
+                    $converted = $rates->applyVat($converted, $vCountry);
+                    $converted = $rates->charmRound($converted, $vCurr);
+                    $renderedPrice = helmetsan_core()->price()->formatter()->format($converted, $vCurr);
+                }
+            ?>
                 <span class="hs-price" data-base-price="<?php echo esc_attr((string) $priceCurrent); ?>" data-base-currency="USD"<?php echo $manualPricingAttr !== '' ? ' data-manual-pricing="' . $manualPricingAttr . '"' : ''; ?>>
-                    $<?php echo esc_html(number_format($priceCurrent, 2)); ?>
+                    <?php echo esc_html($renderedPrice); ?>
                 </span>
             <?php else : ?>
                 <span class="accessory-card__price-fallback">—</span>

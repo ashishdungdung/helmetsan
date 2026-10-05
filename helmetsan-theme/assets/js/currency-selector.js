@@ -171,7 +171,7 @@
      * Order of precedence:
      * 1. Explicit user selection in localStorage (immune to CDN/server cache)
      * 2. helmetsan_geo cookie
-     * 3. Default to 'IN'
+     * 3. Default to 'US'
      */
     function getActiveCountry() {
         try {
@@ -270,7 +270,7 @@
         let headline = '';
         let subtitle = '';
 
-        const cc = (countryCode || 'IN').toUpperCase();
+        const cc = (countryCode || getActiveCountry()).toUpperCase();
         if (cc === 'IN') {
             flag = '🇮🇳';
             if (hasIsi) {
@@ -381,7 +381,7 @@
         if (!notice) return;
 
         const isDomesticIn = notice.getAttribute('data-domestic-in') === 'true';
-        const cc = (countryCode || 'IN').toUpperCase();
+        const cc = (countryCode || getActiveCountry()).toUpperCase();
 
         // Show import advisory for Indian riders when helmet is an imported brand
         if (cc === 'IN' && !isDomesticIn) {
