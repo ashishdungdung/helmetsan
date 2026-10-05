@@ -198,11 +198,13 @@ function helmetsan_theme_enqueue_assets(): void
         ['strategy' => 'defer', 'in_footer' => true]
     );
 
-    if (!empty($features['enable_comparison_engine'])) {
+    $isComparison = is_page_template('page-comparison.php') || is_page('comparison') || !empty(get_query_var('helmetsan_vs_a'));
+    if (!empty($features['enable_comparison_engine']) || $isComparison) {
+        $compStyleDeps = $useBundle ? ['helmetsan-bundle'] : ['helmetsan-theme-components'];
         wp_enqueue_style(
             'helmetsan-comparison',
             get_stylesheet_directory_uri() . '/assets/css/comparison.css',
-            ['helmetsan-theme-components'],
+            $compStyleDeps,
             helmetsan_theme_asset_version('/assets/css/comparison.css')
         );
 
@@ -214,8 +216,6 @@ function helmetsan_theme_enqueue_assets(): void
             ['strategy' => 'defer', 'in_footer' => true]
         );
     }
-
-
 
     if (is_post_type_archive('helmet') || is_post_type_archive('brand') || is_post_type_archive('accessory') || is_tax()) {
         wp_enqueue_script(
@@ -243,10 +243,11 @@ function helmetsan_theme_enqueue_assets(): void
 
     if (class_exists('WooCommerce') && function_exists('is_woocommerce') && (is_woocommerce() || is_cart() || is_checkout() || is_account_page())) {
         $wooCss = '/assets/css/woocommerce.css';
+        $wooStyleDeps = $useBundle ? ['helmetsan-bundle'] : ['helmetsan-theme-components'];
         wp_enqueue_style(
             'helmetsan-theme-woocommerce',
             get_stylesheet_directory_uri() . $wooCss,
-            ['helmetsan-theme-components'],
+            $wooStyleDeps,
             helmetsan_theme_asset_version($wooCss)
         );
 
@@ -332,7 +333,7 @@ function helmetsan_theme_enqueue_assets(): void
 
         wp_enqueue_style('leaflet', $leafletCssUrl, [], '1.9.4');
         wp_enqueue_script('leaflet', $leafletJsUrl, [], '1.9.4', ['strategy' => 'defer', 'in_footer' => true]);
-        
+
         $locJs = '/assets/js/locator.js';
         wp_enqueue_script(
             'helmetsan-locator',
@@ -399,3 +400,4 @@ function helmetsan_theme_asset_version(string $relativePath): string
 
     return wp_get_theme()->get('Version');
 }
+

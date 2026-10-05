@@ -425,3 +425,63 @@
     gap: 8px;
 }
 
+
+/* Winner & Best-in-Class Badges */
+.hs-comp-winner-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    white-space: nowrap;
+}
+
+/* Star Ratings */
+.hs-rating {
+    color: #f59e0b;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+
+/* Score Chips */
+.hs-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hs-chip-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.hs-chip-neutral {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* Sticky First Column for Smooth Horizontal Table Scroll */
+@media (max-width: 768px) {
+    .hs-comp-label-col,
+    .hs-comp-label {
+        position: sticky;
+        left: 0;
+        z-index: 5;
+        background: var(--hs-panel, #1e293b);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+}

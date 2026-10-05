@@ -1138,13 +1138,27 @@ function helmetsan_get_technical_profile(int $helmetId): array
         }
     }
 
+    // Clean rotational tech display
+    if ($rotational === '1' || strcasecmp($rotational, 'true') === 0) {
+        $rotational = 'Yes (Rotational Mitigation)';
+    } elseif ($rotational === '0' || strcasecmp($rotational, 'false') === 0 || strcasecmp($rotational, 'none') === 0) {
+        $rotational = 'None';
+    }
+
+    // Format warranty years
+    $rawWarranty = helmetsan_get_warranty_years($helmetId);
+    $warranty = $rawWarranty;
+    if (is_numeric($rawWarranty) && (int) $rawWarranty > 0) {
+        $warranty = (int) $rawWarranty . ' ' . ((int) $rawWarranty === 1 ? 'Year' : 'Years');
+    }
+
     return [
         'homologation' => $homologation ?: 'N/A',
         'sharp_rating' => (int) $sharp,
         'rotational_tech' => $rotational ?: 'N/A',
         'noise_db' => $noise ? $noise . ' dB' : 'N/A',
         'ventilation_score' => $ventilation ? $ventilation . '/10' : 'N/A',
-        'warranty' => helmetsan_get_warranty_years($helmetId) ?: 'N/A',
+        'warranty' => $warranty ?: 'N/A',
         'strap_type' => (string) $getMeta('strap_type') ?: 'N/A',
         'visor_features' => $visor,
         'liner_features' => $liner,

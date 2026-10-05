@@ -5,26 +5,34 @@
  * @package HelmetsanTheme
  */
 
-if (! defined('ABSPATH')) {
-    exit;
+if (!defined("ABSPATH")) {
+    exit();
 }
 
 $helmetsan_theme_includes = [
-    '/inc/setup.php',
-    '/inc/enqueue.php',
-    '/inc/hooks.php',
-    '/inc/customizer.php',
-    '/inc/footer.php',
-    '/inc/woocommerce.php',
-    '/inc/template-tags.php',
-    '/inc/compatibility.php',
-    '/inc/class-mega-menu-walker.php',
-    '/inc/ajax-filter.php',
+    "/inc/setup.php",
+    "/inc/enqueue.php",
+    "/inc/hooks.php",
+    "/inc/customizer.php",
+    "/inc/footer.php",
+    "/inc/woocommerce.php",
+    "/inc/template-tags.php",
+    "/inc/compatibility.php",
+    "/inc/class-mega-menu-walker.php",
+    "/inc/ajax-filter.php",
 ];
 
 foreach ($helmetsan_theme_includes as $file) {
     $path = get_stylesheet_directory() . $file;
     if (file_exists($path)) {
         require_once $path;
+    }
+}
+
+if (!function_exists("helmetsan_calculate_score")) {
+    $scoreFile =
+        WP_PLUGIN_DIR . "/helmetsan-core/includes/Score/ScoreEngine.php";
+    if (file_exists($scoreFile)) {
+        require_once $scoreFile;
     }
 }

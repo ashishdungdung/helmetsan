@@ -518,8 +518,7 @@ $compareUrl     = helmetsan_url('/comparison/');
 </section>
 
 
-<!-- Floating Comparison Bar -->
-<?php get_template_part('template-parts/components/comparison-bar'); ?>
+
 
 <?php
 get_footer();

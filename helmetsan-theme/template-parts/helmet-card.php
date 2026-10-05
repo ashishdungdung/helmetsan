@@ -131,11 +131,16 @@ $ridingText = $useCase !== '' ? __(ucwords(str_replace('-', ' ', $useCase)), 'he
             </div>
         <?php endif; ?>
 
+            <?php
+            $helmetSlug = get_post_field('post_name', $helmetId);
+            ?>
             <!-- Subtle Compare Checkbox Overlay (Top Right) -->
             <button type="button"
                     class="js-add-to-compare helmet-card__compare-overlay"
                     data-id="<?php echo esc_attr((string) $helmetId); ?>"
+                    data-slug="<?php echo esc_attr((string) $helmetSlug); ?>"
                     data-title="<?php echo esc_attr(get_the_title()); ?>"
+                    data-image="<?php echo esc_url($imgUrl); ?>"
                     aria-label="<?php esc_attr_e('Add to compare', 'helmetsan-theme'); ?>">
                 <span>＋</span>
             </button>

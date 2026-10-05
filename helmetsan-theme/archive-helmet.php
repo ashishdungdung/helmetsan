@@ -753,18 +753,7 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
     </section>
 </section>
 
-<!-- STICKY COMPARISON TRAY -->
-<div id="hsStickyCompareBar" class="hs-sticky-compare-bar is-hidden">
-    <div class="hs-sticky-compare-inner">
-        <div class="hs-sticky-compare-info">
-            <span id="hsStickyCompareCount" class="hs-sticky-compare-count">0</span> helmets selected:
-            <span id="hsStickyCompareNames" class="hs-sticky-compare-names"></span>
-        </div>
-        <a href="<?php echo esc_url(home_url('/comparison/')); ?>" class="hs-btn hs-btn--primary hs-sticky-compare-btn">
-            Compare Now →
-        </a>
-    </div>
-</div>
+
 
 
 <div class="hs-mobile-tools" aria-label="Mobile catalog tools">
@@ -845,40 +834,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 4. Sticky Compare Tray
-    var compareBar = document.getElementById('hsStickyCompareBar');
-    var compareCountEl = document.getElementById('hsStickyCompareCount');
-    var compareNamesEl = document.getElementById('hsStickyCompareNames');
-    var selectedHelmets = [];
 
-    document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.js-add-to-compare');
-        if (!btn) return;
-
-        var id = btn.getAttribute('data-id');
-        var title = btn.getAttribute('data-title') || 'Helmet #' + id;
-
-        var idx = selectedHelmets.findIndex(function(h) { return h.id === id; });
-        if (idx !== -1) {
-            selectedHelmets.splice(idx, 1);
-            btn.classList.remove('is-selected');
-            btn.setAttribute('aria-pressed', 'false');
-        } else {
-            selectedHelmets.push({ id: id, title: title });
-            btn.classList.add('is-selected');
-            btn.setAttribute('aria-pressed', 'true');
-        }
-
-        if (compareBar && compareCountEl && compareNamesEl) {
-            if (selectedHelmets.length > 0) {
-                compareBar.classList.remove('is-hidden');
-                compareCountEl.textContent = selectedHelmets.length;
-                compareNamesEl.textContent = selectedHelmets.map(function(h) { return h.title; }).join(' · ');
-            } else {
-                compareBar.classList.add('is-hidden');
-            }
-        }
-    });
 });
 </script>
 <?php

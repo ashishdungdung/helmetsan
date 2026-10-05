@@ -14,39 +14,45 @@
 
 declare(strict_types=1);
 
-if (! defined('ABSPATH')) {
-    exit;
+if (!defined("ABSPATH")) {
+    exit();
 }
 
-define('HELMETSAN_CORE_VERSION', '0.3.0');
-define('HELMETSAN_CORE_FILE', __FILE__);
-define('HELMETSAN_CORE_DIR', plugin_dir_path(__FILE__));
-define('HELMETSAN_CORE_URL', plugin_dir_url(__FILE__));
+define("HELMETSAN_CORE_VERSION", "0.3.0");
+define("HELMETSAN_CORE_FILE", __FILE__);
+define("HELMETSAN_CORE_DIR", plugin_dir_path(__FILE__));
+define("HELMETSAN_CORE_URL", plugin_dir_url(__FILE__));
 
-require_once HELMETSAN_CORE_DIR . 'stubs/helmetsan-constants.php';
-if (file_exists(HELMETSAN_CORE_DIR . 'includes/CompatibilityEngine.php')) {
-    require_once HELMETSAN_CORE_DIR . 'includes/CompatibilityEngine.php';
+require_once HELMETSAN_CORE_DIR . "stubs/helmetsan-constants.php";
+if (file_exists(HELMETSAN_CORE_DIR . "includes/CompatibilityEngine.php")) {
+    require_once HELMETSAN_CORE_DIR . "includes/CompatibilityEngine.php";
+}
+if (file_exists(HELMETSAN_CORE_DIR . "includes/Score/ScoreEngine.php")) {
+    require_once HELMETSAN_CORE_DIR . "includes/Score/ScoreEngine.php";
 }
 
 // Load Composer autoloader if it exists
-if (file_exists(HELMETSAN_CORE_DIR . '../vendor/autoload.php')) {
-    require_once HELMETSAN_CORE_DIR . '../vendor/autoload.php';
-} elseif (file_exists(HELMETSAN_CORE_DIR . '../../vendor/autoload.php')) {
-    require_once HELMETSAN_CORE_DIR . '../../vendor/autoload.php';
-} elseif (defined('ABSPATH') && file_exists(ABSPATH . 'vendor/autoload.php')) {
-    require_once ABSPATH . 'vendor/autoload.php';
+if (file_exists(HELMETSAN_CORE_DIR . "../vendor/autoload.php")) {
+    require_once HELMETSAN_CORE_DIR . "../vendor/autoload.php";
+} elseif (file_exists(HELMETSAN_CORE_DIR . "../../vendor/autoload.php")) {
+    require_once HELMETSAN_CORE_DIR . "../../vendor/autoload.php";
+} elseif (defined("ABSPATH") && file_exists(ABSPATH . "vendor/autoload.php")) {
+    require_once ABSPATH . "vendor/autoload.php";
 }
 
-
 spl_autoload_register(static function (string $class): void {
-    $prefix = 'Helmetsan\\Core\\';
+    $prefix = "Helmetsan\\Core\\";
 
     if (strpos($class, $prefix) !== 0) {
         return;
     }
 
     $relative = substr($class, strlen($prefix));
-    $path     = HELMETSAN_CORE_DIR . 'includes/' . str_replace('\\', '/', $relative) . '.php';
+    $path =
+        HELMETSAN_CORE_DIR .
+        "includes/" .
+        str_replace("\\", "/", $relative) .
+        ".php";
 
     if (file_exists($path)) {
         require_once $path;
@@ -67,21 +73,21 @@ function helmetsan_core(): Helmetsan\Core\Core\Plugin
 function helmetsan_is_china_visitor(): bool
 {
     // 1. Check Cloudflare physical IP location header (real-time)
-    $cfHeader = $_SERVER['HTTP_CF_IPCOUNTRY'] ?? '';
-    if (strcasecmp(trim((string) $cfHeader), 'CN') === 0) {
+    $cfHeader = $_SERVER["HTTP_CF_IPCOUNTRY"] ?? "";
+    if (strcasecmp(trim((string) $cfHeader), "CN") === 0) {
         return true;
     }
 
     // 2. Check the raw geo cookie
-    $cookieVal = $_COOKIE['helmetsan_geo'] ?? '';
-    if (strcasecmp(trim((string) $cookieVal), 'CN') === 0) {
+    $cookieVal = $_COOKIE["helmetsan_geo"] ?? "";
+    if (strcasecmp(trim((string) $cookieVal), "CN") === 0) {
         return true;
     }
 
     return false;
 }
 
-add_action('plugins_loaded', static function (): void {
+add_action("plugins_loaded", static function (): void {
     helmetsan_core()->boot();
 });
 

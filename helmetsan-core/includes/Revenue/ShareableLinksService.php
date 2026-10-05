@@ -74,6 +74,7 @@ final class ShareableLinksService
             'post_name__in' => [$slugA, $slugB],
             'numberposts'   => 2,
             'post_status'   => 'publish',
+            'lang'          => '',
         ]);
 
         if (count($helmets) < 2) {

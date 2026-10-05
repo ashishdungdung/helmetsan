@@ -187,8 +187,18 @@ if (have_posts()) {
                             </div>
                         </div>
                     <?php endif; ?>
+                    <?php
+                    $pdpSlug = get_post_field('post_name', $helmetId);
+                    $pdpImg = get_the_post_thumbnail_url($helmetId, 'medium') ?: (!empty($gallery[0]['url']) ? $gallery[0]['url'] : '');
+                    ?>
                     <div class="helmet-single__media-actions">
-                        <button type="button" class="js-add-to-compare hs-btn hs-btn--icon helmet-single__compare-btn" data-id="<?php echo esc_attr((string) $helmetId); ?>" title="<?php esc_attr_e('Compare', 'helmetsan-theme'); ?>" aria-label="<?php esc_attr_e('Add to comparison', 'helmetsan-theme'); ?>">
+                        <button type="button" class="js-add-to-compare hs-btn hs-btn--icon helmet-single__compare-btn" 
+                                data-id="<?php echo esc_attr((string) $helmetId); ?>" 
+                                data-slug="<?php echo esc_attr((string) $pdpSlug); ?>"
+                                data-title="<?php echo esc_attr(get_the_title($helmetId)); ?>"
+                                data-image="<?php echo esc_url($pdpImg); ?>"
+                                title="<?php esc_attr_e('Compare', 'helmetsan-theme'); ?>" 
+                                aria-label="<?php esc_attr_e('Add to comparison', 'helmetsan-theme'); ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </button>
                         <a href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="js-view-compare hs-btn hs-btn--sm hs-btn--primary is-hidden helmet-single__view-compare"><?php esc_html_e('View compare', 'helmetsan-theme'); ?></a>
@@ -1337,7 +1347,11 @@ if (have_posts()) {
                 <h2 id="cta-heading" class="hs-cta-section__title">Compare &amp; buy</h2>
                 <p class="hs-cta-section__lead">Add this helmet to the comparison tool to see it side by side with others, or check current offers from trusted retailers.</p>
                 <div class="hs-cta-section__actions">
-                    <a href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="hs-btn hs-btn--primary js-add-to-compare" data-id="<?php echo esc_attr((string) $helmetId); ?>">Add to compare</a>
+                    <a href="<?php echo esc_url(helmetsan_url('/comparison/')); ?>" class="hs-btn hs-btn--primary js-add-to-compare" 
+                       data-id="<?php echo esc_attr((string) $helmetId); ?>" 
+                       data-slug="<?php echo esc_attr((string) $pdpSlug); ?>"
+                       data-title="<?php echo esc_attr(get_the_title($helmetId)); ?>"
+                       data-image="<?php echo esc_url($pdpImg); ?>">Add to compare</a>
                     <?php get_template_part('template-parts/helmet', 'cta'); ?>
                 </div>
             </section>
