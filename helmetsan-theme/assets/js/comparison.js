@@ -206,38 +206,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Global Click Delegation Listener
   document.addEventListener("click", function (e) {
-    // 1. Table Header Remove Button on /comparison/
+    // 1. Table Header Remove Button on /comparison/ or /vs/
     const tableRemoveBtn =
       e.target.closest(".js-comp-remove-helmet") ||
       e.target.closest(".hs-comp-header-actions .js-add-to-compare");
     if (tableRemoveBtn) {
       e.preventDefault();
-      const id = tableRemoveBtn.dataset.id || tableRemoveBtn.dataset.helmetId;
-      const slug = tableRemoveBtn.dataset.slug;
+      const id = String(tableRemoveBtn.dataset.id || tableRemoveBtn.dataset.helmetId || "");
+      const slug = String(tableRemoveBtn.dataset.slug || "");
 
       let list = getCompareList();
       list = list.filter(
         (item) =>
-          String(item.id) !== String(id) &&
-          (!slug || String(item.slug) !== String(slug)),
+          String(item.id) !== id &&
+          (!slug || String(item.slug) !== slug),
       );
       saveCompareList(list);
 
-      // Synchronize active comparison page URL
+      // Determine all currently displayed items
+      let activeItems = [];
       const url = new URL(window.location.href);
-      const currentIds = (url.searchParams.get("ids") || "")
+      const searchIds = (url.searchParams.get("ids") || "")
         .split(",")
+        .map((s) => s.trim())
         .filter(Boolean);
-      const remaining = currentIds.filter(
-        (val) => val !== String(id) && val !== String(slug),
+
+      if (searchIds.length > 0) {
+        activeItems = searchIds;
+      } else if (Array.isArray(window.helmetsanComparisonSlugs) && window.helmetsanComparisonSlugs.length > 0) {
+        activeItems = window.helmetsanComparisonSlugs.map(String);
+      } else if (Array.isArray(window.helmetsanComparisonIds) && window.helmetsanComparisonIds.length > 0) {
+        activeItems = window.helmetsanComparisonIds.map(String);
+      }
+
+      const remaining = activeItems.filter(
+        (val) => val !== id && val !== slug,
       );
 
       if (remaining.length > 0) {
-        url.searchParams.set("ids", remaining.join(","));
-        window.location.href = url.toString();
+        window.location.href = "/comparison/?ids=" + encodeURIComponent(remaining.join(","));
       } else {
-        url.searchParams.delete("ids");
-        window.location.href = url.pathname;
+        window.location.href = "/comparison/";
       }
       return;
     }
@@ -253,14 +262,12 @@ document.addEventListener("DOMContentLoaded", function () {
       saveCompareList([]);
       showToast("Cleared comparison list");
 
-      // If on comparison page, redirect to base comparison URL to show empty state
       if (
         window.location.pathname.includes("/comparison") ||
+        window.location.pathname.includes("/vs/") ||
         document.getElementById("hs-comparison-table")
       ) {
-        const url = new URL(window.location.href);
-        url.searchParams.delete("ids");
-        window.location.href = url.pathname;
+        window.location.href = "/comparison/";
       }
       return;
     }

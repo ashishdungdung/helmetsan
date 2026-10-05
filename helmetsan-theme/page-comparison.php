@@ -744,6 +744,7 @@ $helmets_link = get_post_type_archive_link("helmet") ?: home_url("/helmets/");
             </div>
         <?php else:
             $helmet_ids = array_map(static fn($p) => $p->ID, $helmets);
+            $helmet_slugs = array_map(static fn($p) => $p->post_name, $helmets);
             $helmet_titles = array_combine(
                 $helmet_ids,
                 array_map(static fn($p) => $p->post_title, $helmets),
@@ -752,6 +753,9 @@ $helmets_link = get_post_type_archive_link("helmet") ?: home_url("/helmets/");
             <script>
                 window.helmetsanComparisonIds = <?php echo wp_json_encode(
                     array_values($helmet_ids),
+                ); ?>;
+                window.helmetsanComparisonSlugs = <?php echo wp_json_encode(
+                    array_values($helmet_slugs),
                 ); ?>;
                 window.helmetsanComparisonTitles = <?php echo wp_json_encode(
                     $helmet_titles,
