@@ -108,6 +108,6 @@
     observePriceChart();
     bindChartToggle();
     observeOfferTable();
-    bindMarketplaceClicks();
+    // Marketplace clicks consolidated into tracker.js to prevent duplicate telemetry
   });
 })();

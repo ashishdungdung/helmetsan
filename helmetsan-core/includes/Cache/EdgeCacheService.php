@@ -100,6 +100,7 @@ final class EdgeCacheService
             );
 
             header('Cache-Control: ' . $headerValue);
+            header('Vary: Accept-Encoding, Cookie');
             header('X-Helmetsan-Edge-Cache: HIT-ELIGIBLE');
 
             // Cloudflare 103 Early Hints: preload primary stylesheet

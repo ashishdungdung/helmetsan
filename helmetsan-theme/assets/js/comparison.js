@@ -263,10 +263,11 @@ document.addEventListener("DOMContentLoaded", function () {
         (val) => val !== id && val !== slug,
       );
 
+      const targetPath = window.location.pathname || "/comparison/";
       if (remaining.length > 0) {
-        window.location.href = "/comparison/?ids=" + encodeURIComponent(remaining.join(","));
+        window.location.href = targetPath + "?ids=" + encodeURIComponent(remaining.join(","));
       } else {
-        window.location.href = "/comparison/";
+        window.location.href = targetPath;
       }
       return;
     }
@@ -291,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.pathname.includes("/vs/") ||
         document.getElementById("hs-comparison-table")
       ) {
-        window.location.href = "/comparison/";
+        window.location.href = window.location.pathname || "/comparison/";
       }
       return;
     }

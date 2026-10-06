@@ -258,10 +258,8 @@
             }]
         };
 
-        // Harmonized affiliate outbound event across GA4 and Clarity
+        // Single canonical outbound affiliate event across GA4 and Clarity
         dispatchTelemetry('affiliate_outbound_click', eventParams);
-        // Backwards-compatible event alias for GA4 reports
-        dispatchTelemetry('amazon_outbound_click', eventParams);
 
         if (window.helmetsanClarity) {
             window.helmetsanClarity.event('affiliate_outbound_click');
