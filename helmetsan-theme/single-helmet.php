@@ -550,7 +550,7 @@ if (have_posts()) {
                     </div>
                 </div>
 
-                <div class="hs-pdp-details__grid">
+                <div class="hs-pdp-details__grid" data-clarity-unmask="true">
 
                     <!-- Row 2: Engineering & Biomechanical Safety Analysis (Full Width) -->
                     <?php

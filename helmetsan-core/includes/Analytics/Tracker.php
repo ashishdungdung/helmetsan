@@ -238,7 +238,30 @@ final class Tracker
 
         if (! empty($settings['enable_heatmap_clarity']) && ! empty($settings['clarity_project_id'])) {
             $clarity = esc_js((string) $settings['clarity_project_id']);
-            echo "<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', '{$clarity}');</script>\n";
+            $customTags = $this->getClarityCustomTags();
+            $tagsJson = wp_json_encode($customTags);
+            $userId = is_user_logged_in() ? hash('sha256', (string) get_current_user_id()) : '';
+
+            echo "<script>\n" .
+                 "(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', '{$clarity}');\n" .
+                 "(function(){\n" .
+                 "    window.helmetsanClarity = {\n" .
+                 "        set: function(k, v) { try { if (typeof window.clarity === 'function' && k && v !== undefined && v !== null) { window.clarity('set', String(k), String(v)); } } catch(e) {} },\n" .
+                 "        event: function(n) { try { if (typeof window.clarity === 'function' && n) { window.clarity('event', String(n)); } } catch(e) {} },\n" .
+                 "        identify: function(id) { try { if (typeof window.clarity === 'function' && id) { window.clarity('identify', String(id)); } } catch(e) {} }\n" .
+                 "    };\n" .
+                 "    var tags = {$tagsJson};\n" .
+                 "    if (tags && typeof tags === 'object') {\n" .
+                 "        for (var k in tags) {\n" .
+                 "            if (Object.prototype.hasOwnProperty.call(tags, k) && tags[k]) {\n" .
+                 "                window.helmetsanClarity.set(k, tags[k]);\n" .
+                 "            }\n" .
+                 "        }\n" .
+                 "    }\n" .
+                 "    var uid = '{$userId}';\n" .
+                 "    if (uid) { window.helmetsanClarity.identify(uid); }\n" .
+                 "})();\n" .
+                 "</script>\n";
         }
 
         if (! empty($settings['enable_heatmap_hotjar']) && ! empty($settings['hotjar_site_id'])) {
@@ -311,6 +334,123 @@ final class Tracker
     /**
      * @return array<string, mixed>
      */
+
+    /**
+     * @return array<string, string>
+     */
+    public function getClarityCustomTags(): array
+    {
+        $tags = [];
+
+        // Geo and Currency
+        if ($this->geo === null) {
+            $this->geo = new \Helmetsan\Core\Geo\GeoService();
+        }
+        $tags['user_country'] = $this->geo->getCountry();
+        $tags['user_currency'] = $this->geo->getCurrency();
+
+        // Site Language
+        if (defined('ICL_LANGUAGE_CODE')) {
+            $tags['site_language'] = (string) ICL_LANGUAGE_CODE;
+        } elseif (function_exists('pll_current_language')) {
+            $tags['site_language'] = (string) pll_current_language();
+        } elseif (function_exists('determine_locale')) {
+            $tags['site_language'] = (string) determine_locale();
+        } else {
+            $tags['site_language'] = (string) get_locale();
+        }
+
+        // Page Type & Contextual Taxonomy
+        if (is_front_page() || is_home()) {
+            $tags['page_type'] = 'home';
+        } elseif (is_singular('helmet')) {
+            $tags['page_type'] = 'helmet_pdp';
+            $helmetId = get_the_ID();
+            if ($helmetId) {
+                if (function_exists('helmetsan_get_brand_name')) {
+                    $brand = helmetsan_get_brand_name($helmetId);
+                    if ($brand !== '') {
+                        $tags['helmet_brand'] = $brand;
+                    }
+                }
+
+                $terms = get_the_terms($helmetId, 'helmet_type');
+                if (is_array($terms) && !empty($terms)) {
+                    $tags['helmet_type'] = $terms[0]->name;
+                }
+
+                if (function_exists('helmetsan_get_certifications')) {
+                    $certs = helmetsan_get_certifications($helmetId);
+                    if (!empty($certs) && is_array($certs)) {
+                        $tags['homologation'] = implode(', ', $certs);
+                    }
+                }
+
+                if (function_exists('helmetsan_get_technical_profile')) {
+                    $profile = helmetsan_get_technical_profile($helmetId);
+                    if (!empty($profile['sharp_rating'])) {
+                        $tags['sharp_rating'] = (string) $profile['sharp_rating'];
+                    }
+                }
+
+                if (function_exists('helmetsan_get_weight')) {
+                    $weight = (int) helmetsan_get_weight($helmetId);
+                    if ($weight > 0) {
+                        if ($weight < 1350) {
+                            $tags['weight_tier'] = 'ultralight (<1350g)';
+                        } elseif ($weight <= 1550) {
+                            $tags['weight_tier'] = 'standard (1350-1550g)';
+                        } else {
+                            $tags['weight_tier'] = 'heavy (>1550g)';
+                        }
+                    }
+                }
+
+                if (function_exists('helmetsan_get_price_range')) {
+                    $priceRange = helmetsan_get_price_range($helmetId);
+                    if (!empty($priceRange['min'])) {
+                        $minPrice = (float) $priceRange['min'];
+                        if ($minPrice < 150) {
+                            $tags['price_tier'] = 'budget (<$150)';
+                        } elseif ($minPrice <= 400) {
+                            $tags['price_tier'] = 'midrange ($150-$400)';
+                        } else {
+                            $tags['price_tier'] = 'premium (>$400)';
+                        }
+                    }
+                }
+            }
+        } elseif (is_page('compare') || is_page('comparison') || is_page_template('page-comparison.php')) {
+            $tags['page_type'] = 'comparison';
+            if (!empty($_GET['ids'])) {
+                $rawIds = sanitize_text_field(wp_unslash($_GET['ids']));
+                $tags['comparison_pair'] = substr($rawIds, 0, 100);
+            }
+        } elseif (is_singular('motorcycle')) {
+            $tags['page_type'] = 'motorcycle_guide';
+            $tags['motorcycle_model'] = (string) get_the_title();
+        } elseif (is_post_type_archive('helmet') || is_tax(['helmet_brand', 'helmet_type', 'cert_homologation', 'riding_style'])) {
+            $tags['page_type'] = 'helmet_catalog';
+            if (is_tax()) {
+                $queried = get_queried_object();
+                if ($queried instanceof \WP_Term) {
+                    $tags['catalog_taxonomy'] = $queried->taxonomy;
+                    $tags['catalog_term'] = $queried->name;
+                }
+            }
+        } elseif (is_search()) {
+            $tags['page_type'] = 'search';
+        } elseif (is_singular('post')) {
+            $tags['page_type'] = 'blog_post';
+        } elseif (is_page()) {
+            $tags['page_type'] = 'page';
+        } else {
+            $tags['page_type'] = 'other';
+        }
+
+        return $tags;
+    }
+
     private function getSettings(): array
     {
         $saved = get_option(Config::OPTION_ANALYTICS, []);

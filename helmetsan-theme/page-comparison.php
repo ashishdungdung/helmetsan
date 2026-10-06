@@ -785,7 +785,7 @@ $helmets_link = get_post_type_archive_link("helmet") ?: home_url("/helmets/");
                     <?php hs_e("Share this comparison"); ?>
                 </button>
             </div>
-            <div class="hs-comparison-table-wrap">
+            <div class="hs-comparison-table-wrap" data-clarity-unmask="true">
                 <table class="hs-comparison-table" id="hs-comparison-table">
                     <thead>
                         <tr>

@@ -78,6 +78,10 @@
                             });
                         }
                     }
+                    if (window.helmetsanClarity && typeof activeFilters !== 'undefined' && Object.keys(activeFilters).length > 0) {
+                        window.helmetsanClarity.event('catalog_filter_applied');
+                        window.helmetsanClarity.set('active_filters', Object.keys(activeFilters).join(','));
+                    }
                 }
             } else {
                 console.error('Filter error', data);

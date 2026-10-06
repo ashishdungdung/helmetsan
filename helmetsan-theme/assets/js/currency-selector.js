@@ -1282,6 +1282,12 @@
         geo_currency: activeCurr,
       });
     }
+
+    if (window.helmetsanClarity) {
+      window.helmetsanClarity.event("country_selector_changed");
+      window.helmetsanClarity.set("user_country", countryCode);
+      window.helmetsanClarity.set("user_currency", activeCurr);
+    }
   }
 
   function selectCurrency(currencyCode) {
@@ -1315,6 +1321,11 @@
       window.gtag("set", "user_properties", {
         geo_currency: currencyCode,
       });
+    }
+
+    if (window.helmetsanClarity) {
+      window.helmetsanClarity.event("currency_selector_changed");
+      window.helmetsanClarity.set("user_currency", currencyCode);
     }
   }
 

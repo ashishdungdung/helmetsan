@@ -127,7 +127,7 @@ if ($totalReviews > 0) {
                     </button>
                 </div>
                 
-                <form id="hs-review-form" class="hs-form" data-product-id="<?php echo esc_attr($helmetId); ?>">
+                <form id="hs-review-form" class="hs-form" data-clarity-mask="true" data-product-id="<?php echo esc_attr($helmetId); ?>">
                     <div class="hs-form__row">
                         <label><?php esc_html_e('How many stars?', 'helmetsan-theme'); ?></label>
                         <div class="hs-rating-input js-rating-input">

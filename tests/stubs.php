@@ -612,3 +612,36 @@ namespace Helmetsan\Core\AI {
         }
     }
 }
+
+namespace {
+    if (! function_exists('is_front_page')) {
+        function is_front_page(): bool {
+            return $GLOBALS['wp_mock_is_front_page'] ?? false;
+        }
+    }
+    if (! function_exists('is_home')) {
+        function is_home(): bool {
+            return $GLOBALS['wp_mock_is_home'] ?? false;
+        }
+    }
+    if (! function_exists('is_page_template')) {
+        function is_page_template(string $template = ''): bool {
+            return $GLOBALS['wp_mock_is_page_template'] ?? false;
+        }
+    }
+    if (! function_exists('get_locale')) {
+        function get_locale(): string {
+            return $GLOBALS['wp_mock_locale'] ?? 'en_US';
+        }
+    }
+    if (! function_exists('wp_unslash')) {
+        function wp_unslash(mixed $val): mixed {
+            return is_string($val) ? stripslashes($val) : $val;
+        }
+    }
+    if (! function_exists('get_the_ID')) {
+        function get_the_ID(): int|false {
+            return $GLOBALS['wp_mock_the_id'] ?? false;
+        }
+    }
+}

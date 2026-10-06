@@ -200,6 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
 
                 if (response.ok && result.success) {
+                    if (window.helmetsanClarity) {
+                        window.helmetsanClarity.event('review_submitted');
+                        window.helmetsanClarity.set('review_rating', String(data.rating));
+                    }
                     if (messageEl) {
                         messageEl.textContent = result.message;
                         messageEl.className = 'hs-form__message is-success';

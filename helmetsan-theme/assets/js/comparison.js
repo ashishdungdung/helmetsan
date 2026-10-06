@@ -189,6 +189,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const removed = list.splice(existsIndex, 1)[0];
       saveCompareList(list);
       showToast(`Removed ${removed.title || "helmet"} from comparison`);
+      if (window.helmetsanClarity) {
+        window.helmetsanClarity.event('remove_from_compare');
+        window.helmetsanClarity.set('compare_tray_count', list.length);
+      }
       return false;
     } else {
       if (list.length >= MAX_COMPARE) {
@@ -200,12 +204,28 @@ document.addEventListener("DOMContentLoaded", function () {
       showToast(
         `Added ${helmetObj.title || "helmet"} to comparison (${list.length}/${MAX_COMPARE})`,
       );
+      if (window.helmetsanClarity) {
+        window.helmetsanClarity.event('add_to_compare');
+        if (helmetObj.title) {
+          window.helmetsanClarity.set('last_compared_helmet', String(helmetObj.title).slice(0, 100));
+        }
+        window.helmetsanClarity.set('compare_tray_count', list.length);
+      }
       return true;
     }
   }
 
   // Global Click Delegation Listener
   document.addEventListener("click", function (e) {
+    if (
+      e.target.closest("#hs-comparison-view") ||
+      e.target.closest("#hsLaunchCompareBtn") ||
+      e.target.closest(".js-view-comparison")
+    ) {
+      if (window.helmetsanClarity) {
+        window.helmetsanClarity.event('view_comparison_matrix');
+      }
+    }
     // 1. Table Header Remove Button on /comparison/ or /vs/
     const tableRemoveBtn =
       e.target.closest(".js-comp-remove-helmet") ||
@@ -261,6 +281,10 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       saveCompareList([]);
       showToast("Cleared comparison list");
+      if (window.helmetsanClarity) {
+        window.helmetsanClarity.event('clear_comparison');
+        window.helmetsanClarity.set('compare_tray_count', 0);
+      }
 
       if (
         window.location.pathname.includes("/comparison") ||

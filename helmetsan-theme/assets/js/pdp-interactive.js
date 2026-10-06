@@ -149,6 +149,12 @@
                         fallbackBadge.style.display = isFallback ? 'inline-flex' : 'none';
                     }
 
+                    if (lastSize !== null && window.helmetsanClarity) {
+                        window.helmetsanClarity.event('size_finder_used');
+                        window.helmetsanClarity.set('recommended_size', size);
+                        window.helmetsanClarity.set('head_shape', selectedShape);
+                    }
+
                     lastSize = size;
                     lastShape = selectedShape;
                 }

@@ -75,6 +75,10 @@
         if (data.item_list_id) params.item_list_id = data.item_list_id;
         if (data.item_list_name) params.item_list_name = data.item_list_name;
         gtag('event', 'view_item', params);
+
+        if (window.helmetsanClarity && data.name) {
+            window.helmetsanClarity.set('pdp_helmet_name', String(data.name).slice(0, 100));
+        }
     }
 
     function trackLead(data, marketplace) {
@@ -102,6 +106,11 @@
                 marketplace: marketplace
             }]
         });
+
+        if (window.helmetsanClarity) {
+            window.helmetsanClarity.event('generate_lead');
+            if (marketplace) window.helmetsanClarity.set('lead_marketplace', String(marketplace));
+        }
     }
 
     function resolveAmazonRegion(href, marketplace) {
@@ -181,6 +190,13 @@
         };
 
         gtag('event', 'amazon_outbound_click', eventParams);
+
+        if (window.helmetsanClarity) {
+            window.helmetsanClarity.event('affiliate_outbound_click');
+            window.helmetsanClarity.set('last_outbound_domain', amazonInfo.domain);
+            window.helmetsanClarity.set('last_outbound_placement', placement);
+            if (data.name) window.helmetsanClarity.set('last_outbound_product', String(data.name).slice(0, 100));
+        }
     }
 
     // ── Real-User Web Vitals Tracking ──
