@@ -152,6 +152,8 @@ final class Tracker
                     } catch(e) { return false; }
                 }
                 if (isAutomatedClient()) { return; }
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');
             })();</script>\n";
             if ($ga4 === '' && $userId !== '') {
@@ -163,8 +165,19 @@ final class Tracker
         $ga4Valid = $ga4 !== '' && preg_match('/^G-[A-Za-z0-9_-]+$/i', $ga4);
         if ($ga4Valid) {
             $ga4e = esc_js($ga4);
+            $customTags = $this->getClarityCustomTags();
+            $gaConfig = [
+                'page_type' => $customTags['page_type'] ?? 'page',
+                'user_country' => $customTags['user_country'] ?? '',
+                'user_currency' => $customTags['user_currency'] ?? '',
+                'site_language' => $customTags['site_language'] ?? '',
+            ];
+            if ($userId !== '') {
+                $gaConfig['user_id'] = $userId;
+            }
+            $configJson = wp_json_encode($gaConfig);
+
             echo "<!-- Helmetsan Analytics: GA4 -->\n";
-            $config = $userId !== '' ? ",{'user_id':'" . esc_js($userId) . "'}" : '';
             echo "<script>(function(){
                 function isAutomatedClient(){
                     try {
@@ -208,10 +221,10 @@ final class Tracker
                 s.async = true;
                 s.src = 'https://www.googletagmanager.com/gtag/js?id={$ga4e}';
                 document.head.appendChild(s);
-                window.dataLayer=window.dataLayer||[];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config','{$ga4e}'{$config});
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                window.gtag('js', new Date());
+                window.gtag('config', '{$ga4e}', {$configJson});
             })();</script>\n";
         } elseif ($ga4 !== '') {
             echo "<!-- Helmetsan Analytics: GA4 ID invalid (use format G-XXXXXXXXXX) -->\n";
