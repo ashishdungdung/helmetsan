@@ -99,6 +99,7 @@ final class Config
             'hotjar_site_id'                          => '',
             'hotjar_version'                          => '6',
             'd1_analytics_worker_url'                 => '',
+            'use_zaraz_analytics'                     => false,
             'ga4_property_id'                         => '',
             'google_service_account_key'              => '',
             'analytics_anomaly_threshold'             => '3.0',

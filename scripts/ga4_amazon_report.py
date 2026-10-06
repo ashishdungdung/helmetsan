@@ -86,9 +86,8 @@ def run_amazon_report(client, days=30):
                 "dimensionFilter": {
                     "filter": {
                         "fieldName": "eventName",
-                        "stringFilter": {
-                            "matchType": "EXACT",
-                            "value": "amazon_outbound_click"
+                        "inListFilter": {
+                            "values": ["amazon_outbound_click", "affiliate_outbound_click"]
                         }
                     }
                 }
@@ -97,7 +96,7 @@ def run_amazon_report(client, days=30):
 
         rows = res.get("rows", [])
         if not rows:
-            print("\n  ℹ️ No 'amazon_outbound_click' events recorded yet for this date range.")
+            print("\n  ℹ️ No 'affiliate_outbound_click' or 'amazon_outbound_click' events recorded yet for this date range.")
             print("     (Events start accumulating immediately as visitors click Amazon buttons on live site!)")
             return
 

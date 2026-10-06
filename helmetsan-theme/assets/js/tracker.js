@@ -1,6 +1,48 @@
 (function() {
     'use strict';
 
+    // Global Consent Mode v2 helper for consent banner integration
+    window.helmetsanConsent = {
+        grant: function() {
+            if (typeof window.gtag === 'function') {
+                window.gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted',
+                    'analytics_storage': 'granted'
+                });
+            }
+        },
+        deny: function() {
+            if (typeof window.gtag === 'function') {
+                window.gtag('consent', 'update', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            }
+        }
+    };
+
+    function sanitizeOutboundUrl(rawUrl) {
+        if (!rawUrl) return '';
+        try {
+            var u = new URL(rawUrl, window.location.origin);
+            var allowed = ['tag', 'ascsubtag', 'linkcode', 'language', 'th', 'psc'];
+            var cleanParams = new URLSearchParams();
+            u.searchParams.forEach(function(v, k) {
+                if (allowed.indexOf(k.toLowerCase()) !== -1) {
+                    cleanParams.set(k, v);
+                }
+            });
+            var search = cleanParams.toString();
+            return u.origin + u.pathname + (search ? '?' + search : '');
+        } catch (e) {
+            return String(rawUrl).split('?')[0];
+        }
+    }
+
     function isHeadlessBot() {
         try {
             if (navigator.webdriver) return true;
@@ -49,6 +91,23 @@
         } catch (e) {}
     }
 
+    function dispatchTelemetry(action, params) {
+        var useZarazOnly = Boolean(window.helmetsanConfig && window.helmetsanConfig.useZarazOnly);
+        if (useZarazOnly && typeof window.zaraz !== 'undefined' && typeof window.zaraz.track === 'function') {
+            try {
+                window.zaraz.track(action, params);
+            } catch (e) {}
+            return;
+        }
+        var gtag = getGtag();
+        gtag('event', action, params);
+        if (!useZarazOnly && typeof window.zaraz !== 'undefined' && typeof window.zaraz.track === 'function') {
+            try {
+                window.zaraz.track(action, params);
+            } catch (e) {}
+        }
+    }
+
     function getGtag() {
         if (isHeadlessBot()) {
             return function() {};
@@ -82,8 +141,7 @@
         };
         if (data.item_list_id) params.item_list_id = data.item_list_id;
         if (data.item_list_name) params.item_list_name = data.item_list_name;
-        gtag('event', 'view_item', params);
-        dispatchZaraz('view_item', params);
+        dispatchTelemetry('view_item', params);
 
         if (window.helmetsanClarity && data.name) {
             window.helmetsanClarity.set('pdp_helmet_name', String(data.name).slice(0, 100));
@@ -176,7 +234,9 @@
         const visitorCountry = getVisitorCountry() || catalogLang.toUpperCase();
         const placement = getClickPlacement(link);
 
+        const sanitizedUrl = sanitizeOutboundUrl(href);
         const eventParams = {
+            affiliate_network: 'amazon',
             amazon_store_region: amazonInfo.region,
             amazon_domain: amazonInfo.domain,
             catalog_language: catalogLang,
@@ -184,7 +244,7 @@
             affiliate_tag: affiliateTag,
             link_type: linkType,
             click_placement: placement,
-            outbound_url: href,
+            outbound_url: sanitizedUrl,
             currency: data.currency || 'USD',
             value: data.price,
             transport: 'beacon',
@@ -198,8 +258,10 @@
             }]
         };
 
-        gtag('event', 'amazon_outbound_click', eventParams);
-        dispatchZaraz('amazon_outbound_click', eventParams);
+        // Harmonized affiliate outbound event across GA4 and Clarity
+        dispatchTelemetry('affiliate_outbound_click', eventParams);
+        // Backwards-compatible event alias for GA4 reports
+        dispatchTelemetry('amazon_outbound_click', eventParams);
 
         if (window.helmetsanClarity) {
             window.helmetsanClarity.event('affiliate_outbound_click');
@@ -244,18 +306,39 @@
             clsObserver.observe({ type: 'layout-shift', buffered: true });
         } catch (e) {}
 
-        // 3. FID (First Input Delay)
+        // 3. INP (Interaction to Next Paint - Replaces deprecated FID)
         try {
-            const fidObserver = new PerformanceObserver((entryList) => {
-                const firstInput = entryList.getEntries()[0];
-                const delay = firstInput.processingStart - firstInput.startTime;
-                window.gtag('event', 'web_vital_measurement', {
-                    vital_name: 'FID',
-                    vital_value: parseFloat(delay.toFixed(2))
-                });
+            var maxInp = 0;
+            var inpObserver = new PerformanceObserver(function(entryList) {
+                var entries = entryList.getEntries();
+                for (var i = 0; i < entries.length; i++) {
+                    var entry = entries[i];
+                    if (entry.interactionId && entry.duration > maxInp) {
+                        maxInp = entry.duration;
+                        var targetTag = (entry.target && entry.target.tagName) ? entry.target.tagName.toLowerCase() : '';
+                        window.gtag('event', 'web_vital_measurement', {
+                            vital_name: 'INP',
+                            vital_value: parseFloat(entry.duration.toFixed(2)),
+                            vital_target: targetTag
+                        });
+                    }
+                }
             });
-            fidObserver.observe({ type: 'first-input', buffered: true });
-        } catch (e) {}
+            inpObserver.observe({ type: 'event', buffered: true, durationThreshold: 16 });
+        } catch (e) {
+            // Fallback for legacy browsers without event timing observer
+            try {
+                var fidObserver = new PerformanceObserver(function(entryList) {
+                    var firstInput = entryList.getEntries()[0];
+                    var delay = firstInput.processingStart - firstInput.startTime;
+                    window.gtag('event', 'web_vital_measurement', {
+                        vital_name: 'FID',
+                        vital_value: parseFloat(delay.toFixed(2))
+                    });
+                });
+                fidObserver.observe({ type: 'first-input', buffered: true });
+            } catch (fallbackErr) {}
+        }
     }
 
     // ── Ad-Blocker Impact Estimation ──

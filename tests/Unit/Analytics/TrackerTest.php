@@ -84,4 +84,51 @@ final class TrackerTest extends TestCase
 
         $this->assertSame('helmet_pdp', $tags['page_type']);
     }
+
+    public function testPrintHeadScriptsOutputsConsentModeV2Default(): void
+    {
+        $GLOBALS['wp_options'][\Helmetsan\Core\Support\Config::OPTION_ANALYTICS] = [
+            'enable_analytics'   => true,
+            'exclude_admins'     => false,
+            'ga4_measurement_id' => 'G-ABC1234567',
+        ];
+
+        $tracker = new Tracker();
+        ob_start();
+        $tracker->printHeadScripts();
+        $output = ob_get_clean();
+
+        $this->assertStringContainsString("window.gtag('consent', 'default'", $output);
+        $this->assertStringContainsString('"ad_storage":"granted"', $output);
+        $this->assertStringContainsString('"analytics_storage":"granted"', $output);
+        $this->assertStringContainsString('"ad_user_data":"granted"', $output);
+        $this->assertStringContainsString('"ad_personalization":"granted"', $output);
+        $this->assertStringContainsString('gtag/js?id=G-ABC1234567', $output);
+    }
+
+    public function testPrintHeadScriptsRespectsConsentGate(): void
+    {
+        $GLOBALS['wp_options'][\Helmetsan\Core\Support\Config::OPTION_ANALYTICS] = [
+            'enable_analytics'     => true,
+            'exclude_admins'     => false,
+            'enable_consent_gate'  => true,
+            'consent_cookie_name'  => 'helmetsan_consent_test',
+            'ga4_measurement_id'   => 'G-ABC1234567',
+        ];
+
+        // Without cookie: suppressed by consent gate
+        $tracker = new Tracker();
+        ob_start();
+        $tracker->printHeadScripts();
+        $output = ob_get_clean();
+        $this->assertStringContainsString('consent gate active', $output);
+
+        // With cookie: loaded and consent granted
+        $_COOKIE['helmetsan_consent_test'] = '1';
+        ob_start();
+        $tracker->printHeadScripts();
+        $output = ob_get_clean();
+        $this->assertStringContainsString("window.gtag('consent', 'default'", $output);
+        $this->assertStringContainsString('"analytics_storage":"granted"', $output);
+    }
 }

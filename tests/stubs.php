@@ -42,10 +42,16 @@ namespace {
             return htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8');
         }
     }
+    if (! function_exists('esc_js')) {
+        function esc_js(mixed $text): string { return addcslashes((string) $text, "\\'\"\n\r\t"); }
+    }
     if (! function_exists('esc_attr')) {
         function esc_attr(mixed $text): string {
             return htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8');
         }
+    }
+    if (! function_exists('is_user_logged_in')) {
+        function is_user_logged_in(): bool { return false; }
     }
     if (! function_exists('is_admin')) {
         function is_admin(): bool { return false; }

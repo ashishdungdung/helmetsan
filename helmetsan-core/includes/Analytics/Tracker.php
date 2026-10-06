@@ -60,11 +60,13 @@ final class Tracker
 
         $features = wp_parse_args((array) get_option(Config::OPTION_FEATURES, []), $this->config->featuresDefaults());
 
+        $settings = $this->getSettings();
         wp_localize_script('helmetsan-tracker', 'helmetsanConfig', [
             'endpoint' => esc_url_raw(rest_url('helmetsan/v1/event')),
             'nonce'    => wp_create_nonce('helmetsan_event'),
             'enableRealUserWebVitals' => !empty($features['enable_real_user_web_vitals']),
             'enableAdblockBeacon'     => !empty($features['enable_adblock_beacon']),
+            'useZarazOnly'            => !empty($settings['use_zaraz_analytics']),
         ]);
 
         if (is_singular('helmet')) {
@@ -108,7 +110,18 @@ final class Tracker
 
         $ga4 = isset($settings['ga4_measurement_id']) ? trim((string) $settings['ga4_measurement_id']) : '';
         $gtm = isset($settings['gtm_container_id']) ? trim((string) $settings['gtm_container_id']) : '';
-        $userId = ! empty($settings['enable_user_id_tracking']) && is_user_logged_in() ? (string) get_current_user_id() : '';
+        $rawUserId = ! empty($settings['enable_user_id_tracking']) && function_exists('is_user_logged_in') && is_user_logged_in() ? (string) get_current_user_id() : '';
+        $salt = function_exists('wp_salt') ? wp_salt('auth') : (defined('AUTH_KEY') ? AUTH_KEY : 'helmetsan-auth-salt');
+        $userId = $rawUserId !== '' ? hash_hmac('sha256', $rawUserId, $salt) : '';
+
+        $hasConsent = empty($settings['enable_consent_gate']) || ! empty($consent);
+        $consentJson = wp_json_encode([
+            'ad_storage'         => $hasConsent ? 'granted' : 'denied',
+            'ad_user_data'       => $hasConsent ? 'granted' : 'denied',
+            'ad_personalization' => $hasConsent ? 'granted' : 'denied',
+            'analytics_storage'  => $hasConsent ? 'granted' : 'denied',
+            'wait_for_update'    => 500,
+        ]);
 
         if ($gtm !== '') {
             $id = esc_js($gtm);
@@ -154,6 +167,7 @@ final class Tracker
                 if (isAutomatedClient()) { return; }
                 window.dataLayer = window.dataLayer || [];
                 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                window.gtag('consent', 'default', {$consentJson});
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{$id}');
             })();</script>\n";
             if ($ga4 === '' && $userId !== '') {
@@ -217,12 +231,13 @@ final class Tracker
                     } catch(e) { return false; }
                 }
                 if (isAutomatedClient()) { return; }
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                window.gtag('consent', 'default', {$consentJson});
                 var s = document.createElement('script');
                 s.async = true;
                 s.src = 'https://www.googletagmanager.com/gtag/js?id={$ga4e}';
                 document.head.appendChild(s);
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
                 window.gtag('js', new Date());
                 window.gtag('config', '{$ga4e}', {$configJson});
             })();</script>\n";
@@ -253,7 +268,9 @@ final class Tracker
             $clarity = esc_js((string) $settings['clarity_project_id']);
             $customTags = $this->getClarityCustomTags();
             $tagsJson = wp_json_encode($customTags);
-            $userId = is_user_logged_in() ? hash('sha256', (string) get_current_user_id()) : '';
+            $rawUserId = function_exists('is_user_logged_in') && is_user_logged_in() ? (string) get_current_user_id() : '';
+            $salt = function_exists('wp_salt') ? wp_salt('auth') : (defined('AUTH_KEY') ? AUTH_KEY : 'helmetsan-auth-salt');
+            $userId = $rawUserId !== '' ? hash_hmac('sha256', $rawUserId, $salt) : '';
 
             echo "<script>\n" .
                  "(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', '{$clarity}');\n" .
