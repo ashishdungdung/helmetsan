@@ -28,10 +28,11 @@ final class EdgeCacheService
      */
     private const STALE_WHILE_REVALIDATE = 600;
 
+    private static bool $emitted = false;
+
     public function register(): void
     {
         add_action('template_redirect', [$this, 'emitEdgeHeaders'], 1);
-        add_action('send_headers', [$this, 'emitEdgeHeaders'], 1);
     }
 
     /**
@@ -39,9 +40,10 @@ final class EdgeCacheService
      */
     public function emitEdgeHeaders(): void
     {
-        if (headers_sent()) {
+        if (self::$emitted || headers_sent()) {
             return;
         }
+        self::$emitted = true;
 
         // 1. Never cache admin, CLI, or cron
         if (is_admin() || (defined('WP_CLI') && WP_CLI) || (function_exists('wp_doing_cron') && wp_doing_cron())) {
@@ -103,7 +105,7 @@ final class EdgeCacheService
             // Cloudflare 103 Early Hints: preload primary stylesheet
             if (function_exists('get_stylesheet_directory_uri')) {
                 $themeUri = get_stylesheet_directory_uri();
-                header('Link: <' . esc_url_raw($themeUri . '/assets/css/helmetsan-bundle.min.css') . '>; rel=preload; as=style', false);
+                header('Link: <' . esc_url_raw($themeUri . '/assets/css/helmetsan-bundle.min.css') . '>; rel=preload; as=style', true);
             }
 
             // Cloudflare Enterprise & Worker Cache-Tag Headers
