@@ -479,7 +479,9 @@ final class Plugin
         $this->cacheWarming->register();
         ObjectCacheService::register();
         (new \Helmetsan\Core\Cache\EdgeCacheService())->register();
-        (new \Helmetsan\Core\Cloudflare\CloudflareCacheService())->registerAjaxHooks();
+        $cfCache = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
+        $cfCache->registerAjaxHooks();
+        $cfCache->registerPostSaveHooks();
         add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
         add_action('template_redirect', [$this, 'redirectCorruptedHelmetSlugs'], 1);
         $this->adsTxt->register();

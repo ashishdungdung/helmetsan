@@ -99,6 +99,36 @@ final class EdgeCacheService
 
             header('Cache-Control: ' . $headerValue);
             header('X-Helmetsan-Edge-Cache: HIT-ELIGIBLE');
+
+            // Cloudflare 103 Early Hints: preload primary stylesheet
+            if (function_exists('get_stylesheet_directory_uri')) {
+                $themeUri = get_stylesheet_directory_uri();
+                header('Link: <' . esc_url_raw($themeUri . '/assets/css/helmetsan-bundle.min.css') . '>; rel=preload; as=style', false);
+            }
+
+            // Cloudflare Enterprise & Worker Cache-Tag Headers
+            $tags = ['helmetsan', 'public'];
+            if (function_exists('is_singular') && is_singular('helmet')) {
+                $tags[] = 'helmet';
+                $id = function_exists('get_the_ID') ? get_the_ID() : 0;
+                if ($id) {
+                    $tags[] = 'helmet-' . $id;
+                    if (function_exists('get_the_terms')) {
+                        $terms = get_the_terms($id, 'helmet_brand');
+                        if (is_array($terms) && !empty($terms)) {
+                            $tags[] = 'brand-' . $terms[0]->slug;
+                        }
+                    }
+                }
+            } elseif (function_exists('is_post_type_archive') && is_post_type_archive('helmet')) {
+                $tags[] = 'catalog';
+                $tags[] = 'helmets';
+            } elseif (function_exists('is_page') && (is_page('compare') || is_page('comparison'))) {
+                $tags[] = 'comparison';
+            } elseif (function_exists('is_front_page') && is_front_page()) {
+                $tags[] = 'home';
+            }
+            header('Cache-Tag: ' . implode(',', $tags));
         }
     }
 }

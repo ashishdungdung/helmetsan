@@ -41,6 +41,14 @@
         }
     }
 
+    function dispatchZaraz(action, params) {
+        try {
+            if (typeof window.zaraz !== 'undefined' && typeof window.zaraz.track === 'function') {
+                window.zaraz.track(action, params);
+            }
+        } catch (e) {}
+    }
+
     function getGtag() {
         if (isHeadlessBot()) {
             return function() {};
@@ -75,6 +83,7 @@
         if (data.item_list_id) params.item_list_id = data.item_list_id;
         if (data.item_list_name) params.item_list_name = data.item_list_name;
         gtag('event', 'view_item', params);
+        dispatchZaraz('view_item', params);
 
         if (window.helmetsanClarity && data.name) {
             window.helmetsanClarity.set('pdp_helmet_name', String(data.name).slice(0, 100));
@@ -190,6 +199,7 @@
         };
 
         gtag('event', 'amazon_outbound_click', eventParams);
+        dispatchZaraz('amazon_outbound_click', eventParams);
 
         if (window.helmetsanClarity) {
             window.helmetsanClarity.event('affiliate_outbound_click');

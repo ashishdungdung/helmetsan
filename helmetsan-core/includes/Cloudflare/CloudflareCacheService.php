@@ -35,6 +35,44 @@ class CloudflareCacheService
         add_action('wp_ajax_helmetsan_edge_cache_purge', [$this, 'ajaxPurge']);
     }
 
+    public function registerPostSaveHooks(): void
+    {
+        add_action('save_post', [$this, 'onPostSave'], 25, 2);
+    }
+
+    public function onPostSave(int $postId, \WP_Post $post): void
+    {
+        if (function_exists('wp_is_post_revision') && wp_is_post_revision($postId)) {
+            return;
+        }
+        if (function_exists('wp_is_post_autosave') && wp_is_post_autosave($postId)) {
+            return;
+        }
+        if ($post->post_status !== 'publish') {
+            return;
+        }
+
+        $urls = [];
+        $permalink = function_exists('get_permalink') ? get_permalink($postId) : '';
+        if (is_string($permalink) && $permalink !== '') {
+            $urls[] = $permalink;
+        }
+
+        if ($post->post_type === 'helmet') {
+            $urls[] = home_url('/helmets/');
+            $urls[] = home_url('/comparison/');
+            $urls[] = home_url('/');
+        } elseif ($post->post_type === 'motorcycle') {
+            $urls[] = home_url('/motorcycles/');
+            $urls[] = home_url('/');
+        } elseif ($post->post_type === 'post') {
+            $urls[] = home_url('/blog/');
+            $urls[] = home_url('/');
+        }
+
+        $this->purgeUrls($urls, false);
+    }
+
     /**
      * Run real-time diagnostic probe against Cloudflare Edge Cache Worker.
      *

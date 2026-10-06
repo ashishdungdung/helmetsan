@@ -11,9 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php if (function_exists('helmetsan_is_china_visitor') && helmetsan_is_china_visitor()) : ?>
         <link rel="preconnect" href="https://fonts.loli.net">
+        <link rel="dns-prefetch" href="https://fonts.loli.net">
     <?php else : ?>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <?php endif; ?>
     <?php wp_head(); ?>
     <script>
