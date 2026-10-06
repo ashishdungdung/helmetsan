@@ -36,9 +36,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
-  "description": "The Steelbird SBH-20 Matte Black is optimized for upright naked and roadster riders seeking wide-angle road awareness, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1433g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~86 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "description": "The Steelbird SBH-20 Matte Black is optimized for upright naked and roadster riders seeking wide-angle road awareness, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1450g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~86 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "product_details": {
     "description": "Steelbird full face with dual visor and wide view for traffic."
   },
@@ -207,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 6,
     "drag_coefficient": 0.32
   },
@@ -287,7 +287,7 @@
   "pros_and_cons": {
     "pros": [
       "Balanced aerodynamic downforce provides stability in neutral and forward-leaning postures",
-      "Well-balanced 1433g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1450g center of gravity reduces rider fatigue on long highway stretches",
       "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -295,7 +295,7 @@
       "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
     ]
   },
-  "editorial_overview": "The Steelbird SBH-20 Matte Black is optimized for upright naked and roadster riders seeking wide-angle road awareness, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1433g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~86 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "editorial_overview": "The Steelbird SBH-20 Matte Black is optimized for upright naked and roadster riders seeking wide-angle road awareness, pairing agile street ergonomics with certified multi-impact protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing 1450g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~86 dB while dissipating kinetic impact forces across DOT, ISI, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "rider_takeaway": "An honest, dependable everyday lid delivering essential impact protection and straightforward comfort for cost-conscious riders.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -307,8 +307,8 @@
       "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
       "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
       "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
-      "measured_weight_g": 1433,
-      "measured_weight_lbs": 3.16
+      "measured_weight_g": 1450,
+      "measured_weight_lbs": 3.2
     },
     "acoustic_envelope": {
       "sound_index_db": "~86 dB @ 100km/h",
@@ -319,7 +319,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -333,7 +333,7 @@
         "ISI",
         "ECE 22.05"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -390,7 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85,
+  "noise_db": 88,
   "sharp_rating": 0,
   "sharp_verified": false
 }

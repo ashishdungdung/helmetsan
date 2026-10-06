@@ -36,9 +36,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 91
   },
-  "description": "Born for the apex and high-speed straightaways, the Bell Star DLX MIPS Raptor TC-1 is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1415g, channeling boundary-layer airflow to maintain a ~92 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "description": "Born for the apex and high-speed straightaways, the Bell Star DLX MIPS Raptor TC-1 is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1447g, channeling boundary-layer airflow to maintain a ~92 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Street optimized version of the Star with MIPS protection."
   },
@@ -207,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 93,
+    "noise_db_at_100kph": 91,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -292,7 +292,7 @@
   "pros_and_cons": {
     "pros": [
       "Emergency Quick Release System (EQRS) cheek pads enable rapid medical extraction",
-      "Well-balanced 1415g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1447g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
@@ -300,7 +300,7 @@
       "High-flow track venting increases cabin air volume, necessitating earplugs at speed"
     ]
   },
-  "editorial_overview": "Born for the apex and high-speed straightaways, the Bell Star DLX MIPS Raptor TC-1 is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1415g, channeling boundary-layer airflow to maintain a ~92 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "editorial_overview": "Born for the apex and high-speed straightaways, the Bell Star DLX MIPS Raptor TC-1 is designed to deliver razor-sharp aerodynamics in a chin-on-tank tuck. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1447g, channeling boundary-layer airflow to maintain a ~92 dB acoustic cabin profile while meeting DOT, Snell M2020, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "An agile circuit lid that bridges weekend track-day performance with accessible street usability.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -312,8 +312,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1415,
-      "measured_weight_lbs": 3.12
+      "measured_weight_g": 1447,
+      "measured_weight_lbs": 3.19
     },
     "acoustic_envelope": {
       "sound_index_db": "~92 dB @ 100km/h",
@@ -324,7 +324,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval profiles with snug 3D laser-cut race cheek pads providing emergency quick release (EQRS). Expect an initial 15-20 riding hour break-in for 15-20% foam compression."
     },
@@ -338,7 +338,7 @@
         "Snell M2020",
         "ECE 22.06"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -390,7 +390,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 93,
+  "noise_db": 91,
   "sharp_rating": 0,
   "sharp_verified": false
 }

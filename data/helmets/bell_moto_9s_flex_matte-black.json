@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 100
   },
-  "description": "The Bell Moto-9S Flex Matte Black is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1398g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, Snell M2020 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Bell Moto-9S Flex Matte Black is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1424g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, Snell M2020 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Pro-level protection for the dirt track."
   },
@@ -205,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.36
   },
@@ -284,7 +284,7 @@
   "pros_and_cons": {
     "pros": [
       "Massive multi-port ram-air intake channels engineered for maximum aerobic cooling during intense motos",
-      "Well-balanced 1398g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1424g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Snell M2020 certified for extreme double-impact kinetic threshold resistance"
     ],
@@ -293,7 +293,7 @@
       "Zero acoustic sound insulation; not designed or suitable for extended high-speed highway touring"
     ]
   },
-  "editorial_overview": "The Bell Moto-9S Flex Matte Black is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1398g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, Snell M2020 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Bell Moto-9S Flex Matte Black is crafted for intense dirt riding with ultra-wide goggle eyeport stabilization, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1424g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~99 dB while dissipating kinetic impact forces across DOT, Snell M2020 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A race-ready dirt helmet pairing wide-angle eyeport goggle seating with lightweight shell balance for competitive off-road riders.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -305,8 +305,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1398,
-      "measured_weight_lbs": 3.08
+      "measured_weight_g": 1424,
+      "measured_weight_lbs": 3.14
     },
     "acoustic_envelope": {
       "sound_index_db": "~99 dB @ 100km/h",
@@ -317,7 +317,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
@@ -330,7 +330,7 @@
         "DOT",
         "Snell M2020"
       ],
-      "sharp_rating": 3,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -382,7 +382,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 97,
+  "noise_db": 100,
   "sharp_rating": 0,
   "sharp_verified": false
 }

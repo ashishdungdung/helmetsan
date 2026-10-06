@@ -32,9 +32,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 87
   },
-  "description": "Engineered for adaptable touring, the MT Helmets Thunder SV White is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1650g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "description": "Engineered for adaptable touring, the MT Helmets Thunder SV White is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1597g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "MT Thunder SV modular with flip-up."
   },
@@ -203,7 +203,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 7.5,
     "drag_coefficient": 0.32
   },
@@ -285,11 +285,10 @@
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
     "cons": [
-      "Substantial shell weight (1650g) may cause neck fatigue over consecutive multi-hour riding days",
       "Slightly broader frontal profile than fixed race lids, creating moderate drag in aggressive tuck"
     ]
   },
-  "editorial_overview": "Engineered for adaptable touring, the MT Helmets Thunder SV White is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1650g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "editorial_overview": "Engineered for adaptable touring, the MT Helmets Thunder SV White is designed for versatile commuters and touring riders requiring multi-mode adaptability across highway and urban riding. Its Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell tips the scales at 1597g, channeling boundary-layer airflow to maintain a ~88 dB acoustic cabin profile while meeting ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "The sweet spot for versatile riders wanting flip-up ease for urban errands alongside dependable full-face highway protection.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -301,8 +300,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1650,
-      "measured_weight_lbs": 3.64
+      "measured_weight_g": 1597,
+      "measured_weight_lbs": 3.52
     },
     "acoustic_envelope": {
       "sound_index_db": "~88 dB @ 100km/h",
@@ -313,7 +312,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -325,7 +324,7 @@
       "certifications": [
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -382,7 +381,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88,
+  "noise_db": 87,
   "sharp_rating": 0,
   "sharp_verified": false
 }

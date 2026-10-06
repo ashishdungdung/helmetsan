@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 97
+    "noise_db_at_100kph": 100
   },
-  "description": "The Klim F5 Koroyd Gloss Black is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1299g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Klim F5 Koroyd Gloss Black is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1269g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Revolutionary Koroyd liner crumple zone for superior impact protection."
   },
@@ -205,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 97,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.34
   },
@@ -284,7 +284,7 @@
   "pros_and_cons": {
     "pros": [
       "Massive multi-port ram-air intake channels engineered for maximum aerobic cooling during intense motos",
-      "Featherweight 1299g shell construction significantly minimizes neck fatigue during long rides",
+      "Featherweight 1269g shell construction significantly minimizes neck fatigue during long rides",
       "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -293,7 +293,7 @@
       "Zero acoustic sound insulation; not designed or suitable for extended high-speed highway touring"
     ]
   },
-  "editorial_overview": "The Klim F5 Koroyd Gloss Black is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1299g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Klim F5 Koroyd Gloss Black is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1269g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A dedicated off-road lid engineered to channel maximum airflow during aggressive motos while delivering certified impact protection.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -305,8 +305,8 @@
       "material_tier": "Aerospace-Grade 100% Carbon Fiber",
       "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
       "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
-      "measured_weight_g": 1299,
-      "measured_weight_lbs": 2.86
+      "measured_weight_g": 1269,
+      "measured_weight_lbs": 2.8
     },
     "acoustic_envelope": {
       "sound_index_db": "~98 dB @ 100km/h",
@@ -317,7 +317,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
@@ -330,7 +330,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "Koroyd"
     },
@@ -387,7 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 97,
+  "noise_db": 100,
   "sharp_rating": 0,
   "sharp_verified": false
 }

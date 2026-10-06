@@ -36,9 +36,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 87
   },
-  "description": "The Apex 3 Carbon is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1309g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Apex 3 Carbon is engineered for everyday agility, rapid ventilation, and effortless usability, pairing agile street ergonomics with certified multi-impact protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1274g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "product_details": {
     "description": "Flagship carbon full face with multi-cert and premium fit."
   },
@@ -208,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 87,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.29
   },
@@ -288,16 +288,16 @@
   "riding_environment": "Sport & Street Riding",
   "pros_and_cons": {
     "pros": [
-      "Eyewear-compatible interior lining accommodates sunglasses and prescription frames without hot spots",
-      "Featherweight 1309g shell construction significantly minimizes neck fatigue during long rides",
+      "Balanced aerodynamic downforce provides stability in neutral and forward-leaning postures",
+      "Featherweight 1274g shell construction significantly minimizes neck fatigue during long rides",
       "Aerospace-grade 100% carbon fiber shell delivers elite kinetic energy dispersion at minimal weight",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
     "cons": [
-      "Cheek pads have a firm initial break-in period before contouring comfortably to facial profile"
+      "Upper intake vent sliders require gloved dexterity to operate seamlessly at highway speeds"
     ]
   },
-  "editorial_overview": "The Apex 3 Carbon is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Aerospace-Grade 100% Carbon Fiber architecture at a featherweight 1309g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.06 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Apex 3 Carbon is engineered for everyday agility, rapid ventilation, and effortless usability, pairing agile street ergonomics with certified multi-impact protection. Built around a Aerospace-Grade 100% Carbon Fiber shell weighing a featherweight 1274g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~87 dB while dissipating kinetic impact forces across DOT, Snell M2020, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "rider_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -309,8 +309,8 @@
       "material_tier": "Aerospace-Grade 100% Carbon Fiber",
       "kinetic_absorption": "ultra-rigid carbon weave delivering exceptional kinetic energy dissipation at minimum weight",
       "rider_feel": "featherweight agility that virtually eliminates cervical spine strain during extended saddle time",
-      "measured_weight_g": 1309,
-      "measured_weight_lbs": 2.89
+      "measured_weight_g": 1274,
+      "measured_weight_lbs": 2.81
     },
     "acoustic_envelope": {
       "sound_index_db": "~87 dB @ 100km/h",
@@ -321,7 +321,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -335,7 +335,7 @@
         "Snell M2020",
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -392,7 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 88,
+  "noise_db": 87,
   "sharp_rating": 0,
   "sharp_verified": false
 }

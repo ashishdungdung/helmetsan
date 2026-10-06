@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 88
+    "noise_db_at_100kph": 85
   },
-  "description": "The AGV K6 S Slashcut Black/Red is optimized for high-performance street and spirited backroad riding, pairing agile street ergonomics with certified multi-impact protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing a featherweight 1316g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "description": "The AGV K6 S Slashcut Black/Red is optimized for high-performance street and spirited backroad riding, pairing agile street ergonomics with certified multi-impact protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing a featherweight 1334g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "product_details": {
     "description": "The lightest road helmet in the world per AGV."
   },
@@ -206,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 88,
+    "noise_db_at_100kph": 85,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.29
   },
@@ -286,7 +286,7 @@
   "pros_and_cons": {
     "pros": [
       "Balanced aerodynamic downforce provides stability in neutral and forward-leaning postures",
-      "Featherweight 1316g shell construction significantly minimizes neck fatigue during long rides",
+      "Featherweight 1334g shell construction significantly minimizes neck fatigue during long rides",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
@@ -294,7 +294,7 @@
       "Cheek pads have a firm initial break-in period before contouring comfortably to facial profile"
     ]
   },
-  "editorial_overview": "The AGV K6 S Slashcut Black/Red is optimized for high-performance street and spirited backroad riding, pairing agile street ergonomics with certified multi-impact protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing a featherweight 1316g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "editorial_overview": "The AGV K6 S Slashcut Black/Red is optimized for high-performance street and spirited backroad riding, pairing agile street ergonomics with certified multi-impact protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing a featherweight 1334g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~88 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "rider_takeaway": "A versatile daily street helmet engineered for riders who want certified contemporary safety without excess bulk.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -306,8 +306,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1316,
-      "measured_weight_lbs": 2.9
+      "measured_weight_g": 1334,
+      "measured_weight_lbs": 2.94
     },
     "acoustic_envelope": {
       "sound_index_db": "~88 dB @ 100km/h",
@@ -318,7 +318,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -331,7 +331,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -388,7 +388,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 88,
+  "noise_db": 85,
   "sharp_rating": 0,
   "sharp_verified": false
 }

@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 99
   },
-  "description": "The Troy Lee Designs SE5 Composite Track TC-2 is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1446g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Troy Lee Designs SE5 Composite Track TC-2 is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1461g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Composite MX helmet with MIPS and EPP multi-density liner."
   },
@@ -201,7 +201,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -281,7 +281,7 @@
   "pros_and_cons": {
     "pros": [
       "Massive multi-port ram-air intake channels engineered for maximum aerobic cooling during intense motos",
-      "Well-balanced 1446g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1461g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
@@ -290,7 +290,7 @@
       "Requires separate riding goggles; unsealed eyeport offers no protection against highway rain and cold"
     ]
   },
-  "editorial_overview": "The Troy Lee Designs SE5 Composite Track TC-2 is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1446g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Troy Lee Designs SE5 Composite Track TC-2 is purpose-built for off-road riders demanding massive aerobic cooling and roost deflection, pairing extreme cooling throughput with competition-grade roost protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1461g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~98 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A dedicated off-road lid engineered to channel maximum airflow during aggressive motos while delivering certified impact protection.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -302,8 +302,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1446,
-      "measured_weight_lbs": 3.19
+      "measured_weight_g": 1461,
+      "measured_weight_lbs": 3.22
     },
     "acoustic_envelope": {
       "sound_index_db": "~98 dB @ 100km/h",
@@ -314,7 +314,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
@@ -327,7 +327,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -384,7 +384,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
+  "noise_db": 99,
   "sharp_rating": 0,
   "sharp_verified": false
 }

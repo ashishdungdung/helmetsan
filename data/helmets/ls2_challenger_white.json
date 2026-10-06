@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 86
   },
-  "description": "Optimized for spirited canyon carvers and urban commuters alike, the LS2 Challenger White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1427g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "description": "Optimized for spirited canyon carvers and urban commuters alike, the LS2 Challenger White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1412g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "LS2 Challenger full face with sun visor."
   },
@@ -204,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -288,7 +288,7 @@
   "pros_and_cons": {
     "pros": [
       "Optically correct face shield with quick-release tool-less visor removal system",
-      "Well-balanced 1427g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1412g center of gravity reduces rider fatigue on long highway stretches",
       "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
       "Quiet acoustic chamber (~85 dB at 100 km/h) isolates highway wind drone for fatigue-free touring"
     ],
@@ -296,7 +296,7 @@
       "Upper intake vent sliders require gloved dexterity to operate seamlessly at highway speeds"
     ]
   },
-  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the LS2 Challenger White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1427g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the LS2 Challenger White is crafted for daily urban navigators conquering dense traffic. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1412g, channeling boundary-layer airflow to maintain a ~85 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "The sweet spot for everyday street riders demanding modern ECE 22.06 safety homologation, balanced weight, and crisp road dynamics.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -308,8 +308,8 @@
       "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
       "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
       "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
-      "measured_weight_g": 1427,
-      "measured_weight_lbs": 3.15
+      "measured_weight_g": 1412,
+      "measured_weight_lbs": 3.11
     },
     "acoustic_envelope": {
       "sound_index_db": "~85 dB @ 100km/h",
@@ -320,7 +320,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -333,7 +333,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -390,7 +390,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87,
+  "noise_db": 86,
   "sharp_rating": 0,
   "sharp_verified": false
 }

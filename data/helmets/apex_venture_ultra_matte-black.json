@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 84
+    "noise_db_at_100kph": 86
   },
-  "description": "Purpose-built for long-distance touring, the Apex Venture Ultra Matte Black is built for mile-crushing grand tours and cross-country adventures to minimize neck fatigue on cross-country treks. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1438g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~83 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "description": "Purpose-built for long-distance touring, the Apex Venture Ultra Matte Black is built for mile-crushing grand tours and cross-country adventures to minimize neck fatigue on cross-country treks. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1390g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~83 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Touring with sun visor."
   },
@@ -206,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 84,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -291,7 +291,7 @@
   "pros_and_cons": {
     "pros": [
       "Factory-prepared speaker pockets tailored for seamless Bluetooth communicator installation",
-      "Well-balanced 1438g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1390g center of gravity reduces rider fatigue on long highway stretches",
       "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
       "Quiet acoustic chamber (~83 dB at 100 km/h) isolates highway wind drone for fatigue-free touring"
     ],
@@ -299,7 +299,7 @@
       "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
     ]
   },
-  "editorial_overview": "Purpose-built for long-distance touring, the Apex Venture Ultra Matte Black is built for mile-crushing grand tours and cross-country adventures to minimize neck fatigue on cross-country treks. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1438g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~83 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "Purpose-built for long-distance touring, the Apex Venture Ultra Matte Black is built for mile-crushing grand tours and cross-country adventures to minimize neck fatigue on cross-country treks. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1390g, it combines progressive kinetic energy dissipation across DOT, ECE 22.06 certifications with an acoustically tuned ~83 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A dependable long-distance touring lid offering reliable acoustic isolation, integrated sun protection, and comfortable all-day fitment.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -311,8 +311,8 @@
       "material_tier": "High-Performance Fiberglass Composite (HPFC)",
       "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
       "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
-      "measured_weight_g": 1438,
-      "measured_weight_lbs": 3.17
+      "measured_weight_g": 1390,
+      "measured_weight_lbs": 3.06
     },
     "acoustic_envelope": {
       "sound_index_db": "~83 dB @ 100km/h",
@@ -323,7 +323,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -336,7 +336,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -393,7 +393,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 84,
+  "noise_db": 86,
   "sharp_rating": 0,
   "sharp_verified": false
 }

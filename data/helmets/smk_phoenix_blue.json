@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 86
   },
-  "description": "Optimized for spirited canyon carvers and urban commuters alike, the SMK Helmets SMK Phoenix Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1409g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "description": "Optimized for spirited canyon carvers and urban commuters alike, the SMK Helmets SMK Phoenix Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1468g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Mid-range full face with dual homologation and drop-down sun visor."
   },
@@ -201,7 +201,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 86,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -286,7 +286,7 @@
   "pros_and_cons": {
     "pros": [
       "Optically correct face shield with quick-release tool-less visor removal system",
-      "Well-balanced 1409g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1468g center of gravity reduces rider fatigue on long highway stretches",
       "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
@@ -294,7 +294,7 @@
       "Pinlock anti-fog insert may need to be purchased separately depending on regional trim"
     ]
   },
-  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the SMK Helmets SMK Phoenix Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1409g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and track-proven Double D-Ring retention.",
+  "editorial_overview": "Optimized for spirited canyon carvers and urban commuters alike, the SMK Helmets SMK Phoenix Blue is engineered for everyday agility, rapid ventilation, and effortless usability. Its High-Performance Fiberglass Composite (HPFC) shell tips the scales at 1468g, channeling boundary-layer airflow to maintain a ~87 dB acoustic cabin profile while meeting DOT, ECE 22.06 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A modern street performer offering verified ECE 22.06 impact protection, balanced aerodynamics, and seamless everyday comfort.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -306,8 +306,8 @@
       "material_tier": "High-Performance Fiberglass Composite (HPFC)",
       "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
       "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
-      "measured_weight_g": 1409,
-      "measured_weight_lbs": 3.11
+      "measured_weight_g": 1468,
+      "measured_weight_lbs": 3.24
     },
     "acoustic_envelope": {
       "sound_index_db": "~87 dB @ 100km/h",
@@ -318,7 +318,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -331,7 +331,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -388,7 +388,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85,
+  "noise_db": 86,
   "sharp_rating": 0,
   "sharp_verified": false
 }

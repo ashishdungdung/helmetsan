@@ -36,9 +36,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 85
+    "noise_db_at_100kph": 88
   },
-  "description": "The Arai Regent-X Gloss Black is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1416g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.05 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Arai Regent-X Gloss Black is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1426g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.05 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Excellent entry into the premium Arai lineup, focusing on comfort."
   },
@@ -208,7 +208,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 85,
+    "noise_db_at_100kph": 88,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -289,7 +289,7 @@
   "pros_and_cons": {
     "pros": [
       "Eyewear-compatible interior lining accommodates sunglasses and prescription frames without hot spots",
-      "Well-balanced 1416g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1426g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Snell M2020 certified for extreme double-impact kinetic threshold resistance"
     ],
@@ -297,7 +297,7 @@
       "Cheek pads have a firm initial break-in period before contouring comfortably to facial profile"
     ]
   },
-  "editorial_overview": "The Arai Regent-X Gloss Black is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1416g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.05 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Arai Regent-X Gloss Black is engineered for everyday agility, rapid ventilation, and effortless usability, delivering responsive balance and confident road feel. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1426g, it combines progressive kinetic energy dissipation across DOT, Snell M2020, ECE 22.05 certifications with an acoustically tuned ~87 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A well-engineered everyday full-face helmet that balances wind-tunnel aerodynamics, comfortable lining, and certified impact dampening.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -309,8 +309,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1416,
-      "measured_weight_lbs": 3.12
+      "measured_weight_g": 1426,
+      "measured_weight_lbs": 3.14
     },
     "acoustic_envelope": {
       "sound_index_db": "~87 dB @ 100km/h",
@@ -321,7 +321,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -335,7 +335,7 @@
         "Snell M2020",
         "ECE 22.05"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -392,7 +392,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 85,
+  "noise_db": 88,
   "sharp_rating": 0,
   "sharp_verified": false
 }

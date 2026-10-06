@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 98
+    "noise_db_at_100kph": 100
   },
-  "description": "The Apex Rampage Black delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1313g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Apex Rampage Black delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1267g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "MX-style off-road helmet with removable peak and goggles."
   },
@@ -206,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 98,
+    "noise_db_at_100kph": 100,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.36
   },
@@ -291,7 +291,7 @@
   "pros_and_cons": {
     "pros": [
       "Massive multi-port ram-air intake channels engineered for maximum aerobic cooling during intense motos",
-      "Featherweight 1313g shell construction significantly minimizes neck fatigue during long rides",
+      "Featherweight 1267g shell construction significantly minimizes neck fatigue during long rides",
       "Durable impact-resistant polycarbonate shell delivers reliable protection at an accessible price point",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -300,7 +300,7 @@
       "Zero acoustic sound insulation; not designed or suitable for extended high-speed highway touring"
     ]
   },
-  "editorial_overview": "The Apex Rampage Black delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1313g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Apex Rampage Black delivers competition-grade off-road impact absorption with maximum cooling throughput, pairing extreme cooling throughput with competition-grade roost protection. Built around a High-Yield Impact-Resistant Polycarbonate / Lexan shell weighing a featherweight 1267g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~100 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A competition-grade dirt helmet built to keep riders cool under physical exertion and shielded from roost and track debris.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -312,8 +312,8 @@
       "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
       "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
       "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
-      "measured_weight_g": 1313,
-      "measured_weight_lbs": 2.89
+      "measured_weight_g": 1267,
+      "measured_weight_lbs": 2.79
     },
     "acoustic_envelope": {
       "sound_index_db": "~100 dB @ 100km/h",
@@ -324,7 +324,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
@@ -337,7 +337,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -394,7 +394,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 98,
+  "noise_db": 100,
   "sharp_rating": 0,
   "sharp_verified": false
 }

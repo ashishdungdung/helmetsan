@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 102
   },
-  "description": "The Bell Rogue Matte Black combines lightweight simplicity with classic V-twin custom presence, pairing low-profile styling with essential certified head protection. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1446g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~100 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "description": "The Bell Rogue Matte Black combines lightweight simplicity with classic V-twin custom presence, pairing low-profile styling with essential certified head protection. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1416g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~100 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly quick-release ratcheting buckle for effortless warm-weather riding.",
   "product_details": {
     "description": "Unique half-helmet with detachable muzzle for aggressive styling."
   },
@@ -207,7 +207,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 102,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.38
   },
@@ -291,7 +291,7 @@
   "pros_and_cons": {
     "pros": [
       "Quick-release retention system with low-profile profile tailored for classic cruisers",
-      "Well-balanced 1446g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1416g center of gravity reduces rider fatigue on long highway stretches",
       "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -300,7 +300,7 @@
       "High wind buffeting and road noise require earplugs and dedicated riding eyewear"
     ]
   },
-  "editorial_overview": "The Bell Rogue Matte Black combines lightweight simplicity with classic V-twin custom presence, pairing low-profile styling with essential certified head protection. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1446g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~100 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by track-proven Double D-Ring retention for effortless warm-weather riding.",
+  "editorial_overview": "The Bell Rogue Matte Black combines lightweight simplicity with classic V-twin custom presence, pairing low-profile styling with essential certified head protection. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1416g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~100 dB aero profile. The interior features a plush, moisture-wicking crown liner shaped for Intermediate Oval head shapes, secured by a glove-friendly quick-release ratcheting buckle for effortless warm-weather riding.",
   "rider_takeaway": "A bare-bones cruiser lid delivering maximum sensory freedom and quick-buckle convenience for relaxed warm-weather miles.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -312,8 +312,8 @@
       "material_tier": "High-Performance Fiberglass Composite (HPFC)",
       "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
       "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
-      "measured_weight_g": 1446,
-      "measured_weight_lbs": 3.19
+      "measured_weight_g": 1416,
+      "measured_weight_lbs": 3.12
     },
     "acoustic_envelope": {
       "sound_index_db": "~100 dB @ 100km/h",
@@ -324,7 +324,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Sculpted for Intermediate Oval head shapes with low-profile ear pockets and open-cranial comfort lining. Minimal break-in required with instant pressure-free crown seating."
     },
@@ -389,7 +389,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 100,
+  "noise_db": 102,
   "sharp_rating": 0,
   "sharp_verified": false
 }

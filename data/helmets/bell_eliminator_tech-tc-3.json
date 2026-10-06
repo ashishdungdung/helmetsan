@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 95
+    "noise_db_at_100kph": 96
   },
-  "description": "The Bell Eliminator Tech TC-3 delivers authentic custom flair backed by modern impact mitigation, pairing relaxed road ergonomics with modern certified protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1415g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~94 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "description": "The Bell Eliminator Tech TC-3 delivers authentic custom flair backed by modern impact mitigation, pairing relaxed road ergonomics with modern certified protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1422g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~94 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "product_details": {
     "description": "Flat-track inspired cruiser helmet with ProVision anti-fog shield."
   },
@@ -206,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 95,
+    "noise_db_at_100kph": 96,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -290,7 +290,7 @@
   "pros_and_cons": {
     "pros": [
       "Premium interior tailoring with contrast leatherette accents and moisture-wicking comfort",
-      "Well-balanced 1415g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1422g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -299,7 +299,7 @@
       "Cheek pads have a firm initial break-in period before contouring fully to facial profile"
     ]
   },
-  "editorial_overview": "The Bell Eliminator Tech TC-3 delivers authentic custom flair backed by modern impact mitigation, pairing relaxed road ergonomics with modern certified protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1415g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~94 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by track-proven Double D-Ring retention for confident all-day riding.",
+  "editorial_overview": "The Bell Eliminator Tech TC-3 delivers authentic custom flair backed by modern impact mitigation, pairing relaxed road ergonomics with modern certified protection. Built around a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) shell weighing 1422g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~94 dB while dissipating kinetic impact forces across DOT, ECE 22.05 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly quick-release ratcheting buckle for confident all-day riding.",
   "rider_takeaway": "A timeless custom lid that pairs classic roadster aesthetics with dependable, certified safety for laid-back highway cruising.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -311,8 +311,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1415,
-      "measured_weight_lbs": 3.12
+      "measured_weight_g": 1422,
+      "measured_weight_lbs": 3.13
     },
     "acoustic_envelope": {
       "sound_index_db": "~94 dB @ 100km/h",
@@ -323,7 +323,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -336,7 +336,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -388,7 +388,7 @@
       "fitment": "Recessed 40mm speaker cutout routing"
     }
   ],
-  "noise_db": 95,
+  "noise_db": 96,
   "sharp_rating": 0,
   "sharp_verified": false
 }

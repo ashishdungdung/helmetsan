@@ -31,12 +31,12 @@
       "ECE 22.06"
     ],
     "warranty_years": 2,
-    "strap_type": "Micrometric Ratchet",
+    "strap_type": "Micro-Lock Ratchet",
     "shell_sizes_count": 4,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 90
+    "noise_db_at_100kph": 89
   },
-  "description": "The Schuberth E2 Street TC-1 is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1434g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~89 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly Micro-Lock Ratchet retention system for confident all-day riding.",
+  "description": "The Schuberth E2 Street TC-1 is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1392g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~89 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly Micro-Lock Ratchet retention system for confident all-day riding.",
   "product_details": {
     "description": "Evolution of the E1, bridging adventure and touring."
   },
@@ -205,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 90,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.29
   },
@@ -289,7 +289,7 @@
   "pros_and_cons": {
     "pros": [
       "Aerodynamic roost peak visor designed to channel highway airflow while shielding intense sun glare",
-      "Well-balanced 1434g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1392g center of gravity reduces rider fatigue on long highway stretches",
       "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
       "Certified under stringent ECE 22.06 standards with comprehensive multi-angle rotational impact testing"
     ],
@@ -297,7 +297,7 @@
       "Larger exterior shell volume and ventilation ports generate elevated highway wind noise"
     ]
   },
-  "editorial_overview": "The Schuberth E2 Street TC-1 is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1434g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~89 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly Micro-Lock Ratchet retention system for confident all-day riding.",
+  "editorial_overview": "The Schuberth E2 Street TC-1 is engineered for uncompromised dual-sport versatility across gravel, sand, and asphalt, bridging highway aero efficiency with rugged off-road ventilation. Built around a High-Performance Fiberglass Composite (HPFC) shell weighing 1392g, its multi-density EPS matrix is aerodynamically sculpted to isolate cabin noise to ~89 dB while dissipating kinetic impact forces across DOT, ECE 22.06 benchmarks. Inside, 3D laser-cut cheek pads tailor naturally to an Intermediate Oval profile with dedicated eyewear relief channels, secured by a glove-friendly Micro-Lock Ratchet retention system for confident all-day riding.",
   "rider_takeaway": "An elite dual-sport explorer pairing a buffeting-resistant peak visor with wide-angle goggle compatibility for round-the-world expeditions.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -309,8 +309,8 @@
       "material_tier": "High-Performance Fiberglass Composite (HPFC)",
       "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
       "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
-      "measured_weight_g": 1434,
-      "measured_weight_lbs": 3.16
+      "measured_weight_g": 1392,
+      "measured_weight_lbs": 3.07
     },
     "acoustic_envelope": {
       "sound_index_db": "~89 dB @ 100km/h",
@@ -334,7 +334,7 @@
         "DOT",
         "ECE 22.06"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -391,7 +391,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 90,
+  "noise_db": 89,
   "sharp_rating": 0,
   "sharp_verified": false
 }

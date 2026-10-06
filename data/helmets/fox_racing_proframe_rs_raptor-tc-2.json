@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 100
+    "noise_db_at_100kph": 99
   },
-  "description": "The Fox Racing Proframe RS Raptor TC-2 is engineered for punishing motocross motos and technical single-track trails, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1432g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~97 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "description": "The Fox Racing Proframe RS Raptor TC-2 is engineered for punishing motocross motos and technical single-track trails, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1408g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~97 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Open-face mountain / enduro with full MIPS and ultra-light design."
   },
@@ -205,7 +205,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 100,
+    "noise_db_at_100kph": 99,
     "ventilation_efficiency_score": 7,
     "drag_coefficient": 0.32
   },
@@ -284,7 +284,7 @@
   "pros_and_cons": {
     "pros": [
       "Multi-position shatter-resistant roost visor with breakaway hardware",
-      "Well-balanced 1432g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1408g center of gravity reduces rider fatigue on long highway stretches",
       "Multi-composite fiberglass/aramid matrix engineered for progressive multi-axial impact dampening",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -293,7 +293,7 @@
       "Zero acoustic sound insulation; not designed or suitable for extended high-speed highway touring"
     ]
   },
-  "editorial_overview": "The Fox Racing Proframe RS Raptor TC-2 is engineered for punishing motocross motos and technical single-track trails, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1432g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~97 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "The Fox Racing Proframe RS Raptor TC-2 is engineered for punishing motocross motos and technical single-track trails, delivering lightweight balance and wide-vision goggle accommodation. Featuring a Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+) architecture at 1408g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~97 dB aero profile. An ultra-breathable, antimicrobial interior liner stabilizes the helmet during aggressive terrain vibration, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A purpose-built motocross weapon optimized for massive aerobic cooling, goggle stabilization, and roost deflection on intense dirt sessions.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -305,8 +305,8 @@
       "material_tier": "Advanced Multi-Composite (Carbon-Aramid-Glass / AIM+)",
       "kinetic_absorption": "multi-composite matrix offering an optimal balance of structural rigidity and progressive kinetic dispersion",
       "rider_feel": "progressive elastic deformation dampening sharp kinetic spikes across direct and oblique angles",
-      "measured_weight_g": 1432,
-      "measured_weight_lbs": 3.16
+      "measured_weight_g": 1408,
+      "measured_weight_lbs": 3.1
     },
     "acoustic_envelope": {
       "sound_index_db": "~97 dB @ 100km/h",
@@ -317,7 +317,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Contoured for Intermediate Oval ergonomics with high-density moisture-wicking cheek pads and neck roll designed to keep helmet locked in place during heavy terrain vibration. 10–12 riding hours break-in expected."
     },
@@ -330,7 +330,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -387,7 +387,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 100,
+  "noise_db": 99,
   "sharp_rating": 0,
   "sharp_verified": false
 }

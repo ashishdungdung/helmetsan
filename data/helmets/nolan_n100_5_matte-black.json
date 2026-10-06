@@ -31,12 +31,12 @@
       "ECE 22.05"
     ],
     "warranty_years": 2,
-    "strap_type": "Micrometric Ratchet",
+    "strap_type": "Microlock2 (Micrometric Ratchet)",
     "shell_sizes_count": 2,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 87
+    "noise_db_at_100kph": 89
   },
-  "description": "Engineered for adaptable touring, the Nolan N100-5 Matte Black combines flip-up modular convenience with highway touring comfort across highway and urban riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1594g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
+  "description": "Engineered for adaptable touring, the Nolan N100-5 Matte Black combines flip-up modular convenience with highway touring comfort across highway and urban riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a solid 1678g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
   "product_details": {
     "description": "Italian modular with N-Com communication system preinstalled."
   },
@@ -204,7 +204,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 87,
+    "noise_db_at_100kph": 89,
     "ventilation_efficiency_score": 8,
     "drag_coefficient": 0.32
   },
@@ -287,11 +287,11 @@
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
     "cons": [
-      "Polycarbonate shell yields higher overall mass compared to composite-fiber counterparts",
+      "Substantial shell weight (1678g) may cause neck fatigue over consecutive multi-hour riding days",
       "Chin bar hinge hardware adds weight and mechanical complexity compared to single-piece full-face helmets"
     ]
   },
-  "editorial_overview": "Engineered for adaptable touring, the Nolan N100-5 Matte Black combines flip-up modular convenience with highway touring comfort across highway and urban riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at 1594g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
+  "editorial_overview": "Engineered for adaptable touring, the Nolan N100-5 Matte Black combines flip-up modular convenience with highway touring comfort across highway and urban riding. Its High-Yield Impact-Resistant Polycarbonate / Lexan shell tips the scales at a solid 1678g, channeling boundary-layer airflow to maintain a ~86 dB acoustic cabin profile while meeting DOT, ECE 22.05 impact standards. The interior leverages moisture-wicking antibacterial liners contoured for an Intermediate Oval fit, integrating eyeglass channels and a glove-friendly Microlock2 (Micrometric Ratchet) retention system.",
   "rider_takeaway": "A versatile and road-ready modular helmet that brings flip-up practicality and dual-homologated convenience to everyday commuters.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -303,8 +303,8 @@
       "material_tier": "High-Yield Impact-Resistant Polycarbonate / Lexan",
       "kinetic_absorption": "injection-molded polymer matrix engineered for high ductile strength and all-weather resilience",
       "rider_feel": "durable, daily-proven impact toughness engineered for reliable everyday protection",
-      "measured_weight_g": 1594,
-      "measured_weight_lbs": 3.51
+      "measured_weight_g": 1678,
+      "measured_weight_lbs": 3.7
     },
     "acoustic_envelope": {
       "sound_index_db": "~86 dB @ 100km/h",
@@ -328,7 +328,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 5,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": true
     },
@@ -385,7 +385,7 @@
       "fitment": "In-ear acoustic attenuation under helmet shell"
     }
   ],
-  "noise_db": 87,
+  "noise_db": 89,
   "sharp_rating": 0,
   "sharp_verified": false
 }

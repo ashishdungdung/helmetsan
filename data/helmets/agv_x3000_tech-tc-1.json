@@ -34,9 +34,9 @@
     "strap_type": "Double-D Ring",
     "shell_sizes_count": 3,
     "eps_liner_structure": "Multi-Density Segmented EPS Matrix with Integrated Cooling Channels",
-    "noise_db_at_100kph": 93
+    "noise_db_at_100kph": 94
   },
-  "description": "Tailored for custom cruisers and classic roadsters, the AGV X3000 Tech TC-1 delivers authentic custom flair backed by modern impact mitigation. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1403g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~94 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "description": "Tailored for custom cruisers and classic roadsters, the AGV X3000 Tech TC-1 delivers authentic custom flair backed by modern impact mitigation. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1464g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~94 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "product_details": {
     "description": "Inspired by the historic models worn by Agostini."
   },
@@ -206,7 +206,7 @@
   },
   "deep_enriched": true,
   "aero_acoustic_profile": {
-    "noise_db_at_100kph": 93,
+    "noise_db_at_100kph": 94,
     "ventilation_efficiency_score": 9,
     "drag_coefficient": 0.32
   },
@@ -291,7 +291,7 @@
   "pros_and_cons": {
     "pros": [
       "Premium interior tailoring with contrast leatherette accents and moisture-wicking comfort",
-      "Well-balanced 1403g center of gravity reduces rider fatigue on long highway stretches",
+      "Well-balanced 1464g center of gravity reduces rider fatigue on long highway stretches",
       "High-Performance Fiberglass Composite provides structural rigidity superior to standard polymers",
       "Dual DOT & ECE 22.05 certified for verified road and highway safety"
     ],
@@ -300,7 +300,7 @@
       "Cheek pads have a firm initial break-in period before contouring fully to facial profile"
     ]
   },
-  "editorial_overview": "Tailored for custom cruisers and classic roadsters, the AGV X3000 Tech TC-1 delivers authentic custom flair backed by modern impact mitigation. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1403g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~94 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with track-proven Double D-Ring retention.",
+  "editorial_overview": "Tailored for custom cruisers and classic roadsters, the AGV X3000 Tech TC-1 delivers authentic custom flair backed by modern impact mitigation. Featuring a High-Performance Fiberglass Composite (HPFC) architecture at 1464g, it combines progressive kinetic energy dissipation across DOT, ECE 22.05 certifications with an acoustically tuned ~94 dB aero profile. A plush, washable 3D comfort liner cradles Intermediate Oval head shapes with zero temple pinch for glasses wearers, locked in securely with a glove-friendly quick-release ratcheting buckle.",
   "rider_takeaway": "A timeless custom lid that pairs classic roadster aesthetics with dependable, certified safety for laid-back highway cruising.",
   "intelligence_matrix": {
     "rider_persona": {
@@ -312,8 +312,8 @@
       "material_tier": "High-Performance Fiberglass Composite (HPFC)",
       "kinetic_absorption": "pressure-molded fiberglass matrix engineered for high-energy structural integrity and uniform shock dispersion",
       "rider_feel": "confidence-inspiring road feel with proven multi-axial impact protection",
-      "measured_weight_g": 1403,
-      "measured_weight_lbs": 3.09
+      "measured_weight_g": 1464,
+      "measured_weight_lbs": 3.23
     },
     "acoustic_envelope": {
       "sound_index_db": "~94 dB @ 100km/h",
@@ -324,7 +324,7 @@
       "head_shape": "Intermediate Oval",
       "fit_profile": "Intermediate Oval (Universal Ergonomic Fit)",
       "fit_details": "Sculpted for the dominant global head profile, distributing crown pressure evenly to prevent forehead hotspotting during long stints.",
-      "strap_mechanism": "Double D-Ring",
+      "strap_mechanism": "Double-D Ring",
       "eyewear_compatible": true,
       "break_in_period": "Optimized for Intermediate Oval head shapes with temple pressure-relief grooves for eyewear. 3D contoured cheek pads experience a 12-15 riding hour break-in period, relaxing by ~15% for facial fitment."
     },
@@ -337,7 +337,7 @@
         "DOT",
         "ECE 22.05"
       ],
-      "sharp_rating": 4,
+      "sharp_rating": 0,
       "sharp_verified": false,
       "rotational_mitigation": "None"
     },
@@ -394,7 +394,7 @@
       "fitment": "Trackside perimeter post alignment"
     }
   ],
-  "noise_db": 93,
+  "noise_db": 94,
   "sharp_rating": 0,
   "sharp_verified": false
 }
