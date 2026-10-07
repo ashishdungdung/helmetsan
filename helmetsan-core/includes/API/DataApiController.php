@@ -85,8 +85,8 @@ final class DataApiController
         $format = isset($_GET['format']) ? sanitize_text_field($_GET['format']) : '';
         $accept = isset($_SERVER['HTTP_ACCEPT']) ? (string) $_SERVER['HTTP_ACCEPT'] : '';
 
-        $isMarkdown = ($format === 'md' || $format === 'markdown' || (str_contains($accept, 'text/markdown') && $format === ''));
-        $isJson = ($format === 'json' || (str_contains($accept, 'application/json') && $format === ''));
+        $isMarkdown = ($format === 'md' || $format === 'markdown' || ($format === '' && str_contains($accept, 'text/markdown')));
+        $isJson = ($format === 'json' || ($format === '' && str_contains($accept, 'application/json') && !str_contains($accept, 'text/html')));
 
         if (!$isMarkdown && !$isJson) {
             return;

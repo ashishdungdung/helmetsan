@@ -78,20 +78,26 @@ final class PriceHistory
             return false;
         }
 
+        $helmetId = $postType === 'helmet' ? $postId : null;
+
+        $data = [
+            'post_id'        => $postId,
+            'post_type'      => sanitize_key($postType),
+            'helmet_id'      => $helmetId,
+            'marketplace_id' => sanitize_text_field($marketplaceId),
+            'country_code'   => strtoupper(substr(sanitize_text_field($countryCode), 0, 2)),
+            'currency'       => strtoupper(substr(sanitize_text_field($currency), 0, 3)),
+            'price'          => $price,
+            'mrp'            => $mrp,
+            'captured_at'    => $capturedAt ?? current_time('mysql'),
+        ];
+
+        $format = ['%d', '%s', $helmetId !== null ? '%d' : null, '%s', '%s', '%s', '%f', $mrp !== null ? '%f' : null, '%s'];
+
         $result = $wpdb->insert(
             $this->tableName(),
-            [
-                'post_id'        => $postId,
-                'post_type'      => sanitize_key($postType),
-                'helmet_id'      => $postType === 'helmet' ? $postId : null,
-                'marketplace_id' => sanitize_text_field($marketplaceId),
-                'country_code'   => strtoupper(substr(sanitize_text_field($countryCode), 0, 2)),
-                'currency'       => strtoupper(substr(sanitize_text_field($currency), 0, 3)),
-                'price'          => $price,
-                'mrp'            => $mrp,
-                'captured_at'    => $capturedAt ?? current_time('mysql'),
-            ],
-            ['%d', '%s', '%d', '%s', '%s', '%s', '%f', '%f', '%s']
+            $data,
+            $format
         );
 
         return $result !== false;
@@ -241,13 +247,20 @@ final class PriceHistory
         ];
     }
 
+    private static ?bool $tableExistsCache = null;
+
     public function tableExists(): bool
     {
+        if (self::$tableExistsCache !== null) {
+            return self::$tableExistsCache;
+        }
+
         global $wpdb;
 
-        $table  = $this->tableName();
-        $exists = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $table));
+        $table   = $this->tableName();
+        $escaped = method_exists($wpdb, 'esc_like') ? $wpdb->esc_like($table) : addcslashes($table, '_%\\');
+        $exists  = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $escaped));
 
-        return $exists === $table;
+        return self::$tableExistsCache = ($exists === $table);
     }
 }

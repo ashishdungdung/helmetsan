@@ -65,7 +65,7 @@ final class ReviewController
         }
 
         $turnstileToken = isset($payload['cf_turnstile_response']) ? (string) $payload['cf_turnstile_response'] : '';
-        $clientIp = $request->get_header('x_forwarded_for') ?: $request->get_header('remote_addr') ?: $_SERVER['REMOTE_ADDR'] ?? null;
+        $clientIp = (isset($_SERVER['REMOTE_ADDR']) && filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP)) ? (string) $_SERVER['REMOTE_ADDR'] : ($request->get_header('cf_connecting_ip') ?: null);
 
         if (!$this->turnstileService->verify($turnstileToken, $clientIp)) {
             return $this->errorResponse('Turnstile verification failed. Please try again.', 403);

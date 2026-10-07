@@ -491,16 +491,14 @@ final class ApiGateway
      */
     private function getClientIp(): string
     {
-        $headers = ['HTTP_CF_CONNECTING_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_REAL_IP', 'REMOTE_ADDR'];
+        $remoteAddr = isset($_SERVER['REMOTE_ADDR']) ? (string) $_SERVER['REMOTE_ADDR'] : '';
+        if ($remoteAddr !== '' && filter_var($remoteAddr, FILTER_VALIDATE_IP) !== false) {
+            return $remoteAddr;
+        }
 
-        foreach ($headers as $header) {
-            $value = isset($_SERVER[$header]) ? (string) $_SERVER[$header] : '';
-            if ($value !== '') {
-                $ip = trim(explode(',', $value)[0]);
-                if (filter_var($ip, FILTER_VALIDATE_IP) !== false) {
-                    return $ip;
-                }
-            }
+        $cfIp = isset($_SERVER['HTTP_CF_CONNECTING_IP']) ? (string) $_SERVER['HTTP_CF_CONNECTING_IP'] : '';
+        if ($cfIp !== '' && filter_var($cfIp, FILTER_VALIDATE_IP) !== false) {
+            return $cfIp;
         }
 
         return '0.0.0.0';

@@ -266,7 +266,7 @@ final class Plugin
         $this->priceApi = new PriceController($this->price, $this->priceHistory);
         $this->turnstileService = new TurnstileService($this->config, $this->ingestionLogs);
         $this->reviewApi = new ReviewController($this->turnstileService, $this->reviews);
-        $this->motorcycleCommerceApi = new MotorcycleCommerceController();
+        $this->motorcycleCommerceApi = new MotorcycleCommerceController($this->turnstileService);
         $this->helmetApi = new \Helmetsan\Core\API\HelmetController();
         $this->deltaApi = new \Helmetsan\Core\API\DeltaController($this->repository);
         $this->cdnApi = new CdnController();

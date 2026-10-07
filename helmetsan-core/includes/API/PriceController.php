@@ -92,7 +92,7 @@ final class PriceController
         $best   = $this->priceService->getBestPrice($postId, $country);
         $offers = $this->priceService->getAllOffers($postId, $country);
 
-        return new WP_REST_Response([
+        $response = new WP_REST_Response([
             'post_id'    => $postId,
             'post_type'  => $post->post_type,
             'helmet_id'  => $postId,
@@ -101,6 +101,10 @@ final class PriceController
             'offers'     => array_map(fn($o) => $o->toArray(), $offers),
             'formatted'  => $this->priceService->getGeoPrice($postId, $country),
         ], 200);
+
+        $response->header('Cache-Control', 'public, max-age=60, s-maxage=300, stale-while-revalidate=30');
+        $response->header('Vary', 'Accept-Encoding, CF-IPCountry');
+        return $response;
     }
 
     /**
@@ -158,12 +162,16 @@ final class PriceController
             ];
         }
 
-        return new WP_REST_Response([
+        $response = new WP_REST_Response([
             'post_id'   => $postId,
             'post_type' => $post->post_type,
             'helmet_id' => $postId,
             'days'      => $days,
             'series'    => array_values($series),
         ], 200);
+
+        $response->header('Cache-Control', 'public, max-age=60, s-maxage=300, stale-while-revalidate=30');
+        $response->header('Vary', 'Accept-Encoding, CF-IPCountry');
+        return $response;
     }
 }
