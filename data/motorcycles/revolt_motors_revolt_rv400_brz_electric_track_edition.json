@@ -22,7 +22,7 @@
   "riding_position": "Upright Neutral",
   "description": "Within the Urban Roadster segment, the Revolt Motors Revolt RV400 BRZ Electric (Track Edition) is engineered for blistering apex speeds and track dominance. Powered by a 400cc engine generating 44 HP and 38 Nm of torque against a curb weight of 163 kg, it delivers predictable, roll-on throttle response across its usable powerband. The cockpit is configured with an Upright Neutral stance and a balanced 790mm seat height providing confident footing and natural knee comfort, prioritizing aerodynamic tuck and front-end circuit precision over casual urban commuting.",
   "yoast_title": "Revolt Motors Revolt RV400 BRZ Electric (Track Edition): Specs, Price & Recommended Helmets",
-  "yoast_metadesc": "Complete specs, engine power, weight, and verified helmet compatibility guide for the Revolt Motors Revolt RV400 BRZ Electric (Track Edition).",
+  "yoast_metadesc": "Complete specs, motor power, weight, and verified helmet compatibility guide for the Revolt Motors Revolt RV400 BRZ Electric (Track Edition).",
   "physics_intelligence": {
     "aerodynamic_drag_cd": 0.36,
     "max_lean_angle_deg": 46,
@@ -50,7 +50,7 @@
       "target_terrain": "Track-day circuits, sweeping canyons, and closed-course apexes"
     },
     "powertrain_and_chassis": {
-      "displacement": "400cc",
+      "displacement": "high-efficiency electric",
       "power_hp": 44,
       "torque_nm": 38,
       "curb_weight_kg": 163,
@@ -60,7 +60,7 @@
       "seat_height_mm": 790,
       "inseam_confidence": "Universal Inseam Ergonomics (790-825mm)",
       "riding_position": "Upright Neutral",
-      "fuel_capacity_l": 13.5,
+      "fuel_capacity_l": 0,
       "estimated_range_km": "~378 km"
     },
     "recommended_gear": {
@@ -114,7 +114,7 @@
     {
       "id": "led-brake-light",
       "title": "Brake Free Smart LED Helmet Light",
-      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive engine braking on the Revolt RV400 BRZ Electric (Track Edition)."
+      "reason": "Gyroscope-sensed deceleration lighting at driver eye level during aggressive regenerative braking on the Revolt RV400 BRZ Electric (Track Edition)."
     },
     {
       "id": "cardo-spirit-hd",

@@ -1,24 +1,28 @@
 #!/usr/bin/env python3
 """
-Repair electric/powertrain contradictions on the Matter AERA / Obben Rorr records.
+Repair electric/powertrain contradictions on every fuel_type=electric record.
 
-These 22 records are genuinely electric (name + brand + fuel_type) but carry
-fabricated petrol specs — the same defect class as AUD2-01.
+Phase 1 (default, deterministic, offline-safe) normalises structured fields to
+the convention used by clean electric records:
+    displacement_cc                                -> 0
+    fuel_capacity_l                                -> 0
+    intelligence_matrix
+      .ergonomics_and_cockpit.fuel_capacity_l      -> 0
+      .powertrain_and_chassis.displacement         -> "high-efficiency electric"
+    yoast_metadesc "engine power"                  -> "motor power"
+    accessory reasons "engine braking"             -> "regenerative braking"
+    ICE-only qualitative pros/cons                 -> dropped
 
-Structured fields are corrected deterministically against the convention used by
-the 367 clean electric records:
-    displacement_cc        -> 0
-    fuel_capacity_l        -> 0
-    matrix.displacement    -> "high-efficiency electric"
-
-Prose that still asserts a combustion engine is rewritten by the local
-LM Studio node (google/gemma-4-12b-qat, max_tokens >= 500) per the local AI
-protocol. If the node is unreachable the record is queued to
-data/task_queue.json and the run exits gracefully — never a cloud fallback.
+Phase 2 (--prose, opt-in) rewrites descriptions that still assert a combustion
+engine using the local LM Studio node (google/gemma-4-12b-qat, max_tokens >=
+500) per the local AI protocol. ~45s/record. If the node is unreachable the
+record is queued to data/task_queue.json and the run exits gracefully — never a
+cloud fallback.
 
 Usage:
     python3 scripts/fix_electric_spec_contradictions.py --dry-run
     python3 scripts/fix_electric_spec_contradictions.py
+    python3 scripts/fix_electric_spec_contradictions.py --prose
 """
 
 from __future__ import annotations
@@ -38,7 +42,6 @@ TASK_QUEUE = os.path.join(WEB_DIR, "data", "task_queue.json")
 LM_BASE = os.environ.get("LM_STUDIO_BASE_URL", "http://127.0.0.1:1234/v1")
 LM_MODEL = "google/gemma-4-12b-qat"
 
-TARGET_RE = re.compile(r"Matter AERA|Obben Rorr", re.I)
 FORBIDDEN = (r"\b\d+cc\b", r"fuel tank", r"fuel economy", r"\bpowerplant\b",
              r"\bengine\b", r"radiator", r"internal combustion")
 
@@ -118,10 +121,15 @@ def fix_structured(record: dict) -> bool:
         record["fuel_capacity_l"] = 0
         changed = True
 
-    matrix = record.setdefault("intelligence_matrix", {}).setdefault(
-        "powertrain_and_chassis", {})
-    if matrix.get("displacement") != "high-efficiency electric":
-        matrix["displacement"] = "high-efficiency electric"
+    matrix = record.setdefault("intelligence_matrix", {})
+    pwr = matrix.setdefault("powertrain_and_chassis", {})
+    if pwr.get("displacement") != "high-efficiency electric":
+        pwr["displacement"] = "high-efficiency electric"
+        changed = True
+
+    ergo = matrix.setdefault("ergonomics_and_cockpit", {})
+    if ergo.get("fuel_capacity_l"):
+        ergo["fuel_capacity_l"] = 0
         changed = True
 
     desc = record.get("yoast_metadesc")
@@ -148,15 +156,17 @@ def fix_structured(record: dict) -> bool:
 
 def main() -> int:
     dry_run = "--dry-run" in sys.argv
-    report = {"records": 0, "structured_fixed": 0, "prose_rewritten": 0,
-              "rejected": [], "queued": [], "dry_run": dry_run}
+    prose = "--prose" in sys.argv
+    report = {"records": 0, "structured_fixed": 0, "prose_enabled": prose,
+              "prose_rewritten": 0, "rejected": [], "queued": [],
+              "dry_run": dry_run}
 
     paths = [p for p in sorted(glob.glob(os.path.join(MOTORCYCLES, "*.json")))
-             if TARGET_RE.search(load(p).get("title", ""))]
+             if load(p).get("fuel_type") == "electric"]
     report["records"] = len(paths)
 
-    online = node_online()
-    if not online and not dry_run:
+    online = node_online() if prose else True
+    if prose and not online and not dry_run:
         report["queued"] = [os.path.basename(p) for p in paths]
         queue = load(TASK_QUEUE) if os.path.isfile(TASK_QUEUE) else []
         queue.extend({"task": "fix_electric_spec_contradictions",
@@ -173,7 +183,7 @@ def main() -> int:
             report["structured_fixed"] += 1
 
         original = record.get("description") or ""
-        if contaminated(original):
+        if prose and contaminated(original):
             outcome = None
             feedback = ""
             for attempt in range(2):
