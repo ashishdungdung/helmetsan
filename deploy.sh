@@ -129,11 +129,32 @@ fi
 
 # ── 3. Deploy Data (if requested) ─────────────────────────────────────────────
 if [ "$DEPLOY_DATA" = true ]; then
-    echo "📦 [Data] Syncing data/ catalog JSONs..."
+    # Resolve the live data root from the app itself (Config::dataRoot()).
+    # Two consumers exist: the theme reads ${REMOTE_WP_PATH}/data while every
+    # JsonRepository read goes through dataRoot(). Both must receive the payload.
+    echo "📦 [Data] Resolving live data root via Config::dataRoot()..."
+    REMOTE_DATA_ROOT=$($SSHPASS ssh $SSH_OPTS "${USER}@${HOST}" \
+        "wp --path=$REMOTE_WP_PATH --allow-root eval 'echo (new \Helmetsan\Core\Support\Config())->dataRoot();' 2>/dev/null" || true)
+    if [ -z "$REMOTE_DATA_ROOT" ]; then
+        REMOTE_DATA_ROOT="$REMOTE_WP_PATH/wp-content/uploads/helmetsan-data"
+        echo "   ⚠️  wp eval unavailable — falling back to default data root"
+    fi
+    echo "   → $REMOTE_DATA_ROOT"
+
+    echo "📦 [Data] Syncing data/ catalog JSONs (theme/legacy root)..."
     $SSHPASS rsync -avz --delete $DRY_RUN "${RSYNC_EXCLUDES[@]}" \
         -e "ssh $SSH_OPTS" \
         "$DATA_SRC" "${USER}@${HOST}:${REMOTE_WP_PATH}/data/"
-    echo "   ✅ Data synced."
+    echo "   ✅ Theme root synced."
+
+    # Update-only (-u): the live root carries server-side AI-healed records that
+    # are newer than local, so a mirror-delete would destroy them. Same contract
+    # as scripts/sync_data.sh.
+    echo "📦 [Data] Syncing data/ catalog JSONs (live dataRoot)..."
+    $SSHPASS rsync -avzu $DRY_RUN "${RSYNC_EXCLUDES[@]}" \
+        -e "ssh $SSH_OPTS" \
+        "$DATA_SRC" "${USER}@${HOST}:${REMOTE_DATA_ROOT}/"
+    echo "   ✅ Live dataRoot synced."
 fi
 
 # ── 4. Deploy ads.txt & llms.txt ──────────────────────────────────────────────
