@@ -120,6 +120,8 @@ if (have_posts()) :
         // Touring & real-world specifications
         $fuel_capacity_l    = $json_data['fuel_capacity_l'] ?? ($json_data['intelligence_matrix']['ergonomics_and_cockpit']['fuel_capacity_l'] ?? 14);
         $estimated_range_km = $json_data['intelligence_matrix']['ergonomics_and_cockpit']['estimated_range_km'] ?? ($fuel_capacity_l ? sprintf('~%d km', (int) ($fuel_capacity_l * 28)) : '~400 km');
+        $is_electric        = (($json_data['fuel_type'] ?? '') === 'electric');
+        $battery_kwh        = $json_data['battery_capacity_kwh'] ?? null;
         $qualitative        = $json_data['qualitative_intelligence'] ?? [];
         $pros               = $qualitative['real_world_pros'] ?? [
             __('Balanced chassis geometry provides reassuring high-speed stability', 'helmetsan-theme'),
@@ -588,16 +590,26 @@ if (have_posts()) :
 
                 <div class="hs-moto-touring-grid">
                     <div class="hs-moto-touring-tile">
-                        <div class="hs-moto-touring-tile__val"><?php echo esc_html($fuel_capacity_l . ' L'); ?></div>
-                        <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Fuel Tank Capacity', 'helmetsan-theme'); ?></div>
+                        <?php if ($is_electric) : ?>
+                            <div class="hs-moto-touring-tile__val"><?php echo esc_html($battery_kwh ? ((float) $battery_kwh) . ' kWh' : 'Electric'); ?></div>
+                            <div class="hs-moto-touring-tile__lbl"><?php echo $battery_kwh ? esc_html__('Battery Capacity', 'helmetsan-theme') : esc_html__('Powertrain', 'helmetsan-theme'); ?></div>
+                        <?php else : ?>
+                            <div class="hs-moto-touring-tile__val"><?php echo esc_html($fuel_capacity_l . ' L'); ?></div>
+                            <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Fuel Tank Capacity', 'helmetsan-theme'); ?></div>
+                        <?php endif; ?>
                     </div>
                     <div class="hs-moto-touring-tile">
                         <div class="hs-moto-touring-tile__val"><?php echo esc_html($estimated_range_km); ?></div>
                         <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Highway Touring Range', 'helmetsan-theme'); ?></div>
                     </div>
                     <div class="hs-moto-touring-tile">
-                        <div class="hs-moto-touring-tile__val">~30 km/l</div>
-                        <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Avg. Fuel Economy', 'helmetsan-theme'); ?></div>
+                        <?php if ($is_electric) : ?>
+                            <div class="hs-moto-touring-tile__val">0 g/km</div>
+                            <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Tailpipe Emissions', 'helmetsan-theme'); ?></div>
+                        <?php else : ?>
+                            <div class="hs-moto-touring-tile__val">~30 km/l</div>
+                            <div class="hs-moto-touring-tile__lbl"><?php esc_html_e('Avg. Fuel Economy', 'helmetsan-theme'); ?></div>
+                        <?php endif; ?>
                     </div>
                     <div class="hs-moto-touring-tile">
                         <div class="hs-moto-touring-tile__val">10,000 km</div>
