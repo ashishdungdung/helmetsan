@@ -3,6 +3,77 @@
 This file tracks **day-to-day development changes** and internal notes between tagged releases.  
 High-level, user-facing release notes live in `CHANGELOG.md`.
 
+## 2026-10-22 — Cloudflare Edge Worker & Infrastructure Overhaul
+
+### Cloudflare Workers (edge-assembly-worker) — PRIMARY WORKER
+- **Added `EdgeAnalytics` class**: Structured event emission to Cloudflare Analytics Engine (dashboard-gated binding `HELMETSAN_EDGE_ANALYTICS`) with console fallback. Events: `cache_hit`, `cache_miss`, `cache_bypass`, `purge`, `esi_render`, `error`, `security_block`. Each event carries `colo`, `route`, `country`, `lang`, `event_type`, optional `value`.
+- **Added `X-Edge-Worker: helmetsan-edge-assembly-worker/2.2.0` header** on all responses (HIT, MISS, BYPASS, purge auth, probe).
+- **Added `WORKER_VERSION = '2.2.0'` constant** and `EDGE_WORKER_HEADER` template.
+- **Cache-key versioning**: `__edge_ver={CACHE_VERSION}` added to ESI cache keys (mega menu, stats, exchange rates) so version bumps atomically bust all edge cache entries.
+- **Edge-cache API responses**: `scripts/test_all_workers.cjs` — `isDataApiFormatRequest()` detects `?format=json|md` and caches those API responses at edge instead of bypassing. Added `isAjaxFilter` to cache `wp-admin/admin-ajax.php?action=helmetsan_ajax_filter` GET responses.
+- **Edge JSON-LD injection**: New `JsonLdHandler` class injects Organization `application/ld+json` schema into `<head>` of every cached page.
+- **Cache-tag invalidation**: `storeCacheTags()` writes tag→URL mappings into KV namespace `EDGE_TAG_INDEX` on every `cache.put()`. Purge endpoint accepts `body.tag` / `body.tags` to purge all cached URLs under a tag.
+- **Secret hygiene**: Removed hardcoded `'helmetsan-edge-purge-secret-2026'` fallback; `expectedSecret` now reads `env?.PURGE_SECRET` only (set via `wrangler secret put`).
+- **`wrangler.toml`**: Pinned `account_id`, `compatibility_date = "2025-01-01"`, `preview_urls = false`, added `[[kv_namespaces]]` binding for `EDGE_TAG_INDEX` (ID: `d651333514b44722831d957b582507ec`).
+- **Single-flight cache MISS protection**: New `inFlightFetch` Map deduplicates concurrent origin fetches for the same cache key, preventing thundering herd on popular pages.
+- **Deployed version**: `340c45c0-4bb6-4f73-81a4-a089b26c4217` on route `*helmetsan.com/*`.
+
+### Cloudflare Workers (edge-cache-worker) — DELETED
+- Entire worker directory removed (`wrangler.toml`, `src/index.js`, `package.json`). Was idle (no route), duplicated assembly worker caching, added operational debt.
+
+### Cloudflare Workers (image-resizing-worker)
+- Added `account_id`, `compatibility_date = "2025-01-01"`, `R2_PUBLIC_DOMAIN = "assets.helmetsan.com"` var.
+- Deployed version `742e9bf8-479a-4101-8cef-c4d8067c1557` as standalone worker.
+- SSRF shield verified (403 on internal metadata hostnames).
+- PHP `CloudflareR2Service` reads `HELMETSAN_R2_IMAGE_RESIZER_URL` env var.
+
+### Cloudflare Workers (ingestion-worker)
+- Added `account_id`, `compatibility_date = "2025-01-01"`, `[[queues.producers]]` binding `INGEST_QUEUE` for `helmetsan-ingest-queue`, `R2_PUBLIC_URL`, `WORDPRESS_REST_URL` vars.
+- Deployed version `59d73139-efd8-46ed-a9e5-ad962111a4f8` as producer + consumer for `helmetsan-ingest-queue`.
+- Queue `helmetsan-ingest-queue` created via `wrangler queues create`.
+- R2 bucket `helmetsan` bound as `ASSETS_BUCKET`.
+
+### Cloudflare Workers (reviews-worker)
+- Added `account_id`, `compatibility_date = "2025-01-01"`, `[[d1_databases]]` binding `DB` for `helmetsan_reviews`.
+- Deployed version `9e791c1f-bc4b-4b53-b6b7-5859a9847cff` as standalone worker.
+- D1 database `helmetsan_reviews` created (region APAC), schema applied (reviews + review_votes tables).
+- `WORDPRESS_WEBHOOK_SECRET` and `TURNSTILE_SECRET_KEY` uploaded as wrangler secrets.
+
+### WordPress Plugin (helmetsan-core)
+- **`CloudflareCacheService.php`**: Added `computePostTags(int $postId): array` — computes edge cache tags (`helmetsan`, `public`, `helmet`, `helmet-N`, `brand-X`, `catalog`, `helmets`, `home`) mirroring `EdgeCacheService`. Added `purgeTags(array $tags, bool $blocking)` — POSTs `['tags' => [...]]` to worker purge endpoint for tag-based `caches.default` invalidation. `purgeUrls()` now also calls `purgeTags()`.
+- **`CacheWarmingService.php`**: `onProductUpdated()` now calls `CloudflareCacheService::computePostTags()` + `purgeTags()` in addition to URL purge + pre-warming.
+- **`ObjectCacheService.php`**: `onPriceUpdated(int $postId)` now accepts post ID, purges edge cache for affected product URL. Triggered by `helmetsan_price_updated` action.
+- **`PriceHistory.php`**: `record()` now calls `do_action('helmetsan_price_updated', $postId)` after successful insert.
+- **`CloudflareR2Service.php`**: Added `deleteFile(string $r2Key): bool|WP_Error` — deletes object from R2 bucket. Added `HELMETSAN_R2_IMAGE_RESIZER_URL` constant support for resizer URL.
+- **`Config.php`**: `dataRoot()` now respects `HELMETSAN_DATA_ROOT` constant. `r2_image_resizing_enabled` default changed `false` → `true`.
+- **`Plugin.php`**: Added `TurnstileFormProtection` instantiation + `register()` call. Added `registerR2ImageCleanup()` + `deleteR2ImagesForPost(int $postId)` hooked to `wp_trash_post` and `before_delete_post` — deletes R2 objects (`_asset_r2_url` meta) when posts are trashed/deleted.
+
+### WordPress Plugin — NEW FILE: `TurnstileFormProtection.php`
+- Adds Cloudflare Turnstile widget to `wp-login.php` login form and WordPress comment form.
+- Verifies Turnstile tokens via `authenticate` filter (login) and `preprocess_comment` filter (comments).
+- Fail-open when not configured or secret missing — never locks out users.
+- Logged-in users bypass comment Turnstile.
+- Loads `challenges.cloudflare.com/turnstile/v0/api.js?render=explicit` on login and comment-form pages.
+
+### WordPress Theme (helmetsan-theme)
+- `single-motorcycle.php`: Added `HELMETSAN_DATA_ROOT` constant support as first candidate path for motorcycle JSON files, unifying theme and plugin data roots.
+
+### Tests
+- `scripts/test_all_workers.cjs`: Renamed from `.js` (CommonJS breakage under parent `type: module`). Removed 5 deleted edge-cache-worker test cases. 19/19 tests passing.
+
+### Server / Infrastructure
+- **PHP-FPM Opcache**: Created `/etc/php/8.5/fpm/conf.d/opcache.ini` — `memory_consumption=256`, `max_accelerated_files=20000`, `interned_strings_buffer=32`, `revalidate_freq=60`, `compatibility_date`-aligned. PHP-FPM restarted. Verified live: Cache hits 150,751, misses 4,732 (~97% hit rate), 4,731 cached scripts.
+- **Swap**: Expanded from 2 GB to 4 GB (`/swapfile2`, added to `/etc/fstab`). Was 95% full (91 MB free), now ~47% full (2.1 GB free).
+- **PHP-FPM `memory_limit`**: All 5 pools (`helmetsan_com`, `ashishdungdung_com`, `androidemulator_org`, `dazestack_com`, `bootstrap`) changed from `2048M` → `512M`. `ashishdungdung_com` `max_children` reduced 25 → 12.
+- **MySQL**: `innodb_buffer_pool_size` reduced 7,965 MB → 3,072 MB (actual usage only 2.2 GB / 28.6% pool utilization). MariaDB restarted.
+- **Live site**: All URLs return HTTP 200. `cf-edge-cache: HIT`, `x-edge-worker` header present.
+
+### Credentials (NOT committed)
+- Cloudflare API token extracted from production `wp-config.php` to temp file (chmod 600), destroyed after each use.
+- `HELMETSAN_EDGE_PURGE_SECRET`, `HELMETSAN_CLOUDFLARE_API_TOKEN`, `HELMETSAN_CLOUDFLARE_ACCOUNT_ID`, `HELMETSAN_CLOUDFLARE_ZONE_ID` all live in production `wp-config.php` only — never in git.
+- `HELMETSAN_WEBHOOK_SECRET` added to production `wp-config.php`.
+- `PURGE_SECRET` uploaded to Cloudflare as worker secret (not in git).
+
 ## 2026-08-24
 
 - **Google AdSense "Low Value Content" Remediation & Strategy:**

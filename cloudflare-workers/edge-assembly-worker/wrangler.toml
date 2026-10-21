@@ -1,7 +1,23 @@
 name = "helmetsan-edge-assembly-worker"
 main = "src/index.js"
-compatibility_date = "2024-03-01"
+compatibility_date = "2025-01-01"
+account_id = "a06a4ae5652491dfb8376dc23488f6a0"
 
 # Route intercepts
 route = { pattern = "*helmetsan.com/*", zone_id = "f098a57b228462adf58dcde8b65c77f6" }
+
+preview_urls = false
+
+# Analytics Engine binding for worker observability (cache hit/miss, errors)
+# TODO: Enable Analytics Engine in Cloudflare Dashboard first:
+# https://dash.cloudflare.com/a06a4ae5652491dfb8376dc23488f6a0/workers/analytics-engine
+# Then uncomment:
+# [[analytics_engine_datasets]]
+# binding = "HELMETSAN_EDGE_ANALYTICS"
+# dataset = "helmetsan_edge"
+
+# KV namespace for cache-tag index (tag -> list of cached URLs)
+[[kv_namespaces]]
+binding = "EDGE_TAG_INDEX"
+id = "d651333514b44722831d957b582507ec"
 

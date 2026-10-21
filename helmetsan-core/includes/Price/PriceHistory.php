@@ -100,6 +100,10 @@ final class PriceHistory
             $format
         );
 
+        if ($result !== false) {
+            do_action('helmetsan_price_updated', $postId);
+        }
+
         return $result !== false;
     }
 

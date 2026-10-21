@@ -111,7 +111,7 @@ final class Config
 
     public function dataRoot(): string
     {
-        return WP_CONTENT_DIR . '/uploads/helmetsan-data';
+        return defined('HELMETSAN_DATA_ROOT') ? HELMETSAN_DATA_ROOT : WP_CONTENT_DIR . '/uploads/helmetsan-data';
     }
 
     public function engineDefaults(): array
@@ -307,7 +307,7 @@ final class Config
             'r2_secret_key'   => '',
             'r2_bucket'       => '',
             'r2_public_url'   => '',
-            'r2_image_resizing_enabled' => false,
+            'r2_image_resizing_enabled' => true,
             'r2_image_resizer_url'      => '',
         ];
     }

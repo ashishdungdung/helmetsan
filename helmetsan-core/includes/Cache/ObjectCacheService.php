@@ -336,10 +336,17 @@ final class ObjectCacheService
     /**
      * Invalidation handler for price updates.
      */
-    public static function onPriceUpdated(): void
+    public static function onPriceUpdated(int $postId): void
     {
         self::invalidateGroup(self::GROUP_PRICE);
         self::invalidateGroup(self::GROUP_SEARCH);
+
+        // Purge edge cache for the affected product page
+        $permalink = get_permalink($postId);
+        if ($permalink) {
+            $cfCache = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
+            $cfCache->purgeUrls([$permalink], false);
+        }
     }
 
     /**

@@ -68,6 +68,7 @@ if (have_posts()) :
                         $resolved_file = $source_file;
                     } else {
                         $candidates = [
+                            defined('HELMETSAN_DATA_ROOT') ? HELMETSAN_DATA_ROOT . '/motorcycles/' . $filename : '',
                             get_template_directory() . '/../data/motorcycles/' . $filename,
                             (defined('ABSPATH') ? ABSPATH : '') . 'data/motorcycles/' . $filename,
                             dirname(__DIR__, 2) . '/data/motorcycles/' . $filename,

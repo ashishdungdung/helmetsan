@@ -28,6 +28,20 @@ final class EdgeCacheService
      */
     private const STALE_WHILE_REVALIDATE = 600;
 
+    /**
+     * Tiered edge TTLs by content archetype (seconds).
+     * Mirrors CacheWarmingService tiering so both services agree.
+     */
+    private const EDGE_TTIERS = [
+        'helmet'     => 86400,   // product single pages
+        'accessory'  => 86400,
+        'brand'      => 43200,   // brand hub pages
+        'comparison' => 86400,
+        'archive'    => 3600,    // archives / faceted search
+        'search'     => 3600,
+        'default'    => 43200,   // homepages / other
+    ];
+
     private static bool $emitted = false;
 
     public function register(): void
@@ -104,7 +118,28 @@ final class EdgeCacheService
             return;
         }
 
-        // 8. Check if current query is a canonical public page, archive, or single post
+        // 8. Determine tiered TTLs by content archetype
+        $edgeTtl = self::EDGE_TTIERS['default'];
+        $clientTtl = self::CLIENT_MAX_AGE;
+
+        if (is_singular(['helmet', 'accessory'])) {
+            $edgeTtl = self::EDGE_TTIERS['helmet'];
+            $clientTtl = 3600;
+        } elseif (is_singular('brand') || is_tax(['helmet_brand', 'brand'])) {
+            $edgeTtl = self::EDGE_TTIERS['brand'];
+            $clientTtl = 3600;
+        } elseif (function_exists("is_page") && is_page("comparison")) {
+            $edgeTtl = self::EDGE_TTIERS['comparison'];
+            $clientTtl = 3600;
+        } elseif (is_post_type_archive('helmet') || is_archive() || is_search()) {
+            $edgeTtl = self::EDGE_TTIERS['archive'];
+            $clientTtl = 900;
+        } elseif (is_front_page() || is_home()) {
+            $edgeTtl = self::EDGE_TTIERS['default'];
+            $clientTtl = 3600;
+        }
+
+        // 9. Check if current query is a canonical public page, archive, or single post
         $isPublicContent =
             is_singular() ||
             is_archive() ||
@@ -117,9 +152,9 @@ final class EdgeCacheService
         if ($isPublicContent) {
             $headerValue = sprintf(
                 "public, max-age=%d, s-maxage=%d, stale-while-revalidate=%d",
-                self::CLIENT_MAX_AGE,
-                self::EDGE_MAX_AGE,
-                self::STALE_WHILE_REVALIDATE,
+                $clientTtl,
+                $edgeTtl,
+                self::STALE_WHILE_REVALIDATE
             );
 
             header("Cache-Control: " . $headerValue);

@@ -71,6 +71,10 @@ class CloudflareCacheService
         }
 
         $this->purgeUrls($urls, false);
+
+        // 2. Tag-based purge — clears ALL edge-cached pages referencing this post's tags
+        $tags = self::computePostTags($postId);
+        $this->purgeTags($tags, false);
     }
 
     /**
@@ -257,6 +261,82 @@ class CloudflareCacheService
         ]);
 
         return !is_wp_error($response);
+    }
+
+    /**
+     * Compute edge cache tags for a given post, mirroring EdgeCacheService::emitEdgeHeaders().
+     *
+     * @return array<int,string>
+     */
+    public static function computePostTags(int $postId): array
+    {
+        $post = get_post($postId);
+        if (! $post instanceof \WP_Post) {
+            return [];
+        }
+
+        $tags = ['helmetsan', 'public'];
+
+        if ($post->post_type === 'helmet') {
+            $tags[] = 'helmet';
+            $tags[] = 'helmet-' . $postId;
+            $tags[] = 'catalog';
+            $tags[] = 'helmets';
+
+            $brandTerms = get_the_terms($postId, 'helmet_brand');
+            if (is_array($brandTerms) && ! is_wp_error($brandTerms)) {
+                foreach ($brandTerms as $term) {
+                    $tags[] = 'brand-' . $term->slug;
+                }
+            }
+        } elseif ($post->post_type === 'brand') {
+            $tags[] = 'brand';
+            $tags[] = 'brand-' . $post->post_name;
+            $tags[] = 'catalog';
+        } elseif ($post->post_type === 'accessory') {
+            $tags[] = 'accessory';
+            $tags[] = 'accessory-' . $postId;
+            $tags[] = 'catalog';
+        } elseif ($post->post_type === 'motorcycle') {
+            $tags[] = 'motorcycle';
+            $tags[] = 'motorcycle-' . $postId;
+            $tags[] = 'catalog';
+        } elseif ($post->post_type === 'post') {
+            $tags[] = 'post';
+            $tags[] = 'blog';
+        }
+
+        $tags[] = 'home';
+
+        return array_values(array_unique($tags));
+    }
+
+    /**
+     * Purge all edge-cached URLs associated with the given tags via the Worker.
+     *
+     * @param array<int,string> $tags
+     * @param bool $blocking
+     * @return bool|WP_Error
+     */
+    public function purgeTags(array $tags, bool $blocking = true): bool|WP_Error
+    {
+        if (empty($tags)) {
+            return true;
+        }
+
+        $zoneId = defined('HELMETSAN_CLOUDFLARE_ZONE_ID') ? HELMETSAN_CLOUDFLARE_ZONE_ID : '';
+        $apiToken = defined('HELMETSAN_CLOUDFLARE_API_TOKEN') ? HELMETSAN_CLOUDFLARE_API_TOKEN : '';
+
+        if (empty($zoneId) || empty($apiToken)) {
+            return new WP_Error('cf_not_configured', 'Cloudflare API credentials are not defined.');
+        }
+
+        $uniqueTags = array_values(array_unique($tags));
+
+        // Tag-based purge via the Edge Worker (clears caches.default entries)
+        $this->purgeWorker(['tags' => $uniqueTags], $blocking);
+
+        return true;
     }
 
     /**

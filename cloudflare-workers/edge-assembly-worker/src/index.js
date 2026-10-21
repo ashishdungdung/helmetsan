@@ -13,18 +13,83 @@ const BLOCKED_PROBE_PATTERNS = [
     /^\/xmlrpc\.php$/i
 ];
 
+const WORKER_VERSION = '2.2.0';
+const EDGE_WORKER_HEADER = `helmetsan-edge-assembly-worker/${WORKER_VERSION}`;
+
+// Analytics Engine dataset binding name (dashboard-gated; commented in wrangler.toml until enabled)
+const ANALYTICS_BINDING = env => env?.HELMETSAN_EDGE_ANALYTICS;
+
+/**
+ * Edge Analytics Engine emitter.
+ * Writes structured events to Cloudflare Analytics Engine when the binding is
+ * available; falls back to structured console logging otherwise.
+ */
+class EdgeAnalytics {
+    constructor(env) {
+        this.analytics = ANALYTICS_BINDING(env);
+    }
+
+    /**
+     * Write a structured analytics event.
+     * @param {string} event - Event name (cache_hit, cache_miss, cache_bypass, purge, esi_render, error)
+     * @param {object} dimensions - Indexed dimensions for querying (colo, route, country, lang, event_type)
+     * @param {number} value - Optional numeric value (response_time_ms, bytes, etc.)
+     */
+    write(event, dimensions = {}, value = null) {
+        const payload = {
+            event,
+            colo: dimensions.colo || 'unknown',
+            route: dimensions.route || 'unknown',
+            country: dimensions.country || 'unknown',
+            lang: dimensions.lang || 'en',
+            event_type: dimensions.event_type || 'general',
+            ...(value !== null ? { value } : {}),
+            timestamp: new Date().toISOString()
+        };
+
+        if (this.analytics && typeof this.analytics.writeDataPoint === 'function') {
+            try {
+                // Analytics Engine writeDataPoint: (indexes..., values...)
+                // Indexes: colo, route, country, lang, event_type
+                // Values: any numeric metrics
+                this.analytics.writeDataPoint(
+                    payload.colo,
+                    payload.route,
+                    payload.country,
+                    payload.lang,
+                    payload.event_type,
+                    value !== null ? value : 1
+                );
+            } catch (e) {
+                console.warn('[helmetsan-edge] Analytics Engine write failed:', e.message);
+                console.log('[helmetsan-edge-analytics]', JSON.stringify(payload));
+            }
+        } else {
+            console.log('[helmetsan-edge-analytics]', JSON.stringify(payload));
+        }
+    }
+}
+
 export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
         const pathname = url.pathname;
+        const startTime = Date.now();
+
+        // Analytics emitter (Analytics Engine binding or console fallback)
+        const analytics = new EdgeAnalytics(env);
+        const colo = request.cf?.colo || 'unknown';
+        const country = request.headers.get('CF-IPCountry') || 'unknown';
 
         // 1. Edge Security Shield: Block malicious probes instantly at Cloudflare PoP
         if (BLOCKED_PROBE_PATTERNS.some(re => re.test(pathname))) {
+            analytics.write('security_block', { colo, route: 'security', country: country, event_type: 'blocked_probe' });
             return new Response('Forbidden', {
                 status: 403,
                 headers: {
                     'Content-Type': 'text/plain',
-                    'X-Edge-Security': 'BLOCKED'
+                    'X-Edge-Security': 'BLOCKED',
+                    'X-Edge-Worker': EDGE_WORKER_HEADER
                 }
             });
         }
@@ -37,11 +102,16 @@ export default {
             url.pathname === '/api/edge/purge';
 
         if (isPurgePath) {
-            return handlePurgeRequest(request, env, url);
+            const purgeStart = Date.now();
+            const result = await handlePurgeRequest(request, env, url, analytics, colo, country);
+            const purgeMs = Date.now() - purgeStart;
+            analytics.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_request' }, purgeMs);
+            return result;
         }
 
         // Only process safe GET and HEAD requests
         if (request.method !== 'GET' && request.method !== 'HEAD') {
+            analytics.write('method_rejected', { colo, route: pathname, country: country, event_type: 'method_rejected' });
             return fetch(request);
         }
 
@@ -50,8 +120,15 @@ export default {
         const isWordpressAdmin = pathname.includes('/wp-admin') || pathname.includes('/wp-login.php') || pathname.includes('/wp-cron.php');
         const isWordpressApi = pathname.includes('/wp-json');
         const isGoRedirect = pathname.startsWith('/go/');
+        const isDataApiFormat = isDataApiFormatRequest(url);
+        // Edge-cache AJAX filter results (GET requests only)
+        const isAjaxFilter = pathname.includes('/wp-admin/admin-ajax.php') && url.searchParams.get('action') === 'helmetsan_filter' && request.method === 'GET';
 
-        if (isStaticAsset || isWordpressAdmin || isWordpressApi || isGoRedirect) {
+        // Allow Data API format requests (?format=json|md) to be edge-cached;
+        // bypass all other /wp-json API calls
+        // Also allow AJAX filter GET requests to be edge-cached
+        if (isStaticAsset || (isWordpressAdmin && !isAjaxFilter) || (isWordpressApi && !isDataApiFormat) || isGoRedirect) {
+            analytics.write('cache_bypass', { colo, route: pathname, country: country, event_type: 'static_or_admin_bypass' });
             return fetch(request);
         }
 
@@ -66,34 +143,37 @@ export default {
         }
 
         // Detect visitor's country (1. Query param, 2. Cookie, 3. Header, 4. Fallback)
-        let country = '';
+        let detectedCountry = '';
         if (url.searchParams.has('country')) {
-            country = url.searchParams.get('country');
+            detectedCountry = url.searchParams.get('country');
         }
-        if (!country) {
+        if (!detectedCountry) {
             const cookieHeader = request.headers.get('Cookie') || '';
             const match = cookieHeader.match(/helmetsan_geo=([A-Z]{2})/i);
             if (match) {
-                country = match[1];
+                detectedCountry = match[1];
             }
         }
-        if (!country) {
-            country = request.headers.get('CF-IPCountry') || 'IN';
+        if (!detectedCountry) {
+            detectedCountry = request.headers.get('CF-IPCountry') || 'IN';
         }
-        country = country.toUpperCase().slice(0, 2);
+        detectedCountry = detectedCountry.toUpperCase().slice(0, 2);
 
         // Check Page Edge Cache
         const bypassCheck = shouldBypassPageCache(request, url);
         const cache = caches.default;
-        const cacheKeyUrl = normalizePageCacheKey(request, url, country);
+        const cacheKeyUrl = normalizePageCacheKey(request, url, detectedCountry);
         const cacheKey = new Request(cacheKeyUrl, { method: 'GET' });
 
         if (!bypassCheck.bypass) {
             try {
                 const cachedResponse = await cache.match(cacheKey);
                 if (cachedResponse) {
+                    const fetchMs = Date.now() - startTime;
+                    analytics.write('cache_hit', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'page_cache_hit' }, fetchMs);
                     const headers = new Headers(cachedResponse.headers);
                     headers.set('CF-Edge-Cache', 'HIT');
+                    headers.set('X-Edge-Worker', EDGE_WORKER_HEADER);
                     headers.set('Cache-Control', 'public, max-age=0, s-maxage=7200, stale-while-revalidate=86400, must-revalidate');
                     return new Response(cachedResponse.body, {
                         status: cachedResponse.status,
@@ -103,15 +183,80 @@ export default {
                 }
             } catch (e) {
                 console.warn('Edge cache match error:', e);
+                analytics.write('error', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'cache_match_error' });
+            }
+        } else {
+            analytics.write('cache_bypass', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: `bypass_${bypassCheck.reason}` });
+        }
+
+        // Check Data API and AJAX filter cache before origin fetch (only when not bypassed)
+        if ((isDataApiFormat || isAjaxFilter) && !bypassCheck.bypass) {
+            try {
+                const cachedApiResponse = await cache.match(cacheKey);
+                if (cachedApiResponse) {
+                    const fetchMs = Date.now() - startTime;
+                    analytics.write('cache_hit', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'api_cache_hit' }, fetchMs);
+                    const headers = new Headers(cachedApiResponse.headers);
+                    headers.set('CF-Edge-Cache', 'HIT');
+                    headers.set('X-Edge-Worker', EDGE_WORKER_HEADER);
+                    return new Response(cachedApiResponse.body, {
+                        status: cachedApiResponse.status,
+                        statusText: cachedApiResponse.statusText,
+                        headers: headers
+                    });
+                }
+            } catch (e) {
+                console.warn('Edge API cache match error:', e);
+                analytics.write('error', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'api_cache_match_error' });
             }
         }
 
         // Fetch the page from the origin (Nginx/WordPress)
-        const response = await fetch(request);
+        const originStart = Date.now();
+        const response = await singleFlightFetch(cacheKey, () => fetch(request));
+        const originMs = Date.now() - originStart;
+
+        // Cache Data API and AJAX filter responses at the edge before HTML-only processing
+        if ((isDataApiFormat || isAjaxFilter) && response.status === 200 && !bypassCheck.bypass) {
+            const apiContentType = response.headers.get('Content-Type') || '';
+            if (apiContentType.includes('application/json') || apiContentType.includes('text/markdown')) {
+                try {
+                    const cacheHeaders = new Headers(response.headers);
+                    cacheHeaders.set('CF-Edge-Cache', 'HIT');
+
+                    const [clientStream, cacheStream] = response.body.tee();
+                    const responseToCache = new Response(cacheStream, {
+                        status: response.status,
+                        headers: cacheHeaders
+                    });
+
+                    if (ctx && ctx.waitUntil) {
+                        ctx.waitUntil(cache.put(cacheKey, responseToCache));
+                    }
+
+                    const clientHeaders = new Headers(response.headers);
+                    clientHeaders.set('CF-Edge-Cache', 'MISS');
+                    clientHeaders.set('X-Edge-Worker', EDGE_WORKER_HEADER);
+
+                    const totalMs = Date.now() - startTime;
+                    analytics.write('cache_miss', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'api_cache_miss' }, totalMs);
+
+                    return new Response(clientStream, {
+                        status: response.status,
+                        statusText: response.statusText,
+                        headers: clientHeaders
+                    });
+                } catch (e) {
+                    console.warn('Edge API cache write error:', e);
+                    analytics.write('error', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'api_cache_write_error' });
+                }
+            }
+        }
 
         // Only rewrite HTML responses
         const contentType = response.headers.get('Content-Type') || '';
         if (!contentType.includes('text/html')) {
+            analytics.write('cache_miss', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'non_html_origin_fetch' }, originMs);
             return response;
         }
 
@@ -125,15 +270,24 @@ export default {
         }
 
         // Rewriter configuration
+        const jsonLdSchema = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Helmetsan",
+            "url": url.origin,
+            "logo": `${url.origin}/assets/images/logo.png`
+        };
+
         const rewriter = new HTMLRewriter()
             // Replace mega menu HTML blocks dynamically
-            .on('li.mega-menu--helmets .hs-mega-menu', new MenuElementHandler('helmet', lang, origin, env, ctx))
-            .on('li.mega-menu--brands .hs-mega-menu', new MenuElementHandler('brands', lang, origin, env, ctx))
-            .on('li.mega-menu--accessories .hs-mega-menu', new MenuElementHandler('accessories', lang, origin, env, ctx))
-            .on('li.mega-menu--motorcycles .hs-mega-menu', new MenuElementHandler('motorcycles', lang, origin, env, ctx))
-            .on('.hs-price', new PriceElementHandler(country, lang, origin, env, ctx))
-            .on('#hsCurrentFlag, #hsCurrentCountry, #hsCurrentCode, #hsCurrentCurrency', new CountryTriggerHandler(country))
-            .on('.hs-country-card', new CountryCardHandler(country));
+            .on('li.mega-menu--helmets .hs-mega-menu', new MenuElementHandler('helmet', lang, origin, env, ctx, analytics))
+            .on('li.mega-menu--brands .hs-mega-menu', new MenuElementHandler('brands', lang, origin, env, ctx, analytics))
+            .on('li.mega-menu--accessories .hs-mega-menu', new MenuElementHandler('accessories', lang, origin, env, ctx, analytics))
+            .on('li.mega-menu--motorcycles .hs-mega-menu', new MenuElementHandler('motorcycles', lang, origin, env, ctx, analytics))
+            .on('.hs-price', new PriceElementHandler(country, lang, origin, env, ctx, analytics))
+            .on('#hsCurrentFlag, #hsCurrentCountry, #hsCurrentCode, #hsCurrentCurrency', new CountryTriggerHandler(detectedCountry))
+            .on('.hs-country-card', new CountryCardHandler(detectedCountry))
+            .on('head', new JsonLdHandler(jsonLdSchema));
 
         if (isHomepage && statsPromise) {
             // Inject correct counts inside homepage stats cards
@@ -162,6 +316,8 @@ export default {
             }
         }
 
+        const totalMs = Date.now() - startTime;
+
         // Cache the transformed HTML page if eligible
         if (!bypassCheck.bypass && transformedResponse.status === 200) {
             finalHeaders.set('Cache-Control', 'public, max-age=7200, stale-while-revalidate=86400');
@@ -179,11 +335,20 @@ export default {
 
             if (ctx && ctx.waitUntil) {
                 ctx.waitUntil(cache.put(cacheKey, responseToCache));
+                // Store tag→URL mappings in KV for tag-based purge
+                const cacheTagsHeader = finalHeaders.get('Cache-Tag');
+                if (cacheTagsHeader) {
+                    const tags = cacheTagsHeader.split(',').map(t => t.trim()).filter(Boolean);
+                    ctx.waitUntil(storeCacheTags(cacheKeyUrl, tags, env));
+                }
             }
 
             const clientHeaders = new Headers(finalHeaders);
             clientHeaders.set('CF-Edge-Cache', 'MISS');
-            clientHeaders.set('Cache-Control', 'public, max-age=0, s-maxage=7200, stale-while-revalidate=86400, must-revalidate');
+            clientHeaders.set('X-Edge-Worker', EDGE_WORKER_HEADER);
+            clientHeaders.set('Cache-Control', 'public, max-age=60, s-maxage=7200, stale-while-revalidate=86400');
+
+            analytics.write('cache_miss', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'page_cache_miss' }, totalMs);
 
             return new Response(clientStream, {
                 status: transformedResponse.status,
@@ -193,9 +358,12 @@ export default {
         }
 
         finalHeaders.set('CF-Edge-Cache', 'BYPASS');
+        finalHeaders.set('X-Edge-Worker', EDGE_WORKER_HEADER);
         if (bypassCheck.reason) {
             finalHeaders.set('CF-Edge-Cache-Reason', bypassCheck.reason);
         }
+
+        analytics.write('cache_bypass', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: `bypass_${bypassCheck.reason || 'content'}` }, totalMs);
 
         return new Response(transformedResponse.body, {
             status: transformedResponse.status,
@@ -233,6 +401,15 @@ function shouldBypassPageCache(request, url) {
     return { bypass: false };
 }
 
+/**
+ * Detects Data API content-negotiation requests (?format=json|md|markdown)
+ * that should be edge-cached instead of bypassed.
+ */
+function isDataApiFormatRequest(url) {
+    const format = url.searchParams.get('format');
+    return format === 'json' || format === 'md' || format === 'markdown';
+}
+
 const CACHE_VERSION = 'v3_20260912_cs';
 
 function normalizePageCacheKey(request, url, country) {
@@ -248,14 +425,66 @@ function normalizePageCacheKey(request, url, country) {
     return `${url.origin}${url.pathname}?${params.toString()}`;
 }
 
-async function handlePurgeRequest(request, env, url) {
+/**
+ * Store tag→URL mappings in KV for tag-based cache purge.
+ * Each tag maps to a JSON array of cache key URLs.
+ * Deduplicates URLs within each tag's list.
+ */
+async function storeCacheTags(cacheKeyUrl, tags, env) {
+    const kv = env?.EDGE_TAG_INDEX;
+    if (!kv) return;
+
+    try {
+        for (const tag of tags) {
+            const tagKey = `tag:${tag.toLowerCase()}`;
+            let existing = [];
+            try {
+                const raw = await kv.get(tagKey, 'text');
+                if (raw) {
+                    existing = JSON.parse(raw);
+                    if (!Array.isArray(existing)) existing = [];
+                }
+            } catch (e) {
+                existing = [];
+            }
+            if (!existing.includes(cacheKeyUrl)) {
+                existing.push(cacheKeyUrl);
+            }
+            await kv.put(tagKey, JSON.stringify(existing));
+        }
+    } catch (e) {
+        console.warn('[helmetsan-edge] storeCacheTags failed:', e.message);
+    }
+}
+
+/**
+ * Single-flight cache MISS protection.
+ * Ensures only one origin fetch per cache key at a time, preventing
+ * thundering herd on popular pages when cache is empty or expired.
+ */
+const inFlightFetch = new Map();
+
+async function singleFlightFetch(cacheKey, fetchFn) {
+    const key = typeof cacheKey === 'string' ? cacheKey : (cacheKey.url || String(cacheKey));
+    const existing = inFlightFetch.get(key);
+    if (existing) {
+        return existing;
+    }
+    const promise = fetchFn().finally(() => {
+        inFlightFetch.delete(key);
+    });
+    inFlightFetch.set(key, promise);
+    return promise;
+}
+
+async function handlePurgeRequest(request, env, url, analytics, colo, country) {
     try {
         const authHeader = request.headers.get('Authorization') || '';
         const secretHeader = request.headers.get('X-Helmetsan-Secret') || '';
         const purgeTokenHeader = request.headers.get('x-purge-token') || '';
         const purgeKeyHeader = request.headers.get('X-Purge-Key') || '';
         const queryToken = url.searchParams.get('token') || '';
-        const expectedSecret = env?.PURGE_SECRET || 'helmetsan-edge-purge-secret-2026';
+        const expectedSecret = env?.PURGE_SECRET;
 
         const isAuthorized = (
             authHeader === `Bearer ${expectedSecret}` ||
@@ -266,14 +495,16 @@ async function handlePurgeRequest(request, env, url) {
         );
 
         if (!isAuthorized) {
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_unauthorized' });
             return new Response(JSON.stringify({ ok: false, error: 'Unauthorized' }), {
                 status: 401,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+                headers: { 'Content-Type': 'application/json', 'X-Edge-Worker': EDGE_WORKER_HEADER, 'Access-Control-Allow-Origin': '*' }
             });
         }
 
-        // Diagnostic health probe
+        // Diagnostic health probe (GET only - no purge)
         if (request.method === 'GET') {
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_probe' });
             return new Response(JSON.stringify({
                 status: 'online',
                 worker: 'helmetsan-edge-assembly-worker',
@@ -284,7 +515,7 @@ async function handlePurgeRequest(request, env, url) {
                 timestamp: new Date().toISOString()
             }), {
                 status: 200,
-                headers: { 'Content-Type': 'application/json', 'X-Edge-Cache': 'PROBE-OK', 'Access-Control-Allow-Origin': '*' }
+                headers: { 'Content-Type': 'application/json', 'X-Edge-Cache': 'PROBE-OK', 'X-Edge-Worker': EDGE_WORKER_HEADER, 'Access-Control-Allow-Origin': '*' }
             });
         }
 
@@ -308,18 +539,73 @@ async function handlePurgeRequest(request, env, url) {
         if (body.purge_everything || body.all) {
             // Incrementing CACHE_VERSION in worker effectively purges all page cache
             purgedCount = 1;
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_everything' }, purgedCount);
         } else if (body.url) {
             await purgeTarget(body.url);
             purgedCount++;
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_url' }, purgedCount);
         } else if (Array.isArray(body.urls)) {
             for (const u of body.urls) {
                 await purgeTarget(u);
                 purgedCount++;
             }
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_urls' }, purgedCount);
+        } else if (body.tag) {
+            // Purge all cached URLs associated with a tag
+            const tagKey = `tag:${body.tag.toLowerCase()}`;
+            const kv = env?.EDGE_TAG_INDEX;
+            if (kv) {
+                try {
+                    const raw = await kv.get(tagKey, 'text');
+                    if (raw) {
+                        const urls = JSON.parse(raw);
+                        if (Array.isArray(urls)) {
+                            for (const u of urls) {
+                                try {
+                                    await cache.delete(new Request(u, { method: 'GET' }));
+                                    purgedCount++;
+                                } catch (e) {}
+                            }
+                        }
+                    }
+                    // Clear the tag index after purging
+                    await kv.delete(tagKey);
+                } catch (e) {
+                    console.warn(`Tag purge failed for ${body.tag}:`, e.message);
+                }
+            }
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: `purge_tag_${body.tag}` }, purgedCount);
+        } else if (body.tags && Array.isArray(body.tags)) {
+            // Purge multiple tags
+            for (const t of body.tags) {
+                const tagKey = `tag:${t.toLowerCase()}`;
+                const kv = env?.EDGE_TAG_INDEX;
+                if (kv) {
+                    try {
+                        const raw = await kv.get(tagKey, 'text');
+                        if (raw) {
+                            const urls = JSON.parse(raw);
+                            if (Array.isArray(urls)) {
+                                for (const u of urls) {
+                                    try {
+                                        await cache.delete(new Request(u, { method: 'GET' }));
+                                        purgedCount++;
+                                    } catch (e) {}
+                                }
+                            }
+                        }
+                        await kv.delete(tagKey);
+                    } catch (e) {
+                        console.warn(`Tag purge failed for ${t}:`, e.message);
+                    }
+                }
+            }
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_tags' }, purgedCount);
         } else {
+            analytics?.write('purge', { colo, route: 'purge', country: country, event_type: 'purge_invalid' });
             return new Response(JSON.stringify({ ok: false, error: 'Provide url, urls array, or purge_everything' }), {
                 status: 400,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+                headers: { 'Content-Type': 'application/json', 'X-Edge-Worker': EDGE_WORKER_HEADER, 'Access-Control-Allow-Origin': '*' }
             });
         }
 
@@ -330,9 +616,10 @@ async function handlePurgeRequest(request, env, url) {
             colo: request.cf?.colo || 'UNKNOWN'
         }), {
             status: 200,
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+            headers: { 'Content-Type': 'application/json', 'X-Edge-Worker': EDGE_WORKER_HEADER, 'Access-Control-Allow-Origin': '*' }
         });
     } catch (err) {
+        analytics?.write('error', { colo, route: 'purge', country: country, event_type: 'purge_error' });
         return new Response(JSON.stringify({ ok: false, error: err.message }), {
             status: 500,
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
@@ -344,21 +631,25 @@ async function handlePurgeRequest(request, env, url) {
  * Handler for fetching and replacing mega menu blocks using Cloudflare Cache API.
  */
 class MenuElementHandler {
-    constructor(type, lang, origin, env, ctx) {
+    constructor(type, lang, origin, env, ctx, analytics) {
         this.type = type;
         this.lang = lang;
         this.origin = origin;
         this.env = env;
         this.ctx = ctx;
+        this.analytics = analytics;
     }
 
     async element(element) {
+        const startTime = Date.now();
         // Fast-Path 1: Check Cloudflare KV (0ms latency, zero origin hit)
         const kv = this.env?.HELMETSAN_KV || this.env?.EDGE_KV;
         if (kv) {
             try {
                 const kvHtml = await kv.get(`menu_${this.type}_${this.lang}`, 'text');
                 if (kvHtml) {
+                    const ms = Date.now() - startTime;
+                    this.analytics?.write('esi_render', { colo: 'kv', route: `menu_${this.type}`, country: this.lang, event_type: `menu_${this.type}_kv_hit` }, ms);
                     element.replace(kvHtml, { html: true });
                     return;
                 }
@@ -366,7 +657,7 @@ class MenuElementHandler {
         }
 
         const cache = caches.default;
-        const menuUrl = `${this.origin}/wp-json/helmetsan/v1/edge/mega-menu?type=${this.type}&lang=${this.lang}&format=html`;
+        const menuUrl = `${this.origin}/wp-json/helmetsan/v1/edge/mega-menu?type=${this.type}&lang=${this.lang}&format=html&__edge_ver=${CACHE_VERSION}`;
         
         // Cache Key must be a unique Request object
         const cacheKey = new Request(menuUrl, {
@@ -379,10 +670,14 @@ class MenuElementHandler {
             let menuHtml = '';
 
             if (cachedResponse) {
+                const ms = Date.now() - startTime;
                 menuHtml = await cachedResponse.text();
+                this.analytics?.write('esi_render', { colo: 'edge', route: `menu_${this.type}`, country: this.lang, event_type: `menu_${this.type}_cache_hit` }, ms);
             } else {
                 // Cache miss, fetch from the origin endpoint
+                const originStart = Date.now();
                 const response = await fetch(menuUrl);
+                const originMs = Date.now() - originStart;
                 if (response.ok) {
                     menuHtml = await response.text();
                     
@@ -396,6 +691,8 @@ class MenuElementHandler {
                     if (this.ctx && this.ctx.waitUntil) {
                         this.ctx.waitUntil(cache.put(cacheKey, cacheResponse));
                     }
+                    const ms = Date.now() - startTime;
+                    this.analytics?.write('esi_render', { colo: 'origin', route: `menu_${this.type}`, country: this.lang, event_type: `menu_${this.type}_origin_fetch` }, originMs);
                 }
             }
 
@@ -404,6 +701,7 @@ class MenuElementHandler {
             }
         } catch (e) {
             console.error(`Edge assembly error for menu ${this.type}:`, e);
+            this.analytics?.write('error', { colo: 'edge', route: `menu_${this.type}`, country: this.lang, event_type: 'menu_render_error' });
             // In case of error, we do nothing and let the origin's original HTML output pass through
         }
     }
@@ -412,18 +710,21 @@ class MenuElementHandler {
 /**
  * Helper to fetch stats count JSON with Edge Cache.
  */
-async function fetchStats(origin, lang, env, ctx) {
+async function fetchStats(origin, lang, env, ctx, analytics) {
     // Fast-Path 1: Check Cloudflare KV
     const kv = env?.HELMETSAN_KV || env?.EDGE_KV;
     if (kv) {
         try {
             const kvStats = await kv.get(`stats_${lang}`, 'json');
-            if (kvStats) return kvStats;
+            if (kvStats) {
+                analytics?.write('esi_render', { colo: 'kv', route: 'stats', country: lang, event_type: 'stats_kv_hit' });
+                return kvStats;
+            }
         } catch (e) {}
     }
 
     const cache = caches.default;
-    const statsUrl = `${origin}/wp-json/helmetsan/v1/edge/stats?lang=${lang}`;
+    const statsUrl = `${origin}/wp-json/helmetsan/v1/edge/stats?lang=${lang}&__edge_ver=${CACHE_VERSION}`;
     const cacheKey = new Request(statsUrl, {
         method: 'GET',
         headers: { 'Accept': 'application/json' }
@@ -432,10 +733,13 @@ async function fetchStats(origin, lang, env, ctx) {
     try {
         let cachedResponse = await cache.match(cacheKey);
         if (cachedResponse) {
+            analytics?.write('esi_render', { colo: 'edge', route: 'stats', country: lang, event_type: 'stats_cache_hit' });
             return await cachedResponse.json();
         }
 
+        const originStart = Date.now();
         const response = await fetch(statsUrl);
+        const originMs = Date.now() - originStart;
         if (response.ok) {
             const data = await response.json();
             const cacheResponse = new Response(JSON.stringify(data), {
@@ -447,10 +751,12 @@ async function fetchStats(origin, lang, env, ctx) {
             if (ctx && ctx.waitUntil) {
                 ctx.waitUntil(cache.put(cacheKey, cacheResponse));
             }
+            analytics?.write('esi_render', { colo: 'origin', route: 'stats', country: lang, event_type: 'stats_origin_fetch' }, originMs);
             return data;
         }
     } catch (e) {
         console.error('Edge stats fetch error:', e);
+        analytics?.write('error', { colo: 'edge', route: 'stats', country: lang, event_type: 'stats_fetch_error' });
     }
     return null;
 }
@@ -480,16 +786,18 @@ class StatsHandler {
  * Handler for dynamic Geo-IP price conversion on .hs-price elements.
  */
 class PriceElementHandler {
-    constructor(country, lang, origin, env, ctx) {
+    constructor(country, lang, origin, env, ctx, analytics) {
         this.country = country;
         this.lang = lang || 'en';
         this.origin = origin;
         this.env = env;
         this.ctx = ctx;
+        this.analytics = analytics;
         this.ratesPromise = null;
     }
 
     async element(element) {
+        const startTime = Date.now();
         const basePriceAttr = element.getAttribute('data-base-price');
         const baseCurrencyAttr = element.getAttribute('data-base-currency') || 'USD';
         const manualPricingAttr = element.getAttribute('data-manual-pricing');
@@ -561,6 +869,8 @@ class PriceElementHandler {
                         } else {
                             element.setInnerContent(formattedPrice);
                         }
+                        const ms = Date.now() - startTime;
+                        this.analytics?.write('esi_render', { colo: 'edge', route: 'price', country: this.country, event_type: 'price_manual' }, ms);
                         return;
                     }
                 }
@@ -572,7 +882,7 @@ class PriceElementHandler {
         // 2. Dynamic conversion using exchange rates
         try {
             if (!this.ratesPromise) {
-                this.ratesPromise = fetchExchangeRates(this.origin, this.env, this.ctx);
+                this.ratesPromise = fetchExchangeRates(this.origin, this.env, this.ctx, this.analytics);
             }
             const rates = await this.ratesPromise;
             if (rates && rates[targetCurrency]) {
@@ -592,9 +902,12 @@ class PriceElementHandler {
                 } else {
                     element.setInnerContent(formattedPrice);
                 }
+                const ms = Date.now() - startTime;
+                this.analytics?.write('esi_render', { colo: 'edge', route: 'price', country: this.country, event_type: 'price_converted' }, ms);
             }
         } catch (e) {
             console.error('Error converting price:', e);
+            this.analytics?.write('error', { colo: 'edge', route: 'price', country: this.country, event_type: 'price_convert_error' });
         }
     }
 }
@@ -602,18 +915,21 @@ class PriceElementHandler {
 /**
  * Fetch exchange rates with caching at the Edge (Cache API).
  */
-async function fetchExchangeRates(origin, env, ctx) {
+async function fetchExchangeRates(origin, env, ctx, analytics) {
     // Fast-Path 1: Check Cloudflare KV (0ms latency)
     const kv = env?.HELMETSAN_KV || env?.EDGE_KV;
     if (kv) {
         try {
             const kvRates = await kv.get('exchange_rates', 'json');
-            if (kvRates) return kvRates;
+            if (kvRates) {
+                analytics?.write('esi_render', { colo: 'kv', route: 'rates', country: 'global', event_type: 'rates_kv_hit' });
+                return kvRates;
+            }
         } catch (e) {}
     }
 
     const cache = caches.default;
-    const ratesUrl = `${origin}/wp-json/helmetsan/v1/edge/rates`;
+    const ratesUrl = `${origin}/wp-json/helmetsan/v1/edge/rates?__edge_ver=${CACHE_VERSION}`;
     const cacheKey = new Request(ratesUrl, {
         method: 'GET',
         headers: { 'Accept': 'application/json' }
@@ -622,11 +938,14 @@ async function fetchExchangeRates(origin, env, ctx) {
     try {
         let cachedResponse = await cache.match(cacheKey);
         if (cachedResponse) {
+            analytics?.write('esi_render', { colo: 'edge', route: 'rates', country: 'global', event_type: 'rates_cache_hit' });
             const data = await cachedResponse.json();
             return data.rates || null;
         }
 
+        const originStart = Date.now();
         const response = await fetch(ratesUrl);
+        const originMs = Date.now() - originStart;
         if (response.ok) {
             const data = await response.json();
             const cacheResponse = new Response(JSON.stringify(data), {
@@ -638,10 +957,12 @@ async function fetchExchangeRates(origin, env, ctx) {
             if (ctx && ctx.waitUntil) {
                 ctx.waitUntil(cache.put(cacheKey, cacheResponse));
             }
+            analytics?.write('esi_render', { colo: 'origin', route: 'rates', country: 'global', event_type: 'rates_origin_fetch' }, originMs);
             return data.rates || null;
         }
     } catch (e) {
         console.error('Edge exchange rates fetch error:', e);
+        analytics?.write('error', { colo: 'edge', route: 'rates', country: 'global', event_type: 'rates_fetch_error' });
     }
     return null;
 }
@@ -846,5 +1167,22 @@ class CountryCardHandler {
             element.setAttribute('class', currentClass.replace(/\bis-active\b/g, '').trim());
             element.setAttribute('aria-selected', 'false');
         }
+    }
+}
+
+/**
+ * Injects Organization JSON-LD schema into <head> for SEO.
+ */
+class JsonLdHandler {
+    constructor(schemaData) {
+        this.schemaData = schemaData;
+        this.inserted = false;
+    }
+
+    element(element) {
+        if (this.inserted) return;
+        const jsonLd = JSON.stringify(this.schemaData);
+        element.prepend(`<script type="application/ld+json">${jsonLd}</script>`, { html: true });
+        this.inserted = true;
     }
 }

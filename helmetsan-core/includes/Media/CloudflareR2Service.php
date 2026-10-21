@@ -33,7 +33,12 @@ class CloudflareR2Service
         $this->bucket = defined('HELMETSAN_R2_BUCKET') ? HELMETSAN_R2_BUCKET : ($cfSettings['r2_bucket'] ?? ($settings['r2_bucket'] ?? ''));
         $this->publicUrlPrefix = rtrim(defined('HELMETSAN_R2_PUBLIC_URL') ? HELMETSAN_R2_PUBLIC_URL : ($cfSettings['r2_public_url'] ?? ($settings['r2_public_url'] ?? '')), '/');
         $this->resizingEnabled = !empty($settings['r2_image_resizing_enabled']);
-        $this->resizerUrl = rtrim($settings['r2_image_resizer_url'] ?? '', '/');
+        $this->resizerUrl = rtrim(
+            defined('HELMETSAN_R2_IMAGE_RESIZER_URL')
+                ? HELMETSAN_R2_IMAGE_RESIZER_URL
+                : ($settings['r2_image_resizer_url'] ?? ''),
+            '/'
+        );
 
         $this->enabled = !empty($cfSettings['enable_r2_backups']) || !empty($settings['r2_enabled']) || (!empty($r2_account_id) && !empty($r2_access_key) && !empty($r2_secret_key) && !empty($this->bucket));
 
@@ -86,6 +91,30 @@ class CloudflareR2Service
             return $this->getFileUrl($r2Key);
         } catch (AwsException $e) {
             return new WP_Error('r2_upload_failed', 'Failed to upload to R2: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Deletes an object from R2 by key.
+     *
+     * @param string $r2Key The R2 object key to delete.
+     * @return bool|WP_Error True on success, WP_Error on failure.
+     */
+    public function deleteFile(string $r2Key): bool|WP_Error
+    {
+        if (!$this->isEnabled()) {
+            return new WP_Error('r2_not_configured', 'Cloudflare R2 is not configured or enabled.');
+        }
+
+        try {
+            $this->client->deleteObject([
+                'Bucket' => $this->bucket,
+                'Key'    => $r2Key,
+            ]);
+
+            return true;
+        } catch (AwsException $e) {
+            return new WP_Error('r2_delete_failed', 'Failed to delete from R2: ' . $e->getMessage());
         }
     }
 

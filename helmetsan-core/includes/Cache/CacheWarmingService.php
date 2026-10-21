@@ -26,7 +26,6 @@ final class CacheWarmingService
     {
         add_action('helmetsan_warm_urls', [$this, 'warmUrls'], 10, 1);
         add_action('init', [$this, 'bypassPageCache']);
-        add_action('template_redirect', [$this, 'addCacheHeaders'], 10);
 
         // Active Cache Push: purge and warm on product data changes
         add_action('save_post_helmet', [$this, 'onProductUpdated'], 20, 1);
@@ -54,7 +53,11 @@ final class CacheWarmingService
         $cf = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
         $cf->purgeUrls($urls);
 
-        // 2. Queue pre-warming for the purged URLs
+        // 2. Tag-based purge — clears ALL edge-cached pages referencing this post's tags
+        $tags = \Helmetsan\Core\Cloudflare\CloudflareCacheService::computePostTags($postId);
+        $cf->purgeTags($tags);
+
+        // 3. Queue pre-warming for the purged URLs
         $this->tasks->dispatch('helmetsan_warm_urls', ['urls' => $urls]);
     }
 

@@ -99,6 +99,7 @@ use Helmetsan\Core\API\ReviewController;
 use Helmetsan\Core\API\MotorcycleCommerceController;
 use Helmetsan\Core\API\ApiGateway;
 use Helmetsan\Core\API\DataApiController;
+use Helmetsan\Core\Cloudflare\TurnstileFormProtection;
 use Helmetsan\Core\Cloudflare\TurnstileService;
 use Helmetsan\Core\Marketplace\FeedIngestionTask;
 use Helmetsan\Core\Admin\RevenueDashboard;
@@ -267,6 +268,7 @@ final class Plugin
         $this->turnstileService = new TurnstileService($this->config, $this->ingestionLogs);
         $this->reviewApi = new ReviewController($this->turnstileService, $this->reviews);
         $this->motorcycleCommerceApi = new MotorcycleCommerceController($this->turnstileService);
+        $this->turnstileFormProtection = new TurnstileFormProtection($this->turnstileService, $this->config);
         $this->helmetApi = new \Helmetsan\Core\API\HelmetController();
         $this->deltaApi = new \Helmetsan\Core\API\DeltaController($this->repository);
         $this->cdnApi = new CdnController();
@@ -482,6 +484,8 @@ final class Plugin
         $cfCache = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
         $cfCache->registerAjaxHooks();
         $cfCache->registerPostSaveHooks();
+        $this->turnstileFormProtection->register();
+        $this->registerR2ImageCleanup();
         add_action('template_redirect', [$this, 'redirectAccessoryCategoryBaseToAccessories'], 1);
         add_action('template_redirect', [$this, 'redirectCorruptedHelmetSlugs'], 1);
         $this->adsTxt->register();
@@ -949,6 +953,56 @@ final class Plugin
 
         if (! empty($taxQuery)) {
             $query->set('tax_query', $taxQuery);
+        }
+    }
+
+    /**
+     * Register R2 image cleanup on post deletion to prevent orphaned assets.
+     */
+    public function registerR2ImageCleanup(): void
+    {
+        add_action('wp_trash_post', [$this, 'deleteR2ImagesForPost'], 10, 1);
+        add_action('before_delete_post', [$this, 'deleteR2ImagesForPost'], 10, 1);
+    }
+
+    /**
+     * Delete all R2 objects associated with a post when it is trashed or deleted.
+     *
+     * @param int $postId
+     */
+    public function deleteR2ImagesForPost(int $postId): void
+    {
+        $r2Service = $this->cloudflareR2Service;
+        if (! $r2Service instanceof \Helmetsan\Core\Media\CloudflareR2Service || ! $r2Service->isEnabled()) {
+            return;
+        }
+
+        $r2Urls = get_post_meta($postId, '_asset_r2_url', false);
+        if (! is_array($r2Urls)) {
+            return;
+        }
+
+        $publicUrlPrefix = rtrim(
+            defined('HELMETSAN_R2_PUBLIC_URL') ? HELMETSAN_R2_PUBLIC_URL : '',
+            '/'
+        );
+
+        foreach ($r2Urls as $r2Url) {
+            $r2Url = (string) $r2Url;
+            if (empty($r2Url)) {
+                continue;
+            }
+
+            // Extract R2 key from public URL (e.g., https://assets.helmetsan.com/assets/Y/m/file.jpg -> assets/Y/m/file.jpg)
+            if ($publicUrlPrefix !== '' && str_starts_with($r2Url, $publicUrlPrefix)) {
+                $r2Key = ltrim(substr($r2Url, strlen($publicUrlPrefix)), '/');
+            } elseif (preg_match('#^https?://[^/]+/(.+)$#', $r2Url, $m)) {
+                $r2Key = $m[1];
+            } else {
+                continue;
+            }
+
+            $r2Service->deleteFile($r2Key);
         }
     }
 }

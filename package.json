@@ -1,0 +1,14 @@
+{
+  "name": "helmetsan-workers",
+  "private": true,
+  "description": "Cloudflare workers orchestration for helmetsan.com",
+  "scripts": {
+    "deploy:workers": "npx wrangler@4 deploy --config cloudflare-workers/edge-assembly-worker/wrangler.toml",
+    "deploy:cache-worker": "npx wrangler@4 deploy --config cloudflare-workers/edge-cache-worker/wrangler.toml",
+    "test:workers": "node scripts/test_all_workers.cjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.1"
+  },
+  "engines": { "node": ">=20" }
+}
