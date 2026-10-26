@@ -115,7 +115,7 @@ function helmetsan_theme_single_helmet_schema(): void
 
     $properties = [];
     if ($certs !== '' && $certs !== 'N/A') {
-        $properties[] = ['@type' => 'PropertyValue', 'name' => 'Certification', 'value' => $certs];
+        $properties[] = ['@type' => 'PropertyValue', 'name' => 'Certification', 'value' => implode(', ', $certs)];
     }
     if ($weight > 0) {
         $properties[] = ['@type' => 'PropertyValue', 'name' => 'Weight', 'value' => $weight . 'g'];

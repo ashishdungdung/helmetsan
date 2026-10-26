@@ -85,7 +85,7 @@ if ($hasVerifiedScore && $score >= 90) {
 }
 
 // Certifications array - compact badges
-$certList = array_filter(array_map('trim', explode(',', (string) $certs)));
+$certList = array_map('trim', $certs);
 
 // Riding style text formatting
 $ridingText = $useCase !== '' ? __(ucwords(str_replace('-', ' ', $useCase)), 'helmetsan-theme') : __('Sport · Highway', 'helmetsan-theme');

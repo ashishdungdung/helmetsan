@@ -300,16 +300,16 @@
       link_type: linkType,
       click_placement: placement,
       outbound_url: sanitizedUrl,
-      currency: data.currency || "USD",
-      value: data.price,
+      currency: data?.currency || "USD",
+      value: data?.price,
       transport: "beacon",
       items: [
         {
-          item_id: data.id,
-          item_name: data.name,
-          item_brand: data.brand,
-          item_category: data.category,
-          price: data.price,
+          item_id: data?.id || "",
+          item_name: data?.name || "",
+          item_brand: data?.brand || "",
+          item_category: data?.category || "",
+          price: data?.price,
           marketplace: marketplace,
         },
       ],
@@ -571,14 +571,12 @@
     handleReferralContext();
 
     // 2. Check for helmet product-specific data layer
-    if (typeof window.helmetsanData === "undefined") {
-      return;
+    if (typeof window.helmetsanData !== "undefined") {
+      const data = window.helmetsanData;
+
+      // 3. Track View Item
+      trackViewItem(data);
     }
-
-    const data = window.helmetsanData;
-
-    // 3. Track View Item
-    trackViewItem(data);
 
     // 4. Track Affiliate Clicks (Canonical Event Delegation)
     document.body.addEventListener("click", function (e) {
@@ -619,7 +617,7 @@
         else if (href.includes("/go/")) marketplace = "amazon";
 
         // Dispatches single canonical affiliate_outbound_click (no duplicate trackLead / select_item)
-        trackAffiliateOutbound(link, href, data, marketplace);
+        trackAffiliateOutbound(link, href, typeof window.helmetsanData !== "undefined" ? window.helmetsanData : {}, marketplace);
       }
     });
   });

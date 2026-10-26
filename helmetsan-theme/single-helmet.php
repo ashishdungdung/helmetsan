@@ -231,7 +231,7 @@ if (have_posts()) {
                     </div>
                     <div class="hs-quick-fact-item">
                         <span class="hs-quick-fact-item__label"><?php esc_html_e('Certifications', 'helmetsan-theme'); ?></span>
-                        <span class="hs-quick-fact-item__value"><?php echo esc_html($certs !== '' && $certs !== 'N/A' ? $certs : esc_html__('Not verified', 'helmetsan-theme')); ?></span>
+                        <span class="hs-quick-fact-item__value"><?php echo esc_html(!empty($certs) ? (is_array($certs) ? implode(', ', $certs) : $certs) : esc_html__('Not verified', 'helmetsan-theme')); ?></span>
                     </div>
                     <div class="hs-quick-fact-item">
                         <span class="hs-quick-fact-item__label"><?php esc_html_e('Measured Weight', 'helmetsan-theme'); ?></span>
@@ -692,7 +692,7 @@ if (have_posts()) {
                                 <div class="hs-pdp-specs-grid">
                                     <div class="hs-hud-metric">
                                         <span class="hs-hud-metric__label"><?php esc_html_e('Certification', 'helmetsan-theme'); ?></span>
-                                        <span class="hs-hud-metric__value"><?php echo !empty($profile['homologation']) && $profile['homologation'] !== 'N/A' ? esc_html($profile['homologation']) : esc_html($certs !== '' && $certs !== 'N/A' ? $certs : esc_html__('Not verified', 'helmetsan-theme')); ?></span>
+                                        <span class="hs-hud-metric__value"><?php echo !empty($profile['homologation']) && $profile['homologation'] !== 'N/A' ? esc_html($profile['homologation']) : esc_html(!empty($certs) ? (is_array($certs) ? implode(', ', $certs) : $certs) : esc_html__('Not verified', 'helmetsan-theme')); ?></span>
                                         <span class="hs-hud-metric__subtext"><?php esc_html_e('Certified safety standard', 'helmetsan-theme'); ?></span>
                                     </div>
                                     <div class="hs-hud-metric">

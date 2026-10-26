@@ -62,7 +62,7 @@ if ($tagline === '') {
                     <?php echo $price; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- helmetsan_render_price_element returns sanitised HTML ?>
                 <?php endif; ?>
                 <?php if ($certs !== '') : ?>
-                    <span class="hs-featured-helmet__certs"><?php echo esc_html($certs); ?></span>
+                    <span class="hs-featured-helmet__certs"><?php echo esc_html(implode(', ', $certs)); ?></span>
                 <?php endif; ?>
             </div>
             <div class="hs-featured-helmet__actions">

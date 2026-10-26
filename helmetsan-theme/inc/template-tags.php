@@ -476,7 +476,7 @@ function helmetsan_get_certifications(int $helmetId): string
         return $rank($a) <=> $rank($b);
     });
 
-    return implode(', ', $names);
+    return $names;
 }
 
 /**
