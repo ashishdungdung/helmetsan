@@ -11,7 +11,7 @@ if (! function_exists('helmetsan_render_brand_model_card')) {
     function helmetsan_render_brand_model_card($post) {
         $hId = $post->ID;
         $hPrice = helmetsan_get_helmet_price($hId);
-        $hCerts = helmetsan_get_certifications($hId);
+        $hCerts = helmetsan_get_certifications_array($hId);
         $hShell = get_post_meta($hId, 'spec_shell_material', true) ?: 'Polycarbonate';
         $hWeight = get_post_meta($hId, 'spec_weight_g', true);
         $hShape = get_post_meta($hId, 'head_shape', true) ?: 'Intermediate Oval';
