@@ -85,7 +85,7 @@ if ($hasVerifiedScore && $score >= 90) {
 }
 
 // Certifications array - compact badges
-$certList = array_map('trim', $certs);
+$certList = helmetsan_get_certifications_array($helmetId);
 
 // Riding style text formatting
 $ridingText = $useCase !== '' ? __(ucwords(str_replace('-', ' ', $useCase)), 'helmetsan-theme') : __('Sport · Highway', 'helmetsan-theme');

@@ -61,8 +61,8 @@ if ($tagline === '') {
                 <?php if ($price !== '') : ?>
                     <?php echo $price; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- helmetsan_render_price_element returns sanitised HTML ?>
                 <?php endif; ?>
-                <?php if ($certs !== '') : ?>
-                    <span class="hs-featured-helmet__certs"><?php echo esc_html(implode(', ', $certs)); ?></span>
+                <?php if (!empty($certs) && $certs !== 'N/A') : ?>
+                    <span class="hs-featured-helmet__certs"><?php echo esc_html(is_array($certs) ? implode(', ', $certs) : $certs); ?></span>
                 <?php endif; ?>
             </div>
             <div class="hs-featured-helmet__actions">

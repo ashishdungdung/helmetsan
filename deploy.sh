@@ -206,6 +206,7 @@ $SSHPASS ssh $SSH_OPTS "${USER}@${HOST}" << 'REMOTE_COMMANDS'
         find /var/cache/nginx/microcache -type f -delete 2>/dev/null || true
     fi
     systemctl reload nginx 2>/dev/null || nginx -s reload 2>/dev/null && echo "   ✅ Nginx cache purged & service reloaded" || true
+    systemctl reload php8.5-fpm 2>/dev/null || systemctl reload php-fpm 2>/dev/null && echo "   ✅ PHP-FPM reloaded (bytecode cache invalidated)" || true
 
     # WordPress transients, rewrite rules, and object cache
     if command -v wp >/dev/null 2>&1; then

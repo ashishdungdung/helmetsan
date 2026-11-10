@@ -115,7 +115,7 @@ function helmetsan_theme_single_helmet_schema(): void
 
     $properties = [];
     if ($certs !== '' && $certs !== 'N/A') {
-        $properties[] = ['@type' => 'PropertyValue', 'name' => 'Certification', 'value' => implode(', ', $certs)];
+        $properties[] = ['@type' => 'PropertyValue', 'name' => 'Certification', 'value' => is_array($certs) ? implode(', ', $certs) : $certs];
     }
     if ($weight > 0) {
         $properties[] = ['@type' => 'PropertyValue', 'name' => 'Weight', 'value' => $weight . 'g'];
@@ -466,4 +466,25 @@ function helmetsan_theme_legacy_riding_style_redirects(): void
     }
 }
 add_action('template_redirect', 'helmetsan_theme_legacy_riding_style_redirects', 1);
+
+/**
+ * Ensure post type archives take precedence over Polylang's language taxonomy fallback.
+ */
+function helmetsan_theme_enforce_post_type_archives(string $template): string
+{
+    if (is_post_type_archive()) {
+        $postType = get_query_var('post_type');
+        if (is_array($postType)) {
+            $postType = reset($postType);
+        }
+        if (!empty($postType)) {
+            $archiveTemplate = locate_template(["archive-{$postType}.php", 'archive.php']);
+            if ($archiveTemplate !== '') {
+                return $archiveTemplate;
+            }
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'helmetsan_theme_enforce_post_type_archives', 99);
 

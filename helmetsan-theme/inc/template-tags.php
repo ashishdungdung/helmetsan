@@ -429,7 +429,12 @@ function helmetsan_get_price($post, string $currency = 'USD'): string
     return 'N/A';
 }
 
-function helmetsan_get_certifications(int $helmetId): string
+/**
+ * Get certifications as a clean array of strings, prioritized by regional relevance.
+ *
+ * @return list<string>
+ */
+function helmetsan_get_certifications_array(int $helmetId): array
 {
     $terms = [];
     if (function_exists('helmetsan_core')) {
@@ -439,10 +444,17 @@ function helmetsan_get_certifications(int $helmetId): string
     }
 
     if (! is_array($terms) || $terms === []) {
-        return 'N/A';
+        return [];
     }
 
-    $names = array_map(static fn ($term): string => (string) $term->name, $terms);
+    $names = [];
+    foreach ($terms as $term) {
+        if (is_object($term) && isset($term->name)) {
+            $names[] = (string) $term->name;
+        }
+    }
+
+    $names = array_values(array_unique($names));
 
     // Regional prioritization:
     $currentLang = function_exists('pll_current_language') ? (string) pll_current_language() : '';
@@ -480,31 +492,16 @@ function helmetsan_get_certifications(int $helmetId): string
 }
 
 /**
- * Get certifications as a clean array of strings.
- *
- * @return list<string>
+ * Get certifications as a comma-separated string.
  */
-function helmetsan_get_certifications_array(int $helmetId): array
+function helmetsan_get_certifications(int $helmetId): string
 {
-    $terms = [];
-    if (function_exists('helmetsan_core')) {
-        $terms = helmetsan_core()->helmets()->getInheritedTerms($helmetId, 'certification');
-    } else {
-        $terms = get_the_terms($helmetId, 'certification');
+    $names = helmetsan_get_certifications_array($helmetId);
+    if ($names === []) {
+        return 'N/A';
     }
 
-    if (! is_array($terms) || $terms === []) {
-        return [];
-    }
-
-    $names = [];
-    foreach ($terms as $term) {
-        if (is_object($term) && isset($term->name)) {
-            $names[] = (string) $term->name;
-        }
-    }
-
-    return array_values(array_unique($names));
+    return implode(', ', $names);
 }
 
 /**

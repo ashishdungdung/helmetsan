@@ -340,8 +340,8 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
             <div class="hs-horizontal-field">
                 <label for="hs-hfield-safety"><?php hs_e('Safety'); ?></label>
                 <select id="hs-hfield-safety" name="certification[]">
-                    <option value=""><?php hs_e('Any Safety'); ?></option>
-                    <option value="ece-22-06" <?php selected(in_array('ece-22-06', $selectedCerts, true) || empty($selectedCerts)); ?>>ECE 22.06</option>
+                    <option value="" <?php selected(empty($selectedCerts)); ?>><?php hs_e('Any Safety'); ?></option>
+                    <option value="ece-22-06" <?php selected(in_array('ece-22-06', $selectedCerts, true)); ?>>ECE 22.06</option>
                     <option value="dot" <?php selected(in_array('dot', $selectedCerts, true)); ?>>DOT</option>
                     <option value="snell" <?php selected(in_array('snell', $selectedCerts, true)); ?>>Snell M2020</option>
                 </select>
@@ -500,6 +500,25 @@ $sizeOptions = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'];
                             <?php if (is_array($featureTerms)) : foreach ($featureTerms as $term) : if (! ($term instanceof WP_Term)) { continue; } ?>
                                 <label class="hs-filter-check-label"><input type="checkbox" name="feature[]" value="<?php echo esc_attr($term->slug); ?>" <?php checked(in_array($term->slug, $selectedFeatures, true)); ?> /><span class="hs-filter-check-text"><?php echo esc_html($term->name); ?></span></label>
                             <?php endforeach; endif; ?>
+                        </div>
+                    </fieldset>
+                </details>
+
+                <!-- GROUP 8: SIZE -->
+                <details class="hs-filter-group" id="filter-group-size">
+                    <summary class="hs-filter-summary">
+                        <span class="hs-filter-summary__label"><?php hs_e('Size'); ?></span>
+                        <svg class="hs-filter-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                    </summary>
+                    <fieldset>
+                        <legend class="screen-reader-text"><?php hs_e('Filter by Size'); ?></legend>
+                        <div class="hs-filter-checks hs-filter-checks--chips">
+                            <?php foreach ($sizeOptions as $sizeOption) : ?>
+                                <label class="hs-filter-chip-label">
+                                    <input type="checkbox" name="size[]" value="<?php echo esc_attr($sizeOption); ?>" <?php checked(in_array($sizeOption, $selectedSize, true)); ?> />
+                                    <span class="hs-filter-chip-text"><?php echo esc_html(strtoupper($sizeOption)); ?></span>
+                                </label>
+                            <?php endforeach; ?>
                         </div>
                     </fieldset>
                 </details>
@@ -805,7 +824,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 3. Browse Mode Switcher
-    var modeBtns = document.querySelectorAll('.hs-mode-btn');
+    var modeBtns = document.querySelectorAll('.hs-seg-btn, .hs-mode-btn');
     var recPartition = document.getElementById('helmet-results-recommended');
     var remPartition = document.getElementById('helmet-results-remaining');
     modeBtns.forEach(function(btn) {
@@ -831,6 +850,21 @@ document.addEventListener('DOMContentLoaded', function() {
             sortSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
             sortSelect.focus();
             try { if (typeof sortSelect.showPicker === 'function') sortSelect.showPicker(); } catch(e) {}
+        });
+    }
+
+    // 3c. Mobile Size Button Trigger
+    var sizeBtn = document.querySelector('[data-open-size]');
+    var sizeGroup = document.getElementById('filter-group-size');
+    var filterPanel = document.getElementById('hsFilterPanel');
+    if (sizeBtn && sizeGroup) {
+        sizeBtn.addEventListener('click', function() {
+            if (filterPanel && !filterPanel.classList.contains('is-open')) {
+                filterPanel.classList.add('is-open');
+                document.body.classList.add('filter-open');
+            }
+            sizeGroup.open = true;
+            sizeGroup.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
 
