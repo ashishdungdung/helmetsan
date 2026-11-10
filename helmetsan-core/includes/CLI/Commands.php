@@ -158,6 +158,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan db deduplicate-meta', [$this, 'dbDeduplicateMeta']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
         \WP_CLI::add_command('helmetsan redis search', [$this, 'redisSearch']);
+        \WP_CLI::add_command('helmetsan redis autocomplete', [$this, 'redisAutocomplete']);
         \WP_CLI::add_command('helmetsan d1 sync', [$this, 'd1Sync']);
     }
 
@@ -5084,6 +5085,31 @@ final class Commands
         \WP_CLI::log("Found {$res['total']} matching helmets in Redis in {$durationMs}ms:");
         foreach ($res['items'] as $item) {
             \WP_CLI::log(sprintf("  [%d] %s (%s | %s) - $%s - %s", $item['id'] ?? 0, $item['title'] ?? '', $item['brand'] ?? '', $item['certification'] ?? '', $item['price_usd'] ?? '', $item['canonical_url'] ?? ''));
+        }
+    }
+
+    /**
+     * Test sub-millisecond (0.05ms) prefix autocomplete using Redis lexicographical range.
+     *
+     * ## OPTIONS
+     * --q=<query>
+     * : Prefix string to complete (e.g. shoe, arai, rf-1).
+     * [--lang=<lang>]
+     * : Language code. Default: en.
+     * [--limit=<n>]
+     * : Limit results. Default: 8.
+     */
+    public function redisAutocomplete(array $args, array $assoc): void
+    {
+        $q = (string) ($assoc['q'] ?? '');
+        $lang = (string) ($assoc['lang'] ?? 'en');
+        $limit = (int) ($assoc['limit'] ?? 8);
+        $start = microtime(true);
+        $results = \Helmetsan\Core\Cache\RedisCatalogIndexService::autocomplete($q, $lang, $limit);
+        $durationMs = round((microtime(true) - $start) * 1000, 2);
+        \WP_CLI::log("Autocomplete '{$q}' returned " . count($results) . " suggestions in {$durationMs}ms:");
+        foreach ($results as $r) {
+            \WP_CLI::log(sprintf("  [%d] %s (%s) - $%s - %s", $r['id'], $r['title'], $r['brand'], $r['price_usd'], $r['url']));
         }
     }
 

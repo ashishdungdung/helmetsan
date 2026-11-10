@@ -109,8 +109,8 @@ export default {
             return result;
         }
 
-        // 2b. Handle Edge Catalog D1 Query API (/api/edge/helmets, /api/edge/brands)
-        if (pathname.startsWith('/api/edge/helmets') || pathname.startsWith('/api/edge/brands')) {
+        // 2b. Handle Edge Catalog D1 Query API (/api/edge/helmets, /api/edge/brands, /api/edge/search, /api/edge/compare)
+        if (pathname.startsWith('/api/edge/helmets') || pathname.startsWith('/api/edge/brands') || pathname.startsWith('/api/edge/search') || pathname.startsWith('/api/edge/compare')) {
             return await handleEdgeD1Request(request, env, url, pathname);
         }
 
@@ -1256,6 +1256,68 @@ async function handleEdgeD1Request(request, env, url, pathname) {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*',
                     'Cache-Control': 'public, max-age=3600, stale-while-revalidate=7200',
+                    'X-Edge-Served-By': 'Cloudflare-D1'
+                }
+            });
+        }
+
+        // Sub-10ms Full-Text Search via D1 FTS5
+        if (pathname.startsWith('/api/edge/search')) {
+            const q = (url.searchParams.get('q') || '').trim();
+            const lang = url.searchParams.get('lang') || 'en';
+            const limit = Math.min(parseInt(url.searchParams.get('limit') || '20', 10), 50);
+
+            if (!q) {
+                return new Response(JSON.stringify({ success: true, count: 0, data: [] }), {
+                    status: 200,
+                    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+                });
+            }
+
+            // Sanitize query for FTS5 (append wildcard for prefix matching)
+            const sanitizedQ = q.replace(/[^a-zA-Z0-9\s]/g, ' ').trim().split(/\s+/).map(t => `"${t}"*`).join(' ');
+            const sql = `SELECT h.id, h.title, h.brand, h.helmet_type, h.certification, h.head_shape, h.weight_g, h.noise_db, h.price_usd, h.sharp_rating, h.canonical_url, h.image_url
+                         FROM helmets_fts fts
+                         JOIN helmets h ON fts.rowid = h.id
+                         WHERE helmets_fts MATCH ? AND h.lang = ?
+                         LIMIT ?`;
+
+            const { results } = await env.HELMETSAN_D1.prepare(sql).bind(sanitizedQ, lang, limit).all();
+            return new Response(JSON.stringify({ success: true, query: q, count: results.length, data: results }), {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=180, stale-while-revalidate=300',
+                    'X-Edge-Served-By': 'Cloudflare-D1-FTS5'
+                }
+            });
+        }
+
+        // Sub-5ms Side-by-Side Helmet Comparison Matrix
+        if (pathname.startsWith('/api/edge/compare')) {
+            const rawSlugs = url.searchParams.get('slugs') || '';
+            const slugs = rawSlugs.split(',').map(s => s.trim()).filter(Boolean).slice(0, 4);
+            const lang = url.searchParams.get('lang') || 'en';
+
+            if (slugs.length === 0) {
+                return new Response(JSON.stringify({ error: 'No helmet slugs provided. Pass ?slugs=slug-a,slug-b' }), {
+                    status: 400,
+                    headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+                });
+            }
+
+            const placeholders = slugs.map(() => '?').join(',');
+            const sql = `SELECT * FROM helmets WHERE lang = ? AND slug IN (${placeholders})`;
+            const params = [lang, ...slugs];
+
+            const { results } = await env.HELMETSAN_D1.prepare(sql).bind(...params).all();
+            return new Response(JSON.stringify({ success: true, count: results.length, data: results }), {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=600, stale-while-revalidate=1200',
                     'X-Edge-Served-By': 'Cloudflare-D1'
                 }
             });

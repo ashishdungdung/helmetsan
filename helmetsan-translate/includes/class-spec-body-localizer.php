@@ -273,11 +273,11 @@ class SpecBodyLocalizer
     {
         $prefix = self::BASE_URL . "/{$lang}/";
 
-        $guideSafetyUrl = "{$prefix}ece-22-06-vs-dot-vs-snell-helmet-safety-standards-2/";
-        $guideShapeUrl  = "{$prefix}intermediate-oval-vs-long-oval-head-shape-guide-2/";
-        $guidePadsUrl   = "{$prefix}helmet-cheek-pad-fit-and-break-in-guide-2/";
-        $guideMatUrl    = "{$prefix}carbon-fiber-vs-fiberglass-vs-polycarbonate-helmets-2/";
-        $guideMotoUrl   = "{$prefix}motorcycles/";
+        $guideSafetyUrl = self::resolveGuideUrl(32142, "{$prefix}ece-22-06-vs-dot-vs-snell-helmet-safety-standards-2/", $lang);
+        $guideShapeUrl  = self::resolveGuideUrl(32143, "{$prefix}intermediate-oval-vs-long-oval-head-shape-guide-2/", $lang);
+        $guidePadsUrl   = self::resolveGuideUrl(32144, "{$prefix}helmet-cheek-pad-fit-and-break-in-guide-2/", $lang);
+        $guideMatUrl    = self::resolveGuideUrl(32145, "{$prefix}carbon-fiber-vs-fiberglass-vs-polycarbonate-helmets-2/", $lang);
+        $guideMotoUrl   = self::resolveGuideUrl(144, "{$prefix}motorcycles/", $lang);
 
         $txtSafety = self::ANCHOR_TEXTS['safety'][$lang] ?? self::ANCHOR_TEXTS['safety']['de'];
         $txtShape  = self::ANCHOR_TEXTS['head_shape'][$lang] ?? self::ANCHOR_TEXTS['head_shape']['de'];
@@ -538,5 +538,19 @@ HTML;
         }
 
         return $default;
+    }
+
+    private static function resolveGuideUrl(int $masterId, string $fallback, string $lang): string
+    {
+        if (function_exists('pll_get_post')) {
+            $transId = pll_get_post($masterId, $lang);
+            if ($transId) {
+                $link = get_permalink($transId);
+                if ($link) {
+                    return $link;
+                }
+            }
+        }
+        return $fallback;
     }
 }
