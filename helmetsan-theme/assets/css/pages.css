@@ -9645,27 +9645,134 @@ body.tax-certification .site-content {
     border-color: #00d2be !important;
 }
 
-/* Results Section & Matched Helmet Cards */
+/* ==========================================================================
+   Results Section & Matched Helmet Cards (Fluid 3-Column Modern Grid)
+   ========================================================================== */
 .hs-finder-results {
     max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
 }
 
+/* Responsive Grid Utility Classes */
+.hs-grid {
+    display: grid !important;
+}
+.hs-grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+}
+@media (min-width: 768px) {
+    .md\:hs-grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .md\:hs-grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:hs-grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    .lg\:hs-grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+    .lg\:hs-grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Results Grid: 3 columns on desktop, 2 on tablet, 1 on mobile */
+.hs-results-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+}
+
+@media (min-width: 640px) {
+    .hs-results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1080px) {
+    .hs-results-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Interactive Profile Summary Banner */
+.hs-profile-summary-card {
+    background: var(--hs-finder-card-bg);
+    border: 1.5px solid var(--hs-finder-card-border);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.hs-profile-summary-kicker {
+    font-size: 0.6875rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hs-finder-muted);
+}
+
+.hs-summary-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    background: var(--hs-finder-pill-bg);
+    border: 1px solid var(--hs-finder-card-border);
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    color: var(--hs-finder-text);
+}
+
+.hs-summary-pill strong {
+    color: var(--hs-finder-accent);
+}
+
+/* Results Header */
+.hs-results-title {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--hs-finder-text);
+    margin-bottom: 0.65rem;
+}
+
+.hs-results-subtitle {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    color: var(--hs-finder-muted);
+    line-height: 1.65;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Results Toolbar */
 .hs-results-toolbar {
-    background: var(--hs-finder-wizard-bg);
-    border: 1px solid var(--hs-finder-wizard-border);
+    background: var(--hs-finder-card-bg);
+    border: 1.5px solid var(--hs-finder-card-border);
     border-radius: 14px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
 }
 
 .hs-select-sm {
-    padding: 0.35rem 1.75rem 0.35rem 0.75rem;
-    font-size: 0.78rem;
+    padding: 0.4rem 1.85rem 0.4rem 0.85rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
     border-radius: 8px;
+    border: 1px solid var(--hs-finder-card-border);
+    background: var(--hs-finder-card-bg);
+    color: var(--hs-finder-text);
 }
 
 .hs-filter-chip {
     padding: 0.35rem 0.85rem;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 700;
     background: var(--hs-finder-pill-bg);
     border: 1px solid var(--hs-finder-card-border);
@@ -9694,39 +9801,38 @@ body.tax-certification .site-content {
     box-shadow: 0 0 12px rgba(0, 210, 190, 0.35) !important;
 }
 
+/* Premium Vertical Helmet Match Card */
 .hs-finder-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    height: 100%;
+    padding: 1.4rem;
     background: var(--hs-finder-card-bg);
-    border: 1px solid var(--hs-finder-card-border);
-    border-radius: 18px;
+    border: 1.5px solid var(--hs-finder-card-border);
+    border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .hs-finder-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="dark"] .hs-finder-card {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    border-color: var(--hs-finder-card-hover-border);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="dark"] .hs-finder-card:hover {
-    box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
 }
 
 .hs-finder-card.is-best-overall {
     border: 2px solid #0d9488 !important;
-    box-shadow: 0 0 20px -2px rgba(13, 148, 136, 0.25) !important;
+    box-shadow: 0 0 24px -2px rgba(13, 148, 136, 0.25) !important;
 }
 
 [data-theme="dark"] .hs-finder-card.is-best-overall {
     border-color: #00d2be !important;
-    box-shadow: 0 0 25px -4px rgba(0, 210, 190, 0.35) !important;
+    box-shadow: 0 0 28px -2px rgba(0, 210, 190, 0.35) !important;
 }
 
 .hs-finder-card.is-runner-up {
@@ -9737,166 +9843,154 @@ body.tax-certification .site-content {
     border-color: #38bdf8 !important;
 }
 
+/* Card Header Award Badges */
 .hs-finder-card__award {
-    position: absolute;
-    top: -12px;
-    left: 1.25rem;
+    display: inline-block;
     padding: 0.25rem 0.75rem;
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     font-weight: 900;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #ffffff;
-    background: #0d9488;
     border-radius: 9999px;
-    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
 }
 
-[data-theme="dark"] .hs-finder-card__award {
-    color: #0b1120;
-    background: #00d2be;
-    box-shadow: 0 2px 8px rgba(0, 210, 190, 0.4);
+.hs-finder-card__award--gold {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
 }
 
-.hs-finder-card.is-runner-up .hs-finder-card__award {
-    background: #0284c7;
+[data-theme="dark"] .hs-finder-card__award--gold {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.3);
 }
 
-[data-theme="dark"] .hs-finder-card.is-runner-up .hs-finder-card__award {
-    background: #38bdf8;
-    color: #0b1120;
+.hs-finder-card__award--silver {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
 }
 
-.hs-finder-card__brand {
-    font-size: 0.72rem;
+[data-theme="dark"] .hs-finder-card__award--silver {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.hs-finder-card__award--light {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+}
+
+[data-theme="dark"] .hs-finder-card__award--light {
+    background: rgba(255, 255, 255, 0.08);
+    color: #d1d5db;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Score Pill Badge */
+.hs-card-score-badge {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--hs-finder-card-selected-bg);
+    border: 1px solid var(--hs-finder-card-selected-border);
+    border-radius: 10px;
+}
+
+.hs-card-score-badge__num {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--hs-finder-accent);
+    line-height: 1;
+}
+
+.hs-card-score-badge__label {
+    font-size: 0.625rem;
     font-weight: 800;
-    text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--hs-finder-muted);
+    color: var(--hs-finder-accent);
+}
+
+/* Image Showcase Box */
+.hs-finder-card__img-showcase {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hs-finder-pill-bg);
+    border-radius: 14px;
+    padding: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--hs-finder-card-border);
+}
+
+.hs-finder-card__img-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.hs-finder-card__img {
+    max-height: 165px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hs-finder-card:hover .hs-finder-card__img {
+    transform: scale(1.05);
+}
+
+/* Brand & Typography */
+.hs-finder-card__brand {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hs-finder-accent);
+    margin-bottom: 0.25rem;
 }
 
 .hs-finder-card__title {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 900;
+    line-height: 1.25;
     color: var(--hs-finder-text);
-    margin: 0.15rem 0 0.25rem;
+    margin: 0 0 0.35rem;
 }
 
 .hs-finder-card__title a {
     color: inherit;
     text-decoration: none;
+    transition: color 0.15s ease;
 }
 
 .hs-finder-card__title a:hover {
     color: var(--hs-finder-accent);
 }
 
-.hs-finder-card__type {
-    display: inline-block;
-    font-size: 0.75rem;
-    color: var(--hs-finder-accent);
-    font-weight: 600;
-}
-
-/* Card Image Box */
-.hs-finder-card__img-box {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    flex-shrink: 0;
-    background: #ffffff;
-    border: 1px solid var(--hs-finder-card-border);
-    border-radius: 12px;
-    overflow: hidden;
-    padding: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.hs-finder-card__img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.25s ease;
-}
-
-.hs-finder-card:hover .hs-finder-card__img {
-    transform: scale(1.06);
-}
-
-/* Score Dial */
-.hs-score-dial {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    padding: 0.4rem 0.65rem;
-    background: var(--hs-finder-card-selected-bg);
-    border: 1px solid var(--hs-finder-card-selected-border);
-    border-radius: 12px;
-    color: var(--hs-finder-accent);
-}
-
-.hs-score-dial__num {
-    font-size: 1.35rem;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.hs-score-dial__pct {
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-/* Sub-Score Bars */
-.hs-sub-scores {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 0.75rem;
-    background: var(--hs-finder-subscores-bg);
-    border-radius: 10px;
-    border: 1px solid var(--hs-finder-card-border);
-}
-
-.hs-sub-score-row {
+.hs-finder-card__type-row {
+    font-size: 0.78rem;
+    color: var(--hs-finder-muted);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
+    gap: 0.35rem;
 }
 
-.hs-sub-score-label {
-    width: 42%;
-    color: var(--hs-finder-muted);
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.hs-sub-score-bar {
-    flex: 1;
-    height: 5px;
-    background: var(--hs-finder-card-border);
-    border-radius: 9999px;
-    overflow: hidden;
-}
-
-.hs-sub-score-fill {
-    height: 100%;
-    background: var(--hs-finder-accent);
-    border-radius: 9999px;
-}
-
-.hs-sub-score-val {
-    width: 22px;
-    text-align: right;
-    font-weight: 800;
-    color: var(--hs-finder-text);
-}
-
-.hs-pill {
-    padding: 0.2rem 0.55rem;
-    font-size: 0.68rem;
+/* Spec Pills */
+.hs-spec-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.22rem 0.6rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     background: var(--hs-finder-pill-bg);
     border: 1px solid var(--hs-finder-card-border);
@@ -9904,116 +9998,85 @@ body.tax-certification .site-content {
     color: var(--hs-finder-text);
 }
 
-.hs-finder-gear-box {
-    padding: 0.65rem;
+/* Rider Fit Insight Box */
+.hs-rider-insight-box {
     background: var(--hs-finder-subscores-bg);
-    border-radius: 8px;
-    border: 1px dashed var(--hs-finder-card-border);
+    border: 1px solid var(--hs-finder-card-border);
+    border-left: 3.5px solid var(--hs-finder-accent);
+    border-radius: 10px;
+    padding: 0.85rem 0.95rem;
 }
 
-.hs-gear-item {
-    font-size: 0.75rem;
-}
-
-/* SVG Radial Score Ring */
-.hs-score-ring {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hs-score-ring svg {
-    transform: rotate(-90deg);
-}
-
-.hs-score-ring__bg {
-    fill: none;
-    stroke: var(--hs-finder-card-border);
-}
-
-.hs-score-ring__fill {
-    fill: none;
-    stroke: var(--hs-finder-accent);
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.8s ease-in-out;
-}
-
-.hs-score-ring__text {
-    position: absolute;
-    font-size: 0.85rem;
-    font-weight: 900;
+.hs-rider-insight-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--hs-finder-accent);
+    margin-bottom: 0.3rem;
 }
 
-/* Verified Key Pros List */
-.hs-key-pros-list {
+.hs-rider-insight-text {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--hs-finder-text);
+    margin: 0;
+}
+
+/* Verified Pros List */
+.hs-card-pros-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.35rem;
 }
 
-.hs-pro-item {
-    font-size: 0.72rem;
-    color: #10b981;
-    line-height: 1.35;
-    font-weight: 600;
-}
-
-.hs-bullet {
-    color: var(--hs-finder-muted);
-}
-
-/* Quick Select Popular Machine Pills */
-.hs-quick-pill {
-    padding: 0.3rem 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    background: var(--hs-finder-pill-bg);
-    border: 1px solid var(--hs-finder-card-border);
-    border-radius: 9999px;
+.hs-card-pro-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
     color: var(--hs-finder-text);
-    cursor: pointer;
-    transition: all 0.2s ease;
 }
 
-.hs-quick-pill:hover {
-    background: var(--hs-finder-card-selected-bg);
-    border-color: var(--hs-finder-accent);
+.hs-card-pro-icon {
+    color: #10b981;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+/* Card Pricing & Footer CTAs */
+.hs-finder-card__footer {
+    border-top: 1px solid var(--hs-finder-card-border);
+    padding-top: 0.85rem;
+}
+
+.hs-price-label {
+    display: block;
+    font-size: 0.6875rem;
+    color: var(--hs-finder-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+
+.hs-price-val {
+    font-size: 1.3rem;
+    font-weight: 900;
     color: var(--hs-finder-accent);
-    transform: translateY(-1px);
 }
 
-/* Selected Bike Callout Feedback */
-.hs-selected-bike-callout {
-    background: var(--hs-finder-card-selected-bg);
-    border: 1px solid var(--hs-finder-card-selected-border);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px var(--hs-finder-accent-glow);
+/* Reassuring Footer Banner */
+.hs-results-footer-card {
+    background: var(--hs-finder-card-bg);
+    border: 1.5px solid var(--hs-finder-card-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
-/* Size Guide Drawer */
-.hs-size-guide-drawer {
-    border-color: var(--hs-finder-card-border);
-    animation: hsFadeSlideDown 0.25s ease-out;
-}
-
-@keyframes hsFadeSlideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 
 

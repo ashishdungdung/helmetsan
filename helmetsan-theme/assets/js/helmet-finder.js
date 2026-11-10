@@ -371,7 +371,17 @@
                 const data = await res.json();
 
                 rawMatches = data.matches || [];
+
+                // Hide the wizard container, hero, and stepper so results take full focus
+                if (finderWrap) finderWrap.classList.add('hs-hidden');
+                const stepper = document.querySelector('.hs-finder-stepper');
+                if (stepper) stepper.classList.add('hs-hidden');
+                const hero = document.querySelector('.hs-finder-hero');
+                if (hero) hero.classList.add('hs-hidden');
+
+                resultsContainer.classList.remove('hs-hidden');
                 renderResults(data);
+                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             } catch (err) {
                 console.error('[Helmetsan Finder] Matching error:', err);
                 resultsContainer.innerHTML = `
@@ -383,6 +393,18 @@
                     </div>
                 `;
             }
+        }
+
+        function returnToWizard() {
+            if (finderWrap) finderWrap.classList.remove('hs-hidden');
+            const stepper = document.querySelector('.hs-finder-stepper');
+            if (stepper) stepper.classList.remove('hs-hidden');
+            const hero = document.querySelector('.hs-finder-hero');
+            if (hero) hero.classList.remove('hs-hidden');
+            resultsContainer.classList.add('hs-hidden');
+            currentStep = 1;
+            updateWizardStep();
+            finderWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // 9. Client-Side Filtering & Sorting
@@ -431,185 +453,178 @@
                     </div>
                 `;
                 const resetBtn = document.getElementById('hsFinderResetBtn');
-                if (resetBtn) resetBtn.addEventListener('click', () => {
-                    currentStep = 1;
-                    updateWizardStep();
-                    resultsContainer.classList.add('hs-hidden');
-                });
+                if (resetBtn) resetBtn.addEventListener('click', returnToWizard);
                 return;
             }
 
-            const brandOptionsHtml = brands.map(b => `
-                <option value="${b}" ${activeBrandFilter === b.toLowerCase() ? 'selected' : ''}>${b}</option>
-            `).join('');
-
             const cardsHtml = filteredMatches.map((h, idx) => {
-                const tierClass = idx === 0 && activeSort === 'score' ? 'is-best-overall' : (idx === 1 && activeSort === 'score' ? 'is-runner-up' : '');
-                const awardBadge = h.match_tier && activeSort === 'score' ? `<div class="hs-finder-card__award">${h.match_tier}</div>` : '';
+                const isBest = idx === 0 && activeSort === 'score';
+                const isRunnerUp = idx === 1 && activeSort === 'score';
+                const cardModifier = isBest ? 'is-best-overall' : (isRunnerUp ? 'is-runner-up' : '');
 
-                const gearItems = (h.compatible_gear || []).map(g => `
-                    <div class="hs-gear-item hs-flex hs-justify-between hs-items-center hs-p-2 hs-bg-surface-alt hs-rounded hs-mb-1">
-                        <div>
-                            <span class="hs-text-xs hs-font-bold hs-block">${g.title}</span>
-                            <span class="hs-text-xxs hs-text-muted">${g.category} · ${g.note}</span>
-                        </div>
-                        <span class="hs-text-xs hs-font-black hs-text-accent">$${g.price}</span>
-                    </div>
-                `).join('');
-
-                const keyProsHtml = (h.key_pros || []).map(p => `
-                    <li class="hs-pro-item">✓ ${p}</li>
-                `).join('');
-
-                const marketplaceButtons = [];
-                if (h.marketplace_links && h.marketplace_links.revzilla) {
-                    marketplaceButtons.push(`<a href="${h.marketplace_links.revzilla}" target="_blank" rel="noopener" class="hs-retailer-btn hs-retailer-btn--revzilla">RevZilla ↗</a>`);
+                let awardBadge = '';
+                if (isBest) {
+                    awardBadge = `<span class="hs-finder-card__award hs-finder-card__award--gold">🥇 TOP OVERALL MATCH</span>`;
+                } else if (isRunnerUp) {
+                    awardBadge = `<span class="hs-finder-card__award hs-finder-card__award--silver">🥈 HIGH COMPATIBILITY</span>`;
+                } else if (h.specs.weight_g && h.specs.weight_g < 1350) {
+                    awardBadge = `<span class="hs-finder-card__award hs-finder-card__award--light">🪶 ULTRA LIGHTWEIGHT</span>`;
                 }
-                if (h.marketplace_links && h.marketplace_links.amazon) {
-                    marketplaceButtons.push(`<a href="${h.marketplace_links.amazon}" target="_blank" rel="noopener" class="hs-retailer-btn hs-retailer-btn--amazon">Amazon ↗</a>`);
-                }
+
+                const keyProsHtml = (h.key_pros || []).slice(0, 2).map(p => `
+                    <li class="hs-card-pro-item">
+                        <span class="hs-card-pro-icon">✓</span>
+                        <span>${p}</span>
+                    </li>
+                `).join('');
 
                 const fallbackImg = `https://placehold.co/400x400/1e293b/00d2be?text=${encodeURIComponent(h.brand + ' ' + h.title)}`;
                 const displayImg = h.image_url || fallbackImg;
 
-                // SVG Circular Dial calculation
-                const radius = 24;
-                const circumference = 2 * Math.PI * radius;
-                const strokeDashoffset = circumference - (h.match_score / 100) * circumference;
-
                 return `
-                    <div class="hs-finder-card hs-card ${tierClass}">
-                        ${awardBadge}
-                        <div class="hs-finder-card__top-row hs-flex hs-gap-4 hs-items-start hs-mb-4">
-                            <!-- Helmet Image Container -->
-                            <div class="hs-finder-card__img-box">
-                                <img src="${displayImg}" alt="${h.title}" loading="lazy" class="hs-finder-card__img" onerror="this.src='${fallbackImg}'">
+                    <article class="hs-finder-card ${cardModifier}">
+                        <div class="hs-finder-card__header hs-flex hs-justify-between hs-items-center hs-mb-3">
+                            <div>${awardBadge}</div>
+                            <div class="hs-card-score-badge" title="Overall Rider Fit Score: ${h.match_score}%">
+                                <span class="hs-card-score-badge__num">${h.match_score}%</span>
+                                <span class="hs-card-score-badge__label">MATCH</span>
+                            </div>
+                        </div>
+
+                        <!-- Helmet Visual Showcase -->
+                        <div class="hs-finder-card__img-showcase hs-mb-4">
+                            <a href="${h.permalink}" class="hs-finder-card__img-link">
+                                <img src="${displayImg}" alt="${h.brand} ${h.title}" loading="lazy" class="hs-finder-card__img" onerror="this.src='${fallbackImg}'">
+                            </a>
+                        </div>
+
+                        <!-- Title & Meta -->
+                        <div class="hs-finder-card__body hs-flex-1 hs-flex hs-flex-col">
+                            <span class="hs-finder-card__brand">${h.brand}</span>
+                            <h3 class="hs-finder-card__title">
+                                <a href="${h.permalink}">${h.title}</a>
+                            </h3>
+                            <div class="hs-finder-card__type-row hs-mb-3">
+                                <span>${h.helmet_type}</span>
+                                <span class="hs-bullet">·</span>
+                                <span>${h.specs.material || 'Fiberglass Composite'}</span>
                             </div>
 
-                            <!-- Header Meta -->
-                            <div class="hs-flex-1">
-                                <span class="hs-finder-card__brand">${h.brand}</span>
-                                <h3 class="hs-finder-card__title">
-                                    <a href="${h.permalink}">${h.title}</a>
-                                </h3>
-                                <div class="hs-flex hs-items-center hs-gap-2 hs-mt-1">
-                                    <span class="hs-finder-card__type">${h.helmet_type}</span>
-                                    <span class="hs-bullet">·</span>
-                                    <span class="hs-text-xs hs-text-muted">${h.specs.material || 'Composite'}</span>
+                            <!-- Spec Badges -->
+                            <div class="hs-finder-card__specs-row hs-flex hs-flex-wrap hs-gap-1 hs-mb-3">
+                                <span class="hs-spec-pill" title="Impact Safety Standard">🛡️ ${h.specs.primary_cert}</span>
+                                <span class="hs-spec-pill" title="Shell Weight">⚖️ ${h.specs.weight_g}g</span>
+                                <span class="hs-spec-pill" title="Internal Cranial Form">🥚 ${h.specs.head_shape}</span>
+                                ${h.specs.has_sun_visor ? '<span class="hs-spec-pill" title="Internal Sun Visor">🕶️ Sun Visor</span>' : ''}
+                                ${h.specs.comms_ready ? '<span class="hs-spec-pill" title="Bluetooth Speaker Cavities">🎧 Comms Ready</span>' : ''}
+                            </div>
+
+                            <!-- Rider Fit Insight Callout -->
+                            <div class="hs-rider-insight-box hs-mb-3">
+                                <span class="hs-rider-insight-label">💡 Rider Fit Analysis:</span>
+                                <p class="hs-rider-insight-text">${h.editorial_reason}</p>
+                            </div>
+
+                            <!-- Key Highlights -->
+                            ${keyProsHtml ? `
+                                <ul class="hs-card-pros-list hs-mb-4">
+                                    ${keyProsHtml}
+                                </ul>
+                            ` : ''}
+
+                            <!-- Footer Price & CTAs -->
+                            <div class="hs-finder-card__footer hs-flex hs-justify-between hs-items-center hs-pt-3 hs-mt-auto">
+                                <div class="hs-finder-card__pricing">
+                                    <span class="hs-price-label">Starting from</span>
+                                    <strong class="hs-price-val">${h.price.formatted}</strong>
+                                </div>
+                                <div class="hs-finder-card__actions hs-flex hs-gap-2 hs-items-center">
+                                    <button type="button" class="hs-btn hs-btn-ghost hs-btn-xs js-add-to-compare" data-id="${h.id}" data-slug="${h.slug}" data-title="${h.title}" data-image="${displayImg}">+ Compare</button>
+                                    <a href="${h.permalink}" class="hs-btn hs-btn-primary hs-btn-xs">View Details →</a>
                                 </div>
                             </div>
-
-                            <!-- Circular SVG Match Dial -->
-                            <div class="hs-score-ring" title="Overall Match Score: ${h.match_score}%">
-                                <svg width="60" height="60" viewBox="0 0 60 60">
-                                    <circle class="hs-score-ring__bg" cx="30" cy="30" r="${radius}" stroke-width="4"></circle>
-                                    <circle class="hs-score-ring__fill" cx="30" cy="30" r="${radius}" stroke-width="4"
-                                            stroke-dasharray="${circumference}" stroke-dashoffset="${strokeDashoffset}"></circle>
-                                </svg>
-                                <span class="hs-score-ring__text">${h.match_score}%</span>
-                            </div>
                         </div>
-
-                        <!-- Sub-Score Breakdown Bars -->
-                        <div class="hs-sub-scores hs-mb-4">
-                            <div class="hs-sub-score-row">
-                                <span class="hs-sub-score-label">🏎️ Aero & Posture</span>
-                                <div class="hs-sub-score-bar"><div class="hs-sub-score-fill" style="width: ${h.sub_scores.aero_posture}%"></div></div>
-                                <span class="hs-sub-score-val">${h.sub_scores.aero_posture}</span>
-                            </div>
-                            <div class="hs-sub-score-row">
-                                <span class="hs-sub-score-label">🎯 Discipline</span>
-                                <div class="hs-sub-score-bar"><div class="hs-sub-score-fill" style="width: ${h.sub_scores.discipline}%"></div></div>
-                                <span class="hs-sub-score-val">${h.sub_scores.discipline}</span>
-                            </div>
-                            <div class="hs-sub-score-row">
-                                <span class="hs-sub-score-label">🛡️ Safety Homologation</span>
-                                <div class="hs-sub-score-bar"><div class="hs-sub-score-fill" style="width: ${h.sub_scores.safety}%"></div></div>
-                                <span class="hs-sub-score-val">${h.sub_scores.safety}</span>
-                            </div>
-                            <div class="hs-sub-score-row">
-                                <span class="hs-sub-score-label">🧠 Cranial Morphology</span>
-                                <div class="hs-sub-score-bar"><div class="hs-sub-score-fill" style="width: ${h.sub_scores.morphology}%"></div></div>
-                                <span class="hs-sub-score-val">${h.sub_scores.morphology}</span>
-                            </div>
-                        </div>
-
-                        <!-- Specs Pills Grid -->
-                        <div class="hs-spec-pills hs-flex hs-flex-wrap hs-gap-1 hs-mb-3">
-                            <span class="hs-pill" title="Helmet Shell Weight">⚖️ ${h.specs.weight_g}g</span>
-                            <span class="hs-pill" title="Impact Safety Homologation">🛡️ ${h.specs.primary_cert}</span>
-                            <span class="hs-pill" title="Internal Head Contour">🥚 ${h.specs.head_shape}</span>
-                            <span class="hs-pill" title="Cabin Sound Pressure at 100 km/h">🔊 ${h.specs.noise_db} dB</span>
-                            ${h.specs.has_sun_visor ? '<span class="hs-pill">🕶️ Drop-Down Sun Visor</span>' : ''}
-                            ${h.specs.comms_ready ? '<span class="hs-pill">🎧 40mm Speaker Cutouts</span>' : ''}
-                        </div>
-
-                        <!-- Key Verified Pros -->
-                        ${keyProsHtml ? `
-                            <ul class="hs-key-pros-list hs-mb-3">
-                                ${keyProsHtml}
-                            </ul>
-                        ` : ''}
-
-                        <!-- Why It Matches You -->
-                        <div class="hs-finder-card__reason hs-mb-4">
-                            <p class="hs-text-xs hs-text-soft"><strong>Why it matches:</strong> ${h.editorial_reason}</p>
-                        </div>
-
-                        <!-- Compatible Gear Bundle -->
-                        ${gearItems ? `
-                            <div class="hs-finder-gear-box hs-mb-4">
-                                <span class="hs-text-xxs hs-uppercase hs-font-black hs-text-muted hs-block hs-mb-1">⚡ Compatible Peripheral Gear:</span>
-                                ${gearItems}
-                            </div>
-                        ` : ''}
-
-                        <!-- Retailer Links & Footer -->
-                        <div class="hs-finder-card__footer hs-flex hs-justify-between hs-items-center hs-pt-3 hs-border-t hs-mt-auto">
-                            <div class="hs-finder-card__price">
-                                <span class="hs-text-xxs hs-text-muted hs-block">Starting from</span>
-                                <strong class="hs-text-lg hs-font-black hs-text-accent">${h.price.formatted}</strong>
-                            </div>
-                            <div class="hs-flex hs-gap-2 hs-items-center">
-                                <button type="button" class="hs-btn hs-btn-ghost hs-btn-xs js-add-to-compare" data-id="${h.id}" data-slug="${h.slug}" data-title="${h.title}" data-image="${displayImg}">+ Compare</button>
-                                <a href="${h.permalink}" class="hs-btn hs-btn-primary hs-btn-sm">View Full Specs →</a>
-                            </div>
-                        </div>
-                    </div>
+                    </article>
                 `;
             }).join('');
 
+            const bikeMap = {
+                'roadster': 'Naked / Roadster',
+                'superbike': 'Superbike / Sport',
+                'adv': 'Adventure / Dual Sport',
+                'tourer': 'Grand Tourer',
+                'cruiser': 'Cruiser / Heritage',
+                'scooter': 'Urban Mobility'
+            };
+            const disciplineMap = {
+                'commute': 'City & Commuting',
+                'touring': 'Long Distance Touring',
+                'adventure': 'Off-Road & Adventure',
+                'track': 'Track Day & Circuit Racing',
+                'spirited': 'Weekend Twisties'
+            };
+            const shapeMap = {
+                'intermediate_oval': 'Intermediate Oval',
+                'round_oval': 'Round Oval',
+                'long_oval': 'Long Oval'
+            };
+            const safetyMap = {
+                'max_safety': 'ECE 22.06 & SHARP 5★',
+                'track_homologated': 'FIM / Snell Circuit',
+                'standard': 'DOT / ECE Road Standard'
+            };
+
+            const displayMachine = formData.bike || bikeMap[formData.bike_category] || 'Motorcycle';
+            const displayDiscipline = disciplineMap[formData.riding_style] || 'Versatile Riding';
+            const displayShape = shapeMap[formData.head_shape] || 'Intermediate Oval';
+            const displaySafety = safetyMap[formData.safety_priority] || 'ECE 22.06';
+            const displayBudget = `${formData.currency} ${formData.budget_max}`;
+
             resultsContainer.innerHTML = `
-                <div class="hs-results-header hs-mb-6 hs-text-center">
-                    <div class="hs-badge hs-badge-success hs-mb-2">6-AXIAL MATCH COMPLETE</div>
-                    <h2 class="hs-title-lg">Your Top Personalized Helmet Matches</h2>
-                    <p class="hs-text-soft hs-max-w-lg hs-mx-auto hs-mb-3">
-                        Ranked specifically for your <strong>${summary.bike || summary.bike_category}</strong>, 
-                        <strong>${summary.riding_style}</strong> posture, and 
-                        <strong>${summary.head_shape}</strong> cranial contour.
-                    </p>
-                    <div class="hs-flex hs-justify-center hs-gap-2 hs-mb-4">
-                        <button type="button" id="hsFinderShareBtn" class="hs-btn hs-btn-ghost hs-btn-xs">🔗 Share My Matches</button>
-                        <button type="button" id="hsFinderRestartBtnTop" class="hs-btn hs-btn-ghost hs-btn-xs">🔄 Modify Profile</button>
+                <!-- Profile Summary Banner -->
+                <div class="hs-profile-summary-card hs-mb-8">
+                    <div class="hs-profile-summary-inner hs-flex hs-flex-wrap hs-justify-between hs-items-center hs-gap-4">
+                        <div>
+                            <span class="hs-profile-summary-kicker">ACTIVE RIDER PROFILE</span>
+                            <div class="hs-profile-pills hs-flex hs-flex-wrap hs-gap-2 hs-mt-2">
+                                <span class="hs-summary-pill">🏍️ <strong>${displayMachine}</strong></span>
+                                <span class="hs-summary-pill">🧭 <strong>${displayDiscipline}</strong></span>
+                                <span class="hs-summary-pill">🥚 <strong>${displayShape}</strong></span>
+                                <span class="hs-summary-pill">🛡️ <strong>${displaySafety}</strong></span>
+                                <span class="hs-summary-pill">💰 <strong>Under ${displayBudget}</strong></span>
+                            </div>
+                        </div>
+                        <button type="button" id="hsFinderModifyProfileBtn" class="hs-btn hs-btn-ghost hs-btn-sm hs-gap-2">
+                            ✏️ Modify Profile
+                        </button>
                     </div>
                 </div>
 
-                <!-- Live Client-Side Filter & Sort Toolbar -->
-                <div class="hs-results-toolbar hs-card hs-p-4 hs-mb-6 hs-flex hs-flex-wrap hs-justify-between hs-items-center hs-gap-4">
+                <!-- Curated Results Header -->
+                <header class="hs-results-header hs-text-center hs-mb-8">
+                    <span class="hs-finder-eyebrow">CURATED RECOMMENDATIONS</span>
+                    <h2 class="hs-results-title">Your Optimal Helmet Matches</h2>
+                    <p class="hs-results-subtitle">
+                        Screened across 2,216 verified helmets for your <strong>${displayMachine}</strong> posture, aerodynamic turbulence profile, and <strong>${displayShape}</strong> cranial contour.
+                    </p>
+                </header>
+
+                <!-- Filter & Sorting Toolbar -->
+                <div class="hs-results-toolbar hs-card hs-p-4 hs-mb-8 hs-flex hs-flex-wrap hs-justify-between hs-items-center hs-gap-4">
                     <div class="hs-flex hs-items-center hs-gap-3">
-                        <span class="hs-text-xs hs-font-bold hs-text-muted">SORT BY:</span>
+                        <span class="hs-text-xs hs-font-black hs-text-muted hs-uppercase">SORT BY:</span>
                         <select id="hsToolbarSort" class="hs-select hs-select-sm">
-                            <option value="score" ${activeSort === 'score' ? 'selected' : ''}>Highest Match Score</option>
+                            <option value="score" ${activeSort === 'score' ? 'selected' : ''}>Highest Fit Score</option>
                             <option value="price_asc" ${activeSort === 'price_asc' ? 'selected' : ''}>Price: Low to High</option>
                             <option value="price_desc" ${activeSort === 'price_desc' ? 'selected' : ''}>Price: High to Low</option>
-                            <option value="weight_asc" ${activeSort === 'weight_asc' ? 'selected' : ''}>Lightest Weight (g)</option>
+                            <option value="weight_asc" ${activeSort === 'weight_asc' ? 'selected' : ''}>Lightest Weight</option>
                         </select>
                     </div>
 
                     <div class="hs-flex hs-items-center hs-gap-3">
-                        <span class="hs-text-xs hs-font-bold hs-text-muted">SHELL TYPE:</span>
+                        <span class="hs-text-xs hs-font-black hs-text-muted hs-uppercase">SHELL TYPE:</span>
                         <div class="hs-filter-chips hs-flex hs-gap-1">
-                            <button type="button" class="hs-filter-chip ${activeTypeFilter === 'all' ? 'is-active' : ''}" data-type="all">All</button>
+                            <button type="button" class="hs-filter-chip ${activeTypeFilter === 'all' ? 'is-active' : ''}" data-type="all">All (${rawMatches.length})</button>
                             <button type="button" class="hs-filter-chip ${activeTypeFilter === 'full face' ? 'is-active' : ''}" data-type="full face">Full Face</button>
                             <button type="button" class="hs-filter-chip ${activeTypeFilter === 'modular' ? 'is-active' : ''}" data-type="modular">Modular</button>
                             <button type="button" class="hs-filter-chip ${activeTypeFilter === 'adventure' ? 'is-active' : ''}" data-type="adventure">Adventure</button>
@@ -617,13 +632,23 @@
                     </div>
 
                     <div class="hs-flex hs-items-center hs-gap-2">
-                        <button type="button" id="hsFinderRestartBtn" class="hs-btn hs-btn-ghost hs-btn-xs">🔄 Modify Profile</button>
+                        <button type="button" id="hsFinderShareBtn" class="hs-btn hs-btn-ghost hs-btn-xs hs-gap-1">🔗 Share</button>
                     </div>
                 </div>
 
-                <!-- Matches Grid -->
-                <div class="hs-grid hs-grid-cols-1 md:hs-grid-cols-2 lg:hs-grid-cols-3 hs-gap-6 hs-mb-12">
+                <!-- 3-Column Matches Grid -->
+                <div class="hs-results-grid hs-mb-12">
                     ${cardsHtml}
+                </div>
+
+                <!-- Reassuring Footer Banner -->
+                <div class="hs-results-footer-card hs-text-center hs-p-8 hs-rounded-2xl hs-mb-12">
+                    <h3 class="hs-text-xl hs-font-black hs-mb-2">Need to compare helmets side-by-side?</h3>
+                    <p class="hs-text-muted hs-max-w-md hs-mx-auto hs-mb-4 hs-text-sm">Select up to 4 helmets using the "+ Compare" button to inspect EPS density, shell composite layers, and acoustic dB measurements head-to-head.</p>
+                    <div class="hs-flex hs-justify-center hs-gap-3">
+                        <a href="/safety-standards/" class="hs-btn hs-btn-ghost hs-btn-sm">Learn About ECE 22.06 &amp; FIM</a>
+                        <button type="button" id="hsFinderRestartBottomBtn" class="hs-btn hs-btn-primary hs-btn-sm">Start New Search ↺</button>
+                    </div>
                 </div>
             `;
 
@@ -643,17 +668,11 @@
                 });
             });
 
-            const restartBtns = [document.getElementById('hsFinderRestartBtn'), document.getElementById('hsFinderRestartBtnTop')];
-            restartBtns.forEach(btn => {
-                if (btn) {
-                    btn.addEventListener('click', () => {
-                        currentStep = 1;
-                        updateWizardStep();
-                        resultsContainer.classList.add('hs-hidden');
-                        window.scrollTo({ top: finderWrap.offsetTop - 40, behavior: 'smooth' });
-                    });
-                }
-            });
+            const modifyBtn = document.getElementById('hsFinderModifyProfileBtn');
+            if (modifyBtn) modifyBtn.addEventListener('click', returnToWizard);
+
+            const restartBottomBtn = document.getElementById('hsFinderRestartBottomBtn');
+            if (restartBottomBtn) restartBottomBtn.addEventListener('click', returnToWizard);
 
             // Share Matches Button
             const shareBtn = document.getElementById('hsFinderShareBtn');
