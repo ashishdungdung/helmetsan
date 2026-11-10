@@ -353,10 +353,17 @@ function helmetsan_theme_helmet_archive_title_fix(array $title): array
 }
 
 /**
- * Fix Yoast SEO titles if active.
+ * Fix Yoast SEO titles & dynamically optimize Brand pages for high SERP CTR.
  */
 function helmetsan_theme_yoast_archive_title_fix(string $title): string
 {
+    if (is_singular('brand')) {
+        $brandName = trim(get_the_title());
+        if ($brandName !== '') {
+            return "{$brandName} Motorcycle Helmets: ECE 22.06 Safety, Noise dB & Prices | Helmetsan";
+        }
+    }
+
     if (is_post_type_archive('helmet') && is_paged()) {
         global $wp_query;
         if (isset($wp_query->max_num_pages) && $wp_query->max_num_pages > 0) {
@@ -368,6 +375,19 @@ function helmetsan_theme_yoast_archive_title_fix(string $title): string
     }
     return $title;
 }
+
+/**
+ * Optimize Brand Meta Descriptions for high-intent search queries.
+ */
+add_filter('wpseo_metadesc', function(string $desc): string {
+    if (is_singular('brand')) {
+        $brandName = trim(get_the_title());
+        if ($brandName !== '') {
+            return "Compare verified ECE 22.06 & DOT safety ratings, laboratory noise test metrics (dB), shell gram-weights, and international prices across all {$brandName} helmets at Helmetsan.";
+        }
+    }
+    return $desc;
+}, 25);
 
 /**
  * Proxy Gravatar URLs to a CN-friendly mirror for visitors in China.

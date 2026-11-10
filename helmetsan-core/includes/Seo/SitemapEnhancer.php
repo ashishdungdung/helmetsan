@@ -27,9 +27,11 @@ final class SitemapEnhancer
         add_action('init', [$this, 'addRewriteRules']);
         add_filter('query_vars', [$this, 'registerQueryVars']);
         add_filter('redirect_canonical', [$this, 'preventSitemapRedirect'], 10, 2);
-        add_action('template_redirect', [$this, 'handleSitemapRequest']);
+        add_action('parse_request', [$this, 'handleSitemapRequest'], 1);
+        add_action('template_redirect', [$this, 'handleSitemapRequest'], -1);
         add_filter('wpseo_sitemap_index', [$this, 'filterYoastSitemapIndex']);
         add_filter('wpseo_sitemap_url', [$this, 'filterYoastSitemapUrl'], 10, 2);
+        add_filter('wpseo_sitemap_urlset', [$this, 'filterYoastSitemapUrlset']);
 
         add_action('save_post_helmet', [$this, 'invalidateCache']);
         add_action('save_post_brand', [$this, 'invalidateCache']);
@@ -67,7 +69,19 @@ final class SitemapEnhancer
      */
     public function handleSitemapRequest(): void
     {
-        $type = get_query_var(self::QUERY_VAR);
+        $uri = $_SERVER['REQUEST_URI'] ?? '';
+        $path = (string) parse_url($uri, PHP_URL_PATH);
+
+        $type = null;
+        if (preg_match('#^/sitemap-(brands|comparisons|images|motorcycles)\.xml$#i', $path, $matches)) {
+            $type = strtolower($matches[1]);
+        } else {
+            $queryVar = get_query_var(self::QUERY_VAR);
+            if (is_string($queryVar) && $queryVar !== '') {
+                $type = strtolower($queryVar);
+            }
+        }
+
         if (! is_string($type) || $type === '') {
             return;
         }
@@ -80,6 +94,7 @@ final class SitemapEnhancer
         if (! headers_sent()) {
             status_header(200);
             header('Content-Type: application/xml; charset=utf-8');
+            header('X-Robots-Tag: noindex, follow', true);
         }
 
         echo $this->getSitemapXml($type);
@@ -87,7 +102,18 @@ final class SitemapEnhancer
     }
 
     /**
-     * Injects canonical sitemaps.org <priority> and <changefreq> elements into Yoast XML entries.
+     * Ensure xmlns:xhtml namespace is declared on all Yoast sitemaps.
+     */
+    public function filterYoastSitemapUrlset(string $urlset): string
+    {
+        if (! str_contains($urlset, 'xmlns:xhtml=')) {
+            return str_replace('<urlset ', '<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml" ', $urlset);
+        }
+        return $urlset;
+    }
+
+    /**
+     * Injects canonical sitemaps.org <priority>, <changefreq>, and multilingual <xhtml:link> alternates into Yoast XML entries.
      * Guarantees 1.0 priority and weekly crawl frequency for the 15 Authoritative Masterclass Guides.
      *
      * @param string $output The XML string for this <url> entry.
@@ -108,12 +134,25 @@ final class SitemapEnhancer
             $changefreq = 'weekly';
         }
 
-        $injection = "		<changefreq>" . $changefreq . "</changefreq>
-		<priority>" . $priority . "</priority>
-	</url>
-";
-        return str_replace("	</url>
-", $injection, $output);
+        $xhtml = '';
+        if (function_exists('url_to_postid') && function_exists('pll_get_post_translations')) {
+            $postId = url_to_postid($loc);
+            if ($postId > 0) {
+                $translations = (array) pll_get_post_translations($postId);
+                if (! empty($translations)) {
+                    foreach ($translations as $lang => $transId) {
+                        $transUrl = (string) get_permalink((int) $transId);
+                        if ($transUrl !== '' && $transUrl !== $loc) {
+                            $xhtml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr((string) $lang) . "\" href=\"" . esc_url($transUrl) . "\"/>\n";
+                        }
+                    }
+                    $xhtml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($loc) . "\"/>\n";
+                }
+            }
+        }
+
+        $injection = $xhtml . "		<changefreq>" . $changefreq . "</changefreq>\n		<priority>" . $priority . "</priority>\n	</url>\n";
+        return str_replace("	</url>\n", $injection, $output);
     }
 
     /**
@@ -239,32 +278,55 @@ final class SitemapEnhancer
 
     /**
      * Build sitemap-comparisons.xml
-     * High-authority comparison matrix URLs pairing popular helmets.
+     * High-authority comparison matrix URLs pairing popular helmets across all 10 languages.
      */
     public function buildComparisonsSitemap(): string
     {
+        $languages = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ja', 'zh'];
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";
+        $xml .= '        xmlns:xhtml="http://www.w3.org/1999/xhtml">' . "\n";
 
         // 1. Root Comparison Hub
-        $comparisonBase = home_url('/comparison/');
-        $xml .= "\t<url>\n";
-        $xml .= "\t\t<loc>" . esc_url($comparisonBase) . "</loc>\n";
-        $xml .= "\t\t<lastmod>" . esc_xml(gmdate('c')) . "</lastmod>\n";
-        $xml .= "\t\t<changefreq>daily</changefreq>\n";
-        $xml .= "\t\t<priority>0.9</priority>\n";
-        $xml .= "\t</url>\n";
+        foreach ($languages as $lang) {
+            $prefix = $lang === 'en' ? '' : '/' . $lang;
+            $loc = home_url($prefix . '/comparison/');
+            $xml .= "\t<url>\n";
+            $xml .= "\t\t<loc>" . esc_url($loc) . "</loc>\n";
+            $xml .= "\t\t<lastmod>" . esc_xml(gmdate('c')) . "</lastmod>\n";
+            $xml .= "\t\t<changefreq>daily</changefreq>\n";
+            $xml .= "\t\t<priority>0.9</priority>\n";
+            foreach ($languages as $altLang) {
+                $altPrefix = $altLang === 'en' ? '' : '/' . $altLang;
+                $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr($altLang) . "\" href=\"" . esc_url(home_url($altPrefix . '/comparison/')) . "\"/>\n";
+            }
+            $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url(home_url('/comparison/')) . "\"/>\n";
+            $xml .= "\t</url>\n";
+        }
 
         // 2. Head-to-head comparison pairings
         $pairs = $this->generateComparisonPairs(60);
         foreach ($pairs as $pair) {
-            $url = home_url('/comparison/?ids=' . urlencode($pair['slug_a']) . ',' . urlencode($pair['slug_b']));
-            $xml .= "\t<url>\n";
-            $xml .= "\t\t<loc>" . esc_url($url) . "</loc>\n";
-            $xml .= "\t\t<lastmod>" . esc_xml($pair['lastmod']) . "</lastmod>\n";
-            $xml .= "\t\t<changefreq>weekly</changefreq>\n";
-            $xml .= "\t\t<priority>0.7</priority>\n";
-            $xml .= "\t</url>\n";
+            $queryString = '?ids=' . urlencode($pair['slug_a']) . ',' . urlencode($pair['slug_b']);
+            $lastmod = esc_xml($pair['lastmod']);
+
+            foreach ($languages as $lang) {
+                $prefix = $lang === 'en' ? '' : '/' . $lang;
+                $url = home_url($prefix . '/comparison/' . $queryString);
+                $xml .= "\t<url>\n";
+                $xml .= "\t\t<loc>" . esc_url($url) . "</loc>\n";
+                $xml .= "\t\t<lastmod>" . $lastmod . "</lastmod>\n";
+                $xml .= "\t\t<changefreq>weekly</changefreq>\n";
+                $xml .= "\t\t<priority>0.8</priority>\n";
+
+                foreach ($languages as $altLang) {
+                    $altPrefix = $altLang === 'en' ? '' : '/' . $altLang;
+                    $altUrl = home_url($altPrefix . '/comparison/' . $queryString);
+                    $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr($altLang) . "\" href=\"" . esc_url($altUrl) . "\"/>\n";
+                }
+                $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url(home_url('/comparison/' . $queryString)) . "\"/>\n";
+                $xml .= "\t</url>\n";
+            }
         }
 
         $xml .= '</urlset>';
@@ -534,7 +596,7 @@ final class SitemapEnhancer
 
     /**
      * Build sitemap-motorcycles.xml
-     * Profiles for quality motorcycle models with valid make, engine, and ergonomics.
+     * Profiles for quality motorcycle models with valid make, engine, and ergonomics across all 10 languages.
      */
     public function buildMotorcyclesSitemap(): string
     {
@@ -546,8 +608,10 @@ final class SitemapEnhancer
             'order'          => 'ASC',
         ]);
 
+        $languages = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ja', 'zh'];
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";
+        $xml .= '        xmlns:xhtml="http://www.w3.org/1999/xhtml">' . "\n";
 
         if (! empty($motorcycleQuery->posts)) {
             foreach ($motorcycleQuery->posts as $motoPost) {
@@ -565,12 +629,89 @@ final class SitemapEnhancer
                 }
 
                 $lastmod = $this->formatW3cDate($motoPost->post_modified_gmt ?: $motoPost->post_modified);
+                $slug = $motoPost->post_name;
 
                 $xml .= "\t<url>\n";
                 $xml .= "\t\t<loc>" . esc_url($motoUrl) . "</loc>\n";
                 $xml .= "\t\t<lastmod>" . esc_xml($lastmod) . "</lastmod>\n";
                 $xml .= "\t\t<changefreq>monthly</changefreq>\n";
                 $xml .= "\t\t<priority>0.7</priority>\n";
+
+                if (function_exists('pll_get_post_translations')) {
+                    $translations = (array) pll_get_post_translations($motoPost->ID);
+                    if (! empty($translations)) {
+                        foreach ($translations as $lang => $transId) {
+                            $transUrl = (string) get_permalink((int) $transId);
+                            if ($transUrl !== '') {
+                                $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr((string) $lang) . "\" href=\"" . esc_url($transUrl) . "\"/>\n";
+                            }
+                        }
+                    } else {
+                        foreach ($languages as $altLang) {
+                            $altPrefix = $altLang === 'en' ? '' : '/' . $altLang;
+                            $altUrl = home_url($altPrefix . '/motorcycles/' . $slug . '/');
+                            $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr($altLang) . "\" href=\"" . esc_url($altUrl) . "\"/>\n";
+                        }
+                    }
+                }
+                $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($motoUrl) . "\"/>\n";
+                $xml .= "\t</url>\n";
+            }
+        }
+        wp_reset_postdata();
+
+        $xml .= '</urlset>';
+        return $xml;
+    }
+
+    /**
+     * Build sitemap-accessories.xml
+     * Authoritative gear, care products, visors, and communication systems across all 10 languages.
+     */
+    public function buildAccessoriesSitemap(): string
+    {
+        $accessoryQuery = new WP_Query([
+            'post_type'      => 'accessory',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
+        ]);
+
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' . "\n";
+        $xml .= '        xmlns:xhtml="http://www.w3.org/1999/xhtml">' . "\n";
+
+        if (! empty($accessoryQuery->posts)) {
+            foreach ($accessoryQuery->posts as $accPost) {
+                if (! $accPost instanceof WP_Post) {
+                    continue;
+                }
+
+                $accUrl = (string) get_permalink($accPost->ID);
+                if ($accUrl === '') {
+                    continue;
+                }
+
+                $lastmod = $this->formatW3cDate($accPost->post_modified_gmt ?: $accPost->post_modified);
+
+                $xml .= "\t<url>\n";
+                $xml .= "\t\t<loc>" . esc_url($accUrl) . "</loc>\n";
+                $xml .= "\t\t<lastmod>" . esc_xml($lastmod) . "</lastmod>\n";
+                $xml .= "\t\t<changefreq>weekly</changefreq>\n";
+                $xml .= "\t\t<priority>0.8</priority>\n";
+
+                if (function_exists('pll_get_post_translations')) {
+                    $translations = (array) pll_get_post_translations($accPost->ID);
+                    foreach ($translations as $lang => $transId) {
+                        $transUrl = (string) get_permalink((int) $transId);
+                        if ($transUrl !== '') {
+                            $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr((string) $lang) . "\" href=\"" . esc_url($transUrl) . "\"/>\n";
+                        }
+                    }
+                    $xml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($accUrl) . "\"/>\n";
+                }
+
                 $xml .= "\t</url>\n";
             }
         }

@@ -130,25 +130,33 @@ final class Tracker
                 function isAutomatedClient(){
                     try {
                         if (navigator.webdriver) return true;
+                        if (window.document.documentElement && window.document.documentElement.getAttribute('webdriver')) return true;
+                        if (window.callPhantom || window._phantom || window.__nightmare) return true;
                         var ua = navigator.userAgent || '';
-                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview|bytespider|gptbot|claudebot|diffbot|facebookexternalhit|python|curl|wget/i.test(ua)) return true;
                         if (!navigator.languages || navigator.languages.length === 0) return true;
                         if (window.outerWidth === 0 && window.outerHeight === 0) return true;
                         var sw = window.screen ? window.screen.width : 0;
                         var sh = window.screen ? window.screen.height : 0;
                         var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
-                        if (sh >= 5000) return true;
+                        if (sh >= 5000 || sw >= 8000) return true;
+                        // Universal bot resolution clusters (flagged regardless of claimed mobile user-agent)
+                        if (sw === 1280 && sh === 1200) return true;
+                        if (sw === 1800 && sh === 1125) return true;
+                        if (sw === 800 && sh === 600) return true;
+                        if (sw === 1440 && sh === 900 && /Linux/i.test(navigator.platform || '')) return true;
+                        if (sw === 1024 && sh === 768 && /Linux/i.test(navigator.platform || '')) return true;
+                        if (isMobile && (sw >= 1200 && sh >= 1100)) return true;
                         if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
                             for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
                                 if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
                             }
                         }
                         if (!isMobile) {
-                            if (sw === 1280 && sh === 1200) return true;
-                            if (sw === 1800 && sh === 1125) return true;
-                            if (sw === 800 && sh === 600) return true;
-                            if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
                             if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                            if (window.outerHeight > 0 && window.innerHeight > 0 && window.outerHeight === window.innerHeight && window.outerWidth === window.innerWidth) {
+                                if (!document.fullscreenElement && !window.fullScreen) return true;
+                            }
                         }
                         try {
                             var canvas = document.createElement('canvas');
@@ -185,6 +193,7 @@ final class Tracker
                 'user_country' => $customTags['user_country'] ?? '',
                 'user_currency' => $customTags['user_currency'] ?? '',
                 'site_language' => $customTags['site_language'] ?? '',
+                'traffic_type' => 'human',
             ];
             if ($userId !== '') {
                 $gaConfig['user_id'] = $userId;
@@ -196,25 +205,33 @@ final class Tracker
                 function isAutomatedClient(){
                     try {
                         if (navigator.webdriver) return true;
+                        if (window.document.documentElement && window.document.documentElement.getAttribute('webdriver')) return true;
+                        if (window.callPhantom || window._phantom || window.__nightmare) return true;
                         var ua = navigator.userAgent || '';
-                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                        if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview|bytespider|gptbot|claudebot|diffbot|facebookexternalhit|python|curl|wget/i.test(ua)) return true;
                         if (!navigator.languages || navigator.languages.length === 0) return true;
                         if (window.outerWidth === 0 && window.outerHeight === 0) return true;
                         var sw = window.screen ? window.screen.width : 0;
                         var sh = window.screen ? window.screen.height : 0;
                         var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
-                        if (sh >= 5000) return true;
+                        if (sh >= 5000 || sw >= 8000) return true;
+                        // Universal bot resolution clusters (flagged regardless of claimed mobile user-agent)
+                        if (sw === 1280 && sh === 1200) return true;
+                        if (sw === 1800 && sh === 1125) return true;
+                        if (sw === 800 && sh === 600) return true;
+                        if (sw === 1440 && sh === 900 && /Linux/i.test(navigator.platform || '')) return true;
+                        if (sw === 1024 && sh === 768 && /Linux/i.test(navigator.platform || '')) return true;
+                        if (isMobile && (sw >= 1200 && sh >= 1100)) return true;
                         if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
                             for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
                                 if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
                             }
                         }
                         if (!isMobile) {
-                            if (sw === 1280 && sh === 1200) return true;
-                            if (sw === 1800 && sh === 1125) return true;
-                            if (sw === 800 && sh === 600) return true;
-                            if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
                             if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                            if (window.outerHeight > 0 && window.innerHeight > 0 && window.outerHeight === window.innerHeight && window.outerWidth === window.innerWidth) {
+                                if (!document.fullscreenElement && !window.fullScreen) return true;
+                            }
                         }
                         try {
                             var canvas = document.createElement('canvas');
@@ -323,25 +340,33 @@ final class Tracker
             function isAutomatedClient(){
                 try {
                     if (navigator.webdriver) return true;
+                    if (window.document.documentElement && window.document.documentElement.getAttribute('webdriver')) return true;
+                    if (window.callPhantom || window._phantom || window.__nightmare) return true;
                     var ua = navigator.userAgent || '';
-                    if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview/i.test(ua)) return true;
+                    if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview|bytespider|gptbot|claudebot|diffbot|facebookexternalhit|python|curl|wget/i.test(ua)) return true;
                     if (!navigator.languages || navigator.languages.length === 0) return true;
                     if (window.outerWidth === 0 && window.outerHeight === 0) return true;
                     var sw = window.screen ? window.screen.width : 0;
                     var sh = window.screen ? window.screen.height : 0;
                     var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);
-                    if (sh >= 5000) return true;
+                    if (sh >= 5000 || sw >= 8000) return true;
+                    // Universal bot resolution clusters (flagged regardless of claimed mobile user-agent)
+                    if (sw === 1280 && sh === 1200) return true;
+                    if (sw === 1800 && sh === 1125) return true;
+                    if (sw === 800 && sh === 600) return true;
+                    if (sw === 1440 && sh === 900 && /Linux/i.test(navigator.platform || '')) return true;
+                    if (sw === 1024 && sh === 768 && /Linux/i.test(navigator.platform || '')) return true;
+                    if (isMobile && (sw >= 1200 && sh >= 1100)) return true;
                     if (navigator.userAgentData && Array.isArray(navigator.userAgentData.brands)) {
                         for (var b = 0; b < navigator.userAgentData.brands.length; b++) {
                             if (/HeadlessChrome/i.test(navigator.userAgentData.brands[b].brand)) return true;
                         }
                     }
                     if (!isMobile) {
-                        if (sw === 1280 && sh === 1200) return true;
-                        if (sw === 1800 && sh === 1125) return true;
-                        if (sw === 800 && sh === 600) return true;
-                        if (/Linux/i.test(navigator.platform || '') && (sw === 1440 && sh === 900 || sw === 1024 && sh === 768)) return true;
                         if (navigator.plugins && navigator.plugins.length === 0 && !navigator.pdfViewerEnabled) return true;
+                        if (window.outerHeight > 0 && window.innerHeight > 0 && window.outerHeight === window.innerHeight && window.outerWidth === window.innerWidth) {
+                            if (!document.fullscreenElement && !window.fullScreen) return true;
+                        }
                     }
                     try {
                         var canvas = document.createElement('canvas');

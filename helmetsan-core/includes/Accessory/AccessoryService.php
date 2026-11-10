@@ -77,14 +77,19 @@ final class AccessoryService
         if ($sourceFile !== '') {
             update_post_meta($postId, '_source_file', $sourceFile);
         }
+        if (isset($data['brand']) && is_string($data['brand']) && $data['brand'] !== '') {
+            update_post_meta($postId, 'accessory_brand', sanitize_text_field($data['brand']));
+        }
         if ($type !== '') {
             update_post_meta($postId, 'accessory_type', $type);
         }
-        if (isset($data['parent_category']) && is_string($data['parent_category']) && $data['parent_category'] !== '') {
-            update_post_meta($postId, 'accessory_parent_category', sanitize_text_field($data['parent_category']));
+        $parentCat = $data['parent_category'] ?? $data['accessory_parent_category'] ?? '';
+        if (is_string($parentCat) && $parentCat !== '') {
+            update_post_meta($postId, 'accessory_parent_category', sanitize_text_field($parentCat));
         }
-        if (isset($data['subcategory']) && is_string($data['subcategory']) && $data['subcategory'] !== '') {
-            update_post_meta($postId, 'accessory_subcategory', sanitize_text_field($data['subcategory']));
+        $subCat = $data['subcategory'] ?? $data['accessory_subcategory'] ?? '';
+        if (is_string($subCat) && $subCat !== '') {
+            update_post_meta($postId, 'accessory_subcategory', sanitize_text_field($subCat));
         }
         if (isset($data['color']) && is_string($data['color']) && $data['color'] !== '') {
             update_post_meta($postId, 'accessory_color', sanitize_text_field($data['color']));
@@ -124,24 +129,30 @@ final class AccessoryService
             }
         }
 
-        update_post_meta($postId, 'accessory_electric_compatible', ! empty($data['electric_compatible']) ? '1' : '0');
-        update_post_meta($postId, 'accessory_pinlock_ready', ! empty($data['pinlock_ready']) ? '1' : '0');
-        update_post_meta($postId, 'accessory_snow_compatible', ! empty($data['snow_compatible']) ? '1' : '0');
+        $electric = ! empty($data['electric_compatible']) || ! empty($data['accessory_electric_compatible']);
+        $pinlock = ! empty($data['pinlock_ready']) || ! empty($data['accessory_pinlock_ready']);
+        $snow = ! empty($data['snow_compatible']) || ! empty($data['accessory_snow_compatible']);
+
+        update_post_meta($postId, 'accessory_electric_compatible', $electric ? '1' : '0');
+        update_post_meta($postId, 'accessory_pinlock_ready', $pinlock ? '1' : '0');
+        update_post_meta($postId, 'accessory_snow_compatible', $snow ? '1' : '0');
 
         $this->setJsonMeta($postId, 'compatible_helmet_types_json', $data['compatible_helmet_types'] ?? null);
         $this->setJsonMeta($postId, 'compatible_brands_json', $data['compatible_brands'] ?? null);
         $this->setJsonMeta($postId, 'compatible_helmet_families_json', $data['compatible_helmet_families'] ?? null);
+        $this->setJsonMeta($postId, 'compatible_helmet_ids_json', $data['compatible_helmet_ids'] ?? null);
         $this->setJsonMeta($postId, 'compatibility_json', $data['compatibility'] ?? null);
         $this->setJsonMeta($postId, 'accessory_features_json', $data['features'] ?? null);
         $this->setJsonMeta($postId, 'accessory_global_filters_json', $data['global_filters'] ?? null);
         $this->setJsonMeta($postId, 'price_json', $data['price'] ?? null);
+        $this->setJsonMeta($postId, 'geo_pricing_json', $data['geo_pricing'] ?? null);
 
         $categoryTerms = [];
-        if (isset($data['parent_category']) && is_string($data['parent_category']) && $data['parent_category'] !== '') {
-            $categoryTerms[] = sanitize_text_field($data['parent_category']);
+        if ($parentCat !== '') {
+            $categoryTerms[] = sanitize_text_field($parentCat);
         }
-        if (isset($data['subcategory']) && is_string($data['subcategory']) && $data['subcategory'] !== '') {
-            $categoryTerms[] = sanitize_text_field($data['subcategory']);
+        if ($subCat !== '') {
+            $categoryTerms[] = sanitize_text_field($subCat);
         }
         if ($categoryTerms === [] && $type !== '') {
             $mapped = $this->mapTypeToAccessoryCategory($type);

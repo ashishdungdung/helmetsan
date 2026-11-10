@@ -61,7 +61,11 @@ use Helmetsan\Core\Seo\SchemaService;
 use Helmetsan\Core\Seo\AutoSeoObserver;
 use Helmetsan\Core\Seo\SlugRedirectService;
 use Helmetsan\Core\Seo\SitemapEnhancer;
+use Helmetsan\Core\Seo\NativeSeoIntelligenceService;
 use Helmetsan\Core\Seo\YoastSeoSeeder;
+use Helmetsan\Core\Repository\DatabaseOptimizer;
+use Helmetsan\Core\Cache\RedisCatalogIndexService;
+use Helmetsan\Core\Cloudflare\CloudflareD1SyncService;
 use Helmetsan\Core\Admin\MediaAdmin;
 use Helmetsan\Core\Admin\TranslationAdmin;
 use Helmetsan\Core\Seo\AiSeoDescriptionProvider;
@@ -197,6 +201,7 @@ final class Plugin
     private AutoSeoObserver $autoSeoObserver;
     private SlugRedirectService $slugRedirects;
     private SitemapEnhancer $sitemapEnhancer;
+    private NativeSeoIntelligenceService $seoIntelligence;
     private AiSeoDescriptionProvider $aiSeoProvider;
     private TurnstileService $turnstileService;
     private TaskTracker $taskTracker;
@@ -405,6 +410,7 @@ final class Plugin
         $this->autoSeoObserver = new AutoSeoObserver(new YoastSeoSeeder($this->aiSeoProvider));
         $this->slugRedirects = new SlugRedirectService();
         $this->sitemapEnhancer = new SitemapEnhancer();
+        $this->seoIntelligence = new NativeSeoIntelligenceService();
         $this->assetIngestionService = new AssetIngestionService(
             $this->scraperService,
             $this->imageAnalysisService,
@@ -443,6 +449,9 @@ final class Plugin
         $this->autoSeoObserver->init();
         $this->slugRedirects->register();
         $this->sitemapEnhancer->register();
+        $this->seoIntelligence->register();
+        RedisCatalogIndexService::register();
+        CloudflareD1SyncService::register();
 
         $this->aiAdmin->register();
         $this->helmetImagesAdmin->register();
@@ -623,6 +632,7 @@ final class Plugin
         $this->feedTask->schedule();
         $this->scheduler->activate();
         $this->ensureOptionsPreserveOnUpgrade();
+        DatabaseOptimizer::optimize();
         flush_rewrite_rules();
     }
 

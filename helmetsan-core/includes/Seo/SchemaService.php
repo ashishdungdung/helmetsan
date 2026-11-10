@@ -213,11 +213,19 @@ final class SchemaService
         $bestOffer = $bestOfferRaw !== '' ? json_decode($bestOfferRaw, true) : null;
         $bestOffer = is_array($bestOffer) ? $bestOffer : [];
 
+        $lang = function_exists('pll_get_post_language') ? (string) pll_get_post_language($postId, 'slug') : 'en';
+        $locales = [
+            'en' => 'en-US', 'de' => 'de-DE', 'fr' => 'fr-FR', 'es' => 'es-ES', 'it' => 'it-IT',
+            'nl' => 'nl-NL', 'pl' => 'pl-PL', 'pt' => 'pt-PT', 'ja' => 'ja-JP', 'zh' => 'zh-CN',
+        ];
+        $inLanguage = $locales[$lang] ?? 'en-US';
+
         $canonicalUrl = (string) get_permalink($postId);
         $schema = [
             '@context'    => 'https://schema.org',
             '@type'       => 'Product',
             '@id'         => $canonicalUrl . '#product',
+            'inLanguage'  => $inLanguage,
             'name'        => (string) $post->post_title,
             'url'         => $canonicalUrl,
             'description' => wp_strip_all_tags((string) get_the_excerpt($postId)),
@@ -258,7 +266,20 @@ final class SchemaService
         if ($family !== '') {
             $schema['model'] = $family;
         }
-        $schema['category'] = 'Motorcycle Helmet';
+
+        $categories = [
+            'en' => 'Motorcycle Helmet',
+            'de' => 'Motorradhelm',
+            'fr' => 'Casque de moto',
+            'es' => 'Casco de moto',
+            'it' => 'Casco moto',
+            'nl' => 'Motorhelm',
+            'pl' => 'Kask motocyklowy',
+            'pt' => 'Capacete de moto',
+            'ja' => 'ヘルメット',
+            'zh' => '摩托车头盔',
+        ];
+        $schema['category'] = $categories[$lang] ?? 'Motorcycle Helmet';
 
         // Add hasVariant if variants exist
         $variantsJson = (string) get_post_meta($lookupId, 'variants_json', true);

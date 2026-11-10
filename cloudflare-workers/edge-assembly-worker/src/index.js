@@ -109,6 +109,11 @@ export default {
             return result;
         }
 
+        // 2b. Handle Edge Catalog D1 Query API (/api/edge/helmets, /api/edge/brands)
+        if (pathname.startsWith('/api/edge/helmets') || pathname.startsWith('/api/edge/brands')) {
+            return await handleEdgeD1Request(request, env, url, pathname);
+        }
+
         // Only process safe GET and HEAD requests
         if (request.method !== 'GET' && request.method !== 'HEAD') {
             analytics.write('method_rejected', { colo, route: pathname, country: country, event_type: 'method_rejected' });
@@ -1188,5 +1193,82 @@ class JsonLdHandler {
         const jsonLd = JSON.stringify(this.schemaData);
         element.prepend(`<script type="application/ld+json">${jsonLd}</script>`, { html: true });
         this.inserted = true;
+    }
+}
+
+/**
+ * Handles edge queries against Cloudflare D1 Serverless SQL index.
+ */
+async function handleEdgeD1Request(request, env, url, pathname) {
+    if (!env?.HELMETSAN_D1) {
+        return new Response(JSON.stringify({ error: 'D1 binding HELMETSAN_D1 not configured' }), {
+            status: 503,
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+        });
+    }
+
+    try {
+        if (pathname.startsWith('/api/edge/helmets')) {
+            const lang = url.searchParams.get('lang') || 'en';
+            const brand = url.searchParams.get('brand');
+            const type = url.searchParams.get('type');
+            const cert = url.searchParams.get('cert');
+            const limit = Math.min(parseInt(url.searchParams.get('limit') || '24', 10), 100);
+            const offset = parseInt(url.searchParams.get('offset') || '0', 10);
+
+            let sql = "SELECT * FROM helmets WHERE lang = ?";
+            const params = [lang];
+
+            if (brand) {
+                sql += " AND brand = ?";
+                params.push(brand);
+            }
+            if (type) {
+                sql += " AND helmet_type = ?";
+                params.push(type);
+            }
+            if (cert) {
+                sql += " AND certification = ?";
+                params.push(cert);
+            }
+
+            sql += " ORDER BY id DESC LIMIT ? OFFSET ?";
+            params.push(limit, offset);
+
+            const { results } = await env.HELMETSAN_D1.prepare(sql).bind(...params).all();
+            return new Response(JSON.stringify({ success: true, count: results.length, data: results }), {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=300, stale-while-revalidate=600',
+                    'X-Edge-Served-By': 'Cloudflare-D1'
+                }
+            });
+        }
+
+        if (pathname.startsWith('/api/edge/brands')) {
+            const lang = url.searchParams.get('lang') || 'en';
+            const { results } = await env.HELMETSAN_D1.prepare("SELECT * FROM brands WHERE lang = ? ORDER BY name ASC").bind(lang).all();
+            return new Response(JSON.stringify({ success: true, count: results.length, data: results }), {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=3600, stale-while-revalidate=7200',
+                    'X-Edge-Served-By': 'Cloudflare-D1'
+                }
+            });
+        }
+
+        return new Response(JSON.stringify({ error: 'Endpoint not found' }), {
+            status: 404,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    } catch (e) {
+        return new Response(JSON.stringify({ error: e.message }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+        });
     }
 }

@@ -28,9 +28,34 @@ final class IndexNowService
             return;
         }
 
-        $url = get_permalink($postId);
-        if (is_string($url) && $url !== '') {
-            $this->submitUrl($url);
+        // Debounce: prevent duplicate submissions within 30 seconds
+        $cacheKey = 'hs_indexnow_sent_' . $postId;
+        if (get_transient($cacheKey)) {
+            return;
+        }
+        set_transient($cacheKey, 1, 30);
+
+        // Multilingual: collect all language variants of this post
+        $urls = [];
+        if (function_exists('pll_get_post_translations')) {
+            $translations = pll_get_post_translations($postId);
+            foreach ($translations as $lang => $transId) {
+                $permalink = get_permalink((int) $transId);
+                if (is_string($permalink) && $permalink !== '') {
+                    $urls[] = $permalink;
+                }
+            }
+        }
+
+        if (empty($urls)) {
+            $permalink = get_permalink($postId);
+            if (is_string($permalink) && $permalink !== '') {
+                $urls[] = $permalink;
+            }
+        }
+
+        if (!empty($urls)) {
+            $this->submitBatch(array_values(array_unique($urls)));
         }
     }
 

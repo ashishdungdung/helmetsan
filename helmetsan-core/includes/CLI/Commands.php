@@ -155,6 +155,10 @@ final class Commands
         \WP_CLI::add_command('helmetsan gsc queries', [$this, 'gscQueries']);
         \WP_CLI::add_command('helmetsan gsc pages', [$this, 'gscPages']);
         \WP_CLI::add_command('helmetsan gsc submit-sitemap', [$this, 'gscSubmitSitemap']);
+        \WP_CLI::add_command('helmetsan db deduplicate-meta', [$this, 'dbDeduplicateMeta']);
+        \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
+        \WP_CLI::add_command('helmetsan redis search', [$this, 'redisSearch']);
+        \WP_CLI::add_command('helmetsan d1 sync', [$this, 'd1Sync']);
     }
 
     /**
@@ -5011,6 +5015,109 @@ final class Commands
                 $result['success_count']
             ));
         }
+    }
+
+    /**
+     * Purges redundant duplicate postmeta entries while keeping the newest single row (MAX meta_id).
+     *
+     * ## OPTIONS
+     * [--batch-size=<n>]
+     * : Batch size for chunks. Default: 20000.
+     */
+    public function dbDeduplicateMeta(array $args, array $assoc): void
+    {
+        $batchLimit = (int) ($assoc['batch-size'] ?? 20000);
+        \WP_CLI::log("Starting postmeta deduplication (retaining newest meta_id)...");
+        $deleted = \Helmetsan\Core\Repository\DatabaseOptimizer::deduplicatePostmeta($batchLimit);
+        \WP_CLI::success("Deduplication complete. Purged {$deleted} redundant rows from wp_postmeta.");
+    }
+
+    /**
+     * Warm up or re-index published helmets into Redis Hashes and Inverted Facet Sets.
+     *
+     * ## OPTIONS
+     * [--limit=<n>]
+     * : Process only first N helmets. Default 0 (all).
+     * [--batch-size=<n>]
+     * : Batch size. Default 500.
+     */
+    public function redisWarmIndex(array $args, array $assoc): void
+    {
+        $limit = (int) ($assoc['limit'] ?? 0);
+        $batch = (int) ($assoc['batch-size'] ?? 500);
+        \WP_CLI::log("Warming Redis Catalog & Inverted Facet Index...");
+        $res = \Helmetsan\Core\Cache\RedisCatalogIndexService::warmIndex($limit, $batch);
+        \WP_CLI::success(sprintf("Indexed %d helmets into Redis in %.2fs.", $res['total_indexed'], $res['duration_sec']));
+    }
+
+    /**
+     * Test instantaneous multi-faceted search via Redis Inverted Facet Sets (SINTER).
+     *
+     * ## OPTIONS
+     * [--lang=<lang>]
+     * : Language code (en, de, fr, etc.). Default: en.
+     * [--brand=<slug>]
+     * : Brand slug (e.g. shoei, arai, hjc).
+     * [--type=<slug>]
+     * : Helmet type slug (e.g. full-face, modular).
+     * [--cert=<slug>]
+     * : Certification slug (e.g. ece-22-06, dot).
+     * [--shape=<slug>]
+     * : Head shape slug (e.g. intermediate-oval).
+     * [--limit=<n>]
+     * : Limit results. Default: 10.
+     */
+    public function redisSearch(array $args, array $assoc): void
+    {
+        $filters = [
+            'lang'  => (string) ($assoc['lang'] ?? 'en'),
+            'brand' => (string) ($assoc['brand'] ?? ''),
+            'type'  => (string) ($assoc['type'] ?? ''),
+            'cert'  => (string) ($assoc['cert'] ?? ''),
+            'shape' => (string) ($assoc['shape'] ?? ''),
+        ];
+        $filters = array_filter($filters);
+        $limit = (int) ($assoc['limit'] ?? 10);
+        $start = microtime(true);
+        $res = \Helmetsan\Core\Cache\RedisCatalogIndexService::searchHelmets($filters, $limit);
+        $durationMs = round((microtime(true) - $start) * 1000, 2);
+        \WP_CLI::log("Found {$res['total']} matching helmets in Redis in {$durationMs}ms:");
+        foreach ($res['items'] as $item) {
+            \WP_CLI::log(sprintf("  [%d] %s (%s | %s) - $%s - %s", $item['id'] ?? 0, $item['title'] ?? '', $item['brand'] ?? '', $item['certification'] ?? '', $item['price_usd'] ?? '', $item['canonical_url'] ?? ''));
+        }
+    }
+
+    /**
+     * Synchronize catalog and brands to Cloudflare D1 Serverless SQL at the edge.
+     *
+     * ## OPTIONS
+     * [--limit=<n>]
+     * : Process only first N helmets. Default 0 (all).
+     * [--batch-size=<n>]
+     * : Chunk size for D1 batch statements. Default 50.
+     */
+    public function d1Sync(array $args, array $assoc): void
+    {
+        global $wpdb;
+        $limit = (int) ($assoc['limit'] ?? 0);
+        $chunk = (int) ($assoc['batch-size'] ?? 50);
+        \WP_CLI::log("Synchronizing catalog to Cloudflare D1 Serverless SQL...");
+
+        $limitSql = $limit > 0 ? "LIMIT {$limit}" : "";
+        $postIds = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' ORDER BY ID ASC {$limitSql}");
+        $total = count($postIds);
+        \WP_CLI::log("Syncing {$total} helmets in batches of {$chunk}...");
+        $synced = 0;
+
+        foreach (array_chunk($postIds, $chunk) as $batch) {
+            $count = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncBatch(array_map('intval', $batch));
+            $synced += $count;
+        }
+
+        \WP_CLI::log("Syncing brands to Cloudflare D1...");
+        $brandsSynced = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncBrands();
+
+        \WP_CLI::success("Cloudflare D1 Sync Complete: {$synced} helmets and {$brandsSynced} brands synchronized to edge.");
     }
 
 }

@@ -21,3 +21,10 @@ preview_urls = false
 binding = "EDGE_TAG_INDEX"
 id = "d651333514b44722831d957b582507ec"
 
+# Cloudflare D1 serverless SQL catalog index
+[[d1_databases]]
+binding = "HELMETSAN_D1"
+database_name = "helmetsan_catalog_index"
+database_id = "fa1bce22-6e10-4d65-9795-a4f0ef5e0df6"
+
+
