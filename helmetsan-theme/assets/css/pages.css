@@ -9435,4 +9435,333 @@ body.tax-certification .site-content {
     font-size: 0.75rem;
 }
 
+/* Stepper Breadcrumbs Bar */
+.hs-finder-stepper {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.hs-finder-stepper::-webkit-scrollbar {
+    display: none;
+}
+
+.hs-finder-stepper__track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.08));
+    border-radius: 9999px;
+    min-width: 580px;
+}
+
+.hs-stepper-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
+    color: var(--hs-muted, #94a3b8);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hs-stepper-pill:hover {
+    color: var(--hs-text, #f8fafc);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.hs-stepper-pill.is-active {
+    color: #0b1120;
+    background: var(--hs-accent, #00d2be);
+    box-shadow: 0 0 15px rgba(0, 210, 190, 0.4);
+}
+
+.hs-stepper-pill.is-completed {
+    color: var(--hs-accent, #00d2be);
+}
+
+.hs-stepper-pill__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.7rem;
+    font-weight: 800;
+}
+
+.hs-stepper-pill.is-active .hs-stepper-pill__num {
+    background: rgba(0, 0, 0, 0.25);
+    color: #0b1120;
+}
+
+.hs-stepper-pill.is-completed .hs-stepper-pill__num::before {
+    content: '✓';
+}
+
+.hs-stepper-divider {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 0.35rem;
+}
+
+/* Step Header Elements */
+.hs-step-kicker {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hs-accent, #00d2be);
+    margin-bottom: 0.35rem;
+}
+
+.hs-input-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hs-input-icon {
+    position: absolute;
+    left: 1rem;
+    font-size: 1rem;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.hs-input--with-icon {
+    padding-left: 2.75rem;
+}
+
+.hs-divider-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--hs-muted, #94a3b8);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.hs-divider-text::before,
+.hs-divider-text::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hs-divider-text span {
+    padding: 0 0.85rem;
+}
+
+.hs-option-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.hs-option-card__meta {
+    display: block;
+    margin-top: 0.5rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.7rem;
+    color: var(--hs-muted, #64748b);
+    font-style: italic;
+}
+
+/* Sticky Mobile Bottom Bar */
+.hs-finder-mobile-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Results Toolbar */
+.hs-results-toolbar {
+    background: var(--hs-surface, #1e293b);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.08));
+    border-radius: 14px;
+}
+
+.hs-select-sm {
+    padding: 0.35rem 1.75rem 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    border-radius: 8px;
+}
+
+.hs-filter-chip {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    color: var(--hs-muted, #94a3b8);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hs-filter-chip:hover {
+    color: var(--hs-text, #f8fafc);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hs-filter-chip.is-active {
+    background: var(--hs-accent, #00d2be);
+    color: #0b1120;
+    border-color: var(--hs-accent, #00d2be);
+    box-shadow: 0 0 10px rgba(0, 210, 190, 0.3);
+}
+
+/* Card Image Box */
+.hs-finder-card__img-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hs-finder-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.hs-finder-card:hover .hs-finder-card__img {
+    transform: scale(1.06);
+}
+
+/* SVG Radial Score Ring */
+.hs-score-ring {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hs-score-ring svg {
+    transform: rotate(-90deg);
+}
+
+.hs-score-ring__bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+}
+
+.hs-score-ring__fill {
+    fill: none;
+    stroke: var(--hs-accent, #00d2be);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.hs-score-ring__text {
+    position: absolute;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: var(--hs-accent, #00d2be);
+}
+
+/* Verified Key Pros List */
+.hs-key-pros-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.hs-pro-item {
+    font-size: 0.72rem;
+    color: #10b981;
+    line-height: 1.35;
+    font-weight: 600;
+}
+
+.hs-bullet {
+    color: var(--hs-muted, #64748b);
+}
+
+/* Quick Select Popular Machine Pills */
+.hs-quick-pill {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    color: var(--hs-text-soft, #cbd5e1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hs-quick-pill:hover {
+    background: rgba(0, 210, 190, 0.12);
+    border-color: var(--hs-accent, #00d2be);
+    color: var(--hs-accent, #00d2be);
+    transform: translateY(-1px);
+}
+
+/* Selected Bike Callout Feedback */
+.hs-selected-bike-callout {
+    background: rgba(0, 210, 190, 0.06);
+    border: 1px solid rgba(0, 210, 190, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Size Guide Drawer */
+.hs-size-guide-drawer {
+    border-color: rgba(255, 255, 255, 0.1);
+    animation: hsFadeSlideDown 0.25s ease-out;
+}
+
+@keyframes hsFadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 

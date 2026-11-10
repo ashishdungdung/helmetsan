@@ -502,12 +502,14 @@ class Helmetsan_CompatibilityEngine {
             $posts = get_posts($args);
             foreach ($posts as $p) {
                 if ($p instanceof \WP_Post) {
+                    $brand = (string) (get_post_meta($p->ID, 'brand', true) ?: (get_post_meta($p->ID, 'motorcycle_make', true) ?: get_post_meta($p->ID, 'motorcycle_brand', true)));
+                    $category = (string) (get_post_meta($p->ID, 'category', true) ?: (get_post_meta($p->ID, 'bike_segment', true) ?: get_post_meta($p->ID, 'motorcycle_category', true)));
                     $results[] = [
                         'id'              => $p->post_name,
                         'slug'            => $p->post_name,
                         'title'           => $p->post_title,
-                        'brand'           => (string) get_post_meta($p->ID, 'motorcycle_brand', true),
-                        'category'        => (string) get_post_meta($p->ID, 'motorcycle_category', true),
+                        'brand'           => $brand,
+                        'category'        => $category,
                         'riding_position' => (string) get_post_meta($p->ID, 'riding_position', true),
                     ];
                 }
@@ -842,6 +844,20 @@ class Helmetsan_CompatibilityEngine {
                 if (count($curatedGear) >= 3) break;
             }
 
+            $currencySymbols = [
+                'USD' => '$',
+                'EUR' => '€',
+                'GBP' => '£',
+                'INR' => '₹',
+                'CAD' => 'CA$',
+                'AUD' => 'AU$',
+                'JPY' => '¥',
+            ];
+            $sym = $currencySymbols[$currency] ?? '$';
+            $formattedPrice = ($currency === 'INR' || $currency === 'JPY') 
+                ? ($sym . number_format($activePrice)) 
+                : ($sym . number_format($activePrice, 2));
+
             $scored[] = [
                 'id'               => $h['id'] ?? '',
                 'slug'             => $h['slug'] ?? '',
@@ -861,17 +877,21 @@ class Helmetsan_CompatibilityEngine {
                 'price'            => [
                     'currency'  => $currency,
                     'amount'    => $activePrice,
-                    'formatted' => $currency === 'INR' ? ('₹' . number_format($activePrice)) : ('$' . number_format($activePrice, 2)),
+                    'formatted' => $formattedPrice,
                 ],
                 'specs'            => [
                     'weight_g'          => $weightG,
+                    'material'          => $h['material'] ?? 'Composite',
                     'head_shape'        => ucwords($hShape),
                     'primary_cert'      => !empty($certs[0]) ? $certs[0] : 'ECE 22.06',
                     'noise_db'          => $acousticDb ?: 85,
                     'has_sun_visor'     => $hasSunVisor,
                     'comms_ready'       => $commsReady,
                     'eyewear_compatible'=> $eyewearComp,
+                    'available_sizes'   => $h['sizes'] ?? ['XS', 'S', 'M', 'L', 'XL'],
                 ],
+                'key_pros'         => $h['pros'] ?? [],
+                'marketplace_links'=> $h['marketplace_links'] ?? [],
                 'editorial_reason' => implode(' ', array_unique($reasons)) ?: 'Engineered for exceptional aerodynamic stability and compliant impact protection.',
                 'compatible_gear'  => $curatedGear,
             ];
@@ -887,6 +907,12 @@ class Helmetsan_CompatibilityEngine {
         if (isset($top[1])) $top[1]['match_tier'] = '🥈 RUNNER UP / VALUE';
         if (isset($top[2])) $top[2]['match_tier'] = '🥉 TOP ALTERNATIVE';
 
+        // Extract available brands and types from top results for instant client filtering
+        $availableBrands = array_values(array_unique(array_filter(array_column($scored, 'brand'))));
+        sort($availableBrands);
+        $availableTypes = array_values(array_unique(array_filter(array_column($scored, 'helmet_type'))));
+        sort($availableTypes);
+
         return [
             'profile_summary' => [
                 'bike'            => $bikeName ?: ucfirst($bikeCategory),
@@ -894,6 +920,10 @@ class Helmetsan_CompatibilityEngine {
                 'riding_style'    => ucwords(str_replace('_', ' ', $ridingStyle)),
                 'head_shape'      => ucwords(str_replace('_', ' ', $headShapeReq)),
                 'safety_priority' => ucwords(str_replace('_', ' ', $safetyPriority)),
+            ],
+            'facets' => [
+                'brands' => $availableBrands,
+                'types'  => $availableTypes,
             ],
             'total_candidates_analyzed' => count($candidates),
             'results_count'             => count($top),
@@ -907,7 +937,7 @@ class Helmetsan_CompatibilityEngine {
      * @return array<int, array<string, mixed>>
      */
     private static function load_candidate_helmets(): array {
-        $cacheKey = 'hs_finder_candidates_pool';
+        $cacheKey = 'hs_finder_candidates_pool_v2';
         if (function_exists('wp_cache_get')) {
             $cached = wp_cache_get($cacheKey, 'helmetsan_compat');
             if (is_array($cached) && !empty($cached)) {
@@ -931,7 +961,7 @@ class Helmetsan_CompatibilityEngine {
             try {
                 $pdo = new \PDO('sqlite:' . $dbPath);
                 $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_SILENT);
-                $stmt = $pdo->query("SELECT id, slug, title, brand, helmet_type, head_shape, weight_g, certifications, price_usd, price_inr, price_eur, price_gbp, material, raw_json FROM helmets LIMIT 300");
+                $stmt = $pdo->query("SELECT id, slug, title, brand, helmet_type, head_shape, weight_g, certifications, price_usd, price_inr, price_eur, price_gbp, material, raw_json FROM helmets LIMIT 2500");
                 if ($stmt) {
                     $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                     if (!empty($rows)) {
@@ -942,10 +972,40 @@ class Helmetsan_CompatibilityEngine {
                                 $certs = array_filter(array_map('trim', explode(',', $r['certifications'])));
                             }
                             $raw = !empty($r['raw_json']) ? json_decode($r['raw_json'], true) : [];
+
+                            // Extract primary front image
+                            $imageUrl = '';
+                            if (!empty($raw['geo_media']) && is_array($raw['geo_media']) && !empty($raw['geo_media'][0])) {
+                                $imageUrl = (string) $raw['geo_media'][0];
+                            } elseif (!empty($raw['media']['primary_image_url'])) {
+                                $imageUrl = (string) $raw['media']['primary_image_url'];
+                            }
+
+                            // Extract verified pros
+                            $pros = [];
+                            if (!empty($raw['pros_and_cons']['pros']) && is_array($raw['pros_and_cons']['pros'])) {
+                                $pros = array_slice($raw['pros_and_cons']['pros'], 0, 2);
+                            }
+
+                            // Extract marketplace retailer links
+                            $mLinks = !empty($raw['marketplace_links']) && is_array($raw['marketplace_links']) ? $raw['marketplace_links'] : [];
+
+                            // Extract sizes
+                            $sizes = !empty($raw['sizing_fit']['sizing_chart']) && is_array($raw['sizing_fit']['sizing_chart']) 
+                                ? array_keys($raw['sizing_fit']['sizing_chart']) 
+                                : ['XS', 'S', 'M', 'L', 'XL', '2XL'];
+
+                            $cleanTitle = (string) $r['title'];
+                            if (strpos($cleanTitle, '_') !== false) {
+                                $clean = (string) preg_replace('/^([a-z0-9]+)\s+\1_/i', '', $cleanTitle);
+                                $clean = (string) preg_replace('/^([a-z0-9]+)_/i', '', $clean);
+                                $cleanTitle = ucwords(str_replace(['_', '-'], ' ', $clean));
+                            }
+
                             $items[] = [
                                 'id'                 => $r['id'],
                                 'slug'               => $r['slug'] ?: $r['id'],
-                                'title'              => $r['title'],
+                                'title'              => $cleanTitle,
                                 'brand'              => $r['brand'],
                                 'type'               => $r['helmet_type'] ?: 'Full Face',
                                 'head_shape'         => $r['head_shape'] ?: 'Intermediate Oval',
@@ -957,13 +1017,17 @@ class Helmetsan_CompatibilityEngine {
                                 'price_inr'          => (float) ($r['price_inr'] ?: 24900),
                                 'price_eur'          => (float) ($r['price_eur'] ?: 279),
                                 'price_gbp'          => (float) ($r['price_gbp'] ?: 249),
+                                'material'           => (string) ($r['material'] ?: ($raw['specs']['shell_material'] ?? 'Composite Shell')),
                                 'has_sun_visor'      => !empty($raw['features_data']['visor']) && in_array('Internal Sun Visor', $raw['features_data']['visor']),
                                 'comms_ready'        => true,
                                 'pinlock_ready'      => true,
                                 'eyewear_compatible' => true,
                                 'carbon_fiber'       => stripos($r['material'] ?? '', 'carbon') !== false,
                                 'permalink'          => '/helmets/' . ($r['slug'] ?: $r['id']) . '/',
-                                'image_url'          => $raw['media']['primary_image_url'] ?? '',
+                                'image_url'          => $imageUrl,
+                                'pros'               => $pros,
+                                'marketplace_links'  => $mLinks,
+                                'sizes'              => $sizes,
                             ];
                         }
                         if (function_exists('wp_cache_set')) {
@@ -979,7 +1043,7 @@ class Helmetsan_CompatibilityEngine {
         if (function_exists('get_posts')) {
             $posts = get_posts([
                 'post_type'      => 'helmet',
-                'posts_per_page' => 150,
+                'posts_per_page' => 200,
                 'post_status'    => 'publish',
             ]);
             $items = [];
@@ -988,10 +1052,24 @@ class Helmetsan_CompatibilityEngine {
                     $pid = $p->ID;
                     $brandMeta = get_post_meta($pid, 'rel_brand', true);
                     $brandName = is_numeric($brandMeta) ? get_the_title((int)$brandMeta) : (string) get_post_meta($pid, 'brand_name', true);
+                    
+                    $geoMedia = json_decode((string) get_post_meta($pid, 'geo_media_json', true), true);
+                    $imageUrl = !empty($geoMedia[0]) ? (string) $geoMedia[0] : (get_the_post_thumbnail_url($pid, 'medium') ?: '');
+
+                    $prosData = json_decode((string) get_post_meta($pid, 'pros_and_cons_json', true), true);
+                    $pros = !empty($prosData['pros']) && is_array($prosData['pros']) ? array_slice($prosData['pros'], 0, 2) : [];
+
+                    $postTitle = (string) $p->post_title;
+                    if (strpos($postTitle, '_') !== false) {
+                        $clean = (string) preg_replace('/^([a-z0-9]+)\s+\1_/i', '', $postTitle);
+                        $clean = (string) preg_replace('/^([a-z0-9]+)_/i', '', $clean);
+                        $postTitle = ucwords(str_replace(['_', '-'], ' ', $clean));
+                    }
+
                     $items[] = [
                         'id'                 => $p->post_name,
                         'slug'               => $p->post_name,
-                        'title'              => $p->post_title,
+                        'title'              => $postTitle,
                         'brand'              => $brandName ?: 'Premium',
                         'type'               => (string) get_post_meta($pid, 'helmet_type', true) ?: 'Full Face',
                         'head_shape'         => (string) get_post_meta($pid, 'head_shape', true) ?: 'Intermediate Oval',
@@ -1003,13 +1081,17 @@ class Helmetsan_CompatibilityEngine {
                         'price_inr'          => (float) get_post_meta($pid, 'price_inr', true) ?: 29000,
                         'price_eur'          => (float) get_post_meta($pid, 'price_eur', true) ?: 320,
                         'price_gbp'          => (float) get_post_meta($pid, 'price_gbp', true) ?: 280,
+                        'material'           => (string) get_post_meta($pid, 'shell_material', true) ?: 'Composite',
                         'has_sun_visor'      => (bool) get_post_meta($pid, 'has_internal_sun_visor', true),
                         'comms_ready'        => (bool) get_post_meta($pid, 'comms_ready', true) ?: true,
                         'pinlock_ready'      => (bool) get_post_meta($pid, 'pinlock_included', true) ?: true,
                         'eyewear_compatible' => true,
                         'carbon_fiber'       => stripos((string) get_post_meta($pid, 'shell_material', true), 'carbon') !== false,
                         'permalink'          => get_permalink($pid) ?: ('/helmets/' . $p->post_name . '/'),
-                        'image_url'          => get_the_post_thumbnail_url($pid, 'medium') ?: '',
+                        'image_url'          => $imageUrl,
+                        'pros'               => $pros,
+                        'marketplace_links'  => [],
+                        'sizes'              => ['XS', 'S', 'M', 'L', 'XL'],
                     ];
                 }
             }
