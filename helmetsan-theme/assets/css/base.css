@@ -284,6 +284,7 @@ body.hs-layout-wide .site-content .site-main {
     border-radius: 999px;
     padding: .4rem .7rem;
     border: 1px solid transparent;
+    white-space: nowrap;
 }
 
 .menu--primary a:hover {
