@@ -380,6 +380,10 @@ const TRACKING_PARAMS = new Set([
 ]);
 
 function shouldBypassPageCache(request, url) {
+    // Interactive Advisor Wizards must never be cached at the edge
+    if (url.pathname.startsWith('/find-my-helmet') || url.pathname.startsWith('/finder')) {
+        return { bypass: true, reason: 'INTERACTIVE_ADVISOR' };
+    }
     if (url.pathname.startsWith('/go/')) {
         return { bypass: true, reason: 'AFFILIATE_REDIRECT' };
     }
@@ -410,7 +414,7 @@ function isDataApiFormatRequest(url) {
     return format === 'json' || format === 'md' || format === 'markdown';
 }
 
-const CACHE_VERSION = 'v3_20260912_cs';
+const CACHE_VERSION = 'v4_20261110_finder';
 
 function normalizePageCacheKey(request, url, country) {
     const params = new URLSearchParams();
