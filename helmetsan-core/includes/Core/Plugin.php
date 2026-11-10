@@ -164,6 +164,7 @@ final class Plugin
     private PriceController $priceApi;
     private ReviewController $reviewApi;
     private MotorcycleCommerceController $motorcycleCommerceApi;
+    private TurnstileFormProtection $turnstileFormProtection;
     private \Helmetsan\Core\API\HelmetController $helmetApi;
     private \Helmetsan\Core\API\DeltaController $deltaApi;
     private CdnController $cdnApi;

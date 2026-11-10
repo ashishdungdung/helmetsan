@@ -4,8 +4,10 @@
   "description": "Cloudflare workers orchestration for helmetsan.com",
   "scripts": {
     "deploy:workers": "npx wrangler@4 deploy --config cloudflare-workers/edge-assembly-worker/wrangler.toml",
-    "deploy:cache-worker": "npx wrangler@4 deploy --config cloudflare-workers/edge-cache-worker/wrangler.toml",
-    "test:workers": "node scripts/test_all_workers.cjs"
+    "test:workers": "node scripts/test_all_workers.cjs",
+    "test:unit": "./vendor/bin/phpunit",
+    "phpstan": "php -d memory_limit=2G ./vendor/bin/phpstan analyse --memory-limit=2G",
+    "test": "npm run test:workers && npm run test:unit && npm run phpstan"
   },
   "devDependencies": {
     "wrangler": "^4.151.1"
