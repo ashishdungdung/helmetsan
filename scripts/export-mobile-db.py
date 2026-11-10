@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import glob
+import shutil
 import sqlite3
 from pathlib import Path
 
@@ -489,6 +490,10 @@ def compile_catalog():
     total_compat = cursor.fetchone()[0]
     
     conn.close()
+
+    # Synchronize compiled catalog.db to HelmetsanWeb/data for fitment & projection workers
+    web_db_path = data_dir / "catalog.db"
+    shutil.copy2(str(db_path), str(web_db_path))
     
     db_size_mb = os.path.getsize(str(db_path)) / (1024 * 1024)
     print("\n✅ Catalog SQLite Compilation Complete!")
@@ -499,7 +504,8 @@ def compile_catalog():
     print(f"   🔧 Total Accessories Indexed:  {total_accessories:,}")
     print(f"   🔗 Total Compatibility Links:  {total_compat:,}")
     print(f"   💾 Database Size:              {db_size_mb:.2f} MB")
-    print(f"   📍 Target:                     {db_path}")
+    print(f"   📍 Targets:                    {db_path}")
+    print(f"                                  {web_db_path}")
 
 if __name__ == "__main__":
     compile_catalog()

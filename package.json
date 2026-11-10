@@ -3,6 +3,8 @@
   "private": true,
   "description": "Cloudflare workers orchestration for helmetsan.com",
   "scripts": {
+    "build:catalog": "python3 scripts/export-mobile-db.py && python3 scripts/generate_fitment_projections.py",
+    "lint:data": "python3 scripts/lint_helmet_data.py",
     "deploy:workers": "npx wrangler@4 deploy --config cloudflare-workers/edge-assembly-worker/wrangler.toml",
     "test:workers": "node scripts/test_all_workers.cjs",
     "test:unit": "./vendor/bin/phpunit",
