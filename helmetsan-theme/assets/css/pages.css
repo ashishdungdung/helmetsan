@@ -9095,3 +9095,344 @@ body.tax-certification .site-content {
     }
 }
 
+/* ==========================================================================
+   Find My Helmet Guided Advisor Engine
+   ========================================================================== */
+.hs-finder-page {
+    background-color: var(--hs-bg, #0b1120);
+    min-height: 85vh;
+}
+
+.hs-finder-hero {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hs-finder-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hs-accent, #00d2be);
+    background: rgba(0, 210, 190, 0.12);
+    border: 1px solid rgba(0, 210, 190, 0.3);
+    border-radius: 9999px;
+}
+
+.hs-finder-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--hs-text, #f8fafc);
+    margin-bottom: 0.75rem;
+}
+
+.hs-finder-subtitle {
+    font-size: 1.05rem;
+    color: var(--hs-muted, #94a3b8);
+    line-height: 1.6;
+}
+
+.hs-finder-wizard {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--hs-surface, #1e293b);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.08));
+    border-radius: 18px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+.hs-finder-progress-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.hs-finder-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d2be, #38bdf8);
+    border-radius: 9999px;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hs-step-heading {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--hs-text, #f8fafc);
+    margin-bottom: 0.35rem;
+}
+
+.hs-step-desc {
+    font-size: 0.9rem;
+    color: var(--hs-muted, #94a3b8);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Option Cards (Radio selection) */
+.hs-option-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.1));
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.hs-option-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.hs-option-card.is-selected {
+    background: rgba(0, 210, 190, 0.08);
+    border-color: var(--hs-accent, #00d2be);
+    box-shadow: 0 0 15px -2px rgba(0, 210, 190, 0.25);
+}
+
+.hs-option-card__icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.hs-option-card__title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--hs-text, #f8fafc);
+    margin-bottom: 0.25rem;
+}
+
+.hs-option-card__desc {
+    font-size: 0.78rem;
+    color: var(--hs-muted, #94a3b8);
+    line-height: 1.4;
+}
+
+/* Feature Pill Checkboxes */
+.hs-feature-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.08));
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.hs-feature-pill:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.hs-feature-pill__icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* Autocomplete Dropdown */
+.hs-autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    margin-top: 4px;
+    background: var(--hs-surface, #1e293b);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.15));
+    border-radius: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.hs-autocomplete-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: background 0.15s ease;
+}
+
+.hs-autocomplete-item:hover {
+    background: rgba(0, 210, 190, 0.1);
+}
+
+/* Results Section & Matched Helmet Cards */
+.hs-finder-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--hs-surface, #1e293b);
+    border: 1px solid var(--hs-border, rgba(255, 255, 255, 0.08));
+    border-radius: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hs-finder-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.hs-finder-card.is-best-overall {
+    border: 2px solid var(--hs-accent, #00d2be);
+    box-shadow: 0 0 25px -4px rgba(0, 210, 190, 0.3);
+}
+
+.hs-finder-card.is-runner-up {
+    border: 2px solid #38bdf8;
+}
+
+.hs-finder-card__award {
+    position: absolute;
+    top: -12px;
+    left: 1.25rem;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0b1120;
+    background: var(--hs-accent, #00d2be);
+    border-radius: 9999px;
+}
+
+.hs-finder-card.is-runner-up .hs-finder-card__award {
+    background: #38bdf8;
+}
+
+.hs-finder-card__brand {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hs-muted, #94a3b8);
+}
+
+.hs-finder-card__title {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--hs-text, #f8fafc);
+    margin: 0.15rem 0 0.25rem;
+}
+
+.hs-finder-card__title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hs-finder-card__title a:hover {
+    color: var(--hs-accent, #00d2be);
+}
+
+.hs-finder-card__type {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--hs-accent, #00d2be);
+    font-weight: 600;
+}
+
+.hs-score-dial {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    padding: 0.4rem 0.65rem;
+    background: rgba(0, 210, 190, 0.12);
+    border: 1px solid rgba(0, 210, 190, 0.3);
+    border-radius: 12px;
+    color: var(--hs-accent, #00d2be);
+}
+
+.hs-score-dial__num {
+    font-size: 1.35rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.hs-score-dial__pct {
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Sub-Score Bars */
+.hs-sub-scores {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.hs-sub-score-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+}
+
+.hs-sub-score-label {
+    width: 42%;
+    color: var(--hs-muted, #94a3b8);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hs-sub-score-bar {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.hs-sub-score-fill {
+    height: 100%;
+    background: var(--hs-accent, #00d2be);
+    border-radius: 9999px;
+}
+
+.hs-sub-score-val {
+    width: 22px;
+    text-align: right;
+    font-weight: 800;
+    color: var(--hs-text, #f8fafc);
+}
+
+.hs-pill {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.68rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    color: var(--hs-text, #f8fafc);
+}
+
+.hs-finder-gear-box {
+    padding: 0.65rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.hs-gear-item {
+    font-size: 0.75rem;
+}
+
+

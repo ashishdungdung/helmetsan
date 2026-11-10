@@ -378,6 +378,21 @@ function helmetsan_theme_enqueue_assets(): void
 
         wp_localize_script('helmetsan-locator', 'hsDealers', $dealerData);
     }
+
+    // Find My Helmet Guided Advisor
+    if (is_page_template('page-finder.php') || is_page('find-my-helmet') || is_page('finder')) {
+        wp_enqueue_script(
+            'helmetsan-finder',
+            get_stylesheet_directory_uri() . '/assets/js/helmet-finder.js',
+            [],
+            helmetsan_theme_asset_version('/assets/js/helmet-finder.js'),
+            ['strategy' => 'defer', 'in_footer' => true]
+        );
+        wp_localize_script('helmetsan-finder', 'hsFinderData', [
+            'apiBase'   => rest_url('hs/v1'),
+            'restNonce' => wp_create_nonce('wp_rest'),
+        ]);
+    }
 }
 
 // Invalidate dealer locator cache when a dealer post is updated or deleted

@@ -167,6 +167,7 @@ final class Plugin
     private TurnstileFormProtection $turnstileFormProtection;
     private \Helmetsan\Core\API\HelmetController $helmetApi;
     private \Helmetsan\Core\API\DeltaController $deltaApi;
+    private \Helmetsan\Core\API\FinderController $finderApi;
     private CdnController $cdnApi;
     private FeedIngestionTask $feedTask;
     private RevenueDashboard $revenueDashboard;
@@ -272,6 +273,7 @@ final class Plugin
         $this->turnstileFormProtection = new TurnstileFormProtection($this->turnstileService, $this->config);
         $this->helmetApi = new \Helmetsan\Core\API\HelmetController();
         $this->deltaApi = new \Helmetsan\Core\API\DeltaController($this->repository);
+        $this->finderApi = new \Helmetsan\Core\API\FinderController();
         $this->cdnApi = new CdnController();
         $this->apiGateway = new ApiGateway();
         $this->dataApi = new DataApiController($this->price, $this->reviews, $this->apiGateway);
@@ -496,6 +498,7 @@ final class Plugin
         $this->motorcycleCommerceApi->register();
         $this->helmetApi->register();
         $this->deltaApi->register();
+        $this->finderApi->register();
         $this->cdnApi->register();
         $this->dataApi->register();
         $this->feedTask->register();
