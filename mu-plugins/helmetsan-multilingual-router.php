@@ -45,6 +45,25 @@ add_action('template_redirect', function(): void {
             wp_safe_redirect(home_url($langPrefix . '/brands/' . $slug . '/'), 301);
             exit;
         }
+
+        // C. Stale Duplicate Helmet to Clean Canonical Redirect
+        // Catches /helmets/{base}-stale-{id}/ and /{lang}/helmets/{base}-stale-{id}/
+        if (preg_match('/^(.+)-stale-\d+$/', $slug, $staleMatches)) {
+            $cleanBase = $staleMatches[1];
+            wp_safe_redirect(home_url($langPrefix . '/helmets/' . $cleanBase . '/'), 301);
+            exit;
+        }
+
+        // D. Legacy Stale Child Slugs (e.g. helmet-5281-it)
+        if (preg_match('/^helmet-(\d+)-(' . $supportedLangs . ')$/', $slug, $childMatches)) {
+            $parentStaleId = (int) $childMatches[1];
+            $parentSlug = (string) $wpdb->get_var($wpdb->prepare("SELECT post_name FROM {$wpdb->posts} WHERE ID = %d", $parentStaleId));
+            if (!empty($parentSlug)) {
+                $cleanBase = preg_replace('/-stale-\d+$/', '', $parentSlug);
+                wp_safe_redirect(home_url($langPrefix . '/helmets/' . $cleanBase . '/'), 301);
+                exit;
+            }
+        }
     }
 }, 1);
 

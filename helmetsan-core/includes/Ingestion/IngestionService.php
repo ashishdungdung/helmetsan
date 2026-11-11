@@ -682,6 +682,13 @@ final class IngestionService
             $slug = sanitize_title($title);
         }
 
+        // Architectural Gatekeeper: Prevent Ghost Brand Helmets from ever being ingested
+        $validation = $this->validateHelmetPayload($data, $brandName, $title, $slug);
+        if (!$validation['valid']) {
+            $this->logger->info("Ingest REJECTED ghost/invalid helmet for {$sourceFile}: {$validation['reason']}");
+            return ['ok' => false, 'action' => 'rejected_ghost', 'post_id' => 0];
+        }
+
         $postArgs = [
             'post_type'    => 'helmet',
             'post_title'   => sanitize_text_field($title),
@@ -1325,5 +1332,52 @@ final class IngestionService
         }
         delete_transient(self::LOCK_KEY);
         delete_transient('helmetsan_catalog_metric_summary');
+    }
+
+    /**
+     * Architectural Gatekeeper: Validates helmet payload to prevent ghost brand helmets,
+     * generic brand collisions, and empty models from polluting the catalog.
+     *
+     * @param array<string, mixed> $data
+     * @param string $brandName
+     * @param string $title
+     * @param string $slug
+     * @return array{valid: bool, reason: string}
+     */
+    private function validateHelmetPayload(array $data, string $brandName, string $title, string $slug): array
+    {
+        $normTitle = trim(strtolower($title));
+        $normBrand = trim(strtolower($brandName));
+        $normSlug  = trim(strtolower($slug));
+
+        // 1. Ghost Brand Check: Title exactly matches brand name
+        if ($normBrand !== '' && $normTitle === $normBrand) {
+            return ['valid' => false, 'reason' => "Title '{$title}' exactly matches brand name '{$brandName}'"];
+        }
+
+        // 2. Ghost Brand Check: Slug exactly matches brand name
+        if ($normBrand !== '' && $normSlug === sanitize_title($normBrand)) {
+            return ['valid' => false, 'reason' => "Slug '{$slug}' exactly matches brand slug"];
+        }
+
+        // 3. Collision with published brand post
+        global $wpdb;
+        $brandExists = $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'brand' AND post_status = 'publish' LIMIT 1",
+            $normSlug
+        ));
+        if ($brandExists) {
+            return ['valid' => false, 'reason' => "Slug '{$slug}' collides with published brand post ID {$brandExists}"];
+        }
+
+        // 4. Model designation check: If data has 'model', ensure it is non-empty and not just brand
+        if (isset($data['model']) && is_string($data['model'])) {
+            $normModel = trim(strtolower($data['model']));
+            if ($normModel === '' || ($normBrand !== '' && $normModel === $normBrand)) {
+                return ['valid' => false, 'reason' => "Model designation '{$data['model']}' is empty or duplicate of brand"];
+            }
+        }
+
+        return ['valid' => true, 'reason' => ''];
     }
 }

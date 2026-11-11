@@ -43,6 +43,13 @@ final class AutoSeoObserver
         add_filter('document_title_parts', [$this, 'filterDocumentTitleParts'], 90);
         add_filter('wpseo_metadesc', [$this, 'filterArchiveMetaDescription'], 90);
 
+        // Runtime SEO Sanitization: Eliminate duplicate brand words from titles & descriptions
+        add_filter('wpseo_title', [$this, 'filterSanitizeDuplicateBrandWords'], 99);
+        add_filter('wpseo_metadesc', [$this, 'filterSanitizeDuplicateBrandMetaDesc'], 99);
+
+        // Architectural Gatekeeper: Prevent inserting ghost brand helmets anywhere in WordPress
+        add_filter('wp_insert_post_data', [$this, 'filterPreventGhostBrandHelmet'], 10, 2);
+
         // Pagination rel="prev" / rel="next" link tags
         add_action('wp_head', [$this, 'printPaginationLinkTags'], 5);
 
@@ -533,6 +540,81 @@ final class AutoSeoObserver
 
         $dynamicDesc = $this->buildDynamicArchiveDescription();
         return $dynamicDesc !== '' ? $dynamicDesc : $desc;
+    }
+
+    /**
+     * Runtime SEO Title Sanitizer: Strips duplicate brand words from titles.
+     * Converts "AGV AGV Pista GP RR" -> "AGV Pista GP RR" or "Shoei Shoei Neotec" -> "Shoei Neotec".
+     */
+    public function filterSanitizeDuplicateBrandWords(mixed $title): mixed
+    {
+        if (! is_string($title) || $title === '') {
+            return $title;
+        }
+
+        // 1. Strip leading repeated identical word (e.g. "AGV AGV ...")
+        $cleaned = preg_replace('/^([A-Z0-9a-z\-]+)\s+\1\b/iu', '$1', $title);
+        // 2. Strip repeated word anywhere in the title
+        $cleaned = preg_replace('/\b([A-Z0-9a-z\-]{3,})\s+\1\b/iu', '$1', (string) $cleaned);
+
+        return $cleaned;
+    }
+
+    /**
+     * Runtime SEO Meta Description Sanitizer: Strips duplicate brand words from descriptions.
+     * Converts "the AGV AGV Pista..." -> "the AGV Pista...".
+     */
+    public function filterSanitizeDuplicateBrandMetaDesc(mixed $desc): mixed
+    {
+        if (! is_string($desc) || $desc === '') {
+            return $desc;
+        }
+
+        // 1. Strip "the BRAND BRAND" -> "the BRAND"
+        $cleaned = preg_replace('/\bthe\s+([A-Z0-9a-z\-]+)\s+\1\b/iu', 'the $1', $desc);
+        // 2. Strip repeated word anywhere in description
+        $cleaned = preg_replace('/\b([A-Z0-9a-z\-]{3,})\s+\1\b/iu', '$1', (string) $cleaned);
+
+        return $cleaned;
+    }
+
+    /**
+     * Architectural Gatekeeper: Prevents inserting or updating ghost brand helmets globally.
+     * Rejects or drafts any post of type 'helmet' where title or slug matches a manufacturer brand.
+     *
+     * @param array<string, mixed> $data
+     * @param array<string, mixed> $postarr
+     * @return array<string, mixed>
+     */
+    public function filterPreventGhostBrandHelmet(array $data, array $postarr): array
+    {
+        if (($data['post_type'] ?? '') !== 'helmet') {
+            return $data;
+        }
+
+        $title = trim((string) ($data['post_title'] ?? ''));
+        $slug  = trim((string) ($data['post_name'] ?? ''));
+
+        if ($title === '' && $slug === '') {
+            return $data;
+        }
+
+        global $wpdb;
+        $normSlug = sanitize_title($slug !== '' ? $slug : $title);
+
+        // Check if a published brand post exists with this slug
+        $brandId = $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'brand' AND post_status = 'publish' LIMIT 1",
+            $normSlug
+        ));
+
+        if ($brandId) {
+            // Prevent publish: change to draft and append flag so it cannot pollute catalog
+            $data['post_status'] = 'draft';
+            $data['post_title']  = $title . ' [GHOST_REJECTED]';
+        }
+
+        return $data;
     }
 
     /**

@@ -450,21 +450,28 @@ HTML;
         global $wpdb;
         $start = microtime(true);
 
-        $langClause = "";
+        $targetLangSql = "";
         if ($targetLang !== null && $targetLang !== '') {
-            $langClause = "AND post_name LIKE '%-" . esc_sql($targetLang) . "'";
+            $targetLangSql = $wpdb->prepare("AND t.slug = %s", $targetLang);
         } else {
-            // All 9 non-English languages
-            $suffixes = ['-de', '-fr', '-es', '-it', '-nl', '-pl', '-pt', '-ja', '-zh'];
-            $likeClauses = [];
-            foreach ($suffixes as $s) {
-                $likeClauses[] = "post_name LIKE '%" . esc_sql($s) . "'";
-            }
-            $langClause = "AND (" . implode(' OR ', $likeClauses) . ")";
+            $targetLangSql = "AND t.slug != 'en'";
         }
 
-        $limitSql = $limit > 0 ? "LIMIT {$limit}" : "";
-        $postIds = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' {$langClause} ORDER BY ID ASC {$limitSql}");
+        $limitSql = $limit > 0 ? $wpdb->prepare("LIMIT %d", $limit) : "";
+        $postIds = $wpdb->get_col("
+            SELECT p.ID 
+            FROM {$wpdb->posts} p
+            INNER JOIN {$wpdb->term_relationships} tr ON p.ID = tr.object_id
+            INNER JOIN {$wpdb->term_taxonomy} tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+            INNER JOIN {$wpdb->terms} t ON tt.term_id = t.term_id
+            WHERE p.post_type = 'helmet' 
+              AND p.post_status = 'publish' 
+              AND tt.taxonomy = 'language'
+              {$targetLangSql}
+              AND p.post_content LIKE '%is engineered as a high-integrity%'
+            ORDER BY p.ID ASC 
+            {$limitSql}
+        ");
 
         $scanned = 0;
         $updated = 0;
@@ -491,15 +498,15 @@ HTML;
 
     private static function resolveLanguage(\WP_Post $post): string
     {
-        if (preg_match('/-([a-z]{2})$/', $post->post_name, $m)) {
-            return $m[1];
-        }
-
         if (function_exists('pll_get_post_language')) {
             $lang = (string) pll_get_post_language($post->ID);
             if ($lang !== '') {
                 return $lang;
             }
+        }
+
+        if (preg_match('/-([a-z]{2})$/', $post->post_name, $m)) {
+            return $m[1];
         }
 
         return 'en';
@@ -542,15 +549,23 @@ HTML;
 
     private static function resolveGuideUrl(int $masterId, string $fallback, string $lang): string
     {
+        static $guideCache = [];
+        $cacheKey = $masterId . ':' . $lang;
+        if (isset($guideCache[$cacheKey])) {
+            return $guideCache[$cacheKey];
+        }
+
         if (function_exists('pll_get_post')) {
             $transId = pll_get_post($masterId, $lang);
             if ($transId) {
                 $link = get_permalink($transId);
                 if ($link) {
+                    $guideCache[$cacheKey] = $link;
                     return $link;
                 }
             }
         }
+        $guideCache[$cacheKey] = $fallback;
         return $fallback;
     }
 }

@@ -158,6 +158,7 @@ final class Commands
         \WP_CLI::add_command('helmetsan db deduplicate-meta', [$this, 'dbDeduplicateMeta']);
         \WP_CLI::add_command('helmetsan db backfill-index', [$this, 'dbBackfillIndex']);
         \WP_CLI::add_command('helmetsan db purge-ghost-helmets', [$this, 'dbPurgeGhostHelmets']);
+        \WP_CLI::add_command('helmetsan db purge-stale-helmets', [$this, 'dbPurgeStaleHelmets']);
         \WP_CLI::add_command('helmetsan db repair-seo-titles', [$this, 'dbRepairSeoTitles']);
         \WP_CLI::add_command('helmetsan db drop-legacy-tables', [$this, 'dbDropLegacyTables']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
@@ -5090,6 +5091,30 @@ final class Commands
             \WP_CLI::success("DRY RUN: Identified {$result['identified']} ghost helmet posts across languages. Run without --dry-run to permanently purge.");
         } else {
             \WP_CLI::success("Purge complete: Identified {$result['identified']} ghost posts, permanently purged {$result['deleted']} rows.");
+        }
+    }
+
+    /**
+     * Purges stale duplicate helmet posts and their multilingual child clusters.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Preview posts without deleting.
+     *
+     * [--batch-size=<n>]
+     * : Batch limit. Default: 250.
+     */
+    public function dbPurgeStaleHelmets(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        $batch = (int) ($assoc['batch-size'] ?? 250);
+        \WP_CLI::log("Scanning for stale duplicate helmet posts (*-stale-*) with verified clean counterparts...");
+        $result = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeStaleDuplicateHelmets($dryRun, $batch);
+
+        if ($dryRun) {
+            \WP_CLI::success("DRY RUN: Found {$result['stale_clusters']} stale clusters encompassing {$result['total_posts']} duplicate posts across languages. Run without --dry-run to permanently purge.");
+        } else {
+            \WP_CLI::success("Purge complete: Purged {$result['stale_clusters']} stale clusters ({$result['purged_posts']} duplicate posts permanently deleted).");
         }
     }
 

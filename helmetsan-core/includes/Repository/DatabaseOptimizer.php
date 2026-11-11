@@ -315,4 +315,123 @@ final class DatabaseOptimizer
 
         return $dropped;
     }
+
+    /**
+     * Purges stale duplicate helmets created during older ingestion runs (marked with *-stale-* in slug).
+     * Only purges posts if an active, published clean counterpart exists with the base slug.
+     * Also cascades across all Polylang translation clusters of the stale posts.
+     *
+     * @param bool $dryRun
+     * @param int $batchLimit
+     * @return array{stale_clusters: int, total_posts: int, purged_posts: int, dry_run: bool}
+     */
+    public static function purgeStaleDuplicateHelmets(bool $dryRun = true, int $batchLimit = 1000): array
+    {
+        global $wpdb;
+        $indexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        $stalePosts = $wpdb->get_results("
+            SELECT ID, post_name, post_title 
+            FROM {$wpdb->posts} 
+            WHERE post_name LIKE '%-stale-%' AND post_type = 'helmet' AND post_status = 'publish'
+            ORDER BY ID ASC
+        ");
+
+        if (empty($stalePosts)) {
+            return [
+                'stale_clusters' => 0,
+                'total_posts'    => 0,
+                'purged_posts'   => 0,
+                'dry_run'        => $dryRun,
+            ];
+        }
+
+        $allPostIdsToPurge = [];
+        $verifiedClusters = 0;
+
+        foreach ($stalePosts as $p) {
+            $baseSlug = preg_replace('/-stale-\d+$/', '', $p->post_name);
+            if (empty($baseSlug)) {
+                continue;
+            }
+
+            // Verify clean counterpart exists
+            $cleanId = $wpdb->get_var($wpdb->prepare("
+                SELECT ID FROM {$wpdb->posts} 
+                WHERE post_name = %s AND post_type = 'helmet' AND post_status = 'publish' AND ID != %d
+                LIMIT 1
+            ", $baseSlug, $p->ID));
+
+            if (!$cleanId) {
+                // If no clean counterpart exists, DO NOT purge this helmet!
+                continue;
+            }
+
+            $verifiedClusters++;
+            $allPostIdsToPurge[$p->ID] = true;
+
+            // Collect all child translations
+            if (function_exists('pll_get_post_translations')) {
+                $translations = pll_get_post_translations((int) $p->ID);
+                if (is_array($translations)) {
+                    foreach ($translations as $tid) {
+                        if ($tid > 0) {
+                            $allPostIdsToPurge[(int) $tid] = true;
+                        }
+                    }
+                }
+            }
+
+            // Also check for legacy child slugs matching helmet-{staleId}-{lang}
+            $childLegacyPosts = $wpdb->get_col($wpdb->prepare("
+                SELECT ID FROM {$wpdb->posts}
+                WHERE post_name LIKE %s AND post_type = 'helmet'
+            ", 'helmet-' . $p->ID . '-%'));
+            foreach ($childLegacyPosts as $cid) {
+                $allPostIdsToPurge[(int) $cid] = true;
+            }
+        }
+
+        $uniqueIds = array_keys($allPostIdsToPurge);
+        $totalPosts = count($uniqueIds);
+
+        if ($dryRun) {
+            return [
+                'stale_clusters' => $verifiedClusters,
+                'total_posts'    => $totalPosts,
+                'purged_posts'   => 0,
+                'dry_run'        => true,
+            ];
+        }
+
+        // Execute fast bulk SQL deletion in chunks of 500
+        $purgedCount = 0;
+        $chunks = array_chunk($uniqueIds, 500);
+
+        foreach ($chunks as $chunk) {
+            $idList = implode(',', array_map('intval', $chunk));
+
+            // 1. Remove from product index
+            $wpdb->query("DELETE FROM {$indexTable} WHERE post_id IN ({$idList})");
+            // 2. Remove all post metadata
+            $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+            // 3. Remove taxonomy relationships
+            $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+            // 4. Delete the posts
+            $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+
+            $purgedCount += count($chunk);
+            usleep(25000); // 25ms pause between batches
+        }
+
+        // Clean post cache
+        clean_post_cache($uniqueIds[0] ?? 0);
+
+        return [
+            'stale_clusters' => $verifiedClusters,
+            'total_posts'    => $totalPosts,
+            'purged_posts'   => $purgedCount,
+            'dry_run'        => false,
+        ];
+    }
 }
