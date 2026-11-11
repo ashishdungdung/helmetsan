@@ -158,18 +158,44 @@ final class DatabaseManager
         }
 
         $category = '';
+        $enPostId = 0;
+        if (function_exists('pll_get_post')) {
+            $enPostId = (int) pll_get_post($postId, 'en');
+        }
+
         if ($post->post_type === 'helmet') {
             $terms = wp_get_post_terms($postId, 'helmet_type', ['fields' => 'names']);
+            if ((is_wp_error($terms) || empty($terms)) && $enPostId > 0 && $enPostId !== $postId) {
+                $terms = wp_get_post_terms($enPostId, 'helmet_type', ['fields' => 'names']);
+            }
             $category = (!is_wp_error($terms) && !empty($terms)) ? $terms[0] : '';
         } else {
             $category = (string) get_post_meta($postId, 'accessory_type', true);
+            if ($category === '' && $enPostId > 0 && $enPostId !== $postId) {
+                $category = (string) get_post_meta($enPostId, 'accessory_type', true);
+            }
         }
 
         $brandId = (int) get_post_meta($postId, 'rel_brand', true);
+        if ($brandId === 0 && $enPostId > 0 && $enPostId !== $postId) {
+            $brandId = (int) get_post_meta($enPostId, 'rel_brand', true);
+        }
+        if ($brandId === 0) {
+            $brandTerms = wp_get_post_terms($postId, 'helmet_brand', ['fields' => 'slugs']);
+            if (!is_wp_error($brandTerms) && !empty($brandTerms)) {
+                $brandPost = get_page_by_path($brandTerms[0], OBJECT, 'brand');
+                if ($brandPost) {
+                    $brandId = (int) $brandPost->ID;
+                }
+            }
+        }
         
         $priceInr = get_post_meta($postId, 'price_retail_inr', true);
         if (!is_numeric($priceInr)) {
             $priceInr = get_post_meta($postId, 'price_inr', true);
+        }
+        if (!is_numeric($priceInr) && $enPostId > 0 && $enPostId !== $postId) {
+            $priceInr = get_post_meta($enPostId, 'price_retail_inr', true) ?: get_post_meta($enPostId, 'price_inr', true);
         }
         $priceInr = is_numeric($priceInr) ? (float) $priceInr : null;
 
@@ -177,25 +203,50 @@ final class DatabaseManager
         if (!is_numeric($priceUsd)) {
             $priceUsd = get_post_meta($postId, 'price_usd', true);
         }
+        if (!is_numeric($priceUsd) && $enPostId > 0 && $enPostId !== $postId) {
+            $priceUsd = get_post_meta($enPostId, 'price_retail_usd', true) ?: get_post_meta($enPostId, 'price_usd', true);
+        }
         $priceUsd = is_numeric($priceUsd) ? (float) $priceUsd : null;
 
         // Helmet Specifics
         $weight = ($post->post_type === 'helmet') ? get_post_meta($postId, 'spec_weight_g', true) : null;
+        if (!is_numeric($weight) && $enPostId > 0 && $enPostId !== $postId) {
+            $weight = get_post_meta($enPostId, 'spec_weight_g', true);
+        }
         $weight = is_numeric($weight) ? (int) $weight : null;
 
         $sharp = ($post->post_type === 'helmet') ? get_post_meta($postId, 'sharp_rating', true) : 0;
+        if (!is_numeric($sharp) && $enPostId > 0 && $enPostId !== $postId) {
+            $sharp = get_post_meta($enPostId, 'sharp_rating', true);
+        }
         $sharp = is_numeric($sharp) ? (int) $sharp : 0;
 
         $homologation = (string) get_post_meta($postId, 'homologation_standard', true);
+        if ($homologation === '' && $enPostId > 0 && $enPostId !== $postId) {
+            $homologation = (string) get_post_meta($enPostId, 'homologation_standard', true);
+        }
         
         $noise = ($post->post_type === 'helmet') ? get_post_meta($postId, 'noise_db_at_100kph', true) : null;
+        if (!is_numeric($noise) && $enPostId > 0 && $enPostId !== $postId) {
+            $noise = get_post_meta($enPostId, 'noise_db_at_100kph', true);
+        }
         $noise = is_numeric($noise) ? (float) $noise : null;
 
         $ventilation = ($post->post_type === 'helmet') ? get_post_meta($postId, 'ventilation_score', true) : 0;
+        if (!is_numeric($ventilation) && $enPostId > 0 && $enPostId !== $postId) {
+            $ventilation = get_post_meta($enPostId, 'ventilation_score', true);
+        }
         $ventilation = is_numeric($ventilation) ? (int) $ventilation : 0;
 
         $strap = (string) get_post_meta($postId, 'strap_type', true);
+        if ($strap === '' && $enPostId > 0 && $enPostId !== $postId) {
+            $strap = (string) get_post_meta($enPostId, 'strap_type', true);
+        }
+
         $comms = (string) get_post_meta($postId, 'comms_ready', true);
+        if ($comms === '' && $enPostId > 0 && $enPostId !== $postId) {
+            $comms = (string) get_post_meta($enPostId, 'comms_ready', true);
+        }
 
         // Accessory Specifics
         $isPinlock = (string) get_post_meta($postId, 'accessory_pinlock_ready', true) === 'yes' ? 1 : 0;
@@ -204,9 +255,21 @@ final class DatabaseManager
         $color = (string) get_post_meta($postId, 'accessory_color', true);
 
         $certs = wp_get_post_terms($postId, 'certification', ['fields' => 'names']);
+        if (is_wp_error($certs) || empty($certs)) {
+            $certs = wp_get_post_terms($postId, 'safety_standard', ['fields' => 'names']);
+        }
+        if ((is_wp_error($certs) || empty($certs)) && $enPostId > 0 && $enPostId !== $postId) {
+            $certs = wp_get_post_terms($enPostId, 'certification', ['fields' => 'names']);
+            if (is_wp_error($certs) || empty($certs)) {
+                $certs = wp_get_post_terms($enPostId, 'safety_standard', ['fields' => 'names']);
+            }
+        }
         $certStr = (!is_wp_error($certs) && !empty($certs)) ? implode(', ', $certs) : '';
 
         $features = wp_get_post_terms($postId, 'feature_tag', ['fields' => 'names']);
+        if ((is_wp_error($features) || empty($features)) && $enPostId > 0 && $enPostId !== $postId) {
+            $features = wp_get_post_terms($enPostId, 'feature_tag', ['fields' => 'names']);
+        }
         $featStr = (!is_wp_error($features) && !empty($features)) ? implode(', ', $features) : '';
 
         $userRating = get_post_meta($postId, '_wc_average_rating', true);

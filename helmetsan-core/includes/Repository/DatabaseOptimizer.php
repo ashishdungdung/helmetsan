@@ -106,4 +106,213 @@ final class DatabaseOptimizer
 
         return $totalDeleted;
     }
+
+    /**
+     * High-performance batch backfill of published products into wp_helmetsan_product_index.
+     * Solves the multilingual catalog drop where 96% of helmets in IT, ES, JA, PL, NL, PT were unindexed.
+     *
+     * @param int $batchLimit
+     * @return array{indexed: int, remaining: int, elapsed_sec: float}
+     */
+    public static function backfillProductIndex(int $batchLimit = 1000): array
+    {
+        global $wpdb;
+        $startTime = microtime(true);
+        $indexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        // Find missing published helmets and accessories (post_parent = 0)
+        $sql = $wpdb->prepare("
+            SELECT p.ID 
+            FROM {$wpdb->posts} p
+            LEFT JOIN {$indexTable} idx ON p.ID = idx.post_id
+            WHERE p.post_type IN ('helmet', 'accessory')
+              AND p.post_status = 'publish'
+              AND p.post_parent = 0
+              AND idx.post_id IS NULL
+            ORDER BY p.ID ASC
+            LIMIT %d",
+            $batchLimit
+        );
+
+        $missingIds = $wpdb->get_col($sql);
+        if (empty($missingIds)) {
+            return [
+                'indexed'     => 0,
+                'remaining'   => 0,
+                'elapsed_sec' => round(microtime(true) - $startTime, 3),
+            ];
+        }
+
+        $dm = new \Helmetsan\Core\Core\DatabaseManager();
+        $count = 0;
+        foreach ($missingIds as $id) {
+            $dm->indexProduct((int) $id);
+            $count++;
+        }
+
+        // Remaining count
+        $remaining = (int) $wpdb->get_var("
+            SELECT COUNT(p.ID) 
+            FROM {$wpdb->posts} p
+            LEFT JOIN {$indexTable} idx ON p.ID = idx.post_id
+            WHERE p.post_type IN ('helmet', 'accessory')
+              AND p.post_status = 'publish'
+              AND p.post_parent = 0
+              AND idx.post_id IS NULL
+        ");
+
+        return [
+            'indexed'     => $count,
+            'remaining'   => $remaining,
+            'elapsed_sec' => round(microtime(true) - $startTime, 3),
+        ];
+    }
+
+    /**
+     * Purges ghost brand helmet posts where post_title matches a brand post title.
+     * Eliminates dual-entity keyword cannibalization and low-quality boilerplate penalties.
+     *
+     * @param bool $dryRun
+     * @return array{identified: int, deleted: int, dry_run: bool}
+     */
+    public static function purgeGhostBrandHelmets(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        // Identify all master helmet posts whose post_title matches a brand post_title
+        $ghostMasterSql = "
+            SELECT p.ID, p.post_title, p.post_name
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->posts} b ON p.post_title = b.post_title AND b.post_type = 'brand'
+            WHERE p.post_type = 'helmet'
+              AND p.post_status = 'publish'
+        ";
+        $ghostMasters = $wpdb->get_results($ghostMasterSql, ARRAY_A);
+        if (empty($ghostMasters)) {
+            return ['identified' => 0, 'deleted' => 0, 'dry_run' => $dryRun];
+        }
+
+        $allGhostIds = [];
+        foreach ($ghostMasters as $m) {
+            $masterId = (int) $m['ID'];
+            $allGhostIds[] = $masterId;
+
+            // Fetch all translations for this ghost helmet
+            if (function_exists('pll_get_post_translations')) {
+                $translations = pll_get_post_translations($masterId);
+                foreach ($translations as $tId) {
+                    if ($tId && !in_array((int) $tId, $allGhostIds, true)) {
+                        $allGhostIds[] = (int) $tId;
+                    }
+                }
+            }
+        }
+
+        $totalIdentified = count($allGhostIds);
+        if ($dryRun) {
+            return ['identified' => $totalIdentified, 'deleted' => 0, 'dry_run' => true];
+        }
+
+        // Delete from product index, postmeta, and trash/delete posts in chunks
+        $deletedCount = 0;
+        $chunks = array_chunk($allGhostIds, 100);
+        foreach ($chunks as $chunk) {
+            $idList = implode(',', array_map('intval', $chunk));
+            $wpdb->query("DELETE FROM {$indexTable} WHERE post_id IN ({$idList})");
+            foreach ($chunk as $id) {
+                wp_delete_post($id, true); // Force delete permanently
+                $deletedCount++;
+            }
+            usleep(20000); // 20ms pause
+        }
+
+        return ['identified' => $totalIdentified, 'deleted' => $deletedCount, 'dry_run' => false];
+    }
+
+    /**
+     * Cleans up duplicate brand prefixes in Yoast SEO titles and meta descriptions.
+     * Converts "AGV AGV Pista GP RR" -> "AGV Pista GP RR".
+     *
+     * @param int $batchLimit
+     * @return array{repaired_titles: int, repaired_descriptions: int}
+     */
+    public static function repairSeoDuplicateBrandTitles(int $batchLimit = 5000): array
+    {
+        global $wpdb;
+
+        $topBrands = [
+            'AGV', 'Arai', 'Shoei', 'Bell', 'HJC', 'Shark', 'Nolan', 'Icon', 'LS2', 
+            'Caberg', 'Schuberth', 'Scorpion', 'Nexx', 'Suomy', 'Klim', 'MT', 
+            'SMK', 'Vega', 'Steelbird', 'Studds', 'Biltwell', 'Airoh', 'X-Lite',
+            'Torc', 'Sedici', 'Bilt', 'Fly Racing', 'Alpinestars', 'Fox Racing'
+        ];
+
+        $repairedTitles = 0;
+        $repairedDescs = 0;
+
+        foreach ($topBrands as $brand) {
+            $double = $brand . ' ' . $brand . ' ';
+            $single = $brand . ' ';
+
+            // Repair Titles
+            $res = $wpdb->query($wpdb->prepare(
+                "UPDATE {$wpdb->postmeta} 
+                 SET meta_value = CONCAT(%s, SUBSTRING(meta_value, %d))
+                 WHERE meta_key = '_yoast_wpseo_title'
+                   AND meta_value LIKE %s
+                 LIMIT %d",
+                $single,
+                strlen($double) + 1,
+                $wpdb->esc_like($double) . '%',
+                $batchLimit
+            ));
+            if ($res) {
+                $repairedTitles += (int) $res;
+            }
+
+            // Repair Descriptions (e.g. "the AGV AGV Pista" -> "the AGV Pista")
+            $resDesc = $wpdb->query($wpdb->prepare(
+                "UPDATE {$wpdb->postmeta}
+                 SET meta_value = REPLACE(meta_value, %s, %s)
+                 WHERE meta_key = '_yoast_wpseo_metadesc'
+                   AND meta_value LIKE %s
+                 LIMIT %d",
+                $double,
+                $single,
+                '%' . $wpdb->esc_like($double) . '%',
+                $batchLimit
+            ));
+            if ($resDesc) {
+                $repairedDescs += (int) $resDesc;
+            }
+        }
+
+        return [
+            'repaired_titles'       => $repairedTitles,
+            'repaired_descriptions' => $repairedDescs,
+        ];
+    }
+
+    /**
+     * Safely drops unused legacy index tables to clean up schema bloat.
+     *
+     * @return list<string>
+     */
+    public static function dropLegacyTables(): array
+    {
+        global $wpdb;
+        $dropped = [];
+        $tables = [$wpdb->prefix . 'helmetsan_helmet_index'];
+
+        foreach ($tables as $t) {
+            $exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $t));
+            if ($exists) {
+                $wpdb->query("DROP TABLE IF EXISTS `{$t}`");
+                $dropped[] = $t;
+            }
+        }
+
+        return $dropped;
+    }
 }

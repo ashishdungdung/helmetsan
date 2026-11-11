@@ -156,6 +156,10 @@ final class Commands
         \WP_CLI::add_command('helmetsan gsc pages', [$this, 'gscPages']);
         \WP_CLI::add_command('helmetsan gsc submit-sitemap', [$this, 'gscSubmitSitemap']);
         \WP_CLI::add_command('helmetsan db deduplicate-meta', [$this, 'dbDeduplicateMeta']);
+        \WP_CLI::add_command('helmetsan db backfill-index', [$this, 'dbBackfillIndex']);
+        \WP_CLI::add_command('helmetsan db purge-ghost-helmets', [$this, 'dbPurgeGhostHelmets']);
+        \WP_CLI::add_command('helmetsan db repair-seo-titles', [$this, 'dbRepairSeoTitles']);
+        \WP_CLI::add_command('helmetsan db drop-legacy-tables', [$this, 'dbDropLegacyTables']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
         \WP_CLI::add_command('helmetsan redis search', [$this, 'redisSearch']);
         \WP_CLI::add_command('helmetsan redis autocomplete', [$this, 'redisAutocomplete']);
@@ -5031,6 +5035,91 @@ final class Commands
         \WP_CLI::log("Starting postmeta deduplication (retaining newest meta_id)...");
         $deleted = \Helmetsan\Core\Repository\DatabaseOptimizer::deduplicatePostmeta($batchLimit);
         \WP_CLI::success("Deduplication complete. Purged {$deleted} redundant rows from wp_postmeta.");
+    }
+
+    /**
+     * Backfill published helmets and accessories into wp_helmetsan_product_index.
+     *
+     * ## OPTIONS
+     * [--batch-size=<n>]
+     * : Batch size for chunks. Default: 1000.
+     * [--limit=<n>]
+     * : Total limit to process. Default: 0 (all).
+     */
+    public function dbBackfillIndex(array $args, array $assoc): void
+    {
+        $batchSize = (int) ($assoc['batch-size'] ?? 1000);
+        $maxTotal = (int) ($assoc['limit'] ?? 0);
+        \WP_CLI::log("Starting high-performance backfill of wp_helmetsan_product_index in batches of {$batchSize}...");
+        
+        $totalIndexed = 0;
+        do {
+            $chunkSize = ($maxTotal > 0 && ($totalIndexed + $batchSize) > $maxTotal) 
+                ? ($maxTotal - $totalIndexed) 
+                : $batchSize;
+
+            $result = \Helmetsan\Core\Repository\DatabaseOptimizer::backfillProductIndex($chunkSize);
+            if ($result['indexed'] === 0) {
+                break;
+            }
+            $totalIndexed += $result['indexed'];
+            \WP_CLI::log("Indexed {$result['indexed']} items in {$result['elapsed_sec']}s (Remaining: {$result['remaining']})...");
+            
+            if ($maxTotal > 0 && $totalIndexed >= $maxTotal) {
+                break;
+            }
+        } while ($result['remaining'] > 0);
+
+        \WP_CLI::success("Backfill complete. Indexed {$totalIndexed} products into wp_helmetsan_product_index.");
+    }
+
+    /**
+     * Purge ghost brand helmet posts that cannibalize manufacturer brand hubs.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Preview posts without deleting.
+     */
+    public function dbPurgeGhostHelmets(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning for ghost brand helmet posts (where post_title matches brand)...");
+        $result = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeGhostBrandHelmets($dryRun);
+
+        if ($dryRun) {
+            \WP_CLI::success("DRY RUN: Identified {$result['identified']} ghost helmet posts across languages. Run without --dry-run to permanently purge.");
+        } else {
+            \WP_CLI::success("Purge complete: Identified {$result['identified']} ghost posts, permanently purged {$result['deleted']} rows.");
+        }
+    }
+
+    /**
+     * Repair duplicate brand prefixes in Yoast SEO titles and descriptions.
+     *
+     * ## OPTIONS
+     * [--batch-size=<n>]
+     * : Batch limit per brand. Default: 5000.
+     */
+    public function dbRepairSeoTitles(array $args, array $assoc): void
+    {
+        $batch = (int) ($assoc['batch-size'] ?? 5000);
+        \WP_CLI::log("Cleaning up duplicate brand prefixes in Yoast titles and descriptions...");
+        $result = \Helmetsan\Core\Repository\DatabaseOptimizer::repairSeoDuplicateBrandTitles($batch);
+        \WP_CLI::success("SEO Title Repair complete: {$result['repaired_titles']} titles repaired, {$result['repaired_descriptions']} descriptions repaired.");
+    }
+
+    /**
+     * Drop unused legacy index tables.
+     */
+    public function dbDropLegacyTables(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Checking for unused legacy database tables...");
+        $dropped = \Helmetsan\Core\Repository\DatabaseOptimizer::dropLegacyTables();
+        if (empty($dropped)) {
+            \WP_CLI::success("No legacy tables found. Schema is clean.");
+        } else {
+            \WP_CLI::success("Successfully dropped legacy tables: " . implode(', ', $dropped));
+        }
     }
 
     /**

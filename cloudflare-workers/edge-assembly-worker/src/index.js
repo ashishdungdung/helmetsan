@@ -258,10 +258,10 @@ export default {
             }
         }
 
-        // Only rewrite HTML responses
+        // Only rewrite HTML responses for GET requests (HEAD requests have no body to transform)
         const contentType = response.headers.get('Content-Type') || '';
-        if (!contentType.includes('text/html')) {
-            analytics.write('cache_miss', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: 'non_html_origin_fetch' }, originMs);
+        if (request.method === 'HEAD' || !contentType.includes('text/html')) {
+            analytics.write('cache_miss', { colo, route: pathname, country: detectedCountry, lang: lang, event_type: request.method === 'HEAD' ? 'head_request_bypass' : 'non_html_origin_fetch' }, originMs);
             return response;
         }
 

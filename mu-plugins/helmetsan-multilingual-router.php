@@ -11,19 +11,40 @@ declare(strict_types=1);
 defined('ABSPATH') || exit;
 
 /**
- * 0. Canonical Redirect for Untranslated Custom Taxonomies
- * Harmonizes with Polylang's canonical redirect policy by redirecting non-default
- * language taxonomy URLs (e.g. /pl/use-case/commuting/) to canonical English URLs.
+ * 0. Canonical Redirects:
+ * A. Untranslated Custom Taxonomies (use-case) -> Canonical English
+ * B. Ghost Brand Helmets (/helmets/{brand-slug}/ -> /brands/{brand-slug}/)
  */
 add_action('template_redirect', function(): void {
     $uri = $_SERVER['REQUEST_URI'] ?? '';
     $path = (string) wp_parse_url($uri, PHP_URL_PATH);
 
     $supportedLangs = 'de|zh|fr|es|it|pl|pt|nl|ja';
+
+    // A. Untranslated Custom Taxonomies
     if (preg_match("#^/({$supportedLangs})/use-case/(.*)$#i", $path, $matches)) {
         $canonicalPath = '/use-case/' . $matches[2];
         wp_safe_redirect(home_url($canonicalPath), 301);
         exit;
+    }
+
+    // B. Ghost Brand Helmet to Brand Hub Canonical Redirect
+    // Catches /helmets/{slug}/ and /{lang}/helmets/{slug}/ where slug is a verified brand
+    if (preg_match("#^/(?:({$supportedLangs})/)?helmets/([^/]+)/?$#i", $path, $matches)) {
+        $langPrefix = !empty($matches[1]) ? '/' . strtolower($matches[1]) : '';
+        $slug = strtolower($matches[2]);
+
+        // Check if a brand exists with this slug
+        global $wpdb;
+        $isBrand = $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'brand' AND post_status = 'publish' LIMIT 1",
+            $slug
+        ));
+
+        if ($isBrand) {
+            wp_safe_redirect(home_url($langPrefix . '/brands/' . $slug . '/'), 301);
+            exit;
+        }
     }
 }, 1);
 
