@@ -54,14 +54,57 @@ final class CloudflareD1SyncService
     }
 
     /**
+     * Check if Cloudflare D1 write quota is currently saturated.
+     */
+    public static function isQuotaExceeded(): bool
+    {
+        return (bool) get_transient('helmetsan_d1_quota_exceeded');
+    }
+
+    /**
+     * Compute deterministic hash of helmet attributes to detect modifications.
+     *
+     * @param array<string, mixed> $record
+     */
+    public static function computeHelmetHash(array $record): string
+    {
+        return md5(implode('|', [
+            $record['id'] ?? 0,
+            $record['lang'] ?? '',
+            $record['slug'] ?? '',
+            $record['title'] ?? '',
+            $record['brand'] ?? '',
+            $record['helmet_type'] ?? '',
+            $record['certification'] ?? '',
+            $record['head_shape'] ?? '',
+            $record['weight_g'] ?? 0,
+            $record['noise_db'] ?? 0.0,
+            $record['price_usd'] ?? 0.0,
+            $record['sharp_rating'] ?? 0,
+            $record['canonical_url'] ?? '',
+            $record['image_url'] ?? '',
+        ]));
+    }
+
+    /**
      * Execute SQL query against Cloudflare D1 REST API.
      *
      * @param string $sql
      * @param list<mixed> $params
-     * @return array{success: bool, results: list<mixed>, error: ?string}
+     * @return array{success: bool, results: list<mixed>, error: ?string, quota_exceeded?: bool}
      */
     public static function executeQuery(string $sql, array $params = []): array
     {
+        // 1. Quota Sentinel Circuit Breaker
+        if (self::isQuotaExceeded()) {
+            return [
+                'success'        => false,
+                'results'        => [],
+                'error'          => 'Cloudflare D1 daily row write limit exceeded. Circuit breaker active until 00:05 UTC.',
+                'quota_exceeded' => true,
+            ];
+        }
+
         $accountId = defined('HELMETSAN_CLOUDFLARE_ACCOUNT_ID') ? (string) HELMETSAN_CLOUDFLARE_ACCOUNT_ID : self::DEFAULT_ACCOUNT_ID;
         $dbId = defined('HELMETSAN_CLOUDFLARE_D1_DATABASE_ID') ? (string) HELMETSAN_CLOUDFLARE_D1_DATABASE_ID : self::DEFAULT_DATABASE_ID;
         $apiToken = defined('HELMETSAN_CLOUDFLARE_API_TOKEN') ? (string) HELMETSAN_CLOUDFLARE_API_TOKEN : '';
@@ -96,6 +139,19 @@ final class CloudflareD1SyncService
 
         if ($code !== 200 || empty($data['success'])) {
             $msg = ! empty($data['errors'][0]['message']) ? $data['errors'][0]['message'] : "HTTP {$code}: {$resBody}";
+
+            // Trip Circuit Breaker on daily write limit exhaustion
+            if (stripos($msg, 'daily row write limit') !== false || stripos($msg, 'free tier daily') !== false || $code === 429) {
+                $secondsUntilReset = max(60, (int) (strtotime('tomorrow 00:05:00 UTC') - time()));
+                set_transient('helmetsan_d1_quota_exceeded', 1, $secondsUntilReset);
+                return [
+                    'success'        => false,
+                    'results'        => [],
+                    'error'          => $msg,
+                    'quota_exceeded' => true,
+                ];
+            }
+
             return ['success' => false, 'results' => [], 'error' => $msg];
         }
 
@@ -104,9 +160,9 @@ final class CloudflareD1SyncService
     }
 
     /**
-     * Sync single helmet record into Cloudflare D1.
+     * Sync single helmet record into Cloudflare D1 with hash-diffing.
      */
-    public static function syncHelmet(int $postId): bool
+    public static function syncHelmet(int $postId, bool $force = false): bool
     {
         $post = get_post($postId);
         if (! $post || $post->post_status !== 'publish' || $post->post_type !== 'helmet') {
@@ -114,6 +170,15 @@ final class CloudflareD1SyncService
         }
 
         $record = self::extractHelmetRecord($post);
+        $hash = self::computeHelmetHash($record);
+
+        if (!$force) {
+            $savedHash = (string) get_post_meta($postId, '_d1_synced_hash', true);
+            if ($savedHash === $hash) {
+                return true; // Already synchronized, zero write cost
+            }
+        }
+
         $sql = "INSERT INTO helmets (id, lang, slug, title, brand, helmet_type, certification, head_shape, weight_g, noise_db, price_usd, sharp_rating, canonical_url, image_url, updated_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
                 ON CONFLICT(id) DO UPDATE SET
@@ -150,45 +215,79 @@ final class CloudflareD1SyncService
         ];
 
         $res = self::executeQuery($sql, $params);
-        return $res['success'];
+        if ($res['success']) {
+            update_post_meta($postId, '_d1_synced_hash', $hash);
+            return true;
+        }
+
+        return false;
     }
 
     /**
-     * Delete helmet from Cloudflare D1.
+     * Delete helmet from Cloudflare D1 and remove cached sync hash.
      */
     public static function deleteHelmet(int $postId): bool
     {
+        delete_post_meta($postId, '_d1_synced_hash');
         $res = self::executeQuery("DELETE FROM helmets WHERE id = ?", [$postId]);
         return $res['success'];
     }
 
     /**
-     * Sync a batch of helmet posts into Cloudflare D1 SQLite.
+     * Incrementally syncs a batch of helmet posts into Cloudflare D1 SQLite.
+     * Compares record hashes against _d1_synced_hash to avoid burning Cloudflare D1 write quota.
      *
      * @param list<int> $postIds
-     * @return int Count of successfully synced helmets
+     * @param bool $force
+     * @return array{synced: int, skipped: int, quota_exceeded: bool, error: ?string}
      */
-    public static function syncBatch(array $postIds): int
+    public static function syncDiffBatch(array $postIds, bool $force = false): array
     {
         if (empty($postIds)) {
-            return 0;
+            return ['synced' => 0, 'skipped' => 0, 'quota_exceeded' => false, 'error' => null];
         }
 
-        $records = [];
+        if (self::isQuotaExceeded()) {
+            return [
+                'synced'         => 0,
+                'skipped'        => count($postIds),
+                'quota_exceeded' => true,
+                'error'          => 'D1 write limit reached. Skipping batch.',
+            ];
+        }
+
+        $recordsToSync = [];
+        $hashes = [];
+        $skippedCount = 0;
+
         foreach ($postIds as $id) {
             $post = get_post($id);
-            if ($post && $post->post_status === 'publish' && $post->post_type === 'helmet') {
-                $records[] = self::extractHelmetRecord($post);
+            if (!$post || $post->post_status !== 'publish' || $post->post_type !== 'helmet') {
+                continue;
             }
+
+            $record = self::extractHelmetRecord($post);
+            $hash = self::computeHelmetHash($record);
+
+            if (!$force) {
+                $savedHash = (string) get_post_meta($id, '_d1_synced_hash', true);
+                if ($savedHash === $hash) {
+                    $skippedCount++;
+                    continue;
+                }
+            }
+
+            $recordsToSync[] = $record;
+            $hashes[$id] = $hash;
         }
 
-        if (empty($records)) {
-            return 0;
+        if (empty($recordsToSync)) {
+            return ['synced' => 0, 'skipped' => $skippedCount, 'quota_exceeded' => false, 'error' => null];
         }
 
         // Format direct SQL literals to avoid Cloudflare D1 100-parameter limit
         $rows = [];
-        foreach ($records as $r) {
+        foreach ($recordsToSync as $r) {
             $id = (int) $r['id'];
             $lang = "'" . esc_sql((string) $r['lang']) . "'";
             $slug = "'" . esc_sql((string) $r['slug']) . "'";
@@ -226,7 +325,37 @@ final class CloudflareD1SyncService
                     updated_at = CURRENT_TIMESTAMP";
 
         $res = self::executeQuery($sql);
-        return $res['success'] ? count($records) : 0;
+        if ($res['success']) {
+            foreach ($hashes as $id => $hash) {
+                update_post_meta($id, '_d1_synced_hash', $hash);
+            }
+            return [
+                'synced'         => count($recordsToSync),
+                'skipped'        => $skippedCount,
+                'quota_exceeded' => false,
+                'error'          => null,
+            ];
+        }
+
+        return [
+            'synced'         => 0,
+            'skipped'        => $skippedCount,
+            'quota_exceeded' => !empty($res['quota_exceeded']),
+            'error'          => $res['error'],
+        ];
+    }
+
+    /**
+     * Backward-compatible wrapper for syncBatch using diff checks.
+     *
+     * @param list<int> $postIds
+     * @param bool $force
+     * @return int Count of successfully synced helmets
+     */
+    public static function syncBatch(array $postIds, bool $force = false): int
+    {
+        $result = self::syncDiffBatch($postIds, $force);
+        return $result['synced'];
     }
 
     /**

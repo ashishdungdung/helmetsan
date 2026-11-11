@@ -13,12 +13,14 @@ KNOWN_BRANDS = [
     "NoNoise", "Capit", "REV'IT!", "Alpinestars", "Macna", "Rain-X", "Brake Free", 
     "Helmetlok", "Motul", "BikeMaster", "Cardo", "Sena", "Pinlock", "Shoei", 
     "Arai", "AGV", "HJC", "Bell", "FIDLOCK", "100%", "Muc-Off", "GoPro", 
-    "Insta360", "Klim", "Alpine"
+    "Insta360", "Klim"
 ]
 
 def extract_brand_title(data: Dict[str, Any]) -> tuple:
     title = data.get("title", "Accessory").strip()
     brand = data.get("brand", "").strip()
+    if brand == "Alpine":
+        brand = "Alpinestars"
     if not brand or brand.lower() in ["brand", "universal", "universal moto"]:
         for kb in KNOWN_BRANDS:
             if kb.lower() in title.lower():
@@ -29,25 +31,52 @@ def extract_brand_title(data: Dict[str, Any]) -> tuple:
     return brand, title
 
 def classify_accessory(data: Dict[str, Any]) -> str:
-    sub = (data.get("accessory_subcategory") or "").lower()
+    sub = (data.get("accessory_subcategory") or data.get("subcategory") or "").lower()
     acc_type = (data.get("type") or "").lower()
+    parent = (data.get("parent_category") or data.get("accessory_parent_category") or "").lower()
     title = (data.get("title") or "").lower()
-    desc = (data.get("description") or "").lower()
 
-    combined = f"{sub} {acc_type} {title} {desc}"
-
-    if any(k in combined for k in ["hearing", "earplug", "ear plug", "noise reduction", "nonoise", "motosafe"]):
-        return "hearing_protection"
-    elif any(k in combined for k in ["intercom", "bluetooth", "mesh", "cardo", "sena", "comms", "communication"]):
-        return "comms"
-    elif any(k in combined for k in ["visor", "shield", "pinlock", "tear-off", "tear off", "anti-fog", "photochromic", "transitions", "tinted", "iridium"]):
+    # 1. Deterministic Taxonomy-based routing
+    if "visor" in parent or "optic" in parent:
+        if any(k in f"{sub} {title}" for k in ["cleaner", "repellent", "wash"]):
+            return "care_storage"
         return "optics"
+
+    if "communication" in parent:
+        if any(k in f"{sub} {title}" for k in ["camera", "mount"]):
+            return "hardware"
+        elif any(k in f"{sub} {title}" for k in ["hearing", "earplug"]):
+            return "hearing_protection"
+        elif any(k in f"{sub} {title}" for k in ["light", "smart", "brake"]):
+            return "smart_safety"
+        return "comms"
+
+    if "comfort" in parent:
+        if any(k in f"{sub} {title}" for k in ["cleaner", "sanitizer", "dryer", "stand", "bag", "repellent"]):
+            return "care_storage"
+        return "wearables"
+
+    if "safety" in parent:
+        if any(k in f"{sub} {title}" for k in ["light", "led"]):
+            return "smart_safety"
+        elif any(k in f"{sub} {title}" for k in ["strap", "buckle", "fidlock"]):
+            return "wearables"
+        return "hardware"
+
+    # Fallback keyword routing
+    combined = f"{parent} {sub} {acc_type} {title}"
+    if any(k in combined for k in ["hearing", "earplug", "ear plug", "nonoise"]):
+        return "hearing_protection"
+    elif any(k in combined for k in ["intercom", "bluetooth", "mesh", "cardo", "sena", "comms"]):
+        return "comms"
+    elif any(k in combined for k in ["cleaner", "repellent", "dryer", "stand", "bag", "sanitizer", "cleaning"]):
+        return "care_storage"
     elif any(k in combined for k in ["light", "brake free", "led brake"]):
         return "smart_safety"
     elif any(k in combined for k in ["cheek pad", "liner", "balaclava", "neck tube", "gaiter", "chin strap", "vest", "cooling", "fidlock"]):
         return "wearables"
-    elif any(k in combined for k in ["cleaner", "repellent", "dryer", "stand", "bag", "maintenance", "sanitizer"]):
-        return "care_storage"
+    elif any(k in combined for k in ["visor", "shield", "pinlock", "tear-off", "tear off", "anti-fog", "photochromic", "transitions", "tinted", "iridium"]):
+        return "optics"
     elif any(k in combined for k in ["mount", "camera", "lock", "security", "hardware"]):
         return "hardware"
     return "general"
@@ -344,6 +373,7 @@ def synthesize_accessory(data: Dict[str, Any]) -> Dict[str, Any]:
     data["unified_enriched"] = True
 
     # Polish yoast metadesc
-    data["yoast_metadesc"] = f"Complete specs, real-world review, and verified helmet compatibility guide for the {brand} {title}."
+    name_for_seo = title if title.lower().startswith(brand.lower()) else f"{brand} {title}"
+    data["yoast_metadesc"] = f"Complete specs, real-world review, and verified helmet compatibility guide for the {name_for_seo}."
 
     return data

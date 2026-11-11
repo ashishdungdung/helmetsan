@@ -434,4 +434,238 @@ final class DatabaseOptimizer
             'dry_run'        => false,
         ];
     }
+
+    /**
+     * Cleanses non-Chinese posts in wp_yoast_indexable that have Chinese titles/descriptions/breadcrumbs,
+     * and clears any corrupted _yoast_wpseo_title / _yoast_wpseo_metadesc in postmeta.
+     *
+     * @param bool $dryRun
+     * @param int $batchLimit
+     * @return array{corrupted_postmeta: int, corrupted_indexables: int, repaired_indexables: int, dry_run: bool}
+     */
+    public static function repairYoastCorruptedIndexables(bool $dryRun = true, int $batchLimit = 5000): array
+    {
+        global $wpdb;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+
+        // 1. Identify corrupted postmeta entries for non-Chinese posts
+        $corruptedMetaQuery = "
+            SELECT pm.meta_id, pm.post_id, t.slug as lang
+            FROM {$wpdb->postmeta} pm
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = pm.post_id
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE t.slug != 'zh'
+              AND pm.meta_key IN ('_yoast_wpseo_title', '_yoast_wpseo_metadesc')
+              AND (pm.meta_value LIKE '%头盔%' OR pm.meta_value LIKE '%碳纤维%')
+            LIMIT 500
+        ";
+        $corruptedMetas = $wpdb->get_results($corruptedMetaQuery, ARRAY_A);
+        $corruptedMetaCount = count($corruptedMetas);
+
+        if (!$dryRun && $corruptedMetaCount > 0) {
+            $metaIds = array_column($corruptedMetas, 'meta_id');
+            $idList = implode(',', array_map('intval', $metaIds));
+            $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE meta_id IN ({$idList})");
+        }
+
+        // 2. Identify corrupted yoast_indexable rows for non-Chinese posts
+        $corruptedIndexablesQuery = $wpdb->prepare("
+            SELECT y.id, y.object_id, t.slug as lang
+            FROM {$indexableTable} y
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = y.object_id
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE t.slug != 'zh'
+              AND (y.title LIKE '%头盔%' OR y.title LIKE '%碳纤维%' 
+                   OR y.description LIKE '%头盔%' OR y.description LIKE '%碳纤维%'
+                   OR y.breadcrumb_title LIKE '%头盔%' OR y.breadcrumb_title LIKE '%碳纤维%')
+            LIMIT %d
+        ", $batchLimit);
+
+        $corruptedIndexables = $wpdb->get_results($corruptedIndexablesQuery, ARRAY_A);
+        $corruptedIndexableCount = count($corruptedIndexables);
+
+        $repairedCount = 0;
+        if (!$dryRun && $corruptedIndexableCount > 0) {
+            $indexableIds = array_column($corruptedIndexables, 'id');
+            $chunks = array_chunk($indexableIds, 500);
+            foreach ($chunks as $chunk) {
+                $idList = implode(',', array_map('intval', $chunk));
+                // Setting title, description, breadcrumb_title, open_graph to NULL restores clean automatic title generation
+                $wpdb->query("
+                    UPDATE {$indexableTable} 
+                    SET title = NULL, 
+                        description = NULL, 
+                        breadcrumb_title = NULL, 
+                        open_graph_title = NULL, 
+                        open_graph_description = NULL, 
+                        twitter_title = NULL, 
+                        twitter_description = NULL
+                    WHERE id IN ({$idList})
+                ");
+                $repairedCount += count($chunk);
+            }
+        }
+
+        return [
+            'corrupted_postmeta'   => $corruptedMetaCount,
+            'corrupted_indexables' => $corruptedIndexableCount,
+            'repaired_indexables'  => $repairedCount,
+            'dry_run'              => $dryRun,
+        ];
+    }
+
+    /**
+     * Purges the 50 duplicate motorcycle posts created as post_type = 'helmet'
+     * (e.g. BMW R 1250 GS, Harley Street Glide, Activa 6G, Himalayan 450, Yamaha R1 across 10 languages).
+     *
+     * @param bool $dryRun
+     * @return array{target_slugs: list<string>, total_posts: int, purged_posts: int, dry_run: bool}
+     */
+    public static function purgeGhostMotorcycleHelmets(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexTable = $wpdb->prefix . 'helmetsan_product_index';
+        $targetSlugs = [
+            'bmw-r1250gs',
+            'harley-street-glide',
+            'honda-activa-6g',
+            'royal-enfield-himalayan-450',
+            'yamaha-r1',
+        ];
+
+        $postIdsToPurge = [];
+
+        // Primary English post IDs
+        $seedIds = [9269, 9270, 9271, 9272, 9273];
+        foreach ($seedIds as $sid) {
+            $post = get_post($sid);
+            if ($post && $post->post_type === 'helmet') {
+                $postIdsToPurge[$sid] = true;
+                if (function_exists('pll_get_post_translations')) {
+                    $translations = pll_get_post_translations($sid);
+                    foreach ($translations as $tid) {
+                        if ($tid > 0) {
+                            $postIdsToPurge[(int) $tid] = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Also query by slugs where post_type = 'helmet'
+        $slugPlaceholders = implode(',', array_fill(0, count($targetSlugs), '%s'));
+        $matchedPosts = $wpdb->get_col($wpdb->prepare("
+            SELECT ID FROM {$wpdb->posts}
+            WHERE post_name IN ($slugPlaceholders) AND post_type = 'helmet'
+        ", ...$targetSlugs));
+
+        foreach ($matchedPosts as $mpId) {
+            $postIdsToPurge[(int) $mpId] = true;
+            if (function_exists('pll_get_post_translations')) {
+                $translations = pll_get_post_translations((int) $mpId);
+                foreach ($translations as $tid) {
+                    if ($tid > 0) {
+                        $postIdsToPurge[(int) $tid] = true;
+                    }
+                }
+            }
+        }
+
+        $uniqueIds = array_keys($postIdsToPurge);
+        $totalPosts = count($uniqueIds);
+
+        if ($dryRun) {
+            return [
+                'target_slugs' => $targetSlugs,
+                'total_posts'  => $totalPosts,
+                'purged_posts' => 0,
+                'dry_run'      => true,
+            ];
+        }
+
+        $purgedCount = 0;
+        if (!empty($uniqueIds)) {
+            $chunks = array_chunk($uniqueIds, 100);
+            foreach ($chunks as $chunk) {
+                $idList = implode(',', array_map('intval', $chunk));
+                $wpdb->query("DELETE FROM {$indexTable} WHERE post_id IN ({$idList})");
+                $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+                $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+                $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+                $purgedCount += count($chunk);
+            }
+            clean_post_cache($uniqueIds[0] ?? 0);
+        }
+
+        return [
+            'target_slugs' => $targetSlugs,
+            'total_posts'  => $totalPosts,
+            'purged_posts' => $purgedCount,
+            'dry_run'      => false,
+        ];
+    }
+
+    /**
+     * Re-indexes outdated rows in wp_helmetsan_product_index where brand_id = 0 or category = ''.
+     *
+     * @param int $batchLimit
+     * @return array{indexed: int, remaining: int, elapsed_sec: float}
+     */
+    public static function reindexOutdatedProducts(int $batchLimit = 1000): array
+    {
+        global $wpdb;
+        $startTime = microtime(true);
+        $indexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        $sql = $wpdb->prepare("
+            SELECT idx.post_id 
+            FROM {$indexTable} idx
+            JOIN {$wpdb->posts} p ON p.ID = idx.post_id
+            WHERE p.post_status = 'publish'
+              AND (
+                (idx.post_type = 'helmet' AND (idx.brand_id = 0 OR idx.category = '' OR idx.category IS NULL))
+                OR
+                (idx.post_type = 'accessory' AND (idx.category = '' OR idx.category IS NULL))
+              )
+            ORDER BY idx.updated_at ASC, idx.post_id ASC
+            LIMIT %d",
+            $batchLimit
+        );
+
+        $outdatedIds = $wpdb->get_col($sql);
+        if (empty($outdatedIds)) {
+            return [
+                'indexed'     => 0,
+                'remaining'   => 0,
+                'elapsed_sec' => round(microtime(true) - $startTime, 3),
+            ];
+        }
+
+        $dm = new \Helmetsan\Core\Core\DatabaseManager();
+        $count = 0;
+        foreach ($outdatedIds as $id) {
+            $dm->indexProduct((int) $id);
+            $count++;
+        }
+
+        $remaining = (int) $wpdb->get_var("
+            SELECT COUNT(idx.post_id) 
+            FROM {$indexTable} idx
+            JOIN {$wpdb->posts} p ON p.ID = idx.post_id
+            WHERE p.post_status = 'publish'
+              AND (
+                (idx.post_type = 'helmet' AND (idx.brand_id = 0 OR idx.category = '' OR idx.category IS NULL))
+                OR
+                (idx.post_type = 'accessory' AND (idx.category = '' OR idx.category IS NULL))
+              )
+        ");
+
+        return [
+            'indexed'     => $count,
+            'remaining'   => $remaining,
+            'elapsed_sec' => round(microtime(true) - $startTime, 3),
+        ];
+    }
 }

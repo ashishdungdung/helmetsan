@@ -125,6 +125,14 @@ if [ "$DEPLOY_PLUGIN" = true ]; then
         -e "ssh $SSH_OPTS" \
         "$PLUGIN_SRC" "${USER}@${HOST}:${REMOTE_CONTENT}/plugins/helmetsan-core/"
     echo "   ✅ Plugin synced."
+
+    if [ -d "$ROOT_DIR/mu-plugins/" ]; then
+        echo "📦 [MU-Plugins] Syncing mu-plugins via rsync..."
+        $SSHPASS rsync -avz $DRY_RUN "${RSYNC_EXCLUDES[@]}" \
+            -e "ssh $SSH_OPTS" \
+            "$ROOT_DIR/mu-plugins/" "${USER}@${HOST}:${REMOTE_CONTENT}/mu-plugins/"
+        echo "   ✅ MU-Plugins synced."
+    fi
 fi
 
 # ── 3. Deploy Data (if requested) ─────────────────────────────────────────────

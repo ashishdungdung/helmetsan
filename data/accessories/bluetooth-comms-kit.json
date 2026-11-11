@@ -1,228 +1,303 @@
 {
-  "title": "Cardo Packtalk Edge",
-  "type": "Communication System",
-  "compatible_helmet_types": [
-    "Full Face",
-    "Modular",
-    "Adventure / Dual Sport"
-  ],
-  "compatible_brands": [
-    "Shoei",
-    "Arai",
-    "AGV"
-  ],
-  "compatible_helmet_ids": [
-    "shoei-rf-1400",
-    "arai-corsair-x",
-    "agv-k6",
-    "bell-qualifier-dlx-mips"
-  ],
-  "features": [
-    "Bluetooth 5.0 connectivity for seamless audio streaming",
-    "Up to 16 hours of talk time on a single charge",
-    "Noise-canceling microphone for clear communication"
-  ],
-  "price": {
-    "usd": 150,
-    "inr": 12450,
-    "eur": 138,
-    "gbp": 119,
-    "jpy": 23250
-  },
-  "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Packtalk Edge from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
-  "id": "bluetooth-comms-kit",
-  "entity": "accessory",
-  "accessory_pinlock_ready": 0,
-  "accessory_electric_compatible": 1,
-  "accessory_snow_compatible": 0,
-  "accessory_subcategory": "Intercom System",
-  "identifiers": {
-    "amazon": {
-      "us": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "ca": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "mx": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "br": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "uk": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "de": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "fr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "it": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "es": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "nl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "pl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "se": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "be": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "tr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "in": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "jp": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "au": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "sg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "ae": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "sa": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "eg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      },
-      "za": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Cardo Cardo Packtalk Edge"
-      }
+    "title": "Cardo Packtalk Edge",
+    "type": "Mesh Intercoms",
+    "compatible_helmet_types": [
+        "Full Face",
+        "Modular",
+        "Adventure / Dual Sport",
+        "Open Face"
+    ],
+    "compatible_brands": [
+        "Shoei",
+        "Arai",
+        "AGV",
+        "Bell",
+        "HJC",
+        "Schuberth",
+        "Scorpion"
+    ],
+    "compatible_helmet_ids": [
+        "shoei-rf-1400",
+        "arai-corsair-x",
+        "agv-k6-s",
+        "bell-star-dlx-mips",
+        "hjc-rpha-71"
+    ],
+    "features": [
+        "2nd Generation Dynamic Mesh Communication (DMC) connecting up to 15 riders across 8 km pack range",
+        "Air Mount magnetic latching system for effortless single-hand helmet dock",
+        "JBL 40mm high-definition audio drivers with specialized touring acoustic profiles",
+        "Natural Voice Operation allows complete hands-free control ('Hey Cardo')",
+        "IP67 certified waterproof construction withstands heavy downpours"
+    ],
+    "price": {
+        "usd": 389.95,
+        "eur": 359.95,
+        "gbp": 309.95,
+        "inr": 32400,
+        "jpy": 60500,
+        "current": 389.95,
+        "currency": "USD"
     },
-    "gtin": null,
-    "ean": null,
-    "mpn": "PTE-2024",
-    "sku": "HSN-ACC-BLUETOOTH-COMMS-KIT",
-    "retailer_skus": {
-      "revzilla": null,
-      "fc_moto": null,
-      "motoin": null,
-      "cyclegear": null,
-      "louis": null,
-      "chromeburner": null
-    }
-  },
-  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Cardo Cardo Packtalk Edge.",
-  "unified_enriched": true,
-  "accessory_physics_matrix": {
-    "mesh_network_range_m": "Up to 1,600m (1.0 mile) unit-to-unit; up to 8,000m (5.0 miles) across dynamic mesh pack",
-    "battery_life_operating_hours": "11 to 13 Hours High-Bandwidth Mesh Intercom Talk Time (Fast Charge: 20 min = 2 hrs)",
-    "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
-    "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
-    "audio_driver_specification": "JBL 40mm High-Definition Neodymium Drivers with Dynamic Bass Boost",
-    "intercom_protocol": "Bluetooth 5.2 & 2nd-Gen Dynamic Mesh Communication (DMC) with Auto-Reconnect"
-  },
-  "qualitative_intelligence": {
-    "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
-    "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
-    "real_world_pros": [
-      "Crisp, distortion-free audio communication over highway wind noise",
-      "True waterproof housing withstands torrential downpours without rain jackets",
-      "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+    "description": "<p>Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Packtalk Edge from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing).</p><p>The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.</p>",
+    "id": "bluetooth-comms-kit",
+    "entity": "accessory",
+    "accessory_pinlock_ready": 0,
+    "accessory_electric_compatible": 1,
+    "accessory_snow_compatible": 0,
+    "accessory_subcategory": "Mesh Intercoms",
+    "identifiers": {
+        "sku": "HSN-ACC-CARDO-PACKTALK-EDGE",
+        "mpn": "PT200001",
+        "asin": "B09T3N32S5",
+        "amazon": {
+            "us": {
+                "asin": "B09T3N32S5",
+                "status": "verified",
+                "confidence": 0.95,
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "ca": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "mx": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "br": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "uk": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "de": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "fr": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "it": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "es": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "nl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "pl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "se": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "be": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "tr": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "in": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "jp": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "au": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "sg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "ae": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "sa": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "eg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            },
+            "za": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Cardo Packtalk Edge"
+            }
+        },
+        "gtin": null,
+        "ean": null,
+        "upc": null,
+        "fsn": null,
+        "retailer_skus": {
+            "revzilla": null,
+            "fc_moto": null,
+            "motoin": null,
+            "cyclegear": null,
+            "louis": null,
+            "chromeburner": null
+        }
+    },
+    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Cardo Packtalk Edge.",
+    "unified_enriched": true,
+    "accessory_physics_matrix": {
+        "mesh_network_range_m": "Up to 1,600m (1.0 mile) unit-to-unit; up to 8,000m (5.0 miles) across dynamic mesh pack",
+        "battery_life_operating_hours": "11 to 13 Hours High-Bandwidth Mesh Intercom Talk Time (Fast Charge: 20 min = 2 hrs)",
+        "waterproof_ip_rating": "IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal)",
+        "installation_difficulty": "2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing)",
+        "audio_driver_specification": "JBL 40mm High-Definition Neodymium Drivers with Dynamic Bass Boost",
+        "intercom_protocol": "Bluetooth 5.2 & 2nd-Gen Dynamic Mesh Communication (DMC) with Auto-Reconnect"
+    },
+    "qualitative_intelligence": {
+        "glove_friendly_controls": "Generous tactile roller-wheel and distinct raised click-pads operable effortlessly with thick Gauntlet winter gloves.",
+        "wind_noise_suppression_mic": "Dual-beamforming microphone array paired with real-time DSP wind cancellation filters road noise up to 140 km/h.",
+        "real_world_pros": [
+            "Crisp, distortion-free audio communication over highway wind noise",
+            "True waterproof housing withstands torrential downpours without rain jackets",
+            "Ultra-slim low-drag profile minimizes lateral helmet buffet"
+        ],
+        "real_world_cons": [
+            "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
+            "Premium replacement price compared to budget unbranded headsets"
+        ],
+        "editorial_verdict": "The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
+    },
+    "brand": "Cardo",
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20"
+    },
+    "affiliate_links": {
+        "amazon": {
+            "url": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20",
+            "network": "amazon"
+        }
+    },
+    "editorial_overview": "Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Packtalk Edge from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing). The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.",
+    "rider_takeaway": "The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.",
+    "compatibility": [
+        "Full Face",
+        "Modular",
+        "Adventure / Dual Sport",
+        "Open Face",
+        "Shoei",
+        "Arai",
+        "AGV",
+        "Bell",
+        "HJC",
+        "Schuberth",
+        "Scorpion"
     ],
-    "real_world_cons": [
-      "Requires careful initial 15-minute cable tucking around EPS speaker cutouts",
-      "Premium replacement price compared to budget unbranded headsets"
-    ],
-    "editorial_verdict": "The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours."
-  },
-  "brand": "Cardo",
-  "marketplace_links": {
-    "amazon": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20"
-  },
-  "affiliate_links": {
-    "amazon": {
-      "url": "https://www.amazon.com/s?k=Cardo+Packtalk+Edge&tag=helmetsan-20",
-      "network": "amazon"
-    }
-  },
-  "editorial_overview": "Engineered to seamlessly integrate into modern helmet speaker cavities, the Cardo Packtalk Edge from Cardo provides riders with uninterrupted acoustic clarity and group connectivity. Built with IP67 Certified Dustproof & Submersion Resistant (All-Season Waterproof Seal), it boasts an installation rating of 2.5 / 10 (Clamp-mount or 3M VHB base with recessed speaker cavity routing). The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.",
-  "rider_takeaway": "The Cardo Packtalk Edge represents an indispensable touring and group-ride upgrade from Cardo. Its robust audio tuning and rock-solid weather sealing provide riders with effortless navigation cues and reliable connectivity across arduous highway tours.",
-  "compatibility": [
-    "Full Face",
-    "Modular",
-    "Adventure / Dual Sport",
-    "Shoei",
-    "Arai",
-    "AGV"
-  ],
-  "price_placeholder": true,
-  "compatibility_matrix": {
-    "helmet_types": [
-      "Full Face",
-      "Modular",
-      "Adventure / Dual Sport"
-    ],
-    "brands": [
-      "Shoei",
-      "Arai",
-      "AGV"
-    ],
-    "helmet_ids": [
-      "shoei-rf-1400",
-      "arai-corsair-x",
-      "agv-k6",
-      "bell-qualifier-dlx-mips"
+    "price_placeholder": false,
+    "compatibility_matrix": {
+        "helmet_types": [
+            "Full Face",
+            "Modular",
+            "Adventure / Dual Sport",
+            "Open Face"
+        ],
+        "brands": [
+            "Shoei",
+            "Arai",
+            "AGV",
+            "Bell",
+            "HJC",
+            "Schuberth",
+            "Scorpion"
+        ],
+        "helmet_ids": [
+            "shoei-rf-1400",
+            "arai-corsair-x",
+            "agv-k6-s",
+            "bell-star-dlx-mips",
+            "hjc-rpha-71"
+        ],
+        "helmet_families": [
+            "RF-1400",
+            "Corsair-X",
+            "K6 S",
+            "Star DLX",
+            "RPHA 71"
+        ]
+    },
+    "parent_category": "Communication & Tech",
+    "subcategory": "Mesh Intercoms",
+    "accessory_parent_category": "Communication & Tech",
+    "color": "Matte Black",
+    "accessory_color": "Matte Black",
+    "youth_adult": "Adult",
+    "accessory_youth_adult": "Adult",
+    "pinlock_ready": 0,
+    "electric_compatible": 1,
+    "snow_compatible": 0,
+    "geo_pricing": {
+        "US": {
+            "price": 389.95,
+            "currency": "USD",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "EU": {
+            "price": 359.95,
+            "currency": "EUR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "GB": {
+            "price": 309.95,
+            "currency": "GBP",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "IN": {
+            "price": 32400,
+            "currency": "INR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        }
+    },
+    "compatible_helmet_families": [
+        "RF-1400",
+        "Corsair-X",
+        "K6 S",
+        "Star DLX",
+        "RPHA 71"
     ]
-  }
 }

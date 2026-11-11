@@ -409,11 +409,22 @@ final class SchemaService
             foreach (array_slice($compat['recommended_motorcycles'] ?? [], 0, 3) as $bm) {
                 $mId = (string) ($bm['id'] ?? '');
                 $motoPost = is_numeric($mId) ? get_post((int)$mId) : get_page_by_path($mId, OBJECT, 'motorcycle');
-                $motoUrl = $motoPost instanceof \WP_Post ? get_permalink($motoPost) : home_url('/motorcycles/' . sanitize_title($mId) . '/');
+                if ($motoPost instanceof \WP_Post && function_exists('pll_get_post') && !empty($lang)) {
+                    $localizedMotoId = pll_get_post($motoPost->ID, $lang);
+                    if ($localizedMotoId) {
+                        $localizedPost = get_post($localizedMotoId);
+                        if ($localizedPost instanceof \WP_Post) {
+                            $motoPost = $localizedPost;
+                        }
+                    }
+                }
+                $langPrefix = (!empty($lang) && $lang !== 'en') ? '/' . $lang : '';
+                $motoUrl = $motoPost instanceof \WP_Post ? get_permalink($motoPost) : home_url($langPrefix . '/motorcycles/' . sanitize_title($mId) . '/');
+                $motoTitle = $motoPost instanceof \WP_Post ? get_the_title($motoPost) : ($bm['title'] ?? '');
                 $related[] = [
                     '@type'                     => 'Motorcycle',
                     '@id'                       => $motoUrl . '#motorcycle',
-                    'name'                      => $bm['title'] ?? '',
+                    'name'                      => $motoTitle,
                     'url'                       => $motoUrl,
                     'disambiguatingDescription' => $bm['match_reason'] ?? 'Complementary riding posture match'
                 ];
@@ -421,11 +432,22 @@ final class SchemaService
             foreach (array_slice($compat['compatible_accessories'] ?? [], 0, 2) as $ac) {
                 $aId = (string) ($ac['id'] ?? '');
                 $accPost = is_numeric($aId) ? get_post((int)$aId) : get_page_by_path($aId, OBJECT, 'accessory');
-                $accUrl = $accPost instanceof \WP_Post ? get_permalink($accPost) : home_url('/accessories/' . sanitize_title($aId) . '/');
+                if ($accPost instanceof \WP_Post && function_exists('pll_get_post') && !empty($lang)) {
+                    $localizedAccId = pll_get_post($accPost->ID, $lang);
+                    if ($localizedAccId) {
+                        $localizedPost = get_post($localizedAccId);
+                        if ($localizedPost instanceof \WP_Post) {
+                            $accPost = $localizedPost;
+                        }
+                    }
+                }
+                $langPrefix = (!empty($lang) && $lang !== 'en') ? '/' . $lang : '';
+                $accUrl = $accPost instanceof \WP_Post ? get_permalink($accPost) : home_url($langPrefix . '/accessories/' . sanitize_title($aId) . '/');
+                $accTitle = $accPost instanceof \WP_Post ? get_the_title($accPost) : ($ac['title'] ?? '');
                 $related[] = [
                     '@type'                     => 'Product',
                     '@id'                       => $accUrl . '#product',
-                    'name'                      => $ac['title'] ?? '',
+                    'name'                      => $accTitle,
                     'url'                       => $accUrl,
                     'disambiguatingDescription' => $ac['fitment'] ?? 'Verified accessory fitment'
                 ];

@@ -159,6 +159,9 @@ final class Commands
         \WP_CLI::add_command('helmetsan db backfill-index', [$this, 'dbBackfillIndex']);
         \WP_CLI::add_command('helmetsan db purge-ghost-helmets', [$this, 'dbPurgeGhostHelmets']);
         \WP_CLI::add_command('helmetsan db purge-stale-helmets', [$this, 'dbPurgeStaleHelmets']);
+        \WP_CLI::add_command('helmetsan db purge-ghost-motorcycles', [$this, 'dbPurgeGhostMotorcycles']);
+        \WP_CLI::add_command('helmetsan db repair-yoast-indexables', [$this, 'dbRepairYoastIndexables']);
+        \WP_CLI::add_command('helmetsan db reindex-outdated-products', [$this, 'dbReindexOutdatedProducts']);
         \WP_CLI::add_command('helmetsan db repair-seo-titles', [$this, 'dbRepairSeoTitles']);
         \WP_CLI::add_command('helmetsan db drop-legacy-tables', [$this, 'dbDropLegacyTables']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
@@ -5228,36 +5231,140 @@ final class Commands
     }
 
     /**
+     * Purge ghost motorcycle posts created under post_type = 'helmet'.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Preview posts to be purged without deleting.
+     */
+    public function dbPurgeGhostMotorcycles(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning for ghost motorcycle helmets...");
+        $result = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeGhostMotorcycleHelmets($dryRun);
+
+        if ($result['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d ghost motorcycle helmet posts across languages. Run without --dry-run to purge.", $result['total_posts']));
+        } else {
+            \WP_CLI::success(sprintf("Purge Complete: Permanently removed %d ghost motorcycle posts and purged index/meta.", $result['purged_posts']));
+        }
+    }
+
+    /**
+     * Repair Yoast indexables corrupted with Chinese titles/descriptions on non-Chinese posts.
+     *
+     * ## OPTIONS
+     * [--batch-size=<n>]
+     * : Number of indexable rows to process. Default 5000.
+     * [--dry-run]
+     * : Check counts without updating.
+     */
+    public function dbRepairYoastIndexables(array $args, array $assoc): void
+    {
+        $batch = (int) ($assoc['batch-size'] ?? 5000);
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning wp_yoast_indexable for non-Chinese posts corrupted with Chinese text...");
+        $result = \Helmetsan\Core\Repository\DatabaseOptimizer::repairYoastCorruptedIndexables($dryRun, $batch);
+
+        if ($result['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d corrupted indexables and %d corrupted postmeta entries. Run without --dry-run to clean.", $result['corrupted_indexables'], $result['corrupted_postmeta']));
+        } else {
+            \WP_CLI::success(sprintf("Yoast Indexable Repair Complete: Cleared %d corrupted postmeta rows, sanitized %d indexables to restore clean titles.", $result['corrupted_postmeta'], $result['repaired_indexables']));
+        }
+    }
+
+    /**
+     * Re-index outdated rows in wp_helmetsan_product_index where brand_id = 0 or category = ''.
+     *
+     * ## OPTIONS
+     * [--batch-size=<n>]
+     * : Number of products to index per batch. Default 1000.
+     */
+    public function dbReindexOutdatedProducts(array $args, array $assoc): void
+    {
+        $batch = (int) ($assoc['batch-size'] ?? 1000);
+        \WP_CLI::log("Re-indexing outdated product index records (brand_id = 0 or category = '')...");
+        $totalIndexed = 0;
+
+        while (true) {
+            $result = \Helmetsan\Core\Repository\DatabaseOptimizer::reindexOutdatedProducts($batch);
+            $totalIndexed += $result['indexed'];
+            \WP_CLI::log(sprintf("  Indexed %d products in %.2fs. Remaining: %d", $result['indexed'], $result['elapsed_sec'], $result['remaining']));
+
+            if ($result['remaining'] === 0 || $result['indexed'] === 0) {
+                break;
+            }
+        }
+
+        \WP_CLI::success("Product Index Re-index Complete: {$totalIndexed} total products updated with full taxonomy and pricing metadata.");
+    }
+
+    /**
      * Synchronize catalog and brands to Cloudflare D1 Serverless SQL at the edge.
+     * Uses incremental diff hashing to stay well within daily free tier write limits.
      *
      * ## OPTIONS
      * [--limit=<n>]
      * : Process only first N helmets. Default 0 (all).
      * [--batch-size=<n>]
      * : Chunk size for D1 batch statements. Default 50.
+     * [--force]
+     * : Bypass diff check and force edge write.
+     * [--lang=<lang>]
+     * : Only sync helmets of a specific language (e.g. en, de, fr).
      */
     public function d1Sync(array $args, array $assoc): void
     {
         global $wpdb;
         $limit = (int) ($assoc['limit'] ?? 0);
         $chunk = (int) ($assoc['batch-size'] ?? 50);
-        \WP_CLI::log("Synchronizing catalog to Cloudflare D1 Serverless SQL...");
+        $force = isset($assoc['force']);
+        $langFilter = !empty($assoc['lang']) ? sanitize_key($assoc['lang']) : '';
 
-        $limitSql = $limit > 0 ? "LIMIT {$limit}" : "";
-        $postIds = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' ORDER BY ID ASC {$limitSql}");
-        $total = count($postIds);
-        \WP_CLI::log("Syncing {$total} helmets in batches of {$chunk}...");
-        $synced = 0;
+        \WP_CLI::log("Synchronizing catalog to Cloudflare D1 Serverless SQL (Diff Sync Enabled)...");
 
-        foreach (array_chunk($postIds, $chunk) as $batch) {
-            $count = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncBatch(array_map('intval', $batch));
-            $synced += $count;
+        if (\Helmetsan\Core\Cloudflare\CloudflareD1SyncService::isQuotaExceeded() && !$force) {
+            \WP_CLI::warning("Cloudflare D1 daily write limit is currently saturated. Circuit breaker is active until 00:05 UTC.");
+            return;
         }
 
-        \WP_CLI::log("Syncing brands to Cloudflare D1...");
-        $brandsSynced = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncBrands();
+        $limitSql = $limit > 0 ? "LIMIT {$limit}" : "";
+        if ($langFilter !== '') {
+            $postIds = $wpdb->get_col($wpdb->prepare("
+                SELECT p.ID FROM {$wpdb->posts} p
+                JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+                JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+                JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+                WHERE p.post_type = 'helmet' AND p.post_status = 'publish' AND t.slug = %s
+                ORDER BY p.ID ASC {$limitSql}
+            ", $langFilter));
+        } else {
+            $postIds = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type = 'helmet' AND post_status = 'publish' ORDER BY ID ASC {$limitSql}");
+        }
 
-        \WP_CLI::success("Cloudflare D1 Sync Complete: {$synced} helmets and {$brandsSynced} brands synchronized to edge.");
+        $total = count($postIds);
+        \WP_CLI::log("Evaluating {$total} helmets in batches of {$chunk}" . ($force ? " [FORCE RE-SYNC]" : " [HASH-DIFF]") . "...");
+        $totalSynced = 0;
+        $totalSkipped = 0;
+
+        foreach (array_chunk($postIds, $chunk) as $batch) {
+            $result = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncDiffBatch(array_map('intval', $batch), $force);
+            $totalSynced += $result['synced'];
+            $totalSkipped += $result['skipped'];
+
+            if ($result['quota_exceeded']) {
+                \WP_CLI::warning("D1 Write limit reached during sync: {$result['error']}. Pausing remaining batches.");
+                break;
+            }
+        }
+
+        $brandsSynced = 0;
+        if (!\Helmetsan\Core\Cloudflare\CloudflareD1SyncService::isQuotaExceeded()) {
+            \WP_CLI::log("Syncing brands to Cloudflare D1...");
+            $brandsSynced = \Helmetsan\Core\Cloudflare\CloudflareD1SyncService::syncBrands();
+        }
+
+        \WP_CLI::success("Cloudflare D1 Sync Complete: {$totalSynced} helmets written, {$totalSkipped} identical/skipped, {$brandsSynced} brands synchronized.");
     }
 
 }

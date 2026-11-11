@@ -22,6 +22,8 @@ def run_batch():
     error_count = 0
     
     for f in files:
+        if "master.example.json" in f:
+            continue
         try:
             with open(f, "r", encoding="utf-8") as fp:
                 data = json.load(fp)

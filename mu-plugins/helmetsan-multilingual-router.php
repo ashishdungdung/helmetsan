@@ -46,6 +46,18 @@ add_action('template_redirect', function(): void {
             exit;
         }
 
+        // B2. Ghost Motorcycle Helmet to Real Motorcycle Canonical Redirect
+        // Catches /helmets/{motorcycle-slug}/ and /{lang}/helmets/{motorcycle-slug}/
+        $isMotorcycle = $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'motorcycle' AND post_status = 'publish' LIMIT 1",
+            $slug
+        ));
+
+        if ($isMotorcycle) {
+            wp_safe_redirect(home_url($langPrefix . '/motorcycles/' . $slug . '/'), 301);
+            exit;
+        }
+
         // C. Stale Duplicate Helmet to Clean Canonical Redirect
         // Catches /helmets/{base}-stale-{id}/ and /{lang}/helmets/{base}-stale-{id}/
         if (preg_match('/^(.+)-stale-\d+$/', $slug, $staleMatches)) {

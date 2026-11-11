@@ -169,10 +169,21 @@ final class DatabaseManager
                 $terms = wp_get_post_terms($enPostId, 'helmet_type', ['fields' => 'names']);
             }
             $category = (!is_wp_error($terms) && !empty($terms)) ? $terms[0] : '';
+            if ($category === '') {
+                $contentToScan = (string) $post->post_content . ($enPostId ? ' ' . (string) get_post_field('post_content', $enPostId) : '');
+                if (preg_match('/\b(Full Face|Modular|Open Face|Dual Sport|Adventure|Half Helmet|Off Road)\b/i', $contentToScan, $m)) {
+                    $category = ucwords(strtolower($m[1]));
+                } else {
+                    $category = 'Full Face';
+                }
+            }
         } else {
             $category = (string) get_post_meta($postId, 'accessory_type', true);
             if ($category === '' && $enPostId > 0 && $enPostId !== $postId) {
                 $category = (string) get_post_meta($enPostId, 'accessory_type', true);
+            }
+            if ($category === '') {
+                $category = 'Accessory';
             }
         }
 
@@ -189,6 +200,18 @@ final class DatabaseManager
                 }
             }
         }
+        if ($brandId === 0 && $post->post_type === 'accessory') {
+            $accBrand = (string) (get_post_meta($postId, 'accessory_brand', true) ?: ($enPostId ? get_post_meta($enPostId, 'accessory_brand', true) : ''));
+            if ($accBrand !== '') {
+                $brandPost = get_page_by_path(sanitize_title($accBrand), OBJECT, 'brand');
+                if (!$brandPost) {
+                    $brandPost = get_page_by_title($accBrand, OBJECT, 'brand');
+                }
+                if ($brandPost) {
+                    $brandId = (int) $brandPost->ID;
+                }
+            }
+        }
         
         $priceInr = get_post_meta($postId, 'price_retail_inr', true);
         if (!is_numeric($priceInr)) {
@@ -196,6 +219,15 @@ final class DatabaseManager
         }
         if (!is_numeric($priceInr) && $enPostId > 0 && $enPostId !== $postId) {
             $priceInr = get_post_meta($enPostId, 'price_retail_inr', true) ?: get_post_meta($enPostId, 'price_inr', true);
+        }
+        if (!is_numeric($priceInr) && $post->post_type === 'accessory') {
+            $priceInr = get_post_meta($postId, 'accessory_price_inr', true);
+            if (!is_numeric($priceInr)) {
+                $pJson = json_decode((string) get_post_meta($postId, 'price_json', true), true);
+                if (isset($pJson['inr']) && is_numeric($pJson['inr'])) {
+                    $priceInr = $pJson['inr'];
+                }
+            }
         }
         $priceInr = is_numeric($priceInr) ? (float) $priceInr : null;
 
@@ -205,6 +237,17 @@ final class DatabaseManager
         }
         if (!is_numeric($priceUsd) && $enPostId > 0 && $enPostId !== $postId) {
             $priceUsd = get_post_meta($enPostId, 'price_retail_usd', true) ?: get_post_meta($enPostId, 'price_usd', true);
+        }
+        if (!is_numeric($priceUsd) && $post->post_type === 'accessory') {
+            $priceUsd = get_post_meta($postId, 'accessory_price_usd', true);
+            if (!is_numeric($priceUsd)) {
+                $pJson = json_decode((string) get_post_meta($postId, 'price_json', true), true);
+                if (isset($pJson['usd']) && is_numeric($pJson['usd'])) {
+                    $priceUsd = $pJson['usd'];
+                } elseif (isset($pJson['current']) && is_numeric($pJson['current'])) {
+                    $priceUsd = $pJson['current'];
+                }
+            }
         }
         $priceUsd = is_numeric($priceUsd) ? (float) $priceUsd : null;
 
@@ -249,9 +292,12 @@ final class DatabaseManager
         }
 
         // Accessory Specifics
-        $isPinlock = (string) get_post_meta($postId, 'accessory_pinlock_ready', true) === 'yes' ? 1 : 0;
-        $isElectric = (string) get_post_meta($postId, 'accessory_electric_compatible', true) === 'yes' ? 1 : 0;
-        $isSnow = (string) get_post_meta($postId, 'accessory_snow_compatible', true) === 'yes' ? 1 : 0;
+        $pinlockRaw = get_post_meta($postId, 'accessory_pinlock_ready', true);
+        $isPinlock = in_array($pinlockRaw, ['yes', '1', 1, true], true) ? 1 : 0;
+        $electricRaw = get_post_meta($postId, 'accessory_electric_compatible', true);
+        $isElectric = in_array($electricRaw, ['yes', '1', 1, true], true) ? 1 : 0;
+        $snowRaw = get_post_meta($postId, 'accessory_snow_compatible', true);
+        $isSnow = in_array($snowRaw, ['yes', '1', 1, true], true) ? 1 : 0;
         $color = (string) get_post_meta($postId, 'accessory_color', true);
 
         $certs = wp_get_post_terms($postId, 'certification', ['fields' => 'names']);

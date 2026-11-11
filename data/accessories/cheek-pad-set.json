@@ -1,214 +1,261 @@
 {
-  "title": "Premium Multi-Density Cheek Pads",
-  "type": "Replacement Liner",
-  "compatible_helmet_types": [
-    "Full Face"
-  ],
-  "compatible_brands": [
-    "Shoei"
-  ],
-  "compatible_helmet_ids": [
-    "shoei-rf-1400",
-    "agv-k6",
-    "arai-corsair-x"
-  ],
-  "features": [
-    "Multi-density foam construction for superior comfort and impact absorption",
-    "Universal fit compatible with most full-face motorcycle helmets",
-    "Easy snap-in replacement design for quick installation"
-  ],
-  "price": {
-    "usd": 150,
-    "inr": 12450,
-    "eur": 138,
-    "gbp": 119,
-    "jpy": 23250
-  },
-  "description": "<p>Designed to optimize interior helmet ergonomics and temperature regulation, the Premium Multi-Density Cheek Pads from Universal Moto keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels).</p><p>Engineered for all-season comfort, the Premium Multi-Density Cheek Pads from Universal Moto delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.</p>",
-  "id": "cheek-pad-set",
-  "entity": "accessory",
-  "accessory_pinlock_ready": 0,
-  "accessory_electric_compatible": 0,
-  "accessory_snow_compatible": 0,
-  "accessory_subcategory": "Cheek Pads",
-  "identifiers": {
-    "amazon": {
-      "us": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "ca": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "mx": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "br": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "uk": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "de": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "fr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "it": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "es": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "nl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "pl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "se": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "be": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "tr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "in": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "jp": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "au": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "sg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "ae": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "sa": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "eg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      },
-      "za": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "Universal Moto Premium Multi-Density Cheek Pads"
-      }
+    "title": "Shoei RF-1400 Multi-Density Cheek Pads",
+    "type": "Cheek Pads",
+    "compatible_helmet_types": [
+        "Full Face"
+    ],
+    "compatible_brands": [
+        "Shoei"
+    ],
+    "compatible_helmet_ids": [
+        "shoei-rf-1400"
+    ],
+    "features": [
+        "OEM multi-density polyurethane foam tailored specifically for Shoei RF-1400 / NXR 2 helmets",
+        "Emergency Quick Release System (E.Q.R.S.) red pull-tabs for medical emergency removal",
+        "Max-Dry moisture-wicking and quick-drying antimicrobial fabric lining",
+        "Available in standard (35mm) and custom tuning thicknesses (31mm, 39mm, 43mm)"
+    ],
+    "price": {
+        "usd": 49.99,
+        "eur": 45.99,
+        "gbp": 39.49,
+        "inr": 4150,
+        "jpy": 7750,
+        "current": 49.99,
+        "currency": "USD"
     },
-    "gtin": null,
-    "ean": null,
-    "mpn": "UP-MDP-CHEEK",
-    "sku": "HSN-ACC-CHEEK-PAD-SET",
-    "retailer_skus": {
-      "revzilla": null,
-      "fc_moto": null,
-      "motoin": null,
-      "cyclegear": null,
-      "louis": null,
-      "chromeburner": null
-    }
-  },
-  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Universal Moto Premium Multi-Density Cheek Pads.",
-  "unified_enriched": true,
-  "accessory_physics_matrix": {
-    "material_composition": "Seamless 3D CoolMax / Lycra Moisture-Wicking Fiber with Polygiene Odor Control",
-    "thermal_regulation_range": "-5°C to 40°C All-Season Temperature Regulation",
-    "battery_life_operating_hours": "Passive Ergonomic Fiber / Evaporative Hydro-Activation",
-    "waterproof_ip_rating": "Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer",
-    "installation_difficulty": "1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels)",
-    "audio_driver_specification": "Acoustic Neck Roll / Chin Curtain Baffling Reducing Base Wind Drone"
-  },
-  "qualitative_intelligence": {
-    "glove_friendly_controls": "Seamless friction-fit design prevents bunching around ears when sliding your helmet on.",
-    "wind_noise_suppression_mic": "Acoustic-dampening neck roll fabric reduces cockpit wind turbulence entering from underneath the chin-bar.",
-    "real_world_pros": [
-      "Significantly extends helmet liner freshness by wicking away scalp sweat",
-      "Breathable cooling mesh prevents overheated temple pressure points",
-      "Machine washable construction retains elasticity over multiple seasons"
+    "description": "<p>Designed to optimize interior helmet ergonomics and temperature regulation, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels).</p><p>Engineered for all-season comfort, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.</p>",
+    "id": "cheek-pad-set",
+    "entity": "accessory",
+    "accessory_pinlock_ready": 0,
+    "accessory_electric_compatible": 0,
+    "accessory_snow_compatible": 0,
+    "accessory_subcategory": "Cheek Pads",
+    "identifiers": {
+        "sku": "HSN-ACC-SHOEI-RF1400-CHEEKS",
+        "mpn": "0209-3505-00",
+        "asin": "B08W5FFV39",
+        "amazon": {
+            "us": {
+                "asin": "B08W5FFV39",
+                "status": "verified",
+                "confidence": 0.95,
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "ca": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "mx": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "br": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "uk": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "de": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "fr": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "it": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "es": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "nl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "pl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "se": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "be": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "tr": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "in": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "jp": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "au": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "sg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "ae": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "sa": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "eg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            },
+            "za": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "Shoei RF-1400 Multi-Density Cheek Pads"
+            }
+        },
+        "gtin": null,
+        "ean": null,
+        "upc": null,
+        "fsn": null,
+        "retailer_skus": {
+            "revzilla": null,
+            "fc_moto": null,
+            "motoin": null,
+            "cyclegear": null,
+            "louis": null,
+            "chromeburner": null
+        }
+    },
+    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the Shoei RF-1400 Multi-Density Cheek Pads.",
+    "unified_enriched": true,
+    "accessory_physics_matrix": {
+        "material_composition": "Seamless 3D CoolMax / Lycra Moisture-Wicking Fiber with Polygiene Odor Control",
+        "thermal_regulation_range": "-5°C to 40°C All-Season Temperature Regulation",
+        "battery_life_operating_hours": "Passive Ergonomic Fiber / Evaporative Hydro-Activation",
+        "waterproof_ip_rating": "Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer",
+        "installation_difficulty": "1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels)",
+        "audio_driver_specification": "Acoustic Neck Roll / Chin Curtain Baffling Reducing Base Wind Drone"
+    },
+    "qualitative_intelligence": {
+        "glove_friendly_controls": "Seamless friction-fit design prevents bunching around ears when sliding your helmet on.",
+        "wind_noise_suppression_mic": "Acoustic-dampening neck roll fabric reduces cockpit wind turbulence entering from underneath the chin-bar.",
+        "real_world_pros": [
+            "Significantly extends helmet liner freshness by wicking away scalp sweat",
+            "Breathable cooling mesh prevents overheated temple pressure points",
+            "Machine washable construction retains elasticity over multiple seasons"
+        ],
+        "real_world_cons": [
+            "Snug compression fit may feel tight during initial break-in rides",
+            "Requires occasional hang-drying after intense summer sessions"
+        ],
+        "editorial_verdict": "Engineered for all-season comfort, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity."
+    },
+    "brand": "Shoei",
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=Shoei+RF-1400+Multi-Density+Cheek+Pads&tag=helmetsan-20"
+    },
+    "affiliate_links": {
+        "amazon": {
+            "url": "https://www.amazon.com/s?k=Shoei+RF-1400+Multi-Density+Cheek+Pads&tag=helmetsan-20",
+            "network": "amazon"
+        }
+    },
+    "editorial_overview": "Designed to optimize interior helmet ergonomics and temperature regulation, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels). Engineered for all-season comfort, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
+    "rider_takeaway": "Engineered for all-season comfort, the Shoei RF-1400 Multi-Density Cheek Pads from Shoei delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
+    "compatibility": [
+        "Full Face",
+        "Shoei"
     ],
-    "real_world_cons": [
-      "Snug compression fit may feel tight during initial break-in rides",
-      "Requires occasional hang-drying after intense summer sessions"
-    ],
-    "editorial_verdict": "Engineered for all-season comfort, the Premium Multi-Density Cheek Pads from Universal Moto delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity."
-  },
-  "brand": "Universal Moto",
-  "marketplace_links": {
-    "amazon": "https://www.amazon.com/s?k=Premium+Multi-Density+Cheek+Pads&tag=helmetsan-20"
-  },
-  "affiliate_links": {
-    "amazon": {
-      "url": "https://www.amazon.com/s?k=Premium+Multi-Density+Cheek+Pads&tag=helmetsan-20",
-      "network": "amazon"
-    }
-  },
-  "editorial_overview": "Designed to optimize interior helmet ergonomics and temperature regulation, the Premium Multi-Density Cheek Pads from Universal Moto keeps riders dry, focused, and comfortable across grueling saddle stints. Built with Hydrophilic Moisture-Wicking Core with Fast-Evaporating Air-Mesh Outer, it boasts an installation rating of 1.0 / 10 (Direct snap-tab alignment into EPS cheek-pad / liner channels). Engineered for all-season comfort, the Premium Multi-Density Cheek Pads from Universal Moto delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
-  "rider_takeaway": "Engineered for all-season comfort, the Premium Multi-Density Cheek Pads from Universal Moto delivers exceptional moisture management and skin comfort, shielding riders from biting wind-chill and summer humidity.",
-  "compatibility": [
-    "Full Face",
-    "Shoei"
-  ],
-  "price_placeholder": true,
-  "compatibility_matrix": {
-    "helmet_types": [
-      "Full Face"
-    ],
-    "brands": [
-      "Shoei"
-    ],
-    "helmet_ids": [
-      "shoei-rf-1400",
-      "agv-k6",
-      "arai-corsair-x"
+    "price_placeholder": false,
+    "compatibility_matrix": {
+        "helmet_types": [
+            "Full Face"
+        ],
+        "brands": [
+            "Shoei"
+        ],
+        "helmet_ids": [
+            "shoei-rf-1400"
+        ],
+        "helmet_families": [
+            "RF-1400",
+            "NXR 2"
+        ]
+    },
+    "parent_category": "Comfort & Care",
+    "subcategory": "Cheek Pads",
+    "accessory_parent_category": "Comfort & Care",
+    "color": "Dark Grey",
+    "accessory_color": "Dark Grey",
+    "youth_adult": "Adult",
+    "accessory_youth_adult": "Adult",
+    "pinlock_ready": 0,
+    "electric_compatible": 0,
+    "snow_compatible": 0,
+    "geo_pricing": {
+        "US": {
+            "price": 49.99,
+            "currency": "USD",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "EU": {
+            "price": 45.99,
+            "currency": "EUR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "GB": {
+            "price": 39.49,
+            "currency": "GBP",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "IN": {
+            "price": 4150,
+            "currency": "INR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        }
+    },
+    "compatible_helmet_families": [
+        "RF-1400",
+        "NXR 2"
     ]
-  }
 }

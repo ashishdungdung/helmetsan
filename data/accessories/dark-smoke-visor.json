@@ -1,231 +1,266 @@
 {
-  "entity": "accessory",
-  "id": "dark-smoke-visor",
-  "title": "HJC HJ-31 Dark Smoke Face Shield",
-  "type": "Face Shield",
-  "compatible_helmet_types": [
-    "Full Face"
-  ],
-  "compatible_brands": [
-    "HJC"
-  ],
-  "compatible_helmet_ids": [
-    "hjc-rpha-71"
-  ],
-  "features": [
-    "Dark smoke tint for reduced glare and enhanced visibility",
-    "Compatible with HJC HJ-31 helmet models",
-    "Scratch-resistant polycarbonate material"
-  ],
-  "price": {
-    "usd": 150,
-    "inr": 12450,
-    "eur": 138,
-    "gbp": 119,
-    "jpy": 23250
-  },
-  "geo_pricing": {
-    "US": {
-      "price": 59.99,
-      "currency": "USD",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
+    "entity": "accessory",
+    "id": "dark-smoke-visor",
+    "title": "HJC HJ-31 Dark Smoke Face Shield",
+    "type": "Face Shields",
+    "compatible_helmet_types": [
+        "Full Face"
+    ],
+    "compatible_brands": [
+        "HJC"
+    ],
+    "compatible_helmet_ids": [
+        "hjc-rpha-71",
+        "hjc-rpha-11-pro"
+    ],
+    "features": [
+        "OEM optical polycarbonate shield with 99% UV-A and UV-B radiation rejection",
+        "Pinlock-ready mounting pins engineered for Pinlock 70 MaxVision insert",
+        "Anti-scratch hard-coat surface engineered for durability in high-debris slipstreams",
+        "Precision ratchet pivot mechanism enables seamless toolless shield swap"
+    ],
+    "price": {
+        "usd": 59.99,
+        "eur": 54.99,
+        "gbp": 47.4,
+        "inr": 4980,
+        "jpy": 9300,
+        "current": 59.99,
+        "currency": "USD"
     },
-    "EU": {
-      "price": 49.95,
-      "currency": "EUR",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
+    "geo_pricing": {
+        "US": {
+            "price": 59.99,
+            "currency": "USD",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "EU": {
+            "price": 54.99,
+            "currency": "EUR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "GB": {
+            "price": 47.4,
+            "currency": "GBP",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        },
+        "IN": {
+            "price": 4980,
+            "currency": "INR",
+            "availability": "in_stock",
+            "updated_at": "2026-11-10"
+        }
     },
-    "IN": {
-      "price": 4999,
-      "currency": "INR",
-      "availability": "in_stock",
-      "updated_at": "2026-02-20"
-    }
-  },
-  "description": "<p>Engineered to withstand harsh ultraviolet radiation and dense condensation, the HJC HJ-31 Dark Smoke Face Shield from HJC elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds).</p><p>The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.</p>",
-  "accessory_pinlock_ready": 1,
-  "accessory_electric_compatible": 0,
-  "accessory_snow_compatible": 0,
-  "accessory_subcategory": "Dark Smoke Face Shield",
-  "identifiers": {
-    "amazon": {
-      "us": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "ca": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "mx": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "br": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "uk": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "de": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "fr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "it": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "es": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "nl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "pl": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "se": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "be": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "tr": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "in": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "jp": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "au": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "sg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "ae": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "sa": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "eg": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      },
-      "za": {
-        "asin": null,
-        "status": "search_fallback",
-        "search_fallback": "HJC HJC HJ-31 Dark Smoke Face Shield"
-      }
+    "description": "<p>Engineered to withstand harsh ultraviolet radiation and dense condensation, the HJC HJ-31 Dark Smoke Face Shield from HJC elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds).</p><p>The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.</p>",
+    "accessory_pinlock_ready": 1,
+    "accessory_electric_compatible": 0,
+    "accessory_snow_compatible": 0,
+    "accessory_subcategory": "Face Shields",
+    "identifiers": {
+        "sku": "HSN-ACC-HJC-HJ31-DARK-SMOKE",
+        "mpn": "HJ-31-DS",
+        "asin": "B0821M84M9",
+        "amazon": {
+            "us": {
+                "asin": "B0821M84M9",
+                "status": "verified",
+                "confidence": 0.95,
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "ca": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "mx": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "br": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "uk": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "de": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "fr": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "it": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "es": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "nl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "pl": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "se": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "be": {
+                "asin": null,
+                "status": "onelink_forwarding",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "tr": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "in": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "jp": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "au": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "sg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "ae": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "sa": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "eg": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            },
+            "za": {
+                "asin": null,
+                "status": "search_fallback",
+                "search_fallback": "HJC HJ-31 Dark Smoke Face Shield"
+            }
+        },
+        "gtin": null,
+        "ean": null,
+        "upc": null,
+        "fsn": null,
+        "retailer_skus": {
+            "revzilla": null,
+            "fc_moto": null,
+            "motoin": null,
+            "cyclegear": null,
+            "louis": null,
+            "chromeburner": null
+        }
     },
-    "gtin": null,
-    "ean": null,
-    "mpn": "HJ-31",
-    "sku": "HSN-ACC-DARK-SMOKE-VISOR",
-    "retailer_skus": {
-      "revzilla": null,
-      "fc_moto": null,
-      "motoin": null,
-      "cyclegear": null,
-      "louis": null,
-      "chromeburner": null
-    }
-  },
-  "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the HJC HJC HJ-31 Dark Smoke Face Shield.",
-  "unified_enriched": true,
-  "accessory_physics_matrix": {
-    "optical_tint_vlt_percentage": "14% to 18% VLT (Daytime Glare Suppression)",
-    "optical_clarity_class": "Optical Class 1 (Zero peripheral distortion at 240+ km/h)",
-    "uv_protection_rating": "UV400 (Blocks 99.9% of harmful UVA and UVB radiation)",
-    "battery_life_operating_hours": "Passive Photonic / Molecular Dye Matrix (No Battery Required)",
-    "waterproof_ip_rating": "Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal",
-    "installation_difficulty": "1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds)",
-    "audio_driver_specification": "Optical Class 1 Injection-Molded Polycarbonate with 99.9% UV-A/UV-B Shielding"
-  },
-  "qualitative_intelligence": {
-    "glove_friendly_controls": "Pronounced central or side visor-lift tab designed for positive thumb engagement even while wearing thick waterproof gloves.",
-    "wind_noise_suppression_mic": "Aero-beaded perimeter seal compresses firmly against eyeport gasket to prevent high-speed whistling.",
-    "real_world_pros": [
-      "100% fog-free vision in freezing rain and humid urban stop-and-go traffic",
-      "True Optical Class 1 clarity without edge distortion or night-time glare haloing",
-      "Rapid toolless trackside installation"
+    "yoast_metadesc": "Complete specs, real-world review, and verified helmet compatibility guide for the HJC HJ-31 Dark Smoke Face Shield.",
+    "unified_enriched": true,
+    "accessory_physics_matrix": {
+        "optical_tint_vlt_percentage": "14% to 18% VLT (Daytime Glare Suppression)",
+        "optical_clarity_class": "Optical Class 1 (Zero peripheral distortion at 240+ km/h)",
+        "uv_protection_rating": "UV400 (Blocks 99.9% of harmful UVA and UVB radiation)",
+        "battery_life_operating_hours": "Passive Photonic / Molecular Dye Matrix (No Battery Required)",
+        "waterproof_ip_rating": "Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal",
+        "installation_difficulty": "1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds)",
+        "audio_driver_specification": "Optical Class 1 Injection-Molded Polycarbonate with 99.9% UV-A/UV-B Shielding"
+    },
+    "qualitative_intelligence": {
+        "glove_friendly_controls": "Pronounced central or side visor-lift tab designed for positive thumb engagement even while wearing thick waterproof gloves.",
+        "wind_noise_suppression_mic": "Aero-beaded perimeter seal compresses firmly against eyeport gasket to prevent high-speed whistling.",
+        "real_world_pros": [
+            "100% fog-free vision in freezing rain and humid urban stop-and-go traffic",
+            "True Optical Class 1 clarity without edge distortion or night-time glare haloing",
+            "Rapid toolless trackside installation"
+        ],
+        "real_world_cons": [
+            "Dark smoke versions are restricted to daytime use under DOT/ECE regulations",
+            "Pinlock silicone bead requires gentle cleaning with lukewarm water only"
+        ],
+        "editorial_verdict": "The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
+    },
+    "brand": "HJC",
+    "marketplace_links": {
+        "amazon": "https://www.amazon.com/s?k=HJC+HJ-31+Dark+Smoke+Face+Shield&tag=helmetsan-20"
+    },
+    "affiliate_links": {
+        "amazon": {
+            "url": "https://www.amazon.com/s?k=HJC+HJ-31+Dark+Smoke+Face+Shield&tag=helmetsan-20",
+            "network": "amazon"
+        }
+    },
+    "editorial_overview": "Engineered to withstand harsh ultraviolet radiation and dense condensation, the HJC HJ-31 Dark Smoke Face Shield from HJC elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds). The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
+    "rider_takeaway": "The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
+    "compatibility": [
+        "Full Face",
+        "HJC"
     ],
-    "real_world_cons": [
-      "Dark smoke versions are restricted to daytime use under DOT/ECE regulations",
-      "Pinlock silicone bead requires gentle cleaning with lukewarm water only"
-    ],
-    "editorial_verdict": "The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates."
-  },
-  "brand": "HJC",
-  "marketplace_links": {
-    "amazon": "https://www.amazon.com/s?k=HJC+HJ-31+Dark+Smoke+Face+Shield&tag=helmetsan-20"
-  },
-  "affiliate_links": {
-    "amazon": {
-      "url": "https://www.amazon.com/s?k=HJC+HJ-31+Dark+Smoke+Face+Shield&tag=helmetsan-20",
-      "network": "amazon"
-    }
-  },
-  "editorial_overview": "Engineered to withstand harsh ultraviolet radiation and dense condensation, the HJC HJ-31 Dark Smoke Face Shield from HJC elevates visual clarity across demanding weather conditions. Built with Hydrophobic Rain-Shedding Exterior Coating with Perimeter Airtight Seal, it boasts an installation rating of 1.0 / 10 (Toolless quick-release pivot lever swap in 10 seconds). The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
-  "rider_takeaway": "The HJC HJ-31 Dark Smoke Face Shield is an essential visual clarity upgrade from HJC. By delivering edge-to-edge optical fidelity and bulletproof fog prevention, it dramatically improves situational awareness across unpredictable climates.",
-  "compatibility": [
-    "Full Face",
-    "HJC"
-  ],
-  "price_placeholder": true,
-  "compatibility_matrix": {
-    "helmet_types": [
-      "Full Face"
-    ],
-    "brands": [
-      "HJC"
-    ],
-    "helmet_ids": [
-      "hjc-rpha-71"
+    "price_placeholder": false,
+    "compatibility_matrix": {
+        "helmet_types": [
+            "Full Face"
+        ],
+        "brands": [
+            "HJC"
+        ],
+        "helmet_ids": [
+            "hjc-rpha-71",
+            "hjc-rpha-11-pro"
+        ],
+        "helmet_families": [
+            "RPHA 71",
+            "RPHA 11 Pro",
+            "i70"
+        ]
+    },
+    "parent_category": "Visors & Optics",
+    "subcategory": "Face Shields",
+    "accessory_parent_category": "Visors & Optics",
+    "color": "Dark Smoke",
+    "accessory_color": "Dark Smoke",
+    "youth_adult": "Adult",
+    "accessory_youth_adult": "Adult",
+    "pinlock_ready": 1,
+    "electric_compatible": 0,
+    "snow_compatible": 0,
+    "compatible_helmet_families": [
+        "RPHA 71",
+        "RPHA 11 Pro",
+        "i70"
     ]
-  }
 }
