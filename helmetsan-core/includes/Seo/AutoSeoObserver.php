@@ -98,6 +98,11 @@ final class AutoSeoObserver
             'feature_tag',
             'region',
             'accessory_category',
+            'size',
+            'motorcycle_segment',
+            'motorcycle_make',
+            'category',
+            'post_tag',
         ];
 
         foreach ($thinTaxonomies as $tax) {
@@ -172,6 +177,11 @@ final class AutoSeoObserver
             'feature_tag',
             'region',
             'accessory_category',
+            'size',
+            'motorcycle_segment',
+            'motorcycle_make',
+            'category',
+            'post_tag',
         ];
 
         if (in_array($taxonomy, $thinTaxonomies, true)) {
@@ -183,8 +193,9 @@ final class AutoSeoObserver
 
     /**
      * Exclude child helmet variant URLs from Yoast SEO sitemap entries so only parent models are indexed.
+     * Note: $post can be WP_Post, WP_Term, or WP_User depending on sitemap type ('post', 'term', 'user').
      */
-    public function excludeYoastSitemapEntries(array|bool $url, string $type, ?\WP_Post $post = null): array|bool
+    public function excludeYoastSitemapEntries(array|bool $url, string $type = '', mixed $post = null): array|bool
     {
         if ($url === false || ! $post instanceof \WP_Post) {
             return $url;

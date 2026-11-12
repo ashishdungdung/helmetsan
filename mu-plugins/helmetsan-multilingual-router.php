@@ -74,6 +74,16 @@ add_action('template_redirect', function(): void {
                 $cleanBase = preg_replace('/-stale-\d+$/', '', $parentSlug);
                 wp_safe_redirect(home_url($langPrefix . '/helmets/' . $cleanBase . '/'), 301);
                 exit;
+            } else {
+                $currentTitle = $wpdb->get_var($wpdb->prepare("SELECT post_title FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'helmet' LIMIT 1", $slug));
+                if (!empty($currentTitle)) {
+                    $cleanSlug = sanitize_title($currentTitle);
+                    $exists = $wpdb->get_var($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'helmet' AND post_status = 'publish' LIMIT 1", $cleanSlug));
+                    if ($exists) {
+                        wp_safe_redirect(home_url($langPrefix . '/helmets/' . $cleanSlug . '/'), 301);
+                        exit;
+                    }
+                }
             }
         }
     }

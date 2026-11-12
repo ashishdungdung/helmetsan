@@ -161,6 +161,13 @@ final class Commands
         \WP_CLI::add_command('helmetsan db purge-stale-helmets', [$this, 'dbPurgeStaleHelmets']);
         \WP_CLI::add_command('helmetsan db purge-ghost-motorcycles', [$this, 'dbPurgeGhostMotorcycles']);
         \WP_CLI::add_command('helmetsan db repair-yoast-indexables', [$this, 'dbRepairYoastIndexables']);
+        \WP_CLI::add_command('helmetsan db sanitize-child-helmets', [$this, 'dbSanitizeChildHelmets']);
+        \WP_CLI::add_command('helmetsan db purge-yoast-orphans', [$this, 'dbPurgeYoastOrphans']);
+        \WP_CLI::add_command('helmetsan db purge-orphan-postmeta-terms', [$this, 'dbPurgeOrphanPostmetaTerms']);
+        \WP_CLI::add_command('helmetsan db repair-polylang-translations', [$this, 'dbRepairPolylangTranslations']);
+        \WP_CLI::add_command('helmetsan db purge-ghost-translations', [$this, 'dbPurgeGhostTranslations']);
+        \WP_CLI::add_command('helmetsan db purge-orphan-translations', [$this, 'dbPurgeOrphanTranslations']);
+        \WP_CLI::add_command('helmetsan db align-translated-slugs', [$this, 'dbAlignTranslatedSlugs']);
         \WP_CLI::add_command('helmetsan db reindex-outdated-products', [$this, 'dbReindexOutdatedProducts']);
         \WP_CLI::add_command('helmetsan db repair-seo-titles', [$this, 'dbRepairSeoTitles']);
         \WP_CLI::add_command('helmetsan db drop-legacy-tables', [$this, 'dbDropLegacyTables']);
@@ -5270,6 +5277,146 @@ final class Commands
             \WP_CLI::warning(sprintf("DRY RUN: Found %d corrupted indexables and %d corrupted postmeta entries. Run without --dry-run to clean.", $result['corrupted_indexables'], $result['corrupted_postmeta']));
         } else {
             \WP_CLI::success(sprintf("Yoast Indexable Repair Complete: Cleared %d corrupted postmeta rows, sanitized %d indexables to restore clean titles.", $result['corrupted_postmeta'], $result['repaired_indexables']));
+        }
+    }
+
+    /**
+     * Sanitize child helmet variants: set noindex & parent canonical in Yoast, purge orphan child posts, and remove child rows from product index.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbSanitizeChildHelmets(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning child helmet variants and indexables...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::sanitizeChildHelmetIndexables($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: %d child indexables to sanitize, %d orphan posts to purge, %d child variants in product index.", $res['child_indexables_sanitized'], $res['orphan_posts_purged'], $res['product_index_cleaned']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Sanitized %d child indexables, purged %d orphan posts, removed %d child variants from product index.", $res['child_indexables_sanitized'], $res['orphan_posts_purged'], $res['product_index_cleaned']));
+        }
+    }
+
+    /**
+     * Purge orphaned indexables, hierarchy records, and links from Yoast database tables.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbPurgeYoastOrphans(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning wp_yoast_indexable, hierarchy, and links for orphan records...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeYoastOrphanIndexables($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d orphan indexables, %d dangling hierarchy records, %d orphan links. Run without --dry-run to purge.", $res['orphans_found'], $res['hierarchy_deleted'], $res['links_deleted']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Purged %d orphan indexables, cleaned %d hierarchy records and %d links.", $res['orphans_deleted'], $res['hierarchy_deleted'], $res['links_deleted']));
+        }
+    }
+
+    /**
+     * Purge orphaned postmeta rows and orphaned term relationships pointing to deleted posts.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbPurgeOrphanPostmetaTerms(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning wp_postmeta and wp_term_relationships for orphaned post records...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeOrphanPostmetaAndTerms($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d orphaned postmeta rows and %d orphaned post-term relationships. Run without --dry-run to purge.", $res['postmeta_purged'], $res['term_relationships_purged']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Purged %d orphaned postmeta rows and %d orphaned post-term relationships.", $res['postmeta_purged'], $res['term_relationships_purged']));
+        }
+    }
+
+    /**
+     * Repair Polylang post_translations taxonomy: purge dead groups and sanitize partial groups.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbRepairPolylangTranslations(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning Polylang post_translations for dead references and ghost terms...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::repairPolylangTranslations($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d totally dead translation groups to purge, %d partially dead groups (%d dead post refs) to sanitize.", $res['empty_groups_purged'], $res['groups_repaired'], $res['dead_refs_removed']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Purged %d dead translation groups, repaired %d groups, cleared %d ghost post references.", $res['empty_groups_purged'], $res['groups_repaired'], $res['dead_refs_removed']));
+        }
+    }
+
+    /**
+     * Purge ghost duplicate translated posts superseded in post_translations descriptions.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbPurgeGhostTranslations(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning for duplicate translated posts superseded in translation groups...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeGhostDuplicateTranslatedPosts($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d superseded duplicate posts attached to translation groups.", $res['ghost_duplicates_found']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Purged %d superseded duplicate translated posts across all tables.", $res['ghost_duplicates_purged']));
+        }
+    }
+
+    /**
+     * Purge orphan translation groups that have no published English parent post.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbPurgeOrphanTranslations(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Scanning for orphan translation groups without a published English parent...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeOrphanTranslationGroupsWithoutEnglish($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d translation groups (%d posts) without a published English parent.", $res['groups_found'], $res['posts_purged']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Purged %d orphan translation groups (%d posts) across all tables.", $res['groups_found'], $res['posts_purged']));
+        }
+    }
+
+    /**
+     * Align translated helmet slugs with the canonical English post slug.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbAlignTranslatedSlugs(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Aligning translated helmet slugs with canonical English parent slugs...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::alignTranslatedHelmetSlugs($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Inspected %d translated helmets; %d slugs differ from English canonical slug and will be aligned.", $res['inspected'], $res['slugs_aligned']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Inspected %d translated helmets; successfully aligned %d slugs to canonical English structure.", $res['inspected'], $res['slugs_aligned']));
         }
     }
 

@@ -668,4 +668,581 @@ final class DatabaseOptimizer
             'elapsed_sec' => round(microtime(true) - $startTime, 3),
         ];
     }
+
+    /**
+     * Sanitizes child helmet variants in Yoast indexables and Product Index:
+     * 1. Marks child variants (post_parent > 0) as is_robots_noindex = 1 and sets canonical to parent permalink in wp_yoast_indexable.
+     * 2. Purges the orphan child helmets whose parent post no longer exists.
+     * 3. Purges child variants from wp_helmetsan_product_index so only canonical parent models are indexed.
+     *
+     * @param bool $dryRun
+     * @return array{child_indexables_sanitized: int, orphan_posts_purged: int, product_index_cleaned: int, dry_run: bool}
+     */
+    public static function sanitizeChildHelmetIndexables(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        // 1. Find child indexables that are missing noindex or canonical
+        $childIndexablesCount = (int) $wpdb->get_var("
+            SELECT COUNT(y.id)
+            FROM {$indexableTable} y
+            JOIN {$wpdb->posts} c ON c.ID = y.object_id
+            WHERE c.post_type = 'helmet' AND c.post_parent > 0 AND (y.is_robots_noindex IS NULL OR y.is_robots_noindex = 0 OR y.canonical IS NULL)
+        ");
+
+        // 2. Find orphan child helmets (parent does not exist)
+        $orphanIds = $wpdb->get_col("
+            SELECT c.ID
+            FROM {$wpdb->posts} c
+            LEFT JOIN {$wpdb->posts} p ON p.ID = c.post_parent
+            WHERE c.post_type = 'helmet' AND c.post_parent > 0 AND p.ID IS NULL
+        ");
+        $orphanCount = count($orphanIds);
+
+        // 3. Find child variants lingering in product index
+        $childInIndexCount = (int) $wpdb->get_var("
+            SELECT COUNT(idx.post_id)
+            FROM {$productIndexTable} idx
+            JOIN {$wpdb->posts} p ON p.ID = idx.post_id
+            WHERE p.post_type = 'helmet' AND p.post_parent > 0
+        ");
+
+        if ($dryRun) {
+            return [
+                'child_indexables_sanitized' => $childIndexablesCount,
+                'orphan_posts_purged'       => $orphanCount,
+                'product_index_cleaned'     => $childInIndexCount,
+                'dry_run'                   => true,
+            ];
+        }
+
+        // A. Purge orphan child posts (if parent was deleted)
+        if (!empty($orphanIds)) {
+            $idList = implode(',', array_map('intval', $orphanIds));
+            $wpdb->query("DELETE FROM {$productIndexTable} WHERE post_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$indexableTable} WHERE object_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+        }
+
+        // B. Update child variant indexables with noindex and canonical link to parent
+        $wpdb->query("
+            UPDATE {$indexableTable} y
+            JOIN {$wpdb->posts} c ON c.ID = y.object_id
+            JOIN {$wpdb->posts} p ON p.ID = c.post_parent
+            SET y.is_robots_noindex = 1,
+                y.canonical = CONCAT('" . rtrim(home_url(), '/') . "/helmets/', p.post_name, '/')
+            WHERE c.post_type = 'helmet' AND c.post_parent > 0
+        ");
+
+        // C. Clean child variants from product index
+        $wpdb->query("
+            DELETE idx FROM {$productIndexTable} idx
+            JOIN {$wpdb->posts} p ON p.ID = idx.post_id
+            WHERE p.post_type = 'helmet' AND p.post_parent > 0
+        ");
+
+        clean_post_cache($orphanIds[0] ?? 0);
+
+        return [
+            'child_indexables_sanitized' => $childIndexablesCount,
+            'orphan_posts_purged'       => $orphanCount,
+            'product_index_cleaned'     => $childInIndexCount,
+            'dry_run'                   => false,
+        ];
+    }
+
+    /**
+     * Purges orphaned indexables from wp_yoast_indexable whose underlying post no longer exists.
+     *
+     * @param bool $dryRun
+     * @return array{orphans_found: int, orphans_deleted: int, hierarchy_deleted: int, links_deleted: int, dry_run: bool}
+     */
+    public static function purgeYoastOrphanIndexables(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+        $hierarchyTable = $wpdb->prefix . 'yoast_indexable_hierarchy';
+        $linksTable = $wpdb->prefix . 'yoast_seo_links';
+
+        $orphanCount = (int) $wpdb->get_var("
+            SELECT COUNT(y.id)
+            FROM {$indexableTable} y
+            LEFT JOIN {$wpdb->posts} p ON p.ID = y.object_id
+            WHERE y.object_type = 'post' AND p.ID IS NULL
+        ");
+
+        $orphanHierarchyCount = (int) $wpdb->get_var("
+            SELECT COUNT(h.indexable_id)
+            FROM {$hierarchyTable} h
+            LEFT JOIN {$indexableTable} y ON y.id = h.indexable_id
+            WHERE y.id IS NULL
+        ");
+
+        $orphanLinksCount = (int) $wpdb->get_var("
+            SELECT COUNT(l.id)
+            FROM {$linksTable} l
+            LEFT JOIN {$wpdb->posts} p ON p.ID = l.post_id
+            WHERE p.ID IS NULL
+        ");
+
+        if ($dryRun) {
+            return [
+                'orphans_found'     => $orphanCount,
+                'orphans_deleted'   => 0,
+                'hierarchy_deleted' => $orphanHierarchyCount,
+                'links_deleted'     => $orphanLinksCount,
+                'dry_run'           => true,
+            ];
+        }
+
+        // Clean hierarchy for orphan indexables
+        $wpdb->query("
+            DELETE h FROM {$hierarchyTable} h
+            JOIN {$indexableTable} y ON y.id = h.indexable_id
+            LEFT JOIN {$wpdb->posts} p ON p.ID = y.object_id
+            WHERE y.object_type = 'post' AND p.ID IS NULL
+        ");
+
+        // Clean any already dangling hierarchy
+        $wpdb->query("
+            DELETE h FROM {$hierarchyTable} h
+            LEFT JOIN {$indexableTable} y ON y.id = h.indexable_id
+            WHERE y.id IS NULL
+        ");
+
+        // Clean orphan links
+        $wpdb->query("
+            DELETE l FROM {$linksTable} l
+            LEFT JOIN {$wpdb->posts} p ON p.ID = l.post_id
+            WHERE p.ID IS NULL
+        ");
+
+        // Clean orphan indexables
+        $deleted = (int) $wpdb->query("
+            DELETE y FROM {$indexableTable} y
+            LEFT JOIN {$wpdb->posts} p ON p.ID = y.object_id
+            WHERE y.object_type = 'post' AND p.ID IS NULL
+        ");
+
+        return [
+            'orphans_found'     => $orphanCount,
+            'orphans_deleted'   => $deleted,
+            'hierarchy_deleted' => $orphanHierarchyCount,
+            'links_deleted'     => $orphanLinksCount,
+            'dry_run'           => false,
+        ];
+    }
+
+    /**
+     * Purges orphaned postmeta and post-term relationships pointing to non-existent posts.
+     *
+     * @param bool $dryRun
+     * @return array{postmeta_purged: int, term_relationships_purged: int, dry_run: bool}
+     */
+    public static function purgeOrphanPostmetaAndTerms(bool $dryRun = true): array
+    {
+        global $wpdb;
+
+        $orphanMetaCount = (int) $wpdb->get_var("
+            SELECT COUNT(pm.meta_id)
+            FROM {$wpdb->postmeta} pm
+            LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+            WHERE p.ID IS NULL
+        ");
+
+        $orphanTermsCount = (int) $wpdb->get_var("
+            SELECT COUNT(tr.object_id)
+            FROM {$wpdb->term_relationships} tr
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            LEFT JOIN {$wpdb->posts} p ON p.ID = tr.object_id
+            WHERE tt.taxonomy NOT IN ('term_language', 'term_translations') AND p.ID IS NULL
+        ");
+
+        if ($dryRun) {
+            return [
+                'postmeta_purged'           => $orphanMetaCount,
+                'term_relationships_purged' => $orphanTermsCount,
+                'dry_run'                   => true,
+            ];
+        }
+
+        $metaDeleted = (int) $wpdb->query("
+            DELETE pm FROM {$wpdb->postmeta} pm
+            LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+            WHERE p.ID IS NULL
+        ");
+
+        $termsDeleted = (int) $wpdb->query("
+            DELETE tr FROM {$wpdb->term_relationships} tr
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+            LEFT JOIN {$wpdb->posts} p ON p.ID = tr.object_id
+            WHERE tt.taxonomy NOT IN ('term_language', 'term_translations') AND p.ID IS NULL
+        ");
+
+        return [
+            'postmeta_purged'           => $metaDeleted,
+            'term_relationships_purged' => $termsDeleted,
+            'dry_run'                   => false,
+        ];
+    }
+
+    /**
+     * Repairs Polylang post_translations taxonomy:
+     * 1. Purges empty translation groups where all referenced posts were deleted.
+     * 2. Sanitizes partially dead translation groups to remove ghost post references.
+     *
+     * @param bool $dryRun
+     * @return array{empty_groups_purged: int, groups_repaired: int, dead_refs_removed: int, dry_run: bool}
+     */
+    public static function repairPolylangTranslations(bool $dryRun = true): array
+    {
+        global $wpdb;
+
+        $terms = $wpdb->get_results("
+            SELECT tt.term_taxonomy_id, tt.term_id, tt.description
+            FROM {$wpdb->term_taxonomy} tt
+            WHERE tt.taxonomy = 'post_translations'
+        ");
+
+        $emptyTaxonomyIds = [];
+        $emptyTermIds = [];
+        $groupsToRepair = [];
+        $totalDeadRefs = 0;
+
+        foreach ($terms as $t) {
+            $arr = @unserialize($t->description);
+            if (! is_array($arr)) {
+                $emptyTaxonomyIds[] = (int) $t->term_taxonomy_id;
+                $emptyTermIds[] = (int) $t->term_id;
+                continue;
+            }
+
+            $cleanArr = [];
+            $deadInThisGroup = 0;
+            foreach ($arr as $lang => $pid) {
+                $exists = $wpdb->get_var($wpdb->prepare(
+                    "SELECT ID FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                    (int) $pid
+                ));
+                if ($exists) {
+                    $cleanArr[$lang] = (int) $pid;
+                } else {
+                    $deadInThisGroup++;
+                    $totalDeadRefs++;
+                }
+            }
+
+            if (empty($cleanArr)) {
+                $emptyTaxonomyIds[] = (int) $t->term_taxonomy_id;
+                $emptyTermIds[] = (int) $t->term_id;
+            } elseif ($deadInThisGroup > 0) {
+                $groupsToRepair[] = [
+                    'term_taxonomy_id' => (int) $t->term_taxonomy_id,
+                    'clean_description' => serialize($cleanArr),
+                ];
+            }
+        }
+
+        if ($dryRun) {
+            return [
+                'empty_groups_purged' => count($emptyTaxonomyIds),
+                'groups_repaired'     => count($groupsToRepair),
+                'dead_refs_removed'   => $totalDeadRefs,
+                'dry_run'             => true,
+            ];
+        }
+
+        // Purge completely dead translation groups
+        if (! empty($emptyTaxonomyIds)) {
+            $ttList = implode(',', $emptyTaxonomyIds);
+            $tList = implode(',', $emptyTermIds);
+            $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ({$ttList})");
+            $wpdb->query("DELETE FROM {$wpdb->term_taxonomy} WHERE term_taxonomy_id IN ({$ttList})");
+            $wpdb->query("DELETE FROM {$wpdb->terms} WHERE term_id IN ({$tList})");
+        }
+
+        // Update partially dead groups with clean descriptions
+        foreach ($groupsToRepair as $rep) {
+            $wpdb->update(
+                $wpdb->term_taxonomy,
+                ['description' => $rep['clean_description']],
+                ['term_taxonomy_id' => $rep['term_taxonomy_id']],
+                ['%s'],
+                ['%d']
+            );
+        }
+
+        wp_cache_flush();
+
+        return [
+            'empty_groups_purged' => count($emptyTaxonomyIds),
+            'groups_repaired'     => count($groupsToRepair),
+            'dead_refs_removed'   => $totalDeadRefs,
+            'dry_run'             => false,
+        ];
+    }
+
+    /**
+     * Aligns translated helmet post slugs with the canonical English post slug.
+     * Completely eliminates cross-language slug collisions and ensures 100% addressability.
+     *
+     * @param bool $dryRun
+     * @return array{inspected: int, slugs_aligned: int, dry_run: bool}
+     */
+    public static function alignTranslatedHelmetSlugs(bool $dryRun = true): array
+    {
+        global $wpdb;
+
+        // Fetch translation groups for published helmets
+        $terms = $wpdb->get_results("
+            SELECT tt.description
+            FROM {$wpdb->term_taxonomy} tt
+            WHERE tt.taxonomy = 'post_translations'
+        ");
+
+        $alignedCount = 0;
+        $inspectedCount = 0;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+        $homeUrl = rtrim(home_url(), '/');
+
+        if (! $dryRun) {
+            $wpdb->query("START TRANSACTION");
+        }
+
+        foreach ($terms as $t) {
+            $arr = @unserialize($t->description);
+            if (! is_array($arr) || empty($arr['en'])) {
+                continue;
+            }
+
+            $enId = (int) $arr['en'];
+            $enPost = $wpdb->get_row($wpdb->prepare(
+                "SELECT ID, post_name, post_type FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                $enId
+            ));
+
+            if (! $enPost || $enPost->post_type !== 'helmet' || empty($enPost->post_name)) {
+                continue;
+            }
+
+            $enSlug = (string) $enPost->post_name;
+
+            foreach ($arr as $lang => $transId) {
+                if ($lang === 'en') {
+                    continue;
+                }
+
+                $transId = (int) $transId;
+                $transPost = $wpdb->get_row($wpdb->prepare(
+                    "SELECT ID, post_name FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                    $transId
+                ));
+
+                if (! $transPost) {
+                    continue;
+                }
+
+                $inspectedCount++;
+
+                if ($transPost->post_name !== $enSlug) {
+                    $alignedCount++;
+                    if (! $dryRun) {
+                        $wpdb->update(
+                            $wpdb->posts,
+                            ['post_name' => $enSlug],
+                            ['ID' => $transId],
+                            ['%s'],
+                            ['%d']
+                        );
+
+                        // Also update Yoast indexable if present
+                        $permalink = $homeUrl . '/' . $lang . '/helmets/' . $enSlug . '/';
+                        $wpdb->query($wpdb->prepare(
+                            "UPDATE {$indexableTable} SET permalink = %s, canonical = %s WHERE object_id = %d AND object_type = 'post'",
+                            $permalink,
+                            $permalink,
+                            $transId
+                        ));
+
+                        if ($alignedCount % 2500 === 0) {
+                            $wpdb->query("COMMIT");
+                            $wpdb->query("START TRANSACTION");
+                        }
+                    }
+                }
+            }
+        }
+
+        if (! $dryRun) {
+            $wpdb->query("COMMIT");
+            wp_cache_flush();
+        }
+
+        return [
+            'inspected'     => $inspectedCount,
+            'slugs_aligned' => $alignedCount,
+            'dry_run'       => $dryRun,
+        ];
+    }
+
+    /**
+     * Purges duplicate translated posts that are attached to a post_translations group
+     * but have been superseded in the serialized description.
+     *
+     * @param bool $dryRun
+     * @return array{ghost_duplicates_found: int, ghost_duplicates_purged: int, dry_run: bool}
+     */
+    public static function purgeGhostDuplicateTranslatedPosts(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        $terms = $wpdb->get_results("
+            SELECT tt.term_taxonomy_id, tt.description
+            FROM {$wpdb->term_taxonomy} tt
+            WHERE tt.taxonomy = 'post_translations'
+        ");
+
+        $ghostPostIds = [];
+        foreach ($terms as $t) {
+            $arr = @unserialize($t->description);
+            if (! is_array($arr)) {
+                continue;
+            }
+            $activeIds = array_map('intval', array_values($arr));
+            $attachedIds = $wpdb->get_col($wpdb->prepare(
+                "SELECT object_id FROM {$wpdb->term_relationships} WHERE term_taxonomy_id = %d",
+                (int) $t->term_taxonomy_id
+            ));
+
+            foreach ($attachedIds as $objId) {
+                $objId = (int) $objId;
+                if (! in_array($objId, $activeIds, true)) {
+                    $isPost = $wpdb->get_var($wpdb->prepare(
+                        "SELECT ID FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                        $objId
+                    ));
+                    if ($isPost) {
+                        $ghostPostIds[] = $objId;
+                    }
+                }
+            }
+        }
+
+        $ghostPostIds = array_values(array_unique($ghostPostIds));
+        $count = count($ghostPostIds);
+
+        if ($dryRun || empty($ghostPostIds)) {
+            return [
+                'ghost_duplicates_found'  => $count,
+                'ghost_duplicates_purged' => 0,
+                'dry_run'                 => true,
+            ];
+        }
+
+        $idList = implode(',', $ghostPostIds);
+        $wpdb->query("DELETE FROM {$productIndexTable} WHERE post_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$indexableTable} WHERE object_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+
+        wp_cache_flush();
+
+        return [
+            'ghost_duplicates_found'  => $count,
+            'ghost_duplicates_purged' => $count,
+            'dry_run'                 => false,
+        ];
+    }
+
+    /**
+     * Purges translation groups that have no published English parent post.
+     *
+     * @param bool $dryRun
+     * @return array{groups_found: int, posts_purged: int, dry_run: bool}
+     */
+    public static function purgeOrphanTranslationGroupsWithoutEnglish(bool $dryRun = true): array
+    {
+        global $wpdb;
+        $indexableTable = $wpdb->prefix . 'yoast_indexable';
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        $terms = $wpdb->get_results("
+            SELECT tt.term_taxonomy_id, tt.term_id, tt.description
+            FROM {$wpdb->term_taxonomy} tt
+            WHERE tt.taxonomy = 'post_translations'
+        ");
+
+        $orphanPostIds = [];
+        $orphanTermTaxonomyIds = [];
+        $orphanTermIds = [];
+
+        foreach ($terms as $t) {
+            $arr = @unserialize($t->description);
+            if (! is_array($arr)) {
+                continue;
+            }
+
+            $enId = (int) ($arr['en'] ?? 0);
+            $hasValidEn = false;
+            if ($enId > 0) {
+                $hasValidEn = (bool) $wpdb->get_var($wpdb->prepare(
+                    "SELECT ID FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                    $enId
+                ));
+            }
+
+            if (! $hasValidEn) {
+                $orphanTermTaxonomyIds[] = (int) $t->term_taxonomy_id;
+                $orphanTermIds[] = (int) $t->term_id;
+                foreach ($arr as $lang => $pid) {
+                    $pid = (int) $pid;
+                    if ($pid > 0) {
+                        $orphanPostIds[] = $pid;
+                    }
+                }
+            }
+        }
+
+        $orphanPostIds = array_values(array_unique($orphanPostIds));
+        $postCount = count($orphanPostIds);
+        $groupCount = count($orphanTermTaxonomyIds);
+
+        if ($dryRun || empty($orphanPostIds)) {
+            return [
+                'groups_found' => $groupCount,
+                'posts_purged' => $postCount,
+                'dry_run'      => true,
+            ];
+        }
+
+        $idList = implode(',', $orphanPostIds);
+        $wpdb->query("DELETE FROM {$productIndexTable} WHERE post_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$indexableTable} WHERE object_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+        $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+
+        if (! empty($orphanTermTaxonomyIds)) {
+            $ttList = implode(',', $orphanTermTaxonomyIds);
+            $tList = implode(',', $orphanTermIds);
+            $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE term_taxonomy_id IN ({$ttList})");
+            $wpdb->query("DELETE FROM {$wpdb->term_taxonomy} WHERE term_taxonomy_id IN ({$ttList})");
+            $wpdb->query("DELETE FROM {$wpdb->terms} WHERE term_id IN ({$tList})");
+        }
+
+        wp_cache_flush();
+
+        return [
+            'groups_found' => $groupCount,
+            'posts_purged' => $postCount,
+            'dry_run'      => false,
+        ];
+    }
 }

@@ -135,18 +135,49 @@ final class SitemapEnhancer
         }
 
         $xhtml = '';
-        if (function_exists('url_to_postid') && function_exists('pll_get_post_translations')) {
-            $postId = url_to_postid($loc);
+        if (function_exists('pll_get_post_translations')) {
+            $postId = 0;
+            // High-speed direct indexed B-tree resolution avoids expensive url_to_postid rewrite rule loop
+            if (preg_match('#/(?:([a-z]{2})/)?helmets/([^/]+)/?#i', $loc, $matches)) {
+                global $wpdb;
+                $postId = (int) $wpdb->get_var($wpdb->prepare(
+                    "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'helmet' AND post_status = 'publish' LIMIT 1",
+                    $matches[2]
+                ));
+            } elseif (preg_match('#/(?:([a-z]{2})/)?brands/([^/]+)/?#i', $loc, $matches)) {
+                global $wpdb;
+                $postId = (int) $wpdb->get_var($wpdb->prepare(
+                    "SELECT ID FROM {$wpdb->posts} WHERE post_name = %s AND post_type = 'brand' AND post_status = 'publish' LIMIT 1",
+                    $matches[2]
+                ));
+            } elseif (function_exists('url_to_postid')) {
+                $postId = url_to_postid($loc);
+            }
+
             if ($postId > 0) {
                 $translations = (array) pll_get_post_translations($postId);
                 if (! empty($translations)) {
+                    $homeUrl = rtrim(home_url(), '/');
+                    $isHelmet = ! empty($matches[2]) && strpos($loc, '/helmets/') !== false;
+                    $isBrand = ! empty($matches[2]) && (strpos($loc, '/brands/') !== false || strpos($loc, '/brand/') !== false);
+                    $canonicalSlug = ! empty($matches[2]) ? $matches[2] : '';
+
                     foreach ($translations as $lang => $transId) {
-                        $transUrl = (string) get_permalink((int) $transId);
+                        if ($isHelmet && $canonicalSlug !== '') {
+                            $transUrl = $homeUrl . ($lang === 'en' ? '' : '/' . $lang) . '/helmets/' . $canonicalSlug . '/';
+                        } elseif ($isBrand && $canonicalSlug !== '') {
+                            $transUrl = $homeUrl . ($lang === 'en' ? '' : '/' . $lang) . '/brands/' . $canonicalSlug . '/';
+                        } else {
+                            $transUrl = (string) get_permalink((int) $transId);
+                        }
+
                         if ($transUrl !== '' && $transUrl !== $loc) {
                             $xhtml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"" . esc_attr((string) $lang) . "\" href=\"" . esc_url($transUrl) . "\"/>\n";
                         }
                     }
-                    $xhtml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($loc) . "\"/>\n";
+
+                    $defaultUrl = $isHelmet && $canonicalSlug !== '' ? $homeUrl . '/helmets/' . $canonicalSlug . '/' : ($isBrand && $canonicalSlug !== '' ? $homeUrl . '/brands/' . $canonicalSlug . '/' : $loc);
+                    $xhtml .= "\t\t<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"" . esc_url($defaultUrl) . "\"/>\n";
                 }
             }
         }
