@@ -172,7 +172,9 @@ final class Tracker
                         return false;
                     } catch(e) { return false; }
                 }
-                if (isAutomatedClient()) { return; }
+                var isBot = isAutomatedClient();
+                window.__helmetsanBot = isBot;
+                if (isBot) { return; }
                 window.dataLayer = window.dataLayer || [];
                 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
                 window.gtag('consent', 'default', {$consentJson});
@@ -247,7 +249,9 @@ final class Tracker
                         return false;
                     } catch(e) { return false; }
                 }
-                if (isAutomatedClient()) { return; }
+                var isBot = isAutomatedClient();
+                window.__helmetsanBot = isBot;
+                if (isBot) { return; }
                 window.dataLayer = window.dataLayer || [];
                 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
                 window.gtag('consent', 'default', {$consentJson});
@@ -290,8 +294,25 @@ final class Tracker
             $userId = $rawUserId !== '' ? hash_hmac('sha256', $rawUserId, $salt) : '';
 
             echo "<script>\n" .
-                 "(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', '{$clarity}');\n" .
                  "(function(){\n" .
+                 "    var isBot = false;\n" .
+                 "    try {\n" .
+                 "        if (typeof window.__helmetsanBot !== 'undefined') {\n" .
+                 "            isBot = Boolean(window.__helmetsanBot);\n" .
+                 "        } else {\n" .
+                 "            var ua = navigator.userAgent || '';\n" .
+                 "            if (navigator.webdriver || (window.document.documentElement && window.document.documentElement.getAttribute('webdriver')) || window.callPhantom || window._phantom || window.__nightmare) isBot = true;\n" .
+                 "            if (/bot|crawl|spider|slurp|headless|chrome-lighthouse|preview|bytespider|gptbot|claudebot|diffbot|facebookexternalhit|python|curl|wget/i.test(ua)) isBot = true;\n" .
+                 "            if (!navigator.languages || navigator.languages.length === 0) isBot = true;\n" .
+                 "            if (window.outerWidth === 0 && window.outerHeight === 0) isBot = true;\n" .
+                 "            var sw = window.screen ? window.screen.width : 0;\n" .
+                 "            var sh = window.screen ? window.screen.height : 0;\n" .
+                 "            var isMobile = Boolean(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod/i.test(ua);\n" .
+                 "            if (sh >= 5000 || sw >= 8000 || (sw === 1280 && sh === 1200) || (sw === 1800 && sh === 1125) || (sw === 800 && sh === 600) || (isMobile && sw >= 1200 && sh >= 1100)) isBot = true;\n" .
+                 "        }\n" .
+                 "    } catch(e) {}\n" .
+                 "    if (isBot) { return; }\n" .
+                 "    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', '{$clarity}');\n" .
                  "    window.helmetsanClarity = {\n" .
                  "        set: function(k, v) { try { if (typeof window.clarity === 'function' && k && v !== undefined && v !== null) { window.clarity('set', String(k), String(v)); } } catch(e) {} },\n" .
                  "        event: function(n) { try { if (typeof window.clarity === 'function' && n) { window.clarity('event', String(n)); } } catch(e) {} },\n" .
@@ -314,7 +335,9 @@ final class Tracker
         if (! empty($settings['enable_heatmap_hotjar']) && ! empty($settings['hotjar_site_id'])) {
             $siteId  = esc_js((string) $settings['hotjar_site_id']);
             $version = esc_js((string) ($settings['hotjar_version'] ?? '6'));
-            echo "<script>(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:{$siteId},hjsv:{$version}};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>\n";
+            echo "<script>(function(h,o,t,j,a,r){\n" .
+                 "    if (typeof window.__helmetsanBot !== 'undefined' && window.__helmetsanBot) { return; }\n" .
+                 "    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};h._hjSettings={hjid:{$siteId},hjsv:{$version}};a=o.getElementsByTagName('head')[0];r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');</script>\n";
         }
 
         $trackOutbound = ! empty($settings['enable_enhanced_event_tracking']);

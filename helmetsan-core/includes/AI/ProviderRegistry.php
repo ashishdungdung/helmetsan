@@ -176,21 +176,23 @@ final class ProviderRegistry
      */
     public function getForModel(string $model, ?string $provider = null): ?ProviderInterface
     {
-        if ($provider === 'experiential' || $model === 'gpt-5.6-luna' || str_starts_with($model, 'gpt-5.6-') || in_array($model, ['qwen3.8-27b', 'deepseek-v4-flash', 'claude-sonnet-4.5', 'gpt-5-mini'], true)) {
-            $explabsKey = getenv('EXPLABS_API_KEY');
-            if ($explabsKey === false || trim((string) $explabsKey) === '') {
-                throw new \RuntimeException('EXPLABS_API_KEY environment variable is not set. Please create one under Settings -> API Keys and export it.');
-            }
-            return $this->create('experiential', trim((string) $explabsKey), $model, [
-                'base_url' => ExperientialProvider::DEFAULT_BASE_URL,
-            ]);
+        $experientialModels = [
+            'gpt-6-luna', 'gpt-5.6-luna', 'deepseek-v4.1-flash', 'deepseek-v4.1-flash-1017', 
+            'deepseek-v4-flash', 'deepseek-r1', 'qwen3.8-27b', 'claude-haiku-5.5', 'mercury-3',
+            'claude-sonnet-4.5', 'gpt-5-mini'
+        ];
+
+        if ($provider === 'experiential' || in_array($model, $experientialModels, true) || str_starts_with($model, 'gpt-6-') || str_starts_with($model, 'gpt-5.6-') || str_starts_with($model, 'deepseek-v4')) {
+            return $this->getExperiential($model);
         }
+
         if (str_starts_with($model, 'moonshotai/') || str_starts_with($model, 'deepseek-ai/') || str_starts_with($model, 'black-forest-labs/') || str_starts_with($model, 'nvidia/')) {
             $nimKey = getenv('NVIDIA_API_KEY');
             return $this->create('nvidia_nim', $nimKey ?: '', $model, [
                 'base_url' => NvidiaNimProvider::CHAT_BASE_URL,
             ]);
         }
+
         return null;
     }
 
@@ -199,11 +201,8 @@ final class ProviderRegistry
      */
     public function getExperiential(string $model = ExperientialProvider::DEFAULT_MODEL, ?string $baseUrl = null): ProviderInterface
     {
-        $explabsKey = getenv('EXPLABS_API_KEY');
-        if ($explabsKey === false || trim((string) $explabsKey) === '') {
-            throw new \RuntimeException('EXPLABS_API_KEY environment variable is not set. Please create one under Settings -> API Keys and export it.');
-        }
-        return $this->create('experiential', trim((string) $explabsKey), $model, [
+        $explabsKey = (string) (getenv('EXPLABS_API_KEY') ?: getenv('EXPLABS_API_KEY_SOLARQNA') ?: getenv('EXPLABS_API_KEY_AE') ?: '');
+        return $this->create('experiential', trim($explabsKey), $model, [
             'base_url' => $baseUrl ?: ExperientialProvider::DEFAULT_BASE_URL,
         ]);
     }

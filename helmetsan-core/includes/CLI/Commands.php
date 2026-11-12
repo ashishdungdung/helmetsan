@@ -150,6 +150,9 @@ final class Commands
         \WP_CLI::add_command('helmetsan repair-titles', [$this, 'repairTitles']);
         \WP_CLI::add_command('helmetsan edge-cache purge', [$this, 'edgeCachePurge']);
         \WP_CLI::add_command('helmetsan edge-cache probe', [$this, 'edgeCacheProbe']);
+        \WP_CLI::add_command('helmetsan cloudflare bot-status', [$this, 'cloudflareBotStatus']);
+        \WP_CLI::add_command('helmetsan cloudflare enable-ai-block', [$this, 'cloudflareEnableAiBlock']);
+        \WP_CLI::add_command('helmetsan cloudflare sync-waf', [$this, 'cloudflareSyncWaf']);
         \WP_CLI::add_command('helmetsan analytics overview', [$this, 'analyticsOverview']);
         \WP_CLI::add_command('helmetsan gsc overview', [$this, 'gscOverview']);
         \WP_CLI::add_command('helmetsan gsc queries', [$this, 'gscQueries']);
@@ -4815,6 +4818,89 @@ final class Commands
         } else {
             \WP_CLI::error("Worker Probe Failed: " . ($res['message'] ?? 'Unexpected status ' . ($res['status'] ?? 'unknown')));
         }
+    }
+
+    /**
+     * Inspect Cloudflare Bot Management and Edge WAF rules.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan cloudflare bot-status
+     */
+    public function cloudflareBotStatus(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Querying Cloudflare Bot Management status...");
+        $waf = new \Helmetsan\Core\Cloudflare\CloudflareWafService();
+        $botStatus = $waf->getBotManagementStatus();
+
+        if (is_wp_error($botStatus)) {
+            \WP_CLI::error("Failed to query Bot Management: " . $botStatus->get_error_message());
+            return;
+        }
+
+        \WP_CLI::line("--------------------------------------------------");
+        \WP_CLI::line("Cloudflare Bot Management Status:");
+        \WP_CLI::line("  AI Bots Protection : " . ($botStatus['ai_bots_protection'] ?? 'disabled'));
+        \WP_CLI::line("  AI Training Crawlers: " . ($botStatus['ai_training'] ?? 'allowed'));
+        \WP_CLI::line("  Bot Fight Mode      : " . (!empty($botStatus['fight_mode']) ? 'ENABLED' : 'DISABLED'));
+        \WP_CLI::line("  JS Detection        : " . (!empty($botStatus['enable_js']) ? 'ENABLED' : 'DISABLED'));
+        \WP_CLI::line("--------------------------------------------------");
+
+        \WP_CLI::log("Querying Custom WAF ruleset (phase: http_request_firewall_custom)...");
+        $ruleset = $waf->getCustomRuleset();
+        if (is_wp_error($ruleset)) {
+            \WP_CLI::warning("Could not fetch custom WAF rules: " . $ruleset->get_error_message());
+            return;
+        }
+
+        $rules = $ruleset['rules'] ?? [];
+        \WP_CLI::line(sprintf("Active Custom Rules (%d found):", count($rules)));
+        foreach ($rules as $r) {
+            \WP_CLI::line(sprintf("  [%s] Action: %s | %s", $r['id'] ?? 'unknown', strtoupper((string) ($r['action'] ?? '')), (string) ($r['description'] ?? 'No description')));
+        }
+        \WP_CLI::success("Cloudflare Edge Defense verified.");
+    }
+
+    /**
+     * Enable AI scraper and crawler blocking at Cloudflare Edge.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan cloudflare enable-ai-block
+     */
+    public function cloudflareEnableAiBlock(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Enabling AI scraper blocking at Cloudflare Edge...");
+        $waf = new \Helmetsan\Core\Cloudflare\CloudflareWafService();
+        $res = $waf->enableAiScraperBlocking();
+
+        if (is_wp_error($res)) {
+            \WP_CLI::error("Failed to enable AI block: " . $res->get_error_message());
+            return;
+        }
+
+        \WP_CLI::success("Cloudflare Edge AI bot protection enabled (ai_bots_protection: block, ai_training: disallow).");
+    }
+
+    /**
+     * Ensure the custom edge WAF rule blocking AI scrapers is synchronized.
+     *
+     * ## EXAMPLES
+     *
+     *     wp helmetsan cloudflare sync-waf
+     */
+    public function cloudflareSyncWaf(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Synchronizing Custom AI scraper block WAF rule...");
+        $waf = new \Helmetsan\Core\Cloudflare\CloudflareWafService();
+        $res = $waf->syncAiScraperEdgeRule();
+
+        if (is_wp_error($res)) {
+            \WP_CLI::error("Failed to sync WAF rule: " . $res->get_error_message());
+            return;
+        }
+
+        \WP_CLI::success("Cloudflare Edge custom WAF rule verified and synchronized.");
     }
 
     /**

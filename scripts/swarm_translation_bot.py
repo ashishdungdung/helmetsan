@@ -46,6 +46,7 @@ from translation_memory import get_translation_memory
 # API Configurations
 EXPERIENTIAL_GATEWAY_URL = "https://api.experientiallabs.ai/v1/chat/completions"
 NVIDIA_NIM_CHAT_URL      = "https://integrate.api.nvidia.com/v1/chat/completions"
+INCEPTION_LABS_CHAT_URL  = "https://api.inceptionlabs.ai/v1/chat/completions"
 
 def _load_vault_key(key_name: str) -> str:
     val = os.environ.get(key_name, "").strip()
@@ -63,8 +64,9 @@ def _load_vault_key(key_name: str) -> str:
             pass
     return ""
 
-DEFAULT_EXPLABS_KEY = _load_vault_key("EXPLABS_API_KEY")
-DEFAULT_NVIDIA_KEY  = _load_vault_key("NVIDIA_API_KEY")
+DEFAULT_EXPLABS_KEY   = _load_vault_key("EXPLABS_API_KEY") or "xpl_d85a1300d388eba84162bd5cf5f2fb29903b5048"
+DEFAULT_NVIDIA_KEY    = _load_vault_key("NVIDIA_API_KEY")
+DEFAULT_INCEPTION_KEY = _load_vault_key("INCEPTION_API_KEY") or "sk_2422672aae313188664d71ab1c9ef46d"
 
 REMOTE_SSH_HOST  = "root@31.70.136.154"
 REMOTE_WP_PATH   = "/var/www/helmetsan.com/public"
@@ -90,9 +92,10 @@ LANG_LABELS = {
 class SwarmModelClient:
     """Manages multi-provider LLM inference with automated failover and persistent connection pooling."""
 
-    def __init__(self, explabs_key: Optional[str] = None, nvidia_key: Optional[str] = None):
+    def __init__(self, explabs_key: Optional[str] = None, nvidia_key: Optional[str] = None, inception_key: Optional[str] = None):
         self.explabs_key = explabs_key or os.environ.get("EXPLABS_API_KEY") or DEFAULT_EXPLABS_KEY
         self.nvidia_key  = nvidia_key or os.environ.get("NVIDIA_API_KEY") or DEFAULT_NVIDIA_KEY
+        self.inception_key = inception_key or os.environ.get("INCEPTION_API_KEY") or DEFAULT_INCEPTION_KEY
         self.session = requests.Session()
         retries = Retry(total=2, backoff_factor=0.3, status_forcelist=[500, 502, 503, 504])
         adapter = HTTPAdapter(pool_connections=8, pool_maxsize=16, max_retries=retries)
@@ -103,22 +106,25 @@ class SwarmModelClient:
         Returns list of (provider, model_name) candidate pairs in prioritized fallback order.
         """
         if lang in ["zh", "ja"]:
-            # East Asian CJK: GPT-6-Luna primary (~1.4s), DeepSeek-V4.1-Flash fallback (~1.0s), Kimi-K3 3rd fallback
+            # East Asian CJK: GPT-6-Luna primary (~1.4s), DeepSeek-V4.1-Flash fallback (~1.0s), Mercury-3 (~0.4s), Kimi-K3
             return [
                 ("experiential", "gpt-6-luna"),
                 ("experiential", "deepseek-v4.1-flash"),
+                ("inception", "mercury-3"),
                 ("nvidia_nim", "moonshotai/kimi-k3")
             ]
         elif lang in ["es", "fr", "it", "pt"]:
-            # Romance editorial: DeepSeek-V4.1-Flash primary (~0.6s), GPT-6-Luna arbiter (~1.4s)
+            # Romance editorial: DeepSeek-V4.1-Flash primary (~0.6s), Mercury-3 (~0.4s), GPT-6-Luna arbiter (~1.4s)
             return [
                 ("experiential", "deepseek-v4.1-flash"),
+                ("inception", "mercury-3"),
                 ("experiential", "gpt-6-luna")
             ]
         else: # de, nl, pl
-            # Germanic & Slavic: DeepSeek-V4.1-Flash primary (~0.6s), GPT-6-Luna fallback (~1.4s)
+            # Germanic & Slavic: DeepSeek-V4.1-Flash primary (~0.6s), Mercury-3 (~0.4s), GPT-6-Luna fallback (~1.4s)
             return [
                 ("experiential", "deepseek-v4.1-flash"),
+                ("inception", "mercury-3"),
                 ("experiential", "gpt-6-luna")
             ]
 
@@ -130,6 +136,8 @@ class SwarmModelClient:
             try:
                 if p_type == "experiential":
                     res = self._call_experiential(prompt, system_prompt, model, lang, timeout)
+                elif p_type == "inception":
+                    res = self._call_inception(prompt, system_prompt, model, timeout)
                 else:
                     res = self._call_nvidia_nim(prompt, system_prompt, model, timeout)
 
@@ -164,10 +172,44 @@ class SwarmModelClient:
                 resp = self.session.post(EXPERIENTIAL_GATEWAY_URL, json=payload, headers=headers, timeout=timeout)
                 if resp.status_code == 200:
                     data = resp.json()
-                    return data["choices"][0]["message"]["content"]
+                    choice = data.get("choices", [{}])[0]
+                    msg = choice.get("message", {})
+                    return msg.get("content") or msg.get("reasoning_content")
                 elif resp.status_code == 429:
                     sleep_time = 2.0 * (attempt + 1) + random.uniform(0.5, 1.5)
                     time.sleep(sleep_time)
+                    continue
+                else:
+                    return None
+            except Exception:
+                time.sleep(1.0)
+        return None
+
+    def _call_inception(self, prompt: str, system_prompt: str, model: str, timeout: int = 60) -> Optional[str]:
+        headers = {
+            "Authorization": f"Bearer {self.inception_key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        payload = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.2,
+            "max_tokens": 3000
+        }
+        for attempt in range(3):
+            try:
+                resp = self.session.post(INCEPTION_LABS_CHAT_URL, json=payload, headers=headers, timeout=timeout)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    choice = data.get("choices", [{}])[0]
+                    msg = choice.get("message", {})
+                    return msg.get("content") or msg.get("reasoning_content")
+                elif resp.status_code == 429:
+                    time.sleep(1.5 * (attempt + 1))
                     continue
                 else:
                     return None

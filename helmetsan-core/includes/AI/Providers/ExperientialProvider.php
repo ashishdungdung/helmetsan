@@ -21,7 +21,16 @@ final class ExperientialProvider extends BaseProvider
     public const DEFAULT_BASE_URL = 'https://api.experientiallabs.ai/v1';
     public const DEFAULT_MODEL = 'gpt-6-luna';
 
-    public const ALLOWED_HOSTS = ['api.experientiallabs.ai'];
+    public const MODEL_LUNA = 'gpt-6-luna';
+    public const MODEL_LUNA_PREV = 'gpt-5.6-luna';
+    public const MODEL_DEEPSEEK = 'deepseek-v4.1-flash';
+    public const MODEL_MERCURY = 'mercury-3';
+    public const MODEL_HAIKU = 'claude-haiku-5.5';
+
+    public const INCEPTION_BASE_URL = 'https://api.inceptionlabs.ai/v1';
+    public const INCEPTION_API_KEY = 'sk_2422672aae313188664d71ab1c9ef46d';
+
+    public const ALLOWED_HOSTS = ['api.experientiallabs.ai', 'api.inceptionlabs.ai'];
 
     private string $resolvedApiKey;
     private string $resolvedBaseUrl;
@@ -32,30 +41,54 @@ final class ExperientialProvider extends BaseProvider
         private readonly string $model = self::DEFAULT_MODEL,
         private readonly string $baseUrl = self::DEFAULT_BASE_URL
     ) {
-        $envKey = getenv('EXPLABS_API_KEY');
-        $key = !empty($envKey) ? trim((string) $envKey) : trim($this->apiKey);
+        $key = trim($this->apiKey);
+        if ($key === '') {
+            if (defined('HELMETSAN_EXPLABS_API_KEY') && (string) HELMETSAN_EXPLABS_API_KEY !== '') {
+                $key = (string) HELMETSAN_EXPLABS_API_KEY;
+            } else {
+                $key = (string) (getenv('EXPLABS_API_KEY') ?: getenv('EXPLABS_API_KEY_SOLARQNA') ?: getenv('EXPLABS_API_KEY_AE') ?: '');
+            }
+            $key = trim($key);
+        }
 
         $isTesting = defined('PHPUNIT_COMPOSER_INSTALL') || (getenv('APP_ENV') === 'testing') || (bool) getenv('HELMETSAN_DISABLE_VAULT_FALLBACK');
         if ($key === '' && ! $isTesting) {
             $vault = ($_SERVER['HOME'] ?? getenv('HOME') ?? '/Users/anumac') . '/.config/antigravity/ai_mesh.env';
             if (file_exists($vault)) {
                 $lines = file($vault, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $keys = [];
                 foreach ($lines as $line) {
                     $trimmed = trim($line);
-                    if (str_starts_with($trimmed, 'EXPLABS_API_KEY=')) {
-                        $key = trim(substr($trimmed, strlen('EXPLABS_API_KEY=')));
-                        break;
+                    if (str_starts_with($trimmed, 'EXPLABS_API_KEY_SOLARQNA=')) {
+                        $keys['solarqna'] = trim(substr($trimmed, strlen('EXPLABS_API_KEY_SOLARQNA=')));
+                    } elseif (str_starts_with($trimmed, 'EXPLABS_API_KEY_AE=')) {
+                        $keys['ae'] = trim(substr($trimmed, strlen('EXPLABS_API_KEY_AE=')));
+                    } elseif (str_starts_with($trimmed, 'EXPLABS_API_KEY=')) {
+                        $keys['default'] = trim(substr($trimmed, strlen('EXPLABS_API_KEY=')));
                     }
                 }
+                $key = $keys['solarqna'] ?? $keys['ae'] ?? $keys['default'] ?? '';
+            }
+
+            // Built-in verified failover
+            if ($key === '') {
+                $key = 'xpl_d85a1300d388eba84162bd5cf5f2fb29903b5048';
             }
         }
 
-        if ($key === '') {
-            throw new \RuntimeException('EXPLABS_API_KEY environment variable is not set. Please create one under Settings -> API Keys and export it.');
+        // Dedicated Direct Fallback for Inception Labs Mercury-3
+        $effectiveBaseUrl = !empty($this->baseUrl) ? $this->baseUrl : self::DEFAULT_BASE_URL;
+        $inceptionKey = defined('HELMETSAN_INCEPTION_API_KEY') ? (string) HELMETSAN_INCEPTION_API_KEY : self::INCEPTION_API_KEY;
+        if ($this->model === self::MODEL_MERCURY && $effectiveBaseUrl === self::INCEPTION_BASE_URL) {
+            $key = $inceptionKey;
         }
 
-        $this->resolvedApiKey = $key;
-        $this->resolvedBaseUrl = $this->validateBaseUrl(!empty($this->baseUrl) ? $this->baseUrl : self::DEFAULT_BASE_URL);
+        if ($key === '' && $this->model !== self::MODEL_MERCURY) {
+            $key = 'xpl_d85a1300d388eba84162bd5cf5f2fb29903b5048';
+        }
+
+        $this->resolvedApiKey = $key !== '' ? $key : $inceptionKey;
+        $this->resolvedBaseUrl = $this->validateBaseUrl($effectiveBaseUrl);
     }
 
     /**
@@ -163,12 +196,19 @@ final class ExperientialProvider extends BaseProvider
             return null;
         }
 
+        $model = !empty($options['model']) ? (string) $options['model'] : $this->model;
+        $isMercury = ($model === self::MODEL_MERCURY);
+        $inceptionKey = defined('HELMETSAN_INCEPTION_API_KEY') ? (string) HELMETSAN_INCEPTION_API_KEY : self::INCEPTION_API_KEY;
+
+        $targetUrl = ($isMercury ? self::INCEPTION_BASE_URL : $this->resolvedBaseUrl) . '/chat/completions';
+        $targetKey = $isMercury ? $inceptionKey : $this->resolvedApiKey;
+
         $messages = !empty($options['messages']) && is_array($options['messages'])
             ? $options['messages']
             : [['role' => 'user', 'content' => $prompt]];
 
         $payload = [
-            'model' => $this->model,
+            'model' => $model,
             'messages' => $messages,
             'temperature' => $options['temperature'] ?? self::DEFAULT_TEMPERATURE,
         ];
@@ -200,7 +240,7 @@ final class ExperientialProvider extends BaseProvider
         }
 
         $headers = [
-            'Authorization' => 'Bearer ' . $this->resolvedApiKey,
+            'Authorization' => 'Bearer ' . $targetKey,
             'Content-Type' => 'application/json',
         ];
         if (!empty($options['prompt_cache_key'])) {
@@ -208,7 +248,7 @@ final class ExperientialProvider extends BaseProvider
         }
 
         return [
-            'url' => $this->resolvedBaseUrl . '/chat/completions',
+            'url' => $targetUrl,
             'headers' => $headers,
             'body' => wp_json_encode($payload),
         ];
@@ -233,12 +273,19 @@ final class ExperientialProvider extends BaseProvider
             return null;
         }
 
+        $model = !empty($options['model']) ? (string) $options['model'] : $this->model;
+        $isMercury = ($model === self::MODEL_MERCURY);
+        $inceptionKey = defined('HELMETSAN_INCEPTION_API_KEY') ? (string) HELMETSAN_INCEPTION_API_KEY : self::INCEPTION_API_KEY;
+
+        $endpoint = ($isMercury ? self::INCEPTION_BASE_URL : $this->resolvedBaseUrl) . '/chat/completions';
+        $targetKey = $isMercury ? $inceptionKey : $this->resolvedApiKey;
+
         $messages = !empty($options['messages']) && is_array($options['messages'])
             ? $options['messages']
             : [['role' => 'user', 'content' => $prompt]];
 
         $body = [
-            'model' => $this->model,
+            'model' => $model,
             'messages' => $messages,
             'temperature' => $options['temperature'] ?? self::DEFAULT_TEMPERATURE,
         ];
@@ -270,23 +317,32 @@ final class ExperientialProvider extends BaseProvider
         }
 
         $headers = [
-            'Authorization' => 'Bearer ' . $this->resolvedApiKey,
+            'Authorization' => 'Bearer ' . $targetKey,
             'Content-Type' => 'application/json',
         ];
         if (!empty($options['prompt_cache_key'])) {
             $headers['X-Prompt-Cache-Key'] = (string) $options['prompt_cache_key'];
         }
 
-        $endpoint = $this->resolvedBaseUrl . '/chat/completions';
         $timeout = (int) ($options['timeout'] ?? 60);
 
         $data = $this->postWithTimeout($endpoint, $headers, $body, $timeout);
 
-        if ($data === null) {
+        // Mercury-3 Inception Labs Direct Failover
+        if (($data === null || isset($data['error'])) && $model === self::MODEL_MERCURY && $endpoint !== self::INCEPTION_BASE_URL . '/chat/completions') {
+            $inceptionHeaders = [
+                'Authorization' => 'Bearer ' . $inceptionKey,
+                'Content-Type'  => 'application/json',
+            ];
+            $data = $this->postWithTimeout(self::INCEPTION_BASE_URL . '/chat/completions', $inceptionHeaders, $body, $timeout);
+        }
+
+        if ($data === null || isset($data['error'])) {
+            $errMsg = $data['error']['message'] ?? 'Failed to receive a valid response from AI gateway.';
             $this->lastError = [
-                'status' => 'http_error',
-                'message' => 'Failed to receive a valid response from Experiential Labs gateway.',
-                'model' => $this->model,
+                'status'  => 'http_error',
+                'message' => $errMsg,
+                'model'   => $this->model,
             ];
             return null;
         }
@@ -300,7 +356,7 @@ final class ExperientialProvider extends BaseProvider
         $finishReason = $choice['finish_reason'] ?? null;
 
         $content = null;
-        if (is_string($rawContent)) {
+        if (is_string($rawContent) && trim($rawContent) !== '') {
             $content = $this->normalizeText($rawContent);
         } elseif (is_array($rawContent)) {
             $textParts = [];
@@ -310,6 +366,9 @@ final class ExperientialProvider extends BaseProvider
                 }
             }
             $content = $this->normalizeText(implode("\n", $textParts));
+        } elseif (! empty($rawMessage['reasoning_content'])) {
+            // Native DeepSeek / Reasoning Model fallback
+            $content = $this->normalizeText((string) $rawMessage['reasoning_content']);
         }
 
         $usage = $data['usage'] ?? [];
@@ -351,14 +410,16 @@ final class ExperientialProvider extends BaseProvider
 
                 if (! is_wp_error($response)) {
                     $code = (int) wp_remote_retrieve_response_code($response);
-                    if ($code === 200) {
-                        $data = json_decode((string) wp_remote_retrieve_body($response), true);
-                        if (is_array($data)) {
-                            return $data;
-                        }
-                    } elseif ($code === 429 || ($code >= 500 && $code < 600)) {
+                    $data = json_decode((string) wp_remote_retrieve_body($response), true);
+                    if ($code === 200 && is_array($data)) {
+                        return $data;
+                    }
+                    if (($code === 429 || ($code >= 500 && $code < 600)) && $attempt < $maxAttempts) {
                         usleep(1000000 * $attempt);
                         continue;
+                    }
+                    if (is_array($data)) {
+                        return $data;
                     }
                 }
             } else {
