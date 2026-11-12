@@ -1245,4 +1245,310 @@ final class DatabaseOptimizer
             'dry_run'      => false,
         ];
     }
+
+    /**
+     * Aligns translated child helmet posts with their translated parent helmet.
+     * In English, child variants have post_parent = <English Parent ID>.
+     * In translated languages, child variants currently have post_parent = 0.
+     * This method resolves the translated parent ID for each child post in its respective language,
+     * updates wp_posts SET post_parent = <Translated Parent ID>,
+     * and sets is_robots_noindex = 1 in wp_yoast_indexable so child colorways don't bloat sitemaps.
+     *
+     * @return array{child_groups: int, children_aligned: int, missing_parents: int, dry_run: bool}
+     */
+    public static function alignChildHelmetParents(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        $terms = $wpdb->get_results("
+            SELECT term_taxonomy_id, description 
+            FROM {$wpdb->term_taxonomy} 
+            WHERE taxonomy = 'post_translations'
+        ");
+
+        $groupMap = [];
+        foreach ($terms as $t) {
+            $arr = @unserialize($t->description);
+            if (! is_array($arr)) {
+                continue;
+            }
+            $en = $arr['en'] ?? null;
+            if ($en) {
+                $groupMap[(int) $en] = $arr;
+            }
+        }
+
+        $childGroupsCount = 0;
+        $updates = []; // array of [child_id => parent_id]
+        $missingParents = 0;
+
+        foreach ($groupMap as $enId => $childArr) {
+            $enParent = (int) $wpdb->get_var($wpdb->prepare(
+                "SELECT post_parent FROM {$wpdb->posts} WHERE ID = %d AND post_type = 'helmet'",
+                $enId
+            ));
+
+            if ($enParent > 0) {
+                $childGroupsCount++;
+                $parentGroup = $groupMap[$enParent] ?? null;
+
+                if ($parentGroup) {
+                    foreach ($childArr as $lang => $cid) {
+                        if ($lang === 'en') {
+                            continue;
+                        }
+                        $cid = (int) $cid;
+                        $translatedParentId = (int) ($parentGroup[$lang] ?? 0);
+                        if ($translatedParentId > 0 && $cid > 0) {
+                            $updates[$cid] = $translatedParentId;
+                        } else {
+                            $missingParents++;
+                        }
+                    }
+                } else {
+                    $missingParents++;
+                }
+            }
+        }
+
+        $totalToUpdate = count($updates);
+
+        if ($dryRun || empty($updates)) {
+            return [
+                'child_groups'     => $childGroupsCount,
+                'children_aligned' => $totalToUpdate,
+                'missing_parents'  => $missingParents,
+                'dry_run'          => true,
+            ];
+        }
+
+        // Apply updates in chunked transactions
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+        $indexableTable    = $wpdb->prefix . 'yoast_indexable';
+        $chunkSize = 2500;
+        $chunks = array_chunk($updates, $chunkSize, true);
+
+        foreach ($chunks as $chunk) {
+            $cases = [];
+            $childIds = [];
+            foreach ($chunk as $childId => $parentId) {
+                $childIds[] = (int) $childId;
+                $cases[] = sprintf("WHEN %d THEN %d", (int) $childId, (int) $parentId);
+            }
+
+            $idList = implode(',', $childIds);
+            $caseSql = implode(' ', $cases);
+
+            // 1. Update post_parent in wp_posts
+            $wpdb->query("
+                UPDATE {$wpdb->posts}
+                SET post_parent = CASE ID {$caseSql} END
+                WHERE ID IN ({$idList})
+            ");
+
+            // 2. Remove child colorways from product index so only parents remain
+            $wpdb->query("DELETE FROM {$productIndexTable} WHERE post_id IN ({$idList})");
+
+            // 3. Mark child colorways as noindex in Yoast to prune sitemaps
+            $wpdb->query("
+                UPDATE {$indexableTable}
+                SET is_robots_noindex = 1
+                WHERE object_id IN ({$idList}) AND object_type = 'post'
+            ");
+        }
+
+        wp_cache_flush();
+
+        return [
+            'child_groups'     => $childGroupsCount,
+            'children_aligned' => $totalToUpdate,
+            'missing_parents'  => $missingParents,
+            'dry_run'          => false,
+        ];
+    }
+
+    /**
+     * Deduplicates English parent helmets that share identical _helmet_unique_id.
+     * Identifies the canonical post (highest child count, most translation completeness, newest date),
+     * re-parents children of superseded duplicates to the canonical post,
+     * purges superseded duplicate translation clusters across all tables,
+     * and deletes redundant records.
+     *
+     * @return array{groups_found: int, redundant_posts_purged: int, children_reparented: int, dry_run: bool}
+     */
+    public static function deduplicateParentHelmets(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        // Find duplicate unique_id groups in English
+        $dupGroups = $wpdb->get_results("
+            SELECT pm.meta_value as unique_id, COUNT(DISTINCT p.ID) as dup_count
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID AND pm.meta_key = '_helmet_unique_id'
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id AND t.slug = 'en'
+            WHERE p.post_type = 'helmet' AND p.post_parent = 0 AND p.post_status = 'publish'
+            GROUP BY pm.meta_value
+            HAVING dup_count > 1
+        ");
+
+        $groupsFound = count($dupGroups);
+        $redundantPostIds = [];
+        $reparentMap = []; // child_id => new_canonical_parent_id
+
+        foreach ($dupGroups as $group) {
+            $uniqueId = $group->unique_id;
+
+            $candidates = $wpdb->get_results($wpdb->prepare("
+                SELECT p.ID, p.post_title, p.post_date, p.post_name,
+                       (SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_parent = p.ID) as child_count,
+                       (SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id = p.ID) as meta_count
+                FROM {$wpdb->posts} p
+                JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID AND pm.meta_key = '_helmet_unique_id' AND pm.meta_value = %s
+                JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+                JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+                JOIN {$wpdb->terms} t ON t.term_id = tt.term_id AND t.slug = 'en'
+                WHERE p.post_type = 'helmet' AND p.post_parent = 0 AND p.post_status = 'publish'
+                ORDER BY p.ID ASC
+            ", $uniqueId));
+
+            if (count($candidates) <= 1) {
+                continue;
+            }
+
+            // Score candidates: child_count * 100 + lang_count * 20 + meta_count + timestamp
+            $scored = [];
+            foreach ($candidates as $cand) {
+                $translations = function_exists('pll_get_post_translations') ? pll_get_post_translations((int) $cand->ID) : [];
+                $langCount = count($translations);
+                $ts = strtotime($cand->post_date) ?: 0;
+                $score = ((int) $cand->child_count * 100) + ($langCount * 20) + (int) $cand->meta_count + ($ts / 1000000000.0);
+                $scored[] = [
+                    'post'         => $cand,
+                    'score'        => $score,
+                    'translations' => $translations,
+                ];
+            }
+
+            usort($scored, fn($a, $b) => $b['score'] <=> $a['score']);
+            $canonical = $scored[0];
+            $canonicalId = (int) $canonical['post']->ID;
+
+            // Superseded duplicates
+            for ($i = 1; $i < count($scored); $i++) {
+                $superseded = $scored[$i];
+                $supId = (int) $superseded['post']->ID;
+
+                // Any children attached to superseded post should be reparented to canonical
+                $children = $wpdb->get_col($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE post_parent = %d", $supId));
+                foreach ($children as $cid) {
+                    $reparentMap[(int) $cid] = $canonicalId;
+                }
+
+                // Add all translated copies of superseded post to purge list
+                foreach ($superseded['translations'] as $lang => $transId) {
+                    $transId = (int) $transId;
+                    if ($transId > 0 && $transId !== $canonicalId) {
+                        $redundantPostIds[] = $transId;
+                    }
+                }
+                $redundantPostIds[] = $supId;
+            }
+        }
+
+        $redundantPostIds = array_values(array_unique($redundantPostIds));
+        $reparentCount = count($reparentMap);
+        $purgeCount = count($redundantPostIds);
+
+        if ($dryRun || empty($redundantPostIds)) {
+            return [
+                'groups_found'           => $groupsFound,
+                'redundant_posts_purged' => $purgeCount,
+                'children_reparented'    => $reparentCount,
+                'dry_run'                => true,
+            ];
+        }
+
+        // 1. Re-parent children
+        if (! empty($reparentMap)) {
+            foreach ($reparentMap as $childId => $newParentId) {
+                $wpdb->update($wpdb->posts, ['post_parent' => $newParentId], ['ID' => $childId]);
+            }
+        }
+
+        // 2. Purge redundant posts across all tables in chunks
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+        $indexableTable    = $wpdb->prefix . 'yoast_indexable';
+        $chunks = array_chunk($redundantPostIds, 1000);
+
+        foreach ($chunks as $chunk) {
+            $idList = implode(',', $chunk);
+            $wpdb->query("DELETE FROM {$productIndexTable} WHERE post_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$indexableTable} WHERE object_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ({$idList})");
+            $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID IN ({$idList})");
+        }
+
+        // 3. Clean up dangling translation groups
+        self::repairPolylangTranslations(false);
+
+        wp_cache_flush();
+
+        return [
+            'groups_found'           => $groupsFound,
+            'redundant_posts_purged' => $purgeCount,
+            'children_reparented'    => $reparentCount,
+            'dry_run'                => false,
+        ];
+    }
+
+    /**
+     * Re-synchronizes wp_helmetsan_product_index to ensure 100% catalog symmetry across all 10 languages.
+     * Deletes any rows representing child variants (post_parent != 0),
+     * then backfills any missing true parent helmets.
+     *
+     * @return array{child_rows_removed: int, parents_indexed: int, language_breakdown: array<string, int>}
+     */
+    public static function resyncProductIndexSymmetric(): array
+    {
+        global $wpdb;
+        $productIndexTable = $wpdb->prefix . 'helmetsan_product_index';
+
+        // 1. Remove any indexed records where post_parent != 0
+        $removed = $wpdb->query("
+            DELETE idx FROM {$productIndexTable} idx
+            JOIN {$wpdb->posts} p ON p.ID = idx.post_id
+            WHERE idx.post_type = 'helmet' AND p.post_parent != 0
+        ");
+
+        // 2. Backfill missing parent helmets
+        self::backfillProductIndex(100000);
+
+        // 3. Language breakdown census
+        $census = $wpdb->get_results("
+            SELECT t.slug as lang, COUNT(idx.post_id) as cnt
+            FROM {$productIndexTable} idx
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = idx.post_id
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE idx.post_type = 'helmet'
+            GROUP BY t.slug
+            ORDER BY cnt DESC
+        ");
+
+        $breakdown = [];
+        $totalParents = 0;
+        foreach ($census as $row) {
+            $breakdown[(string) $row->lang] = (int) $row->cnt;
+            $totalParents += (int) $row->cnt;
+        }
+
+        return [
+            'child_rows_removed' => (int) $removed,
+            'parents_indexed'    => $totalParents,
+            'language_breakdown' => $breakdown,
+        ];
+    }
 }

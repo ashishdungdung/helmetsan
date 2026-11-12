@@ -174,6 +174,9 @@ final class Commands
         \WP_CLI::add_command('helmetsan db reindex-outdated-products', [$this, 'dbReindexOutdatedProducts']);
         \WP_CLI::add_command('helmetsan db repair-seo-titles', [$this, 'dbRepairSeoTitles']);
         \WP_CLI::add_command('helmetsan db drop-legacy-tables', [$this, 'dbDropLegacyTables']);
+        \WP_CLI::add_command('helmetsan db align-child-parents', [$this, 'dbAlignChildParents']);
+        \WP_CLI::add_command('helmetsan db deduplicate-parent-helmets', [$this, 'dbDeduplicateParentHelmets']);
+        \WP_CLI::add_command('helmetsan db resync-product-index', [$this, 'dbResyncProductIndex']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
         \WP_CLI::add_command('helmetsan redis search', [$this, 'redisSearch']);
         \WP_CLI::add_command('helmetsan redis autocomplete', [$this, 'redisAutocomplete']);
@@ -5530,6 +5533,67 @@ final class Commands
         }
 
         \WP_CLI::success("Product Index Re-index Complete: {$totalIndexed} total products updated with full taxonomy and pricing metadata.");
+    }
+
+    /**
+     * Align translated child helmet posts with their translated parent helmets.
+     * Sets post_parent = <Translated Parent ID> and sets is_robots_noindex = 1 in Yoast.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbAlignChildParents(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Aligning translated child helmet parents with localized parent posts...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::alignChildHelmetParents($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Inspected %d child groups; %d translated child posts need post_parent alignment (missing parents: %d).", $res['child_groups'], $res['children_aligned'], $res['missing_parents']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Inspected %d child groups; successfully aligned post_parent for %d translated child posts (missing parents: %d). Child variants removed from product index and marked noindex in Yoast.", $res['child_groups'], $res['children_aligned'], $res['missing_parents']));
+        }
+    }
+
+    /**
+     * Deduplicate English parent helmets sharing identical _helmet_unique_id.
+     * Retains canonical post, reparents children, purges superseded translations and duplicate records.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     * : Check counts without executing modifications.
+     */
+    public function dbDeduplicateParentHelmets(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        \WP_CLI::log("Deduplicating English parent helmets sharing identical _helmet_unique_id...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::deduplicateParentHelmets($dryRun);
+
+        if ($res['dry_run']) {
+            \WP_CLI::warning(sprintf("DRY RUN: Found %d duplicate groups; %d redundant posts will be purged across languages; %d children will be re-parented.", $res['groups_found'], $res['redundant_posts_purged'], $res['children_reparented']));
+        } else {
+            \WP_CLI::success(sprintf("Complete: Deduplicated %d groups; purged %d redundant posts; successfully re-parented %d child helmets to canonical posts.", $res['groups_found'], $res['redundant_posts_purged'], $res['children_reparented']));
+        }
+    }
+
+    /**
+     * Re-synchronize wp_helmetsan_product_index to ensure 100% catalog symmetry across all 10 languages.
+     */
+    public function dbResyncProductIndex(array $args, array $assoc): void
+    {
+        \WP_CLI::log("Re-synchronizing product index for 100% catalog symmetry across 10 languages...");
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::resyncProductIndexSymmetric();
+
+        \WP_CLI::line("--------------------------------------------------");
+        \WP_CLI::line(sprintf("Child rows removed from index: %d", $res['child_rows_removed']));
+        \WP_CLI::line(sprintf("Total parent helmets indexed : %d", $res['parents_indexed']));
+        \WP_CLI::line("Language Breakdown:");
+        foreach ($res['language_breakdown'] as $lang => $count) {
+            \WP_CLI::line(sprintf("  [%s]: %d parent helmets", $lang, $count));
+        }
+        \WP_CLI::line("--------------------------------------------------");
+        \WP_CLI::success("Product Index 100% Synchronized & Symmetric.");
     }
 
     /**

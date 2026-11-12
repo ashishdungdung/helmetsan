@@ -33,6 +33,8 @@ final class AutoSeoObserver
         add_filter('wpseo_sitemap_exclude_post_type', [$this, 'excludeYoastSitemapPostType'], 10, 2);
         add_filter('wpseo_sitemap_exclude_taxonomy', [$this, 'excludeYoastSitemapTaxonomy'], 10, 2);
         add_filter('wpseo_sitemap_entry', [$this, 'excludeYoastSitemapEntries'], 10, 3);
+        add_filter('wpseo_posts_where', [$this, 'filterYoastPostsWhere'], 10, 2);
+        add_filter('wpseo_typecount_where', [$this, 'filterYoastPostsWhere'], 10, 2);
 
         // Canonical consolidation for child helmet variants -> parent model
         add_filter('wpseo_canonical', [$this, 'filterHelmetCanonicalUrl']);
@@ -207,6 +209,17 @@ final class AutoSeoObserver
         }
 
         return $url;
+    }
+
+    /**
+     * Ensure Yoast sitemaps only count and query parent helmets (post_parent = 0).
+     */
+    public function filterYoastPostsWhere(string $where, string $postType = ''): string
+    {
+        if ($postType === 'helmet' && ! str_contains($where, 'post_parent')) {
+            $where .= " AND post_parent = 0";
+        }
+        return $where;
     }
 
     /**
