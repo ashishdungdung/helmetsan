@@ -1551,4 +1551,405 @@ final class DatabaseOptimizer
             'language_breakdown' => $breakdown,
         ];
     }
+
+    /**
+     * Purges duplicate English brand groups (e.g. scorpion-exo alongside canonical scorpion)
+     * and permanently removes trashed brand posts + orphaned postmeta/indexables.
+     *
+     * @return array{duplicate_groups: int, posts_purged: int, trash_purged: int, rel_reassigned: int, dry_run: bool}
+     */
+    public static function purgeDuplicateBrandsAndTrash(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        $dups = $wpdb->get_results("
+            SELECT LOWER(p.post_title) AS norm_title, GROUP_CONCAT(p.ID ORDER BY p.ID ASC) AS ids
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE p.post_type = 'brand' AND p.post_status = 'publish' AND t.slug = 'en'
+            GROUP BY norm_title
+            HAVING COUNT(*) > 1
+        ");
+
+        $duplicateGroups = count($dups);
+        $idsToPurge = [];
+        $reassigned = 0;
+
+        foreach ($dups as $row) {
+            $idList = array_map('intval', explode(',', (string) $row->ids));
+            $bestId = $idList[0];
+            $bestCount = -1;
+            foreach ($idList as $bid) {
+                $cnt = (int) $wpdb->get_var($wpdb->prepare(
+                    "SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE meta_key = 'rel_brand' AND meta_value = %s",
+                    (string) $bid
+                ));
+                if ($cnt > $bestCount) {
+                    $bestCount = $cnt;
+                    $bestId = $bid;
+                }
+            }
+
+            foreach ($idList as $bid) {
+                if ($bid === $bestId) {
+                    continue;
+                }
+                if (! $dryRun) {
+                    $reassigned += (int) $wpdb->query($wpdb->prepare(
+                        "UPDATE {$wpdb->postmeta} SET meta_value = %s WHERE meta_key = 'rel_brand' AND meta_value = %s",
+                        (string) $bestId,
+                        (string) $bid
+                    ));
+                }
+                $translations = function_exists('pll_get_post_translations') ? (array) pll_get_post_translations($bid) : ['en' => $bid];
+                foreach ($translations as $tid) {
+                    $idsToPurge[] = (int) $tid;
+                }
+                $idsToPurge[] = $bid;
+            }
+        }
+
+        $trashedIds = array_map('intval', $wpdb->get_col(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'brand' AND post_status = 'trash'"
+        ));
+        $trashCount = count($trashedIds);
+        $idsToPurge = array_values(array_unique(array_merge($idsToPurge, $trashedIds)));
+
+        if (! $dryRun && ! empty($idsToPurge)) {
+            $yoastTable = $wpdb->prefix . 'yoast_indexable';
+            $hasYoast = (bool) $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $yoastTable));
+            foreach (array_chunk($idsToPurge, 200) as $chunk) {
+                $placeholders = implode(',', array_fill(0, count($chunk), '%d'));
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ($placeholders)", ...$chunk));
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ($placeholders)", ...$chunk));
+                if ($hasYoast) {
+                    $wpdb->query($wpdb->prepare("DELETE FROM `{$yoastTable}` WHERE object_type = 'post' AND object_id IN ($placeholders)", ...$chunk));
+                }
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->posts} WHERE ID IN ($placeholders)", ...$chunk));
+            }
+            self::repairPolylangTranslations();
+        }
+
+        return [
+            'duplicate_groups' => $duplicateGroups,
+            'posts_purged'     => count($idsToPurge) - $trashCount,
+            'trash_purged'     => $trashCount,
+            'rel_reassigned'   => $reassigned,
+            'dry_run'          => $dryRun,
+        ];
+    }
+
+    /**
+     * Aligns translated brand post slugs (e.g. shoei-2, shoei-3) to their canonical English brand slug (shoei),
+     * recording _wp_old_slug for automatic 301 redirects and updating Yoast indexables.
+     *
+     * @return array{inspected: int, aligned: int, dry_run: bool}
+     */
+    public static function alignTranslatedBrandSlugs(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        $enBrands = $wpdb->get_results("
+            SELECT p.ID, p.post_name
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE p.post_type = 'brand' AND p.post_status = 'publish' AND t.slug = 'en'
+        ");
+
+        $yoastTable = $wpdb->prefix . 'yoast_indexable';
+        $hasYoast = (bool) $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $yoastTable));
+
+        $inspected = 0;
+        $aligned = 0;
+
+        foreach ($enBrands as $en) {
+            $canonicalSlug = (string) $en->post_name;
+            $translations = function_exists('pll_get_post_translations') ? (array) pll_get_post_translations((int) $en->ID) : [];
+            foreach ($translations as $lang => $transId) {
+                $transId = (int) $transId;
+                if ($lang === 'en' || $transId <= 0 || $transId === (int) $en->ID) {
+                    continue;
+                }
+                $inspected++;
+                $currentSlug = (string) $wpdb->get_var($wpdb->prepare(
+                    "SELECT post_name FROM {$wpdb->posts} WHERE ID = %d AND post_status = 'publish'",
+                    $transId
+                ));
+                if ($currentSlug === '' || $currentSlug === $canonicalSlug) {
+                    continue;
+                }
+
+                $aligned++;
+                if ($dryRun) {
+                    continue;
+                }
+
+                add_post_meta($transId, '_wp_old_slug', $currentSlug);
+                $wpdb->update($wpdb->posts, ['post_name' => $canonicalSlug], ['ID' => $transId], ['%s'], ['%d']);
+                if ($hasYoast) {
+                    $newPermalink = get_permalink($transId);
+                    if (is_string($newPermalink) && $newPermalink !== '') {
+                        $wpdb->update($yoastTable, ['permalink' => $newPermalink], ['object_id' => $transId, 'object_type' => 'post'], ['%s'], ['%d', '%s']);
+                    }
+                }
+            }
+        }
+
+        return [
+            'inspected' => $inspected,
+            'aligned'   => $aligned,
+            'dry_run'   => $dryRun,
+        ];
+    }
+
+    /**
+     * Strips redundant numeric suffixes (-2, -3, -5) from canonical parent helmet slugs when the clean base slug is free,
+     * synchronizes all 10 language siblings identically, and inserts _wp_old_slug for automatic 301 redirects.
+     *
+     * @return array{candidates: int, normalized_groups: int, posts_updated: int, dry_run: bool}
+     */
+    public static function normalizeParentHelmetSlugs(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        $enParents = $wpdb->get_results("
+            SELECT p.ID, p.post_name
+            FROM {$wpdb->posts} p
+            JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+            JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+            JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+            WHERE p.post_type = 'helmet' AND p.post_parent = 0 AND p.post_status = 'publish' AND t.slug = 'en'
+        ");
+
+        $usedSlugs = [];
+        foreach ($enParents as $row) {
+            $usedSlugs[(string) $row->post_name] = (int) $row->ID;
+        }
+
+        $yoastTable = $wpdb->prefix . 'yoast_indexable';
+        $hasYoast = (bool) $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $yoastTable));
+
+        $candidates = 0;
+        $normalizedGroups = 0;
+        $postsUpdated = 0;
+
+        foreach ($enParents as $row) {
+            $oldSlug = (string) $row->post_name;
+            if (! preg_match('/^(.+)-\d+$/', $oldSlug, $m)) {
+                continue;
+            }
+            $candidates++;
+            $cleanSlug = $m[1];
+            if ($cleanSlug === '' || isset($usedSlugs[$cleanSlug])) {
+                continue;
+            }
+
+            // Reserve clean slug so subsequent -3/-4 won't collide
+            unset($usedSlugs[$oldSlug]);
+            $usedSlugs[$cleanSlug] = (int) $row->ID;
+            $normalizedGroups++;
+
+            $translations = function_exists('pll_get_post_translations')
+                ? (array) pll_get_post_translations((int) $row->ID)
+                : ['en' => (int) $row->ID];
+
+            foreach ($translations as $tid) {
+                $tid = (int) $tid;
+                if ($tid <= 0) {
+                    continue;
+                }
+                $postsUpdated++;
+                if ($dryRun) {
+                    continue;
+                }
+                $curr = (string) $wpdb->get_var($wpdb->prepare("SELECT post_name FROM {$wpdb->posts} WHERE ID = %d", $tid));
+                if ($curr !== '' && $curr !== $cleanSlug) {
+                    add_post_meta($tid, '_wp_old_slug', $curr);
+                    $wpdb->update($wpdb->posts, ['post_name' => $cleanSlug], ['ID' => $tid], ['%s'], ['%d']);
+                    if ($hasYoast) {
+                        $newPermalink = get_permalink($tid);
+                        if (is_string($newPermalink) && $newPermalink !== '') {
+                            $wpdb->update($yoastTable, ['permalink' => $newPermalink], ['object_id' => $tid, 'object_type' => 'post'], ['%s'], ['%d', '%s']);
+                        }
+                    }
+                }
+            }
+        }
+
+        return [
+            'candidates'        => $candidates,
+            'normalized_groups' => $normalizedGroups,
+            'posts_updated'     => $postsUpdated,
+            'dry_run'           => $dryRun,
+        ];
+    }
+
+    /**
+     * Sanitizes motorcycle catalog titles, Yoast SEO titles, motorcycle_make taxonomies,
+     * and deduplicates exact duplicate models caused by multi-brand batch scripts.
+     *
+     * @return array{titles_cleaned: int, makes_reassigned: int, duplicates_purged: int, dry_run: bool}
+     */
+    public static function sanitizeMotorcycleCatalog(bool $dryRun = false): array
+    {
+        global $wpdb;
+
+        $posts = $wpdb->get_results("
+            SELECT ID, post_title, post_name, post_date
+            FROM {$wpdb->posts}
+            WHERE post_type = 'motorcycle' AND post_status = 'publish'
+            ORDER BY ID ASC
+        ");
+
+        $brandPrefixMap = [
+            'husqvarna_' => 'Husqvarna',
+            'gasgas_'    => 'GasGas',
+            'ktm_'       => 'KTM',
+            'piaggio_'   => 'Piaggio',
+            'lambretta_' => 'Lambretta',
+            'vespa_'     => 'Vespa',
+            'peugeot_'   => 'Peugeot',
+            'sym_'       => 'SYM',
+            'kymco_'     => 'Kymco',
+            'cfmoto_'    => 'CFMOTO',
+            'benelli_'   => 'Benelli',
+            'aprilia_'   => 'Aprilia',
+            'moto_guzzi_' => 'Moto Guzzi',
+            'ather_'     => 'Ather Energy',
+            'bajaj_'     => 'Bajaj Auto',
+            'hero_'      => 'Hero MotoCorp',
+            'ola_'       => 'Ola Electric',
+            'tvs_'       => 'TVS Motor Company',
+            'ultraviolette_' => 'Ultraviolette Automotive',
+            'zero_'      => 'Zero Motorcycles',
+            'energica_'  => 'Energica',
+            'super_soco_' => 'Super Soco',
+            'river_'     => 'River EV',
+            'simple_'    => 'Simple Energy',
+            'bimota_'    => 'Bimota',
+            'brough_superior_' => 'Brough Superior',
+            'laverda_'   => 'Laverda',
+        ];
+
+        $titlesCleaned = 0;
+        $makesReassigned = 0;
+        $titleGroups = [];
+
+        foreach ($posts as $p) {
+            $id = (int) $p->ID;
+            $rawTitle = html_entity_decode((string) $p->post_title, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $slug = (string) $p->post_name;
+
+            $cleanTitle = (string) preg_replace(
+                '/^(?:&\s+(?:Husqvarna\s+GasGas\s+|Husqvarna\s+|Lambretta\s+Piaggio\s+Kymco\s+SYM\s+(?:Peugeot\s+|Vespa\s+|Lambretta\s+|SYM\s+|Kymco\s+)?|Lambretta\s+Piaggio\s+)?|Electric\s+Bikes\s+&\s+Scooters\s+|Electric\s+&\s+Maxi\s+Scooters\s+|Indian\s+Commuters\s+|Vintage\s+&\s+Exotics\s+|Benelli\s+&\s+CFMOTO\s+(?:&\s+KOVE\s+(?:Benelli\s+)?)?)/i',
+                '',
+                $rawTitle
+            );
+            $cleanTitle = trim((string) preg_replace('/\s+/', ' ', $cleanTitle));
+
+            $detectedMake = '';
+            // Detect most specific brand marker at the end of batch prefix in slug
+            $bestPos = -1;
+            foreach ($brandPrefixMap as $needle => $makeName) {
+                $pos = strrpos($slug, $needle);
+                if ($pos !== false && $pos > $bestPos) {
+                    $bestPos = $pos;
+                    $detectedMake = $makeName;
+                }
+            }
+
+            if ($detectedMake !== '') {
+                $shortMake = match ($detectedMake) {
+                    'Ather Energy' => 'Ather',
+                    'Bajaj Auto' => 'Bajaj',
+                    'Hero MotoCorp' => 'Hero',
+                    'Ola Electric' => 'Ola',
+                    'TVS Motor Company' => 'TVS',
+                    'Ultraviolette Automotive' => 'Ultraviolette',
+                    'Zero Motorcycles' => 'Zero',
+                    'River EV' => 'River',
+                    'Simple Energy' => 'Simple',
+                    default => $detectedMake,
+                };
+                if (! str_starts_with(strtolower($cleanTitle), strtolower($shortMake))) {
+                    $cleanTitle = $shortMake . ' ' . $cleanTitle;
+                }
+            }
+
+            if ($cleanTitle !== $rawTitle) {
+                $titlesCleaned++;
+                if (! $dryRun) {
+                    $wpdb->update($wpdb->posts, ['post_title' => $cleanTitle], ['ID' => $id], ['%s'], ['%d']);
+                    $yoastTitle = (string) get_post_meta($id, '_yoast_wpseo_title', true);
+                    if ($yoastTitle !== '') {
+                        update_post_meta($id, '_yoast_wpseo_title', $cleanTitle . ': Specs, Price & Recommended Helmets');
+                    }
+                }
+            }
+
+            if ($detectedMake !== '') {
+                $currentMake = (string) get_post_meta($id, 'motorcycle_make', true);
+                if ($currentMake !== $detectedMake && in_array($currentMake, ['KTM', 'Vespa', 'Global', 'Benelli', 'Aprilia', ''], true)) {
+                    $makesReassigned++;
+                    if (! $dryRun) {
+                        update_post_meta($id, 'motorcycle_make', $detectedMake);
+                        update_post_meta($id, 'brand', $detectedMake);
+                        wp_set_object_terms($id, [$detectedMake], 'motorcycle_make', false);
+                    }
+                }
+            }
+
+            $normKey = strtolower($cleanTitle);
+            $titleGroups[$normKey][] = [
+                'id'        => $id,
+                'slug'      => $slug,
+                'has_batch' => (bool) preg_match('/^(electric_bikes|electric_maxi|indian_commuters|vintage_exotics|ktm_husqvarna|vespa_lambretta|benelli_cfmoto)/', $slug),
+                'date'      => strtotime((string) $p->post_date) ?: 0,
+            ];
+        }
+
+        // Deduplicate exact normalized title groups
+        $dupsToPurge = [];
+        foreach ($titleGroups as $items) {
+            if (count($items) <= 1) {
+                continue;
+            }
+            usort($items, static function (array $a, array $b): int {
+                // Prefer non-batch clean slugs first, then newer date
+                if ($a['has_batch'] !== $b['has_batch']) {
+                    return $a['has_batch'] ? 1 : -1;
+                }
+                return $b['date'] <=> $a['date'];
+            });
+            array_shift($items);
+            foreach ($items as $loser) {
+                $dupsToPurge[] = (int) $loser['id'];
+            }
+        }
+
+        if (! $dryRun && ! empty($dupsToPurge)) {
+            $yoastTable = $wpdb->prefix . 'yoast_indexable';
+            $hasYoast = (bool) $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $yoastTable));
+            foreach (array_chunk($dupsToPurge, 200) as $chunk) {
+                $placeholders = implode(',', array_fill(0, count($chunk), '%d'));
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->postmeta} WHERE post_id IN ($placeholders)", ...$chunk));
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->term_relationships} WHERE object_id IN ($placeholders)", ...$chunk));
+                if ($hasYoast) {
+                    $wpdb->query($wpdb->prepare("DELETE FROM `{$yoastTable}` WHERE object_type = 'post' AND object_id IN ($placeholders)", ...$chunk));
+                }
+                $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->posts} WHERE ID IN ($placeholders)", ...$chunk));
+            }
+        }
+
+        return [
+            'titles_cleaned'    => $titlesCleaned,
+            'makes_reassigned'  => $makesReassigned,
+            'duplicates_purged' => count($dupsToPurge),
+            'dry_run'           => $dryRun,
+        ];
+    }
 }

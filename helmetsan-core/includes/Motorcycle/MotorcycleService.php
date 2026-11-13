@@ -119,6 +119,16 @@ final class MotorcycleService
             ? sanitize_text_field((string) $data['title'])
             : trim($make . ' ' . $model);
 
+        $title = (string) preg_replace(
+            '/^(?:&(?:amp;|#038;)?\s+(?:Husqvarna\s+GasGas\s+|Husqvarna\s+|Lambretta\s+Piaggio\s+Kymco\s+SYM\s+|Lambretta\s+Piaggio\s+)?|Electric\s+Bikes\s+&\s+Scooters\s+|Electric\s+&\s+Maxi\s+Scooters\s+|Indian\s+Commuters\s+|Vintage\s+&\s+Exotics\s+|Benelli\s+&\s+CFMOTO\s+(?:&\s+KOVE\s+(?:Benelli\s+)?)?)/i',
+            '',
+            $title
+        );
+        $title = trim($title);
+        if ($make !== '' && ! str_starts_with(strtolower($title), strtolower($make))) {
+            $title = trim($make . ' ' . $title);
+        }
+
         if ($title === '') {
             return ['ok' => false, 'message' => 'Motorcycle payload missing title or brand/model'];
         }

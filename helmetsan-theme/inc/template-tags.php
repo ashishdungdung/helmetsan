@@ -2034,12 +2034,28 @@ function helmetsan_normalize_country(string $raw): array
 
 /**
  * Clear mega menu HTML cache transients when menus or content are updated.
+ * Guarded against autosaves, revisions, CLI bulk ingestion, and Cloudflare purge storms.
  */
-function helmetsan_clear_mega_menu_cache(): void
+function helmetsan_clear_mega_menu_cache($postId = 0): void
 {
+    if (defined('WP_CLI') && WP_CLI) {
+        return;
+    }
+
+    if (is_numeric($postId) && (int) $postId > 0) {
+        $id = (int) $postId;
+        if (wp_is_post_autosave($id) || wp_is_post_revision($id) || get_post_status($id) !== 'publish') {
+            return;
+        }
+        $postType = get_post_type($id);
+        if (! in_array($postType, ['helmet', 'brand', 'accessory', 'motorcycle', 'page'], true)) {
+            return;
+        }
+    }
+
     $languages = function_exists('pll_languages_list') ? pll_languages_list() : ['en', 'de', 'zh', 'fr', 'es', 'it', 'pl', 'pt', 'nl', 'ja'];
     $types = ['helmet', 'brands', 'accessories', 'motorcycles'];
-    
+
     foreach ($types as $type) {
         foreach ($languages as $lang) {
             delete_transient('hs_mega_menu_' . $type . '_' . $lang);
@@ -2050,8 +2066,9 @@ function helmetsan_clear_mega_menu_cache(): void
         delete_transient('hs_homepage_counts_' . $lang);
     }
 
-    // Automatically purge Cloudflare Edge cache if configured
-    if (class_exists('Helmetsan\Core\Cloudflare\CloudflareCacheService')) {
+    // Debounce Cloudflare Edge full purge (at most once per 10 minutes) to prevent save_post storms
+    if (class_exists('Helmetsan\Core\Cloudflare\CloudflareCacheService') && ! get_transient('hs_cf_purge_cooldown')) {
+        set_transient('hs_cf_purge_cooldown', 1, 600);
         $cf = new \Helmetsan\Core\Cloudflare\CloudflareCacheService();
         $cf->purgeEverything();
     }

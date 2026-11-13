@@ -73,6 +73,19 @@ final class BrandService
                 $existingId = (int) $existing->ID;
             }
         }
+        if ($existingId <= 0) {
+            global $wpdb;
+            $existingId = (int) $wpdb->get_var($wpdb->prepare(
+                "SELECT p.ID FROM {$wpdb->posts} p
+                 LEFT JOIN {$wpdb->term_relationships} tr ON tr.object_id = p.ID
+                 LEFT JOIN {$wpdb->term_taxonomy} tt ON tt.term_taxonomy_id = tr.term_taxonomy_id AND tt.taxonomy = 'language'
+                 LEFT JOIN {$wpdb->terms} t ON t.term_id = tt.term_id
+                 WHERE p.post_type = 'brand' AND p.post_status != 'trash' AND LOWER(p.post_title) = LOWER(%s)
+                 AND (t.slug = 'en' OR t.slug IS NULL)
+                 ORDER BY p.ID ASC LIMIT 1",
+                $title
+            ));
+        }
 
         $hashPayload = wp_json_encode($data);
         $payloadHash = hash('sha256', is_string($hashPayload) ? $hashPayload : serialize($data));

@@ -177,6 +177,10 @@ final class Commands
         \WP_CLI::add_command('helmetsan db align-child-parents', [$this, 'dbAlignChildParents']);
         \WP_CLI::add_command('helmetsan db deduplicate-parent-helmets', [$this, 'dbDeduplicateParentHelmets']);
         \WP_CLI::add_command('helmetsan db resync-product-index', [$this, 'dbResyncProductIndex']);
+        \WP_CLI::add_command('helmetsan db purge-duplicate-brands', [$this, 'dbPurgeDuplicateBrands']);
+        \WP_CLI::add_command('helmetsan db align-brand-slugs', [$this, 'dbAlignBrandSlugs']);
+        \WP_CLI::add_command('helmetsan db normalize-helmet-slugs', [$this, 'dbNormalizeHelmetSlugs']);
+        \WP_CLI::add_command('helmetsan db sanitize-motorcycles', [$this, 'dbSanitizeMotorcycles']);
         \WP_CLI::add_command('helmetsan redis warm-index', [$this, 'redisWarmIndex']);
         \WP_CLI::add_command('helmetsan redis search', [$this, 'redisSearch']);
         \WP_CLI::add_command('helmetsan redis autocomplete', [$this, 'redisAutocomplete']);
@@ -5594,6 +5598,82 @@ final class Commands
         }
         \WP_CLI::line("--------------------------------------------------");
         \WP_CLI::success("Product Index 100% Synchronized & Symmetric.");
+    }
+
+    /**
+     * Purge ghost duplicate brand groups (e.g. scorpion-exo) and trashed brand posts.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     */
+    public function dbPurgeDuplicateBrands(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::purgeDuplicateBrandsAndTrash($dryRun);
+        \WP_CLI::success(sprintf(
+            '%sDuplicate brand groups: %d | Duplicate posts purged: %d | Trash purged: %d | Links reassigned: %d',
+            $dryRun ? '[DRY RUN] ' : '',
+            $res['duplicate_groups'],
+            $res['posts_purged'],
+            $res['trash_purged'],
+            $res['rel_reassigned']
+        ));
+    }
+
+    /**
+     * Align translated brand slugs to canonical English brand slugs.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     */
+    public function dbAlignBrandSlugs(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::alignTranslatedBrandSlugs($dryRun);
+        \WP_CLI::success(sprintf(
+            '%sInspected: %d | Aligned brand slugs: %d',
+            $dryRun ? '[DRY RUN] ' : '',
+            $res['inspected'],
+            $res['aligned']
+        ));
+    }
+
+    /**
+     * Normalize parent helmet slugs by stripping legacy numeric suffixes (-2, -3, -5) when free.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     */
+    public function dbNormalizeHelmetSlugs(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::normalizeParentHelmetSlugs($dryRun);
+        \WP_CLI::success(sprintf(
+            '%sCandidates: %d | Normalized groups: %d | Posts updated: %d',
+            $dryRun ? '[DRY RUN] ' : '',
+            $res['candidates'],
+            $res['normalized_groups'],
+            $res['posts_updated']
+        ));
+    }
+
+    /**
+     * Sanitize motorcycle titles, SEO titles, manufacturer taxonomies, and deduplicate duplicates.
+     *
+     * ## OPTIONS
+     * [--dry-run]
+     */
+    public function dbSanitizeMotorcycles(array $args, array $assoc): void
+    {
+        $dryRun = isset($assoc['dry-run']);
+        $res = \Helmetsan\Core\Repository\DatabaseOptimizer::sanitizeMotorcycleCatalog($dryRun);
+        \WP_CLI::success(sprintf(
+            '%sTitles cleaned: %d | Makes reassigned: %d | Duplicates purged: %d',
+            $dryRun ? '[DRY RUN] ' : '',
+            $res['titles_cleaned'],
+            $res['makes_reassigned'],
+            $res['duplicates_purged']
+        ));
     }
 
     /**

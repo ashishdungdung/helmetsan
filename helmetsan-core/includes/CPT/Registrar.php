@@ -44,8 +44,9 @@ final class Registrar
                 'slug'         => 'brands',
                 'icon'         => 'dashicons-tag',
                 'menu_pos'     => 6,
-                'supports'     => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields'],
+                'supports'     => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes'],
                 'has_archive'  => true,
+                'hierarchical' => true,
             ],
             'safety_standard' => [
                 'label'        => 'Safety Standards',
@@ -156,6 +157,7 @@ final class Registrar
                 'show_in_admin_bar'   => true,
                 'supports'            => $config['supports'],
                 'has_archive'         => $config['has_archive'],
+                'hierarchical'        => ! empty($config['hierarchical']),
                 'rewrite'             => ['slug' => $config['slug'], 'with_front' => false],
                 'menu_position'       => $config['menu_pos'],
                 'menu_icon'           => $config['icon'],
